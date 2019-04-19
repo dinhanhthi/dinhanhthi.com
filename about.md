@@ -14,7 +14,7 @@ After my Ph.D., I am currently learning by myself **Data Science**. I use this w
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3), [reading](https://www.goodreads.com/user/show/19630622-thi-dinh) and cooking.
 
-{% include heading-title.html title="Data Science" icon="fas fa-database" cclass="mt-5" more="my notes" href="https://mynote.dinhanhthi.com/categories#data" %}
+{% include heading-title.html title="Data Science" icon="fas fa-database" cclass="mt-5" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/dataScienceLearning){:target="_blank"}).
 
@@ -24,12 +24,12 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 - I'm reading the book "[**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"}" written by Trevor Hastie *et al.*
 - I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning) {:target="_blank"} taught by Andrew Ng.
 
-{% include heading-title.html title="Web Development" icon="fas fa-globe-asia" cclass="mt-5" more="my notes" href="https://mynote.dinhanhthi.com/categories#web" %}
+{% include heading-title.html title="Web Development" icon="fas fa-globe-asia" cclass="mt-5" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
 
 I've totally learned by myself, created website Math2IT and designed some websites.
 
 - **2018 - today** &mdash; Following [Web Development path](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
-- **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp)**** which is a beautiful Wordpress theme.
+- **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp) which is a beautiful Wordpress theme.
 - **2013 - 2014** &mdash; I created [Math2IT](https://math2it.com){:target="_blank"} under Blogger platform and was building up my knowledge about web development.
 - **2012** &mdash; Self-studying about Web-development (HTML, CSS, DOM, JS, PHP & MySQL, HTTP Live Streaming)
 - **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).

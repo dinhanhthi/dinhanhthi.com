@@ -1,12 +1,15 @@
 .me-social{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
   padding: 0 1rem;
   @media (min-width: 576px) and (max-width: 767px){
     grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
   }
   @media (max-width: 575px){
     grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr;
     padding: 0;
   }
   .item{
