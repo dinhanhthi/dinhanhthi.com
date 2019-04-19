@@ -8,7 +8,7 @@ color: "#e97c8e"
 permalink: /about
 ---
 
-I'm Anh-**Thi** Dinh, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about **applied maths**, **computer science** and **software tools** which are helpful to human life. I have a *Ph.D. degree in Applied Mathematics* at [University Paris 13](https://www.math.univ-paris13.fr){:target="_blank"}, France.
+I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [University Paris 13](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
 After my Ph.D., I am currently learning by myself **Data Science**. I use this website and [this one](https://mynote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 

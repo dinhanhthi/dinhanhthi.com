@@ -7,7 +7,6 @@ css:
   - "/css/lightbox.min.css"
 js:
   - "/js/lightbox-plus-jquery.min.js"
-  - "/js/contact-form.js"
 ---
 
 {% include header.html type="index" %}
@@ -17,7 +16,8 @@ js:
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-9">
-        {% include heading-title.html title="Find me on" icon="fas fa-globe-asia" more="my CV" target="true" insite="{{site.data.me.cv}}" cclass="mycv" %}
+        {% assign mycv = site.data.me.cv %}
+        {% include heading-title.html title="Find me on" icon="fas fa-globe-asia" more="my CV" target="true" insite=mycv cclass="mycv" %}
       </div>
     </div>
   </div>

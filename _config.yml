@@ -24,11 +24,6 @@ permalink: /:title
 # Facebook App ID
 # fb_app_id: ""
 
-algolia:
-  application_id: 526RP3R0SW
-  index_name: jekyll_thi # whatever
-  search_only_api_key: c4495d7b1e9dc470308a212f0fe779b7
-
 sass:
   style: compact
 

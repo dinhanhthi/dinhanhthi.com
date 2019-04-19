@@ -3,12 +3,6 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    algolia_html_extractor (2.6.1)
-      json (~> 2.0)
-      nokogiri (~> 1.8.2)
-    algoliasearch (1.26.0)
-      httpclient (~> 2.8, >= 2.8.3)
-      json (>= 1.5.1)
     colorator (1.1.0)
     concurrent-ruby (1.0.5)
     em-websocket (0.5.1)
@@ -18,10 +12,8 @@ GEM
     eventmachine (1.2.7-x64-mingw32)
     ffi (1.9.25)
     ffi (1.9.25-x64-mingw32)
-    filesize (0.2.0)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
-    httpclient (2.8.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jekyll (3.7.3)
@@ -37,15 +29,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-algolia (1.4.11)
-      algolia_html_extractor (~> 2.6)
-      algoliasearch (~> 1.25)
-      filesize (~> 0.1)
-      jekyll (~> 3.0)
-      json (~> 2.0)
-      nokogiri (~> 1.6)
-      progressbar (~> 1.9)
-      verbal_expressions (~> 0.1.5)
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
@@ -54,7 +37,6 @@ GEM
       jekyll (~> 3.3)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
-    json (2.2.0)
     kramdown (1.17.0)
     liquid (4.0.0)
     listen (3.1.5)
@@ -62,14 +44,8 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
-    mini_portile2 (2.3.0)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.5-x64-mingw32)
-      mini_portile2 (~> 2.3.0)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
-    progressbar (1.10.0)
     public_suffix (3.0.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
@@ -87,7 +63,6 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.5)
       tzinfo (>= 1.0.0)
-    verbal_expressions (0.1.5)
     wdm (0.1.1)
 
 PLATFORMS
@@ -96,7 +71,6 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 3.7.3)
-  jekyll-algolia
   jekyll-feed (~> 0.6)
   jekyll-sitemap
   tzinfo-data
