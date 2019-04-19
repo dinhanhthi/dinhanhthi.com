@@ -4,6 +4,7 @@ title: "Fundamental about Machine Learning & Data Science"
 subtitle: Basic understanding about ML & DS
 description: "What if you're asked about ML and you have to describe it for an amateur/a professional person?"
 tags: [machine learning]
+category: machine-learning
 comment: 1
 date: 2019-04-19
 ---
@@ -14,7 +15,7 @@ This is **the first post in the series** of posts I wrote about what I’ve lear
 I typically focus on simple and more understandable answers. These posts aren’t the official and complete articles for such practical knowledge. You have to search and establish yourself the precise definitions and effective techniques outside these posts. If **you see I’m wrong somewhere**, please **let me know** at the comment section, thanks.
 
 {:.question}
-## What's ML?
+## What's Machine Learning?
 
 > A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E. -- [Tom Mitchell](http://www.cs.cmu.edu/~tom/){:target="_blank"}.
 
