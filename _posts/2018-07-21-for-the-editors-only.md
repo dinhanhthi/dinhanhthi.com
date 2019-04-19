@@ -68,7 +68,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - If you wanna add tag `{{"{% this "}}%}`, use alert`{% raw %}{{"{% this "}}%}{% endraw %}`.
 - If you like this `{{"{{ this "}}}}`, use `{% raw %}{{"{{ this "}}}}{% endraw %}`.
 - **The rule**: use `{% raw %}{{"{% endraw %}` before the key-word and end with `{% raw %}"}}{% endraw %}` before the end of key-word.
-- **An easier way**: use `{{ "{% raw " }}%}` and `{{ "{% endraw " }}%}` around the key-word. These two commands are also used for a block of codes, 
+- **An easier way**: use `{{ "{% raw " }}%}` and `{{ "{% endraw " }}%}` around the key-word. These two commands are also used for a block of codes,
 
 	~~~
 ~~~ {{ "{% raw " }}%}{% raw %}{% for %}
@@ -89,22 +89,22 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 	~~~
 
 - Warning bootstrap : [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}.
-	- Success box (green): 
-	
+	- Success box (green):
+
 		~~~ html
 	  <div class="alert alert-success" role="alert" markdown="1">
 	  Content
 	  </div>
 		~~~
-		
+
 	- Warning (yellow)
-	
+
 		~~~ html
 	  <div class="alert alert-warning" role="alert" markdown="1">
 	  Content
 	  </div>
 		~~~
-		
+
 	- Danger (red)
 		~~~ html
 	  <div class="alert alert-danger" role="alert" markdown="1">
@@ -174,13 +174,13 @@ Content of step 2.
 
 - Marked texts: `<mark>texts</mark>`
 - Keyboard: `<kbd>B</kbd>`
-- More link: 
+- More link:
 	~~~html{% raw %}
 {% include more.html content="[text](link)" %}
 	{% endraw %}~~~
 - Subject: `<sbj>Texts</sbj>`
 - Hide/show description for links
-	
+
 	~~~html{% raw %}
 [**Title**](link){:target="_blank"} other texts. [*(my comments)*](#des-1){:data-toggle="collapse" .my-des}
 	<des id="des-1" class="collapse multi-collapse">descriptions</des>
@@ -189,7 +189,7 @@ Content of step 2.
 ## Math expressions
 
 - Inline math, use `$math-expression$`
-- Block of math, use `$$math block$$` or 
+- Block of math, use `$$math block$$` or
 
 	~~~ latex
   $$

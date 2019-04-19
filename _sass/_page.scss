@@ -1,12 +1,12 @@
 .page-content{
-  h2 {
+  h2{
     font-weight: 700;
     color: #3e3e3e;
     font-size: 1.45rem;
     margin-bottom: 3px;
     padding-bottom: 5px;
     border-bottom: 1px solid #ddd;
-    margin: 2rem 0 1rem 0;
+    margin: 2.5rem 0 1rem 0;
     &:before{
       content: "# ";
       color: #6293ca;
@@ -34,5 +34,5 @@
 }
 
 .disqus-comments{
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
