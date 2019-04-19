@@ -8,6 +8,8 @@ tags: [machine learning]
 
 This is **the first post in the series** of posts I wrote about what I’ve learned in Machine Learning and Data Science on the online courses. I write these posts by supposing that there are some interviewers asking me some technical questions in these fields. I also write the answers in the context where someone doesn’t know anything about ML or Data ask about these fields.
 
+{:.alert.alert-info}
+
 {:.question}
 ## What's ML in a short sentence?
 
