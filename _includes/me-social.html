@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-8">
+      <div class="me-social">
+        {% for item in site.data.social %}
+          <div class="item">
+            <div class="so-img">
+              <img style="opacity: {{item.opacity}};" src="{{ site.baseurl }}/img/social/{{ item.icon }}" />
+            </div>
+            <div class="so-name">
+              <a title="{{item.title}}" href="{{ item.url }}" target="_blank">
+                {{ item.name }}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

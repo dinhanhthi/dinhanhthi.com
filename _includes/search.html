@@ -1,0 +1,13 @@
+{% if site.lang.current == "en" %}
+    {% assign placeholder = site.data.lang['search'].placeholder.en %}
+{% else %}
+    {% assign placeholder = site.data.lang['search'].placeholder.vn %}
+{% endif %}
+<div class="search-div">
+    <form action="{{ site.baseurl }}/search" method="get">
+        <input class="search-input" type="search" name="q" {% if include.add_id %}id="search-input"{% endif %} placeholder="{{placeholder}}" autofocus>
+        <button class="search-submit" type="submit">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </form>
+</div>

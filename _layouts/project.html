@@ -1,0 +1,39 @@
+---
+layout: page
+more-css:
+  - "/css/project.css"
+---
+
+{% assign cpage = page.current_page %}
+{% for photo in site.data.project %}
+  {% assign nbphotos = forloop.length %}
+  {% break %}
+{% endfor %}
+{% assign off_set = cpage | minus: 1 %}
+{% assign off_set = off_set | times: 12 %}
+{% assign nbphotos = nbphotos | times: 1.0 %}
+{% assign total_page = nbphotos | divided_by: 12 %}
+{% assign total_page =  total_page | ceil %}
+
+<section class="alt-color section">
+  <div class="container">
+    {% if total_page > 1 %}
+      <div class="mb-4">
+        {% include pagination.html type="project" %}
+      </div>
+    {% endif %}
+    <div class="row justify-content-center">
+      {% assign element-source = site.data.project %}
+      {% if cpage == 1 %}
+        {% include post-layout.html type="project" source=element-source offset=0 img-src="/img/project" limit=12 %}
+      {% else %}
+        {% include post-layout.html type="project" source=element-source offset=off_set img-src="/img/project" limit=12 %}
+      {% endif %}
+    </div>
+    {% if total_page > 1 %}
+      <div class="my-4">
+        {% include pagination.html type="project" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

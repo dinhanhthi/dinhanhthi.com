@@ -1,0 +1,44 @@
+.tpagination {
+  text-align: center;
+  padding: 20px 0;
+  .page-element{
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #444;
+    border: 1.4px solid #aaa;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2.5;
+    text-decoration: none;
+    border-radius: 50%;
+    margin: 4px;
+    transition: all 0.2s linear;
+    &.disable:hover{
+      background: transparent;
+      border-color: #bbb;
+      color: #444;
+    }
+    &.arrw{
+      font-size: 2rem;
+      line-height: 1.4;
+      background: #6fb5cc;
+      color: #fff;
+      border-color: transparent;
+    }
+  }
+  .disable{
+    cursor: default;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .page-element:hover, .active{
+    color: #fff;
+    background-color: #3498db;
+    border-color: #3498db;
+  }
+  .active {
+    pointer-events: none;
+  }
+}

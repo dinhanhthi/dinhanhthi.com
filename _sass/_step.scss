@@ -1,0 +1,40 @@
+.thi-step{
+  counter-reset: thi-step;
+  margin: 2rem 0;
+  &:first-child{
+    margin-top: 1rem;
+  }
+  .step{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem 0;
+    .step-number{
+      width: 2rem;
+      &:before{
+        counter-increment: thi-step;
+        content: counter(thi-step);
+        color: #999;
+        font-weight: 500;
+        font-size: 1.7rem;
+      }
+    }
+
+    .step-content{
+      width: calc(100% - 2rem);
+      border-left: 3px solid #009688;
+      padding: 1rem;
+      p:last-of-type{
+        margin-bottom: 0;
+      }
+      .highlighter-rouge{
+        &+p{
+          margin-top: 1.5rem;
+        }
+      }
+      &+ul, &+ol{
+        margin-top: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.highlighter-rouge{
+  margin: 1rem 0;
+}
+
+.highlight pre{
+  padding: 1rem;
+  tab-size: 4;
+}
+.highlight{
+  border-radius: 5px;
+}
+p>code,li>code{
+  background: #ececec;
+  border-radius: 4px;
+  padding: 3px 4px;
+}
+
+code{
+  color: #067b26;
+}
+
+h2>code, h3>code{
+  background: #ececec;
+  border-radius: 4px;
+  padding: 5px 5px 2px 5px;
+}
+

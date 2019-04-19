@@ -1,0 +1,54 @@
+- name: Github
+  icon: github-bw.png
+  # icon: github.svg
+  url: https://github.com/dinhanhthi
+  opacity: 0.65
+  title: Where I store what I've done and learned so far.
+- name: LinkedIn
+  icon: linkedin-bw.png
+  # icon: linkedin.svg
+  url: https://www.linkedin.com/in/dinhanhthi/
+  opacity: 0.65
+  title: My showcases for careers.
+- name: HackerRank
+  icon: hackerrank-bw.svg
+  # icon: hackerrank.png
+  url: https://www.hackerrank.com/dinhanhthi
+  opacity: 0.65
+  title: Where I practice to code and solve challenges.
+- name: DataQuest
+  icon: dataquest-bw.png
+  # icon: dataquest.png
+  url: https://www.dataquest.io/profile/dinhanhthimail
+  opacity: 1
+  title: The place I've learned to be a Data Scientist and Engineer.
+- name: DataCamp
+  icon: datacamp-bw.svg
+  # icon: datacamp.svg
+  url: https://www.datacamp.com/profile/dinhanhthi
+  opacity: 1
+  title: Where I've learned Python & Data Science
+- name: Duolingo
+  icon: duolingo.png
+  url: https://www.duolingo.com/mr.Thi
+  opacity: 1
+  title: Where I've learned French.
+- name: StackEx
+  icon: stackexchange.png
+  url: https://stackexchange.com/users/1344291/anh-thi-dinh?tab=accounts
+  opacity: 0.65
+  title: Where I asks and answer to learn something new.
+- name: Goodreads
+  icon: goodreads.svg
+  url: https://www.goodreads.com/user/show/19630622-thi-dinh
+  opacity: 0.8
+  title: Where I give my thought about the books I've read.
+- name: Coursera
+  icon: coursera.png
+  url: https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556
+  title: Where I've learned Machine Learning and Data Science.
+- name: Codecademy
+  icon: codecademy.svg
+  url: https://www.codecademy.com/dinhanhthi
+  opacity: 0.65
+  title: Where I've learned Python, Data Science and Web development.

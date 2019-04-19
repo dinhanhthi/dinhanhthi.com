@@ -1,0 +1,77 @@
+// index
+.bg-header{
+  background: linear-gradient(to bottom right,#111217,#484d60);
+  color: #eee;
+  padding: 2rem 0;
+  position: relative;
+  overflow-x: hidden;
+  h1{
+    font-family: 'Lobster', cursive;
+  }
+}
+
+.idx-header{
+  .img-avatar{
+    max-width: 150px;
+    margin: 0 auto;
+    img{
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+    @media (max-width: 450px){
+      max-width: 150px;
+    }
+  }
+  .idx-abt{
+    @media screen and (max-width: 768px){
+      margin-top: 2rem;
+    }
+    h1{
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+      @media (max-width: 450px){
+        font-size: 3rem;
+      }
+    }
+    a{
+      color: #ffeead;
+      font-size: 1.2rem;
+      &:hover{
+        text-decoration: none;
+        color: #fbe17d;
+      }
+      @media screen and (max-width: 400px){
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+
+// page
+.page-header{
+  .icon{
+    font-size: 2.5rem;
+  }
+  h1{
+    font-size: 2.5rem;
+    @media screen and (max-width: 420px){
+      font-size: 2.2rem;
+    }
+  }
+  h3{
+    font-size: 1.2rem;
+    @media screen and (max-width: 420px){
+      font-size: 1.1rem;
+    }
+  }
+  .date{
+    font-size: 0.95rem;
+    color: #ccc;
+     @media screen and (max-width: 420px){
+      font-size: 0.95rem;
+    }
+  }
+}

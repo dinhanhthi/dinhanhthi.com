@@ -1,0 +1,41 @@
+---
+layout: base
+more-css:
+  - "/css/tag-page.css"
+---
+
+{% include header.html type="page" %}
+
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 tag-nav">
+        <div class="text">
+          Choose the tag you wanna see its posts
+        </div>
+        {% assign tag_src = '/tags/' | append: page.nav %}
+        {% include tag-list.html src=tag_src %}
+      </div>
+      {% for tag in site.tags %}
+        {% for tagData in site.data.tag[page.nav] %}
+          {% if tag[0] == tagData %}
+            <div id="{{tag[0] | slugify}}" class="col-12 col-md-8 tag-sec">
+              <h3><i class="fa fa-tag"></i> {{ tag[0] }}</h3>
+              <ul class="post-list">
+                {% for post in tag[1] %}
+                  <li>
+                    <a href="{{site.baseurl}}{{post.url}}">
+                      {{post.title}}
+                      <small>{{post.date | date_to_string}}</small>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        {% endfor %}
+	    {% endfor %}
+    </div>
+  </div>
+</section>

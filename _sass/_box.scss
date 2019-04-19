@@ -1,0 +1,95 @@
+// terminal window
+.terminal{
+  font-family: monospace;
+  font-size: 1.1rem;
+  position: relative;
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,.16);
+  border-radius: 5px;
+  padding-top: 45px;
+  margin: 2rem 0;
+	overflow: auto;
+  &:before{
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    border-radius: 5px 5px 0 0;
+    top: 0;
+    left: 0;
+    height: 25px;
+    background: #555;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    padding: 15px 0;
+    text-indent: 4px;
+    letter-spacing: -3px;
+  }
+}
+li{
+  .terminal{
+      margin: 1rem 0;
+      &+ p{
+          margin-bottom: 1rem;
+      }
+  }
+}
+
+
+// alert
+.alert{
+  margin: 1rem 0;
+  b, strong{
+    color: inherit!important;
+  }
+  p:last-of-type{
+    .MathJax_Preview, .MathJax_Display{
+      margin-bottom: 0;
+    }
+    margin-bottom: 0;
+  }
+}
+
+
+.def-box{
+	margin: 20px 0;
+  overflow: hidden;
+  .box-title{
+    background-color: #2874cf;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px 5px 0 0;
+    b, strong{
+        color: #fff;
+    }
+    p{
+        margin: 0;
+    }
+  }
+  .box-content{
+      border: 1px #ddd solid;
+      padding: 15px 15px 0 15px;
+  }
+}
+
+// p mark
+.p-mark{
+  border: 1.5px solid #67a8d4;
+  padding: 1rem;
+  margin: 1.5rem auto;
+  width: fit-content;
+  @media only screen and (max-width: 600px){
+    width: 100%;
+    overflow: auto;
+  }
+  .MathJax_Display, .MathJax_Preview{
+    margin: 0!important;
+  }
+  p:last-of-type{
+    .MathJax_Preview, .MathJax_Display{
+      margin-bottom: 0;
+    }
+    margin-bottom: 0;
+  }
+}

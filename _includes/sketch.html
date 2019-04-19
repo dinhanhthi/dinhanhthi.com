@@ -1,0 +1,10 @@
+
+{% for photo in site.data.sketch offset:include.offset limit:include.limit %}
+  <div class="col-md-3 col-sm-4 col-xs-6 gal-item">
+    <div class="box">
+      <a href="{{ site.baseurl }}/img/sketch/{{ photo.url }}.jpg" data-lightbox="gallery-set" data-title="{{ photo.des }}">
+        <img src="{{ site.baseurl }}/img/sketch/{{ photo.url }}_thumbnail.jpg" class="img-fluid" alt="{{ photo.des }}">
+      </a>
+    </div>
+  </div>
+{% endfor %}

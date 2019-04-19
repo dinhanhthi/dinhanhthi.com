@@ -1,0 +1,37 @@
+{% if layout.base-ext-js %}
+  {% for js in layout.base-ext-js %}
+    {% include ext-js.html js=js %}
+  {% endfor %}
+{% endif %}
+
+{% if layout.more-ext-js %}
+  {% for js in layout.more-ext-js %}
+    {% include ext-js.html js=js %}
+  {% endfor %}
+{% endif %}
+
+{% if page.ext-js %}
+  {% for js in page.ext-js %}
+    {% include ext-js.html js=js %}
+  {% endfor %}
+{% endif %}
+
+{% if page.js %}
+  {% for js in page.js %}
+	<script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+  {% endfor %}
+{% endif %}
+
+{% if layout.base-js %}
+  {% for js in layout.base-js %}
+	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+  {% endfor %}
+{% endif %}
+
+{% if layout.more-js %}
+  {% for js in layout.more-js %}
+	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+  {% endfor %}
+{% endif %}
+
+{% include google_analytics.html %}

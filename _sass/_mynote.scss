@@ -1,0 +1,44 @@
+.mynote{
+  .description{
+    font-size: 1.3rem;
+    text-align: center;
+    span{
+      font-weight: 600;
+      color: #ec5d76;
+    }
+    .more{
+      font-size: 0.95rem;
+      color: #666;
+      padding: 0 1rem;
+    }
+    @media (max-width: 767px){
+      font-size: 1.5rem;
+      .more{
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .showcase{
+    padding: 1rem;
+    img{
+      width: 100%;
+      box-shadow: 0 0 6px 4px #e3e3e3;
+      border-radius: 10px;
+      transition: transform .2s;
+    }
+    @media (max-width: 767px){
+      padding: 2rem 0 1rem 0;
+    }
+  }
+  &:hover{
+    img{
+      transform: scale(1.1);
+    }
+    span{
+      color: #c432d3;
+    }
+    .more{
+    color: #333;
+    }
+  }
+}

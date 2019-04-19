@@ -1,0 +1,18 @@
+.footer{
+  background: linear-gradient(to bottom right,#111217,#484d60);
+  color: #fff;
+  margin-top: 3rem;
+  .footer-info{
+    color: #a1a7b9;
+    font-size: 1.05rem;
+    a{
+      color: #a1a7b9;
+      &:hover{
+        color: #fff;
+      }
+    }
+    .donate{
+      color: #5eeda3;
+    }
+  }
+}

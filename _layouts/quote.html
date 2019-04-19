@@ -1,0 +1,59 @@
+---
+layout: page
+more-css:
+  - "/css/quote.css"
+---
+
+{% assign cpage = page.current_page %}
+{% for quote in site.data.quote %}
+  {% assign nbquotes = forloop.length %}
+  {% break %}
+{% endfor %}
+{% assign off_set = cpage | minus: 1 %}
+{% assign off_set = off_set | times: 12 %}
+{% assign nbquotes = nbquotes | times: 1.0 %}
+{% assign total_page = nbquotes | divided_by: 12 %}
+{% assign total_page =  total_page | ceil %}
+
+<section class="section pb-0">
+  <div class="container">
+    {% if total_page > 1 %}
+      <div>
+        {% include pagination.html type="quote" %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% for quote in site.data.quote offset:off_set limit:12 %}
+  <section class="section alt-quote">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-8 col-12">
+          <p class="quote-content">
+            {{ quote.quote }}
+          </p>
+          <p class="quote-author mb-1">
+            {% if quote.profile %}
+              <a target="_blank" href="{{ quote.profile }}">
+                &#x2015; {{ quote.author }} &#x2015;
+              </a>
+            {% else %}
+              &#x2015; {{ quote.author }} &#x2015;
+            {% endif %}
+          </p> 
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+<section class="section">
+  <div class="container">
+    {% if total_page > 1 %}
+      <div class="my-2">
+        {% include pagination.html type="quote" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

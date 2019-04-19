@@ -1,0 +1,19 @@
+.books{
+  margin-top: 0.25rem;
+  padding-left: 20px;
+  .item{
+    margin-bottom: 0.5rem;
+    .title a{
+      font-weight: 600;
+    }
+    .author{
+      color: #444;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .intro{
+      font-size: 1rem;
+      color: #666;
+    }
+  }
+}

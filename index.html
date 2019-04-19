@@ -1,0 +1,178 @@
+---
+layout: base
+title: Anh-Thi Dinh
+subtitle: I failed my way to success
+nav: home
+css:
+  - "/css/lightbox.min.css"
+js:
+  - "/js/lightbox-plus-jquery.min.js"
+  - "/js/contact-form.js"
+---
+
+{% include header.html type="index" %}
+
+<!-- Social -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Find me on" icon="fas fa-globe-asia" more="my CV" target="true" insite="{{site.data.me.cv}}" cclass="mycv" %}
+      </div>
+    </div>
+  </div>
+  {% include me-social.html %}
+</section>
+
+<!-- Projects -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Recent projects" insite="/project" icon="fas fa-code-branch" %}
+      </div>
+      <div class="col-lg-10 col-xl-8">
+        <div class="project">
+          {% for item in site.data.project limit: 5 %}
+            <div class="item">
+              <h3>{{item.title}}</h3>
+              <p>{{item.description}}</p>
+              <div class="button">
+                {% if item.url %}
+                  <a class="btn btn-success" target="_blank" href="{{item.url}}">url</a>
+                {% endif %}
+                {% if item.source %}
+                  <a class="btn btn-info" target="_blank" href="{{item.source}}">source</a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reading -->
+<section id="reading" class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Recent read books" insite="/reading" icon="fas fa-book-reader" %}
+      </div>
+      <div class="col-lg-10 col-xl-8">
+        <ul class="books">
+          {% for item in site.data.book limit: 5 %}
+            <li class="item">
+              {% if item.reading %}
+                <span class="badge-green">I'm reading</span>
+              {% endif %}
+              <span class="title">
+                {% if item.goodreads %}
+                  <a href="{{item.goodreads}}">{{item.title}}</a>
+                {% else %}
+                  {{item.title}}
+                {% endif %}
+              </span>
+              <span class="author"> &mdash; {{item.author}}.</span>
+              {% if item.intro %}
+                <span class="intro">{{item.intro}}</span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Recent posts" insite="/blog" icon="fab fa-leanpub" %}
+      </div>
+      <div class="col-lg-10 col-xl-8">
+        <ul class="books">
+          {% for item in site.posts limit: 5 %}
+            <li class="item">
+              <span class="title">
+                <a href="{{item.url}}">{{item.title}}</a>
+              </span>
+              <span class="author"> &mdash; {{ item.date | date_to_string }}.</span>
+              <span class="intro">{{item.description}}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notes -->
+<section id="mynote" class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Notes" icon="fas fa-edit" %}
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center mynote">
+      <div class="col-12 col-md-4 col-xl-3">
+        <div class="description">
+          <a href="https://mynote.dinhanhthi.com">
+            <span>mynote</span>.dinhanhthi.com
+          </a>
+          <div class="more">
+            I write this NoteTheme theme for noting all of what I have studied.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+       <div class="showcase">
+        <img alt="My notes" src="/img/mynote.png" />
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Drawing -->
+<section id="drawing" class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Recent sketches" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" icon="fas fa-drafting-compass" %}
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      {% for item in site.data.drawing limit:4 %}
+        <div class="col-md-3 col-sm-4 col-xs-6 gal-item">
+          <div class="box">
+            <a href="{{site.url}}{{site.baseurl}}/img/sketch/{{item.photo}}" data-lightbox="gallery-set" data-title="{{ item.des }}">
+              <img src="{{site.url}}{{site.baseurl}}/img/sketch/{{item.thumbnail}}" class="img-fluid" alt="{{ item.photo }}">
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Contact" icon="fas fa-at" %}
+      </div>
+      <div class="col-lg-10 col-xl-8">
+        <ul class="contact">
+          <li>Call for a coffee talk in <b>Paris, France</b>.</li>
+          <li>In any case, I'm always available to discuss at <a href="mailto:dinhanhthi@gmail.com?subject=Contact from Thi's site"><b>dinhanhthi@gmail.com</b></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

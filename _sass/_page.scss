@@ -1,0 +1,38 @@
+.page-content{
+  h2 {
+    font-weight: 700;
+    color: #3e3e3e;
+    font-size: 1.45rem;
+    margin-bottom: 3px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    margin: 2rem 0 1rem 0;
+    &:before{
+      content: "# ";
+      color: #6293ca;
+    }
+  }
+  h3{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    &:before{
+      content: "## ";
+      color: #d87638;
+    }
+  }
+  h2.question{
+    font-size: 1.1rem;
+    &:before{
+      content: "? ";
+      color: #4e84c0;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.disqus-comments{
+  margin-top: 2rem;
+}

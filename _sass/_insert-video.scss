@@ -1,0 +1,36 @@
+.youtube-container{
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 7px;
+  z-index: 2;
+  overflow: hidden;
+  @media (min-width:768px) {
+    width: calc(100% + 50px);
+    left: -25px;
+    max-width: none;
+  }
+}
+.youtube-container {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.youtube-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-des{
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  font-size: 90%;
+  margin-bottom: 30px;
+  color: #778899;
+}

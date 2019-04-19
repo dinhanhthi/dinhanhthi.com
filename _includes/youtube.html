@@ -1,0 +1,8 @@
+<div class="youtube-container">
+    <iframe src="https://www.youtube.com/embed/{{ include.content }}" frameborder="0" allowfullscreen class="youtube-video"></iframe>
+</div>
+<div class="youtube-des">
+    {% if include.des %}
+        <em>{{include.des}}</em>
+    {% endif %}
+</div>

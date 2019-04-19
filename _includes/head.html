@@ -1,0 +1,144 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400i,600,600i,700,700i&amp;subset=vietnamese" rel="stylesheet">
+
+
+  <link rel="alternate" hreflang="en" href="{{ page.url }}" />
+
+  {% if site.google_analytics %}
+    {% include google_analytics.html %}
+  {% endif %}
+
+  <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/img/avatar-icon.ico">
+  <meta name="author" content="{{ site.data.me.name }}" />
+
+  <title>
+    {% if page.url != "/" %}
+      Thi | {{ page.title }}
+    {% else %}
+      {{ site.date.me.name }} | {{ site.description }}
+    {% endif %}
+  </title>
+
+  {% if page.subtitle %}
+    <meta name="description" content="{{ page.subtitle }}">
+  {% endif %}
+
+  <!-- feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} {{ site.title-separator }} {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+  <!-- page (external) -->
+  {% if page.ext-css %}
+    {% for css in page.ext-css %}
+      {% include ext-css.html css=css %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- page (internal) -->
+  {% if page.css %}
+    {% for css in page.css %}
+      <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
+    {% endfor %}
+  {% endif %}
+
+  <!-- layout (external) -->
+  {% if layout.base-ext-css %}
+    {% for css in layout.base-ext-css %}
+      {% include ext-css.html css=css %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- layout (internal) -->
+  {% if layout.base-css %}
+    {% for css in layout.base-css %}
+      <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
+    {% endfor %}
+  {% endif %}
+  {% if layout.more-css %}
+    {% for css in layout.more-css %}
+      <link rel="stylesheet" href="{{ css | prepend: site.baseurl | replace: '//', '/' }}" />
+    {% endfor %}
+  {% endif %}
+
+  <!-- layout (google font) -->
+  {% if layout.base-googlefonts %}
+    {% for font in layout.base-googlefonts %}
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+    {% endfor %}
+  {% endif %}
+
+  <!-- page (google font) -->
+  {% if page.googlefonts %}= PostContent_h3[i].innerHTML;
+  // PostConte
+    {% for font in page.googlefonts %}
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family={{ font }}" />
+    {% endfor %}
+  {% endif %}
+
+    <!-- Facebook OpenGraph tags -->
+  {% if site.fb_app_id %}
+    <meta property="fb:app_id" content="{{ site.fb_app_id }}" />
+  {% endif %}
+
+  {% if site.data.me.facebook %}
+    <meta property="fb:admins" content="{{ site.data.me.facebook }}"/>
+  {% endif %}
+
+  {% if page.meta-title %}
+    <meta property="og:title" content="{{ page.meta-title }}" />
+  {% elsif page.title %}
+    <meta property="og:title" content="{{ page.title }}" />
+  {% else %}
+    <meta property="og:title" content="{{ site.title }}" />
+  {% endif %}
+
+  {% if page.description %}
+    <meta property="og:description" content="{{ page.description }}">
+  {% elsif page.subtitle %}
+    <meta property="og:description" content="{{ page.subtitle }}">
+  {% else %}
+    <meta property="og:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
+  {% endif %}
+
+
+  <meta property="og:type" content="website" />
+
+  {% if page.id %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  {% else %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
+  {% endif %}
+
+  <meta property="og:image" content="{{site.url}}{{site.baseurl}}/img/defaultCoverPost.png" />
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1234">
+  <meta property="og:image:height" content="592">
+
+  {% if page.js-head %}
+    {% for js in page.js-head %}
+      <script type="text/javascript" src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+    {% endfor %}
+  {% endif %}
+
+  {% if page.math %}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  {% endif %}
+
+</head>

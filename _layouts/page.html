@@ -1,0 +1,25 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<main role="main">
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="page-content">
+            {{ content }}
+          </div>
+          {% if page.comment %}
+            <div class="disqus-comments">
+              {% include disqus.html %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+

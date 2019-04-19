@@ -1,0 +1,33 @@
+h1+h3, h2+h3, h2:first-child, h3:first-child{
+  margin-top: unset!important;
+}
+
+.heading-title{
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ddd;
+  align-items: center;
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  h2{
+    font-weight: 700;
+    color: #3e3e3e;
+    font-size: 1.55rem;
+    margin-bottom: 3px!important;
+    border-bottom: none!important;
+    padding-bottom: 0!important;
+    &:before{
+      content: ""!important;
+    }
+  }
+  .more{
+    font-size: 1rem;
+    margin-left: 7px;
+    border-left: 1px solid #ddd;
+    padding-left: 7px;
+    color: #777;
+    &:hover{
+      color: #ea256a;
+    }
+  }
+}

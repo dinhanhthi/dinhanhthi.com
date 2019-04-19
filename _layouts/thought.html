@@ -1,0 +1,50 @@
+---
+layout: page
+more-css:
+  - "/css/thought.css"
+  - "/css/tag-page.css"
+---
+
+{% assign cpage = page.current_page %}
+{% for post in site.categories.thought %}
+  {% assign nbposts = forloop.length %}
+  {% break %}
+{% endfor %}
+{% assign off_set = cpage | minus: 1 %}
+{% assign off_set = off_set | times: 16 %}
+{% assign nbposts = nbposts | times: 1.0 %}
+{% assign total_page = nbposts | divided_by: 16 %}
+{% assign total_page =  total_page | ceil %}
+
+<section class="section mb-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="sec-more-title text-center mt-4 mx-auto col-12">
+        <h4>
+          Post by tags
+        </h4>
+        <hr class="mt-1">
+        {% include tag-list.html src="/tags/thought" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pt-0">
+  <div class="container">
+    {% if total_page > 1 %}
+      <div class="mb-2">
+        {% include pagination.html type="thought" %}
+      </div>
+    {% endif %}
+    <div class="row justify-content-center">
+      {% assign element-source = site.categories.thought %}
+      {% include post-layout.html type="thought2" source=element-source offset=off_set limit=16 img-src="/img/thought"%}
+    </div>
+    {% if total_page > 1 %}
+      <div class="my-2">
+        {% include pagination.html type="thought" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

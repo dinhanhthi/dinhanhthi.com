@@ -1,0 +1,38 @@
+.project{
+  .item{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 1rem 0;
+    &:last-of-type{
+      border-bottom: none;
+    }
+    @media (min-width: 850px){
+      display: grid;
+      grid-template-columns: 1.8fr 5.4fr 1.8fr;
+      grid-template-rows: none;
+      .button{
+        text-align: right;
+      }
+    }
+  }
+  h3{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  p{
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    padding: 0 15px;
+    @media (max-width: 849px){
+      display: none;
+    }
+  }
+  .button a{
+    font-size: 0.95rem;
+  }
+}

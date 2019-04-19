@@ -1,0 +1,28 @@
+- title: DSLearning
+  description: All of courses I've attended and books I've read to learn by myself Data Science. These are listed in the order of date I've learned.
+  source: https://github.com/dinhanhthi/DataScienceLearning
+- title: ThiThesisTemp
+  description: A simple beautiful LaTeX theme for books, thesis.
+  source: https://github.com/dinhanhthi/ThiThesisTemp
+- title: math2itwp
+  description: A beautiful Wordpress theme based on Bootstrap 4 with different layouts of posts.
+  source: https://github.com/dinhanhthi/math2itwp
+  url: https://math2it.com
+- title: NoteTheme
+  description: An AIO Jekyll theme designed for the purpose of taking notes.
+  url: https://dinhanhthi.github.io/NoteTheme/
+  source: https://github.com/dinhanhthi/NoteTheme
+- title: Math2IT.com
+  description: A Vietnamese site for intuitive knowledge (Maths, Education and Technology).
+  url: http://math2it.com
+- title: Math2IT Group
+  description: A Vietnamese community about math, education and technology.
+  url: https://www.facebook.com/groups/math2it/
+- title: TaniaJekyll
+  description: A beautiful personal Jekyll theme with different layouts of posts designed, based on Bootstrap 4 & Jekyll.
+  url: https://dinhanhthi.github.io/TaniaJekyll
+  source: https://github.com/dinhanhthi/TaniaJekyll
+- title: NXFEM
+  url: https://github.com/dinhanhthi/nxfem
+  description: A Matlab library for Nitsche - Extended Finite Element Method.
+

@@ -1,0 +1,46 @@
+.gal-item{
+  overflow: hidden;
+  padding: 5px!important;
+  border-radius: 15px;
+  .box{
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  a{
+    &:focus{
+      outline: none;
+    }
+    &:after{
+      content:"\f0fe";
+      font-family: 'Font Awesome 5 Free';
+      opacity: 0;
+      background-color: rgba(68, 68, 68, 0.75);
+      position: absolute;
+      right: 3px;
+      left: 3px;
+      top: 3px;
+      bottom: 3px;
+      padding: 5px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 30px;
+      color: #fff;
+      -webkit-transition: all 0.5s ease-in-out 0s;
+      -moz-transition: all 0.5s ease-in-out 0s;
+      transition: all 0.5s ease-in-out 0s;
+      border-radius: 15px;
+    }
+    &:hover:after{
+      opacity: 1;
+    }
+  }
+}
+.box img{
+  height: 100%;
+  width: 100%;
+  object-fit:cover;
+  -o-object-fit:cover;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
