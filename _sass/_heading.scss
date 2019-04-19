@@ -5,8 +5,6 @@ h1+h3, h2+h3, h2:first-child, h3:first-child{
 .heading-title{
   padding-bottom: 5px;
   border-bottom: 2px solid #ddd;
-  align-items: center;
-  display: flex;
   margin-bottom: 1rem;
   margin-top: 2rem;
   h2{
@@ -16,8 +14,12 @@ h1+h3, h2+h3, h2:first-child, h3:first-child{
     margin-bottom: 3px!important;
     border-bottom: none!important;
     padding-bottom: 0!important;
+    display: inline-block;
     &:before{
       content: ""!important;
+    }
+    @media (max-width: 575px){
+      font-size: 1.35rem;
     }
   }
   .more{
