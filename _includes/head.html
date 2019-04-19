@@ -133,11 +133,19 @@
   {% endif %}
 
   {% if page.math %}
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    <script type="text/javascript">
+      window.MathJax = {
+        jax: ["input/TeX", "output/SVG"],
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        SVG: {
+          linebreaks: { automatic: true },
+          styles: {".MathJax_SVG_Display": {margin: "2rem 0", overflow: "auto"}},
+          scale: 85
+        }
+      };
     </script>
     <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_SVG">
     </script>
   {% endif %}
 
