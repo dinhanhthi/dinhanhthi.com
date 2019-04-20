@@ -14,7 +14,7 @@ After my Ph.D., I am currently learning by myself **Data Science**. I use this w
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3), [reading](https://www.goodreads.com/user/show/19630622-thi-dinh) and cooking.
 
-{% include heading-title.html title="Data Science" icon="fas fa-database" cclass="mt-5" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
+{% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/dataScienceLearning){:target="_blank"}).
 
@@ -24,7 +24,7 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 - I'm reading the book "[**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"}" written by Trevor Hastie *et al.*
 - I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning) {:target="_blank"} taught by Andrew Ng.
 
-{% include heading-title.html title="Web Development" icon="fas fa-globe-asia" cclass="mt-5" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
+{% include heading-title.html title="Web Development" icon="fas fa-globe-asia" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
 
 I've totally learned by myself, created website Math2IT and designed some websites.
 
@@ -35,7 +35,7 @@ I've totally learned by myself, created website Math2IT and designed some websit
 - **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).
 
 
-{% include heading-title.html title="Learning Maths" icon="fas fa-square-root-alt" cclass="mt-5" %}
+{% include heading-title.html title="Learning Maths" icon="fas fa-square-root-alt" %}
 
 I have learned math since the beginning of my study life and keep writing about math under an intuitive way.
 
@@ -45,7 +45,7 @@ I have learned math since the beginning of my study life and keep writing about 
 - **2008 - 2012** &mdash; I learned to be a maths teacher at [Ho Chi Minh City University of Pedagofy](http://www.hcmup.edu.vn/){:target="_blank"}.
 - **2005 - 2008** &mdash; I learned advanced maths at [Ben Tre high school](https://thptchuyenbentre.edu.vn/){:target="_blank"} which is a school for gifted students.
 
-{% include heading-title.html title="Ph.D. Research" icon="fas fa-graduation-cap" cclass="mt-5" %}
+{% include heading-title.html title="Ph.D. Research" icon="fas fa-graduation-cap" %}
 
 I researched on the growth of [biofilm](https://en.wikipedia.org/wiki/Biofilm){:target="_blank"} by using [Finite Element Method](https://en.wikipedia.org/wiki/Finite_element_method){:target="_blank"}, [Level Set Method](https://en.wikipedia.org/wiki/Level-set_method){:target="_blank"} and some other numerical ones for the interface problem. For the implementation and simulation, I first used [FreeFem++](https://freefem.org/){:target="_blank"} and later developed by myself the **[NXFEM](https://github.com/dinhanhthi/nxfem){:target="_blank"}**, a Matlab toolbox.
 
@@ -54,7 +54,7 @@ I researched on the growth of [biofilm](https://en.wikipedia.org/wiki/Biofilm){:
 - **1 additional project** proposed by [IFPEN](https://www.ifpenergiesnouvelles.com/){:target="_blank"} in 11th Semaine d'Étude Maths-Entreprises ([SEME](https://www.agence-maths-entreprises.fr/a/?q=fr/node/13){:target="_blank"}).
 
 
-{% include heading-title.html title="Contact" icon="fas fa-at" cclass="mt-5" %}
+{% include heading-title.html title="Contact" icon="fas fa-at" %}
 
 - Call for a coffee talk in **Paris, France**.
 - I'm always available to discuss at [**dinhanhthi@gmail.com**](mailto:dinhanhthi@gmail.com?subject=Contact from Thi's site).

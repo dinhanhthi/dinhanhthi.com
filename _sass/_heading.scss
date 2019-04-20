@@ -1,17 +1,15 @@
-.heading-title{
-  h2{
-    font-weight: 700;
-    color: #3e3e3e;
-    font-size: 1.45rem;
-    padding-bottom: 7px;
-    border-bottom: 1px solid #ddd;
-    margin: 2rem 0 1rem 0;
-    @media (max-width: 575px){
-      font-size: 1.35rem;
-    }
-    &:before{
-      content: ""!important;
-    }
+h2.heading-title{
+  font-weight: 700;
+  color: #3e3e3e;
+  font-size: 1.45rem;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #ddd;
+  margin: 2rem 0 1rem 0;
+  @media (max-width: 575px){
+    font-size: 1.35rem;
+  }
+  &:before{
+    content: ""!important;
   }
   .more{
     font-size: 1rem;
