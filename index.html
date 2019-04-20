@@ -33,22 +33,7 @@ js:
         {% include heading-title.html title="Recent projects" insite="/project" icon="fas fa-code-branch" %}
       </div>
       <div class="col-lg-10 col-xl-8">
-        <div class="project">
-          {% for item in site.data.project limit: 5 %}
-            <div class="item">
-              <h3>{{item.title}}</h3>
-              <p>{{item.description}}</p>
-              <div class="button">
-                {% if item.url %}
-                  <a class="btn btn-success" target="_blank" href="{{item.url}}">url</a>
-                {% endif %}
-                {% if item.source %}
-                  <a class="btn btn-info" target="_blank" href="{{item.source}}">source</a>
-                {% endif %}
-              </div>
-            </div>
-          {% endfor %}
-        </div>
+        {% include list_project.html limit=5 %}
       </div>
     </div>
   </div>
@@ -62,26 +47,7 @@ js:
         {% include heading-title.html title="Recent read books" insite="/reading" icon="fas fa-book-reader" %}
       </div>
       <div class="col-lg-10 col-xl-8">
-        <ul class="books">
-          {% for item in site.data.book limit: 5 %}
-            <li class="item">
-              {% if item.reading %}
-                <span class="badge-green">I'm reading</span>
-              {% endif %}
-              <span class="title">
-                {% if item.goodreads %}
-                  <a href="{{item.goodreads}}">{{item.title}}</a>
-                {% else %}
-                  {{item.title}}
-                {% endif %}
-              </span>
-              <span class="author"> &mdash; {{item.author}}.</span>
-              {% if item.intro %}
-                <span class="intro">{{item.intro}}</span>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+        {% include list_reading.html limit=5 %}
       </div>
     </div>
   </div>
@@ -95,17 +61,7 @@ js:
         {% include heading-title.html title="Recent posts" insite="/blog" icon="fab fa-leanpub" %}
       </div>
       <div class="col-lg-10 col-xl-8">
-        <ul class="books">
-          {% for item in site.posts limit: 5 %}
-            <li class="item">
-              <span class="title">
-                <a href="{{item.url}}">{{item.title}}</a>
-              </span>
-              <span class="author"> &mdash; {{ item.date | date_to_string }}.</span>
-              <span class="intro">{{item.description}}</span>
-            </li>
-          {% endfor %}
-        </ul>
+        {% include list_post.html limit=5 %}
       </div>
     </div>
   </div>

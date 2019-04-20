@@ -1,0 +1,20 @@
+<ul class="books">
+  {% for item in site.data.book limit: include.limit %}
+    <li class="item">
+      {% if item.reading %}
+        <span class="badge-green">I'm reading</span>
+      {% endif %}
+      <span class="title">
+        {% if item.goodreads %}
+          <a href="{{item.goodreads}}" target="_blank">{{item.title}}</a>
+        {% else %}
+          {{item.title}}
+        {% endif %}
+      </span>
+      <span class="author"> &mdash; {{item.author}}.</span>
+      {% if item.intro %}
+        <span class="intro">{{item.intro}}</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

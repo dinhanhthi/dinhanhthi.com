@@ -1,0 +1,11 @@
+<ul class="books">
+  {% for item in site.posts limit: include.limit %}
+    <li class="item">
+      <span class="title">
+        <a href="{{item.url}}">{{item.title}}</a>
+      </span>
+      <span class="author"> &mdash; {{ item.date | date_to_string }}.</span>
+      <span class="intro">{{item.description}}</span>
+    </li>
+  {% endfor %}
+</ul>
