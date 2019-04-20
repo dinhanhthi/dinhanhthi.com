@@ -7,6 +7,14 @@ h1+h3, h2+h3, h2:first-child, h3:first-child{
   border-bottom: 2px solid #ddd;
   margin-bottom: 1rem;
   margin-top: 2rem;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
   h2{
     font-weight: 700;
     color: #3e3e3e;
@@ -14,7 +22,6 @@ h1+h3, h2+h3, h2:first-child, h3:first-child{
     margin-bottom: 3px!important;
     border-bottom: none!important;
     padding-bottom: 0!important;
-    display: inline-block;
     &:before{
       content: ""!important;
     }
