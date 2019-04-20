@@ -12,7 +12,7 @@ date: 2019-04-19
 This is **the first post in the series** of posts I wrote about what I’ve learned in Machine Learning and Data Science on the online courses. I write these posts by supposing that there are some interviewers asking me some technical questions in these fields. I also write the answers in the context where someone doesn’t know anything about ML or Data ask about these fields.
 
 {:.alert.alert-warning}
-I typically focus on simple and more understandable answers. These posts aren’t the official and complete articles for such practical knowledge. You have to search and establish yourself the precise definitions and effective techniques outside these posts. If **you see I’m wrong somewhere**, please **let me know** at the comment section, thanks.
+This article is not for you to learn, it's for refrence only!
 
 {:.question}
 ## What's Machine Learning?
