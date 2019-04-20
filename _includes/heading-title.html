@@ -5,24 +5,23 @@
       <i class="{{include.icon}}"></i>
     {% endif %}
     {{ include.title }}
-  </h2>
-  {% if include.href %}
-    <a target="_blank" class="more" href="{{ include.href }}">
-    {% if include.more %}
-      {{include.more}}
-    {% else %}
-      view all
-    {% endif %}
-  </a>
-  {% endif %}
-  {% if include.insite %}
-    <a class="more" {% if include.target %}target="_blank"{% endif %} href="{{site.url}}{{site.baseurl}}{{ include.insite }}">
+    {% if include.href %}
+      <a class="more" target="_blank"  href="{{ include.href }}">
       {% if include.more %}
         {{include.more}}
       {% else %}
         view all
       {% endif %}
     </a>
-  {% endif %}
+    {% else %}
+      <a class="more" {% if include.target %}target="_blank"{% endif %} href="{{site.url}}{{site.baseurl}}{{ include.insite }}">
+        {% if include.more %}
+          {{include.more}}
+        {% else %}
+          view all
+        {% endif %}
+      </a>
+    {% endif %}
+  </h2>
 </div>
 
