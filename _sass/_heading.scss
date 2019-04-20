@@ -22,6 +22,15 @@ h2.heading-title{
       color: #ea256a;
     }
   }
+  &.mycv{
+    .more{
+      font-weight: 700;
+      color: #ec5d76;
+      &:hover{
+        color: #78a5f9;
+      }
+    }
+  }
 }
 
 .page-content{
