@@ -1,10 +1,27 @@
 
-<div class="{% if include.cclass %}{{include.cclass}}{% endif %}">
+<div class="sec-title heading-title {% if include.cclass %}{{include.cclass}}{% endif %}">
   <h2>
     {% if include.icon %}
       <i class="{{include.icon}}"></i>
     {% endif %}
     {{ include.title }}
+    {% if include.href %}
+      <a class="more" target="_blank"  href="{{ include.href }}">
+      {% if include.more %}
+        {{include.more}}
+      {% else %}
+        view all
+      {% endif %}
+    </a>
+    {% else %}
+      <a class="more" {% if include.target %}target="_blank"{% endif %} href="{{site.url}}{{site.baseurl}}{{ include.insite }}">
+        {% if include.more %}
+          {{include.more}}
+        {% else %}
+          view all
+        {% endif %}
+      </a>
+    {% endif %}
   </h2>
 </div>
 

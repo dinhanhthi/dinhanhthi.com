@@ -1,43 +1,42 @@
-h1+h3, h2+h3, h2:first-child, h3:first-child{
-  margin-top: unset!important;
-}
-
 .heading-title{
-  padding-bottom: 5px;
-  border-bottom: 2px solid #ddd;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-
   h2{
     font-weight: 700;
     color: #3e3e3e;
-    font-size: 1.55rem;
+    font-size: 1.45rem;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ddd;
+    margin: 2rem 0 1rem 0;
     @media (max-width: 575px){
       font-size: 1.35rem;
+    }
+    &:before{
+      content: ""!important;
     }
   }
   .more{
     font-size: 1rem;
-    margin-left: 7px;
     border-left: 1px solid #ddd;
+    margin-left: 7px;
     padding-left: 7px;
     color: #777;
+    font-weight: 600;
     &:hover{
       color: #ea256a;
     }
   }
 }
 
-
 .page-content{
   h2{
     font-weight: 700;
     color: #3e3e3e;
-    font-size: 1.45rem;
-    margin-bottom: 3px;
+    font-size: 1.4rem;
     padding-bottom: 7px;
     border-bottom: 1px solid #ddd;
     margin: 2.5rem 0 1rem 0;
+    @media (max-width: 575px){
+      font-size: 1.35rem;
+    }
     &:before{
       content: "# ";
       color: #6293ca;
@@ -49,6 +48,9 @@ h1+h3, h2+h3, h2:first-child, h3:first-child{
     color: #444;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
+    @media (max-width: 575px){
+      font-size: 1.25rem;
+    }
     &:before{
       content: "## ";
       color: #d87638;
