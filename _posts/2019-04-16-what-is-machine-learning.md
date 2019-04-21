@@ -6,8 +6,10 @@ description: "What if you're asked about ML and you have to describe it for an a
 tags: [machine learning]
 category: machine-learning
 comment: 1
-date: 2019-04-19
+date: 2019-04-21
 ---
+
+{% assign img-url = '/img/post/ML' %}
 
 This is **the first post in the series** of posts I wrote about what I’ve learned in Machine Learning and Data Science on the online courses. I write these posts by supposing that there are some interviewers asking me some technical questions in these fields. I also write the answers in the context where someone doesn’t know anything about ML or Data ask about these fields.
 
@@ -43,6 +45,17 @@ Data Science is the process of using data to understand different things, of unc
 - **Data Analyst** : *The bridge, the driver. From the past show the present*. They set the link between traditional business and the data driven, also between tech teams and business teams. They give advices to the managers based on the results to help them make better decisions. **Jobs** : data cleaning, performing analysis and creating data visualizations. 
 - **Data Scientist** : *The brain, what are behind the scene. From the past, show the future.* They apply their expertise in statistics and building machine learning models to make predictions and answer key business questions. **Jobs** : clean, analyze, and visualize data (like data analyst but more depth) & are able to train and optimize machine learning models.
 - **Data Engineer** : *The workers.* They prepare foundations for DS and DA. They have good software dev tools, build and perform systems for others to work.
+
+{:#overfitting-underfitting}
+{:.question}
+## What is overfitting and underfitting?
+
+- **Underfitting** : Capturing not enough pattern in the data. The curve under fit the data points. The model performs poorly both in the training set and test set.
+- **Overfitting** : Contrary to underfitting, capturing noise, unnecessary patterns which do not generalize well to unseen data. The model performs very well on the training set but poorly on the test set.
+
+{:.img-full-50}
+![Overfitting and underfitting]({{img-url}}/overfitting-underfitting.png)
+*[Source](https://towardsdatascience.com/cross-validation-70289113a072)*
 
 
 

@@ -22,7 +22,7 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 - I'm following **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate)** course on Coursera ([my account](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:target="_blank"}).
 - I'm following **[Data Science path](https://www.codecademy.com/learn/paths/data-science)** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
 - I'm reading the book "[**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"}" written by Trevor Hastie *et al.*
-- I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning) {:target="_blank"} taught by Andrew Ng.
+- I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
 
 {% include heading-title.html title="Web Development" icon="fas fa-globe-asia" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
 

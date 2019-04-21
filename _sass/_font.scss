@@ -11,26 +11,15 @@ a:hover{
 }
 
 ul{
-  padding-left: 1rem;
   li{
-    list-style-type: none;
     margin-bottom: .3rem;
-    position: relative;
-    padding-left: 20px;
-    &:before{
-      content: "\2022 ";
-      position: absolute;
-      left: 0;
-      color: #8d8d8d;
-      font-size: 22px;
-      line-height: 1.1;
-    }
+    padding-left: 5px;
   }
 }
 
 li > ol, li > ul{
   margin-top: 0.5rem;
-  padding-left: 0;
+  padding-left: 15px;
 }
 
 

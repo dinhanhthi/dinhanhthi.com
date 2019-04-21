@@ -11,7 +11,8 @@
       view all
     {% endif %}
   </a>
-  {% else %}
+  {% endif %}
+  {% if include.insite %}
     <a class="more" {% if include.target %}target="_blank"{% endif %} href="{{site.url}}{{site.baseurl}}{{ include.insite }}">
       {% if include.more %}
         {{include.more}}

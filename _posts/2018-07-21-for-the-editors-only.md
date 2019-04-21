@@ -27,6 +27,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 
 ## Inset figures
 
+- **Beginning of each post**: `{% raw %}{% assign img-url = '/img/post/ML' %}{% endraw %}` and then `{% raw %}![alternative]({{img-url}/figure.png}){% endraw %}`
 - Normal inserting: `![Describe](link/to/figures)`
 - Full width: `{% raw %}{% include img/full.html src="link/to/figures" des="description" %}{% endraw %}`
 - Full but modified: `{% raw %}{% include img/full-normal.html src="link/to/figures" des="description" %}{% endraw %}`
