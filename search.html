@@ -1,27 +1,15 @@
 ---
-layout: base
+layout: page
 title: Search on this page
 subtitle: only available for blog posts
 icon: fas fa-search
 color: "#5eeda3"
 ---
 
-{% include header.html type="page" %}
-
-<main role="main">
-  <section class="section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
-          <p class="p-intro">
-          	<span id="search-process">{{re_loading}}</span> {{re_result}} <span id="search-query-container" style="display: none;">{{re_forkey}} "<strong id="search-query"></strong>"</span>
-          </p>
-          <ul id="search-results"></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+<p class="p-intro">
+  <span id="search-process">{{re_loading}}</span> {{re_result}} <span id="search-query-container" style="display: none;">{{re_forkey}} "<strong id="search-query"></strong>"</span>
+</p>
+<ul id="search-results"></ul>
 
 <script>
 	window.data = {
