@@ -130,3 +130,18 @@ blockquote{
   padding-left: 10px;
   margin-bottom: 1rem;
 }
+
+p.ref {
+  margin-top: 2rem;
+  padding-top: 5px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #bbb;
+  font-style: italic;
+  a{
+    color: #bbb;
+    &:hover{
+      color: $a-hover;
+    }
+  }
+}
