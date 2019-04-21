@@ -18,10 +18,10 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3), [reading]
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/dataScienceLearning){:target="_blank"}).
 
-- I'm following **[Data Scientist](https://www.dataquest.io/path/data-scientist)** / **[Data Engineer](https://www.dataquest.io/path/data-engineer/)** paths on Dataquest ([my account](https://www.dataquest.io/profile/dinhanhthimail){:target="_blank"}).
-- I'm following **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate)** course on Coursera ([my account](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:target="_blank"}).
-- I'm following **[Data Science path](https://www.codecademy.com/learn/paths/data-science)** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
-- I'm reading the book "[**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"}" written by Trevor Hastie *et al.*
+- I'm following **[Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"}** / **[Data Engineer](https://www.dataquest.io/path/data-engineer/){:target="_blank"}** paths on Dataquest ([my account](https://www.dataquest.io/profile/dinhanhthimail){:target="_blank"}).
+- I'm following **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"}** course on Coursera ([my account](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:target="_blank"}).
+- I'm following **[Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"}** and **[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
+- I'm reading the book [**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"} written by Trevor Hastie *et al.*
 - I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
 
 {% include heading-title.html title="Web Development" icon="fas fa-globe-asia" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
@@ -29,10 +29,10 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 I've totally learned by myself, created website Math2IT and designed some websites.
 
 - **2018 - today** &mdash; Following [Web Development path](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
-- **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp) which is a beautiful Wordpress theme.
+- **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp){:target="_blank"} which is a beautiful Wordpress theme.
+- **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).
 - **2013 - 2014** &mdash; I created [Math2IT](https://math2it.com){:target="_blank"} under Blogger platform and was building up my knowledge about web development.
 - **2012** &mdash; Self-studying about Web-development (HTML, CSS, DOM, JS, PHP & MySQL, HTTP Live Streaming)
-- **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).
 
 
 {% include heading-title.html title="Learning Maths" icon="fas fa-square-root-alt" %}
