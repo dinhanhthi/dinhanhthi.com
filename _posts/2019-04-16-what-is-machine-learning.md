@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fundamental about Machine Learning & Data Science"
+title: "Fundamental concepts about Machine Learning & Data Science"
 subtitle: Basic understanding about ML & DS
 description: "What if you're asked about ML and you have to describe it for an amateur/a professional person?"
 tags: [machine learning]
@@ -55,7 +55,37 @@ Data Science is the process of using data to understand different things, of unc
 
 {:.img-full-50}
 ![Overfitting and underfitting]({{img-url}}/overfitting-underfitting.png)
-*[Source](https://towardsdatascience.com/cross-validation-70289113a072)*
+
+**Other names** : overfitting (**high variance**), underfitting (**high bias**).
+
+{:.question}
+## What's the train/test split's problem?
+
+It depends highly on the way we choose the train/test set data. That's why we need to use **cross-validation** evaluation to fix it. For example, K-fold cross validation.
+
+~~~ python
+# Split arrays or matrices into random train and test subsets
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+~~~
+
+If **we have enough data**, it may be a good choice.
+
+{:#diff-training-test-validation-tests}
+{:.question}
+## What is different between training set / test set / cross validation set?
+
+- **Training set** : Your algorithms adjust their parameters based on training data.
+- **Validation set** : Your algorithms are run on validation set to get a result. This result is compared to other training/validation data to choose the best one.
+	- **Cross validation set** : We don't split the data into fixed partitions, hence CV.
+	- Above things give us the reason why we need to choose CV and training sets on the same distribution so that we can compare between them.
+- **Test set** : You run the "winner" algorithm (parameters) on the test set to see how well your model works in the real world.
 
 
+## References
 
+1. [Why only three partitions? (training, validation, test)](https://stats.stackexchange.com/questions/9357/why-only-three-partitions-training-validation-test){:target="_blank"}
+
+
+{:.ref}
+Source of figures used in this post: [overfitting](https://towardsdatascience.com/cross-validation-70289113a072){:target="_blank"}.

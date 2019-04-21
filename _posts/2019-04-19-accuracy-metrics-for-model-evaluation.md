@@ -47,25 +47,11 @@ The choice of metric, completely depends on
 - Domain of knowledge.
 
 {:.question}
-## What's the train/test split's problem?
-
-It depends highly on the way we choose the train/test set data. That's why we need to use **cross-validation** evaluation to fix it. For example, K-fold cross validation.
-
-~~~ python
-# Split arrays or matrices into random train and test subsets
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
-~~~
-
-If **we have enough data**, it may be a good choice.
-
-{:.question}
 ## The idea of K-fold cross validation?
 
 - We use CV to estimate how well a ML model would generalize to new data? It helps avoid [overfitting and underfitting]({{site.url}}{{site.baseurl}}/what-is-machine-learning#overfitting-underfitting).
-- CV set and training set must use the same distribution!
-- We choose different groups of CV set/training set to find the predictions, after that, we choose the best one. [Source of the figure](https://towardsdatascience.com/cross-validation-70289113a072).
-
+- CV set and training set must use the same distribution! Why, check [this]({{site.url}}{{site.baseurl}}/what-is-machine-learning#diff-training-test-validation-tests){:target="_blank"}.
+- We choose different groups of CV set/training set to find the predictions, after that, we choose the best one.
 	{:.img-full-normal}
 	![K-fold Cross Validation idea]({{img-url}}/k-fold.png)
 
@@ -77,3 +63,7 @@ for train_index, test_index in kf.split(X):
 	X_train, X_test = X[train_index], X[test_index]
 	y_train, y_test = y[train_index], y[test_index]
 ~~~
+
+
+{:.ref}
+Source of figures used in this post: [k-fold](https://towardsdatascience.com/cross-validation-70289113a072){:target="_blank"}.
