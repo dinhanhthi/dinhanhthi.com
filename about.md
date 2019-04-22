@@ -12,7 +12,7 @@ I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning 
 
 After my Ph.D., I am currently learning by myself **Data Science**. I use this website and [this one](https://mynote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 
-My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3), [reading](https://www.goodreads.com/user/show/19630622-thi-dinh) and cooking.
+My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
 {% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
 
