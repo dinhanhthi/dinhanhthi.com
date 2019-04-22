@@ -3,8 +3,8 @@ layout: post
 title: "Fundamental concepts about Machine Learning & Data Science"
 subtitle: Basic understanding about ML & DS
 description: "What if you're asked about ML and you have to describe it for an amateur/a professional person?"
-tags: [machine learning]
-category: machine-learning
+tags: [definition]
+categories: [machine learning]
 comment: 1
 date: 2019-04-21
 ---

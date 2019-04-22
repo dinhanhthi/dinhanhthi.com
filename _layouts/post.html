@@ -2,5 +2,14 @@
 layout: page
 ---
 
+<p class="cat-tag">
+  Posted in category
+    {% for cat in page.categories %}
+      <a href="{{site.url}}{{site.baseurl}}/categories#{{cat | replace: " ", "_"}}">{{ cat }}</a>{% if forloop.length > 1 and forloop.last != true %}, {% endif %}
+    {% endfor %}
+  with tags{% for tag in page.tags %}
+    <a href="{{site.url}}{{site.baseurl}}/tags#{{tag | replace: " ","_"}}"> {{ tag }}</a>{% if forloop.length > 1 and forloop.last != true %},{% endif %}{% endfor %}.
+</p>
+
 {{ content }}
 

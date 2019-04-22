@@ -3,8 +3,8 @@ layout: post
 title: "Accuracy metrics for model evaluation"
 subtitle: Understanding some types of errors to evaluate models
 description: "Understanding some types of errors to evaluate models"
-tags: [machine learning, errors]
-category: machine-learning
+tags: [errors]
+categories: [machine learning]
 comment: 1
 math: 1
 date: 2019-04-21
@@ -52,6 +52,7 @@ The choice of metric, completely depends on
 - We use CV to estimate how well a ML model would generalize to new data? It helps avoid [overfitting and underfitting]({{site.url}}{{site.baseurl}}/what-is-machine-learning#overfitting-underfitting).
 - CV set and training set must use the same distribution! Why, check [this]({{site.url}}{{site.baseurl}}/what-is-machine-learning#diff-training-test-validation-tests){:target="_blank"}.
 - We choose different groups of CV set/training set to find the predictions, after that, we choose the best one.
+
 	{:.img-full-normal}
 	![K-fold Cross Validation idea]({{img-url}}/k-fold.png)
 

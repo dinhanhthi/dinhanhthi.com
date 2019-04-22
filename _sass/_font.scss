@@ -132,16 +132,31 @@ blockquote{
 }
 
 p.ref {
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding-top: 5px;
   border-top: 1px solid #eee;
   font-size: 0.9rem;
   color: #bbb;
   font-style: italic;
   a{
-    color: #bbb;
+    color: #2f74bd7d;
     &:hover{
-      color: $a-hover;
+      color: #ea256aa1;
+    }
+  }
+}
+
+p.cat-tag{
+  margin-bottom: 2rem;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #bbb;
+  font-style: italic;
+  a{
+    color: #2f74bd7d;
+    &:hover{
+      color: #ea256aa1;
     }
   }
 }
