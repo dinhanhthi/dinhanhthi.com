@@ -38,13 +38,35 @@ li > ol, li > ul{
   font-weight: $f-semi-bold;
 }
 
-.badge-green{
-  font-size: 0.95rem;
-  border: 1px solid #6ad27099;
+.tbadge{
+  font-size: 0.9rem;
   padding: 0 5px 2px 5px;
+  border-radius: 3px;
+  border: 1px solid;
+  display: inline-block;
+  font-weight: normal;
+  white-space: nowrap;
+  a{
+    color: inherit;
+  }
+}
+
+.badge-green{
+  border-color: #6ad27099;
   background: #dfffe5;
   color: #1a7b2b;
-  border-radius: 3px;
+}
+
+.badge-gray{
+  border-color: #ddd;
+  background: #fcf9f9;
+  color: #777;
+}
+
+.badge-yellow{
+  border-color: #d2b06a69;
+  background: #fff7df;
+  color: #7b561a;
 }
 
 .small-text{
@@ -95,7 +117,7 @@ des{
 // highlight
 .mark, mark{
   padding: .1em .2em;
-  background-color: #fff6b3;
+  background-color: #fff9d0;
 }
 
 // more link
@@ -134,12 +156,12 @@ blockquote{
 p.ref {
   margin-top: 3rem;
   padding-top: 5px;
-  border-top: 1px solid #eee;
+  border-top: 1px dashed #eee;
   font-size: 0.9rem;
-  color: #bbb;
+  color: #aaa;
   font-style: italic;
   a{
-    color: #2f74bd7d;
+    color: #2f74bdad;
     &:hover{
       color: #ea256aa1;
     }
@@ -149,12 +171,12 @@ p.ref {
 p.cat-tag{
   margin-bottom: 2rem;
   padding-bottom: 5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px dashed #eee;
   font-size: 0.9rem;
-  color: #bbb;
+  color: #aaa;
   font-style: italic;
   a{
-    color: #2f74bd7d;
+    color: #2f74bdad;
     &:hover{
       color: #ea256aa1;
     }

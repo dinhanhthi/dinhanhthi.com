@@ -1,6 +1,15 @@
 <ul class="books">
   {% for item in site.posts limit: include.limit %}
     <li class="item">
+      {% if item.update %}
+        <span class="tbadge badge-green">update</span>
+      {% endif %}
+      {% if item.writing %}
+        <span class="tbadge badge-gray">I'm writing</span>
+      {% endif %}
+      {% if item.mychoice %}
+        <span class="tbadge badge-yellow">my choice</span>
+      {% endif %}
       <span class="title">
         <a href="{{item.url}}">{{item.title}}</a>
       </span>

@@ -2,7 +2,10 @@
   {% for item in site.data.book limit: include.limit %}
     <li class="item">
       {% if item.reading %}
-        <span class="badge-green">I'm reading</span>
+        <span class="tbadge badge-green">I'm reading</span>
+      {% endif %}
+      {% if item.mychoice %}
+        <span class="tbadge badge-yellow">my choice</span>
       {% endif %}
       <span class="title">
         {% if item.goodreads %}

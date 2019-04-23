@@ -8,6 +8,7 @@
   reading: true
   intro: Go through the history of human from the first individuals to walk the earth to the radical.
   goodreads: https://www.goodreads.com/book/show/23692271-sapiens
+  mychoice: 1
 - title: Tâm nguyện cuối cùng
   author: Mi Lei
   intro: The newest detective novel from Mi Lei. This time, he focused heavily on the stories of each character. There are still twists but they're quite easy to guess.
@@ -29,6 +30,7 @@
 - title: To Kill a Mockingbird
   author: Harper Lee
   goodreads: https://www.goodreads.com/review/show/2429856389
+  mychoice: 1
 - title: "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
   author: Dan Ariely
   goodreads: https://www.goodreads.com/review/show/2049809738?book_show_action=false&from_review_page=1
@@ -50,12 +52,14 @@
 - title: "Einstein: His Life and Universe"
   author: Walter Isaacson
   goodreads: https://www.goodreads.com/review/show/2049757982
+  mychoice: 1
 - title: Man's Search for Meaning
   author: Viktor Emil Frankl
   goodreads: https://www.goodreads.com/review/show/2120557368
 - title: "The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography"
   author: Simon Singh
   goodreads: https://www.goodreads.com/review/show/2048880101
+  mychoice: 1
 - title: How to stop Worrying and start living
   author: Dale Carnegie
   goodreads: https://www.goodreads.com/review/show/2047915450?book_show_action=false&from_review_page=1
@@ -71,6 +75,7 @@
 - title: "The Power of Habit: Why We Do What We Do in Life and Business"
   author: Charles Duhigg
   goodreads: https://www.goodreads.com/review/show/2029184341?book_show_action=false&from_review_page=1
+  mychoice: 1
 - title: "Love and Math: The Heart of Hidden Reality"
   author: Edward Frenkel
   goodreads: https://www.goodreads.com/review/show/2029185191?book_show_action=false&from_review_page=1

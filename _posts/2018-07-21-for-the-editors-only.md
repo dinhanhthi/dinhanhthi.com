@@ -23,7 +23,13 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - `img`: thumbnail of the post .
 - `bigimg`: background photo of the post (showing on shared post on facebook)
 - `update: 1`: if you just update the content of the post. Notice that, the badge "update" is only showed if the updated date is under 7 days.
+- `writing: 1`: if you are writing the post, it's not finished yet.
+- `mychoice: 1`: if you make this post as your best choice.
 
+## Reading file
+
+- `reading: 1`: if you're reading this book.
+- `mychoice: 1`: if you make this book as your best choice.
 
 ## Inset figures
 
