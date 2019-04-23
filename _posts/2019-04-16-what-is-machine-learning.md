@@ -1,12 +1,14 @@
 ---
 layout: post
-title: "Fundamental concepts about Machine Learning & Data Science"
-subtitle: Basic understanding about ML & DS
+title: "Fundamental concepts about Machine Learning"
+subtitle: Basic understanding about Machine Learning
 description: "What if you're asked about ML and you have to describe it for an amateur/a professional person?"
 tags: [definition]
 categories: [machine learning]
 comment: 1
-date: 2019-04-21
+math: 1
+date: 2019-04-22
+writing: 1
 ---
 
 {% assign img-url = '/img/post/ML' %}
@@ -28,23 +30,6 @@ Above definition was mentioned in the course of Andrew NG in his course on Cours
 
 - **Supervised learning** : output is already known.
 - **Unsupervised learning**: We have very little or no idea what our results should look like.
-
-{:.question}
-## What's Data Science?
-
-Data Science is the process of using data to understand different things, of uncovering the insights and trends that are hiding behind data in order to answer some questions.
-
-{:.question}
-## What's Big Data?
-
-> Put simply, big data is larger, more complex data sets, especially from new data sources. These data sets are so voluminous that traditional data processing software just can’t manage them. But these massive volumes of data can be used to address business problems you wouldn’t have been able to tackle before. -- [Oracle](https://www.oracle.com/big-data/guide/what-is-big-data.html){:target="_blank"}.
-
-{:.question}
-## What are differences between Data Scientist, Data Engineer, Data Analyst?
-
-- **Data Analyst** : *The bridge, the driver. From the past show the present*. They set the link between traditional business and the data driven, also between tech teams and business teams. They give advices to the managers based on the results to help them make better decisions. **Jobs** : data cleaning, performing analysis and creating data visualizations. 
-- **Data Scientist** : *The brain, what are behind the scene. From the past, show the future.* They apply their expertise in statistics and building machine learning models to make predictions and answer key business questions. **Jobs** : clean, analyze, and visualize data (like data analyst but more depth) & are able to train and optimize machine learning models.
-- **Data Engineer** : *The workers.* They prepare foundations for DS and DA. They have good software dev tools, build and perform systems for others to work.
 
 {:#overfitting-underfitting}
 {:.question}
@@ -81,10 +66,24 @@ If **we have enough data**, it may be a good choice.
 	- Above things give us the reason why we need to choose CV and training sets on the same distribution so that we can compare between them.
 - **Test set** : You run the "winner" algorithm (parameters) on the test set to see how well your model works in the real world.
 
+{:.question}
+## The idea of K-Nearest Neighbours (KNN)?
 
-## References
+- This is a classification algorithm, we choose a categories for some example based on the category of their neighbors. For example, if $K=1$, the category of that example is the same with the category of the nearest example to it.
+- Calculate the accuracy with different numbers of $K$ and then choose the best one.
 
-1. [Why only three partitions? (training, validation, test)](https://stats.stackexchange.com/questions/9357/why-only-three-partitions-training-validation-test){:target="_blank"}
+~~~ python
+from sklearn.neighbors import KNeighborsClassifier
+neigh = KNeighborsClassifier(n_neighbors=3)
+neigh.fit(X, y)
+
+print(neigh.predict([[1.1]]))
+print(neigh.predict_proba([[0.9]]))
+~~~
+
+{:.question}
+## What's a decision tree?
+
 
 
 {:.ref}
