@@ -69,6 +69,12 @@ li > ol, li > ul{
   color: #7b561a;
 }
 
+.badge-orange{
+  border-color: #f7e0c5;
+  background: #fff4e7;
+  color: #b65929;
+}
+
 .small-text{
   font-size: 0.95rem;
 }
@@ -180,5 +186,14 @@ p.cat-tag{
     &:hover{
       color: #ea256aa1;
     }
+  }
+}
+
+.columns-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media (max-width: 767px){
+    grid-template-columns: 1fr;
   }
 }
