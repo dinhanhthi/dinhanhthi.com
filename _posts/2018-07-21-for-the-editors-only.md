@@ -44,31 +44,13 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 
 ## Side by side figure and content
 
-- Figure on the left:
+~~~ html
+<div class="columns-2">
+Texts
 
-	~~~ html
-  <div class="row align-items-center img-aside">
-  <p class="col-md-6" markdown="1">
-  ![Description](/link/to/figure)
-  </p>
-  <p class="col-md-6" markdown="1">
-  Contents
-  </p>
-  </div>
-	~~~
-
-- Figure on the right (but above on a smaller view port):
-
-	~~~ html
-  <div class="row align-items-center img-aside">
-  <p class="col-md-6 order-md-2" markdown="1">
-  ![Description](/link/to/figure)
-  </p>
-  <p class="col-md-6 order-md-1" markdown="1">
-  Contents.
-  </p>
-  </div>
-	~~~
+![alt](/link)
+</div>
+~~~
 
 ## Insert codes
 
@@ -90,33 +72,29 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - Terminal box
 
 	~~~ html
-  <div class="terminal">
+  {:.terminal}
   $ sudo apt-get update
-  </div>
 	~~~
 
 - Warning bootstrap : [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}.
 	- Success box (green):
 
 		~~~ html
-	  <div class="alert alert-success" role="alert" markdown="1">
+	  {:.alert.alert-success}
 	  Content
-	  </div>
 		~~~
 
 	- Warning (yellow)
 
 		~~~ html
-	  <div class="alert alert-warning" role="alert" markdown="1">
+	  {:.alert.alert-warning}
 	  Content
-	  </div>
 		~~~
 
 	- Danger (red)
 		~~~ html
-	  <div class="alert alert-danger" role="alert" markdown="1">
+	  {:.alert.alert-danger}
 	  Content
-	  </div>
 		~~~
 
 	<div class="alert alert-warning" role="alert" markdown="1">
@@ -173,12 +151,17 @@ Content of step 2.
 
 ## Fonts & Texts
 
-- Info
-
-	~~~ html
-  <h4 class="post-more">Information</h4>
-	~~~
-
+- Badges
+  ~~~ html
+  <span class="tbadge badge-green">text</span>
+  <span class="tbadge badge-yellow">text</span>
+  <span class="tbadge badge-gray">text</span>
+  ~~~
+- References at the end of each post"
+  ~~~ html
+  {:.ref}
+  Source of figures used in this post:
+  ~~~
 - Marked texts: `<mark>texts</mark>`
 - Keyboard: `<kbd>B</kbd>`
 - More link:
@@ -186,12 +169,10 @@ Content of step 2.
 {% include more.html content="[text](link)" %}
 	{% endraw %}~~~
 - Subject: `<sbj>Texts</sbj>`
-- Hide/show description for links
-
-	~~~html{% raw %}
-[**Title**](link){:target="_blank"} other texts. [*(my comments)*](#des-1){:data-toggle="collapse" .my-des}
-	<des id="des-1" class="collapse multi-collapse">descriptions</des>
-	{% endraw %}~~~
+- Target blank
+  ~~~
+  [alt](/link){:target="_blank"}
+  ~~~
 
 ## Math expressions
 

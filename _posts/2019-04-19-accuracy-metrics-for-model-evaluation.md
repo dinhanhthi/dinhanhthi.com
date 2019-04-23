@@ -49,14 +49,16 @@ The choice of metric, completely depends on
 {:.question}
 ## How about the metrics for classification models?
 
-- **[Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index){:target="_blank"}** (*Jaccard similarity coefficient*) : 
+- **[Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index){:target="_blank"}** (*Jaccard similarity coefficient*) :
 
-	$$
-	J(y,\hat{y}) = \dfrac{\vert y\cap \hat{y}\vert}{\vert y\vert + \vert \hat{y}\vert - \vert y\cap \hat{y}\vert}
-	$$
-
-	{:.img-full-50}
-	![Jaccard index]({{img-url}}/jaccard.png)
+  <div class="columns-2" markdown="1">
+  $$
+  J(y,\hat{y}) = \dfrac{\vert y\cap \hat{y}\vert}{\vert y\vert + \vert \hat{y}\vert - \vert y\cap \hat{y}\vert}
+  $$
+  
+  {:.img-full-normal}
+  ![Jaccard index]({{img-url}}/jaccard.png)
+  </div>
 
 	- $0 \le J \le 1$.
 	- **<mark>Higher is better</mark>** : The common part is bigger, thus the numerator is bigger and the denominator is smaller.
