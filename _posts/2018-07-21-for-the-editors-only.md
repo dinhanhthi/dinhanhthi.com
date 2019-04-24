@@ -45,7 +45,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 ## Side by side figure and content
 
 ~~~ html
-<div class="columns-2">
+<div class="columns-2" markdown="1">
 Texts
 
 ![alt](/link)
