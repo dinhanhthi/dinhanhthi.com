@@ -11,6 +11,8 @@ date: 2019-04-21
 writing: 1
 ---
 
+{% include toc.html %}
+
 {% assign img-url = '/img/post/ML' %}
 
 Evaluation metrics are used to explain the performance of a model. Basically, we can compare the *actual values* and the *predicted values* to calculate the accuracy of our models. In this post, I try to understand the meaning and usage of some popular errors in the model evaluation.
@@ -101,6 +103,13 @@ The choice of metric, completely depends on
 	~~~ python
   sklearn.metrics.log_loss
 	~~~
+
+- **Accuracy score** : using in **scikit-learn**
+
+  ~~~ python
+  sklearn.metrics.accuracy_score(y_test, y_pred)
+  # accuracy_score = jaccard_similarity_score (binary & muticlass classification)
+  ~~~
 
 {:.question}
 ## The idea of K-fold cross validation?
