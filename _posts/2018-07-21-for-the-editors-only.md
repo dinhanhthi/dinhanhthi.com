@@ -8,6 +8,8 @@ math: 1
 date: 2019-04-18
 ---
 
+{% include toc.html %}
+
 <div class="alert alert-warning" role="alert" markdown="1">
 This post is only for me to write the posts, please read [**others**](/blog).
 </div>
@@ -25,6 +27,14 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - `update: 1`: if you just update the content of the post. Notice that, the badge "update" is only showed if the updated date is under 7 days.
 - `writing: 1`: if you are writing the post, it's not finished yet.
 - `mychoice: 1`: if you make this post as your best choice.
+
+## Add table of contents
+
+The table of contents is only shown if the min-width of the viewport is 1300 px. If you wanna insert the toc in some post, just add following line at the beginning of the post,
+
+~~~ html
+{% raw %}{% include toc.html %}{% endraw %}
+~~~
 
 ## Reading file
 

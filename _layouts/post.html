@@ -11,5 +11,9 @@ layout: page
     <a href="{{site.url}}{{site.baseurl}}/tags#{{tag | replace: " ","_"}}"> {{ tag }}</a>{% if forloop.length > 1 and forloop.last != true %},{% endif %}{% endfor %}.
 </p>
 
+{% if page.toc %}
+  {% include toc.html %}
+{% endif %}
+
 {{ content }}
 
