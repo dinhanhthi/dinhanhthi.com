@@ -15,7 +15,7 @@
           </a>
       {% endfor %}
       <div class="nav-search order-2">
-        <form action="{{ site.baseurl }}/search" method="get">
+        <form action="{{site.url}}{{ site.baseurl }}/search" method="get">
           <input name="q" class="nav-search-input" type="search" placeholder="search posts..." aria-label="search posts...">
           <button class="nav-search-submit" type="submit">
             <i class="fa fa-search" aria-hidden="true"></i>

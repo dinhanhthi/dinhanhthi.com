@@ -24,13 +24,13 @@
   color: d6baff
   order: 3
 - title: Drawing
-  url: "#drawing"
+  url: "/#drawing"
   icon: fas fa-drafting-compass
   name: drawing
   color: fdb54b
   order: 3
 - title: Notes
-  url: "#mynote"
+  url: "/#mynote"
   icon: fas fa-edit
   name: note
   color: 6bdcff
