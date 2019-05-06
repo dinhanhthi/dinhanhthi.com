@@ -16,11 +16,11 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 
 {% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
 
-I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/dataScienceLearning){:target="_blank"}).
+I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/DSLearning){:target="_blank"}).
 
 - <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-green">[certificated](https://app.dataquest.io/profile/dinhanhthimail){:target="_blank"}</span> **[Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"}** (*31 courses*) / **[Data Engineer](https://www.dataquest.io/path/data-engineer/){:target="_blank"}** (*7 courses*) on Dataquest.
 - <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-green">[certificated](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:target="_blank"}</span> **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"}** on Coursera (*9 courses*).
-- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-orange">60<sup>+</sup> badges</span> **[Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"}** and **[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
+- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-orange">80<sup>+</sup> badges</span> **[Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"}** and **[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
 - <span class="tbadge badge-gray">I'm reading</span> [**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"} written by Trevor Hastie *et al.*
 - <span class="tbadge badge-green">[certificated](https://www.coursera.org/account/accomplishments/verify/WJ9DNBMRQDJ8){:target="_blank"}</span> I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
 
