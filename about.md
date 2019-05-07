@@ -14,6 +14,9 @@ After my Ph.D., I am currently learning by myself **Data Science**. I use this w
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
+{:.alert.alert-warning.mt-4.text-center}
+[**Check out my learning log**]({{site.url}}{{site.baseurl}}/my-learning-log "Thi's learning log")!
+
 {% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/DSLearning){:target="_blank"}).
