@@ -17,13 +17,23 @@ js:
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-9">
-        {% assign mycv = site.data.me.cv %}
-        {% include heading-title.html title="Find me on" icon="fas fa-globe-asia" more="my CV" target="true" insite=mycv cclass="mycv" %}
+        {% assign mycv = '/about' %}
+        {% include heading-title.html title="Find me on" icon="fas fa-globe-asia" more="my CV" insite=mycv cclass="mycv" %}
       </div>
     </div>
   </div>
   {% include me-social.html %}
 </section>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-9">
+      <p class="alert alert-warning mt-4 text-center">
+        <strong><a href="{{site.url}}{{site.baseurl}}/my-learning-log">Check out my learning log</a></strong>!
+      </p>
+    </div>
+  </div>
+</div>
 
 <!-- Projects -->
 <section class="section">
