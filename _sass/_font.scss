@@ -49,6 +49,10 @@ li > ol, li > ul{
   a{
     color: inherit;
   }
+  &.small{
+    font-size: 0.8rem;
+    padding: 0 3px 2px 3px;
+  }
 }
 
 .badge-green{
@@ -196,4 +200,13 @@ p.cat-tag{
   @media (max-width: 767px){
     grid-template-columns: 1fr;
   }
+}
+
+// tick box
+.far.fa-check-square{
+  color: #1e951e;
+}
+// untick box
+.far.fa-square{
+  color: #ababab;
 }
