@@ -49,6 +49,7 @@ The table of contents is only shown if the min-width of the viewport is 1300 px.
 ~~~{% raw %}
 - {:.ongoing} Ongoing works! [my progress](/link){:target="_blank".}
 - {:.finish} Finished works!
+- {:.delay} Comback later!
 - {:.fail} Fail!
 {% endraw %}~~~
 

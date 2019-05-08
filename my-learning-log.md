@@ -13,7 +13,8 @@ I wantn to be an expert in **Data Science** and **Artificial Intelligence** and 
 
 <span class="task finish d-inline-block mr-3">Finished tasks!</span>
 <span class="task ongoing d-inline-block mr-3">Ongoing tasks!</span>
-<span class="task fail d-inline-block">Come back later!</span>
+<span class="task delay d-inline-block mr-3">Come back later!</span>
+<span class="task fail d-inline-block">Interrupted tasks!</span>
 
 ## 5 / 2019
 
@@ -36,7 +37,7 @@ I wantn to be an expert in **Data Science** and **Artificial Intelligence** and 
 ## 2 / 2019
 
 - {:.finish} Design a beautiful theme for personal websites. [My achievement.](https://github.com/dinhanhthi/TaniaJekyll){:.url target="_blank"}
-- {:.fail} Following the [Web-developement path](https://www.codecademy.com/learn/paths/web-development){:target="_blank"} on Codecademy.
+- {:.delay} Following the [Web-developement path](https://www.codecademy.com/learn/paths/web-development){:target="_blank"} on Codecademy.
 
 ## 1 / 2019
 

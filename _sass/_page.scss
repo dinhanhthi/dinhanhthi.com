@@ -46,6 +46,10 @@
   }
   li.fail:before, .task.fail:before{
     content: "\f057";
+    color: #f16060;
+  }
+  li.delay:before, .task.delay:before{
+    content: "\f06a";
     color: #fa9815;
   }
 }
