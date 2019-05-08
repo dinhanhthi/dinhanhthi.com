@@ -4,3 +4,48 @@
 .disqus-comments{
   margin-top: 3rem;
 }
+
+
+.page-content.learning-log{
+  a.url{
+    font-weight: 600;
+    font-style: italic;
+    &:hover{
+      color: $a-hover;
+    }
+  }
+  .finish .url{
+    color: #1e951e;
+  }
+  .ongoing .url{
+    color: #ce6a2b;
+  }
+  ul{
+    list-style: none;
+    padding-left: 20px;
+    li{
+      margin-bottom: 1rem;
+    }
+  }
+  li, .task{
+    &:before{
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f058";
+      margin-right: 7px;
+      font-size: 1.2rem;
+      float: left;
+      line-height: 1.25;
+    }
+  }
+  li.finish:before, .task.finish:before{
+    color: #1e951e;
+  }
+  li.ongoing:before, .task.ongoing:before{
+    color: #888;
+  }
+  li.fail:before, .task.fail:before{
+    content: "\f057";
+    color: #fa9815;
+  }
+}
