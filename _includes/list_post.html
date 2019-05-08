@@ -1,9 +1,6 @@
 <ul class="books">
   {% for item in site.posts limit: include.limit %}
     <li class="item">
-      {% if item.update %}
-        <span class="tbadge badge-green">update</span>
-      {% endif %}
       {% if item.writing %}
         <span class="tbadge badge-gray">I'm writing</span>
       {% endif %}
@@ -13,7 +10,7 @@
       <span class="title">
         <a href="{{item.url}}">{{item.title}}</a>
       </span>
-      <span class="author"> &mdash; {{ item.date | date_to_string }}.</span>
+      <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
       <span class="intro">{{item.description}}</span>
     </li>
   {% endfor %}
