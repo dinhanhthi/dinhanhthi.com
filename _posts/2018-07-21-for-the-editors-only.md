@@ -5,7 +5,8 @@ subtitle: restricted area
 tags: [others]
 categories: others
 math: 1
-date: 2019-04-18
+update: 1
+date: 2019-05-08
 ---
 
 {% include toc.html %}
@@ -21,12 +22,14 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 </div>
 
 - `math: 1` : only add if you wanna use math equations inside post.
-- `categories`: categories among `others`, `math`, `data-science`, `machine-learning`.
-- `img`: thumbnail of the post .
-- `bigimg`: background photo of the post (showing on shared post on facebook)
-- `update: 1`: if you just update the content of the post. Notice that, the badge "update" is only showed if the updated date is under 7 days.
-- `writing: 1`: if you are writing the post, it's not finished yet.
-- `mychoice: 1`: if you make this post as your best choice.
+- `categories: [cat1, cat2]` : add the categories/topics for posts. Refer to [the list of categories]({{site.url}}{{site.baseurl}}/categories).
+- `tags: [tag1, tag2]` : add tags for posts. Refer to [the list of tags]({{site.url}}{{site.baseurl}}/tags).
+- `img` : thumbnail of the post .
+- `bigimg` : background photo of the post (showing on shared post on facebook)
+- `update: 1` : if you just update the content of the post.
+- `writing: 1` : if you are writing the post, it's not finished yet.
+- `mychoice: 1` : if you make this post as your best choice.
+- `custom-css` : if some page or post has different css, indicate it here.
 
 ## Add table of contents
 
@@ -40,6 +43,14 @@ The table of contents is only shown if the min-width of the viewport is 1300 px.
 
 - `reading: 1`: if you're reading this book.
 - `mychoice: 1`: if you make this book as your best choice.
+
+## My learning log
+
+~~~{% raw %}
+- {:.ongoing} Ongoing works! [my progress](/link){:target="_blank".}
+- {:.finish} Finished works!
+- {:.fail} Fail!
+{% endraw %}~~~
 
 ## Inset figures
 
