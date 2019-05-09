@@ -18,18 +18,18 @@ This post is only for me to write the posts, please read [**others**](/blog).
 ## Front matter
 
 <div class="alert alert-success" role="alert" markdown="1">
-If you don't want to use any item below, don't write it down. `math: 0` will be considered similarly to `math: 1` and jekyll understand that they are the same unless you don't write either of them.
+If you don't want to use any item below, don't write it down. `math##  ##: 0` will be considered similarly to `math: 1` and jekyll understand that they are the same unless you don't write either of them.
 </div>
 
 - `math: 1` : only add if you wanna use math equations inside post.
 - `categories: [cat1, cat2]` : add the categories/topics for posts. Refer to [the list of categories]({{site.url}}{{site.baseurl}}/categories).
 - `tags: [tag1, tag2]` : add tags for posts. Refer to [the list of tags]({{site.url}}{{site.baseurl}}/tags).
 - `img` : thumbnail of the post .
-- `bigimg` : background photo of the post (showing on shared post on facebook)
 - `update: 1` : if you just update the content of the post.
 - `writing: 1` : if you are writing the post, it's not finished yet.
 - `mychoice: 1` : if you make this post as your best choice.
 - `custom-css` : if some page or post has different css, indicate it here.
+- `vn: 1` : if the post is written in vietnamese.
 
 ## Add table of contents
 

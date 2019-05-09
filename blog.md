@@ -6,7 +6,6 @@ nav: blog
 icon: fab fa-leanpub
 color: "#aafdb5"
 permalink: /blog
-comment: 1
 ---
 
 These articles are written **after** I learn something with a deeper study besides the courses. They are more well-structured than [these instant notes](https://mynote.dinhanhthi.com){:target="_blank"} which are taken during the courses.
@@ -16,4 +15,7 @@ I typically focus on simple and more understandable answers. These posts aren’
 
 {% include list_post.html %}
 
+{% include heading-title.html title="Vietnam corner" insite="/vietnam-corner" icon="fas fa-heart" %}
+
+{% include list_post.html vn="true" limit=5 %}
 

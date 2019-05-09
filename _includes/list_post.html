@@ -1,17 +1,84 @@
-<ul class="books">
-  {% for item in site.posts limit: include.limit %}
-    <li class="item">
-      {% if item.writing %}
-        <span class="tbadge badge-gray">I'm writing</span>
+{% if include.vn != "true" %}
+  <ul class="books">
+    {% assign count = 1 %}
+    {% for item in site.posts %}
+      {% if include.limit %}
+        {% unless item.vn or count > include.limit %}
+          {% assign count = count | plus: 1 %}
+          <li class="item">
+            {% if item.writing %}
+              <span class="tbadge badge-gray">I'm writing</span>
+            {% endif %}
+            {% if item.mychoice %}
+              <span class="tbadge badge-yellow">my choice</span>
+            {% endif %}
+            <span class="title">
+              <a href="{{item.url}}">{{item.title}}</a>
+            </span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="intro">{{item.description}}</span>
+          </li>
+        {% endunless %}
+      {% else %}
+        {% unless item.vn %}
+          {% assign count = count | plus: 1 %}
+          <li class="item">
+            {% if item.writing %}
+              <span class="tbadge badge-gray">I'm writing</span>
+            {% endif %}
+            {% if item.mychoice %}
+              <span class="tbadge badge-yellow">my choice</span>
+            {% endif %}
+            <span class="title">
+              <a href="{{item.url}}">{{item.title}}</a>
+            </span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="intro">{{item.description}}</span>
+          </li>
+        {% endunless %}
       {% endif %}
-      {% if item.mychoice %}
-        <span class="tbadge badge-yellow">my choice</span>
+    {% endfor %}
+  </ul>
+{% else %}
+  <ul class="books">
+    {% assign count = 0 %}
+    {% for item in site.posts %}
+      {% if include.limit %}
+        {% if item.vn and count < include.limit %}
+          {% assign count = count | plus: 1 %}
+          <li class="item">
+            {% if item.writing %}
+              <span class="tbadge badge-gray">I'm writing</span>
+            {% endif %}
+            {% if item.mychoice %}
+              <span class="tbadge badge-yellow">my choice</span>
+            {% endif %}
+            <span class="title">
+              <a href="{{item.url}}">{{item.title}}</a>
+            </span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="intro">{{item.description}}</span>
+          </li>
+        {% endif %}
+      {% else %}
+        {% if item.vn %}
+          {% assign count = count | plus: 1 %}
+          <li class="item">
+            {% if item.writing %}
+              <span class="tbadge badge-gray">I'm writing</span>
+            {% endif %}
+            {% if item.mychoice %}
+              <span class="tbadge badge-yellow">my choice</span>
+            {% endif %}
+            <span class="title">
+              <a href="{{item.url}}">{{item.title}}</a>
+            </span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="intro">{{item.description}}</span>
+          </li>
+        {% endif %}
       {% endif %}
-      <span class="title">
-        <a href="{{item.url}}">{{item.title}}</a>
-      </span>
-      <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
-      <span class="intro">{{item.description}}</span>
-    </li>
-  {% endfor %}
-</ul>
+    {% endfor %}
+  </ul>
+{% endif %}
+
