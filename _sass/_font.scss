@@ -39,8 +39,9 @@ li > ol, li > ul{
 }
 
 .tbadge{
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   padding: 0 5px 2px 5px;
+  line-height: 1.2;
   border-radius: 3px;
   border: 1px solid;
   display: inline-block;
@@ -77,6 +78,12 @@ li > ol, li > ul{
   border-color: #f7e0c5;
   background: #fff4e7;
   color: #b65929;
+}
+
+.badge-blue{
+  border-color: #c5d8f7;
+  background: #e7f8ff;
+  color: #3d7fc8;
 }
 
 .small-text{
