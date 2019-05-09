@@ -8,14 +8,11 @@
 
 .page-content.learning-log{
   a.url{
-    font-weight: 600;
     font-style: italic;
+    color: #555;
     &:hover{
       color: $a-hover;
     }
-  }
-  .finish .url{
-    color: #1e951e;
   }
   .ongoing .url{
     color: #ce6a2b;
@@ -39,7 +36,7 @@
       margin-right: 7px;
       font-size: 1.2rem;
       float: left;
-      line-height: 1.25;
+      line-height: 1.45;
     }
   }
   li.finish:before, .task.finish:before{
