@@ -34,7 +34,7 @@ I wantn to be an expert in **Data Science** and **Artificial Intelligence** and 
 ## 3 / 2019
 
 - {:.finish} <span class="tbadge badge-blue">Web</span> Design / Modify [a new theme](https://github.com/dinhanhthi/dinhanhthi.com){:target="_blank"} for my personal website (this site, a jekyll theme). [My achievement.](https://dinhanhthi.com){:.url target="_blank"}
-- {:.finish} Finish 50% of the course "[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}" on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
+- {:.finish} <span class="tbadge badge-orange">Python</span> Finish 50% of the course "[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}" on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
 - {:.fail} <span class="tbadge badge-orange">Python</span> Practice [coding Python 3](https://www.hackerrank.com/domains/python){:target="_blank"} on Hackerrank. [My progress,](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
 - {:.fail} <span class="tbadge badge-orange">Python</span> Practice [coding "30 days of code"](https://www.hackerrank.com/domains/tutorials/30-days-of-code){:target="_blank"} on Hackerrank. [My progress.](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
 
