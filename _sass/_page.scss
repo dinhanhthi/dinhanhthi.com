@@ -25,6 +25,10 @@
     padding-left: 20px;
     li{
       margin-bottom: 1rem;
+      padding-left: 25px;
+      &:before{
+        margin-left: -25px;
+      }
     }
   }
   li, .task{
