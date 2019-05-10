@@ -5,6 +5,7 @@ tags: [cảm nhận, nhật ký]
 categories: [vietnam corner]
 vn: 1
 comment: 1
+math: 1
 ---
 
 Hôm nay U22 nam Việt Nam thua nên buồn quá. Sẵn đây post một bài vừa liên quan lại vừa không liên quan.

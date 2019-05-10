@@ -7,7 +7,7 @@ vn: 1
 comment: 1
 ---
 
-Đang đọc quyển **The code book** của Simon Sign (tác giả quyển *Định lý cuối cùng của Fermat?*), tôi tóm tắt một câu chuyện thế này.
+Đang đọc quyển **The code book** của Simon Sign (tác giả quyển *Định lý cuối cùng của Fermat*), tôi tóm tắt một câu chuyện thế này.
 
 Ngay từ thời cổ đại, con người ta đã ý thức được tầm quan trọng của thông tin liên lạc và thấy rằng cần phải làm sao ẩn đi nội dung các bức thư để tránh sự tò mò của kẻ khác. Tuy nhiên trình độ khoa học kỹ thuật, tri thức và con người thời đó chỉ cho phép họ giấu đi bức thư thay vì mã hóa nó. Giấu thư nghĩa là nội dung thư và hình thức thư không thay đổi, chỉ là làm sao cho kẻ tò mò không tìm thấy được bức thư mà thôi. Còn mã hóa thư có nghĩa là cho dù rơi vào tay kẻ tọc mạch, họ cũng không biết nội dung bức thư là gì.
 
@@ -33,6 +33,4 @@ Tôi tạm dừng việc kể câu chuyện trên. Có rất nhiều điều mà
 
 Đôi lúc bạn cũng nên ngốc nghếch đi 1 tí để có thể giải quyết các vấn đề mà bạn nghĩ là cuộc sống đang chơi khó mình. Rồi chúng cũng được giải quyết mà thôi, quan trọng là bạn có đủ ngốc để theo đuổi nó đến cùng hay không.
 
-Có lẽ vậy mà Steve Jobs đã từng nói
-
-> Stay hungry, stay foolish.
+Có lẽ vậy mà Steve Jobs đã từng nói "**Stay hungry, stay foolish.**" (*Hãy cứ khát khao, hãy cứ dại khờ.*)

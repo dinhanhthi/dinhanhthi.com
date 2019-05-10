@@ -9,7 +9,7 @@ permalink: /my-learning-log
 custom-css: "learning-log"
 ---
 
-I wantn to be an expert in **Data Science** and **Artificial Intelligence** and below are what I've learned/done so far to achieve it.
+I want to be an expert in **Data Science** and **Artificial Intelligence** and below are what I've learned/done so far to achieve it.
 
 <span class="task finish d-inline-block mr-3">Finished tasks!</span>
 <span class="task ongoing d-inline-block mr-3">Ongoing tasks!</span>
@@ -21,7 +21,7 @@ I wantn to be an expert in **Data Science** and **Artificial Intelligence** and 
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish 20% of [Data Engineer path](https://www.dataquest.io/path/data-engineer/){:target="_blank"} on Dataquest (*7 courses*).
 - {:.ongoing} <span class="tbadge badge-green">French</span> Learn to finish 50% of French B1 on [Busuu](https://www.busuu.com/){:target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish the 1 remaining course of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*).
-- {:.ongoing} <span class="tbadge badge-green">French</span> Finish 40/114 of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
+- {:.ongoing} <span class="tbadge badge-green">French</span> Finish 40/114 of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (*Leisure*).
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish 20% of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Read 10% of the book [The Elements of Statistical Learning](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"} written by *Trevor Hastie et al.*.
 
@@ -36,7 +36,7 @@ I wantn to be an expert in **Data Science** and **Artificial Intelligence** and 
 - {:.finish} <span class="tbadge badge-blue">Web</span> Design / Modify [a new theme](https://github.com/dinhanhthi/dinhanhthi.com){:target="_blank"} for my personal website (this site, a jekyll theme). [My achievement.](https://dinhanhthi.com){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-orange">Python</span> Finish 50% of the course [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
 - {:.fail} <span class="tbadge badge-orange">Python</span> Practice [coding Python 3](https://www.hackerrank.com/domains/python){:target="_blank"} on Hackerrank. [My progress,](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
-- {:.fail} <span class="tbadge badge-orange">Python</span> Practice [coding "30 days of code"](https://www.hackerrank.com/domains/tutorials/30-days-of-code){:target="_blank"} on Hackerrank. [My progress.](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
+- {:.fail} <span class="tbadge badge-orange">Python</span> Practice coding [30 days of code](https://www.hackerrank.com/domains/tutorials/30-days-of-code){:target="_blank"} on Hackerrank. [My progress.](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
 
 ## 2 / 2019
 
