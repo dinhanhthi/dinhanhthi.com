@@ -29,7 +29,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 - {:.finish} <span class="tbadge badge-orange">Python</span> Finish the course [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish 8/9 courses of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*). [My progress.](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:.url target="_blank"}
-- {:.finish} <span class="tbadge badge-green">French</span> Earn 190 French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
+- {:.finish} <span class="tbadge badge-green">French</span> Earn 190 crowns French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 
 ## 3 / 2019
 
