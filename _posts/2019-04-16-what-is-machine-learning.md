@@ -91,7 +91,7 @@ print(neigh.predict_proba([[0.9]]))
 - The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree.
 - We need to choose the best attribute with the highest significance and split the data based on that attribute. But what is the measure to choose this attribute?
 - We base on the **entropy** and the **information gain**.
-  - **Entropy** (of each node, <mark>between 0 and 1</mark>) : the amount of information disorder or the amount of randomness in the data. <mark>The lower the entropy, the less uniform the distribution, the purer the node.</mark>. Each node (entropy) have several ways to split the data (based on different attributes)
+  - **Entropy** (of each node, <mark>between 0 and 1</mark>) : the amount of information disorder or the amount of randomness in the data. <mark>The lower the entropy, the less uniform the distribution, the purer the node</mark>. Each node (entropy) have several ways to split the data (based on different attributes)
     
     $$
     E = -p(A)\log(p(A)) - p(B)\log(p(B))
