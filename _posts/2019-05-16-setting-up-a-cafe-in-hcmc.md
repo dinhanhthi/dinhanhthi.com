@@ -98,7 +98,7 @@ Look at the most 5 categories, we have *Vietnamese Restaurant* (133), *Café* (1
 
 ### Top 10 venue categories in each district
 
-Nex table shows us the most 10 categories in each district. For less competition, we can choose districts whose first most common venue is not café. For examples, districts 1, 10, 2, 3, 4, 5.
+The nex table shows us the most 10 categories in each district. For less competition, we can choose districts whose first most common venue is not café. For examples, districts 1, 10, 2, 3, 4, 5.
 
 {:.img-full-normal}
 ![Top 10 venue categories in each district]({{img-url}}/df_10.jpg)
@@ -122,8 +122,8 @@ We can name the clusters like these,
 The following figure illustrates the clusters of all urban districts in HCMC. With this map, we can easily  distinguish the clusters between districts.
 
 {:.img-full-normal}
-![The maps of clusters]({{img-url}}/cluster.jpg)
-*The maps of clusters. Cluster 0 (Red), Cluster 1 (Violet), Cluster 2 (Cyan).*
+![The map of clusters]({{img-url}}/cluster.jpg)
+*The map of clusters. Cluster 0 (Red), Cluster 1 (Violet), Cluster 2 (Cyan).*
 
 ### AHP vs the number of café
 
