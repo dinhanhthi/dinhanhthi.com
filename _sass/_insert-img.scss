@@ -51,6 +51,14 @@ p > img{
 	}
 }
 
+.img-full-75{
+	@media (min-width:768px) {
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
 .img-left{
 	margin-bottom: 1rem;
 	margin-top: 2rem;
@@ -96,4 +104,17 @@ p > img{
 		margin-left: 20px;
 		margin-top: 0.5rem;
 	}
+}
+
+.columns-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media (max-width: 767px){
+    grid-template-columns: 1fr;
+  }
+  .columns-2 .img-full-normal{
+  	padding-left: 10px;
+  	padding-right: 10px;
+  }
 }
