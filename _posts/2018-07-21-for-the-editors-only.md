@@ -5,7 +5,6 @@ subtitle: restricted area
 tags: [others]
 categories: others
 math: 1
-update: 1
 date: 2019-05-08
 ---
 
@@ -55,13 +54,43 @@ The table of contents is only shown if the min-width of the viewport is 1300 px.
 
 ## Inset figures
 
-- **Beginning of each post**: `{% raw %}{% assign img-url = '/img/post/ML' %}{% endraw %}` and then `{% raw %}![alternative]({{img-url}/figure.png}){% endraw %}`
-- Normal inserting: `![Describe](link/to/figures)`
-- Full width: `{% raw %}{% include img/full.html src="link/to/figures" des="description" %}{% endraw %}`
-- Full but modified: `{% raw %}{% include img/full-normal.html src="link/to/figures" des="description" %}{% endraw %}`
-- Full but 50% width: `{% raw %}{% include img/full-50.html src="link/to/figures" des="description" %}{% endraw %}`
-- Float to right: `{% raw %}{% include img/right.html src="link/to/figures" des="description" %}{% endraw %}`
-- Float to left: `{% raw %}{% include img/left.html src="link/to/figures" des="description" %}{% endraw %}`
+- **Beginning of each post**: 
+  ~~~{% raw %}
+  {% assign img-url = '/img/post/ML' %}{% endraw %}
+  ~~~
+  and then
+  ~~~{% raw %}
+  ![alternative]({{img-url}}/figure.png}){% endraw %}
+  ~~~
+- Normal inserting (without any class):
+  ~~~
+  ![Describe](link/to/figures)
+  ~~~
+- Full 100% width:
+  ~~~
+  {:.img-full-normal}
+  ![Describe](link/to/figures)
+  ~~~
+- Full but overflow outside the margin:
+  ~~~
+  {:.img-full}
+  ![Describe](link/to/figures)
+  ~~~
+- Full but 50% width. We can use **75** for the 75% width.
+  ~~~
+  {:.img-full-50}
+  ![Describe](link/to/figures)
+  ~~~
+- Float to right:
+  ~~~
+  {:.img-right}
+  ![Describe](link/to/figures)
+  ~~~
+- Float to left:
+  ~~~
+  {:.img-left}
+  ![Describe](link/to/figures)
+  ~~~
 
 
 ## Side by side figure and content
