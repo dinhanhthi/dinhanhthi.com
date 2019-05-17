@@ -127,6 +127,10 @@ Following figure illustrates the clusters of all urban districts in HCMC. With t
 
 ### AHP vs the number of café
 
+{:.img-full-normal}
+![AHP in clusters]({{img-url}}/df_ahp.jpg)
+*Districts in the clusters of AHP.*
+
 Look back to the average housing price table (AVH), we categorize them into 4 groups (unit: million VND). Next figure indicates that the low price housing take the majority. We need to focus on the **Low** and **Medium** housing price to set up our business.
 
 {:.img-full-50}
@@ -143,7 +147,7 @@ Look at next figure, we focus on:
 - **Low** AHP & **not many café** (cluster 0) : district 2, **<mark>district 4</mark>**, district 8, district 9 and Binh Tan.
 - **Low** AHP & medium number of café : district 12, Go Vap, Thu Duc.
 
-{:.img-full-normal}
+{:.img-full-75}
 ![The couple maps of AHP and the clusters]({{img-url}}/ahp_cluster.jpg)
 *The couple maps of AHP and the clusters.*
 
@@ -153,7 +157,7 @@ We should not rely only on the relationship between AHP and clusters. For exampl
 
 Next figure gives us a full picture about the relation between population density and the clusters.
 
-{:.img-full-normal}
+{:.img-full-75}
 ![The couple maps of clusters and the population density of each districts]({{img-url}}/ahp_density.jpg)
 *The couple maps of clusters and the population density of each districts.*
 
