@@ -178,6 +178,8 @@ Texts
 	</div>
 	~~~
 
+- Gray box of code : add class `{:.bg-gray}` before the code.
+
 ## Steps
 
 ~~~ html
@@ -223,6 +225,11 @@ Content of step 2.
 - Target blank
   ~~~
   [alt](/link){:target="_blank"}
+  ~~~
+- For the series of posts
+  ~~~
+  {:.series}
+  **For this series** : [part 1](/link), [part 2](/link).
   ~~~
 
 ## Math expressions
