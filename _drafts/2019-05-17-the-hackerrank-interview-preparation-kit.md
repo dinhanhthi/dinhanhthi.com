@@ -15,7 +15,7 @@ math: 1
 Below are my solutions for the challenges I've met in [this kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"}. They may not be the best but they work! If you have an any better idea, don't hesitate to put a comment below the post. All the codes are written in **Python**.
 
 {:.series}
-**In this series** : part 1, [part 2]({{site.url}}{{site.baseurl}}//the-hackerrank-interview-preparation-kit-2), [part 3]({{site.url}}{{site.baseurl}}//the-hackerrank-interview-preparation-kit-3).
+**In this series** : part 1, part 2.
 
 ## Warm-up Challenges
 
@@ -236,10 +236,11 @@ output:
 Too chaotic
 ~~~
 
-**<sbj>Idea</sbj>** : This exercise is a little complicated. We talk about 2 parts:
+**<sbj>Idea</sbj>** : This exercise is a little complicated. We talk about 3 parts:
 
-1. **When the "Too chaotic" happens?** : When there is some person moving from his old position to a new one more than $2$ units. Don't forget that the value of that guy is actually his old position and his index in `q` is his new one.
-2. 
+1. **When the "Too chaotic" happens?** When there is some person moving from his old position to a new one more than $2$ units. Don't forget that the value of that guy is actually his old position and his index in `q` is his new one.
+2. **How to find the minimum numbers of bribes?** It's actually the sum of all bribes that every person in the line take. In order to count the number of bribes some person takes, we count the number of people standing in front of him/her and they are wearing a bigger sticker (they are bigger than A so they have bribed and passed A to get this position).
+3. **The efficiency** : If we check all of the guys standing before the current guy, the complexity of our algorithm is not so good. Remember that a person A cannot bribe more than two others and A still wears the same sticker denoting A's original places. Therefore, we don't need to check all of the guys standing before A, we just need to check the guys standing at most 2 from A. For example, the guy $5$ is standing at the place $8$, we just need to check all the guys standing from the position $3$ to the position $7$ (before where $5$'s standing). But why we don't consider positions $1$ and $2$? It's because if some B can bribe A to go up to position $1$ or $2$, they have to bribe $3$ and $4$ too. Other words, B have to bribe at least $3$ people, it breaks the rule!
 
 ~~~ python
 def minimumBribes(q):
@@ -248,18 +249,41 @@ def minimumBribes(q):
     if (v - 1) - i > 2:
       print("Too chaotic")
       return
-    count += sum(e < v for e in q[i + 1:])
+    count += sum(e > v for e in q[max(0, v - 2):i])
+    # if we don't need the efficiency
+    # count += sum(e > v for e in q[:i])
   print(count)
 ~~~
 
-
-
 ### Minimum Swaps 2
+
+You are given an unordered array consisting of consecutive integers $\in [1,2,3,\ldots]$ without any duplicates. You are allowed to swap any two elements. You need to find the minimum number of swaps required to sort the array in ascending order. For example, given the array $arr=[7,1,3,2,4,5,6]$ we perform the following steps:
+
+{:.bg-gray}
+~~~
+# input: 7 1 3 2 4 5 6
+
+i   arr                     swap (indices)
+0   [7, 1, 3, 2, 4, 5, 6]   swap (0,3)
+1   [2, 1, 3, 7, 4, 5, 6]   swap (0,1)
+2   [1, 2, 3, 7, 4, 5, 6]   swap (3,4)
+3   [1, 2, 3, 4, 7, 5, 6]   swap (4,5)
+4   [1, 2, 3, 4, 5, 7, 6]   swap (5,6)
+5   [1, 2, 3, 4, 5, 6, 7]
+
+# output: 5
+~~~
+
+**<sbj>Idea</sbj>** :
+
+~~~ python
+
+~~~
 
 ### Array Manipulation
 
 {:.ref}
-**In this series** : part 1, [part 2]({{site.url}}{{site.baseurl}}//the-hackerrank-interview-preparation-kit-2), [part 3]({{site.url}}{{site.baseurl}}//the-hackerrank-interview-preparation-kit-3).
+**In this series** : part 1, part 2.
 
 
 
