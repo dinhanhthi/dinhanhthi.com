@@ -4,7 +4,7 @@ title: "What I've learned from the specialization IBM Data Science Professional 
 subtitle: "I have finished the courses but what I actually learned from them?"
 description: "I have finished the courses but what I actually learned from them?"
 tags: [project, course]
-categories: [machine learning, data]
+categories: [machine learning, data science]
 comment: 1
 ---
 

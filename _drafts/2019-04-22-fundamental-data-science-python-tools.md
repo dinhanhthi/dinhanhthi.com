@@ -4,7 +4,7 @@ title: "Fundamental of some data science python tools"
 subtitle: besides the syntaxes
 description: "What are besides the syntaxes"
 tags: [python]
-categories: [data]
+categories: [data science]
 comment: 1
 writing: 1
 ---
