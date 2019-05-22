@@ -3,7 +3,7 @@ layout: post
 title: "Capstone project : Setting up a café in Ho Chi Minh City"
 description: "The final report for the course \"Applied Data Science Capstone\" given by IBM on Coursera."
 tags: [project, course]
-categories: [machine learning, data]
+categories: [data science]
 comment: 1
 math: 1
 ---

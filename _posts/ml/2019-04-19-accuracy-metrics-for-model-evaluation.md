@@ -8,7 +8,6 @@ categories: [machine learning]
 comment: 1
 math: 1
 date: 2019-04-21
-writing: 1
 ---
 
 {% include toc.html %}

@@ -3,8 +3,8 @@ layout: post
 title: "My favorite repositories on Github"
 subtitle: You must learn by yourself and don't forget to learn from others!
 description: "You must learn by yourself and don't forget to learn from others!"
-tags: [material]
-categories: [machine learning, data]
+tags: [collection]
+categories: [machine learning, data science, web development]
 comment: 1
 ---
 
