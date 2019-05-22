@@ -8,9 +8,8 @@ color: "#aafdb5"
 permalink: /blog
 ---
 
-These articles are written **after** I learn something with a deeper study besides the courses. They are more well-structured than [these instant notes](https://mynote.dinhanhthi.com){:target="_blank"} which are taken during the courses.
+These articles are **written after I learn something** with a deeper study besides the courses. They are more well-structured than [these instant notes](https://mynote.dinhanhthi.com){:target="_blank"} which are taken during the courses.
 
-{:.alert.alert-warning.mb-4}
 I typically focus on simple and more understandable answers. These posts aren’t the official and complete articles for such practical knowledge. You have to search and establish yourself the precise definitions and effective techniques outside these posts. If **you see I’m wrong somewhere**, please **let me know** at the comment section, thanks.
 
 {% include list_post.html %}
