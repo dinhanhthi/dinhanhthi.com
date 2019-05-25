@@ -6,9 +6,6 @@
   position: relative;
   overflow-x: hidden;
   margin-bottom: 1rem;
-  h1{
-    font-family: 'Josefin Sans', sans-serif;
-  }
 }
 
 .idx-header{
@@ -63,9 +60,10 @@
     font-size: 2.5rem;
   }
   h1{
-    font-size: 2.2rem;
+    font-size: 2rem;
+    font-weight: 600;
     @media screen and (max-width: 420px){
-      font-size: 1.9rem;
+      font-size: 1.8rem;
     }
   }
   h3{
