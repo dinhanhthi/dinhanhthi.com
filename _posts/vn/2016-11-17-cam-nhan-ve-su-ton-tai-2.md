@@ -26,4 +26,4 @@ Ngoài ra theo tôi viết nhật ký cũng là một cách rất hay giúp ta c
 Con người sinh ra cứ nghĩ mình được 60 tuổi đời nhưng thật ra mỗi người lại sống thọ với số năm khác nhau về mặt tư tưởng...
 
 {:.ref}
-[**Cảm nhận về sự tồn tại**](/thought/cam-nhan-ve-su-ton-tai) (bài 1).
+[**Cảm nhận về sự tồn tại**](/cam-nhan-ve-su-ton-tai) (bài 1).

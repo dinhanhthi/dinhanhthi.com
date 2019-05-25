@@ -24,4 +24,4 @@ Ta hay đặt mình làm trung tâm nhưng gần như không đúng chỗ. Ta ha
 "*Tôi suy nghĩ tức tôi tồn tại*", riêng Descartes là cái người duy nhất tôi thấy cũng không rạch ròi cái quan điểm qua-lại trên nhưng lại rất rạch ròi ở cái câu này.
 
 {:.ref}
-[**Cảm nhận về sự tồn tại**](/thought/cam-nhan-ve-su-ton-tai-2) (*bài 2*)
+[**Cảm nhận về sự tồn tại**](/cam-nhan-ve-su-ton-tai-2) (*bài 2*)
