@@ -83,7 +83,7 @@ The choice of metric, completely depends on
 
 	- $0 \le F\_1 \le 1$.
 	- **<mark>Higher is better</mark>** : look at the formular of $F_1$ to see the reason. It needs both the precison and recall to be bigger. Other words, the False Negative is smaller (the wrong selected items are less) and the False Negative is smaller too (the wrong non-selected items are less).
-	- **Hard to remember TP, TN, FP, FN?** What we choose (true/false), what the actual values (positive/negative = true/false). For example, "false positive" = "what we choose false are really false", "false negative" = "what we choose false are actually true".
+	- **Hard to remember TP, TN, FP, FN?** True/False indicates what we predicted are right/wrong. Positive/Negative indicates what we predicted (1 or 0). For example, "True Positive" contains "True", it means what we predicted are right and we predicted 1 in this case (Positive) . Another example, "False Positive" containing "False" showes that what we predicted are wrong and we predicted 1 in this case (Positive).
 
 	~~~ python
   sklearn.metrics.f1_score
