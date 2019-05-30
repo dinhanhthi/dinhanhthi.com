@@ -49,20 +49,6 @@ js:
   </div>
 </section>
 
-<!-- Reading -->
-<section id="reading" class="section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        {% include heading-title.html title="Recent read books" insite="/reading" icon="fas fa-book-reader" %}
-      </div>
-      <div class="col-lg-10 col-xl-8">
-        {% include list_reading.html limit=5 %}
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Blog -->
 <section class="section">
   <div class="container">
@@ -72,6 +58,20 @@ js:
       </div>
       <div class="col-lg-10 col-xl-8">
         {% include list_post.html limit=5 %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reading -->
+<section id="reading" class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-9">
+        {% include heading-title.html title="Recent read books" insite="/reading" icon="fas fa-book-reader" %}
+      </div>
+      <div class="col-lg-10 col-xl-8">
+        {% include list_reading.html limit=5 %}
       </div>
     </div>
   </div>
