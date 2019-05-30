@@ -48,7 +48,7 @@
           {% assign count = count | plus: 1 %}
           <li class="item">
             {% if item.writing %}
-              <span class="tbadge badge-gray">I'm writing</span>
+              <span class="tbadge badge-gray">đang viết</span>
             {% endif %}
             {% if item.mychoice %}
               <span class="tbadge badge-yellow">my choice</span>
@@ -56,7 +56,7 @@
             <span class="title">
               <a href="{{item.url}}">{{item.title}}</a>
             </span>
-            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date: "%d/%m/%Y" }}.</span>
             <span class="intro">{{item.description}}</span>
           </li>
         {% endif %}
@@ -73,7 +73,7 @@
             <span class="title">
               <a href="{{item.url}}">{{item.title}}</a>
             </span>
-            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date_to_string }}.</span>
+            <span class="author"> &mdash; {% if item.update %}updated on{% endif %} {{ item.date | date: "%d/%m/%Y" }}.</span>
             <span class="intro">{{item.description}}</span>
           </li>
         {% endif %}
