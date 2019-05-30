@@ -19,7 +19,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 6 / 2019
 
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish 20% of [Data Engineer path](https://www.dataquest.io/path/data-engineer/){:target="_blank"} on Dataquest (*7 courses*).
-- {:.ongoing} <span class="tbadge badge-green">French</span> Earn 300 crowns of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
+- {:.finish} <span class="tbadge badge-green">French</span> Earn 300 crowns of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-green">French</span> Learn to finish 20% of French B1 on [Busuu](https://www.busuu.com/){:target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Read 10% of the book [The Elements of Statistical Learning](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"} written by *Trevor Hastie et al.*.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish 20% of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
