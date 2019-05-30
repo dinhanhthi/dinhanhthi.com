@@ -6,7 +6,6 @@ description: "What are besides the syntaxes"
 tags: [python]
 categories: [data science]
 comment: 1
-writing: 1
 ---
 
 {% assign img-url = '/img/post/python' %}
