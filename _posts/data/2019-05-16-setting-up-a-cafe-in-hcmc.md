@@ -21,7 +21,7 @@ Check out my [**jupyter notebook**]({{site.url}}{{site.baseurl}}/files/capstone_
 
 If you have a chance to visit Ho Chi Minh City (HCMC), you will see that it’s one of the most active cities in the world. People here love to talk, to chat everywhere. The catering services in this city, therefore, very thriving.
 
-We need to clarify **the differences between *a coffee shop* and *a café***. The coffee shop has no similar connotations. From personal experience in the United States, a café serves meals, while a coffee shop usually just sells snacks (muffins, scones, shortbread). This is not strictly the case, and both usually serve coffee. In this project, we suppose to work only on the café.
+We need to clarify **the differences between *a coffee shop* and *a café***. The coffee shop has no similar connotations. In the United States, a café usually serves meals, while a coffee shop usually just sells snacks (muffins, scones, shortbread). This is not strictly the case, and both usually serve coffee. In this project, we suppose to work only on the café.
 
 Although there are already a lot of cafés in HCMC, their density between districts is not uniform. There are some districts containing too many cafés while there are less in some others. If we have some knowledge about the *population density*, the *housing price* in each district coupling with an overview of *the number of cafés*, we can have a better idea to set up a new business there.
 
