@@ -18,14 +18,20 @@ ul, ol{
 }
 
 li > ol, li > ul{
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   padding-left: 15px;
 }
 
+li > .table{
+  margin: 1rem 0;
+}
 
 // color
 .tgreen{
   color: $c-green;
+}
+.tgreenDark{
+  color: #2eaf6c;
 }
 .tyellow{
   color: $c-yellow-text;
