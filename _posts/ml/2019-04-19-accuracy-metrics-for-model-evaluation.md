@@ -68,7 +68,7 @@ The choice of metric, completely depends on
   sklearn.metrics.jaccard_similarity_score
 	~~~
 
-- **[F1-Score](https://en.wikipedia.org/wiki/F1_score){:target="_blank"}** (*F-score, F-measure*) : 
+- **[F1-Score](https://en.wikipedia.org/wiki/F1_score){:target="_blank"}** (*F-score, F-measure*) : I have [another post writing about this](/understand-confusion-matrix-and-f1-score){:target="_blank"}.
 
 	$$
 	\begin{align}
@@ -83,7 +83,7 @@ The choice of metric, completely depends on
 
 	- $0 \le F\_1 \le 1$.
 	- **<mark>Higher is better</mark>** : look at the formular of $F_1$ to see the reason. It needs both the precison and recall to be bigger. Other words, the False Negative is smaller (the wrong selected items are less) and the False Negative is smaller too (the wrong non-selected items are less).
-	- **Hard to remember TP, TN, FP, FN?** True/False indicates what we predicted are right/wrong. Positive/Negative indicates what we predicted (1 or 0). For example, "True Positive" contains "True", it means what we predicted are right and we predicted 1 in this case (Positive) . Another example, "False Positive" containing "False" showes that what we predicted are wrong and we predicted 1 in this case (Positive).
+	- **Hard to remember TP, TN, FP, FN?** read [this]({{site.url}}{{site.baseurl}}/understand-confusion-matrix-and-f1-score#remember-the-confusion-matrix){:target="_blank"}.
 
 	~~~ python
   sklearn.metrics.f1_score
