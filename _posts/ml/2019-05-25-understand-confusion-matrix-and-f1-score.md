@@ -19,7 +19,34 @@ This problem is mentioned as a "skewed class" in [the course of Andrew Ng](https
 
 ## TL;DR;
 
-Please step to [the Conclusion section](#conclusion).
+- **Confusion matrix**
+
+  {:.table.table-dark}
+  |              	|    predict (yes)   	|      predict (no)     	|        	|
+  |:------------:	|:------------------:	|:---------------------:	|:------:	|
+  | actual (yes) 	| <span class="tgreenDark">TP</span>	| <span class="tpinkLight">FN</span>	| **Recall** 	|
+  |  actual (no) 	| <span class="tpinkLight">FP</span> 	|   <span class="tgreenDark">TN</span>   	|        	|
+  |              	|      **Precision**     	|                       	|        	|
+
+  - **True Positive**{:.tgreenDark} (TP): what we **predict True** is **really True**.
+  - **True negative**{:.tgreenDark} (FN): what we **predict False** is **really False**.
+  - **False negative**{:.tpink} (FN): what we **predict False** is **actually True**.
+  - **False positve**{:.tpink} (FP): what we **predict True** is **actually False**.
+
+- **Precision** / **Recall**
+  - **Precision**: How many our positive predictions are really true?
+  - **Recall**: How many positive results belong to our predictions?
+
+- **F1-Score**: the harmonic mean(average) of the precision and recall.
+- **Accuracy** / **Specificity**: 
+  - **Accuracy**: How accurate our predictions to the whole predictions?
+  - **Specificity**: How many negative results belong to our predictions?
+- **When to use?**
+  - **Precision**: is used when the "wrongly predicted yes" influences much (e.g. email spam detection).
+  - **Recall**: is used when the "wrongly predicted no" influences much (e.g. fraud detection in the banking industry).
+  - **Accuaracy**: is used when we have symmetric datasets.
+  - **Specificity**: is used when we care about TN values and don’t want make false alarms of the FP values (e.g. drug test).
+  - **F1-Score**: is used when you have an uneven class distribution and we need a balance between precision and recall.
 
 ## Confusion matrix
 
@@ -33,8 +60,8 @@ We can see the above situation in the below table. It's called a **[confusion ma
 {:.table.table-dark}
 |              	    |    predict (yes)   	|      predict (no)     	|
 |:---------------:	|:------------------:	|:---------------------:	|
-| **actual (yes)** 	| 90 (<span class="tgreen">True Positive</span>) 	| 910 (<span class="tpink">False Negative</span>) 	|
-|  **actual (no)** 	| 0 (<span class="tpink">False Positive</span>) 	|   5 (<span class="tgreen">True Negative</span>)   	|
+| **actual (yes)** 	| 90 (<span class="tgreen">True Positive</span>) 	| 910 (<span class="tpinkLight">False Negative</span>) 	|
+|  **actual (no)** 	| 0 (<span class="tpinkLight">False Positive</span>) 	|   5 (<span class="tgreen">True Negative</span>)   	|
 
 In this case,
 
@@ -45,7 +72,7 @@ In this case,
 
 The FP and FN are also called [Type I error and Type II error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors){:target="_blank"} respectively.
 
-### Remember the confusion matrix?
+### How to remember the confusion matrix?
 
 But now, how can we remember the meaning of these terms? Here is a way.
 
@@ -175,37 +202,10 @@ When we want to evaluate a model, there are many methods we can use. In the view
   \mathrm{specificity} = \dfrac{TN}{FP + TN}
   $$
 
-{:#conclusion}
+
 ## Conclusion
 
-- **Confusion matrix**
-
-  {:.table.table-dark}
-  |              	|    predict (yes)   	|      predict (no)     	|        	|
-  |:------------:	|:------------------:	|:---------------------:	|:------:	|
-  | actual (yes) 	| <span class="tgreenDark">TP</span>	| <span class="tpink">FN</span>	| **Recall** 	|
-  |  actual (no) 	| <span class="tpink">FP</span> 	|   <span class="tgreenDark">TN</span>   	|        	|
-  |              	|      **Precision**     	|                       	|        	|
-
-  - **True Positive**{:.tgreenDark} (TP): what we **predict True** is **really True**.
-  - **True negative**{:.tgreenDark} (FN): what we **predict False** is **really False**.
-  - **False negative**{:.tpink} (FN): what we **predict False** is **actually True**.
-  - **False positve**{:.tpink} (FP): what we **predict True** is **actually False**.
-
-- **Precision** / **Recall**
-  - **Precision**: How many our positive predictions are really true?
-  - **Recall**: How many positive results belong to our predictions?
-
-- **F1-Score**: the harmonic mean(average) of the precision and recall.
-- **Accuracy** / **Specificity**: 
-  - **Accuracy**: How accurate our predictions to the whole predictions?
-  - **Specificity**: How many negative results belong to our predictions?
-- **When to use?**
-  - **Precision**: is used when the "wrongly predicted yes" influences much (e.g. email spam detection).
-  - **Recall**: is used when the "wrongly predicted no" influences much (e.g. fraud detection in the banking industry).
-  - **Accuaracy**: is used when we have symmetric datasets.
-  - **Specificity**: is used when we care about TN values and don’t want make false alarms of the FP values (e.g. drug test).
-  - **F1-Score**: is used when you have an uneven class distribution and we need a balance between precision and recall.
+In a nutshell, please step to [TL;DR;](#tldr). For a real application of using metrics in an imbalanced classes problem, I'll write another post.
 
 ## References
 
