@@ -231,6 +231,7 @@ Content of step 2.
   {:.series}
   **For this series** : [part 1](/link), [part 2](/link).
   ~~~
+- Text colors: using these classes `tgreen`, `tpink`, `tyellow`.
 
 ## Math expressions
 
