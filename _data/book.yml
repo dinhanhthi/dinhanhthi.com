@@ -1,3 +1,8 @@
+- title: "Homo Deus: A Brief History of Tomorrow"
+  author: Yuval Noah Harari
+  reading: true
+  intro: The next book of Harari after his Sapiens.
+  goodreads: https://www.goodreads.com/book/show/30363345-homo-deus
 - title: "The Elements of Statistical Learning: Data Mining, Inference, and Prediction"
   author: Trevor Hastie et al
   reading: true
@@ -5,9 +10,8 @@
   goodreads: https://www.goodreads.com/book/show/148009.The_Elements_of_Statistical_Learning
 - title: "Sapiens: A Brief History of Humankind"
   author: Yuval Noah Harari
-  reading: true
   intro: Go through the history of human from the first individuals to walk the earth to the radical.
-  goodreads: https://www.goodreads.com/book/show/23692271-sapiens
+  goodreads: https://www.goodreads.com/review/show/2029179832
   mychoice: 1
 - title: Tâm nguyện cuối cùng
   author: Mi Lei
