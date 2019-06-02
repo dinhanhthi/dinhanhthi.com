@@ -15,7 +15,7 @@ math: 1
 This is the final report for the course \"Applied Data Science Capstone\" given by IBM on Coursera.
 
 {:.alert.alert-success}
-Check out my [**jupyter notebook**]({{site.url}}{{site.baseurl}}/files/capstone_project){:target="_blank"} for this project!
+Check out my [jupyter notebook]({{site.url}}{{site.baseurl}}/files/capstone_project){:target="_blank"} for this project!
 
 ## Problem's description
 
