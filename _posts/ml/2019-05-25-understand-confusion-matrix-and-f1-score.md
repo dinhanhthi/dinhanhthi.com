@@ -21,7 +21,7 @@ This problem is mentioned as a "skewed class" in [the course of Andrew Ng](https
 
 - **Confusion matrix**
 
-  {:.table.table-dark}
+  {:.table.bd-right.table-dark}
   |              	|    predict (yes)   	|      predict (no)     	|        	|
   |:------------:	|:------------------:	|:---------------------:	|:------:	|
   | actual (yes) 	| <span class="tgreenDark">TP</span>	| <span class="tpinkLight">FN</span>	| **Recall** 	|
@@ -35,18 +35,42 @@ This problem is mentioned as a "skewed class" in [the course of Andrew Ng](https
 
 - **Precision** / **Recall**
   - **Precision**: How many our positive predictions are really true?
+
+    $$
+    \mathrm {precision} = \dfrac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FP}}.
+    $$
+
   - **Recall**: How many positive results belong to our predictions?
 
-- **F1-Score**: the harmonic mean(average) of the precision and recall.
+    $$
+    \mathrm {recall} = \dfrac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}.
+    $$
+
+- **F1-Score**: the harmonic mean (average) of the precision and recall.
 - **Accuracy** / **Specificity**: 
   - **Accuracy**: How accurate our predictions to the whole predictions?
+
+    $$
+    \mathrm{accuracy} = \dfrac{TP + TN}{TP + TN + FP + FN}
+    $$
+
   - **Specificity**: How many negative results belong to our predictions?
+
+    $$
+    \mathrm{specificity} = \dfrac{TN}{FP + TN}
+    $$
+
 - **When to use?**
   - **Precision**: is used when the "wrongly predicted yes" influences much (e.g. email spam detection).
   - **Recall**: is used when the "wrongly predicted no" influences much (e.g. fraud detection in the banking industry).
   - **Accuaracy**: is used when we have symmetric datasets.
   - **Specificity**: is used when we care about TN values and don’t want make false alarms of the FP values (e.g. drug test).
   - **F1-Score**: is used when you have an uneven class distribution and we need a balance between precision and recall.
+
+  $$
+  F_{1} = \left({\frac {\mathrm {recall} ^{-1}+\mathrm {precision} ^{-1}}{2}}\right)^{-1}=2\times {\frac {\mathrm {precision} \cdot \mathrm {recall} }{\mathrm {precision} +\mathrm {recall} }}.
+  $$
+
 
 ## Confusion matrix
 
@@ -57,7 +81,7 @@ Suppose there are totally 1005 patients and we predict that:
 
 We can see the above situation in the below table. It's called a **[confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix){:target="_blank"}** because this matrix makes us confused (just funny).
 
-{:.table.table-dark}
+{:.table.bd-right.table-dark}
 |              	    |    predict (yes)   	|      predict (no)     	|
 |:---------------:	|:------------------:	|:---------------------:	|
 | **actual (yes)** 	| 90 (<span class="tgreen">True Positive</span>) 	| 910 (<span class="tpinkLight">False Negative</span>) 	|
@@ -102,7 +126,7 @@ But now, how can we remember the meaning of these terms? Here is a way.
   \end{align}
   $$
 
-{:.table.table-striped}
+{:.table.bd-right.table-striped}
 |              	|    predict (yes)   	|      predict (no)     	|        	|
 |:------------:	|:------------------:	|:---------------------:	|:------:	|
 | actual (yes) 	| 90 (True Positive) 	| 1000 (False Negative) 	| **Recall** 	|
@@ -120,7 +144,7 @@ How can we understand about precision and recall? If one of them is high while t
 
 How about vice versa?
 
-{:.table.table-striped}
+{:.table.bd-right.table-striped}
 |              	| predict (yes) 	| predict (no) 	|
 |:------------:	|:-------------:	|:------------:	|
 | actual (yes) 	|       <span class="tgreenDark">90</span>      	|      <span class="tpink">10</span>      	|
@@ -138,7 +162,7 @@ Precision results tell us about how much accuracy our "desired prediction" is. B
 
 ### When one of them is more important than the other?
 
-{:.table.table-striped}
+{:.table.bd-right.table-striped}
 |              	|    predict (yes)   	|      predict (no)     	|        	|
 |:------------:	|:------------------:	|:---------------------:	|:------:	|
 | actual (yes) 	| <span class="tgreenDark">TP</span>	| <span class="tpink">FN</span>	| **Recall** 	|
@@ -169,7 +193,7 @@ $$
 
 Recall that,
 
-{:.table.table-striped}
+{:.table.bd-right.table-striped}
 |              	|    predict (yes)   	|      predict (no)     	|
 |:------------:	|:------------------:	|:---------------------:	|
 | actual (yes) 	| <span class="tgreenDark">TP</span>	| <span class="tpink">FN</span>	|
@@ -196,7 +220,7 @@ When we want to evaluate a model, there are many methods we can use. In the view
   \mathrm{accuracy} = \dfrac{TP + TN}{TP + TN + FP + FN}
   $$
 
-- **Specificity**: *How many negative results belong to our predictions?* We choose **specificity** when we care about TN values and don't want make false alarms of the FP values. For example, we're running a drug test in which all people who get the positive results will go to jail. Of course, we don't want put the guys who are actually drug-free into there.
+- **Specificity**: *How many negative results belong to our predictions?* We choose **specificity** when we care about TN values and don't want make false alarms of the FP values. For example, we're running a drug test in which all people who get the positive results will go to jail. Of course, we don't want to put the guys who are actually drug-free into there.
 
   $$
   \mathrm{specificity} = \dfrac{TN}{FP + TN}
