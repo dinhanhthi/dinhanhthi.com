@@ -179,6 +179,7 @@ Texts
 	~~~
 
 - Gray box of code : add class `{:.bg-gray}` before the code.
+- Table : If you wanna show the right line of each column, just use the class `.bd-right` together with class `.table`.
 
 ## Steps
 
