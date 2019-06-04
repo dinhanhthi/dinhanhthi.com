@@ -233,6 +233,7 @@ Content of step 2.
   **For this series** : [part 1](/link), [part 2](/link).
   ~~~
 - Text colors: using these classes `tgreen`, `tpink`, `tyellow`.
+- `h2` with smaller font-size (subject): add class `.subject` before this `h2`.
 
 ## Math expressions
 
