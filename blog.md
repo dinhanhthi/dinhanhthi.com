@@ -12,6 +12,8 @@ These articles are **written after I learn something** with a deeper study besid
 
 I typically focus on simple and more understandable answers. These posts aren’t the official and complete articles for such practical knowledge. You have to search and establish yourself the precise definitions and effective techniques outside these posts. If **you see I’m wrong somewhere**, please **let me know** at the comment section, thanks.
 
+You can browse the posts by [tags]({{site.url}}{{site.baseurl}}/tags) and [categories]({{site.url}}{{site.baseurl}}/categories).
+
 {% include list_post.html %}
 
 {% include heading-title.html title="Vietnam corner" insite="/vietnam-corner" icon="fas fa-heart" %}
