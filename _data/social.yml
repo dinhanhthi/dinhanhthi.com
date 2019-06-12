@@ -22,12 +22,12 @@
   url: https://www.dataquest.io/profile/dinhanhthimail
   opacity: 1
   title: The place I've learned to be a Data Scientist and Engineer.
-- name: DataCamp
-  icon: datacamp-bw.svg
-  # icon: datacamp.svg
-  url: https://www.datacamp.com/profile/dinhanhthi
-  opacity: 1
-  title: Where I've learned Python & Data Science
+# - name: DataCamp
+#   icon: datacamp-bw.svg
+#   # icon: datacamp.svg
+#   url: https://www.datacamp.com/profile/dinhanhthi
+#   opacity: 1
+#   title: Where I've learned Python & Data Science
 - name: Duolingo
   icon: duolingo.png
   url: https://www.duolingo.com/mr.Thi
