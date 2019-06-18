@@ -5,7 +5,24 @@ tags: [cảm nhận]
 categories: [vietnam corner]
 vn: 1
 comment: 1
+date: 2019-06-18
 ---
+
+## Nghĩa - Tình
+
+<div style="text-align: center;">
+Đường dài lặng bước nhìn xa<br />
+Đâu bàn tay ấm thướt tha ta tìm?<br />
+Ngập ngừng vọng đến từ tim<br />
+Nỗi niềm bày tỏ hay ghim tiếng lòng?<br />
+<br />
+Nghĩa-tình hai chữ, hư không<br />
+Chân thành, một ý, cố công, chóng thành<br />
+Đường dài vạn nẻo công danh<br />
+Không bằng lối nhỏ quấn quanh bạn sầu.
+</div>
+
+*18/6/2019*
 
 ## Nhớ và mong
 
