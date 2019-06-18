@@ -22,6 +22,7 @@ Chân thành, một ý, cố công, chóng thành<br />
 Không bằng lối nhỏ quấn quanh bạn sầu.
 </div>
 
+{:.text-right}
 *18/6/2019*
 
 ## Nhớ và mong
