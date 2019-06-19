@@ -16,9 +16,9 @@ date: 2019-06-18
 Ngập ngừng vọng đến từ tim<br />
 Nỗi niềm bày tỏ hay ghim tiếng lòng?<br />
 <br />
-Nghĩa-tình hai chữ, hư không<br />
-Chân thành, một ý, cố công, chóng thành<br />
-Đường dài vạn nẻo công danh<br />
+Nghĩa-Tình hai chữ: hư không<br />
+Chân thành, một ý, cố công, chóng thành!<br />
+Đường trường vạn nẻo công danh<br />
 Không bằng lối nhỏ quấn quanh bạn sầu.
 </div>
 
