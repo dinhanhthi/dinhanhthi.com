@@ -5,8 +5,22 @@ tags: [cảm nhận]
 categories: [vietnam corner]
 vn: 1
 comment: 1
-date: 2019-06-18
+date: 2019-06-21
 ---
+
+## Điều ta viết về nhau
+
+Một vòng trái đất một vòng quay<br />
+Bạn đến tôi đi suốt cả ngày<br />
+Tâm tình hợp ý người sáng-tối<br />
+Chợt thoáng vu vơ giấc mộng say.<br />
+
+Tìm đâu cho gặp người tri kỷ<br />
+Giữa chốn bon chen nhiễu thị phi?<br />
+Hao hơi tổn sức bày tâm kín<br />
+Thỏa ước mong manh kẻ tình si?<br />
+
+*21/6/2019*
 
 ## Nghĩa - Tình
 
