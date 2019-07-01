@@ -16,10 +16,23 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 <span class="task delay d-inline-block mr-3">Come back later!</span>
 <span class="task fail d-inline-block">Interrupted tasks!</span>
 
-## 6 / 2019
+## 7 / 2019
 
-Will be updated at the end of the month.
+Will be updated at the end of the month. Below are the main tasks.
 
+- {:.ongoing} <span class="tbadge badge-green">French</span> Earn more crowns of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
+- {:.ongoing} <span class="tbadge badge-green">French</span> Follow a summer French course at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (60 hours in 3 weeks).
+- {:.ongoing} <span class="tbadge badge-green">French</span> Watch [La famille Guerin](https://fr.wikipedia.org/wiki/La_Famille_Gu%C3%A9rin){:target="_blank"}, a French series.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish 100% of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
+- {:.ongoing} <span class="tbadge badge-orange">Python</span> Keep practising Python coding in [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
+
+## 6/2019
+
+- {:.finish} <span class="tbadge badge-green">French</span> Earn 443 crowns of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
+- {:.finish} <span class="tbadge badge-green">French</span> Watch serveral French videos/movies to practice listening and speaking skills.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish 53% of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish [Learn SQL path](https://www.codecademy.com/learn/learn-sql){:target="_blank"} on Codecademy.
+- {:.finish} <span class="tbadge badge-blue">Web</span> Modify [Math2ITwp Wordpress theme](https://github.com/dinhanhthi/math2itwp){:target="_blank"} for a more elegant look.
 
 ## 5 / 2019
 
