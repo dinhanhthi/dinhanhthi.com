@@ -14,10 +14,19 @@ math: 1
 
 This post is a collection of simple things but very helpful in Python. They are not my invention, they are just collected by me.
 
+{:.subject}
 ## Swapping two variables value
 
 ~~~ python
 a, b = b, a
+~~~
+
+{:.subject}
+## Split a string into integer
+
+~~~ python
+# string = "1 2 3 4 5"
+arr = [int(i) for i in string.split(" ")]
 ~~~
 
 

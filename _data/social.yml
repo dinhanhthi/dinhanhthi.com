@@ -52,3 +52,8 @@
   url: https://www.codecademy.com/dinhanhthi
   opacity: 0.65
   title: Where I've learned Python, Data Science and Web development.
+# - name: Facebook
+#   icon: facebook.svg
+#   url: https://www.facebook.com/i.am.pobo
+#   opacity: 0.8
+#   title: My Facebook account

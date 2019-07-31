@@ -6,6 +6,7 @@ description: "I have finished the courses but what I actually learned from them?
 tags: [project, course]
 categories: [machine learning, data science]
 comment: 1
+date: 2019-06-03
 ---
 
 {% assign img-url = '/img/post/data/' %}
@@ -18,8 +19,10 @@ The specialization contains **9 different courses** covering almost all basic st
 
 ## TL;DR;
 
-- **Course 1 & 2 - What's Data Science & Open source tools for DS** : What's DS? What Data Scientist do? Some popular applications of DS in real world? Some open source applications you can use to work with DS.
-- **Course 3 - Data Science Methodology** : Draw a big picture about the procedure of a DS project. All steps and the relation between them are introduced.
-- **Course 4 - Python for DS** : 
+- **Course 1 & 2 - What's Data Science & Open source tools for DS**: What's DS? What Data Scientist do? Some popular applications of DS in real world? Some open source applications you can use to work with DS.
+- **Course 3 - Data Science Methodology**: Draw a big picture about the procedure of a DS project. All steps and their relationship are also introduced.
+- **Course 4 - Python for DS** : You'll learn about fundamental python (programming with python) and python for DS (numpy, pandas). You have also a chance to practice what you learn in a simple application.
+- **Course 5 - Databases and SQL for DS**: You'll learn about popular commands and concepts in SQL to work with databases (How to create or update a table? How to modify it or choose some elements from it? How to manipulate it and its relation with other tables? How to join different tables?...). This course also gives you some instruction to work with [Db2](https://cloud.ibm.com/catalog/services/db2){:target="_blank"}, a fully-managed cloud SQL database given by IBM.
+- **Course 6 - Data Analysis with Python**: 
 
 

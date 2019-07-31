@@ -274,10 +274,21 @@ i   arr                     swap (indices)
 # output: 5
 ~~~
 
-**<sbj>Idea</sbj>** :
+**<sbj>Idea</sbj>** : We go through the array (by each position from the left to the right) and check the number at each position whether it has a right position or not. A number is said to have a "right position" if it stands at the position whose value is less than the number's value 1 unit. For example, the number 6 which stands at position 5 has a right position. If the current number doesn't have a right position, we make a swap between this number with the number occupying the place of considered number. For example, the current number is 4 at the position 2, we make a swap between the number 4 (at position 2) with the number at position 3 (which is the right position of 4). **A special idea** in this case is that, we only go next if the current number has a right position. If it doesn't, we keep checking the number (of a new array after the swap) at the current place (`checking_pos`).
 
 ~~~ python
-
+def minimumSwaps(arr):
+  count = 0
+  checking_pos = 0 # we start to check at the first number on the left
+  last = len(arr) - 1 # until the last number of the array
+  while checking_pos < last:
+    while(arr[checking_pos] == checking_pos + 1 and checking_pos < last):
+      checking_pos += 1 # we only go next if the current number has a right position
+    if checking_pos < last:
+      tmp = arr[checking_pos] - 1 # real position of arr[checking_pos]
+      arr[checking_pos], arr[tmp] = arr[tmp], arr[checking_pos] # swap 2 numbers
+      count += 1
+  return count
 ~~~
 
 ### Array Manipulation
@@ -286,29 +297,43 @@ Starting with a 1-indexed array of zeros and a list of operations, for each oper
 
 {:.bg-gray}
 ~~~
-a b k
-1 5 3
-4 8 7
-6 9 1
+a b k  # add k to the numbers between the indexes a and b inclusive
+1 5 3  # add 3 to the numbers between the 1st and 5th number of the array
+4 8 7  # add 7 to the numbers between the 4th and 8th number of the array
+6 9 1  # add 1 to the numbers between the 6th and 9th number of the array
 ~~~
 
 Add the values of k between the indices a and b inclusive:
 
 {:.bg-gray}
 ~~~
-index->	 1 2 3  4  5 6 7 8 9 10
-	      [0,0,0, 0, 0,0,0,0,0, 0]
-	      [3,3,3, 3, 3,0,0,0,0, 0]
-	      [3,3,3,10,10,7,7,7,0, 0]
-	      [3,3,3,10,10,8,8,8,1, 0]
+index ->	1 2 3  4  5 6 7 8 9 10
+	       [0,0,0, 0, 0,0,0,0,0, 0]  # initial array
+	       [3,3,3, 3, 3,0,0,0,0, 0]  # add 3 to the numbers between the 1st and 5th number of the array
+	       [3,3,3,10,10,7,7,7,0, 0]  # add 7 to the numbers between the 4th and 8th number of the array
+	       [3,3,3,10,10,8,8,8,1, 0]  # add 1 to the numbers between the 6th and 9th number of the array
 ~~~
 
 The largest value is 10 after all operations are performed.
 
-**<sbj>Idea</sbj>** :
+**<sbj>Idea</sbj>** : The following solution is not mine! The main idea is that we don't want to add all numbers between `a` and `b`. If we can find a way in that we only consider the numbers at positions `a` and `b`, that's better! Let's consider above example, at each operation, instead of getting an array like `[3,3,3,3,3,0,0,0,0,0]`, we get an array like `[3,0,0,0,0,-3,0,0,0,0,0]`, what's this? It's the difference between the current number from the previous one in an array.
+
+[Check this](https://stackoverflow.com/questions/48162233/logic-used-behind-array-manipulation-of-hackerrank)
 
 ~~~ python
-
+def arrayManipulation(n, queries):
+  # queries contains mx3 matrix of necessary numbers
+  lst = [0]*(n+1)
+  for i in range(len(queries)):
+    a, b, k = queries[i] # taking a, b and k from each line of queries
+    lst[a-1] += k
+    lst[b] -= k 
+  maxval = x = 0
+  for i in lst: # find the max sum in the list lst
+    x += i
+    if maxval < x:
+      maxval = x
+  return maxval
 ~~~
 
 {:.ref}
