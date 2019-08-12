@@ -18,8 +18,6 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 7 / 2019
 
-Will be updated at the end of the month. Below are the main tasks.
-
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **37 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.finish} <span class="tbadge badge-green">French</span> Follow a summer French course at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (60 hours in 3 weeks).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **63%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy + Review some concepts in statistics.
