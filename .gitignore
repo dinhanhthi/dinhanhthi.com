@@ -1,3 +1,10 @@
 thi_simple.sublime-project
 thi_simple.sublime-workspace
 .sass-cache
+*~
+*.gem
+.bundle
+.sass-cache
+_site
+Gemfile.lock
+.jekyll-metadata
