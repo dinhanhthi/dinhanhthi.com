@@ -129,7 +129,7 @@ But now, how can we remember the meaning of these terms? Here is a way.
 {:.table.bd-right.table-striped}
 |              	|    predict (yes)   	|      predict (no)     	|        	|
 |:------------:	|:------------------:	|:---------------------:	|:------:	|
-| actual (yes) 	| 90 (True Positive) 	| 1000 (False Negative) 	| **Recall** 	|
+| actual (yes) 	| 90 (True Positive) 	| 910 (False Negative) 	| **Recall** 	|
 |  actual (no) 	| 0 (False Positive) 	|   5 (True Negative)   	|        	|
 |              	|      **Precision**     	|                       	|        	|
 
@@ -208,7 +208,7 @@ $$
 \end{align}
 $$
 
-You may easily notice that if we change our definition of "positive" class (what is "1" is now "0" and vice versa), the value of F1-Score changes too. It's because the TP in the formulas of precision and recall will change to FN instead. It means that <mark>you have to be careful when you choose the label for positive class. The meaning of F1-Score will be corresponding to this label</mark>.
+You may easily notice that if we change our definition of "positive" class (what is "1" is now "0" and vice versa), the value of F1-Score changes too. It's because the TP in the formulas of precision and recall will change to TN instead. It means that <mark>you have to be careful when you choose the label for positive class. The meaning of F1-Score will be corresponding to this label</mark>.
 
 How F1-Score can be useful in evaluating a model? <mark>When you need a balance between precision and recall</mark> and <mark>when you have an uneven class distribution</mark>. If one of them is improved at the expense of the other, F1-Score will be very small.
 
