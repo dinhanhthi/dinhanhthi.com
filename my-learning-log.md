@@ -16,12 +16,18 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 <span class="task delay d-inline-block mr-3">Come back later!</span>
 <span class="task fail d-inline-block">Interrupted tasks!</span>
 
+## 8 / 2019
+
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **40 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (520 crowns in total).
+- {:.finish} <span class="tbadge badge-blue">Web</span> Finish **20%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> [Keep reviewing](https://mynote.dinhanhthi.com/stats-1){:target="_blank"} some fundamental concepts in statistics for Data Science.
+- {:.finish} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
+
 ## 7 / 2019
 
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **37 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.finish} <span class="tbadge badge-green">French</span> Follow a summer French course at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (60 hours in 3 weeks).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **63%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy + Review some concepts in statistics.
-- {:.finish} <span class="tbadge badge-blue">Web</span> Publish [**4 new articles**](https://math2it.com/all/){:target="_blank"} on *math2it.com*.
 
 ## 6/2019
 
