@@ -18,7 +18,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 8 / 2019
 
-- {:.finish} <span class="tbadge badge-green">French</span> Earn **40 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (520 crowns in total).
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **40 more crowns** & **112 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (520 crowns in total).
 - {:.finish} <span class="tbadge badge-blue">Web</span> Finish **20%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> [Keep reviewing](https://mynote.dinhanhthi.com/stats-1){:target="_blank"} some fundamental concepts in statistics for Data Science.
 - {:.finish} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
