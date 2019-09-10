@@ -2,14 +2,6 @@
 layout: null
 ---
 
-{% if site.lang.current == "en" %}
-	{% assign js_show = site.data.lang['search'].js.show.en %}
-	{% assign js_no = site.data.lang['search'].js.no.en %}
-{% else %}
-	{% assign js_show = site.data.lang['search'].js.show.vn %}
-	{% assign js_no = site.data.lang['search'].js.no.vn %}
-{% endif %}
-
 (function () {
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
