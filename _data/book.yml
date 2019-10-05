@@ -1,8 +1,17 @@
+- title: "Data Strategy: How to Profit from a World of Big Data, Analytics and the Internet of Things"
+  author: Bernard Marr
+  reading: true
+  intro: Data is revolutionizing the way we work and it is the companies that view data as a strategic asset that will survive and thrive.
+  goodreads: https://www.goodreads.com/book/show/31851326-data-strategy
+- title: "Think like a freak"
+  author: Steven D. Levitt
+  reading: true
+  intro: The New York Times bestselling Freakonomics changed the way we see the world, exposing the hidden side of just about everything.
+  goodreads: https://www.goodreads.com/book/show/17331349-think-like-a-freak
 - title: "Homo Deus: A Brief History of Tomorrow"
   author: Yuval Noah Harari
-  reading: true
   intro: The next book of Harari after his Sapiens.
-  goodreads: https://www.goodreads.com/book/show/30363345-homo-deus
+  goodreads: https://www.goodreads.com/review/show/2643302498
 # - title: "The Elements of Statistical Learning: Data Mining, Inference, and Prediction"
 #   author: Trevor Hastie et al
 #   reading: true
