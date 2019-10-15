@@ -1,6 +1,14 @@
-- title: DSLearning
+- title: better-note
+  description: "Source code for my note's website about ML, Data Science and Web Dev."
+  source: https://github.com/dinhanhthi/note
+  url: http://note.dinhanhthi.com
+- title: data-science-learning
   description: All of courses I've attended and books I've read to learn by myself Data Science. These are listed in the order of date I've learned.
-  source: https://github.com/dinhanhthi/DataScienceLearning
+  source: https://github.com/dinhanhthi/data-science-learning
+- title: cafe-in-hcm
+  description: "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera."
+  source: https://github.com/dinhanhthi/cafe-in-hcm
+  url: https://note.dinhanhthi.com/setting-up-a-cafe-in-hcmc
 - title: ThiThesisTemp
   description: A simple beautiful LaTeX theme for books, thesis.
   source: https://github.com/dinhanhthi/ThiThesisTemp
@@ -14,6 +22,7 @@
   source: https://github.com/dinhanhthi/NoteTheme
 - title: Math2IT.com
   description: A Vietnamese site for intuitive knowledge (Maths, Education and Technology).
+  source: https://github.com/dinhanhthi/math2itwp
   url: http://math2it.com
 - title: Math2IT Group
   description: A Vietnamese community about math, education and technology.
