@@ -33,6 +33,17 @@
     }
   }
   .button a{
-    font-size: 0.95rem;
+    font-size: 13px;
+    padding: 0.3rem 0.5rem;
+    &.btn-source{
+      background-color: #f3f3f3;
+      border-color: #ccc;
+      svg{
+        vertical-align: text-top;
+      }
+      &:hover{
+        background-color: #eaeaea;
+      }
+    }
   }
 }
