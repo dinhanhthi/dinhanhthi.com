@@ -3,14 +3,14 @@
   source: https://github.com/dinhanhthi/note
   url: http://note.dinhanhthi.com
 - title: data-science-learning
-  description: All of courses I've attended and books I've read to learn by myself Data Science. These are listed in the order of date I've learned.
+  description: All of courses, assignments, exercises, mini-projects and books that I've done so far in the process of learning by myself Machine Learning and Data Science.
   source: https://github.com/dinhanhthi/data-science-learning
 - title: raw-note
   description: "Source code of my personal raw notes. Different from <em>better-note</em>, I use this website for quickly capturing ideas."
   source: https://github.com/dinhanhthi/raw-note
   url: http://mynote.dinhanhthi.com
 - title: cafe-in-hcm
-  description: "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera."
+  description: "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera. Setting up a café in Ho Chi Minh city."
   source: https://github.com/dinhanhthi/cafe-in-hcm
   url: https://note.dinhanhthi.com/setting-up-a-cafe-in-hcmc
 - title: ThiThesisTemp
