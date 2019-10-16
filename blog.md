@@ -8,7 +8,7 @@ color: "#aafdb5"
 permalink: /blog
 ---
 
-All technical posts are written in **[note.dinhanhthi.com](http://note.dinhanhthi.com){:target="_blank"}**. In current site, I just write about my viewpoint about life (mainly in Vietnamese).
+All technical posts are published on **[note.dinhanhthi.com](http://note.dinhanhthi.com){:target="_blank"}**. In current site, I just write about my viewpoint about life (mainly in Vietnamese).
 
 {% include list_post.html %}
 
