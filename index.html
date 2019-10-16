@@ -49,24 +49,6 @@ js:
   </div>
 </section>
 
-<!-- Blog -->
-<section class="section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-xl-9">
-        {% include heading-title.html title="Recent posts" insite="/blog" icon="fab fa-leanpub" %}
-      </div>
-      <div class="col-lg-10 col-xl-8">
-        {% include list_post.html limit=5 %}
-      </div>
-      <div class="col-lg-10 col-xl-8">
-        {% include heading-title.html title="Vietnam corner" insite="/vietnam-corner" icon="fas fa-heart" cclass="small" %}
-        {% include list_post.html vn="true" limit=2 %}
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Reading -->
 <section id="reading" class="section">
   <div class="container">
@@ -89,18 +71,35 @@ js:
         {% include heading-title.html title="Note taking" icon="fas fa-edit" %}
       </div>
     </div>
-    <div class="row justify-content-center align-items-center mynote">
-      <div class="col-12 col-md-4 col-xl-3">
+    <div class="row justify-content-center align-items-center mynote mb-3">
+      <div class="col-12 col-md-4">
         <div class="description">
-          <a href="https://mynote.dinhanhthi.com">
-            <span>mynote</span>.dinhanhthi.com
+          <a href="https://note.dinhanhthi.com">
+            <span>note</span>.dinhanhthi.com
           </a>
           <div class="more">
-            I write this NoteTheme theme for taking notes all of what I have studied.
+            This contains my well-written notes. I write intuitively about concepts I've learned. They are not just for me, everyone may see them useful.
           </div>
         </div>
       </div>
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+       <div class="showcase">
+        <img alt="My notes" src="/img/note.jpg" />
+       </div>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center mynote">
+      <div class="col-12 col-md-4 order-md-2">
+        <div class="description">
+          <a href="https://rawnote.dinhanhthi.com">
+            <span>rawnote</span>.dinhanhthi.com
+          </a>
+          <div class="more">
+            I learn every day and I use this raw note to catch up with all of the things on the first day I meet them but in a "messy" way.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5 order-md-1">
        <div class="showcase">
         <img alt="My notes" src="/img/mynote.png" />
        </div>
