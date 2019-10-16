@@ -8,7 +8,7 @@
 - title: raw-note
   description: "Source code of my personal raw notes. Different from <em>better-note</em>, I use this website for quickly capturing ideas."
   source: https://github.com/dinhanhthi/raw-note
-  url: http://mynote.dinhanhthi.com
+  url: http://rawnote.dinhanhthi.com
 - title: cafe-in-hcm
   description: "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera. Setting up a café in Ho Chi Minh city."
   source: https://github.com/dinhanhthi/cafe-in-hcm
