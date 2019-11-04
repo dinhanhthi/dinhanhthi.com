@@ -40,6 +40,6 @@
   url: https://dinhanhthi.github.io/TaniaJekyll
   source: https://github.com/dinhanhthi/TaniaJekyll
 - title: NXFEM
-  url: https://github.com/dinhanhthi/nxfem
+  source: https://github.com/dinhanhthi/nxfem
   description: A Matlab library for Nitsche - Extended Finite Element Method.
 

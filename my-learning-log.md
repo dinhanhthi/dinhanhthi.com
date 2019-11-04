@@ -16,12 +16,19 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 <span class="task delay d-inline-block mr-3">Come back later!</span>
 <span class="task fail d-inline-block">Interrupted tasks!</span>
 
+## 10 / 2019
+
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning (*SVM*, *Decision Tree*, *Random Forest*, *Principal Component Analysis*) and apply to some applications (*Image compression*, *Face Recognition*) -- [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **36 more crowns** & **166 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (586 crowns in total).
+- {:.finish} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
+- {:.finish} <span class="tbadge badge-green">French</span> Finish 33% of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
+
 ## 9 / 2019
 
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning. [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-blue">Web</span> Create website [note.dinhanhthi.com](https://note.dinhanhthi.com){:target="_blank"} for better notes of me about Data Science, Machine Learng and Web-Dev. Along with these "raw" notes [mynote.dinhanhthi.com](https://mynote.dinhanhthi.com/), I use this site for more well-organized technical ones.
-- {:.finish} <span class="tbadge badge-green">French</span> Earn **30 more crowns** & **250 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (550 crowns in total).
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **30 more crowns** & **135 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (550 crowns in total).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [Oral Expression, level B1](https://cma.paris.fr/#displayElement(7490)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [French phonetic, level B1](https://cma.paris.fr/#displayElement(7492)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda (15 hours/month in 3 months).
