@@ -18,7 +18,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 10 / 2019
 
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning (*SVM*, *Decision Tree*, *Random Forest*, *Principal Component Analysis*) and apply to some applications (*Image compression*, *Face Recognition*) -- [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning (*SVM*, *Decision Tree*, *Random Forest*, *Principal Component Analysis*) and apply to [some applications](https://note.dinhanhthi.com/small-projects-to-understand-concepts) (*Image compression*, *Face Recognition*) -- [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **36 more crowns** & **166 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (586 crowns in total).
 - {:.finish} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
 - {:.finish} <span class="tbadge badge-green">French</span> Finish 33% of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
