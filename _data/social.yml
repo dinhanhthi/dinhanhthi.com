@@ -19,7 +19,7 @@
 - name: DataQuest
   icon: dataquest-bw.png
   # icon: dataquest.png
-  url: https://www.dataquest.io/profile/dinhanhthimail
+  url: https://www.dataquest.io/profile/dinhanhthi
   opacity: 1
   title: The place I've learned to be a Data Scientist and Engineer.
 # - name: DataCamp
