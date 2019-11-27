@@ -1,45 +1,48 @@
-- title: BetterExplained-vn-translation
+- title: 🍓 dataquest-aio
+  description: "All python notebooks & takeaways & my-way of descriptions for missions and guided projects on Dataquest."
+  source: https://github.com/dinhanhthi/dataquest-aio
+- title: 🎯 betterexplained-vn
   description: "Vietnamese translation of Kalid Azad's articles published on BetterExplained. This is a very useful website for ones who want to understand intuitively about Math."
   source: https://github.com/math2it/BetterExplained-vn-translation
   url: https://betterexplained.math2it.com/
-- title: better-note
+- title: ⭐ note
   description: "Source code for my note's website about ML, Data Science and Web Dev."
   source: https://github.com/dinhanhthi/note
   url: http://note.dinhanhthi.com
-- title: data-science-learning
+- title: 📊 data-science-learning
   description: All of courses, assignments, exercises, mini-projects and books that I've done so far in the process of learning by myself Machine Learning and Data Science.
   source: https://github.com/dinhanhthi/data-science-learning
-- title: raw-note
+- title: 📓 raw-note
   description: "Source code of my personal raw notes. Different from <em>better-note</em>, I use this website for quickly capturing ideas."
   source: https://github.com/dinhanhthi/raw-note
   url: http://rawnote.dinhanhthi.com
-- title: cafe-in-hcm
+- title: ☕ cafe-in-hcm
   description: "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera. Setting up a café in Ho Chi Minh city."
   source: https://github.com/dinhanhthi/cafe-in-hcm
   url: https://note.dinhanhthi.com/setting-up-a-cafe-in-hcmc
-- title: ThiThesisTemp
+- title: 🎨 ThiThesisTemp
   description: A simple beautiful LaTeX theme for books, thesis.
   source: https://github.com/dinhanhthi/ThiThesisTemp
-- title: math2itwp
+- title: 🐘 math2itwp
   description: A beautiful Wordpress theme based on Bootstrap 4 with different layouts of posts.
   source: https://github.com/dinhanhthi/math2itwp
   url: https://math2it.com
-- title: NoteTheme
+- title: 📝 notethteme
   description: An AIO Jekyll theme designed for the purpose of taking notes.
   url: https://dinhanhthi.github.io/NoteTheme/
   source: https://github.com/dinhanhthi/NoteTheme
-- title: Math2IT.com
+- title: 🔥 math2it.com
   description: A Vietnamese site for intuitive knowledge (Maths, Education and Technology).
   source: https://github.com/dinhanhthi/math2itwp
   url: http://math2it.com
-- title: Math2IT Group
+- title: 🎲 Math2IT Group
   description: A Vietnamese community about math, education and technology.
   url: https://www.facebook.com/groups/math2it/
-- title: TaniaJekyll
+- title: 🚀 TaniaJekyll
   description: A beautiful personal Jekyll theme with different layouts of posts designed, based on Bootstrap 4 & Jekyll.
   url: https://dinhanhthi.github.io/TaniaJekyll
   source: https://github.com/dinhanhthi/TaniaJekyll
-- title: NXFEM
+- title: 🔢 NXFEM
   source: https://github.com/dinhanhthi/nxfem
   description: A Matlab library for Nitsche - Extended Finite Element Method.
 

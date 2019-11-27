@@ -12,7 +12,7 @@
     }
     @media (min-width: 850px){
       display: grid;
-      grid-template-columns: 1.8fr 5.4fr 1.8fr;
+      grid-template-columns: 2fr 5.2fr 1.8fr;
       grid-template-rows: none;
       .button{
         text-align: right;
@@ -23,6 +23,8 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: #333;
+    padding-right: 5px;
+    white-space: nowrap;
   }
   p{
     font-size: 0.95rem;
@@ -32,17 +34,20 @@
       display: none;
     }
   }
-  .button a{
-    font-size: 13px;
-    padding: 0.3rem 0.5rem;
-    &.btn-source{
-      background-color: #f3f3f3;
-      border-color: #ccc;
-      svg{
-        vertical-align: text-top;
-      }
-      &:hover{
-        background-color: #eaeaea;
+  .button{
+    white-space: nowrap;
+    a{
+      font-size: 13px;
+      padding: 0.3rem 0.5rem;
+      &.btn-source{
+        background-color: #f3f3f3;
+        border-color: #ccc;
+        svg{
+          vertical-align: text-top;
+        }
+        &:hover{
+          background-color: #eaeaea;
+        }
       }
     }
   }
