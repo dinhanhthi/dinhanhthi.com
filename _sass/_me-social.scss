@@ -6,12 +6,27 @@
   @media (min-width: 576px) and (max-width: 767px){
     grid-template-columns: 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr 1fr;
+    .item:nth-child(3n){
+      text-align: right;
+    }
+    .item:nth-child(3n+2){
+      text-align: center;
+    }
   }
   @media (max-width: 575px){
     grid-template-columns: 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
-    padding: 0;
+    .item:nth-child(2n){
+      text-align: right;
+    }
   }
+
+  @media (min-width: 768px){
+    .item:nth-child(4n){
+      text-align: right;
+    }
+  }
+
   .item{
     padding: 5px 5px 5px 0;
     &:hover{
