@@ -39,7 +39,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 9 / 2019
 
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning. [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
-- {:.delay} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
+- {:.fail} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-blue">Web</span> Create website [note.dinhanhthi.com](https://note.dinhanhthi.com){:target="_blank"} for better notes of me about Data Science, Machine Learng and Web-Dev. Along with these "raw" notes [rawnote.dinhanhthi.com](https://rawnote.dinhanhthi.com/), I use this site for more well-organized technical ones.
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **30 more crowns** & **135 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (550 crowns in total).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [Oral Expression, level B1](https://cma.paris.fr/#displayElement(7490)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
@@ -52,7 +52,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **40 more crowns** & **112 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (520 crowns in total).
 - {:.ongoing} <span class="tbadge badge-blue">Web</span> Finish **20%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> [Keep reviewing](https://mynote.dinhanhthi.com/stats-1){:target="_blank"} some fundamental concepts in statistics for Data Science.
-- {:.delay} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
+- {:.fail} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
 
 ## 7 / 2019
 
@@ -70,7 +70,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 5 / 2019
 
-- {:.delay} <span class="tbadge badge-yellow">Data & ML</span> Finish **10%** of [Data Engineer path](https://www.dataquest.io/path/data-engineer/){:target="_blank"} on Dataquest (*7 courses*).
+- {:.fail} <span class="tbadge badge-yellow">Data & ML</span> Finish **10%** of [Data Engineer path](https://www.dataquest.io/path/data-engineer/){:target="_blank"} on Dataquest (*7 courses*).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish the 1 remaining course of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*).
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **120 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-orange">Python</span> Finish **10%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
