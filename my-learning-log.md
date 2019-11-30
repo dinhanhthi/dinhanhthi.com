@@ -20,11 +20,11 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 11 / 2019
 
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> **35%** of videos of [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) by Andrew NG on Coursera (5 courses in total) -- [notes & codes](https://github.com/dinhanhthi/deeplearning.ai-notes){:.url target="_blank"}.
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **5 days** of deeply learning **Time Series** for [an interview](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati) at Dataswati -- [notes & codes](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati){:.url target="_blank"}.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **5 days** of deeply learning **Time Series** for [an interview](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati) at [Dataswati](https://www.dataswati.com/) -- [notes & codes](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati){:.url target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **30%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy (*They have just updated their courses*).
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> **21%** of [Data Scientist path](https://www.dataquest.io/path/data-scientist){:target="_blank"} on Dataquest (*They have just updated their courses*) -- [notes & codes](https://github.com/dinhanhthi/dataquest-aio){:.url target="_blank"}.
 - {:.ongoing} <span class="tbadge badge-blue">Web</span> Start building a web-based markdown editor for note taking -- [open source](https://github.com/dinhanhthi/notedown){:.url target="_blank"}.
-- {:.finish} <span class="tbadge badge-green">French</span> Earn **23 more crowns** & **190 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (609 crowns in total).
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **24 more crowns** & **190 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (610 crowns in total).
 - {:.ongoing} <span class="tbadge badge-green">French</span> Finish 66% of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
 - {:.ongoing} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
 
@@ -39,7 +39,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 9 / 2019
 
 - {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning. [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
-- {:.ongoing} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
+- {:.delay} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-blue">Web</span> Create website [note.dinhanhthi.com](https://note.dinhanhthi.com){:target="_blank"} for better notes of me about Data Science, Machine Learng and Web-Dev. Along with these "raw" notes [rawnote.dinhanhthi.com](https://rawnote.dinhanhthi.com/), I use this site for more well-organized technical ones.
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **30 more crowns** & **135 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (550 crowns in total).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [Oral Expression, level B1](https://cma.paris.fr/#displayElement(7490)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
