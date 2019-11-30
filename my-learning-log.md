@@ -16,43 +16,55 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 <span class="task delay d-inline-block mr-3">Come back later!</span>
 <span class="task fail d-inline-block">Interrupted tasks!</span>
 
+
+## 11 / 2019
+
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> **35%** of videos of [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) by Andrew NG on Coursera (5 courses in total) -- [notes & codes](https://github.com/dinhanhthi/deeplearning.ai-notes){:.url target="_blank"}.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **5 days** of deeply learning **Time Series** for [an interview](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati) at Dataswati -- [notes & codes](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati){:.url target="_blank"}.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **30%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy (*They have just updated their courses*).
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> **21%** of [Data Scientist path](https://www.dataquest.io/path/data-scientist){:target="_blank"} on Dataquest (*They have just updated their courses*) -- [notes & codes](https://github.com/dinhanhthi/dataquest-aio){:.url target="_blank"}.
+- {:.ongoing} <span class="tbadge badge-blue">Web</span> Start building a web-based markdown editor for note taking -- [open source](https://github.com/dinhanhthi/notedown){:.url target="_blank"}.
+- {:.finish} <span class="tbadge badge-green">French</span> Earn **23 more crowns** & **190 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (609 crowns in total).
+- {:.ongoing} <span class="tbadge badge-green">French</span> Finish 66% of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
+- {:.ongoing} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
+
+
 ## 10 / 2019
 
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning (*SVM*, *Decision Tree*, *Random Forest*, *Principal Component Analysis*) and apply to [some applications](https://note.dinhanhthi.com/small-projects-to-understand-concepts) (*Image compression*, *Face Recognition*) -- [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning (*SVM*, *Decision Tree*, *Random Forest*, *Principal Component Analysis*) and apply to [some applications](https://note.dinhanhthi.com/small-projects-to-understand-concepts) (*Image compression*, *Face Recognition*) -- [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **36 more crowns** & **166 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (586 crowns in total).
-- {:.finish} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
-- {:.finish} <span class="tbadge badge-green">French</span> Finish 33% of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
+- {:.ongoing} <span class="tbadge badge-green">French</span> Keep following French courses ([Oral Expression level B1](https://cma.paris.fr/#displayElement(7490)), [French Phonetic level B1](https://cma.paris.fr/#displayElement(7492))) at [CMA, Mairie de Paris](https://cma.paris.fr/).
+- {:.ongoing} <span class="tbadge badge-green">French</span> Finish **33%** of [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda.
 
 ## 9 / 2019
 
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning. [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
-- {:.finish} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
-- {:.finish} <span class="tbadge badge-blue">Web</span> Create website [note.dinhanhthi.com](https://note.dinhanhthi.com){:target="_blank"} for better notes of me about Data Science, Machine Learng and Web-Dev. Along with these "raw" notes [mynote.dinhanhthi.com](https://mynote.dinhanhthi.com/), I use this site for more well-organized technical ones.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Review **in depth** some algorithms in Machine Learning. [My notes.](https://note.dinhanhthi.com/#machine_learning){:.url target="_blank"}
+- {:.ongoing} <span class="tbadge badge-blue">Web</span> Finish **44%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
+- {:.finish} <span class="tbadge badge-blue">Web</span> Create website [note.dinhanhthi.com](https://note.dinhanhthi.com){:target="_blank"} for better notes of me about Data Science, Machine Learng and Web-Dev. Along with these "raw" notes [rawnote.dinhanhthi.com](https://rawnote.dinhanhthi.com/), I use this site for more well-organized technical ones.
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **30 more crowns** & **135 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (550 crowns in total).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [Oral Expression, level B1](https://cma.paris.fr/#displayElement(7490)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [French phonetic, level B1](https://cma.paris.fr/#displayElement(7492)) at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (30 hours in 5 months).
 - {:.finish} <span class="tbadge badge-green">French</span> Successfully enrolled to [French Marathon Challenge](https://www.lingoda.com/en/language-marathon) on Lingoda (15 hours/month in 3 months).
 
 
-
 ## 8 / 2019
 
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **40 more crowns** & **112 days on a streak** of French skills on [Duolingo](https://duolingo.com){:target="_blank"} (520 crowns in total).
-- {:.finish} <span class="tbadge badge-blue">Web</span> Finish **20%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> [Keep reviewing](https://mynote.dinhanhthi.com/stats-1){:target="_blank"} some fundamental concepts in statistics for Data Science.
-- {:.finish} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
+- {:.ongoing} <span class="tbadge badge-blue">Web</span> Finish **20%** of [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript){:target="_blank"} on Codecademy.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> [Keep reviewing](https://mynote.dinhanhthi.com/stats-1){:target="_blank"} some fundamental concepts in statistics for Data Science.
+- {:.delay} <span class="tbadge badge-orange">Python</span> Finish **14%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
 
 ## 7 / 2019
 
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **37 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.finish} <span class="tbadge badge-green">French</span> Follow a summer French course at [CMA, Mairie de Paris](https://cma.paris.fr/){:target="_blank"} (60 hours in 3 weeks).
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **63%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy + Review some concepts in statistics.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **63%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy + Review some concepts in statistics.
 
 ## 6/2019
 
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **133 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 - {:.finish} <span class="tbadge badge-green">French</span> Watch serveral French videos/movies to practice listening and speaking skills.
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **53%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **53%** of [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish [Learn SQL path](https://www.codecademy.com/learn/learn-sql){:target="_blank"} on Codecademy.
 - {:.finish} <span class="tbadge badge-blue">Web</span> Modify [Math2ITwp Wordpress theme](https://github.com/dinhanhthi/math2itwp){:target="_blank"} for a more elegant look.
 
@@ -61,18 +73,18 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 - {:.delay} <span class="tbadge badge-yellow">Data & ML</span> Finish **10%** of [Data Engineer path](https://www.dataquest.io/path/data-engineer/){:target="_blank"} on Dataquest (*7 courses*).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish the 1 remaining course of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*).
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **120 more crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
-- {:.finish} <span class="tbadge badge-orange">Python</span> Finish **10%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
+- {:.ongoing} <span class="tbadge badge-orange">Python</span> Finish **10%** of [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit){:target="_blank"} on Hackerrank.
 
 ## 4 / 2019
 
 - {:.finish} <span class="tbadge badge-orange">Python</span> Finish the course [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **8/9 courses** of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*). [My progress.](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:.url target="_blank"}
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **8/9 courses** of [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} on Coursera (*9 courses*). [My progress.](https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-green">French</span> Earn **190 crowns** of French skills on [Duolingo](https://duolingo.com){:target="_blank"}.
 
 ## 3 / 2019
 
 - {:.finish} <span class="tbadge badge-blue">Web</span> Design / Modify [a new theme](https://github.com/dinhanhthi/dinhanhthi.com){:target="_blank"} for my personal website (this site, a jekyll theme). [My achievement.](https://dinhanhthi.com){:.url target="_blank"}
-- {:.finish} <span class="tbadge badge-orange">Python</span> Finish **50%** of the course [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
+- {:.ongoing} <span class="tbadge badge-orange">Python</span> Finish **50%** of the course [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy. [My achievement.](https://www.codecademy.com/dinhanhthi){:.url target="_blank"}
 - {:.fail} <span class="tbadge badge-orange">Python</span> Practice [coding Python 3](https://www.hackerrank.com/domains/python){:target="_blank"} on Hackerrank. [My progress,](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
 - {:.fail} <span class="tbadge badge-orange">Python</span> Practice coding [30 days of code](https://www.hackerrank.com/domains/tutorials/30-days-of-code){:target="_blank"} on Hackerrank. [My progress.](https://www.hackerrank.com/dinhanhthi){:.url target="_blank"}
 
@@ -91,7 +103,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 2018
 
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish **20%** of [Data Scientist path](https://www.dataquest.io/path/data-scientist){:target="_blank"} on Dataquest (*31 courses*). [My progress.](https://app.dataquest.io/profile/dinhanhthimail){:.url target="_blank"}
+- {:.ongoing} <span class="tbadge badge-yellow">Data & ML</span> Finish **20%** of [Data Scientist path](https://www.dataquest.io/path/data-scientist){:target="_blank"} on Dataquest (*31 courses*). [My progress.](https://app.dataquest.io/profile/dinhanhthimail){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Finish the [Machine Learning course](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng on Coursera. [My achievement.](https://www.coursera.org/account/accomplishments/verify/WJ9DNBMRQDJ8){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-blue">Web</span> Design / Modify a thesis LaTeX template. [My achievement.](https://github.com/dinhanhthi/ThiThesisTemp){:.url target="_blank"}
 - {:.finish} <span class="tbadge badge-blue">Web</span> Design a beautiful theme for note-taking purpose. [My achievement.](https://github.com/dinhanhthi/NoteTheme){:.url target="_blank"}

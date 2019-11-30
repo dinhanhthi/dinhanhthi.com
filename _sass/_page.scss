@@ -7,6 +7,9 @@
 
 
 .page-content.learning-log{
+  h2{
+    margin-bottom: 1.25rem;
+  }
   a.url{
     font-style: italic;
     color: #555;
@@ -14,14 +17,11 @@
       color: $a-hover;
     }
   }
-  .ongoing .url{
-    color: #ce6a2b;
-  }
   ul{
     list-style: none;
     padding-left: 20px;
     li{
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       padding-left: 25px;
       &:before{
         margin-left: -25px;
