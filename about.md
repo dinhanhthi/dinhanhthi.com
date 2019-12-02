@@ -17,25 +17,29 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 {:.alert.alert-warning.mt-4.text-center}
 [**Check out my learning log!**]({{site.url}}{{site.baseurl}}/my-learning-log "Thi's learning log!")
 
-{% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://mynote.dinhanhthi.com/categories#data" %}
+{% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" href="https://note.dinhanhthi.com" %}
 
-I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/DSLearning){:target="_blank"}).
+I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/data-science-learning){:target="_blank"}).
 
-- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-green">[certificated](https://app.dataquest.io/profile/dinhanhthimail){:target="_blank"}</span> **[Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"}** (*31 courses*) / **[Data Engineer](https://www.dataquest.io/path/data-engineer/){:target="_blank"}** (*7 courses*) on Dataquest.
+- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-green">[certificated](https://app.dataquest.io/profile/dinhanhthi){:target="_blank"}</span> **[Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"}** path on Dataquest &mdash; [notes & codes on Github](https://github.com/dinhanhthi/dataquest-aio).
+- <span class="tbadge badge-gray">I'm following</span> [**Deep Learning specialization**](https://www.coursera.org/specializations/deep-learning) given by *deeplearning.ai* on Coursera &mdash; [notes & codes on Github](https://github.com/dinhanhthi/deeplearning.ai-notes).
 - <span class="tbadge badge-green">[certificated](https://www.coursera.org/account/accomplishments/specialization/WM6DVE7QFLJ7){:target="_blank"}</span> **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"}** on Coursera (*9 courses*).
-- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-orange">140<sup>+</sup> badges</span> **[Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"}** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
+- <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-orange">202<sup>+</sup> badges</span> **[Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"}** on Codecademy ([my account](https://www.codecademy.com/dinhanhthi){:target="_blank"}).
 - <span class="tbadge badge-green">[certificated](https://www.codecademy.com/dinhanhthi){:target="_blank"}</span> **[Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"}** on Codecademy.
-- <span class="tbadge badge-gray">I'm reading</span> [**The Elements of Statistical Learning**](https://www.goodreads.com/book/show/23692271-sapiens){:target="_blank"} written by Trevor Hastie *et al.*
+- <span class="tbadge badge-green">[certificated](https://www.codecademy.com/dinhanhthi){:target="_blank"}</span> **[Learn SQL](https://www.codecademy.com/learn/learn-sql){:target="_blank"}** on Codecademy.
+- <span class="tbadge badge-green">[certificated](https://www.codecademy.com/dinhanhthi){:target="_blank"}</span> **[Introduction to Stats with Numpy](https://www.codecademy.com/learn/intro-statistics-numpy)** on Codecademy.
 - <span class="tbadge badge-green">[certificated](https://www.coursera.org/account/accomplishments/verify/WJ9DNBMRQDJ8){:target="_blank"}</span> I've finished the [**Machine Learning course on Coursera**](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
 
 {% include heading-title.html title="Web Development" icon="fas fa-globe-asia" more="note taking" href="https://mynote.dinhanhthi.com/categories#web" %}
 
 I've totally learned by myself, created website Math2IT and designed some websites.
 
-- **2018 - today** &mdash; Following [Web Development path](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
+- Create [**notedown**](https://github.com/dinhanhthi/notedown), a web-based markdown editor for note taking.
+- Create [**note.dinhanhthi.com**](https://github.com/dinhanhthi/note), a jekyll theme specialized for note taking.
+- **2018 - today** &mdash; Following [**Web Development path**](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
 - **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp){:target="_blank"} which is a beautiful Wordpress theme.
 - **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).
-- **2013 - 2014** &mdash; I created [Math2IT](https://math2it.com){:target="_blank"} under Blogger platform and was building up my knowledge about web development.
+- **2013 - 2014** &mdash; I created [**Math2IT**](https://math2it.com){:target="_blank"} under Blogger platform and was building up my knowledge about web development.
 - **2012** &mdash; Self-studying about Web-development (HTML, CSS, DOM, JS, PHP & MySQL, HTTP Live Streaming)
 
 
