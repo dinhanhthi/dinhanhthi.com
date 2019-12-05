@@ -99,3 +99,21 @@ li{
     margin-bottom: 0;
   }
 }
+
+// learning-log-box
+.learning-log-box{
+  background-color: #f5f5f5;
+  border-radius: 0;
+  border: 1px solid #eee;
+  color: #000;
+  margin: 1.5rem 0;
+  text-align: center;
+  padding: 1rem;
+  a{
+    color: #555;
+    font-weight: 700;
+    &:hover{
+      color: #066abf;
+    }
+  }
+}
