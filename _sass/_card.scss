@@ -1,0 +1,58 @@
+.card-custom{
+  border-radius: 0;
+  margin-bottom: 2rem;
+  h2.card-header{
+    font-size: 1.3rem;
+    color: #333;
+    background: transparent;
+    text-transform: capitalize;
+    i{
+      color: #555;
+      margin-right: 5px;
+    }
+  }
+  .card-body{
+    -webkit-columns: 384px 2;
+    -moz-columns: 384px 2;
+    columns: 350px 2;
+    ul{
+      margin-bottom: 0;
+      padding-left: 20px;
+      a{
+        color: #1954b3;
+        &:hover{
+          color: $a-hover;
+        }
+      }
+    }
+  }
+}
+
+.card-subject{
+  h2.card-header{
+    color: #545454;
+    font-weight: 600;
+    background: #f7f6f6;
+    text-align: center;
+  }
+  .card-body{
+    columns: 1;
+    text-align: center;
+  }
+  .category{
+    &:before{
+      content: "#";
+      margin-right: 3px;
+      color: #169074;
+    }
+    color: #555;
+    &:hover{
+      color: $a-hover;
+    }
+    margin-right: 5px;
+    padding: 0 5px;
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+  }
+}

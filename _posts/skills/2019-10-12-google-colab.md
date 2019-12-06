@@ -1,0 +1,224 @@
+---
+layout: post
+title: "Google Colab"
+categories: [skills]
+icon-photo: colab.png
+---
+
+{% assign img-url = '/img/post/skills' %}
+
+{% include toc.html %}
+
+## URLs
+
+- [Main site](https://colab.research.google.com/).
+- [Welcome site](https://colab.research.google.com/notebooks/welcome.ipynb?authuser=1).
+- [SeedBank by Google](https://research.google.com/seedbank/): Collection of Interactive Machine Learning Examples.
+
+## Colab & Github
+
+"*Open with Colab*" any Jupyter Notebook file (`.ipynb`) in Github. For example, the file's URL is:
+
+~~~ bash
+https://github.com/dinhanhthi/dataquest-aio/blob/master/file-name.ipynb
+~~~
+
+You can open with colab with the URL:
+
+~~~ bash
+https://colab.research.google.com/github/dinhanhthi/dataquest-aio/blob/master/file-name.ipynb
+~~~
+
+In the case you wanna import dataset (`.csv`) from Github. First, open this `.csv` file as RAW. Its URL may be
+
+~~~ bash
+https://raw.githubusercontent.com/dinhanhthi/dataquest-aio/master/file.csv
+~~~
+
+and then use it as the url of the data file. Note that, you cannot use `open` to read this file,
+
+~~~ python
+import csv
+
+# We can use on localhost
+opened_file = open(dataset_url, encoding="utf8")
+read_file = csv.reader(opened_file)
+
+# But we CAN'T use this `open` for the link from Github, we use:
+from urllib.request import urlopen
+opened_file = urlopen(dataset_url).read().decode('utf-8')
+read_file = csv.reader(opened_file.splitlines())
+~~~
+
+
+## Hotkeys / Shortcuts
+
+Check the command shortcuts in **Tools** > **Keyboard shortcuts** (<kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>H</kbd>), below are the most popular ones:
+
+- <kbd>Ctrl</kbd> + <kbd>S</kbd>: **save** the notebook.
+- <kbd>Ctrl</kbd> + <kbd>Enter</kbd>: **run** a cell in place.
+- <kbd>Shift</kbd> + <kbd>Enter</kbd>: to **run** the cell and move **focus** to the next cell (adding one if none exists).
+- <kbd>Alt</kbd> + <kbd>Enter</kbd>: **run** the cell and **insert** a new code cell immediately below it.
+- <kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>Y</kbd>: **convert** a cell to a **code cell**.
+- <kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>M</kbd>: **convert** a cell to a **text cell**.
+- <kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>D</kbd>: **delete** current cell / selected cells.
+- <kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>A</kbd>: **insert** a code cell **above**.
+- <kbd>Ctrl</kbd> + <kbd>M</kbd> <kbd>B</kbd>: **insert** a code cell **below**.
+- <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>M</kbd>: insert a **comment**.
+- <kbd>Ctrl</kbd> + <kbd>Space</kbd> or <kbd>Tab</kbd>: **autocomplete**.
+- <kbd>Ctrl</kbd> + <kbd>H</kbd>: global **find/replace**.
+- <kbd>Ctrl</kbd> + <kbd>G</kbd>: global **find next**.
+
+{:alert.alert-success}
+We can use system commands in Colab with `!<command>`. For example, `!git clone ...`.
+
+## Import libraries
+
+~~~ bash
+!pip install -q matplotlib-venn
+# or
+!apt-get -qq install -y libfluidsynth1
+~~~
+
+## Upgrade/Switch TensorFlow versions
+
+~~~ bash
+# To determine which version you're using:
+!pip show tensorflow
+
+# For the current version: 
+!pip install --upgrade tensorflow
+
+# For a specific version:
+!pip install tensorflow==1.2
+
+# For the latest nightly build:
+!pip install tf-nightly
+~~~
+
+## Git with Colab
+
+Check out [my note for Git](/git).
+
+~~~ python
+# Initialize the git repository (optional)
+!git init
+
+# Set the global username and email
+!git config --global user.email "youremail@domain.com"
+!git config --global user.name "Your Name"
+
+# Add all the files
+!git add -A
+# or
+!git add .
+
+# Commit
+!git commit -m "Comment for that commit"
+
+# Pass your Github credentials
+!git remote rm origin # in the case you meet "fatal: remote origin already exists"
+!git remote add origin https://<github-username>:<github-password>@github.com/<github-username>/<repository-name>.git
+
+# Push to origin
+!git push -u origin master
+~~~
+
+If you don't want to use your username andd password, you can use "Personal access tokens" on Github. Create one [here](https://github.com/settings/tokens) and then use,
+
+~~~ python
+!git git remote add origin https://<username>:<access-token>@github.com/<username>/<repo>.git
+~~~
+
+## Change to current working directory
+
+By default, the working directory is `/content/`. One can use below command to change to another place,
+
+~~~ python
+%cd /content/data-science-learning
+~~~
+
+From that point, we are working on `/content/data-science-learning`.
+
+## Upload a file to Colab{% ref https://colab.research.google.com/notebooks/io.ipynb#scrollTo=hauvGV4hV-Mh %}
+
+Each user has a "machine" in `/content/`.
+
+### Directly upload
+
+Create a new cell and paste,
+
+~~~ python
+from google.colab import files
+
+uploaded = files.upload()
+
+for fn in uploaded.keys():
+  print('User uploaded file "{name}" with length {length} bytes'.format(
+      name=fn, length=len(uploaded[fn])))
+~~~
+
+Run {% mark 2 times %} this cell, at the 2nd time, you can choose your file.
+
+### Using Google Drive
+
+Run a cell containing following codes,
+
+~~~ python
+from google.colab import drive
+drive.mount('/content/drive')
+~~~
+
+and then follow the guide on the screen. In order to access to the drive,
+
+~~~ python
+with open('/content/drive/My Drive/foo.txt', 'w') as f:
+  f.write('Hello Google Drive!')
+~~~
+
+### Clone a repo from Github
+
+~~~ python
+!git clone https://github.com/dinhanhthi/data-science-learning.git
+~~~
+
+The cloned folder are stored in `/content/`. If you wanna `pull` requests, use,
+
+~~~ python
+%cd /content/data-science-learning
+!git pull
+~~~
+
+## Install 7zip reader, GraphViz, PyDot, cartopy
+
+~~~ bash
+# https://pypi.python.org/pypi/libarchive
+!apt-get -qq install -y libarchive-dev && pip install -q -U libarchive
+import libarchive
+
+# https://pypi.python.org/pypi/pydot
+!apt-get -qq install -y graphviz && pip install -q pydot
+import pydot
+
+!apt-get -qq install python-cartopy python3-cartopy
+import cartopy
+~~~
+
+## Save as HTML
+
+Jupyter Notebook has an option to 'Download as' HTML (or other) format. Google Colaboratory does not.
+
+1. [Install the nbconvert package](https://nbconvert.readthedocs.io/en/latest/install.html).
+2. Save your Colab notebook.
+4. In your terminal:
+
+    ~~~ bash
+jupyter nbconvert --to <output format> <filename.ipynb>
+# jupyter nbconvert --to html mynotebook.ipynb
+    ~~~
+
+
+## Other functions
+
+- Interrupt a long running python process: **Runtime** > **Interrupt execution** (<kbd>Alt</kbd> + <kbd>M</kbd> <kbd>I</kbd>).
+- Support Jupyter magic commands, check full list [here](https://nbviewer.jupyter.org/github/ipython/ipython/blob/1.x/examples/notebooks/Cell%20Magics.ipynb).

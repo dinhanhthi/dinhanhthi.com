@@ -2,15 +2,18 @@
 ---
 
 $a-hover: #ea256a;
-$text-pink: #dd0051;
 
+$m-b: 1rem;
 
 // main color
-$c-green: #5eeda3;
+$c-green: #0e980e;
+$c-green-light: #90ee90;
 $c-red: #fc5d76;
 $c-blue: #3292f6;
 $c-yellow: #fdb54b;
 $c-violet: #bd96f6;
+$c-pink: #dd0051;
+$c-pink-light: #ff97a6;
 
 $c-blue-text: #4682b4;
 $c-gray-text: #778899;
@@ -18,6 +21,7 @@ $c-yellow-text: #ffeead;
 $c-gray-hover: #555;
 $c-a-hover: #0085A1;
 $c-sec-bg: #F4F4F4;
+$c-bold-text: #000;
 
 // size grid
 $s-xs: 350px;
@@ -27,9 +31,13 @@ $s-lg: 992px;
 $s-xl: 1200px;
 
 // font
-$f-main: 'Open Sans', sans-serif;
+$f-main: 'Muli', sans-serif;
+$f-heading: 'Open Sans', sans-serif;
 $f-size: 1rem; // 16px
 $f-size-small: 0.9rem;
+// headings
+$f-h2-size: $f-size*1.45;
+$f-h3-size: $f-size*1.3;
 
 $f-semi-bold: 600;
 $f-bold: 700;
@@ -37,20 +45,7 @@ $f-extra-bold: 800;
 
 // navigation bar
 @import 'tnavigation'; // _tnavigation.scss
-{% for nav in site.data.nav %}
-  .nav-{{ nav.name }}:hover, .nav-{{ nav.name }}.nav-current{
-    i{
-      color: #{{ nav.color }};
-    }
-    span{
-      color: #fff;
-    }
-  }
-{% endfor %}
 
-// only for vn site
-@import 'tsection'; // _tsection.scss
-@import 'tpagination'; // _tpagination.scss
 @import 'tfooter'; // _tfooter.scss
 @import 'tgrid'; // _tgrid.scss
 @import 'font';
@@ -61,30 +56,19 @@ $f-extra-bold: 800;
 @import 'header';
 @import 'search';
 @import 'toc';
-@import 'tag';
+@import 'card';
+@import 'jsxgraph';
+@import 'tcolumns';
 
-@import 'me-social'; // find me on
+@import 'me-social';
 @import 'project';
-@import 'mynote';
 @import 'reading';
+@import 'mynote';
 @import 'drawing';
+@import 'learning-log';
 
 @import 'insert-img'; // _insert-img.scss
 @import 'insert-video'; // _insert-video.scss
 @import 'step'; // _step.scss
 
 @import 'page';
-
-
-
-// back to top
-.back-to-top{
-  margin-right: 15px;
-  position: absolute;
-  right: 0;
-  color: #a9a9a9!important;
-  cursor: pointer;
-  &:hover{
-    color: #555!important;
-  }
-}

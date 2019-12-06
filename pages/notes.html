@@ -1,0 +1,56 @@
+---
+layout: base
+title: my notes
+intro: "I use this note firstly for me when I learn something new in <i>Machine Learning</i>, <i>Artificial Intelligence</i>, <i>Data Science</i> & <i>Web Development</i>. For me, the best way to learn something is to teach it to someone."
+icon-photo: notes.png
+permalink: /notes
+---
+
+{% include header.html %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-10"
+      <main role="main">
+
+        <div class="card card-custom card-subject">
+          <h2 class="card-header">
+            Notes by subjects
+          </h2>
+          <div class="card-body">
+            <div class="tag-list">
+              {% for category in site.data.categories %}
+                {% if site.categories[category.name].size > 0 %}
+                  <a class="category" href="#{{category.name | replace: " ","_"}}">
+                    {{ category.name }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        {% for category in site.data.categories %}
+          {% if site.categories[category.name].size > 0 %}
+            <div class="card card-custom">
+              <h2 class="card-header" id="{{category.name | replace: " ","_"}}">
+                <i class="{{ category.icon }}"></i>
+                {{ category.name }}
+              </h2>
+              <div class="card-body">
+                <ul>
+                  {% for post in site.categories[category.name] %}
+                    <li class="item">
+                      <a href="{{post.url}}">{{post.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </main>
+    </div>
+  </div>
+</div>

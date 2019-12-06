@@ -7,7 +7,7 @@
   box-shadow: 0 5px 15px rgba(0,0,0,.16);
   border-radius: 5px;
   padding-top: 45px;
-  margin: 2rem 0;
+  margin: 0 0 $m-b 0;
 	overflow: auto;
   &:before{
     content: "\2022 \2022 \2022";
@@ -31,7 +31,7 @@ li{
   .terminal{
       margin: 1rem 0;
       &+ p{
-          margin-bottom: 1rem;
+          margin-bottom: $m-b;
       }
   }
 }
@@ -39,7 +39,8 @@ li{
 
 // alert
 .alert{
-  margin: 1.5rem 0;
+  margin: 0 0 $m-b 0;
+  border-radius: 0!important;
   b, strong{
     color: inherit!important;
   }
@@ -49,6 +50,12 @@ li{
     }
     margin-bottom: 0;
   }
+  p:first-of-type{
+    .MathJax_Preview, .MathJax_Display{
+      margin-bottom: 0;
+    }
+    // margin-bottom: 0;
+  }
   a{
     // color: inherit;
     &:hover{
@@ -57,15 +64,34 @@ li{
   }
 }
 
+.alert-custom{
+  padding-left: 0.75rem;
+  .alert-icon{
+    display: table-cell;
+  }
+  .alert-content{
+    display: table-cell;
+    padding-left: 0.5rem;
+    .highlighter-rouge > .highlight{
+      display: grid;
+    }
+  }
+}
+
+.alert-fixed-text{
+  color: #555;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
 
 .def-box{
 	margin: 20px 0;
   overflow: hidden;
   .box-title{
-    background-color: #2874cf;
+    background-color: #3880d6;
     color: white;
     padding: 8px 15px;
-    border-radius: 5px 5px 0 0;
     b, strong{
         color: #fff;
     }
@@ -82,8 +108,8 @@ li{
 // p mark
 .p-mark{
   border: 1.5px solid #67a8d4;
-  padding: 1rem;
-  margin: 1.5rem auto;
+  padding: 0 $m-b;
+  margin: $m-b auto;
   width: fit-content;
   @media only screen and (max-width: 600px){
     width: 100%;
@@ -100,8 +126,93 @@ li{
   }
 }
 
+
+// hide / show
+.hide-show-box{
+  margin-bottom: $m-b;
+  .box-button{
+    padding: 0.5rem 1rem!important;
+    border: 1px solid #ddd;
+    background: #fbfbfb;
+    border-radius: 0!important;
+    display: block;
+    width: 100%;
+    text-align: left;
+    strong, b{
+      color: inherit;
+    }
+    &:focus{
+      box-shadow: none;
+    }
+    &:hover{
+      background: #efefef!important;
+    }
+  }
+  .box-content{
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+
+.table{
+  margin: 1.5rem 0;
+}
+
+// tooltip
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 16px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+// for equal width columns
+.flex-even {
+  flex: 1;
+}
+
+
+.box-error{
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-top: 3rem;
+  color: #555;
+  h4{
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+}
+
+
+// tables
+table{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $m-b;
+  background-color: transparent;
+  thead{
+    background: #eee;
+  }
+  th, td{
+    padding: 5px 7px;
+    border: 1px solid #eee;
+  }
+  tr{
+    border-bottom: 1px solid #eee;
+  }
+}
+
 // learning-log-box
 .learning-log-box{
+  font-family: $f-heading;
   background-color: #f5f5f5;
   border-radius: 0;
   border: 1px solid #eee;

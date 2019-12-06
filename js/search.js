@@ -50,7 +50,7 @@ layout: null
 			}
 
 			// Highlight query parts
-			preview = preview.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<strong>$1</strong>");
+			preview = preview.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<mark>$1</mark>");
 		} else {
 			// Use start of content if no match found
 			preview = content.substring(0, previewLength).trim() + (content.length > previewLength ? "..." : "");

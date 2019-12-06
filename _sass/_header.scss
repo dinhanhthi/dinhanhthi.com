@@ -1,19 +1,44 @@
-// index
-.bg-header{
+.header{
   background: linear-gradient(to bottom right,#111217,#484d60);
   color: #eee;
-  padding: 2rem 0;
-  position: relative;
-  overflow-x: hidden;
-  margin-bottom: 1rem;
+  padding: 4rem 0 1rem 0;
+  margin-bottom: 2rem;
 }
 
-.idx-header{
+.header-content{
+  text-align: center;
   h1{
-    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000;
+  }
+  a{
+    color: #ffeead;
+    &:hover{
+      text-decoration: none;
+      color: #fbe17d;
+    }
+  }
+  .emoji{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 5px;
+  }
+  .icon{
+    font-size: 2.5rem;
+  }
+  .icon-photo{
+    height: 55px;
+    margin: 0 auto 10px auto;
+    img{
+      width: auto;
+      height: 100%;
+    }
   }
 }
 
+// index
 .idx-header{
   .img-avatar{
     max-width: 150px;
@@ -35,6 +60,7 @@
       font-size: 3rem;
       color: #fff;
       text-shadow: 2px 2px 4px #000;
+      font-family: 'Lobster', cursive;
       @media (max-width: 450px){
         font-size: 3rem;
       }
@@ -50,30 +76,5 @@
         font-weight: normal;
       }
     }
-  }
-}
-
-
-// page
-.page-header{
-  .icon{
-    font-size: 2.5rem;
-  }
-  h1{
-    font-size: 2rem;
-    font-weight: 600;
-    @media screen and (max-width: 420px){
-      font-size: 1.8rem;
-    }
-  }
-  h3{
-    font-size: 1.1rem;
-    @media screen and (max-width: 420px){
-      font-size: 1rem;
-    }
-  }
-  .date{
-    font-size: 0.95rem;
-    color: #ccc;
   }
 }

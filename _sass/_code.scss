@@ -1,33 +1,128 @@
 .highlighter-rouge{
-  margin: 1rem 0;
+  margin: 0 0 $m-b 0;
+  font-size: 0.95*$f-size;
+  max-height: 500px;
+  overflow: auto;
 }
 
-.highlight pre{
-  padding: 1rem;
-  tab-size: 2;
-}
 .highlight{
-  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  pre{
+    padding: 1rem;
+    tab-size: 2;
+    font-size: 100%;
+    .c, .cd{
+      color: #c7c4b6;
+    }
+    margin-bottom: 0;
+  }
 }
-p>code,li>code{
+
+p>code, li>code, em>code, strong>code, b>code, i>code{
   background: #ececec;
-  border-radius: 4px;
-  padding: 3px 4px;
+  padding: 1px 4px 2px 4px;
 }
 
 code{
   color: #067b26;
 }
 
+h2>code{
+  font-size: 0.9*$f-h2-size!important;
+}
+h3>code{
+  font-size: 0.9*$f-h3-size!important;
+}
 h2>code, h3>code{
   background: #ececec;
-  border-radius: 4px;
-  padding: 5px 5px 2px 5px;
+  padding: 1px 5px 3px 5px;
+  font-weight: normal;
 }
 
 .bg-gray{
   .highlight{
-    background-color: #ebebeb;
+    background-color: #efefef;
     color: #444;
+  }
+}
+
+.output{
+  margin-top: -$m-b;
+  .highlight{
+    background: #f9f9f9;
+    color: #555;
+    .highlight{
+      border: 1px solid #ddd;
+    }
+  }
+}
+
+
+// with line numbers
+figure.highlight{
+  margin: $m-b 0;
+  height: auto;
+  &>pre{
+    padding: 0;
+    height: 100%;
+  }
+  table{
+    height: 100%;
+    td{
+      padding: 0;
+      &.gutter.gl{
+        border-right: 0.5px solid #bbb;
+        padding: 1rem 8px;
+        .lineno{
+          color: #bbb;
+          padding: 0;
+        }
+      }
+      &.code{
+        pre{
+          color: white!important;
+        }
+      }
+    }
+  }
+}
+
+
+// side-by-side
+.of-auto{
+  figure.highlight{
+    overflow: auto;
+  }
+}
+.d-md-flex{
+  .output{
+    @media(max-width: $s-md - 1){
+      margin-top: -$m-b!important;
+    }
+    @media(min-width: $s-md){
+      margin: 0 0 1rem 0;
+    }
+  }
+}
+.d-lg-flex{
+  .output{
+    @media(max-width: $s-lg - 1){
+      margin-top: -$m-b!important;
+    }
+    @media(min-width: $s-lg){
+      margin: 0 0 1rem 0;
+    }
+  }
+}
+.d-md-flex, .d-lg-flex{
+  figure.highlight{
+    -ms-flex: 1 1 auto!important;
+    flex: 1 1 auto!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+  }
+  .highlighter-rouge{
+    margin-top: 0;
   }
 }

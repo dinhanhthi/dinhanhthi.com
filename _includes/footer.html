@@ -1,12 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center p-3">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6 text-center p-3">
       <div class="footer-info">
-        <a href="{{site.url}}{{site.baseurl}}">{{ site.data.me.name }}</a>
+        <a href="{{ site.data.me.url }}" target="_blank">Thi</a>
         &nbsp;&copy;&nbsp;
         {{ site.time | date: '%Y' }}
         &nbsp;&bull;&nbsp;
-        <a href="{{site.url}}{{site.baseurl}}/about">About</a>
+        <a href="{{site.url}}{{site.baseurl}}/about">
+          About
+        </a>
+        &nbsp;&bull;&nbsp;
+        <a href="{% post_url 2018-07-21-for-the-editors-only %}">
+          For me only
+        </a>
+        &nbsp;&bull;&nbsp;
+        <a class="donate" target="_blank" href="https://www.paypal.me/DinhAnhThi">
+          Donate
+        </a>
       </div>
     </div>
   </div>

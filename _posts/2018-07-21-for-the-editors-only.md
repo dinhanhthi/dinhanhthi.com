@@ -1,34 +1,37 @@
 ---
 layout: post
 title: "For me only"
-subtitle: restricted area
-tags: [others]
 categories: others
+excluded_in_search: 1
 math: 1
-date: 2019-05-08
+icon: "fas fa-pencil-ruler"
+icon-color: "#ffd661"
+jsxgraph: 1
+sitemap: false
 ---
 
 {% include toc.html %}
 
-<div class="alert alert-warning" role="alert" markdown="1">
-This post is only for me to write the posts, please read [**others**](/blog).
-</div>
+{:.alert.alert-warning}
+This post is only for me to write the posts and it will be updated frequently without notice!
 
 ## Front matter
 
-<div class="alert alert-success" role="alert" markdown="1">
-If you don't want to use any item below, don't write it down. `math##  ##: 0` will be considered similarly to `math: 1` and jekyll understand that they are the same unless you don't write either of them.
-</div>
+{:.alert.alert-success}
+If you don't want to use any item below, don't write it down. `math: 0` will be considered similarly to `math: 1` and jekyll understand that they are the same unless you don't write either of them.
 
-- `math: 1` : only add if you wanna use math equations inside post.
-- `categories: [cat1, cat2]` : add the categories/topics for posts. Refer to [the list of categories]({{site.url}}{{site.baseurl}}/categories).
-- `tags: [tag1, tag2]` : add tags for posts. Refer to [the list of tags]({{site.url}}{{site.baseurl}}/tags).
-- `img` : thumbnail of the post .
-- `update: 1` : if you just update the content of the post.
-- `writing: 1` : if you are writing the post, it's not finished yet.
-- `mychoice: 1` : if you make this post as your best choice.
+- `math: 1` : only add if you wanna use math equations inside post. Jump to [this section](#math-expressions).
+- `categories: [cat1, cat2]` : add the categories/topics for posts. Current categories on this site: {% for category in site.categories reversed %}{% capture category_name %}{{ category | first }}{% endcapture %}<a href="{{site.url}}{{site.baseurl}}/#{{category_name | replace: " ","_"}}">{{ category_name }}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}
 - `custom-css` : if some page or post has different css, indicate it here.
-- `vn: 1` : if the post is written in vietnamese.
+- `toc: 1` : if you wanna show the table of contents for this post. Jump to [this section](#add-table-of-contents).
+- `excluded_in_search: 1` : if you think that some post/page containing jekyll expressions that may lead to some errors in the search page. If you add this, this post won't be included in the search page.
+- `emoji` : (e.g. `":chicken:"`) if you wanna display an emoji icon in the header for that page/post. Jump to [this section](#jemoji).
+- `icon` : (e.g. `"fas fa-book-reader"`) if you wanna display an icon for that in the header for that page/post.
+- `icon-color` : (e.g. `#ffeead`) if you wanna set a color for that icon.
+- `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
+- `jsxgraph: 1` : if you use JSXGraph in your post. Jump to [this section](#insert-jsxgraph).
+- `sitemap: false` : If you would like to exclude specific pages/posts from the sitemap.
+- `subtitle` : Only used for pages.
 
 ## Add table of contents
 
@@ -38,62 +41,82 @@ The table of contents is only shown if the min-width of the viewport is 1300 px.
 {% raw %}{% include toc.html %}{% endraw %}
 ~~~
 
-## Reading file
+## Insert youtube videos
 
-- `reading: 1`: if you're reading this book.
-- `mychoice: 1`: if you make this book as your best choice.
+For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below codes:
 
-## My learning log
-
-~~~{% raw %}
-- {:.ongoing} Ongoing works! [my progress](/link){:target="_blank".}
-- {:.finish} Finished works!
-- {:.delay} Comback later!
-- {:.fail} Fail!
-{% endraw %}~~~
+~~~ liquid
+{% raw %}{% include youtube.html content="57oX5RMHHdQ" des="Video's description." %}{% endraw %}
+~~~
 
 ## Inset figures
 
-- **Beginning of each post**: 
-  ~~~{% raw %}
-  {% assign img-url = '/img/post/ML' %}{% endraw %}
-  ~~~
-  and then
-  ~~~{% raw %}
-  ![alternative]({{img-url}}/figure.png}){% endraw %}
-  ~~~
-- Normal inserting (without any class):
-  ~~~
-  ![Describe](link/to/figures)
-  ~~~
-- Full 100% width:
-  ~~~
-  {:.img-full-normal}
-  ![Describe](link/to/figures)
-  ~~~
-- Full but overflow outside the margin:
-  ~~~
-  {:.img-full}
-  ![Describe](link/to/figures)
-  ~~~
-- Full but 50% width. We can use **75** for the 75% width.
-  ~~~
-  {:.img-full-50}
-  ![Describe](link/to/figures)
-  ~~~
-- Float to right:
-  ~~~
-  {:.img-right}
-  ![Describe](link/to/figures)
-  ~~~
-- Float to left:
-  ~~~
-  {:.img-left}
-  ![Describe](link/to/figures)
-  ~~~
+### Beginning of each post: 
 
+~~~ liquid
+{% raw %}{% assign img-url = '/img/post/ML' %}{% endraw %}
+~~~
 
-## Side by side figure and content
+and then
+
+~~~ html
+{% raw %}![alternative]({{img-url}}/figure.png){% endraw %}
+~~~
+
+### Normal inserting (without any class):
+
+~~~
+![Describe](link/to/figures)
+~~~
+
+### Full width
+
+Full 100% width (`.img-full-100` is the same):
+
+~~~
+{:.img-full-normal}
+![Describe](link/to/figures)
+~~~
+
+Full but overflow outside the margin:
+
+~~~
+{:.img-full}
+![Describe](link/to/figures)
+~~~
+
+Full but 50% width. We can use **75**, **85**, **90** for the 75%, 85% and 90% width respectively.
+
+~~~
+{:.img-full-50}
+![Describe](link/to/figures)
+~~~
+
+### FLoat to left / right
+
+Float to the right:
+
+~~~
+{:.img-right}
+![Describe](link/to/figures)
+~~~
+
+Float to the left:
+
+~~~
+{:.img-left}
+![Describe](link/to/figures)
+~~~
+
+### Jemoji
+
+- Check the list of emotional icons [here](https://www.webfx.com/tools/emoji-cheat-sheet/).
+- Using: `:chicken:` gives :chicken:.
+
+{:.alert.alert-warning}
+Sometimes, this function makes some unwanted errors on the [search page](/search). You can copy and paste directly the emojis from [this site](https://getemoji.com/).
+
+### Side-by-side figure and content / columns
 
 ~~~ html
 <div class="columns-2" markdown="1">
@@ -103,86 +126,347 @@ Texts
 </div>
 ~~~
 
+Default, two columns will be separated into 50-50. If you wanna other ratios, using below classes along with `.columns-2`:
+
+- Ratio 2-1 or 1-2: `.size-2-1` or `.size-1-2`.
+- Ratio 3-2 or 2-3: `.size-3-2` or `.size-2-3`.
+- Ratio 1-1: `.size-1-1`.
+
+{:.alert .alert-success}
+You can also use `<div>` tag to enclose the section you wanna show in only 1 side. Note that you can also use default classes given in bootstrap such as `.pl-md-3` to add a separated space between 2 columns.
+
+### Click to enlarge
+
+If you wanna some photos having the function "click to enlarge", just add class `.pop` to this photo. 
+
+### Insert JSXGraph
+
+You need to indicate it in the frontmatter: `jsxgraph: 1`. Below are an example. There are more other options, check [the docs](https://jsxgraph.org/wp/docs/index.html).
+
+~~~ html
+<div id="jsx-box" class="jxgbox" style="width:100%; height:250px;"></div>
+<script type="text/javascript">
+JXG.Options = JXG.merge(JXG.Options, {
+    axis:{
+      ticks:{
+        majorHeight: 0,
+        insertTicks: false, // show tick label
+        ticksDistance : 6, // height of main ticks
+      },
+      lastArrow: {
+          type: 1, // change the type
+          highlightSize: 8, // ??
+          size: 10 // size of last arrow
+      },
+    },
+    text:{
+      // fontSize: 16, // font-size of texts
+      cssdefaultstyle: 'font-family: inherit; font-size: inherit;'
+    },
+    point:{
+      face: 'x' // style of points
+    },
+    grid:{
+      // visible: true, // didn't work??
+      // set in the board's settings
+      strokeColor: "pink" // grid's color
+    }
+ });
+var brd1 = JXG.JSXGraph.initBoard('jsx-box', {
+  axis:true,
+  boundingbox: [-8, 5, 8, -4],
+  grid: false, // display grid?
+  showScreenshot: false, // show screen-shot (right lick to save image)?
+  showNavigation: false, // show navigation?
+  showCopyright: false // show copyright?
+  }
+);
+var s = brd1.create('slider',[[1,4],[5,4],[1,10,50]],{name:'            n',snapWidth:1});
+var a = brd1.create('slider',[[1,3],[5,3],[-10,-3,0]],{name:' start'});
+var b = brd1.create('slider',[[1,2],[5,2],[0,2*Math.PI,10]],{name:' end'});
+var f = function(x){ return Math.sin(x); };
+var plot = brd1.create('functiongraph',[f,function(){return a.Value();}, function(){return b.Value();}]);
+
+var os = brd1.create('riemannsum',[f,
+  function(){ return s.Value();}, function(){ "left";},
+  function(){return a.Value();},
+  function(){return b.Value();}
+  ],
+  {
+    fillColor:'#ffff00',
+    fillOpacity: 0.3,
+  }
+);
+
+brd1.create('text',[-6,-3,function(){ return 'Area = '+(JXG.Math.Numerics.riemannsum(f,s.Value(),"left".value,a.Value(),b.Value())).toFixed(4); }]);
+</script>
+~~~
+
+which gives
+
+<div id="jsx-box" class="jxgbox" style="width:100%; height:250px;"></div>
+<script type="text/javascript">
+JXG.Options = JXG.merge(JXG.Options, {
+    axis:{
+      ticks:{
+        majorHeight: 0,
+        insertTicks: false, // show tick label
+        ticksDistance : 6, // height of main ticks
+      },
+      lastArrow: {
+          type: 1, // change the type
+          highlightSize: 8, // ??
+          size: 10 // size of last arrow
+      },
+    },
+    text:{
+      // fontSize: 16, // font-size of texts
+      cssdefaultstyle: 'font-family: inherit; font-size: inherit;'
+    },
+    point:{
+      face: 'x' // style of points
+    },
+    grid:{
+      // visible: true, // didn't work??
+      // set in the board's settings
+      strokeColor: "pink" // grid's color
+    }
+ });
+var brd1 = JXG.JSXGraph.initBoard('jsx-box', {
+  axis:true,
+  boundingbox: [-8, 5, 8, -4],
+  grid: false, // display grid?
+  showScreenshot: false, // show screen-shot (right lick to save image)?
+  showNavigation: false, // show navigation?
+  showCopyright: false // show copyright?
+  }
+);
+var s = brd1.create('slider',[[1,4],[5,4],[1,10,50]],{name:'            n',snapWidth:1});
+var a = brd1.create('slider',[[1,3],[5,3],[-10,-3,0]],{name:' start'});
+var b = brd1.create('slider',[[1,2],[5,2],[0,2*Math.PI,10]],{name:' end'});
+var f = function(x){ return Math.sin(x); };
+var plot = brd1.create('functiongraph',[f,function(){return a.Value();}, function(){return b.Value();}]);
+
+var os = brd1.create('riemannsum',[f,
+  function(){ return s.Value();}, function(){ "left";},
+  function(){return a.Value();},
+  function(){return b.Value();}
+  ],
+  {
+    fillColor:'#ffff00',
+    fillOpacity: 0.3,
+  }
+);
+
+brd1.create('text',[-6,-3,function(){ return 'Area = '+(JXG.Math.Numerics.riemannsum(f,s.Value(),"left".value,a.Value(),b.Value())).toFixed(4); }]);
+</script>
+
+## Columns & Check box lists
+
+Example like [this site](/to-be-done).
+
+~~~ html
+<div class="two-columns-list" markdown="1">
+- [ ] Not finished task. There must be a space between "[" and "]"
+- [x] Finished task.
+</div>
+~~~
+
 ## Insert codes
 
-- If you wanna add tag `{{"{% this "}}%}`, use alert`{% raw %}{{"{% this "}}%}{% endraw %}`.
+### Liquid code
+
+- If you wanna add tag `{{"{% this "}}%}`, use `{% raw %}{{"{% this "}}%}{% endraw %}`.
 - If you like this `{{"{{ this "}}}}`, use `{% raw %}{{"{{ this "}}}}{% endraw %}`.
 - **The rule**: use `{% raw %}{{"{% endraw %}` before the key-word and end with `{% raw %}"}}{% endraw %}` before the end of key-word.
 - **An easier way**: use `{{ "{% raw " }}%}` and `{{ "{% endraw " }}%}` around the key-word. These two commands are also used for a block of codes,
 
 	~~~
-~~~ {{ "{% raw " }}%}{% raw %}{% for %}
-// line of codes
-{% end for %}{% endraw %}{{ "{% endraw " }}%} ~~~
+  ~~~ {{ "{% raw " }}%}{% raw %}{% for %}
+  // line of codes
+  {% end for %}{% endraw %}{{ "{% endraw " }}%} ~~~
 	~~~
 
 	**Tips**: For a beautiful display, put `{{ "{% raw " }}%}` and `{{ "{% endraw " }}%}` exactly like the above code.
 
+### Box of codes
+
+- Gray: `{:.bg-gray}` before `~~~`.
+- Output: `{:.output}` before `~~~`.
+
+### Code with line numbers 
+
+There must be a language!:
+
+~~~
+{% raw %}{% highlight ruby linenos %}
+// line of codes
+{% endhighlight %}{% endraw %}
+~~~
+
+### Side-by-side code boxes
+
+Depend on the length of codes, you decides to use `.d-md-flex` or `.d-lg-flex`.
+
+If you don't wanna show the line numbers:
+
+~~~ html
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+Other code blocks
+
+{:.output.flex-fill.d-flex}
+Result code blocks
+</div>
+~~~
+
+If you wanna show the line numbers:
+
+~~~ html
+<div class="d-md-flex of-auto" markdown="1">
+Block of codes with line numbers
+
+{:.output.flex-fill.d-flex.overflow-auto}
+Result code blocks
+</div>
+~~~
+
+If you want 2 boxes share equal widths
+
+~~~ html
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+Block of codes.
+
+{:.flex-even.overflow-auto.pl-md-1}
+Block of codes.
+</div>
+~~~
+
+**Options:**{:.tbrown}
+
+- Add `.overflow-auto` before the **result block** if its length is long.
+- (Show line numbers case) Add `of-auto` like in above example if the **main code block** has a long length.
+- (Hide line numbers case) Add `.overflow-auto` before the **main code block** if its length is long.
+- If you want 2 boxes share equal widths, replace `.flex-fill.d-flex` with `.flex-even`!
+- If two column stick together (with no space between them), you can use `.pr-md-1` for the left and `.pl-md-1` for the right.
+
 ## Insert boxes
 
-- Terminal box
+### Box around formulas
 
-	~~~ html
-  {:.terminal}
-  $ sudo apt-get update
-	~~~
+~~~ html
+<p class="p-mark">
+Content
+</p>
+~~~
 
-- Warning bootstrap : [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}.
-	- Success box (green):
+### Terminal box
 
-		~~~ html
-	  {:.alert.alert-success}
-	  Content
-		~~~
+~~~ html
+{:.terminal}
+$ sudo apt-get update
+~~~
 
-	- Warning (yellow)
+### Alert boxes by Bootstrap
 
-		~~~ html
-	  {:.alert.alert-warning}
-	  Content
-		~~~
+Checkm all other types of alert boxes [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}. Below are 3 of them (success--green, warning--yellow, danger--red). You have 3 ways to add an alert box in this site. Note that, you can use interchangeably between `warning`, `success` and `danger`. 
 
-	- Danger (red)
-		~~~ html
-	  {:.alert.alert-danger}
-	  Content
-		~~~
+If your alert box has only 1 paragraph,
 
-	<div class="alert alert-warning" role="alert" markdown="1">
-	If you wanna insert a block of math inside above boxes, don't foget to wrap them inside a p tag.
-	</div>
+~~~ html
+{:.alert.alert-warning}
+Content
+~~~
 
-- Quotes I like (hide/show)
+If you wanna add a complicated block inside the box or there are more than 1 paragraph,
 
-	~~~ html
-  <div class="tomTat">
-  <div id="btTomTat" class="collapsed" data-toggle="collapse" href="#ndTomTat">
-	<span>Highlights I like</span>
-  </div>
-  <div id="ndTomTat" markdown="1" class="collapse multi-collapse ndTomTat">
-  Contents.
-  </div>
-  </div>
-	~~~
+~~~ html
+<div class="alert alert-warning" role="alert" markdown="1">
+Content
+</div>
+~~~
 
-- Definition box
+You can use my self-defined tags (**Be careful:** if you run your site on Github Pages, it won't work!)
 
-	~~~ html
-	<div class="def-box" markdown="1" id="dn1">
-	<div class="box-title" markdown="1">
-	Title
-	</div>
-	<div class="box-content" markdown="1">
-	Content
-	</div>
-	</div>
-	~~~
+~~~
+{% raw %}{% alertbox warning %}
+Content
+{% endalertbox %}{% endraw %} 
+~~~
+
+<div class="alert alert-warning" role="alert" markdown="1">
+If you wanna insert a block of math inside above boxes, don't foget to wrap them inside a p tag.
+</div>
+
+### Hide / Show boxes
+
+For different boxes, use different `box1ct`!
+
+~~~ html
+<div class="hide-show-box">
+<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
+Box's title
+</button>
+<div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
+Box's content.
+</div>
+</div>
+~~~
+
+If you wanna show the box as default, add class `show"` to the `div#box1ct`.
+
+:bulb: **Simpler method**{:.tbrown}: you can use below shortcode. **Be careful**: if you run your site on Github Pages, it won't work!
+
+~~~
+{% raw %}{% hsbox **Tựa đề box** | show %}
+Box's content.
+{% endhsbox %}{% endraw %} 
+~~~
+
+If you don't wanna show the box as default, remove ` | show`!
+
+### Definition box
+
+~~~ html
+<div class="def-box" markdown="1" id="dn1">
+<div class="box-title" markdown="1">
+Title
+</div>
+<div class="box-content" markdown="1">
+Content
+</div>
+</div>
+~~~
+
+:bulb: **Simpler method**{:.tbrown}: you can use below shortcode. **Be careful**: if you run your site on Github Pages, it won't work!
+
+~~~
+{% raw %}{% defbox Title | boxid %}
+Content
+{% enddefbox %}{% endraw %} 
+~~~
+
+Box's id `boxid` is optional and you can use markdown syntax for `Title`.
+
+### A simple white box
+
+Like the error box at the end of this post.
+
+~~~ html
+<div class="box-error">
+Content
+</div>
+~~~
+
+### Others
 
 - Gray box of code : add class `{:.bg-gray}` before the code.
 - Table : If you wanna show the right line of each column, just use the class `.bd-right` together with class `.table`.
 
 ## Steps
 
+<div class="columns-2" markdown="1">
 ~~~ html
 <div  class="thi-step">
 
@@ -203,24 +487,109 @@ Content of step 2.
 </div>
 ~~~
 
+<div class="pl-sm-3 pl-md-4">
+which gives,
+
+<div  class="thi-step">
+<div class="step">
+<div class="step-number"></div>
+<div class="step-content" markdown="1">
+Content of step 1.
+</div>
+</div>
+
+<div class="step">
+<div class="step-number"></div>
+<div class="step-content" markdown="1">
+Content of step 2.
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+:bulb: **More convinient way**{:.tbrown}: Using below shortcode! **Be careful**: if you run your site on Github Pages, it won't work!
+
+~~~
+{% raw %}{% stepblock %}
+
+{% eachstep %}
+Content of step 1.
+{% endeachstep %}
+
+{% eachstep %}
+Content of step 2.
+{% endeachstep %}
+
+{% endstepblock %}{% endraw %} 
+~~~
+
+
 ## Fonts & Texts
 
-- Badges
-  ~~~ html
-  <span class="tbadge badge-green">text</span>
-  <span class="tbadge badge-yellow">text</span>
-  <span class="tbadge badge-gray">text</span>
-  ~~~
-- References at the end of each post"
-  ~~~ html
-  {:.ref}
-  Source of figures used in this post:
-  ~~~
+### Font-size
+
+- `.font-90`: `90%`. You can use other numbers like `95, 80, 85`.
+
+### Superscript references
+
+If you wanna add something like that ({% ref http://math2it.com custom text %}), you can use
+
+~~~
+{% raw %}{% ref http://domain.com | custom text %}{% endraw %} 
+~~~
+
+where `| custom text` is optional, defaut is `ref`.
+
+### Given texts
+
+This post is not complete:
+
+~~~
+{% raw %}{% notcomplete %}{% endraw %}
+~~~
+
+This post is updated frequently:
+
+~~~
+{% raw %}{% updfreq %}{% endraw %}
+~~~
+
+### Badges
+
+~~~ html
+<span class="tbadge badge-green">text</span>
+<span class="tbadge badge-yellow">text</span>
+<span class="tbadge badge-gray">text</span>
+~~~
+
+:bulb: **More convinient way**{:.tbrown}: Using below shortcode! **Be careful**: if you run your site on Github Pages, it won't work!
+
+~~~
+{% raw %}{% badge text | green %}
+{% badge text | yellow %}
+{% badge text | gray %}{% endraw %}
+~~~
+
+### References at the end of each post"
+
+~~~ html
+{:.ref}
+Source of figures used in this post:
+~~~
+
+### Others
+
 - Marked texts: `<mark>texts</mark>`
-- Keyboard: `<kbd>B</kbd>`
+  - If you wanna use markdown synctax inside this mark tag, use `<mark markdown="span">texts</mark>`.
+  - :bulb: **Easier way** (doesn't work on Github Pages): `{{"{% mark highlighted texts "}}%}`.
+- Keyboard: `<kbd>B</kbd>` or `{{"{% kbd B "}}%}`
+- Open in Colab: `{{"{% colab url "}}%}`.
+- HTML file: `{{"{% html url "}}%}`.
 - More link:
 	~~~html{% raw %}
-{% include more.html content="[text](link)" %}
+  {% include more.html content="[text](link)" %}
 	{% endraw %}~~~
 - Subject: `<sbj>Texts</sbj>`
 - Target blank
@@ -232,7 +601,7 @@ Content of step 2.
   {:.series}
   **For this series** : [part 1](/link), [part 2](/link).
   ~~~
-- Text colors: using these classes `tgreen`, `tpink`, `tyellow`.
+- **Text colors**: using these classes `.tgreen`, `tgreen-light`, `.tpink`, `.tyellow`, `.tbrown`.
 - `h2` with smaller font-size (subject): add class `.subject` before this `h2`.
 
 ## Math expressions

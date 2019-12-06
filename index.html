@@ -1,9 +1,6 @@
 ---
 layout: base
 title: Anh-Thi Dinh
-description: A math lover, a coder and an autodidact from Vietnam
-subtitle: I failed my way to success
-nav: home
 css:
   - "/css/lightbox.min.css"
 js:
@@ -25,6 +22,7 @@ js:
   {% include me-social.html %}
 </section>
 
+<!-- learning-log -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-10 col-xl-9">
@@ -74,8 +72,8 @@ js:
     <div class="row justify-content-center align-items-center mynote mb-3">
       <div class="col-12 col-md-4">
         <div class="description">
-          <a href="https://note.dinhanhthi.com">
-            <span>note</span>.dinhanhthi.com
+          <a href="{{site.url}}{{site.baseurl}}/notes">
+            dinhanhthi.com/<span>notes</span>
           </a>
           <div class="more">
             This contains my well-written notes. I write intuitively about concepts I've learned. They are not just for me, everyone may see them useful.
@@ -84,7 +82,7 @@ js:
       </div>
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
        <div class="showcase">
-        <img alt="My notes" src="/img/note.jpg" />
+        <img alt="My notes" src="{{site.url}}{{site.baseurl}}/img/note.jpg" />
        </div>
       </div>
     </div>
@@ -101,7 +99,7 @@ js:
       </div>
       <div class="col-12 col-md-8 col-lg-6 col-xl-5 order-md-1">
        <div class="showcase">
-        <img alt="My notes" src="/img/mynote.png" />
+        <img alt="My notes" src="{{site.url}}{{site.baseurl}}/img/rawnote.png" />
        </div>
       </div>
     </div>
@@ -113,7 +111,8 @@ js:
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-9">
-        {% include heading-title.html title="Recent sketches" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" icon="fas fa-drafting-compass" %}
+        {% assign href_url = site.data.me.photo-url %}
+        {% include heading-title.html title="Recent sketches" href=href_url icon="fas fa-drafting-compass" %}
       </div>
     </div>
     <div class="row justify-content-center">
@@ -131,7 +130,7 @@ js:
 </section>
 
 <!-- Contact -->
-<section class="section">
+<section class="section mb-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-9">

@@ -1,28 +1,24 @@
 title: Anh-Thi Dinh
 description: I failed my way to success
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: ""
 
 title-separator: "-"
 
-disqus: thi-en
-
 google_analytics: UA-58921685-1
-
 fb_app_id: "1150663561751902"
 
-# Build settings
 timezone: "Europe/Paris"
 markdown: kramdown
 kramdown:
   input: GFM
 highlighter: rouge
 permalink: /:title
-# paginate: 24
-# paginate_path: "/thought/page-:num"
 
-# Facebook App ID
-# fb_app_id: ""
+plugins:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-feed
 
 sass:
   style: compact
@@ -31,8 +27,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - CNAME
-
-plugins:
-  - jekyll-sitemap
-  - jekyll-feed
 

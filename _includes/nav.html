@@ -1,27 +1,30 @@
-<nav class="navbar navbar-dark nav-bg navbar-custom">
+<nav class="navbar navbar-dark nav-bg navbar-custom fixed-top">
   <div class="container">
-    <div class="col-xl-10 offset-xl-1">
+    <div class="col-12 col-lg-10 offset-lg-1">
       <div class="nav-container">
-      {% assign navs = site.data.nav %}
-      {% for nav in navs %}
-        {% if nav.name == page.nav %}
-          {% assign cClass = 'nav-current' %}
-        {% else %}
-          {% assign cClass = nil %}
-        {% endif %}
-          <a class="nav-{{ nav.name }} {{ cClass }} order-lg-{{nav.order}}" href="{{site.url}}{{site.baseurl}}{{ nav.url }}">
-            <i class="{{ nav.icon }}" aria-hidden="true"></i>
-            <span>{{ nav.title }}</span>
-          </a>
-      {% endfor %}
-      <div class="nav-search order-2">
-        <form action="{{site.url}}{{ site.baseurl }}/search" method="get">
-          <input name="q" class="nav-search-input" type="search" placeholder="search posts..." aria-label="search posts...">
-          <button class="nav-search-submit" type="submit">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </form>
-      </div>
+        <a class="nav-item" href="{{site.url}}{{site.baseurl}}">
+          <i style="color: #ffeead;" class="fas fa-home" aria-hidden="true"></i>
+          <span>Home</span>
+        </a>
+        <a class="nav-item" href="{{site.url}}{{site.baseurl}}/about">
+          <i style="color: #e97c8e;" class="fas fa-fire" aria-hidden="true"></i>
+          <span>Me</span>
+        </a>
+        <a class="nav-item" href="{{site.url}}{{site.baseurl}}/notes">
+          <i style="color: #b9dfff;" class="fas fa-edit" aria-hidden="true"></i>
+          <span>Notes</span>
+        </a>
+        <div class="nav-search">
+          <form action="{{site.url}}{{ site.baseurl }}/search" method="get">
+            <button class="nav-search-submit" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input name="q" class="nav-search-input" type="search" placeholder="search notes..." aria-label="search notes...">
+          </form>
+        </div>
+        <a class="nav-item nav-github" href="{{ site.data.me.github }}" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
     </div>
     </div>
   </div>

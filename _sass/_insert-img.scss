@@ -1,7 +1,24 @@
 p > img{
 	width: 100%;
+  &+em{
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    font-size: 90%;
+    opacity: 0.7;
+  }
+  &.emoji{
+    width: initial!important;
+    vertical-align: top!important;
+  }
 }
-.img-full-normal, .img-full, .img-full-50, .img-full-75{
+
+li > .emoji{
+  width: initial!important;
+  vertical-align: top!important;
+}
+
+.img-full-normal, .img-full-100, .img-full, .img-full-50, .img-full-75, .img-full-85, .img-full-90{
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	img{
@@ -12,13 +29,6 @@ p > img{
 		@media (min-width:768px){
 			border-radius: 7px;
 		}
-	}
-	em{
-		text-align: center;
-		display: block;
-		margin-top: 10px;
-		font-size: 90%;
-		color: #778899;
 	}
 	@media (min-width:768px){
 		max-width: none;
@@ -35,7 +45,7 @@ p > img{
 	}
 }
 
-.img-full-normal{
+.img-full-normal, .img-full-100{
 	img{
 		@media (min-width:768px) {
 			margin: 0 auto;
@@ -57,6 +67,22 @@ p > img{
 		margin-left: auto;
 		margin-right: auto;
 	}
+}
+
+.img-full-85{
+  @media (min-width:768px) {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.img-full-90{
+   @media (min-width:768px) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .img-left{
@@ -106,19 +132,18 @@ p > img{
 	}
 }
 
-.columns-2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  @media (max-width: 767px){
-    grid-template-columns: 1fr;
-  }
-  .columns-2 .img-full-normal{
-  	padding-left: 10px;
-  	padding-right: 10px;
+
+// pop-up image
+.pop{
+  img:hover{
+    cursor: pointer;
   }
 }
 
-.table{
-	margin: 1.5rem 0;
+
+.max-w-200px{
+	max-width: 200px;
+}
+.max-w-300px{
+	max-width: 300px;
 }
