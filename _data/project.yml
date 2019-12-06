@@ -15,10 +15,10 @@
   description: A simple and beautiful personal jekyll theme.
   source: https://github.com/dinhanhthi/simple-perso
   url: https://dinhanhthi.github.io/simple-perso/
-- title: ⭐ note
-  description: "Source code for my note's website about ML, Data Science and Web Dev."
-  source: https://github.com/dinhanhthi/note
-  url: http://note.dinhanhthi.com
+- title: ⭐ dinhanhthi.com
+  description: "Source code of my personal website."
+  source: https://github.com/dinhanhthi/dinhanhthi.com
+  url: http://dinhanhthi.com
 - title: 📓 raw-note
   description: "Source code of my personal raw notes. Different from <em>better-note</em>, I use this website for quickly capturing ideas."
   source: https://github.com/dinhanhthi/raw-note
