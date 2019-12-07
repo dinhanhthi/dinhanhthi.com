@@ -29,15 +29,14 @@ df.tail() # last 5 rows
 df.head(10) # first 10 rows
 ~~~
 
-## Get info about df
+## Other tasks using pandas
 
-~~~ python
-df.info() # show dtype of dataframe
-df.describe() # distributions, dispersion, shape of dataset,...
-
-df.shape # dataframe's shape
-df.dtypes # type of each column
-~~~
+<div class="two-columns-list" markdown="1">
+- [Data Overview]({{site.url}}{{site.baseurl}}/dataframe-overview)
+- [Data Aggregation]({{site.url}}{{site.baseurl}}/data-aggregation)
+- [Data Combining]({{site.url}}{{site.baseurl}}/data-combining)
+- [Data Preprocessing & Cleaning]({{site.url}}{{site.baseurl}}/data-preprocessing-cleaning)
+</div>
 
 ## Create a dataframe
 
@@ -147,24 +146,4 @@ df.iloc[:3]
 df.loc[:2]
 ~~~
 
-## Rename columns
 
-In this part, we are going to use below dataframe `df`.
-
-{:.font-95}
-|  | Name | Ages | Marks | Place |
-|---|-------|------|-------|-------------------|
-| 0 | John | 10 | 8 | Ben Tre |
-| 1 | Thi | 20 | 9 | Paris |
-
-~~~ python
-# implicitly
-df.columns = ['Surname', 'Years', 'Grade', 'Location']
-
-# explicitly
-df.rename(columns={
-  'Name': 'Surname',
-  'Ages': 'Years',
-  ...
-}, inplace=True)
-~~~

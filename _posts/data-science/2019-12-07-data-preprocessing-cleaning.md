@@ -29,7 +29,9 @@ import numpy as np
 - [Data Combining]({{site.url}}{{site.baseurl}}/data-combining)
 </div>
 
-## Deal with unnecessary columns
+## Deal with columns
+
+### Removing or Keep some
 
 Removing columns,
 
@@ -45,7 +47,29 @@ kept_cols = ['col1', 'col2', ...]
 df = df[kept_cols]
 ~~~
 
-## Make index
+### Rename columns
+
+In this part, we are going to use below dataframe `df`.
+
+{:.font-95}
+|  | Name | Ages | Marks | Place |
+|---|-------|------|-------|-------------------|
+| 0 | John | 10 | 8 | Ben Tre |
+| 1 | Thi | 20 | 9 | Paris |
+
+~~~ python
+# implicitly
+df.columns = ['Surname', 'Years', 'Grade', 'Location']
+
+# explicitly
+df.rename(columns={
+  'Name': 'Surname',
+  'Ages': 'Years',
+  ...
+}, inplace=True)
+~~~
+
+### Make index
 
 Check if a column has unique values (so that it can be an index)
 
@@ -96,11 +120,10 @@ df['col'] = df['col'].fillna(99)
 df['col'] = df['col'].fillna(df['col'].mean())
 ~~~
 
-## Do with condition
+## Do with conditions
 
 ~~~ python
 np.where(if_this_condition_is_true, do_this, else_this)
-
 df['new_column'] = np.where(df[i] > 10, 'foo', 'bar) # example
 ~~~
 

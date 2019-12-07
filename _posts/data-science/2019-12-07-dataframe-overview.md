@@ -52,7 +52,6 @@ Get the list of columns,
 
 ~~~ python
 df.columns
-
 len(df.columns) # count the number of columns
 ~~~
 
