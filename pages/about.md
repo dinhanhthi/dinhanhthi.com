@@ -34,9 +34,11 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 
 I've totally learned by myself, created website Math2IT and designed some websites.
 
-- Create [**notedown**](https://github.com/dinhanhthi/notedown), a web-based markdown editor for note taking.
-- Create [**note.dinhanhthi.com**](https://github.com/dinhanhthi/note), a jekyll theme specialized for note taking.
-- **2018 - today** &mdash; Following [**Web Development path**](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
+- **2018 - today**
+  - Following [**Web Development path**](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
+  - Create [**notedown**](https://github.com/dinhanhthi/notedown), a web-based markdown editor for note taking (it's under construction).
+  - Create [**note.dinhanhthi.com**](https://github.com/dinhanhthi/note), a jekyll theme specialized for note taking.
+  - Create **[simple-perso](https://github.com/dinhanhthi/simple-perso)**, a simple and beautiful personal jekyll theme.
 - **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp){:target="_blank"} which is a beautiful Wordpress theme.
 - **2014 - 2017** &mdash; I started to learn Jekyll and how to create a static website. I created [**NoteTheme**](https://github.com/dinhanhthi/noteTheme){:target="_blank"} (a theme for note taking purposes) and [**TaniaJekyll**](https://github.com/dinhanhthi/TaniaJekyll){:target="_blank"} (a beautiful personal theme).
 - **2013 - 2014** &mdash; I created [**Math2IT**](https://math2it.com){:target="_blank"} under Blogger platform and was building up my knowledge about web development.
