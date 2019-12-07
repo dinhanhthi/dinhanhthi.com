@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Datasets collection"
+title: "Datasets Collection"
 categories: [data science]
 math: 1
 ---

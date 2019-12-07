@@ -29,7 +29,7 @@ df.tail() # last 5 rows
 df.head(10) # first 10 rows
 ~~~
 
-## Get info
+## Get info about df
 
 ~~~ python
 df.info() # show dtype of dataframe
@@ -147,3 +147,24 @@ df.iloc[:3]
 df.loc[:2]
 ~~~
 
+## Rename columns
+
+In this part, we are going to use below dataframe `df`.
+
+{:.font-95}
+|  | Name | Ages | Marks | Place |
+|---|-------|------|-------|-------------------|
+| 0 | John | 10 | 8 | Ben Tre |
+| 1 | Thi | 20 | 9 | Paris |
+
+~~~ python
+# implicitly
+df.columns = ['Surname', 'Years', 'Grade', 'Location']
+
+# explicitly
+df.rename(columns={
+  'Name': 'Surname',
+  'Ages': 'Years',
+  ...
+}, inplace=True)
+~~~
