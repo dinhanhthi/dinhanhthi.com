@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Anh-Thi Dinh
+title: About me
 subtitle: mathing, coding, writing and autodidact
 nav: about
 icon: fas fa-fire
