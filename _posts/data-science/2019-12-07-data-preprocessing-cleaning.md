@@ -51,7 +51,7 @@ df = df[kept_cols]
 
 In this part, we are going to use below dataframe `df`.
 
-{:.font-95}
+{:.font-95.table-normal}
 |  | Name | Ages | Marks | Place |
 |---|-------|------|-------|-------------------|
 | 0 | John | 10 | 8 | Ben Tre |

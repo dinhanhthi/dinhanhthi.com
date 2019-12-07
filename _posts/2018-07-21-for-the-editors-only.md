@@ -49,6 +49,13 @@ For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below 
 {% raw %}{% include youtube.html content="57oX5RMHHdQ" des="Video's description." %}{% endraw %}
 ~~~
 
+## Insert tables
+
+- Using [this online tool](http://www.tablesgenerator.com/markdown_tables).
+- Using classes corresponding to [tables in Bootstrap](https://getbootstrap.com/docs/4.0/content/tables/).
+- Normal table: `.normal-table` (gray background for heading)
+- Show the right line of each column, just use the class `.bd-right` together with class `.table`.
+
 ## Inset figures
 
 ### Beginning of each post: 
@@ -462,7 +469,6 @@ Content
 ### Others
 
 - Gray box of code : add class `{:.bg-gray}` before the code.
-- Table : If you wanna show the right line of each column, just use the class `.bd-right` together with class `.table`.
 
 ## Steps
 
