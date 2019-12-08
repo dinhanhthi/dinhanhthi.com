@@ -5,27 +5,28 @@
   overflow: auto;
 }
 
+li > .highlighter-rouge{
+  margin-top: 5px;
+}
+
 .highlight{
   width: 100%;
   height: 100%;
   pre{
-    padding: 1rem;
+    padding: 0.75rem;
     tab-size: 2;
     font-size: 100%;
-    .c, .cd{
-      color: #c7c4b6;
-    }
     margin-bottom: 0;
   }
 }
 
 p>code, li>code, em>code, strong>code, b>code, i>code{
-  background: #ececec;
+  background: $c-b-code;
   padding: 1px 4px 2px 4px;
 }
 
 code{
-  color: #067b26;
+  color: $c-t-code;
 }
 
 h2>code{
@@ -35,7 +36,7 @@ h3>code{
   font-size: 0.9*$f-h3-size!important;
 }
 h2>code, h3>code{
-  background: #ececec;
+  background: $c-b-code;
   padding: 1px 5px 3px 5px;
   font-weight: normal;
 }
