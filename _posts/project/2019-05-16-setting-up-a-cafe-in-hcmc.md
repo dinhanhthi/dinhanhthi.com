@@ -6,7 +6,7 @@ math: 1
 icon: "fas fa-coffee"
 ---
 
-{% assign img-url = '/img/post/data/cafe-hcm' %}
+{% assign img-url = '/img/post/project/cafe-hcm' %}
 
 {% include toc.html %}
 

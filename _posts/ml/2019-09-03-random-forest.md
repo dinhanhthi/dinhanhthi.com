@@ -12,7 +12,7 @@ icon-photo: decision-tree.svg
 
 ## What's the idea of Random Forest?
 
-Random forest consists a (large) number of <mark markdown="span">[decision trees](/search?q=decision+tree)</mark> operating together ([ensemble learning](https://en.wikipedia.org/wiki/Ensemble_learning)). The class with <mark>the most votes</mark> from the trees will be chosen as the final result of the RF's prediction. These decision tree models are <mark>relatively uncorrelated</mark> so that they can protect each other from their individual errors.
+Random forest consists a (large) number of [decision trees](/search?q=decision+tree) operating together ([ensemble learning](https://en.wikipedia.org/wiki/Ensemble_learning)). The class with the most votes from the trees will be chosen as the final result of the RF's prediction. These decision tree models are relatively uncorrelated so that they can protect each other from their individual errors.
 
 {:.img-full-85.pop}
 ![An illustration of the random forest's idea.]({{img-url}}/rf1.jpg)
@@ -27,23 +27,23 @@ Ensemble learning involves the **combination of several models** to solve a sing
 </div>
 </div>
 
-**How (decision) trees are chosen?**{:.tbrown} RF ensures that the chosen trees are <mark>not too correlated</mark> to the others.
+❓ **How (decision) trees are chosen?**{:.tbrown} RF ensures that the chosen trees are not too correlated to the others.
 
-1. **Bagging**{:.tbrown}: From a sample of size N, trees are chosen so that they also have size N <mark markdown="span">**with replacement**</mark>. For example, if our training data was [1, 2, 3, 4, 5] (size 5), then we might give one of our tree the list [1, 2, 2, 5, 5] (with replacement).
-2. **Feature randomness**{:.tbrown}: The features in the original dataset are chosen randomly. There may be some trees that are lacking in some features.
+1. **Bagging**: From a sample of size N, trees are chosen so that they also have size N **with replacement**. For example, if our training data was [1, 2, 3, 4, 5] (size 5), then we might give one of our tree the list [1, 2, 2, 5, 5] (with replacement).
+2. **Feature randomness**: The features in the original dataset are chosen randomly. There may be some trees that are lacking in some features.
 
 <sup>[[ref]](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)</sup>So in our random forest, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions.
 
-*For each tree*{:.tbrown}, we can use [decision tree classifier](/decision-tree-classifier) or [decision tree regression](/decision-tree-regression) depending on the type our problem (classification or regression).
+*For each tree*, we can use [decision tree classifier](/decision-tree-classifier) or [decision tree regression](/decision-tree-regression) depending on the type our problem (classification or regression).
 
 ## When we use Random Forest?
 
 - [Decision tree algorithms](/search?q=decision+tree) easily lead to [overfitting problems](/underfitting-overfitting). Random forest algorithm can overcome this.
 - Capable of both regression and classification problems.
 - Handle a large number of features.
-- <sup>[[ref]](http://blog.yhat.com/posts/random-forests-in-python.html)</sup>Estimating <mark>which features are important</mark> in the underlying data being modeled.
+- <sup>[[ref]](http://blog.yhat.com/posts/random-forests-in-python.html)</sup>Estimating which features are important in the underlying data being modeled.
 - <sup>[[ref]](http://blog.yhat.com/posts/random-forests-in-python.html)</sup>Random forest is capable of learning without carefully crafted data transformations.
-- <mark>Output probabilities</mark> for classification problems.
+- Output probabilities for classification problems.
 
 ## Using RF with Scikit-learn
 

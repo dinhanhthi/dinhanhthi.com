@@ -34,7 +34,8 @@ df.head(10) # first 10 rows
 
 ~~~ python 
 df.info() # show dtype of dataframe
-df.describe() # distributions, dispersion, shape of dataset,...
+df.describe() # numerical features
+df.describe(include=['O']) # categorical features
 
 df.shape # dataframe's shape
 df.dtypes # type of each column

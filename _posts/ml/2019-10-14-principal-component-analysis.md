@@ -15,10 +15,10 @@ jsxgraph: 1
 
 ## What's the idea of PCA?
 
-Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use **dimensionality reduction**{:.tbrown} which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:
+Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use **dimensionality reduction** which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:
 
 - **Feature selection**: find a subset of the input variables.
-- **Feature projection** (also *Feature extraction*): <mark>transforms the data in the high-dimensional space to a space of fewer dimensions</mark>. **PCA**{:.tbrown} is one of the methods following this approach.
+- **Feature projection** (also *Feature extraction*): transforms the data in the high-dimensional space to a space of fewer dimensions. **PCA** is one of the methods following this approach.
 
 {:.img-full-90.pop}
 ![An idea of using PCA from 2D to 1D.]({{img-url}}/pca-1.jpg)
@@ -29,7 +29,7 @@ Sometimes we need to "compress" our data to speed up algorithms or to visualize 
 ***Figure 2.** An idea of using PCA from 5D to 2D.*
 
 {:.alert.alert-warning}
-**Questions**{:.tbrown}: How can we choose the **green arrows**{:.tgreen} like in Figure 1 and 2 (their **directions** and their **magnitudes**)?
+❓ **Questions**{:.tbrown}: How can we choose the **green arrows**{:.tgreen} like in Figure 1 and 2 (their **directions** and their **magnitudes**)?
 
 From a data points, there are many ways of projections, for examples,
 
@@ -58,8 +58,8 @@ An example of the same mean and variance but different covariance.
 ### PCA Algorithm
 
 1. Subtract the mean to move to the original axes.
-2. From the original data (a lot of features $x\_1, x\_2, \ldots, x\_N$), we construct a **covariance matrix $U$**{:.tbrown}.
-2. Find the **eigenvalues**{:.tbrown} $\lambda\_1, \lambda\_2,\ldots$ and correspondent **eigenvectors**{:.tbrown} $v\_1, v\_2, \ldots$ of that matrix (we call them **eigenstuffs**{:.tbrown}). Choose $K < N$ couples $\lambda$ and $v$ ({% mark the highest eigenvalues %}) and we get a reduced matrix *$U\_K$*{:.tbrown}.
+2. From the original data (a lot of features $x\_1, x\_2, \ldots, x\_N$), we construct a **covariance matrix $U$**.
+2. Find the **eigenvalues**{:.tbrown} $\lambda\_1, \lambda\_2,\ldots$ and correspondent **eigenvectors** $v\_1, v\_2, \ldots$ of that matrix (we call them **eigenstuffs**). Choose $K < N$ couples $\lambda$ and $v$ (the highest eigenvalues) and we get a reduced matrix *$U\_K$*.
 3. Projection original data points to the $K$-dimensional plane created based on these new *eigenstuffs*. This step creates new data points on a new dimensional space ($K$).
 
     $$
@@ -128,7 +128,7 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
 
 ## PCA in action 
 
-- **Example to understand the idea of PCA**{:.tbrown}: {% html /files/ml/pca/PCA_understanding_example.html %} -- {% colab https://colab.research.google.com/drive/1F_A_fJOY-oiV7Ly4y_evF9sfwII-ljJK %}
+- **Example to understand the idea of PCA**: {% html /files/ml/pca/PCA_understanding_example.html %} -- {% colab https://colab.research.google.com/drive/1F_A_fJOY-oiV7Ly4y_evF9sfwII-ljJK %}
 
     <div class="hide-show-box">
     <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
@@ -144,7 +144,7 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
     </div>
     </div>
   
-- **Image compression**{:.tbrown}: {% html /files/ml/pca/PCA-image-compression.html %} -- {% colab https://colab.research.google.com/drive/1G_WPZMmQ020kjSmqMI_k21_zLDrPlYtg %}
+- **Image compression**: {% html /files/ml/pca/PCA-image-compression.html %} -- {% colab https://colab.research.google.com/drive/1G_WPZMmQ020kjSmqMI_k21_zLDrPlYtg %}
 
     <div class="hide-show-box">
     <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box11ct">
@@ -163,7 +163,7 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
     </div>
     </div>
 
-- **PCA without scikit-learn**{:.tbrown}: {% html /files/ml/pca/PCA_without_scikit_learn.html %} -- {% colab https://colab.research.google.com/drive/1IWMuon3NSpGybmnBBWxlvbS9yUjxtf_8 %}
+- **PCA without scikit-learn**: {% html /files/ml/pca/PCA_without_scikit_learn.html %} -- {% colab https://colab.research.google.com/drive/1IWMuon3NSpGybmnBBWxlvbS9yUjxtf_8 %}
 
 
 ## References

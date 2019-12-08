@@ -14,9 +14,9 @@ icon-photo: svm.webp
 
 ## What's the idea of SVM?
 
-SVM (also called *Maximum Margin Classifier*{:.tbrown}) is an algorithm that takes the data as an input and <mark>outputs a line/hyperplane that separates those classes</mark> if possible.
+SVM (also called *Maximum Margin Classifier*) is an algorithm that takes the data as an input and outputs a line/hyperplane that separates those classes if possible.
 
-Suppose that we need to separate two classes of a dataset. The task is to find a line to separate them. However, there are many lines which can do that (countless number of lines). How can we <mark>choose the best one?</mark>
+Suppose that we need to separate two classes of a dataset. The task is to find a line to separate them. However, there are many lines which can do that (countless number of lines). How can we choose the best one?
 
 {:.img-full-90.pop}
 ![An idea of support vectors and SVM.]({{img-url}}/svm-1.jpg)
@@ -50,7 +50,7 @@ $$
 
 Note that, because $y\_i$ takes values $-1$ or $+1$ and it always has the same sign as $\mathbf{w}^T\mathbf{x}\_i + b$, $y\_i(\mathbf{w}^T\mathbf{x}\_i + b)$ is always positive. 
 
-The SVM problem is to find ($\mathbf{w}, b$) so that the *hard-margin*{:.tbrown} $(2)$ has the maximum value, i.e.,
+The SVM problem is to find ($\mathbf{w}, b$) so that the *hard-margin* $(2)$ has the maximum value, i.e.,
 
 $$
 \begin{align}
@@ -66,7 +66,7 @@ $$
 
 ($\arg$ means you need to find $\mathbf{w},b$ so that the function reaches the $\max$.)
 
-This is <mark>an optimal problem</mark>. Another remark is that we can multiply both sides of $(H)$ by any real number $k\ne 0$, we obtain the same $(H)$. With that reason, we can suppose that, 
+This is an optimal problem. Another remark is that we can multiply both sides of $(H)$ by any real number $k\ne 0$, we obtain the same $(H)$. With that reason, we can suppose that, 
 
 $$
 y_i(\mathbf{w}^T\mathbf{x}_i + b) = 1,
@@ -92,7 +92,7 @@ $$
 $$
 </p>
 
-This is called "*primal formulation of linear SVMs*". In mathematical optimization, one can prove that the problem $(4)$ has an <mark>unique solution</mark> (We can get an unique hyperplane $(H)$ which satisfies the classification problem). Such problems are generally called [quadratic programming](https://en.wikipedia.org/wiki/Quadratic_programming) problems.
+This is called "*primal formulation of linear SVMs*". In mathematical optimization, one can prove that the problem $(4)$ has an unique solution (We can get an unique hyperplane $(H)$ which satisfies the classification problem). Such problems are generally called [quadratic programming](https://en.wikipedia.org/wiki/Quadratic_programming) problems.
 
 Problem $(4)$ can be solved "more easily" by considering its [dual formulation](https://en.wikipedia.org/wiki/Duality_(optimization)). Apply the method of [Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier), we define a Lagrangian,
 
@@ -111,7 +111,7 @@ $$
 \end{align}
 $$
 
-We substitute the above into the equation for $\Gamma(\mathbf{w},b,\lambda)$ and obtain "*dual formulation of linear SVMs*{:.tbrown}",
+We substitute the above into the equation for $\Gamma(\mathbf{w},b,\lambda)$ and obtain "*dual formulation of linear SVMs*",
 
 <p class="p-mark">
 $$
@@ -134,7 +134,7 @@ $$
 f(\mathbf{x})=\text{sign}(\mathbf{w}^T\mathbf{x} + b).
 $$
 
-The <mark>benefits of using dual formulation</mark> are:<sup>[[ref, slide 52]]({{file-url}}/svm-without-tears.pdf)</sup>
+The benefits of using dual formulation are:<sup>[[ref, slide 52]]({{file-url}}/svm-without-tears.pdf)</sup>
 
 - No need to access original data, need to access only dot products $\mathbf{x}\_i^T\mathbf{x}\_j$.
 - Number of free parameters is bounded by the number of support vectors and not by the number of variables
@@ -147,7 +147,7 @@ Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-t
 
 ## Using SVM with kernel trick
 
-Most of the time, we cannot separate classes in the current dataset easily (<mark>not linearly separable data</mark>). We need to use **kernel trick**{:.tbrown} first (transform from the current dimension to a <mark>higher dimension</mark>) and then we use SVM. These classes are <mark>not linearly separable</mark>.
+Most of the time, we cannot separate classes in the current dataset easily (not linearly separable data). We need to use **kernel trick** first (transform from the current dimension to a higher dimension) and then we use SVM. These classes are not linearly separable.
 
 {:.img-full-85.pop}
 ![An idea of kernel and SVM (1D to 2D).]({{img-url}}/svm-2.jpg)
@@ -198,12 +198,12 @@ K(\mathbf{x}_i,\mathbf{x}) &= \Phi(\mathbf{x}_i)^T\Phi(\mathbf{x}).
 $$
 </p>
 
-Therefore, <mark markdown="span">we do not need to know $\Phi$ explicitly, we just need to define a *kernel function*{:.tbrown} $K(\cdot,\cdot): \mathbb{R}^d\times \mathbb{R}^d \to \mathbb{R}$</mark>. However, not every function $\mathbb{R}^d\times \mathbb{R}^d \to \mathbb{R}$ can be a valid kernel. It has to satisfy so-called [Mercer conditions](https://en.wikipedia.org/wiki/Mercer%27s_theorem#Mercer's_condition). Otherwise, the underlying quadratic program may not be solvable.
+Therefore, we do not need to know $\Phi$ explicitly, we just need to define a *kernel function* $K(\cdot,\cdot): \mathbb{R}^d\times \mathbb{R}^d \to \mathbb{R}$. However, not every function $\mathbb{R}^d\times \mathbb{R}^d \to \mathbb{R}$ can be a valid kernel. It has to satisfy so-called [Mercer conditions](https://en.wikipedia.org/wiki/Mercer%27s_theorem#Mercer's_condition). Otherwise, the underlying quadratic program may not be solvable.
 
 </div>
 </div>
 
-A **kernel**{:.tbrown} is a dot product in some feature space: 
+A **kernel** is a dot product in some feature space: 
 
 <p class="p-mark">
 $$
@@ -211,18 +211,18 @@ K(\mathbf{x}_i, \mathbf{x}_j) = \Phi(\mathbf{x}_i, \mathbf{x}_j).
 $$
 </p>
 
-It also measures **the similarity**{:.tbrown} between two points $\mathbf{x}_i$ and $\mathbf{x}_j$.
+It also measures **the similarity** between two points $\mathbf{x}_i$ and $\mathbf{x}_j$.
 
 We have some popular kernels,
 
-- **Linear kernel**{:.tbrown}: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \mathbf{x}\_i \cdot \mathbf{x}\_j$. We use `kernel = 'linear'` in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). Linear kernels are <mark>rarely used in practice</mark>.
-- **Gaussian kernel**{:.tbrown} (or ***Radial Basic Function* -- RBF**): $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$. It's <mark>used the most</mark>. We use `kernel = 'rbf'` (default) with keyword `gamma` for $\gamma$ (must be greater than $0$) in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
-- **Exponential kernel**{:.tbrown}: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert)$.
-- **Polynomial kernel**{:.tbrown}: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (r+\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j)^d$. We use `kernel = 'poly'` with keyword `degree` for $d$ and `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). It's <mark>more popular than RBF in NLP</mark>. The most common degree is $d = 2$ (quadratic), since larger degrees tend to overfit on NLP problems.<sup>[[ref]](https://en.wikipedia.org/wiki/Polynomial_kernel)</sup>
-- **Hybrid kernel**{:.tbrown}: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (p+\mathbf{x}\_i \cdot \mathbf{x}\_j)^q\exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$.
-- **Sigmoidal**{:.tbrown}: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \tanh(\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j+r)$. We use `kernel = 'sigmoid'` with keyword `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
+- **Linear kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \mathbf{x}\_i \cdot \mathbf{x}\_j$. We use `kernel = 'linear'` in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). Linear kernels are rarely used in practice.
+- **Gaussian kernel** (or ***Radial Basic Function* -- RBF**): $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$. It's used the most. We use `kernel = 'rbf'` (default) with keyword `gamma` for $\gamma$ (must be greater than $0$) in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
+- **Exponential kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert)$.
+- **Polynomial kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (r+\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j)^d$. We use `kernel = 'poly'` with keyword `degree` for $d$ and `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). It's more popular than RBF in NLP. The most common degree is $d = 2$ (quadratic), since larger degrees tend to overfit on NLP problems.<sup>[[ref]](https://en.wikipedia.org/wiki/Polynomial_kernel)</sup>
+- **Hybrid kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (p+\mathbf{x}\_i \cdot \mathbf{x}\_j)^q\exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$.
+- **Sigmoidal**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \tanh(\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j+r)$. We use `kernel = 'sigmoid'` with keyword `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
 
-We can also define a <mark>custom kernel</mark> thanks to [this help](https://scikit-learn.org/stable/modules/svm.html#custom-kernels).
+We can also define a custom kernel thanks to [this help](https://scikit-learn.org/stable/modules/svm.html#custom-kernels).
 
 {:.alert.alert-success}
 Choose whatever kernel performs best on cross-validation data. Andrew NG said in his ML course.
@@ -249,10 +249,10 @@ Examples of choosing a kernel<sup>[[ref]](https://machinelearningcoban.com/2017/
 
 Advantages:
 
-- Compared to both logistic regression and NN, a SVM sometimes gives a cleaner way of learning <mark>non-linear functions</mark>.
-- SVM is <mark>better than NN with 1 layer</mark> (Perceptron Learning Algorithm) thanks to the largest margin between 2 classes.
+- Compared to both logistic regression and NN, a SVM sometimes gives a cleaner way of learning non-linear functions.
+- SVM is better than NN with 1 layer (Perceptron Learning Algorithm) thanks to the largest margin between 2 classes.
 - Accurate in high-dimensional spaces + memory effecient.
-- Good accuracy and <mark>perform faster prediction</mark> compared to Naïve Bayes algorithm.<sup>[[ref]](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python#advantages)</sup>
+- Good accuracy and perform faster prediction compared to Naïve Bayes algorithm.<sup>[[ref]](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python#advantages)</sup>
 
 Disadvantages:
 
@@ -294,12 +294,12 @@ In the case of **linear SVM**, we can also use `sklearn.svm.LinearSVC`. It's sim
 
 ### Meaning of some parameters
 
-**The Regularization parameter**{:.tbrown} (`C`, default `C=1.0`): if `C` is larger, hyperplane has smaller margin but do a better job of classification and otherwise. This is how you can control the trade-off between decision boundary and misclassification term.
+**The Regularization parameter** (`C`, default `C=1.0`): if `C` is larger, hyperplane has smaller margin but do a better job of classification and otherwise. This is how you can control the trade-off between decision boundary and misclassification term.
 
 - **Higher values** of `C` $\Rightarrow$ a higher possibility of overfitting, the softmargin SVM is equivalent to the hard-margin SVM.
 - **Lower values** of `C` $\Rightarrow$ a higher possibility of underfitting. We admit misclassifications in the training data 
 
-We use this in the case of <mark markdown="span">*not linearly separable data*</mark>; It's also called **soft-margin linear SVM**{:.tbrown}.
+We use this in the case of *not linearly separable data*; It's also called **soft-margin linear SVM**.
 
 {:.img-full-85.pop}
 ![The Regularization parameter.]({{img-url}}/svm-4.jpg)
@@ -315,7 +315,7 @@ More mathematical details on $C$ and soft-margin problems
 </button>
 <div id="box2ct" markdown="1" class="collapse multi-collapse box-content">
 
-Recall that the *hard-margin*{:.tbrown} problem is,
+Recall that the *hard-margin* problem is,
 
 $$
 \begin{align}
@@ -333,7 +333,7 @@ $$
 \end{align} \quad (5~\text{revisited})
 $$
 
-Instead of considering a *hard-margin* $(4)$, we consider following *soft-margin*{:.tbrown} problem (with the addition of *slack variables*{:.tbrown})
+Instead of considering a *hard-margin* $(4)$, we consider following *soft-margin* problem (with the addition of *slack variables*)
 
 <div class="columns-2" markdown="1">
 {:.img-full-100.pop}
@@ -351,7 +351,7 @@ $$
 
 With these new slack variables, we have to decide the trade-off between maximizing the margin (term $\frac{1}{2}\Vert \mathbf{w}\Vert\_2^2$) and minimizing the mistakes (term $C\Sigma\_1^n\xi\_i$).
 
-When $C$ is big, the term $\frac{1}{2}\Vert \mathbf{w}\Vert\_2^2$ is almost considered as $0$ in the minimized problem and the problem focuses on minimizing the term $C\Sigma\_1^n\xi\_i$ (avoiding misclassification). That's why <mark>the margin looks more narrow in the case of bigger $C$</mark>.
+When $C$ is big, the term $\frac{1}{2}\Vert \mathbf{w}\Vert\_2^2$ is almost considered as $0$ in the minimized problem and the problem focuses on minimizing the term $C\Sigma\_1^n\xi\_i$ (avoiding misclassification). That's why the margin looks more narrow in the case of bigger $C$.
 
 A dual formulation of above soft-margin problem is,
 
@@ -367,7 +367,7 @@ Note that, $(6)$ looks like $(5)$ (duality of hard-margin problem) but condition
 </div>
 </div>
 
-**Gamma**{:.tbrown} (`gamma`, default `gamma='auto'` which uses `1/n_features`): determine the number of points to construct the hyperplane.
+**Gamma** (`gamma`, default `gamma='auto'` which uses `1/n_features`): determine the number of points to construct the hyperplane.
 
 {:.img-full-90.pop}
 ![The parameter gamma.]({{img-url}}/svm-5.jpg)
@@ -402,8 +402,8 @@ Compare to the one used in the scikit-learn, $K(\mathbf{x}\_i, \mathbf{x}\_j) = 
 
 ## SVM in action 
 
-- **XOR problem**{:.tbrown} to see the effect of `gamma` and `C` in the case of using RBF kernel: {% html /files/ml/svm/SVM-XOR-RBF-kernel-parameters.html%} -- {% colab https://drive.google.com/file/d/1tvmwhMJiEB89Mo7m2oys0pcUwdgwPW5f/view?usp=sharing %}
-- **Face Recognition**{:.tbrown}<sup>[[ref]](https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html)</sup>: {% html /files/ml/svm/SVM-face-recognition.html %} -- {% colab https://colab.research.google.com/drive/1n2mpRLGL_pyUvV7yJacnspEvDwBYz16A %}
+- **XOR problem** to see the effect of `gamma` and `C` in the case of using RBF kernel: {% html /files/ml/svm/SVM-XOR-RBF-kernel-parameters.html%} -- {% colab https://drive.google.com/file/d/1tvmwhMJiEB89Mo7m2oys0pcUwdgwPW5f/view?usp=sharing %}
+- **Face Recognition**<sup>[[ref]](https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html)</sup>: {% html /files/ml/svm/SVM-face-recognition.html %} -- {% colab https://colab.research.google.com/drive/1n2mpRLGL_pyUvV7yJacnspEvDwBYz16A %}
 
     <div class="hide-show-box">
     <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box100ct">

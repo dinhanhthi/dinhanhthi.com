@@ -21,10 +21,10 @@ math: 1
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
-- **True Positive**{:.tgreen} (TP): what we predict Positive is <mark>really</mark> Positive.
-- **True Negative**{:.tgreen} (FN): what we predict Negative is <mark>really</mark> Negative.
-- **False Negative**{:.tpink} (FN): what we predict Negative is <mark>actually</mark> Positive.
-- **False Positive**{:.tpink} (FP): what we predict Positive is <mark>actually</mark> Negative.
+- **True Positive** (**TP**{:.tgreen}): what we predict Positive is really Positive.
+- **True Negative** (**FN**{:.tgreen}): what we predict Negative is really Negative.
+- **False Negative** (**FN**{:.tpink}): what we predict Negative is actually Positive.
+- **False Positive** (**FP**{:.tpink}): what we predict Positive is actually Negative.
 </div>
 
 {:.img-full-normal}
@@ -34,8 +34,8 @@ math: 1
 
 ### How to remember?
 
-- **True**{:.tgreen}/**False**{:.tpink} indicates what we predicted is right/wrong. 
-- **Positive**{:.tgreen}/**Negative**{:.tpink} is what we predicted (yes or no).
+- **True**/**False** indicates what we predicted is right/wrong. 
+- **Positive**/**Negative** is what we predicted (yes or no).
 
 ### Type I / Type II errors
 
@@ -55,7 +55,7 @@ Give a general view about our model, "is it really good?" thanks to precision an
 |  predict (no) 	| <span class="tpink-light">FN</span> 	|   <span class="tgreen-light">TN</span>   	|        	|
 |              	|      **Recall**     	|                       	|        	|
 
-- **Precision**{:.tbrown}: How many our positive predictions are really true? (Check the <mark>accuracy</mark> of our <mark>positive predictions</mark>).
+- **Precision**: How many our positive predictions are really true? (Check the accuracy of our positive predictions).
 
     <p class="p-mark">
     $$
@@ -65,7 +65,7 @@ Give a general view about our model, "is it really good?" thanks to precision an
     $$
     </p>
 
-- **Recall**{:.tbrown}: How many positive results belong to our predictions? (Do we <mark>miss</mark> some <mark>negative predictions</mark>?)
+- **Recall**: How many positive results belong to our predictions? (Do we miss some negative predictions?)
 
     <p class="p-mark">
     $$
@@ -77,8 +77,8 @@ Give a general view about our model, "is it really good?" thanks to precision an
 
 ### When to use?
 
-- **Precision**{:.tbrown} is importantly used when the "wrongly predicted yes" (FP) influences much (e.g. *This email is spam?* -- results yes but actually no and we lost important emails!).
-- **Recall**{:.tbrown} is importantly used when the "wrongly predicted no" (FN) influences much (e.g. In the banking industry, *this transaction is fraudulent?* -- results no but actually yes and we lost money!).
+- **Precision** is importantly used when the "wrongly predicted yes" (FP) influences much (e.g. *This email is spam?* -- results yes but actually no and we lost important emails!).
+- **Recall** is importantly used when the "wrongly predicted no" (FN) influences much (e.g. In the banking industry, *this transaction is fraudulent?* -- results no but actually yes and we lost money!).
 
 ## F1-Score
 
@@ -90,7 +90,7 @@ f_1 = \left({\frac {\mathrm {recall} ^{-1}+\mathrm {precision} ^{-1}}{2}}\right)
 $$
 </p>
 
-<mark>F1-score depends on how we label the class "positive"</mark>. *This email is spam?* is **very different** from *This email is not spam?*.
+F1-score depends on how we label the class "positive". *This email is spam?* is **very different** from *This email is not spam?*.
 
 ### When to use F1-Score?
 
@@ -100,7 +100,7 @@ $$
 
 ### How to choose f1-score value?
 
-Normally, $f\_1\in (0,1]$ and it get <mark>the higher values, the better our model is</mark>.
+Normally, $f\_1\in (0,1]$ and it get the higher values, the better our model is.
 
 - The best one ($f\_1=1$), both precision and recall get $100\%$.
 - One of precision and recall gets very small value (close to 0), $f\_1$ is very small, our model is not good!
@@ -115,12 +115,12 @@ $$
 
 $f\_1$ is a special case of $f\_{\beta}$ when $\beta=1$:
 
-- When <mark>precision is more important than recall</mark>, we choose $\beta < 1$ (usually choose $\beta=0.5$).
-- When <mark>recall is more important than precision</mark>, we choose $\beta > 1$ (usually choose $\beta=2$).
+- When precision is more important than recall, we choose $\beta < 1$ (usually choose $\beta=0.5$).
+- When recall is more important than precision, we choose $\beta > 1$ (usually choose $\beta=2$).
 
 ## Accuracy / Specificity
 
-- **Accuracy**{:.tbrown}: How accurate our predictions to the whole predictions?
+- **Accuracy**: How accurate our predictions to the whole predictions?
 
     <p class="p-mark">
     $$
@@ -128,7 +128,7 @@ $f\_1$ is a special case of $f\_{\beta}$ when $\beta=1$:
     $$
     </p>
 
-- **Specificity**{:.tbrown}: How many negative results belong to our predictions?
+- **Specificity**: How many negative results belong to our predictions?
 
     <p class="p-mark">
     $$
@@ -138,12 +138,42 @@ $f\_1$ is a special case of $f\_{\beta}$ when $\beta=1$:
 
 ### When to use?
 
-- **Accuaracy** is used when we have <mark>symmetric datasets</mark>.
+- **Accuaracy** is used when we have symmetric datasets.
 - **Specificity** is used when we care about TN values and don't want to make false alarms of the FP values (e.g. drug test).
 
 ## Confusion Matrix & F1-Score with Scikit-learn
 
+~~~ python
+from sklearn.metrics import confusion_matrix
+n_classes = target.shape[0]
+confusion_matrix(y_true, y_pred, labels=range(n_classes))
+~~~
 
+Precision / Reacall / f1-score / support
+
+~~~ python
+from sklearn.metrics import classification_report
+classification_report(y_test, y_pred)
+~~~
+
+ROC curve,
+
+~~~ python
+from sklearn.metrics import roc_curve
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+# create plot
+plt.plot(fpr, tpr, label='ROC curve')
+plt.plot([0, 1], [0, 1], 'k--', label='Random guess')
+_ = plt.xlabel('False Positive Rate')
+_ = plt.ylabel('True Positive Rate')
+_ = plt.title('ROC Curve')
+_ = plt.xlim([-0.02, 1])
+_ = plt.ylim([0, 1.02])
+_ = plt.legend(loc="lower right")
+~~~
 
 ## References
 

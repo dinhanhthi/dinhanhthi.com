@@ -9,6 +9,8 @@ math: 1
 
 {% include toc.html %}
 
+{% notcomplete %}
+
 ## What's the idea of Linear Regression?
 
 

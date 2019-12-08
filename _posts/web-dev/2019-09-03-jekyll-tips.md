@@ -19,6 +19,7 @@ date: 2019-10-24
 - [Jemoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).
 - Link to [post](https://jekyllrb.com/docs/liquid/tags/#linking-to-posts) / [page](https://jekyllrb.com/docs/liquid/tags/#link).
 - [Jekyll cheat sheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/).
+- [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
 
 ## Custom domain & repository with Jekyll sites
 

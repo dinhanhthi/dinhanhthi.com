@@ -5,13 +5,33 @@ categories: [project-based learning]
 math: 1
 ---
 
-{% assign img-url = '/img/post/data/cafe-hcm' %}
+{% assign img-url = '/img/post/project/' %}
 
 {% updfreq %}
 
-- **Image compression using [K-Means](/k-means-clustering)**: {% html /files/ml/k-means/K_Means_image_compression.html %} -- {% colab https://colab.research.google.com/drive/1NQGqtr8Byo2FkYcx0hdU2hpoSWsjX-86 %} 
-- **Example to understand the idea of [PCA](/principal-component-analysis)**: {% html /files/ml/pca/PCA_understanding_example.html %} -- {% colab https://colab.research.google.com/drive/1F_A_fJOY-oiV7Ly4y_evF9sfwII-ljJK %} 
-- **Image compression using [PCA](/principal-component-analysis)**: {% html /files/ml/pca/PCA-image-compression.html %} -- {% colab https://colab.research.google.com/drive/1G_WPZMmQ020kjSmqMI_k21_zLDrPlYtg %}
-- **[PCA](/principal-component-analysis) without scikit-learn**: {% html /files/ml/pca/PCA_without_scikit_learn.html %} -- {% colab https://colab.research.google.com/drive/1IWMuon3NSpGybmnBBWxlvbS9yUjxtf_8 %}
-- **Face Recognition using [SVM](/support-vector-machine)**: {% html /files/ml/svm/SVM-face-recognition.html %} -- {% colab https://colab.research.google.com/drive/1n2mpRLGL_pyUvV7yJacnspEvDwBYz16A %}
-- **XOR problem using [SVM](/support-vector-machine)** to see the effect of `gamma` and `C` in the case of using RBF kernel: {% html /files/ml/svm/SVM-XOR-RBF-kernel-parameters.html%} -- {% colab https://drive.google.com/file/d/1tvmwhMJiEB89Mo7m2oys0pcUwdgwPW5f/view?usp=sharing %}
+- **Image compression using [K-Means]({{site.url}}{{site.baseurl}}/k-means-clustering)**{:.tbold} -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/K_Means_image_compression.html) -- [Open in Colab](https://colab.research.google.com/github/dinhanhthi/data-science-learning/blob/master/mini-projects/K_Means_image_compression.ipynb).
+  - Load and write an image from/to Google Drive.
+  - Change the image's size from `(height, weight, channels)` to `(height x weight, channels)`
+  - Reduce the image's quality using smaller number of clusters.
+- **Example to understand the idea of [PCA]({{site.url}}{{site.baseurl}}/principal-component-analysis)**{:.tbold} -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/PCA_understanding_example.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/PCA_understanding_example.ipynb).
+  - Plot points with 2 lines which are corresponding to 2 eigenvectors.
+  - Plot & choose Principal Components.
+  - An example of choosing `n_components` $K$.
+  - Visualization hand-written digits (the case of all digits and the case of only 2 digits -- 1 & 8).
+  - Using [SVM](/support-vector-machine) to classifier data in the case of 1 & 8 and visualize the decision boundaries.
+- **Image compression using [PCA]({{site.url}}{{site.baseurl}}/principal-component-analysis)**{:.tbold} -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/PCA-image-compression.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/PCA-image-compression.ipynb).
+  - When input is an image, the values of adjacent pixels are *highly correlated*.
+  - Import images from `scipy` and Google Drive or Github (with `git`).
+  - Compress grayscale images and colored ones.
+  - Plot a grayscale version of a colorful images.
+  - Save output to file (Google Drive).
+  - Fix warning *Lossy conversion from float64 to uint8. Range [...,...]. Convert image to uint8 prior to saving to suppress this warning.*
+  - Fix warning *Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers)*.
+  - Calculate a size (in `KB`) of a image file.
+- **[PCA]({{site.url}}{{site.baseurl}}/principal-component-analysis) without scikit-learn**{:.tbold} -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/PCA_without_scikit_learn.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/PCA_without_scikit_learn.ipynb).
+- **Face Recognition using [SVM]({{site.url}}{{site.baseurl}}/support-vector-machine)**{:.tbold} -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/SVM-face-recognition.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/SVM-face-recognition.ipynb).
+  - Using PCA to extract 150 fundamental components to feed into our SVG classifier.
+  - Grid search cross-validation to explore combinations of parameters (`gamma` and `C`).
+  - Classification report: precision, recall, f1-score, support.
+  - Confusion matrix.
+- **XOR problem using [SVM]({{site.url}}{{site.baseurl}}/support-vector-machine)**{:.tbold} to see the effect of `gamma` and `C` in the case of using RBF kernel -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/SVM-XOR-RBF-kernel-parameters.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/SVM-XOR-RBF-kernel-parameters.ipynb).

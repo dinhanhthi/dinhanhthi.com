@@ -13,9 +13,9 @@ icon-photo: decision-tree.svg
 
 ## What's the idea of Decision Tree Regression?
 
-The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree. It can be used for *classification*{:.tbrown} ([note](/decision-tree-classifier)) and *regression*{:.tbrown}. In this post, let's try to understand the regression.
+The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree. It can be used for *classification* ([note](/decision-tree-classifier)) and *regression*. In this post, let's try to understand the regression.
 
-DT Regression is similar to [DT Classification](/decision-tree-classifier), however we use **Mean Square Error**{:.tbrown} (MSE, default) or **Mean Absolute Error**{:.tbrown} (MAE) instead of *cross-entropy* or *Gini impurity* to determine splits.
+DT Regression is similar to [DT Classification](/decision-tree-classifier), however we use **Mean Square Error** (MSE, default) or **Mean Absolute Error** (MAE) instead of *cross-entropy* or *Gini impurity* to determine splits.
 
 <p class="p-mark">
 $$
@@ -60,7 +60,7 @@ Other aspects of decision tree algorithm, check [this note](/decision-tree-class
 {:.alert.alert-warning}
 Looking for an example like in [the post of decision tree classifier](/decision-tree-classifier)? Check [this]({{ file-url }}/saedsayad.com-Decision Tree - Regression.pdf)! Below are a short algorithm,
 
-1. Calculate the **Standard Deviation**{:.tbrown} ($SD$) of the current node (let's say $S$, parent node) by using MSE or MAE,
+1. Calculate the **Standard Deviation** ($SD$) of the current node (let's say $S$, parent node) by using MSE or MAE,
 
     <p class="p-mark">
     $$
@@ -73,14 +73,14 @@ Looking for an example like in [the post of decision tree classifier](/decision-
     
     where $y\_i\in$ the target values (*Hours Played* in the above example), $\bar{y}=\frac{\Sigma y}{n}$ is the mean value and $n$ is the number of examples **in this node**.
 
-2. Check the **stopping conditions**{:.tbrown} (we don't need to make any split at this node) to stop the split and this node becomes a leaf node. Otherwise, go to step 3.
+2. Check the **stopping conditions** (we don't need to make any split at this node) to stop the split and this node becomes a leaf node. Otherwise, go to step 3.
 
     - The minimum number of samples required to split an internal node, use `min_samples_split` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
     - The maximum depth of the tree, use `max_depth` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
     - A node will be split if this split induces a decrease of the impurity greater than or equal to this value, use `min_impurity_decrease` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
     - Its *coefficient of variation* ($\frac{SD(S)}{\bar{y}}$) is less than a certain threshold.
 
-3. Calculate the **Standard Deviation Reduction**{:.tbrown} (SDR) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. <mark>the biggest SDR</mark> will be chosen!
+3. Calculate the **Standard Deviation Reduction** (SDR) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest SDR will be chosen!
 
     <p class="p-mark">
     $$

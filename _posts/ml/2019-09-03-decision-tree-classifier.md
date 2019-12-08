@@ -13,7 +13,7 @@ icon-photo: decision-tree.svg
 
 ## What's the idea of Decision Tree Classifier?
 
-The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree. It can be used for *classification*{:.tbrown} and *regression*{:.tbrown} ([note](/decision-tree-regression)). In this post, let's try to understand the classifier. 
+The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree. It can be used for *classification* and *regression* ([note](/decision-tree-regression)). In this post, let's try to understand the classifier. 
 
 Suppose that we have a dataset $S$ like in the figure below<sup>[[ref, *Table 1.2*]](https://books.google.fr/books/about/Data_Mining_Practical_Machine_Learning_T.html?id=bDtLM8CODsQC){:target="_blank"}</sup>,
 
@@ -29,8 +29,8 @@ Suppose that we have a dataset $S$ like in the figure below<sup>[[ref, *Table 1.
 
 There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning#Decision_tree_types) which can help us make a tree like above, in Machine Learning, we usually use: 
 
-- [**ID3**](https://en.wikipedia.org/wiki/ID3_algorithm) (*Iterative Dichotomiser*): uses **information gain**{:.tbrown} / **entropy**{:.tbrown}.
-- **[CART](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity)** (*Classification And Regression Tree*): uses **Gini impurity**{:.tbrown}.
+- [**ID3**](https://en.wikipedia.org/wiki/ID3_algorithm) (*Iterative Dichotomiser*): uses **information gain** / **entropy**.
+- **[CART](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity)** (*Classification And Regression Tree*): uses **Gini impurity**.
 
 <div class="hide-show-box">
 <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box3ct">
@@ -54,7 +54,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 </button>
 <div id="box2ct" markdown="1" class="collapse multi-collapse box-content">
 
-1. To check the disorder at current node (let's say $S$, parent node), we calculate its **entropy**{:.tbrown} with,
+1. To check the disorder at current node (let's say $S$, parent node), we calculate its **entropy** with,
 
     <p class="p-mark">
     $$
@@ -64,9 +64,9 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
     
     where $i \in$ the number of classes and $p\_{S,i}$ is the probability of class $i$ in $S$.
 
-2. If entropy at this node is **pure**{:.tbrown} (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
+2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
-3. Calculate the **information gain**{:.tbrown} (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. <mark>the biggest IG</mark> will be chosen!
+3. Calculate the **information gain** (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. <mark>the biggest IG</mark> will be chosen!
 
     <p class="p-mark">
     $$
@@ -89,9 +89,9 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 </button>
 <div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
 
-How we know we can split the dataset $S$ base on the **Outlook attribute** instead of the others (*Temperature, Humidity, Windy*)? $\Rightarrow$ We calculate the **information gain**{:.tbrown} after splitting $S$ on each attribute. *It’s the information which can increase the level of certainty after splitting*{:.tgreen}. <mark markdown="span">The **highest one** will be chosen</mark> (after this section, you will see that the Outlook attribute has the highest information gain).
+How we know we can split the dataset $S$ base on the **Outlook attribute** instead of the others (*Temperature, Humidity, Windy*)? $\Rightarrow$ We calculate the **information gain** after splitting $S$ on each attribute. *It’s the information which can increase the level of certainty after splitting*. <mark markdown="span">The **highest one** will be chosen</mark> (after this section, you will see that the Outlook attribute has the highest information gain).
 
-In order to calculate the information gain, we need "**entropy**{:.tbrown}" which is *the amount of information disorder or the amount of randomness in the data*{:.tgreen}.
+In order to calculate the information gain, we need "**entropy**" which is *the amount of information disorder or the amount of randomness in the data*.
 
 <p class="p-mark">
 $$
@@ -99,7 +99,7 @@ $$
 $$
 </p>
 
-At the beginning, `entropy before split` ($H(S)$) shows us the disorder status of the whole dataset $S$. If $S$ contains only `Yes`, $S$ has no disorder or it's **pure**{:.tbrown} ($H(S)=0)$. If the amount of `Yes` and `No` in $S$ is equal, $S$ has the highest disorder ($H(S)=1$).
+At the beginning, `entropy before split` ($H(S)$) shows us the disorder status of the whole dataset $S$. If $S$ contains only `Yes`, $S$ has no disorder or it's **pure** ($H(S)=0)$. If the amount of `Yes` and `No` in $S$ is equal, $S$ has the highest disorder ($H(S)=1$).
 
 {:.img-full-85}
 ![Illustration of entropy with different proportions of Yes/No in S.]({{img-url}}/f6.jpg)
@@ -245,7 +245,7 @@ From now, if we have a new input which contains information about *Outlook, Temp
 {:.alert.alert-warning}
 The difference between two algorithms is the difference between $H(S)$ and $I_G(S)$.
 
-1. To check the disorder at current node (let's say $S$, parent node), we calculate its **Giny Impurity**{:.tbrown} with,
+1. To check the disorder at current node (let's say $S$, parent node), we calculate its **Giny Impurity** with,
 
     <p class="p-mark">
     $$
@@ -255,9 +255,9 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
     
     where $i \in$ the number of classes in $S$ and $p\_{S,i}$ is the probability of class $i$ in $S$.
 
-2. If entropy at this node is **pure**{:.tbrown} (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
+2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
-3. Calculate the **Gini Gain**{:.tbrown} (GG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest GG will be chosen!
+3. Calculate the **Gini Gain** (GG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest GG will be chosen!
 
     <p class="p-mark">
     $$
@@ -280,7 +280,7 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
 </button>
 <div id="box6ct" markdown="1" class="collapse multi-collapse box-content">
 
-It's quite the same to the ID3 algorithm except a truth that it's based on the definition of **Gini impurity**{:.tbrown} instead of **Entropy**. *Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.*{:.tgreen}
+It's quite the same to the ID3 algorithm except a truth that it's based on the definition of **Gini impurity** instead of **Entropy**. *Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.*{:.tgreen}
 
 At every nonleaf node (which isn't pure), we have to answer a question "*Which attribute we should choose to split that node?*{:.tgreen}" We calculate the **Gini gain** for each split based on the attribute we are going to use. This *Gini gain* is quite the same as *Information gain*. <mark>The highest one will be chosen.</mark>
 
@@ -290,7 +290,7 @@ $$
 $$
 </p>
 
-The **Gini Impurity**{:.tbrown} at node $S$ is calculated as,
+The **Gini Impurity** at node $S$ is calculated as,
 
 <p class="p-mark">
 $$
@@ -318,7 +318,7 @@ $$
 *The frequency of classes in S.*
 </div>
 
-Similarly to the information gain, we can calculate **Gini Gain**{:.tbrown} ($GG$) after splitting $S$ on the property $O$ with,
+Similarly to the information gain, we can calculate **Gini Gain** ($GG$) after splitting $S$ on the property $O$ with,
 
 <p class="p-mark">
 $$
@@ -359,7 +359,7 @@ The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy)
 Click here to see<sup>[[ref]](https://blog.easysol.net/machine-learning-algorithms-1/)</sup>
 </button>
 <div id="box4ct" markdown="1" class="collapse multi-collapse box-content">
-Some highlight **advantages**{:.tbrown} of Decision Tree Classifier:
+Some highlight **advantages** of Decision Tree Classifier:
 
 1. Can be used for <mark>regression</mark> or <mark>classification</mark>.
 2. Can be displayed graphically.
@@ -371,7 +371,7 @@ Some highlight **advantages**{:.tbrown} of Decision Tree Classifier:
 8. Tends to ignore irrelevant features.
 9. Non-parametric (will outperform linear models if relationship between features and response is highly <mark>non-linear</mark>).
 
-Its **disadvantages**{:.tbrown}:
+Its **disadvantages**:
 
 1. Performance is (generally) not competitive with the best supervised learning methods.
 2. Can <mark>easily overfit</mark> the training data ([tuning](https://stackoverflow.com/questions/22903267/what-is-tuning-in-machine-learning) is required).
