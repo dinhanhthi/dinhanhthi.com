@@ -16,7 +16,7 @@ permalink: /github-html
   <button type="submit" class="btn btn-primary">See the rendered file</button>
 </form>
 
-<script src="{{site.url}}{{site.baseurl}}/js/htmlpreview.js"></script>
+<script src="{{site.url}}{{site.baseurl}}/tools/github-html.js"></script>
 
 {:.ref}
-*This page uses the [source code of htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com).*
+*This page uses the [source code of htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com). You can display even any website using this tool.*
