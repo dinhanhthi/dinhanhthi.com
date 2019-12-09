@@ -11,10 +11,12 @@ custom-css: "learning-log"
 
 I want to be an expert in **Data Science** and **Artificial Intelligence** and below are what I've learned/done so far to achieve it.
 
-<span class="task finish d-inline-block mr-3">Finished tasks!</span>
-<span class="task ongoing d-inline-block mr-3">Ongoing tasks!</span>
-<span class="task delay d-inline-block mr-3">Come back later!</span>
-<span class="task fail d-inline-block">Interrupted tasks!</span>
+<p class="text-center">
+  <span class="task finish d-inline-block mr-3">Finished tasks!</span>
+  <span class="task ongoing d-inline-block mr-3">Ongoing tasks!</span>
+  <span class="task delay d-inline-block mr-3">Come back later!</span>
+  <span class="task fail d-inline-block">Interrupted tasks!</span>
+</p>
 
 
 ## 11 / 2019
