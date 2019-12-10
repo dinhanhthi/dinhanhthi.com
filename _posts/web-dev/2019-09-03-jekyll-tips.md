@@ -20,6 +20,9 @@ date: 2019-10-24
 - Link to [post](https://jekyllrb.com/docs/liquid/tags/#linking-to-posts) / [page](https://jekyllrb.com/docs/liquid/tags/#link).
 - [Jekyll cheat sheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/).
 - [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
+- [Compress HTML in Jekyll](http://jch.penibelst.de/).
+
+
 
 ## Custom domain & repository with Jekyll sites
 
