@@ -31,11 +31,11 @@ switcher.onclick = function(){
 }
 ~~~
 
-Add below code inside `<head>`,
+Add below code inside `<head>`. This code will check the current preference of the user (If they already chosen dark mode at the last time they visited website, the site will automatically change to dark mode).
 
 ~~~ html
 <script>
-// run on load the page
+// run on loading the page
 const checkDarkModeStatus = () => {
   darkStatus = localStorage.getItem('dark-status');
   if (darkStatus == 'dark'){ // the last time user left is on 'dark mode'
