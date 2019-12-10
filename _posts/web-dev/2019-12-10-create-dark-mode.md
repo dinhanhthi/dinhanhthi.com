@@ -5,8 +5,6 @@ categories: [web development]
 icon-photo: moon.svg
 ---
 
-{% include toc.html %}
-
 Create a switcher on navigation bar,
 
 ~~~ html
