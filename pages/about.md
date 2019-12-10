@@ -14,8 +14,9 @@ After my Ph.D., I am currently learning by myself **Data Science**. I use [this 
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
-{:.learning-log-box}
-[⚡ Check out my learning log!]({{site.url}}{{site.baseurl}}/my-learning-log "Thi's learning log!")
+<div class="mb-5">
+{% include proud-of.html %}
+</div>
 
 {% include heading-title.html title="Data Science" icon="fas fa-database" more="note taking" insite="/notes" %}
 

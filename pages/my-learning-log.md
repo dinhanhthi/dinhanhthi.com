@@ -3,8 +3,7 @@ layout: page
 title: My learning log
 subtitle: Never stop learning!
 nav: about
-icon: fas fa-tasks
-icon-color: "#82ff94"
+icon-photo: learning-log.png
 permalink: /my-learning-log
 custom-css: "learning-log"
 ---

@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+  {% for item in site.data.proudof %}
+    <div class="col-12 col-md-6 col-lg-4 pr-0">
+      {% if item.url contains 'http' %}
+        {% capture item_url  %}
+          {{item.url}}
+        {% endcapture %}
+        {% assign target = '_blank' %}
+      {% else %}
+        {% capture item_url  %}
+          {{site.url}}{{site.baseurl}}/{{item.url}}
+        {% endcapture %}
+        {% assign target = '' %}
+      {% endif %}
+      <a href="{{item_url}}" target="{{target}}">
+        <div class="proud-of-card mb-3 mb-lg-0">
+          <img src="{{site.url}}{{site.baseurl}}/{{item.img}}">
+          <div class="content">
+            <div class="title">{{item.title}}</div>
+            {% if item.subtitle %}
+            <div class="subtitle">{{item.subtitle}}</div>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
