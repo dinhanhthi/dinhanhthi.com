@@ -1,6 +1,6 @@
-<div class="row justify-content-center">
-  {% for item in site.data.proudof %}
-    <div class="col-12 col-md-6 col-lg-4 pr-0">
+<div class="row justify-content-center proud-of-card">
+  {% for item in include.data %}
+    <div class="col-12 col-md-6 col-lg-4">
       {% if item.url contains 'http' %}
         {% capture item_url  %}
           {{item.url}}
@@ -13,7 +13,7 @@
         {% assign target = '' %}
       {% endif %}
       <a href="{{item_url}}" target="{{target}}">
-        <div class="proud-of-card mb-3 mb-lg-0">
+        <div class="item mb-3">
           <img src="{{site.url}}{{site.baseurl}}/{{item.img}}">
           <div class="content">
             <div class="title">{{item.title}}</div>

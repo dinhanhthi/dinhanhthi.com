@@ -45,6 +45,16 @@ Don't forget a very useful service from [netlify](http://netlify.com). You can s
 
 By default, Github Pages doesn't allow custom plugins. It only support [some specific plugins](https://pages.github.com/versions/). If you wanna use your custom plugins (or third party plugins), you can run your site on [netlify](https://netlify.com), it's free for non-commercial projects. You are able to host your site in a Github repository, the rest of work will be handled by netlify. Wonderful! 
 
+## Using `_data` with `include`
+
+You can use,
+
+~~~
+{%raw%}{% include proud-of.html data=site.data.proudof-notes %}{%endraw%}
+~~~
+
+where there is a data file located in `_data/proudof-notes.yml`.
+
 ## Create a custom tags/blocks
 
 ### Refs
