@@ -29,6 +29,7 @@
 
   .item{
     padding: 5px 5px 5px 0;
+    white-space: nowrap;
     &:hover{
       img{
         transform: scale(1.1);

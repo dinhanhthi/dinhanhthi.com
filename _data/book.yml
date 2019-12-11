@@ -23,11 +23,6 @@
   author: Yuval Noah Harari
   intro: The next book of Harari after his Sapiens.
   goodreads: https://www.goodreads.com/review/show/2643302498
-# - title: "The Elements of Statistical Learning: Data Mining, Inference, and Prediction"
-#   author: Trevor Hastie et al
-#   reading: true
-#   intro: A must-read book for ones who want to step first steps on Machine Learning and Data Science.
-#   goodreads: https://www.goodreads.com/book/show/148009.The_Elements_of_Statistical_Learning
 - title: Oxford thương yêu
   author: Dương Thụy
   goodreads: https://www.goodreads.com/book/show/11843183-oxford-th-ng-y-u
@@ -111,7 +106,7 @@
   goodreads: https://www.goodreads.com/review/show/2792766531?book_show_action=false&from_review_page=1
 - title: White Fang
   author: Jack London
-  goodreads:
+  goodreads: https://www.goodreads.com/book/show/43035.White_Fang
 - title: The housekeeper and the professor
   author: Yoko Ogawa
   goodreads: https://www.goodreads.com/review/show/2792767857
