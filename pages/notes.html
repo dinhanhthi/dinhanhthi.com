@@ -30,6 +30,8 @@ permalink: /notes
           </div>
         </div>
 
+        {% include proud-of.html data=site.data.proudof-notes ncards=2 %}
+
         {% for category in site.data.categories %}
           {% if site.categories[category.name].size > 0 %}
             <div class="card card-custom">

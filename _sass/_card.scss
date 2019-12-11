@@ -60,7 +60,7 @@
 
 // proud-of cards
 .proud-of-card{
-  margin-bottom: 2 * $m-b;
+  margin-bottom: $m-b;
   margin-top: 2 * $m-b;
   .item{
     display: -webkit-box;
@@ -90,7 +90,7 @@
     .content{
       padding-left: 1rem;
       .title{
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: bold;
         color: #555;
         line-height: 1.2;

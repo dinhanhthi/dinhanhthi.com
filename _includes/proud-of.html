@@ -1,6 +1,12 @@
+{% case include.ncards %}
+  {% when 2 %}
+    {% assign clss = 'col-12 col-md-6' %}
+  {% when 3 %}
+    {% assign clss = 'col-12 col-md-6 col-lg-4' %}
+{% endcase %}
 <div class="row justify-content-center proud-of-card">
   {% for item in include.data %}
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="{{clss}}">
       {% if item.url contains 'http' %}
         {% capture item_url  %}
           {{item.url}}
