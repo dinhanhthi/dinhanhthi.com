@@ -2,7 +2,9 @@
 layout: page
 ---
 
+{% if site.data.me.show-related-posts %}
 {% include related-posts.html %}
+{% endif %}
 
 {{ content }}
 
