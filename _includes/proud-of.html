@@ -7,7 +7,7 @@
 <div class="row justify-content-center proud-of-card">
   {% for item in include.data %}
     <div class="{{clss}}">
-      {% if item.url contains 'http' %}
+      {% if (item.url contains 'http') or (item.url contains '@')  %}
         {% capture item_url  %}
           {{item.url}}
         {% endcapture %}
@@ -18,7 +18,9 @@
         {% endcapture %}
         {% assign target = '' %}
       {% endif %}
+      {% if item.url %}
       <a href="{{item_url}}" target="{{target}}">
+      {% endif %}
         <div class="item mb-3">
           <img src="{{site.url}}{{site.baseurl}}/{{item.img}}">
           <div class="content">
@@ -28,7 +30,9 @@
             {% endif %}
           </div>
         </div>
+      {% if item.url %}
       </a>
+      {% endif %}
     </div>
   {% endfor %}
 </div>
