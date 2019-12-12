@@ -1,0 +1,61 @@
+.related-posts{
+  .rp-title{
+    padding: 0 0.5rem 2px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1rem;
+    color: #9e9e9e;
+    font-style: italic;
+  }
+  @media (min-width: 1300px){
+    float: left;
+    margin-left: -280px;
+    width: 250px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    margin-bottom: 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  .item{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75rem 1rem 0.75rem;
+
+    -webkit-transition: -webkit-box-shadow .1s ease,-webkit-transform .1s ease;
+    transition: -webkit-box-shadow .1s ease,-webkit-transform .1s ease;
+    transition: box-shadow .1s ease,transform .1s ease;
+    transition: box-shadow .1s ease,transform .1s ease,-webkit-box-shadow .1s ease,-webkit-transform .1s ease;
+
+    &:hover{
+      -webkit-transform: translateY(-3px);
+      transform: translateY(-3px);
+    }
+
+    .icon-photo{
+      width: 20px;
+      height: 2 0px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .content{
+      padding-left: 0.75rem;
+      .title{
+        font-size: 1rem;
+        font-weight: bold;
+        color: #555;
+        line-height: 1.2;
+      }
+      .subtitle{
+        font-size: 0.85rem;
+        color: #888;
+        font-style: italic;
+      }
+    }
+  }
+}

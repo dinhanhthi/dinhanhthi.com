@@ -72,9 +72,12 @@ $f-extra-bold: 800;
 @import 'mynote';
 @import 'drawing';
 @import 'learning-log';
+@import 'proudof';
 
 @import 'insert-img'; // _insert-img.scss
 @import 'insert-video'; // _insert-video.scss
 @import 'step'; // _step.scss
 
 @import 'page';
+
+@import 'related_posts';

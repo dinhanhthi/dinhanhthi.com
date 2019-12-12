@@ -1,0 +1,62 @@
+{% assign maxRelated = 4 %}
+{% assign minCommonTags =  1 %}
+{% assign maxRelatedCounter = 0 %}
+<div class="related-posts">
+  <div class="rp-title">
+    Recently related notes
+  </div>
+  {% for post in site.posts %}
+    {% assign sameTagCount = 0 %}
+    {% assign commonTags = '' %}
+
+    {% for category in post.categories %}
+      {% if post.url != page.url %}
+        {% if page.categories contains category %}
+          {% assign sameTagCount = sameTagCount | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if sameTagCount >= minCommonTags %}
+      <a href="{{post.url}}">
+      <div class="item">
+
+        {% if post.icon-color %}
+          {% assign iconColor = post.icon-color %}
+        {% elsif post.categories %}
+          {% for cat in site.data.categories %}
+            {% if post.categories[0] == cat.name %}
+              {% assign iconColor = cat.color %}
+              {% assign icon = cat.icon %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if post.icon %}
+          <div class="icon" style="color: {{ iconColor }};">
+            <i class="{{ post.icon }}"></i>
+          </div>
+        {% elsif post.icon-photo %}
+          <div class="icon-photo">
+            <img src="{{site.url}}{{site.baseurl}}/img/header/{{post.icon-photo}}">
+          </div>
+        {% elsif post.emoji %}
+          {{ post.emoji }}
+        {% elsif post.categories %}
+          <div class="icon" style="color: {{ iconColor }};">
+            <i class="{{ icon }}"></i>
+          </div>
+        {% endif %}
+
+        <div class="content">
+          <div class="title">{{post.title}}</div>
+        </div>
+      </div>
+      </a>
+      {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+      {% if maxRelatedCounter >= maxRelated %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+
+  {% endfor %}
+</div>
