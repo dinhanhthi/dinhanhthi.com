@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JavaScript Frameworks"
-categories: [web development]
+categories: [JavaScript]
 math: 1
 ---
 

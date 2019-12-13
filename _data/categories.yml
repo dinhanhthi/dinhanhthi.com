@@ -22,6 +22,9 @@
 - name: probability & statistics
   icon: "far fa-chart-bar"
   color: "#daff9f"
+- name: JavaScript
+  icon: "fab fa-js-square"
+  color: "#daff9f"
 - name: web development
   icon: "fab fa-html5"
   color: "#fdc989"
