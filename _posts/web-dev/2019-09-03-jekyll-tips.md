@@ -22,6 +22,11 @@ date: 2019-10-24
 - [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
 - [Compress HTML in Jekyll](http://jch.penibelst.de/).
 
+## Link to posts
+
+~~~
+{%raw%}[Name of Link]({% post_url 2010-07-21-name-of-post %}){%endraw%}
+~~~
 
 
 ## Custom domain & repository with Jekyll sites

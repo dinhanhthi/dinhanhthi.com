@@ -47,6 +47,12 @@ kept_cols = ['col1', 'col2', ...]
 df = df[kept_cols]
 ~~~
 
+Choose all columns except some,
+
+~~~ python
+df[df.columns.difference(['b'])]
+~~~
+
 ### Rename columns
 
 In this part, we are going to use below dataframe `df`.

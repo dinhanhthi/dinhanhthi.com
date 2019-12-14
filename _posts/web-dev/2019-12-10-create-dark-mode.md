@@ -8,9 +8,9 @@ icon-photo: moon.svg
 Create a switcher on navigation bar,
 
 ~~~ html
-<a id="dark-switcher" href="#">
-  <i class="fas fa-moon"></i>
-</a>
+<button type="button" name="dark_light" onclick="toggleDarkLight()" title="Toggle dark/light mode">
+  <i id="darkSwitcher" class="fas fa-moon"></i>
+</button>
 ~~~
 
 Create a js file and include it in the footer,
@@ -40,10 +40,10 @@ const checkDarkModeStatus = () => {
   darkStatus = localStorage.getItem('dark-status');
   if (darkStatus == 'dark'){ // the last time user left is on 'dark mode'
     document.getElementsByTagName("BODY")[0].classList.add('dark');
-    document.getElementById('dark-switcher').children[0].className = 'fas fa-sun';
+    document.getElementById('darkSwitcher').className = 'fas fa-sun';
   } else {
     document.getElementsByTagName("BODY")[0].classList.remove('dark');
-    document.getElementById('dark-switcher').children[0].className = 'fas fa-moon';;
+    document.getElementById('darkSwitcher').className = 'fas fa-moon';;
   }
 }
 window.onload = checkDarkModeStatus;

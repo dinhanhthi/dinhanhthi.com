@@ -41,8 +41,22 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 
 {% endhsbox %} 
 
-{% hsbox **General ideas (TL;DR;)** %}
-Testing
+{% hsbox General ideas (TL;DR;) %}
+
+- Take an overview about dataset.
+  - `.describe` for numerical / categorical features.
+  - Find percentage of missing data on each feature.
+  - Survival based on some categorical features. 
+  - Visualize survival based on `Age`.
+  - Check if the result depends on the titles indicated in the `Name`?
+- Preprocessing data:
+  - Drop unnecessary features (columns) (`Name`, `Ticket`, `Cabin`) using `df.drop()`.
+  - Convert categorical variables to dummy ones using `pd.get_dummies()`.
+  - Impute missing continuous values using `sklearn.impute.SimpleImputer`.
+  - Take an idea to change `Age` to a categorical feature and then also convert to dummy.
+- Using `GridSearchCV` to find the optimal hyper parameters and apply some algorithms, e.g. Random Forest.
+- Export the result to an output file.
+
 {% endhsbox %}
 
 ## Preliminaries
@@ -116,8 +130,8 @@ In this task, you have to do the same techniques for both `train` and `test` set
 Drop some unnecessary features (columns),
 
 ~~~ python
-train.drop(['Name', 'Fare', 'Ticket', 'Cabin'], axis=1, inplace=True)
-test.drop(['Name', 'Fare', 'Ticket', 'Cabin'], axis=1, inplace=True)
+train.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)
+test.drop(['Name', 'Ticket', 'Cabin'], axis=1, inplace=True)
 ~~~
 
 ### Convert to dummy
@@ -196,6 +210,63 @@ Convert to a dummy variable,
 main = create_dummies(main, 'Age_categories')
 test = create_dummies(test, 'Age_categories')
 ~~~
+
+## Training with Random Forest
+
+We will use [Grid Search](/grid-search) to test with different parameters and then choose the best ones.
+
+~~~ python
+# Create a dictionary containing all the candidate values of the parameters
+parameter_grid = dict(n_estimators=list(range(1, 5001, 1000)),
+                      criterion=['gini','entropy'],
+                      max_features=list(range(1, len(features), 2)),
+                      max_depth= [None] + list(range(5, 25, 1)))
+
+# Creata a random forest object
+random_forest = RandomForestClassifier(random_state=0, n_jobs=-1)
+
+# Create a gridsearch object with 5-fold cross validation, and uses all cores (n_jobs=-1)
+clf = GridSearchCV(estimator=random_forest, param_grid=parameter_grid, cv=5, verbose=1, n_jobs=-1)
+~~~
+
+Split into `X_train`, `y_train`:
+
+~~~ python
+X_train = train[train.columns.difference(['Survived'])]
+y_train = train['Survived']
+~~~
+
+~~~ python
+# Nest the gridsearchCV in a 3-fold CV for model evaluation
+cv_scores = cross_val_score(clf, X_train, y_train)
+
+# Print results
+print('Accuracy scores:', cv_scores)
+print('Mean of score:', np.mean(cv_scores))
+print('Variance of scores:', np.var(cv_scores))
+~~~
+
+Retrain The Random Forest With The Optimum Parameters
+
+~~~ python
+# Retrain the model on the whole dataset
+clf.fit(X_train, y_train)
+# Predict who survived in the test dataset
+predictions = clf.predict(test)
+~~~
+
+## Create an output file
+
+~~~ python
+final_ids = test["PassengerId"]
+submission_df = {"PassengerId": final_ids,
+                 "Survived": predictions}
+submission = pd.DataFrame(submission_df)
+
+submission.to_csv('titanic_submission.csv', index=False)
+~~~
+
+Another way, check the [last section of this post](https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/#create-the-kaggle-submission).
 
 ## References
 

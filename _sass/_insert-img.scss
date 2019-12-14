@@ -25,10 +25,6 @@ li > .emoji{
 		display: block;
 		margin: 0 auto;
 		width: 100%;
-		border-radius: 5px;
-		@media (min-width:768px){
-			border-radius: 7px;
-		}
 	}
 	@media (min-width:768px){
 		max-width: none;
@@ -90,7 +86,6 @@ li > .emoji{
 	margin-top: 2rem;
 	img{
 		display: block;
-		border-radius: 5px;
 	}
 	em{
 		display: block;
@@ -114,7 +109,6 @@ li > .emoji{
 	img{
 		display: block;
 		width: 100%;
-		border-radius: 5px;
 	}
 	em{
 		display: block;
