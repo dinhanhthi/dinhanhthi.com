@@ -4,23 +4,23 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .c, .highlight .cd {
-  color: #8c8c8c;
+  color: #75b345;
   font-style: italic;
 }
 .highlight .cm {
-  color: #8c8c8c;
+  color: #75b345;
   font-style: italic;
 }
 .highlight .c1 {
-  color: #8c8c8c;
+  color: #75b345;
   font-style: italic;
 }
 .highlight .cp {
-  color: #8c8c8c;
+  color: #75b345;
   font-weight: bold;
 }
 .highlight .cs {
-  color: #8c8c8c;
+  color: #75b345;
   font-weight: bold;
   font-style: italic;
 }
