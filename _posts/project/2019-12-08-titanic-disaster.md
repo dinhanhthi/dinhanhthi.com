@@ -9,8 +9,6 @@ icon-photo: titanic.png
 
 {% include toc.html %}
 
-{% notcomplete %}
-
 ## Introduction
 
 In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer the question: "*What sorts of people were more likely to survive?*" using passenger data. Datasets to be used: `train.csv` (for training and predicting), `test.csv` (for submitting).
@@ -41,7 +39,7 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 
 {% endhsbox %} 
 
-{% hsbox General ideas (TL;DR;) %}
+## TL;DR;
 
 - Take an overview about dataset.
   - `.describe` for numerical / categorical features.
@@ -49,7 +47,7 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
   - Survival based on some categorical features. 
   - Visualize survival based on `Age`.
   - Check if the result depends on the titles indicated in the `Name`?
-- Preprocessing data:
+- **Preprocessing data**:
   - Drop unnecessary features (columns) (`Name`, `Ticket`, `Cabin`) using `df.drop()`.
   - Convert categorical variables to dummy ones using `pd.get_dummies()`.
   - Impute missing continuous values using `sklearn.impute.SimpleImputer`.
@@ -57,7 +55,6 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 - Using `GridSearchCV` to find the optimal hyper parameters and apply some algorithms, e.g. Random Forest.
 - Export the result to an output file.
 
-{% endhsbox %}
 
 ## Preliminaries
 
@@ -267,6 +264,13 @@ submission.to_csv('titanic_submission.csv', index=False)
 ~~~
 
 Another way, check the [last section of this post](https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/#create-the-kaggle-submission).
+
+## Other approaches
+
+- Based on the number of family/sibling members: combination of `SibSp` and `Parch`.
+- Go alone?
+- Consider the title from `Name`.
+- Use [Decision Tree](/decision-tree-classifier) with K-fold.
 
 ## References
 
