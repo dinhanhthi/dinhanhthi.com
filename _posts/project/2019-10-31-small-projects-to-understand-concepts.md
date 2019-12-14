@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Small projects for understanding concepts"
+title: "☀ Small projects for understanding concepts"
 categories: [project-based learning]
 math: 1
 ---

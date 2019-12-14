@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Installation"
+title: "☀ Python Installation"
 categories: [python]
 ---
 

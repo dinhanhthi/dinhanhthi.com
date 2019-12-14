@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pandas"
+title: "Pandas tips"
 categories: [python]
 icon-photo: pandas.png
 ---

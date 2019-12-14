@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "For me only"
+title: "☀ For me only"
 categories: others
 excluded_in_search: 1
 math: 1
