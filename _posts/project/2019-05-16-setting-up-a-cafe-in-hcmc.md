@@ -2,13 +2,10 @@
 layout: post
 title: "Setting up a café in Ho Chi Minh City"
 categories: [project-based learning]
-math: 1
-icon: "fas fa-coffee"
+icon-photo: cafe.svg
 ---
 
 {% assign img-url = '/img/post/project/cafe-hcm' %}
-
-{% include toc.html %}
 
 This is the final project for the course "[Applied Data Science Capstone](https://www.coursera.org/learn/applied-data-science-capstone)" given by IBM on Coursera. We will explore the venues in different districts of Ho Chi Minh City to find the best place to set up our business.
 
