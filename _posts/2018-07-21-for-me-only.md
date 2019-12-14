@@ -278,6 +278,21 @@ Example like [this site](/to-be-done).
 - [x] Finished task.
 </div>
 ~~~
+ 
+Two equal sized columns,
+
+~~~ html
+<div class="d-md-flex" markdown="1">
+<div class="flex-even overflow-auto pr-md-1" markdown="1">
+Rest parameter (ES6)
+// code
+</div>
+<div class="flex-even overflow-auto pl-md-1" markdown="1">
+Spread Operator (ES6)
+// code
+</div>
+</div>
+~~~
 
 ## Insert codes
 
