@@ -10,3 +10,5 @@ Gemfile.lock
 .jekyll-metadata
 test/test1.html
 *.code-workspace
+.ipynb_checkpoints
+Gemfile.lock
