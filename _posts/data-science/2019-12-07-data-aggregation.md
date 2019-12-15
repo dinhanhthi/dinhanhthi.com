@@ -74,7 +74,7 @@ pivot_2 = df.pivot(index='foo', columns='bar')['baz']
 pivot_3 = df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
 ~~~
 
-{:.img-full-100.pop}
+{:.img-full-85.pop}
 ![Pivot table]({{img-url}}/pivot.jpg)
 
 ## Change shape of df with `melt()`

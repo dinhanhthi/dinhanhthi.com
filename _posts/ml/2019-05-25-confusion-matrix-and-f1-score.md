@@ -9,8 +9,6 @@ math: 1
 
 {% include toc.html %}
 
-{% notcomplete %}
-
 ## Confusion matrix
 
 {:.table.bd-right.table-dark}

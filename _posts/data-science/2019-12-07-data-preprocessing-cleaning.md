@@ -96,7 +96,7 @@ df.set_index('column')
 df.set_index(['col1', 'col2'])
 ~~~
 
-## Deal with `NaN`
+## Deal with missing values `NaN`
 
 ### Drop if `NaN`
 

@@ -24,7 +24,7 @@ import numpy as np
 ## Import and have a look
 
 ~~~ python
-df = pd.read_csv('filename.csv')
+df = pd.read_csv('filename.csv', na_values=['none']) # "none" is missing data
 df.head() # read first 5 rows
 df.tail() # last 5 rows
 df.head(10) # first 10 rows
