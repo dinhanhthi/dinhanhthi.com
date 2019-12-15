@@ -32,6 +32,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - `jsxgraph: 1` : if you use JSXGraph in your post. Jump to [this section](#insert-jsxgraph).
 - `sitemap: false` : If you would like to exclude specific pages/posts from the sitemap.
 - `subtitle` : Only used for pages.
+- `katex: 1` if you wanna use [katex](https://katex.org/) in this page.
 
 ## Add table of contents
 
@@ -669,3 +670,17 @@ Source of figures used in this post:
 
   Call again equation $\eqref{eq1}$.
 	~~~
+
+
+## Katex
+
+- Must indicate `katex: 1` in the front matter.
+- Inline: `{%raw%}{% katex %}{% endkatex %}{%endraw%}`.
+- Display mode: `{%raw%}{% katex display %}{% endkatex %}{%endraw%}`.
+  - You have to use `\begin{aligned}` instead of `\begin{align}` for aligned equations.
+- Many inline formulas: wrap a paragraph with `{%raw%}{% katexmm %}{% endkatexmm %}{%endraw%}` and then use inside it,
+  - `$..$` for inline.
+  - `$$..$$` for display.
+  - `\$` to escape `$` anywhere within the katexmm environment.
+  - You don't have to use `\_` for `_`.
+- Read more about [jekyll-katex](https://github.com/linjer/jekyll-katex).

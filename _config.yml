@@ -10,6 +10,7 @@ fb_app_id: "1150663561751902"
 
 timezone: "Europe/Paris"
 markdown: kramdown
+mathjax: true
 kramdown:
   input: GFM
 highlighter: rouge
@@ -19,6 +20,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-katex
 
 sass:
   style: compact
