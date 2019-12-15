@@ -5,19 +5,21 @@ categories: [probability & statistics]
 katex: 1
 ---
 
-{% katexmm %}
-
 {% assign img-url = '/img/post/stats' %}
 {% assign file-url = '/files/stats' %}
 
+{% katexmm %}
 Consider a gambler who starts with an initial fortune of $i$\$ and then on each successive gamble either wins $1$\$ or loses $1$\$ independent of the past with probabilities $p$ and $q = 1−p$ respectively. The gambler's objective is to reach a total fortune of $N$\$, without first getting ruined (running out of money).
+{% endkatexmm %}
 
-
+{% katexmm %}
 Let $P_i$ be the probability that the gambler wins when starting with $i$\$, we have
+{% endkatexmm %}
 
+{% katexmm %}
 $$
 \begin{aligned}
-P_0 &= 0\\
+P_0 &= 0 \\
 P_N &= 1 \\
 P_i &= pP_{i+1} + qP_{i-1}
 \end{aligned}
@@ -35,11 +37,12 @@ P_i = \begin{cases}
 \end{aligned}
 $$
 </div>
+{% endkatexmm %}
 
+{% katexmm %}
 Note that, $1-P_i$ is the probability of ruin.
 
-**Another type of this question**{:.tbrown}: Consider an ant walking along the positive integers. At position $i$, the ant moves to $i+1$ with probabilities $p$ and to $i-1$ with probabilities $q$. If the ant reach $0$, it stops walking. Starting from $i>0$, what is the probability that the ant reaches $i=N$ before reaching $0$? 
+**Another type of this question**{:.tbrown}: Consider an ant walking along the positive integers. At position $i$, the ant moves to $i+1$ with probabilities $p$ and to $i-1$ with probabilities $q$. If the ant reach $0$, it stops walking. Starting from $i>0$, what is the probability that the ant reaches $i=N$ before reaching $0$?
+{% endkatexmm %}
 
 Sometimes, we consider above problem as a [random walk](https://en.wikipedia.org/wiki/Random_walk) problem. This post is copied from [this](http://www.columbia.edu/~ks20/FE-Notes/4700-07-Notes-GR.pdf) and we have a backup version [here]({{file-url}}/Gambler Ruin Problem.pdf).
-
-{% endkatexmm %}

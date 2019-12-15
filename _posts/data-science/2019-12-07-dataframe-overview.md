@@ -64,9 +64,19 @@ Counting the number of elements of each class in df,
 df.Classes.value_counts() # give number of each 0 and 1
 ~~~
 
-The number of `null` values in df,
+### Missing values
+
+The number of `null` values in df (missing values),
 
 ~~~ python
 df.isnull().sum().sort_values(ascending=False)
 df.isnull().sum()/df_train.isnull().count()*100 # find % of null values
+~~~
+
+Visualize the locations of missing values,
+
+~~~ python
+import seaborn as sns
+df = df.set_index('YEAR') # y-axis is YEAR
+sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
 ~~~

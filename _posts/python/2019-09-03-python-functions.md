@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python functions"
+title: "Python Functions"
 categories: [python]
 ---
 

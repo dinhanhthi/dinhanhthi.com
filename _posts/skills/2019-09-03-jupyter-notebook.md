@@ -26,6 +26,17 @@ conda install ipython jupyter
 
 Or read more in [this note](/python-installation).
 
+## Multiline commands
+
+~~~ python
+# Using '\'
+df.columns = df.columns.str.replace('.', ' ')\
+                       .str.replace('\s+', ' ')\
+                       .str.strip().str.upper()
+~~~
+
+You CANNOT put `# comments` at the end of each line break!
+
 ## Hotkeys / Shortcuts
 
 There are 2 modes: **command mode** (pres <kbd>ESC</kbd> to activate) and **edit mode** (<kbd>Enter</kbd> to activate). Below are the most useful ones (for me).
@@ -106,7 +117,7 @@ def display_side_by_side(*args):
     html_str=''
     for df in args:
         html_str+=df.to_html()
-    display_html(html_str.replace('table','table style="display:inline"'),raw=True)
+    display_html(html_str.replace('table','table style="display:inline; margin-right: 5px;"'),raw=True)
 
 display_side_by_side(df1,df2,df1)
 ~~~

@@ -75,6 +75,12 @@ df.rename(columns={
 }, inplace=True)
 ~~~
 
+We can use the *explicit* method to rename a specific column in df.
+
+~~~ python
+data.rename(columns={'gdp':'log(gdp)'}, inplace=True)
+~~~
+
 ### Make index
 
 Check if a column has unique values (so that it can be an index)
@@ -132,6 +138,10 @@ df['col'] = df['col'].fillna(df['col'].mean())
 np.where(if_this_condition_is_true, do_this, else_this)
 df['new_column'] = np.where(df[i] > 10, 'foo', 'bar) # example
 ~~~
+
+## Working with text data
+
+There are a lot of [methods](https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html#method-summary) we can work with text data (`pd.Series.str`). We can use it coupling with [regular expression](/regular-expression).
 
 
 

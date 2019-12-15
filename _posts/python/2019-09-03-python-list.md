@@ -1,12 +1,15 @@
 ---
 layout: post
-title: "Python list"
+title: "Python List"
 categories: [python]
+icon-photo: list.png
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
+
+{% updfreq %}
 
 ## General
 
