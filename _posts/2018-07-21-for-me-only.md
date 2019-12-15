@@ -42,6 +42,17 @@ The table of contents is only shown if the min-width of the viewport is 1300 px.
 {% raw %}{% include toc.html %}{% endraw %}
 ~~~
 
+## Open in HTML - in Colab for Python Notes
+
+- Jupyter notebooks and their exported html files must be placed in `/files/jupyter_notebooks/`.
+- The notebook must be named exactly the same as the note's url. For example, if the note's url is `/data-combining`, the notebook's name should be `data-combining.ipynb`.
+
+~~~ html
+{% raw %}{% include note_html_colab.html %}{% endraw %}
+~~~
+
+This will create automatically 2 button containing the link to open the html file and open the notebook in the
+
 ## Insert youtube videos
 
 For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below codes:
@@ -218,35 +229,32 @@ JXG.Options = JXG.merge(JXG.Options, {
     axis:{
       ticks:{
         majorHeight: 0,
-        insertTicks: false, // show tick label
-        ticksDistance : 6, // height of main ticks
+        insertTicks: false,
+        ticksDistance : 6, 
       },
       lastArrow: {
-          type: 1, // change the type
-          highlightSize: 8, // ??
-          size: 10 // size of last arrow
+          type: 1,
+          highlightSize: 8,
+          size: 10 
       },
     },
     text:{
-      // fontSize: 16, // font-size of texts
       cssdefaultstyle: 'font-family: inherit; font-size: inherit;'
     },
     point:{
-      face: 'x' // style of points
+      face: 'x'
     },
     grid:{
-      // visible: true, // didn't work??
-      // set in the board's settings
-      strokeColor: "pink" // grid's color
+      strokeColor: "pink"
     }
  });
 var brd1 = JXG.JSXGraph.initBoard('jsx-box', {
   axis:true,
   boundingbox: [-8, 5, 8, -4],
-  grid: false, // display grid?
-  showScreenshot: false, // show screen-shot (right lick to save image)?
-  showNavigation: false, // show navigation?
-  showCopyright: false // show copyright?
+  grid: false,
+  showScreenshot: false, 
+  showNavigation: false,
+  showCopyright: false
   }
 );
 var s = brd1.create('slider',[[1,4],[5,4],[1,10,50]],{name:'            n',snapWidth:1});
@@ -267,7 +275,10 @@ var os = brd1.create('riemannsum',[f,
 );
 
 brd1.create('text',[-6,-3,function(){ return 'Area = '+(JXG.Math.Numerics.riemannsum(f,s.Value(),"left".value,a.Value(),b.Value())).toFixed(4); }]);
+
 </script>
+
+❌ Don't use `//` for comment in the script, eliminate them or use `/* */` instead!!!
 
 ## Columns & Check box lists
 
