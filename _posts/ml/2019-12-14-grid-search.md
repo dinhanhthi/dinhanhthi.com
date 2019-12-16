@@ -7,6 +7,8 @@ icon-photo: gridsearch.svg
 
 {% assign img-url = '/img/post/ML/' %}
 
+{% notcomplete %}
+
 A process of performing hyper parameter tuning to determine optimal values for a given model.
 
 Below are an example of using Grid Search with Random Forest in solving the [Titanic problem](/titanic-disaster).

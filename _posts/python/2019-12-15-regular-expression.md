@@ -9,6 +9,8 @@ icon-photo: re.png
 
 {% include toc.html %}
 
+{% notcomplete %}
+
 {% updfreq %}
 
 We can select string with some patterns.
