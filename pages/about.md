@@ -58,7 +58,7 @@ I have learned math since the beginning of my study life and keep writing about 
 
 {% include heading-title.html title="Ph.D. Research" icon="fas fa-graduation-cap" %}
 
-I researched on the growth of [biofilm](https://en.wikipedia.org/wiki/Biofilm){:target="_blank"} by using [Finite Element Method](https://en.wikipedia.org/wiki/Finite_element_method){:target="_blank"}, [Level Set Method](https://en.wikipedia.org/wiki/Level-set_method){:target="_blank"} and some other numerical ones for the interface problem. For the implementation and simulation, I first used [FreeFem++](https://freefem.org/){:target="_blank"} and later developed by myself the **[NXFEM](https://github.com/dinhanhthi/nxfem){:target="_blank"}**, a Matlab toolbox.
+I researched on the growth of [biofilm](https://en.wikipedia.org/wiki/Biofilm){:target="_blank"} by using [Finite Element Method](https://en.wikipedia.org/wiki/Finite_element_method){:target="_blank"}, [Level Set Method](https://en.wikipedia.org/wiki/Level-set_method){:target="_blank"} and some other numerical ones for an interface problem. For the implementation and simulation, I first used [FreeFem++](https://freefem.org/){:target="_blank"} and later developed by myself the **[NXFEM](https://github.com/dinhanhthi/nxfem){:target="_blank"}**, a Matlab toolbox.
 
 - **3 presentations** about biofilm growth model & numrical methods & application of FreeFem++.
 - **6 conferences** about biofilm & biology & numerical methods.

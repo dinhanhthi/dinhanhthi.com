@@ -31,7 +31,7 @@ import numpy as np
 
 ## Deal with columns
 
-### Removing or Keep some
+### Remove or Keep some
 
 Removing columns,
 
@@ -139,7 +139,7 @@ np.where(if_this_condition_is_true, do_this, else_this)
 df['new_column'] = np.where(df[i] > 10, 'foo', 'bar) # example
 ~~~
 
-## Working with text data
+## Work with text data
 
 There are a lot of [methods](https://pandas.pydata.org/pandas-docs/stable/user_guide/text.html#method-summary) we can work with text data (`pd.Series.str`). We can use it coupling with [regular expression](/regular-expression).
 

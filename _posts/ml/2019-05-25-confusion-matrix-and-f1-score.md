@@ -88,17 +88,17 @@ f_1 = \left({\frac {\mathrm {recall} ^{-1}+\mathrm {precision} ^{-1}}{2}}\right)
 $$
 </p>
 
-F1-score depends on how we label the class "positive". *This email is spam?* is **very different** from *This email is not spam?*.
+F1-score depends on how we label the class "positive". *This email is spam?* is **very different** from *This email is not spam?*
 
 ### When to use F1-Score?
 
 - When you need a balance between precision and recall.
-- When we have a "skewed class" problem (uneven class distribution, too many "yes" and very few "no" for example).
+- When we have a "skewed class" problem (uneven class distribution, too many "yes" and very few "no", for example).
 - One of precision and recall is improved but the other changes too much, then f1-score will be very small!
 
 ### How to choose f1-score value?
 
-Normally, $f\_1\in (0,1]$ and it get the higher values, the better our model is.
+Normally, $f\_1\in (0,1]$ and it gets the higher values, the better our model is.
 
 - The best one ($f\_1=1$), both precision and recall get $100\%$.
 - One of precision and recall gets very small value (close to 0), $f\_1$ is very small, our model is not good!

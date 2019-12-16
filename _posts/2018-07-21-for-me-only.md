@@ -458,7 +458,7 @@ Box's content.
 {% endhsbox %}{% endraw %} 
 ~~~
 
-If you don't wanna show the box as default, remove ` | show`!
+If you don't wanna show the box as default, remove `{%raw%} | show{%endraw%}`!
 
 ### Definition box
 

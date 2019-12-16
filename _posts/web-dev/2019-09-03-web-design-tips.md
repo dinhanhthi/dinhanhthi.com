@@ -42,3 +42,11 @@ And make it into 1 if the screen is small.
 }
 ~~~
 </div>
+
+## Other useful Tools
+
+- **Mario Ranftl** -- [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) -- A Hassle-Free Way to Self-Host Google Fonts -- giving us font files and font-face declarations based on the fonts, charsets, styles, and browser support you select.
+
+## Useful URLs
+
+- **Sia Karamalegos** -- [Making Google Fonts Faster](https://medium.com/clio-calliope/making-google-fonts-faster-aadf3c02a36d).
