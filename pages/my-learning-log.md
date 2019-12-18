@@ -10,7 +10,7 @@ custom-css: "learning-log"
 
 I want to be an expert in **Data Science** and **Artificial Intelligence** and below are what I've learned/done so far to achieve it.
 
-<p class="text-center">
+<p class="text-left">
   <span class="task finish d-inline-block mr-3">Finished tasks!</span>
   <span class="task ongoing d-inline-block mr-3">Ongoing tasks!</span>
   <span class="task delay d-inline-block mr-3">Come back later!</span>
@@ -22,7 +22,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **Get a job**{:.tbold} at [Dataswati](https://www.dataswati.com/) as a Data Scientist. -- [interview tests](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Notes on [Data Preprocessing](/data-preprocessing-cleaning), [Titanic problem](/titanic-disaster) and [Grid Search](/grid-search).
-- {:.finish} <span class="tbadge badge-blue">Web</span> [Basic JavaScript & ES6](https://www.freecodecamp.org/learn/) on freeCodeCamp. -- [my notes](/notes#JavaScript).
+- {:.finish} <span class="tbadge badge-blue">Web</span> [Basic JavaScript & ES6](https://www.freecodecamp.org/learn/) on freeCodeCamp. -- [my notes](/js-101).
 
 
 ## 11 / 2019
