@@ -23,7 +23,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **Get a job**{:.tbold} at [Dataswati](https://www.dataswati.com/) as a Data Scientist. -- [interview tests](https://github.com/dinhanhthi/data-science-learning/tree/master/interview/dataswati).
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Notes on [Data Preprocessing](/data-preprocessing-cleaning), [Titanic problem](/titanic-disaster) and [Grid Search](/grid-search).
 - {:.fail} <span class="tbadge badge-blue">Web</span> [Basic JavaScript & ES6](https://www.freecodecamp.org/learn/) on freeCodeCamp. -- [my notes](/js-101) -- *I can't follow step by step all the courses, I just read and understand what I need to save my time. Basically, I've finished it!*
-- {:.ongoing} <span class="tbadge badge-blue">Web</span> Start to learn [GatsbyJS](https://www.gatsbyjs.org/) / [ReactJS](https://reactjs.org/) and transform my website (written in Jekyll) to Gatsby -- [my notes](/gatsby-js) -- [the beta site](https://beta.dinhanhthi.com).
+- {:.ongoing} <span class="tbadge badge-blue">Web</span> Start to learn [GatsbyJS](https://www.gatsbyjs.org/) / [ReactJS](https://reactjs.org/) and transform my website (written in [Jekyll](https://jekyllrb.com/)) to Gatsby -- [my notes](/gatsby-js) -- [the beta site](https://beta.dinhanhthi.com). *Work in progress.*
 
 
 ## 11 / 2019
