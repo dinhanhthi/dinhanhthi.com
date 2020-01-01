@@ -13,7 +13,21 @@ icon-photo: gatsby.png
 
 {% updfreq %}
 
-Because the post [Gatsby 101](/gatsby-js) is too long, I write a separate post just for images in Gatsby.
+Because the post [Gatsby 101](  /gatsby-js) is too long, I write a separate post just for images in Gatsby.
+
+## Rule of thumb
+
+- Static images (icon, logo, favicon): just `import` and use `img`.
+- `svg` cannot be used with `childImageSharp`, just use `<img>` with its `publicURL`.
+- `png`, `jpg` can be used with `<Img>` and `childImageSharp`.
+- Data can be used: `json` or `yaml`, cannot use `js` for images.
+- List of images are get up to `edges`. After `edges`, there are a loop of `node`s.
+- `query` components must placed in `<StaticQuery />`.
+- Different screen solution: use `fixed`.
+- Different screen size: use `fluid`.
+- Use [http://localhost:8000/\_\_\_graphql](http://localhost:8000/___graphql) to check the `query`.
+- Use `{condition && condition && output}` instead of using `if..else...`
+- The relative path of images is compared with the path of data file where the urls are indicated.
 
 ## Type of images to be processed
 
@@ -128,12 +142,6 @@ Put `favicon.png` in `src/images` and then change `gatsby-config.js`
 You need to restart `gastby` to see the result!
 
 ## Multiple images from data file/folder
-
-- [https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/](https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/)
-- [https://www.gatsbyjs.org/tutorial/part-five/#build-a-page-with-a-graphql-query](https://www.gatsbyjs.org/tutorial/part-five/#build-a-page-with-a-graphql-query)
-- [https://itnext.io/reading-data-from-a-json-file-with-gatsby-graphql-572b18ab98a](https://itnext.io/reading-data-from-a-json-file-with-gatsby-graphql-572b18ab98a)
-- [https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/](https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/)
-- [https://www.sitepoint.com/automatically-optimize-responsive-images-in-gatsby/?utm_source=rss](https://www.sitepoint.com/automatically-optimize-responsive-images-in-gatsby/?utm_source=rss)
 
 ### Images' URLs stored in a JSON file
 
@@ -286,4 +294,61 @@ In your `gatsby-config.js`,
   },
 },
 ~~~
+
+## `query` as an input
+
+In the previous step, `query` is considered inside the component file. What if you wanna query data and then pass it in a JSX components? (check `index.js` for an example)
+
+There is a data file `/data/MostProudOfItems.yaml`.
+
+~~~ jsx
+// in /src/pages/index.js
+
+import ShortcutListing from "../components/ShortcutListing"
+
+const indexPage = (props) => (
+  <ShortcutListing 
+    shortcuts={props.data.allMostProudOfItemsYaml.edges} 
+    nShortcutsPerRow='3' />
+)
+
+export default IndexPage
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    allMostProudOfItemsYaml{
+      edges {
+        node {
+          title
+          img {
+            childImageSharp {
+              fixed(width: 100, height: 100) {
+                ...GatsbyImageSharpFixed_tracedSVG
+              }
+            }
+            extension
+            publicURL
+          }
+          url
+        }
+      }
+    },
+    anotherYaml{
+      ....
+    }
+  }
+`
+~~~
+
+~~~ jsx
+// in /src/components/ShortcutListing
+
+const ListShortcut = ({shortcuts, nShortcutsPerRow}) => (
+  // ...
+)
+
+export default ListShortcut
+~~~
+
+
 
