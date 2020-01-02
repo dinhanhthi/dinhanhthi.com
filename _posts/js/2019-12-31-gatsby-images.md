@@ -116,10 +116,30 @@ export default props => (
 
 👉 There are 2 types: 
 
-- `fixed`: has a set width and height and is for supporting *different screen resolutions*.
-- `fluid`: has a max-width and sometimes a max-height, and will create multiple images for supporting *different screen sizes*. 
+- `fixed`: has a set width and height and is for supporting *different screen resolutions*. It accepts `width` and `height`.
+- `fluid`: has a max-width and sometimes a max-height, and will create multiple images for supporting *different screen sizes*.  It accepts `maxWidth` and `maxHeight`.
 
 You need to use them with fragments like `GatsbyImageSharpFixed_tracedSVG` or `GatsbyImageSharpFluid` ([more](https://www.gatsbyjs.org/packages/gatsby-image/?=#fragments)).
+
+### Using absolute path
+
+If you want to query to an image in `/src/images/example.png`, you can use,
+
+~~~ js
+export const query = graphql`
+  query {
+    file(absolutePath: {
+      regex: "/\\/src\\/images\\/example\\.png/"
+    }) {
+      childImageSharp {
+        fixed(width: 800) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
+~~~
 
 ### SVG files
 
@@ -350,5 +370,100 @@ const ListShortcut = ({shortcuts, nShortcutsPerRow}) => (
 export default ListShortcut
 ~~~
 
+## Get all images from a specific folder
 
+👉 This is also a way you use the `name` indicate in `gatsby-config.js`.
 
+{% ref https://stackoverflow.com/questions/57515558/how-should-i-import-all-the-images-under-a-folder-in-gatsby %}Suppose that you wanna show all images in `/sketches/`.
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ js
+// In /gatsby-config.js
+{
+  resolve: "gatsby-source-filesystem",
+  options: {
+    path: `${__dirname}/sketches/`,
+    name: "sketchFolder",
+  },
+},
+~~~
+
+{:.flex-even.overflow-auto.pl-md-1}
+~~~ js
+export const pageQuery = graphql`
+  query IndexQuery {
+    allFile(filter: {
+      extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
+      sourceInstanceName: {eq: "sketchFolder"}}) 
+    {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              originalName
+            }
+          }
+          absolutePath
+        }
+      }
+    }
+  }
+`
+~~~
+</div>
+
+💢 Above method is **only works** with `/sketches` (folder locates at the root of site). It doesn't work with `/src/images/sketches`, for example. I don't know why!
+
+👉 If you want to get all images from a folder (without using `sourceInstanceName`) you can use `relativeDirectory` in the `query`. Suppose that we have 2 folders with the same name `sketches`, one is in `/content/sketches`, one is in `/src/images/sketches`. The following code will **load all images in these two folders**!
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ js
+// In /gatsby-config.js
+{
+  resolve: "gatsby-source-filesystem",
+  options: {
+    path: `${__dirname}/content/`,
+    name: "content",
+  },
+},
+{
+  resolve: "gatsby-source-filesystem",
+  options: {
+    path: `${__dirname}/src/images`,
+    name: "images",
+  },
+},
+~~~
+
+{:.flex-even.overflow-auto.pl-md-1}
+~~~ js
+export const pageQuery = graphql`
+  query IndexQuery {
+    allFile(filter: {
+      extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
+      relativeDirectory: {eq: "sketches"}}) 
+    {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              originalName
+            }
+          }
+          absolutePath
+        }
+      }
+    }
+  }
+`
+~~~
+</div>
+
+💢 Make sure the name of your folder is **unique** if you don't want to load images from a wrong location.
+
+## References
+
+- [A comprehensive guide to images in Gatsby](https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/) by James Allardice.
+- [Image Processing with `gatsby-transformer-sharp`](https://image-processing.gatsbyjs.org/).
