@@ -467,3 +467,4 @@ export const pageQuery = graphql`
 
 - [A comprehensive guide to images in Gatsby](https://www.orangejellyfish.com/blog/a-comprehensive-guide-to-images-in-gatsby/) by James Allardice.
 - [Image Processing with `gatsby-transformer-sharp`](https://image-processing.gatsbyjs.org/).
+- [Building A Custom, Accessible Image Lightbox In GatsbyJS](https://416serg.me/building-a-custom-accessible-image-lightbox-in-gatsbyjs/)
