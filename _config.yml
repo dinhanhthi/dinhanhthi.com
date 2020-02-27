@@ -21,6 +21,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-katex
+  - searchyll
+
+elasticsearch:
+  url: https://mv71zgmoyi:kposbp8l2@thi-note-8390971744.eu-central-1.bonsaisearch.net:443
+  index_name: thi_note
 
 sass:
   style: compact

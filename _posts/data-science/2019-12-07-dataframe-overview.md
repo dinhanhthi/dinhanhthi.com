@@ -66,6 +66,19 @@ df.Classes.value_counts() # give number of each 0 and 1
 
 ### Missing values
 
+Show the number of missing values in each column (including the zero ones)
+
+~~~ python
+df.isnull().sum()
+~~~
+
+If you wanna show the columns having the null,
+
+~~~ python
+null_columns = df.columns[f().any()]
+df[null_columns].isnull().sum()
+~~~
+
 The number of `null` values in df (missing values),
 
 ~~~ python
