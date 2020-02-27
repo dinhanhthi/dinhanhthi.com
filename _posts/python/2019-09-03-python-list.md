@@ -3,6 +3,7 @@ layout: post
 title: "Python List"
 categories: [python]
 icon-photo: list.png
+keywords: "python list dinh anh thi"
 ---
 
 {% assign img-url = '/img/post/python' %}
