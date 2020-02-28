@@ -2,6 +2,7 @@
 layout: post
 title: "Some useful Python tips"
 categories: [python]
+keywords: "python tips swap 2 variables huyen chip"
 ---
 
 {% assign img-url = '/img/post/python' %}

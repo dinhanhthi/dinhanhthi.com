@@ -3,13 +3,12 @@ layout: post
 title: "Numpy tips"
 categories: [python]
 icon-photo: numpy.png
+keywords: "linspace array"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 ## Import library
 

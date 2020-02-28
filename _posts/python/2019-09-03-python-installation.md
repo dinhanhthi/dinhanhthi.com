@@ -2,6 +2,7 @@
 layout: post
 title: "Python Installation"
 categories: [python]
+keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision"
 ---
 
 {% assign img-url = '/img/post/python' %}

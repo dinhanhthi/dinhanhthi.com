@@ -3,6 +3,7 @@ layout: post
 title: "Setting up Python with Sublime Text"
 categories: [python]
 icon-photo: sublime.png
+keywords: "theme sublime text IDE tabnine build system anaconda"
 ---
 
 {% assign img-url = '/img/post/python' %}

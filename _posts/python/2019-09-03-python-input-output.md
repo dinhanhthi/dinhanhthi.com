@@ -2,6 +2,7 @@
 layout: post
 title: "Input & Output"
 categories: [python]
+keywords: "print string display"
 ---
 
 {% assign img-url = '/img/post/python' %}

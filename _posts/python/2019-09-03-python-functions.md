@@ -2,6 +2,7 @@
 layout: post
 title: "Python Functions"
 categories: [python]
+keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function"
 ---
 
 {% assign img-url = '/img/post/python' %}

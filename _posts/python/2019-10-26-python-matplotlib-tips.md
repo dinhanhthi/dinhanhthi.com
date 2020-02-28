@@ -3,13 +3,12 @@ layout: post
 title: "Matplotlib tips"
 categories: [python]
 icon-photo: matplotlib.png
+keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 ## Import library
 

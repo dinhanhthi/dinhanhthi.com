@@ -2,13 +2,12 @@
 layout: post
 title: "Miscellaneous"
 categories: [python]
+keywords: "clear variable comment __name__ __main__ __future__ reset docstring"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 ## Miscellaneous
 

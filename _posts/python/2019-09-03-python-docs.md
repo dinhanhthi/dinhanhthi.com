@@ -2,13 +2,12 @@
 layout: post
 title: "References for learning Python"
 categories: [python]
+keywords: "references documentation material courses practice python newsletter platform"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 ## For checking
 

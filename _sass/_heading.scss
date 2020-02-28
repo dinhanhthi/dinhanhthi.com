@@ -62,6 +62,8 @@ h2.heading-title{
     color: #444;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
     @media (max-width: 575px){
       font-size: 1.25rem;
     }

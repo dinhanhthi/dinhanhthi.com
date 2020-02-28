@@ -3,13 +3,12 @@ layout: post
 title: "Pandas tips"
 categories: [python]
 icon-photo: pandas.png
+keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values "
 ---
 
 {% assign img-url = '/img/post/python/pandas' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 In this note, a general dataframe is called `df` (type `pandas.core.frame.DataFrame`), a general series is call `s` (type `pandas.core.series.Series`).
 
