@@ -12,8 +12,6 @@ date: 2019-10-24
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## Useful links
 
 - [Jemoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).

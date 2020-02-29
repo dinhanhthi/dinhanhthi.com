@@ -46,7 +46,7 @@ h2.heading-title{
 .page-content{
   h2{
     font-weight: 700;
-    color: #3e3e3e;
+    color: #333;
     font-size: $f-h2-size;
     padding-bottom: 7px;
     border-bottom: 1px solid #ddd;
@@ -59,7 +59,7 @@ h2.heading-title{
   h3{
     font-size: $f-h3-size;
     font-weight: 600;
-    color: #444;
+    color: #333;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     border-bottom: 1px solid #eee;
@@ -68,7 +68,7 @@ h2.heading-title{
       font-size: 1.25rem;
     }
     &:before{
-      content: "## ";
+      // content: "## ";
       color: #d87638;
     }
   }
