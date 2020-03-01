@@ -9,8 +9,6 @@ keywords: "python tips swap 2 variables huyen chip"
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## Swap 2 variables
 
 ~~~ python

@@ -11,8 +11,6 @@ jsxgraph: 1
 
 {% include toc.html %}
 
-{% notcomplete %}
-
 ## What's the idea of PCA?
 
 Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use **dimensionality reduction** which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:

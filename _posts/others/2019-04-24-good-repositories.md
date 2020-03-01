@@ -10,8 +10,6 @@ icon-color: "#e6b3ff"
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## Machine Learning
 
 1. [**homemade-machine-learning**](https://github.com/trekhleb/homemade-machine-learning){:target="_blank"} -- If you don't wanna apply tools and understand nothing, you can write "again" from scratch with this repository.

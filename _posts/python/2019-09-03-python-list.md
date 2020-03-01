@@ -10,8 +10,6 @@ keywords: "python list Mutable Create a list copy Access elements Nested list ge
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## General
 
 - Index starts with `0`.

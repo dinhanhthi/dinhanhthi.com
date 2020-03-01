@@ -12,9 +12,6 @@ sitemap: false
 
 {% include toc.html %}
 
-{:.alert.alert-warning}
-This post is only for me to write the posts and it will be updated frequently without notice!
-
 ## Front matter
 
 {:.alert.alert-success}

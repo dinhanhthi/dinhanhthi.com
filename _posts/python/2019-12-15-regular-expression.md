@@ -11,8 +11,6 @@ icon-photo: re.png
 
 {% notcomplete %}
 
-{% updfreq %}
-
 We can select string with some patterns.
 
 ## Import library

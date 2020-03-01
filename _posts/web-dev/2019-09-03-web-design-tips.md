@@ -9,8 +9,6 @@ math: 1
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## Auto focus on an input field when page loads
 
 Just add `autofocus` into the `<input>` tag.

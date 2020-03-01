@@ -8,8 +8,6 @@ categories: [others]
 
 {% include toc.html %}
 
-{% updfreq %}
-
 ## Download flash video
 
 In most case, you can use [Flash Video Downloader](https://chrome.google.com/webstore/detail/flash-video-downloader/aiimdkdngfcipjohbjenkahhlhccpdbc?hl=en) (for Chrome) or other extensions to detect the video url.
