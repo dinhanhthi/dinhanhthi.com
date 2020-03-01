@@ -3,6 +3,7 @@ layout: post
 title: "Regular Expression in Python"
 categories: [python]
 icon-photo: re.png
+keywords: special characters
 ---
 
 {% assign img-url = '/img/post/python' %}

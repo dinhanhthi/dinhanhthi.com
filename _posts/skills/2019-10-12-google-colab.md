@@ -3,6 +3,7 @@ layout: post
 title: "Google Colab"
 categories: [skills]
 icon-photo: colab.png
+keywords: github notebook google drive hotkey TensorFlow pytorch gpu 
 ---
 
 {% assign img-url = '/img/post/skills' %}
@@ -193,11 +194,7 @@ The cloned folder are stored in `/content/`. If you wanna `pull` requests, use,
 
 {% ref https://jovianlin.io/pytorch-with-gpu-in-google-colab/ %}To enable GPU backend for your notebook, go to **Edit** → **Notebook Settings** and set **Hardware accelerator** to **GPU**.
 
-Install PyTorch,
-
-~~~ python
-
-~~~
+not finished!!!
 
 
 ## Install 7zip reader, GraphViz, PyDot, cartopy

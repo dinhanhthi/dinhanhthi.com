@@ -3,6 +3,7 @@ layout: post
 title: "Gamler Ruin Problem"
 categories: [probability & statistics]
 katex: 1
+keywords: probabilities statistics random walk 
 ---
 
 {% assign img-url = '/img/post/stats' %}

@@ -3,6 +3,7 @@ layout: post
 title: "Jupyter Notebook"
 categories: [skills]
 icon-photo: jupyter.png
+keywords: pip conda hotkey magic function 
 ---
 
 {% assign img-url = '/img/post/python' %}

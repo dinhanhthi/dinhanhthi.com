@@ -3,6 +3,8 @@ layout: post
 title: "Setting up a café in Ho Chi Minh City"
 categories: [project-based learning]
 icon-photo: cafe.svg
+keywords: IBM applied data science capstone Coursera List of Ho Chi Minh City administrative units coordinates (latitude, longitude) housing price coffee json file Housing Sales Price Index hcmc OpenStreetMap geopy.geocoders.Nominatim folium district data preprocessing K-Mean clustering elbow method 
+math: 1
 ---
 
 {% assign img-url = '/img/post/project/cafe-hcm' %}

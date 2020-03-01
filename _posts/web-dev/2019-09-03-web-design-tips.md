@@ -3,6 +3,7 @@ layout: post
 title: "Web Design Tips"
 categories: [web development]
 math: 1
+keywords: autofocus separated columns page load google webfont sass
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
