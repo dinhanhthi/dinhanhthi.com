@@ -3,6 +3,7 @@ layout: post
 title: "Confusion matrix & f1-score"
 categories: [machine learning]
 math: 1
+keywords: true false negative positive type i type ii error precision recall f1 score email spam bank transaction is fraudulent skewed class accuracy specificity prediction support ROC curve machine learning crash course google developers Koo Ping Shung Marco Altini Salma Ghoneim Towards Data Science NLP blog
 ---
 
 {% assign img-url = '/img/post/ML/confusion-matrix-f1-score' %}

@@ -4,6 +4,7 @@ title: "Principal Component Analysis (PCA)"
 categories: [machine learning]
 math: 1
 jsxgraph: 1
+keywords: compress data dimensional reduction speed up algorithms or to visualize data feature selection Feature projection mean variance covariance eigenvalues covariance matrix eigenvectors explained_variance_ratio_ Whitening Image compression Luis Serrano Tiep Vu Jake VanderPlas UFLDL - Stanford Shankar Muthuswamy
 ---
 
 {% assign img-url = '/img/post/ML/PCA' %}

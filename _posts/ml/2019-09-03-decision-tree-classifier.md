@@ -4,6 +4,7 @@ title: "Decision Tree Classifier"
 categories: [machine learning]
 math: 1
 icon-photo: decision-tree.svg
+keywords: classification regression outlook temperature huminity windy play golf Iterative Dichotomiser (ID3) CART (Classification And Regression Tree) information gain entropy Gini impurity root node branch child node internal node splitting pruning parent node sub nodes stopping condition gini gain Highly interpretable irrelevant features Non-parametric tuning unbalanced Graphviz Saed Sayad Tiep Vu Brian Ambielli Aurélien Géron
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
@@ -298,7 +299,7 @@ I_G(S) = \sum_{i=1}^2p_{S,i}(1-p_{S,i}),
 $$
 </p>
 
-where $i\in$ the number of classes in $S$, $p\_{S,i}$ is the probability of class $i$ in $S$. <mark>$I\_G=0$ will be the best!</mark>
+where $i\in$ the number of classes in $S$, $p\_{S,i}$ is the probability of class $i$ in $S$. <mark>$I_G=0$ will be the best!</mark>
 
 <div class="columns-2" markdown="1">
 <div markdown="1">

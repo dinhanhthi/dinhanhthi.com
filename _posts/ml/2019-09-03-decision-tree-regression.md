@@ -4,6 +4,7 @@ title: "Decision Tree Regression"
 categories: [machine learning]
 math: 1
 icon-photo: decision-tree.svg
+keywords: classification regression MSE Mean Square Error MAE Mean Absolute Error stopping conditions Standard Deviation Reduction SDR Graphviz example Saed Sayad
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}

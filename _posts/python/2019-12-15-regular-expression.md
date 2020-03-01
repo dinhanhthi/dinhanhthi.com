@@ -9,8 +9,6 @@ icon-photo: re.png
 
 {% include toc.html %}
 
-{% notcomplete %}
-
 We can select string with some patterns.
 
 ## Import library

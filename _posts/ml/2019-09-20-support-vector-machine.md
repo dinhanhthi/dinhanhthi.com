@@ -5,6 +5,7 @@ categories: [machine learning]
 math: 1
 date: 2019-09-30
 icon-photo: svm.webp
+keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft margin quadratic programming dual form Lagrange multipliers kernal trick Mercer conditions linear kernel gaussian kernel RBF Radial Basic Function Exponential kernel Polynomial kernel Hybrid kernel Sigmoidal Andrew NG Face detection Detecting spam outliers detection Text and hypertext categorization Bioinformatics Regularization parameter parameter C gamma XOR problem Face Recognition Tiep Vu Simplilearn Jeremy Kun Jake VanderPlas Chris Albon 
 ---
 
 {% assign img-url = '/img/post/ML/support-vector-machine' %}

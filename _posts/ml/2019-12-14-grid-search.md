@@ -3,6 +3,7 @@ layout: post
 title: "Grid Search"
 categories: [machine learning]
 icon-photo: gridsearch.svg
+keywords: hyper parameter tuning Random Forest in solving the Titanic problem
 ---
 
 {% assign img-url = '/img/post/ML/' %}
