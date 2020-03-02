@@ -3,14 +3,12 @@ layout: post
 title: "Data Overview"
 categories: [data science]
 icon-photo: data-overview.png
+keywords: dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
 
 {% include toc.html %}
-
-{% updfreq %}
-
 
 In this note, I use `df` as `DataFrame`, `s` as `Series`.
 

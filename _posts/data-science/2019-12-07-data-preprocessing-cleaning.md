@@ -3,14 +3,12 @@ layout: post
 title: "Data Preprocessing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
+keywords: pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
 
 {% include toc.html %}
-
-{% updfreq %}
-
 
 In this note, I use `df` as `DataFrame`, `s` as `Series`.
 

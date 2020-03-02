@@ -3,15 +3,12 @@ layout: post
 title: "Gatsby Images"
 categories: [JavaScript]
 icon-photo: gatsby.png
+keywords: create a website static web react js inserting images
 ---
 
 {% assign img-url = '/img/post/js/gatsby' %}
 
 {% include toc.html %}
-
-{% notcomplete %}
-
-{% updfreq %}
 
 Because the post [Gatsby 101](  /gatsby-js) is too long, I write a separate post just for images in Gatsby.
 

@@ -3,14 +3,12 @@ layout: post
 title: "Data Aggregation"
 categories: [data science]
 icon-photo: aggregation.png
+keywords: dataframe groupby group agg apply pivot table melt tables 
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
 
 {% include toc.html %}
-
-{% updfreq %}
-
 
 In this note, I use `df` as `DataFrame`, `s` as `Series`.
 

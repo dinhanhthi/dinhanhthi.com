@@ -3,13 +3,12 @@ layout: post
 title: "Data Science Tips"
 categories: [data science]
 math: 1
+keywords: fake data graphviz
 ---
 
 {% assign img-url = '/img/post/ML/data-tips' %}
 
 {% include toc.html %}
-
-{% updfreq %}
 
 ## Create some fake data w.r.t. a function
 

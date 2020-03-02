@@ -3,15 +3,12 @@ layout: post
 title: "Data Combining"
 categories: [data science]
 icon-photo: coupling.png
+keywords: coupling dataframes inner outer left right merging pandas display side by side concatenate concat
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
 
 {% include toc.html %}
-
-{% notcomplete %}
-
-{% updfreq %}
 
 {% include note_html_colab.html %}
 

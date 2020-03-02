@@ -3,6 +3,7 @@ layout: post
 title: "Gatsby : Work with markdown"
 categories: [JavaScript]
 icon-photo: gatsby.png
+keywords: create a website static web react js doc
 ---
 
 ## Create page template and markdown file

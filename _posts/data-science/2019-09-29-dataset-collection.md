@@ -3,11 +3,10 @@ layout: post
 title: "Datasets Collection"
 categories: [data science]
 math: 1
+keywords: dataset collection google dataset google AI kaggle dataset data hub stanford large network dataset FiveThirtyEight data.world quandl r/datasets scikit-learn dataset fruit images labeled faces Wild Home Iris flower digits dataset 
 ---
 
 {% assign img-url = '/img/post/ML/data-tips' %}
-
-{% updfreq %}
 
 ## Source of datasets
 

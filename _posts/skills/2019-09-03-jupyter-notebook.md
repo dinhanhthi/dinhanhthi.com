@@ -4,6 +4,7 @@ title: "Jupyter Notebook"
 categories: [skills]
 icon-photo: jupyter.png
 keywords: pip conda hotkey magic function 
+date: 2020-03-02
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -26,6 +27,10 @@ conda install ipython jupyter
 ~~~
 
 Or read more in [this note](/python-installation).
+
+## Other tips
+
+- Running 2 tasks in the same cell TAKE LONGER TIME than running each on different cells.
 
 ## Multiline commands
 
