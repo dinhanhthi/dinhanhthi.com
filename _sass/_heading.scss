@@ -45,8 +45,8 @@ h2.heading-title{
 
 .page-content{
   h2{
-    font-weight: 700;
-    color: #333;
+    font-weight: $f-heading-weight;
+    color: $f-heading-color;
     font-size: $f-h2-size;
     padding-bottom: 7px;
     border-bottom: 1px solid #ddd;
@@ -58,8 +58,8 @@ h2.heading-title{
   }
   h3{
     font-size: $f-h3-size;
-    font-weight: 600;
-    color: #333;
+    font-weight: $f-heading-weight;
+    color: $f-heading-color;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     border-bottom: 1px solid #eee;

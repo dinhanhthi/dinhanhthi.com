@@ -63,7 +63,7 @@ li > .table{
 }
 
 .tbadge{
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   padding: 2px 5px;
   line-height: 1.2;
   border: 1px solid;
@@ -139,6 +139,7 @@ em, i, b, strong{
 
 b, strong{
   font-weight: $f-semi-bold!important;
+  opacity: 0.95;
 }
 
 // keyboard
