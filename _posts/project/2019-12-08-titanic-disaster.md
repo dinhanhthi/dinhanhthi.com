@@ -275,7 +275,7 @@ Another way, check the [last section of this post](https://chrisalbon.com/machin
 
 ## References
 
-- **Chris Albon** -- [Titanic Competition With Random Forest](https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/) -- his python notebook: in HTML, in Colab.
+- **Chris Albon** -- [Titanic Competition With Random Forest](https://chrisalbon.com/machine_learning/trees_and_forests/titanic_competition_with_random_forest/).
 - **Manav Sehgal** -- [Titanic Data Science Solutions](https://www.kaggle.com/startupsci/titanic-data-science-solutions).
 - **Dataquest** -- [Kaggle fundamental](https://app.dataquest.io/course/kaggle-fundamentals) -- [on my Github](https://github.com/dinhanhthi/dataquest-aio/tree/master/step-7-machine-learning-intermediate/course-3-kaggle-fundamentals).
 - **Abhinav Sagar** -- [How I scored in the top 1% of Kaggle’s Titanic Machine Learning Challenge](https://towardsdatascience.com/how-i-scored-in-the-top-1-of-kaggles-titanic-machine-learning-challenge-7716386ba298).
