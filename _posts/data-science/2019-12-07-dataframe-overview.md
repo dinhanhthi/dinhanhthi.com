@@ -54,6 +54,12 @@ df.columns
 len(df.columns) # count the number of columns
 ~~~
 
+Get all unique values in the columns,
+
+~~~ python
+df['col'].unique()
+~~~
+
 ## Counting
 
 Counting the number of elements of each class in df,
