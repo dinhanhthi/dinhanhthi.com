@@ -193,6 +193,11 @@ li{
 
 
 // tables
+.table-wrapper{
+  overflow: auto;
+  max-height: 400px;
+}
+
 table{
   width: 100%;
   max-width: 100%;
@@ -213,7 +218,10 @@ table{
   th{
     font-weight: $f-semi-bold;
   }
+
+  // table copied from jupyter notebooks
   &.dataframe{
+    width: auto;
     font-size: 1.2rem;
     font-family: monospace;
     opacity: 0.75;
@@ -224,7 +232,16 @@ table{
     th, td{
       border-color: #ddd;
     }
+    tbody{
+      tr:nth-child(odd){
+        background: #f5f5f5;
+      }
+    }
+    tr:hover{
+      background: #42a5f533!important;
+    }
   }
+
 }
 
 // learning-log-box
