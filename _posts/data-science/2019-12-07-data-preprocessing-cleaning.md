@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Preprocessing & Cleaning"
+title: "Data Processing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
 keywords: pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data
@@ -55,7 +55,7 @@ df[df.columns.difference(['b'])]
 
 In this part, we are going to use below dataframe `df`.
 
-{:.font-95.table-normal}
+{:.dataframe}
 |  | Name | Ages | Marks | Place |
 |---|-------|------|-------|-------------------|
 | 0 | John | 10 | 8 | Ben Tre |
@@ -98,6 +98,16 @@ Make a column be an index,{% ref https://pandas.pydata.org/pandas-docs/stable/re
 ~~~ python
 df.set_index('column')
 df.set_index(['col1', 'col2'])
+~~~
+
+### Drop duplicates
+
+~~~ python
+# check duplicates
+df['Student'].duplicated().any()
+
+# remove duplicates in some columns
+df.drop_duplicates(['col1', 'col2'])
 ~~~
 
 ## Deal with missing values `NaN`

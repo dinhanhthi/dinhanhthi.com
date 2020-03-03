@@ -210,6 +210,20 @@ table{
   tr{
     border-bottom: 1px solid #eee;
   }
+  th{
+    font-weight: $f-semi-bold;
+  }
+  &.dataframe{
+    font-size: 1.2rem;
+    font-family: monospace;
+    opacity: 0.75;
+    th{
+      font-weight: bold;
+    }
+    th, td{
+      border-color: #ddd;
+    }
+  }
 }
 
 // learning-log-box

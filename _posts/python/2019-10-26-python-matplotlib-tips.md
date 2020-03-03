@@ -47,6 +47,20 @@ plt.gca().set_aspect()
 plt.plot(X, y, 'ro') # red and 'o' points
 ~~~
 
+Rotate x labels + figure size
+
+~~~ python
+# set figure size
+plt.figure(figsize=(20, 5))
+plt.figure(figsize=(20, 5), dpi= 60)
+
+# in df
+df.plot(figsize=(20, 5))
+
+# rotate z label
+plt.xticks(rotation=90, fontsize=10)
+~~~
+
 ## Plot a photo
 
 ### With grayscale and `misc`

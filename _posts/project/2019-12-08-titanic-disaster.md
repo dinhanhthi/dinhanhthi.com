@@ -22,8 +22,6 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 ![First 10 rows of dataset]({{img-url}}/df.jpg)
 *First 10 rows of the dataset.*
 
-{% hsbox Data dictionary %}
-
 {:.font-95.table-normal}
 |Variable|Definition|Key|
 |--- |--- |--- |
@@ -38,7 +36,6 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 |cabin|Cabin number||
 |embarked|Port of Embarkation|C = Cherbourg, Q = Queenstown, S = Southampton|
 
-{% endhsbox %} 
 
 ## TL;DR;
 

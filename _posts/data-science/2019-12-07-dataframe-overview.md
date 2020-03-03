@@ -3,7 +3,7 @@ layout: post
 title: "Data Overview"
 categories: [data science]
 icon-photo: data-overview.png
-keywords: dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn
+keywords: dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -62,7 +62,7 @@ Counting the number of elements of each class in df,
 df.Classes.value_counts() # give number of each 0 and 1
 ~~~
 
-### Missing values
+## Missing values
 
 Show the number of missing values in each column (including the zero ones)
 
@@ -90,4 +90,12 @@ Visualize the locations of missing values,
 import seaborn as sns
 df = df.set_index('YEAR') # y-axis is YEAR
 sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
+~~~
+
+## Duplicate
+
+Check duplicates (or not) in some column,
+
+~~~ python
+df['Student'].duplicated().any()
 ~~~

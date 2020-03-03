@@ -64,6 +64,7 @@ For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below 
 - Using classes corresponding to [tables in Bootstrap](https://getbootstrap.com/docs/4.0/content/tables/).
 - Normal table: `.normal-table` (gray background for heading)
 - Show the right line of each column, just use the class `.bd-right` together with class `.table`.
+- Table results copied from Jupyter notebooks: paste directly. If you wanna add manually without using jupyter notebook, you have to add class `dataframe` to that table!
 
 ## Inset figures
 
