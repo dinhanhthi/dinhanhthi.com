@@ -12,3 +12,4 @@ test/test1.html
 *.code-workspace
 .ipynb_checkpoints
 Gemfile.lock
+.jekyll-cache

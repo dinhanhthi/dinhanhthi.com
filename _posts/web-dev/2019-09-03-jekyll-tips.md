@@ -20,6 +20,11 @@ date: 2019-10-24
 - [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
 - [Compress HTML in Jekyll](http://jch.penibelst.de/).
 
+## Check version
+
+- Local gems: `gem list jekyll`.
+- Current jekyll version of website: check `Gemfile`. Need to run `bundle update` if change any version in this file.
+
 ## Link to posts
 
 ~~~
