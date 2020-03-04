@@ -221,6 +221,7 @@ table{
 
   // table copied from jupyter notebooks
   &.dataframe{
+    margin-top: 0.5*$m-b;
     width: auto;
     font-size: 1.2rem;
     font-family: monospace;
@@ -242,6 +243,14 @@ table{
     }
   }
 
+}
+
+.rendered_html tr, .rendered_html th, .rendered_html td{
+  border: none;
+}
+
+.rendered_html thead{
+  border-bottom: 1px solid #bbb;
 }
 
 // learning-log-box

@@ -5,6 +5,8 @@ categories: [data science]
 keywords: create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue
 ---
 
+{% include toc.html %}
+
 ## Time Series data
 
 Read more about [`date_range()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html), there are other options, for example, adding timezones.
@@ -78,6 +80,7 @@ df = pd.DataFrame(columns=['date', 'val1', 'val2', 'val3'])
 start_date = '2020-01-01 00:00:00'
 periods = [3, 2, 3, 4]
 gaps = [0, 5, 4, 2]
+
 for idx, _ in enumerate(periods):
     per = periods[idx]
     gap = gaps[idx]
@@ -91,9 +94,11 @@ for idx, _ in enumerate(periods):
     start_date = str(pd.Timestamp(start_date) + DateOffset(minutes=per-1))
     df_tmp = pd.DataFrame(df_tmp)
     df = pd.concat([df, df_tmp], ignore_index=True)
+
+df = df.infer_objects() # without this, all numeric columns' dtypes are 'object'
 ~~~
 
-<table border="1" class="dataframe">
+<table class="dataframe">
   <thead>
     <tr>
       <th></th>

@@ -34,16 +34,13 @@ df.head(10) # first 10 rows
 df.info() # show dtype of dataframe
 df.describe() # numerical features
 df.describe(include=['O']) # categorical features
+df.describe(include='all') # all types
 
 df.shape # dataframe's shape
 df.dtypes # type of each column
 
 df.get_dtype_counts() # count the number of data types
 ~~~
-
-{:.img-full-100.pop}
-![Describe]({{img-url}}/df_describe.jpg)
-*An example of using `df.describe()`.*
 
 ## Get columns' info
 
@@ -98,7 +95,7 @@ df = df.set_index('YEAR') # y-axis is YEAR
 sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
 ~~~
 
-## Duplicate
+## Duplicates
 
 Check duplicates (or not) in some column,
 

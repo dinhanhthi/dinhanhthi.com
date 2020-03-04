@@ -66,6 +66,7 @@ For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below 
 - Show the right line of each column, just use the class `.bd-right` together with class `.table`.
 - Table results copied from Jupyter notebooks: paste directly. If you wanna add manually without using jupyter notebook, you have to add class `dataframe` to that table!
   - If the table is too long, you need to wrap this table by a `div` with class `table-wrapper`.
+  - If you copy the side by side tables, remember to remove all `border="1"` in the copied html.
 
 ## Inset figures
 

@@ -10,15 +10,18 @@
 - name: deep learning
   icon: "fas fa-brain"
   color: "#fde193"
+- name: time series
+  icon: "fas fa-hourglass-end"
+  color: "#82c91e"
 - name: natural language processing
   icon: "fas fa-language"
   color: "#eac1ea"
-- name: linear algebra
-  icon: "fas fa-square-root-alt"
-  color: "#ffb2b2"
 - name: python
   icon: "fab fa-python"
   color: "#a0ffa0"
+- name: linear algebra
+  icon: "fas fa-square-root-alt"
+  color: "#ffb2b2"
 - name: probability & statistics
   icon: "far fa-chart-bar"
   color: "#daff9f"

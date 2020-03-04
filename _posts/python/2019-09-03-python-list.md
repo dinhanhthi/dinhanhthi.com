@@ -119,6 +119,20 @@ print(x)
 ~~~
 </div>
 
+Create a list from range,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+[*range(10, 21, 1)]
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+~~~
+</div>
+
 ## Copy a list
 
 Don't use `y = x` directly!

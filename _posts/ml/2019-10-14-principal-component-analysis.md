@@ -42,16 +42,11 @@ Intuitively, the green line is better with more separated points. But how can we
 - **[Variance](/variance-covariance-correlation)**: measure the spread of data from the mean. However, variance is not enough. There are many different ways in that we get the same variance.
 - **[Covariance](/variance-covariance-correlation)**: indicate the direction in that data are spreading.
 
-<div class="hide-show-box">
-<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
 An example of the same mean and variance but different covariance.
-</button>
-<div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
+
 {:.img-full-100.pop}
 ![Different data but the same mean and variance.]({{img-url}}/pca-5.jpg)
 ***Figure 4.** Different data but the same mean and variance. That's why we need covariance!*
-</div>
-</div>
 
 
 ### PCA Algorithm
@@ -129,28 +124,14 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
 
 - **Example to understand the idea of PCA**: {% html /files/ml/pca/PCA_understanding_example.html %} -- {% colab https://colab.research.google.com/drive/1F_A_fJOY-oiV7Ly4y_evF9sfwII-ljJK %}
 
-    <div class="hide-show-box">
-    <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
-    What's interesting?
-    </button>
-    <div id="box1ct" markdown="1" class="collapse multi-collapse box-content pb-3">
-    {:.pl-4}
     - Plot points with 2 lines which are corresponding to 2 eigenvectors.
     - Plot & choose Principal Components.
     - An example of choosing `n_components` $K$.
     - Visualization hand-written digits (the case of all digits and the case of only 2 digits -- 1 & 8).
     - Using [SVM](/support-vector-machine) to classifier data in the case of 1 & 8 and visualize the decision boundaries.
-    </div>
-    </div>
   
 - **Image compression**: {% html /files/ml/pca/PCA-image-compression.html %} -- {% colab https://colab.research.google.com/drive/1G_WPZMmQ020kjSmqMI_k21_zLDrPlYtg %}
 
-    <div class="hide-show-box">
-    <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box11ct">
-    What's interesting?
-    </button>
-    <div id="box11ct" markdown="1" class="collapse multi-collapse box-content pb-3">
-    {:.pl-4}
     - When input is an image, the values of adjacent pixels are *highly correlated*.
     - Import images from `scipy` and Google Drive or Github (with `git`).
     - Compress grayscale images and colored ones.
@@ -159,8 +140,6 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
     - Fix warning *Lossy conversion from float64 to uint8. Range [...,...]. Convert image to uint8 prior to saving to suppress this warning.*
     - Fix warning *Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers)*.
     - Calculate a size (in `KB`) of a image file.
-    </div>
-    </div>
 
 - **PCA without scikit-learn**: {% html /files/ml/pca/PCA_without_scikit_learn.html %} -- {% colab https://colab.research.google.com/drive/1IWMuon3NSpGybmnBBWxlvbS9yUjxtf_8 %}
 

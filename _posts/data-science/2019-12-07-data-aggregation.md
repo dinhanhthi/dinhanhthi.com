@@ -19,27 +19,315 @@ import pandas as pd # import pandas package
 import numpy as np
 ~~~
 
-## Group dataset using `groupby()`
-
-Group `df` by column `Region` and then selct the column `Paris`,
+## Dataframe
 
 ~~~ python
-df.groupby('Region').get_group('Paris') # returns a df
+dataquest_aio = 'https://raw.githubusercontent.com/dinhanhthi/dataquest-aio/master/step-2-data-analysis-and-visualization/'
+dataset_url = dataquest_aio + 'course-4-data-cleaning-and-analysis/data/World_Happiness_2015.csv'
+df = pd.read_csv(dataset_url) # read the data set
+df.head()
 ~~~
 
-Select just the `GDP` column and then find the `mean`,
+<div class="table-wrapper">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Region</th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Standard Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Switzerland</td>
+      <td>Western Europe</td>
+      <td>1</td>
+      <td>7.587</td>
+      <td>0.03411</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Iceland</td>
+      <td>Western Europe</td>
+      <td>2</td>
+      <td>7.561</td>
+      <td>0.04884</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Denmark</td>
+      <td>Western Europe</td>
+      <td>3</td>
+      <td>7.527</td>
+      <td>0.03328</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Norway</td>
+      <td>Western Europe</td>
+      <td>4</td>
+      <td>7.522</td>
+      <td>0.03880</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Canada</td>
+      <td>North America</td>
+      <td>5</td>
+      <td>7.427</td>
+      <td>0.03553</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+## Group dataset using `groupby()`
+
+Group `df` by column `Region` and then selct the column `Western Europe`,
 
 ~~~ python
-df.groupby('Region')['GDP'].mean()
+df.groupby('Region').get_group('Western Europe') # returns a df
+~~~
+
+<div class="table-wrapper">
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>Region</th>
+      <th>Happiness Rank</th>
+      <th>Happiness Score</th>
+      <th>Standard Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Switzerland</td>
+      <td>Western Europe</td>
+      <td>1</td>
+      <td>7.587</td>
+      <td>0.03411</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Iceland</td>
+      <td>Western Europe</td>
+      <td>2</td>
+      <td>7.561</td>
+      <td>0.04884</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Denmark</td>
+      <td>Western Europe</td>
+      <td>3</td>
+      <td>7.527</td>
+      <td>0.03328</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Norway</td>
+      <td>Western Europe</td>
+      <td>4</td>
+      <td>7.522</td>
+      <td>0.03880</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Finland</td>
+      <td>Western Europe</td>
+      <td>6</td>
+      <td>7.406</td>
+      <td>0.03140</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Select just the `Happiness Score` column and then find the `mean`,
+
+~~~ python
+df.groupby('Region')['Happiness Score'].mean()
 # other methods: size, max, min, count
+~~~
+
+{:.output}
+~~~
+Region
+Australia and New Zealand          7.285000
+Central and Eastern Europe         5.332931
+Eastern Asia                       5.626167
+Latin America and Caribbean        6.144682
+Middle East and Northern Africa    5.406900
+North America                      7.273000
+Southeastern Asia                  5.317444
+Southern Asia                      4.580857
+Sub-Saharan Africa                 4.202800
+Western Europe                     6.689619
+Name: Happiness Score, dtype: float64
 ~~~
 
 Apply multiple/custom functions,
 
 ~~~ python
-df.groupby(['Region', 'City']).agg([np.mean, np.max]) # return a df
-df.groupby(['Region', 'City']).agg(func) # custom function
+def max_min(group):
+  return group.max() - group.min()
+
+df.groupby(['Country', 'Region']).agg([np.mean, np.max, max_min]).head()
 ~~~
+
+<div class="table-wrapper">
+<table class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="3" halign="left">Happiness Rank</th>
+      <th colspan="3" halign="left">Happiness Score</th>
+      <th colspan="3" halign="left">Standard Error</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>amax</th>
+      <th>max_min</th>
+      <th>mean</th>
+      <th>amax</th>
+      <th>max_min</th>
+      <th>mean</th>
+      <th>amax</th>
+      <th>max_min</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th>Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <th>Southern Asia</th>
+      <td>153</td>
+      <td>153</td>
+      <td>0</td>
+      <td>3.575</td>
+      <td>3.575</td>
+      <td>0.0</td>
+      <td>0.03084</td>
+      <td>0.03084</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <th>Central and Eastern Europe</th>
+      <td>95</td>
+      <td>95</td>
+      <td>0</td>
+      <td>4.959</td>
+      <td>4.959</td>
+      <td>0.0</td>
+      <td>0.05013</td>
+      <td>0.05013</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <th>Middle East and Northern Africa</th>
+      <td>68</td>
+      <td>68</td>
+      <td>0</td>
+      <td>5.605</td>
+      <td>5.605</td>
+      <td>0.0</td>
+      <td>0.05099</td>
+      <td>0.05099</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+If you wanna apply different functions on different columns
+
+~~~ python
+df.groupby(['Country', 'Region']).agg({
+    'Happiness Rank': max_min,
+    'Happiness Score': ['min', 'max'],
+    'Standard Error': 'count'
+}).head(3)
+~~~
+
+<div class="table-wrapper">
+<table class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Happiness Rank</th>
+      <th colspan="2" halign="left">Happiness Score</th>
+      <th>Standard Error</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>max_min</th>
+      <th>min</th>
+      <th>max</th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th>Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Afghanistan</th>
+      <th>Southern Asia</th>
+      <td>0</td>
+      <td>3.575</td>
+      <td>3.575</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Albania</th>
+      <th>Central and Eastern Europe</th>
+      <td>0</td>
+      <td>4.959</td>
+      <td>4.959</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Algeria</th>
+      <th>Middle East and Northern Africa</th>
+      <td>0</td>
+      <td>5.605</td>
+      <td>5.605</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 Or using `apply` and `lambda` function,
 
@@ -67,13 +355,178 @@ df.pivot_table(['GDP', 'City'], 'Region', aggfunc=[np.mean, np.max], margins=Tru
 Make values in one columns be columns in a new "pivot" table,{% ref https://github.com/dinhanhthi/data-science-learning/blob/master/codecademy-data-science/course-10%20Data%20Analysis%20with%20Pandas/Aggregates%20in%20Pandas.ipynb %}
 
 ~~~ python
+df = pd.DataFrame({'foo': ['one', 'one', 'one', 'two', 'two',
+                           'two'],
+                   'bar': ['A', 'B', 'C', 'A', 'B', 'C'],
+                   'baz': [1, 2, 3, 4, 5, 6],
+                   'zoo': ['x', 'y', 'z', 'q', 'w', 't']})
+
 pivot_1 = df.pivot(index='foo', columns='bar', values='baz')
 pivot_2 = df.pivot(index='foo', columns='bar')['baz']
 pivot_3 = df.pivot(index='foo', columns='bar', values=['baz', 'zoo'])
+
+display_side_by_side(df, pivot_1, pivot_2, pivot_3)
 ~~~
 
-{:.img-full-85.pop}
-![Pivot table]({{img-url}}/pivot.jpg)
+<div class="output_subarea output_html rendered_html"><table style="display:inline; margin-right: 5px;"  class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>foo</th>
+      <th>bar</th>
+      <th>baz</th>
+      <th>zoo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>one</td>
+      <td>A</td>
+      <td>1</td>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>one</td>
+      <td>B</td>
+      <td>2</td>
+      <td>y</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>one</td>
+      <td>C</td>
+      <td>3</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>two</td>
+      <td>A</td>
+      <td>4</td>
+      <td>q</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>two</td>
+      <td>B</td>
+      <td>5</td>
+      <td>w</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>two</td>
+      <td>C</td>
+      <td>6</td>
+      <td>t</td>
+    </tr>
+  </tbody>
+</table><table style="display:inline; margin-right: 5px;"  class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>bar</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+    <tr>
+      <th>foo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table><table style="display:inline; margin-right: 5px;"  class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>bar</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+    <tr>
+      <th>foo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table><table style="display:inline; margin-right: 5px;"  class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">baz</th>
+      <th colspan="3" halign="left">zoo</th>
+    </tr>
+    <tr>
+      <th>bar</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+    <tr>
+      <th>foo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>x</td>
+      <td>y</td>
+      <td>z</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>q</td>
+      <td>w</td>
+      <td>t</td>
+    </tr>
+  </tbody>
+</table></div>
 
 ## Change shape of df with `melt()`
 
