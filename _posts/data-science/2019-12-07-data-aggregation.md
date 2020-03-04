@@ -3,7 +3,7 @@ layout: post
 title: "Data Aggregation"
 categories: [data science]
 icon-photo: aggregation.png
-keywords: dataframe groupby group agg apply pivot table melt tables 
+keywords: dataframe groupby group agg apply pivot table melt tables lambda group different functions
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
