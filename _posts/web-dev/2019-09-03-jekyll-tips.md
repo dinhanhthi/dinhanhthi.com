@@ -12,6 +12,8 @@ date: 2019-10-24
 
 {% include toc.html %}
 
+This note is used for you who have already had the basic idea about jekyll and how to create a jekyll site. This note is only for quickly reference.
+
 ## Useful links
 
 - [Jemoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).

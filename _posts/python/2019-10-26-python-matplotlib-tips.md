@@ -3,7 +3,7 @@ layout: post
 title: "Matplotlib tips"
 categories: [python]
 icon-photo: matplotlib.png
-keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite"
+keywords: plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -14,6 +14,35 @@ keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf image
 
 ~~~ python
 import matplotlib.pyplot as plt
+~~~
+
+## Generate colors based on list
+
+We wanna generate a list of colors automatically based on the elements in some list (the idea from popai),
+
+~~~ python
+def get_colors(list_vals, list_colors=["#fb4747", "#315ace", "#b5f6e5", "#FFB347"]):
+    """Return a dictionary with a color for each element of the input list.
+
+    Parameters
+    ----------
+    list_vals: list
+        The list of names for which we want a color.
+    list_colors: list
+        A list of colors we want to go throught.
+
+    Returns
+    -------
+    dict
+        A dictionary that makes correspondance between a key and a color.
+    """
+    dict_colors = polylinear_gradient(list_colors, n=len(list_vals))
+
+    dict_colors_ok = {}
+    for i, val in enumerate(list_vals):
+        dict_colors_ok[val] = dict_colors['hex'][i]
+
+    return dict_colors_ok
 ~~~
 
 ## Axes
@@ -43,23 +72,51 @@ plt.gca().set_aspect()
 
 ## Plots
 
+Check the [official doc](https://matplotlib.org/3.1.3/api/_as_gen/matplotlib.pyplot.plot.html) for more information.
+
 ~~~ python
 plt.plot(X, y, 'ro') # red and 'o' points
-~~~
 
-Rotate x labels + figure size
-
-~~~ python
 # set figure size
 plt.figure(figsize=(20, 5))
 plt.figure(figsize=(20, 5), dpi= 60)
 
-# in df
-df.plot(figsize=(20, 5))
-
 # rotate z label
 plt.xticks(rotation=90, fontsize=10)
+
+# linestyle and marker
+plt.plot(marker='.', ls='') # scatter plot
 ~~~
+
+Plot directly with dataframe,
+
+~~~ python
+df.plot(figsize=(20, 5))
+
+# different types
+df.plot(style='.')
+~~~
+
+### Legend from list of colors
+
+Suppose we have a list of group with different colors. We wanna make legends for them (from notebook _dataswati/2020-02-13-Thi-aquassay-anomaly-ligne\_a.ipynb_),
+
+~~~ python
+# generate auto the colors based on list lst_clusters (see previous section)
+dict_colors = get_colors(lst_clusters)
+
+plt.legend(
+    [Line2D([0], [0], color=dict_colors[key]) for key in dict_colors],
+    dict_colors.keys(),
+    loc='lower center',
+    ncol=6,
+    bbox_to_anchor=(.5, 1.),
+    prop={'size': 15}
+)
+~~~
+
+{:.img-full-100}
+![Legend from list of colors]({{img-url}}/lengend_list.jpg)
 
 ## Plot a photo
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Miscellaneous"
 categories: [python]
-keywords: "clear variable comment __name__ __main__ __future__ reset docstring"
+keywords: "clear variable comment __name__ __main__ __future__ reset docstring del delete variable system reset confirmation"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -36,8 +36,19 @@ keywords: "clear variable comment __name__ __main__ __future__ reset docstring"
 
 ## Clear variables
 
-- Clear (without confirmation) a variable from workspace: `del <var>` or `%reset_selective <var>`.
-- Clear all variables: `%reset` (with confirmation) and `%reset -f` (without confirmation).
+~~~ python
+# Clear (without confirmation) a variable from workspace
+del <var>
+%reset_selective <var>
+
+# Check if available and then delete
+if '<var>' in globals(): del <var>
+# use locals() inside a def
+
+# Clear all variables
+%reset # with confirmation
+%reset -f # without confirmation
+~~~
 
 ## Comment
 

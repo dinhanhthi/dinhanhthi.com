@@ -3,10 +3,14 @@ layout: post
 title: "Datasets Collection"
 categories: [data science]
 math: 1
-keywords: dataset collection google dataset google AI kaggle dataset data hub stanford large network dataset FiveThirtyEight data.world quandl r/datasets scikit-learn dataset fruit images labeled faces Wild Home Iris flower digits dataset 
+keywords: dataset collection google dataset google AI kaggle dataset data hub stanford large network dataset FiveThirtyEight data.world quandl r/datasets scikit-learn dataset fruit images labeled faces Wild Home Iris flower digits dataset module generator fake data
 ---
 
 {% assign img-url = '/img/post/ML/data-tips' %}
+
+## Create artificial dataset
+
+- [sklearn dataset module](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets): `from sklearn import datasets`. This contains also some popular reference datasets.
 
 ## Source of datasets
 
