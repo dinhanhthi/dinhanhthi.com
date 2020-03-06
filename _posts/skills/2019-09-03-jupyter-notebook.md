@@ -3,7 +3,7 @@ layout: post
 title: "Jupyter Notebook"
 categories: [skills]
 icon-photo: jupyter.png
-keywords: pip conda hotkey magic function 
+keywords: pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys
 date: 2020-03-02
 ---
 
@@ -120,11 +120,15 @@ import sys
 ~~~ python
 from IPython.display import display_html
 def display_side_by_side(*args):
+    """Display dafaframes side by side.
+    """
     html_str=''
     for df in args:
         html_str+=df.to_html()
     display_html(html_str.replace('table','table style="display:inline; margin-right: 5px;"'),raw=True)
+~~~
 
+~~~ python
 display_side_by_side(df1,df2,df1)
 ~~~
 

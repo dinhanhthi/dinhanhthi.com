@@ -62,8 +62,7 @@ True
 ~~~
 </div>
 
-We can make some arithmetic with them,
-
+We can make some arithmetic with them.
 
 ## Timedelta to offset string
 

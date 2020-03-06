@@ -513,7 +513,9 @@ print(list(y))
 ~~~
 </div>
 
-## Get indexes and values with for
+## Get indexes
+
+### Get indexes with for
 
 <div class="d-lg-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
@@ -531,7 +533,14 @@ for idx, val in enumerate(courses, start=1):
 ~~~
 </div>
 
+### Get index of some element
+
+~~~ python
+lst.index(<e>) # Returns the index of the first matched item
+
+lst.index(max(lst)) # get the index of the max in list
+~~~
+
 ## Other methods
 
-- `.index(<e>)`: Returns the index of the first matched item `<e>`.
 - `.count(<e>)`: Returns the number of item `<e>` in list.
