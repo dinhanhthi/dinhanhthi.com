@@ -18,11 +18,11 @@
   url: https://www.dataquest.io/profile/dinhanhthi
   opacity: 0.75
   title: The place I've learned to be a Data Scientist and Engineer.
-- name: Duolingo
-  icon: duolingo.svg
-  url: https://www.duolingo.com/mr.Thi
-  opacity: 0.75
-  title: Where I've learned French.
+# - name: Duolingo
+#   icon: duolingo.svg
+#   url: https://www.duolingo.com/mr.Thi
+#   opacity: 0.75
+#   title: Where I've learned French.
 - name: StackExchange
   icon: stackexchange.svg
   url: https://stackexchange.com/users/1344291/anh-thi-dinh?tab=accounts
@@ -40,7 +40,7 @@
   opacity: 0.75
 - name: Codecademy
   icon: codecademy.svg
-  url: https://www.codecademy.com/dinhanhthi
+  url: https://www.codecademy.com/profiles/dinhanhthi
   opacity: 0.75
   title: Where I've learned Python, Data Science and Web development.
 # - name: freeCodeCamp
