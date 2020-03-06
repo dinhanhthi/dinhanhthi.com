@@ -1,21 +1,3 @@
-{% if layout.base-ext-js %}
-  {% for js in layout.base-ext-js %}
-    {% include ext-js.html js=js %}
-  {% endfor %}
-{% endif %}
-
-{% if layout.more-ext-js %}
-  {% for js in layout.more-ext-js %}
-    {% include ext-js.html js=js %}
-  {% endfor %}
-{% endif %}
-
-{% if page.ext-js %}
-  {% for js in page.ext-js %}
-    {% include ext-js.html js=js %}
-  {% endfor %}
-{% endif %}
-
 {% if page.js %}
   {% for js in page.js %}
 	<script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
