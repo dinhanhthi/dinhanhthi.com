@@ -3,9 +3,10 @@ layout: post
 title: "Jekyll Tips"
 categories: [web development]
 math: 1
-excluded_in_search: 1
-icon-photo: jekyll.png
+icon-photo: "jekyll.png"
 date: 2019-10-24
+sitemap: false
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
@@ -577,3 +578,5 @@ title: Search on this page
 {% endraw %}~~~
 
 Note that, you can change some personal settings in the files `search.js` and `search.html` if you like.
+
+**Remark**: if your site has so many posts, you can remove the last line (`"content"....`) to ignore the content from the search. You can even add "keywords" (resplace for "content") and put that "keywords" in the frontmatter. That's what I did on this site.  
