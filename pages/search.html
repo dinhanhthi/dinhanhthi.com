@@ -25,7 +25,6 @@ permalink: /search
             "tags": "{{ post.tags | join: ", " | xml_escape }}",
             "url": " {{ post.url | xml_escape }}",
             "keywords": " {{ post.keywords | xml_escape }}",
-            // "content": {{ post.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
           }
           {% assign added = true %}
         {% endunless %}
