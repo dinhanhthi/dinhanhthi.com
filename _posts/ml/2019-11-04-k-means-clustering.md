@@ -2,18 +2,28 @@
 layout: post
 title: "K-Means Clustering"
 categories: [machine learning]
-math: 1
+katex: 1
 icon-photo: clustering.png
 date: 2020-03-05
 keywords: k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters
 ---
 
-{% assign img-url = '/img/post/ML/k-means' %}
+{% assign img-url = '/img/post/ML/clustering' %}
 {% assign file-url = '/files/ml/k-means' %}
 
 {% include toc.html %}
 
+{% katexmm %}
+
 ## What's the idea of K-Means?
+
+1. Randomly choose centroids ($k$).
+2. Go through each example and assign them to the nearest centroid (assign class of that centroid).
+3. Move each centroid (of each class) to the average of data points having the same class with the centroid.
+4. Repeat 2 and 3 until convergence.
+
+{:.img-full-80}
+![KMeans idea]({{img-url}}/kmeans-idea.png)
 
 ## How to choose number of clusters?
 
@@ -60,3 +70,5 @@ Some notable components:
 
 - **Luis Serrano** -- [Video] [Clustering: K-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU).
 - **Andrew NG.** -- [My raw note](https://rawnote.dinhanhthi.com//machine-learning-coursera-8#k-means-algorithm) of the course ["Machine Learning" on Coursera](https://www.coursera.org/learn/machine-learning/).
+
+{% endkatexmm %}

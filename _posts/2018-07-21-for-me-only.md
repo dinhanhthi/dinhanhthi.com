@@ -7,7 +7,7 @@ icon: "fas fa-pencil-ruler"
 icon-color: "#ffd661"
 jsxgraph: 1
 sitemap: false
-keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference for me only"
+keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference for me only cms admin jekyll"
 ---
 
 {% include toc.html %}
@@ -29,7 +29,11 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - `jsxgraph: 1` : if you use JSXGraph in your post. Jump to [this section](#insert-jsxgraph).
 - `sitemap: false` : If you would like to exclude specific pages/posts from the sitemap.
 - `subtitle` : Only used for pages.
-- `katex: 1` if you wanna use [katex](https://katex.org/) in this page.
+- `katex: 1` if you wanna use [katex](https://katex.org/) in this page. Remember to wrap the content with `{%raw%}{% katexmm %}{% endkatexmm %}{%endraw%}`.
+
+## CMS
+
+Only work on `localhost`: [http://localhost:4000/admin](http://localhost:4000/admin).
 
 ## Add table of contents
 
@@ -68,7 +72,7 @@ For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below 
   - If the table is too long, you need to wrap this table by a `div` with class `table-wrapper`.
   - If you copy the side by side tables, remember to remove all `border="1"` in the copied html.
 
-## Inset figures
+## Inset figures / images
 
 ### Beginning of each post: 
 
@@ -104,7 +108,7 @@ Full but overflow outside the margin:
 ![Describe](link/to/figures)
 ~~~
 
-Full but 50% width. We can use **75**, **85**, **90** for the 75%, 85% and 90% width respectively.
+Full but 50% width. We can use `50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100` for the percentages.
 
 ~~~
 {:.img-full-50}

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Applications"
+title: "Useful Applications"
 categories: [others]
 keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection"
 ---
@@ -18,4 +18,4 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [GoldenDict](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Windows?fbclid=IwAR3RVcLdpkpL2B3f1-EAiCzRqjInpy21BltlHs9SwryGuEcQ_VQPB6lftTA) : global dictionary (multi-platform). Its [dictionaries](https://drive.google.com/open?id=1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv).
 - [Lingoes](http://www.lingoes.net/): Global dictionary for Windows. Its [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
 - [DeepL](https://deepl.com/) : "better than google translate" app for Windows. You can use <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd> to quickly translate a word or phrase.
-- [QTranslate](https://quest-app.appspot.com/) : quickly translate any word / phrase and also their pronunciation by using hotkeys. The data is obtained from various sources including deepl and google translate.
+- [QTranslate](https://quest-app.appspot.com/) : quickly translate any word / phrase and also their pronunciation by using hotkeys (for example, you can use <kbd>Ctrl</kbd> + <kbd>E</kbd> to hear the pronunciation and <kbd>Ctrl</kbd> + <kbd>Q</kbd> to see the translation). The data is obtained from various sources including deepl and google translate.
