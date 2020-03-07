@@ -22,6 +22,7 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/data-science-learning){:target="_blank"}).
 
+- <span class="tbadge badge-gray">I'm following</span> **Working as a Data Scientist** at [Dataswati](https://www.dataswati.com/). My role is to amiliorate the library `popai`, a tool Dataswati uses to work on their projects. I work much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_.
 - <span class="tbadge badge-gray">I'm following</span> <span class="tbadge badge-green">[certificated](https://app.dataquest.io/profile/dinhanhthi){:target="_blank"}</span> **[Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"}** path on Dataquest &mdash; [notes & codes on Github](https://github.com/dinhanhthi/dataquest-aio).
 - <span class="tbadge badge-gray">I'm following</span> [**Deep Learning specialization**](https://www.coursera.org/specializations/deep-learning) given by *deeplearning.ai* on Coursera &mdash; [notes & codes on Github](https://github.com/dinhanhthi/deeplearning.ai-notes).
 - <span class="tbadge badge-green">[certificated](https://www.coursera.org/account/accomplishments/specialization/WM6DVE7QFLJ7){:target="_blank"}</span> **[IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"}** on Coursera (*9 courses*).
@@ -35,9 +36,11 @@ I've started to learn to be a ***data engineer*** / ***data scientist*** from th
 
 I've totally learned by myself, created website Math2IT and designed some websites.
 
-- **2018 - today**
+- **2020 - now**
+  - Master on creating a website with [GatsbyJS](https://www.gatsbyjs.org/).
+- **2019**
   - Following [**Web Development path**](https://www.codecademy.com/paths/web-development){:target="_blank"} on Codecademy & keep designing some templates.
-  - Create [**notedown**](https://github.com/dinhanhthi/notedown), a web-based markdown editor for note taking (it's under construction).
+  - Create [**notedown**](https://github.com/dinhanhthi/notedown), a web-based markdown editor for note taking (work in progress).
   - Create [**note.dinhanhthi.com**](https://github.com/dinhanhthi/note), a jekyll theme specialized for note taking.
   - Create **[simple-perso](https://github.com/dinhanhthi/simple-perso)**, a simple and beautiful personal jekyll theme.
 - **2018** &mdash; I learned to write a Wordpress theme from screatch and created [**math2itwp**](https://github.com/dinhanhthi/math2itwp){:target="_blank"} which is a beautiful Wordpress theme.

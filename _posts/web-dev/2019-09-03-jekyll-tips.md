@@ -6,7 +6,7 @@ math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24
 sitemap: false
-keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji"
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
@@ -22,6 +22,30 @@ This note is used for you who have already had the basic idea about jekyll and h
 - [Jekyll cheat sheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/).
 - [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
 - [Compress HTML in Jekyll](http://jch.penibelst.de/).
+- [Kramdown quickref](https://kramdown.gettalong.org/quickref.html).
+
+## Using markdown syntax inside html tags
+
+You can use directly by 
+
+~~~ html
+{%raw%}<span markdown="span"></span>
+
+<div markdown="1"></div>
+{%endraw%}~~~
+
+of only once,
+
+~~~ html
+{%raw%}{::options parse_block_html="true" /}
+<!-- other html + markdown inside -->
+{%endraw%}~~~
+
+Or even shorter,
+
+~~~
+{%raw%}Testing {::nomarkdown}**see**{:/} and test.
+{%endraw%}~~~
 
 ## Check version
 
@@ -32,6 +56,12 @@ This note is used for you who have already had the basic idea about jekyll and h
 
 ~~~
 {%raw%}[Name of Link]({% post_url 2010-07-21-name-of-post %}){%endraw%}
+~~~
+
+Edit this post on github (put below link in your post layout),
+
+~~~
+{%raw%}https://github.com/dinhanhthi/dinhanhthi.com/edit/master/{{path.path}}{%endraw%}
 ~~~
 
 

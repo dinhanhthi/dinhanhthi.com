@@ -12,7 +12,7 @@
   color: "#fde193"
 - name: time series
   icon: "fas fa-hourglass-end"
-  color: "#82c91e"
+  color: "#ffb0e7"
 - name: natural language processing
   icon: "fas fa-language"
   color: "#eac1ea"

@@ -223,8 +223,8 @@ table{
   &.dataframe{
     margin-top: 0.5*$m-b;
     width: auto;
-    font-size: 1.2rem;
-    font-family: monospace;
+    font-size: 0.95rem;
+    font-family: monospace,monospace;
     opacity: 0.75;
     th{
       font-weight: bold;

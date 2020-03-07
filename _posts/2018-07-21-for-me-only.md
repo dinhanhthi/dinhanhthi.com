@@ -7,7 +7,7 @@ icon: "fas fa-pencil-ruler"
 icon-color: "#ffd661"
 jsxgraph: 1
 sitemap: false
-keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference"
+keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference for me only"
 ---
 
 {% include toc.html %}

@@ -2,6 +2,7 @@
 layout: post
 title: "Computer & Internet Tips"
 categories: [others]
+keywords: "download flash video browser extension video url google video download manager videoplay developer tools"
 ---
 
 {% assign img-url = '/img/post/others' %}
