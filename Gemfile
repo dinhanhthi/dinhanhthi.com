@@ -17,6 +17,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-sitemap'
   gem 'jekyll-katex'
+  gem 'jekyll-admin'
 end
 
 # gem 'jekyll-paginate'

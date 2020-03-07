@@ -21,7 +21,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-katex
-
+  
 sass:
   style: compact
 
