@@ -2,7 +2,7 @@
 layout: post
 title: "Python Installation"
 categories: [python]
-keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision"
+keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -50,6 +50,12 @@ If you meet the error `ImportError: DLL load failed`, try:
 ~~~ bash
 active base # active environment "base" in anaconda
 jupyter notebook
+~~~
+
+If you meet `import _ssl` problem (also in `ImportError`) (this error comes with _pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available_), try{% ref https://stackoverflow.com/questions/59768292/cant-start-jupyter-notebook-in-anaconda3-because-of-error-in-import-ssl %}:
+
+~~~ bash 
+set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
 ~~~
 
 ## MacOS

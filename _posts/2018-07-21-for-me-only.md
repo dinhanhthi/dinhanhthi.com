@@ -158,7 +158,7 @@ Default, two columns will be separated into 50-50. If you wanna other ratios, us
 {:.alert .alert-success}
 You can also use `<div>` tag to enclose the section you wanna show in only 1 side. Note that you can also use default classes given in bootstrap such as `.pl-md-3` to add a separated space between 2 columns.
 
-### Click to enlarge
+### Click to enlarge / zoom images
 
 If you wanna some photos having the function "click to enlarge", just add class `.pop` to this photo. 
 

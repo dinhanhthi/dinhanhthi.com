@@ -5,7 +5,7 @@ categories: [machine learning]
 katex: 1
 icon-photo: clustering.png
 date: 2020-03-05
-keywords: k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters
+keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median"
 ---
 
 {% assign img-url = '/img/post/ML/clustering' %}
@@ -15,6 +15,8 @@ keywords: k means k-means clustering method sensitive to outliers partitioning c
 
 {% katexmm %}
 
+K-Means is the most popular clustering method any learner should know. In this note, we will understand the idea of KMeans and how to use it with Scikit-learn. Besides that, we also learn about its variants (K-medois, K-modes, K-medians).
+
 ## What's the idea of K-Means?
 
 1. Randomly choose centroids ($k$).
@@ -22,12 +24,15 @@ keywords: k means k-means clustering method sensitive to outliers partitioning c
 3. Move each centroid (of each class) to the average of data points having the same class with the centroid.
 4. Repeat 2 and 3 until convergence.
 
-{:.img-full-80}
+{:.img-full-80.pop}
 ![KMeans idea]({{img-url}}/kmeans-idea.png)
 
 ## How to choose number of clusters?
 
 Using "Elbow" method.
+
+{:.img-full-50.pop}
+![KMeans idea]({{img-url}}/kmeans-elbow.png)
 
 ## Discussion
 
