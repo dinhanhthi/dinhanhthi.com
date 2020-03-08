@@ -14,6 +14,7 @@ keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf image
 
 ~~~ python
 import matplotlib.pyplot as plt
+import numpy as np
 ~~~
 
 ## Generate colors based on list

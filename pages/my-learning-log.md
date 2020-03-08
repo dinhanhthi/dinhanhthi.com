@@ -20,9 +20,9 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 2 / 2020
 
 - {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **Processing a raw data**: check the properties, make some convertings and exporting to csv files. This task belongs to [Dataswati](https://www.dataswati.com/).
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **Concepts**: _Sampling_; _Resampling_; different types of _activations_; Hyperparameter choosing (_GridSearch_, _Random Search_, _Bayesian Seach_); frequency spectrum; 
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Working with [**Time Series**](/notes#time_series): _Dynamic Time Warping_; dimension of TS to feed into Neural Network (especially with PyTorch); handle different length time series (check [my presentation](/files/ml/thi_presentation_AE_tsfresh_clustering_02-03-20.pdf){:target="_blank"}).
-- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Idea of CNN AE applied to a time series.
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> **Concepts**: _Sampling_; _Resampling_; different types of _activations_; Hyperparameter choosing (_GridSearch_, _Random Search_, _Bayesian Seach_); _frequency spectrum_; 
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Working with [**Time Series**](/notes#time_series): _Dynamic Time Warping_; dimension of TS to feed into a Neural Network (especially with PyTorch); handle different-length time series (check [my presentation](/files/ml/thi_presentation_AE_tsfresh_clustering_02-03-20.pdf){:target="_blank"}).
+- {:.finish} <span class="tbadge badge-yellow">Data & ML</span> Understand the idea of CNN AE applied to a time series.
 - {:.finish} <span class="tbadge badge-orange">Python</span> _Abstract Base Classes_ (ABC), understand to make a base model.
 
 
