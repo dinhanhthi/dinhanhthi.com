@@ -3,7 +3,7 @@ layout: post
 title: "Matplotlib tips"
 categories: [python]
 icon-photo: matplotlib.png
-keywords: plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors
+keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares bernoulli distribution"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -22,22 +22,7 @@ We wanna generate a list of colors automatically based on the elements in some l
 
 ~~~ python
 def get_colors(list_vals, list_colors=["#fb4747", "#315ace", "#b5f6e5", "#FFB347"]):
-    """Return a dictionary with a color for each element of the input list.
-
-    Parameters
-    ----------
-    list_vals: list
-        The list of names for which we want a color.
-    list_colors: list
-        A list of colors we want to go throught.
-
-    Returns
-    -------
-    dict
-        A dictionary that makes correspondance between a key and a color.
-    """
     dict_colors = polylinear_gradient(list_colors, n=len(list_vals))
-
     dict_colors_ok = {}
     for i, val in enumerate(list_vals):
         dict_colors_ok[val] = dict_colors['hex'][i]
@@ -118,7 +103,53 @@ plt.legend(
 {:.img-full-100}
 ![Legend from list of colors]({{img-url}}/lengend_list.jpg)
 
-## Plot a photo
+### imshow
+
+Plot a grid of square based on Bernoulli distribution,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ python
+# MORE understandable but executing SLOWER
+
+N = 100
+P = 0
+im_size = 15
+
+def bernoulli(num, P, N):
+  return 1-np.random.binomial(1, P*num/N)
+
+vfunc = np.vectorize(bernoulli)
+image = np.array(range(1,N+1))
+image = np.repeat(image.reshape(N, 1), N, axis=1)
+image = vfunc(image, P, N)
+
+plt.figure(figsize=(im_size, im_size))
+plt.axis('off')
+plt.imshow(image, cmap='gray')
+plt.show(block=True)
+~~~
+
+{:.flex-even.overflow-auto.pl-md-1}
+~~~ python
+# LESS understandable but executing FASTER
+N = 5
+P = 1
+im_size = 15
+
+image = np.array(range(1,N+1))
+image = np.repeat(image.reshape(N, 1), N, axis=1)
+image = P/N * image
+image = image <= np.random.rand(N,N)
+
+plt.figure(figsize=(im_size, im_size))
+plt.axis('off')
+plt.imshow(image, cmap='gray')
+plt.show(block=True)
+~~~
+</div>
+
+## Plot a photo (imshow)
 
 ### With grayscale and `misc`
 

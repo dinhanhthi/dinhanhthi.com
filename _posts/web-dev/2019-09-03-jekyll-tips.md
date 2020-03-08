@@ -24,6 +24,10 @@ This note is used for you who have already had the basic idea about jekyll and h
 - [Compress HTML in Jekyll](http://jch.penibelst.de/).
 - [Kramdown quickref](https://kramdown.gettalong.org/quickref.html).
 
+## Sitemap
+
+If there is no url in the ouput [sitemap](https://github.com/jekyll/jekyll-sitemap) (_https://dinhanhthi.com/sitemap.xml_, for example) like `<loc>/reading</loc>` instead of `<loc>https://dinhanhthi.com/reading</loc>`, please check your `_config.yml` file and make sure that there is the full url inside `url` field.
+
 ## Using markdown syntax inside html tags
 
 You can use directly by 

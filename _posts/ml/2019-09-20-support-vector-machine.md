@@ -2,7 +2,7 @@
 layout: post
 title: "Support Vector Machine (SVM)"
 categories: [machine learning]
-math: 1
+katex: 1
 date: 2019-09-30
 icon-photo: svm.webp
 keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft margin quadratic programming dual form Lagrange multipliers kernal trick Mercer conditions linear kernel gaussian kernel RBF Radial Basic Function Exponential kernel Polynomial kernel Hybrid kernel Sigmoidal Andrew NG Face detection Detecting spam outliers detection Text and hypertext categorization Bioinformatics Regularization parameter parameter C gamma XOR problem Face Recognition Tiep Vu Simplilearn Jeremy Kun Jake VanderPlas Chris Albon 
@@ -12,6 +12,8 @@ keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft 
 {% assign file-url = '/files/ml/' %}
 
 {% include toc.html %}
+
+{% katexmm %}
 
 ## What's the idea of SVM?
 
@@ -29,7 +31,7 @@ More mathematical details on finding a hyperplane
 </button>
 <div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
 
-We need to find a hyperplane $(H)$: $\mathbf{w}^T\mathbf{x} + b = 0$ where the weights $\mathbf{w}=(w\_1,\ldots,w\_d)$ and a point $\mathbf{x}=(x\_1,\ldots,x\_d)$. For example, in 2D ($d=2$), we need to find a hyperplane $w\_1x\_1 + w\_2x\_2 + b=0$. Note also that, the distance between a point $\mathbf{x}\_0$ and $(H)$ is given by,
+We need to find a hyperplane $(H)$: $\mathbf{w}^T\mathbf{x} + b = 0$ where the weights $\mathbf{w}=(w_1,\ldots,w_d)$ and a point $\mathbf{x}=(x_1,\ldots,x_d)$. For example, in 2D ($d=2$), we need to find a hyperplane $w_1x_1 + w_2x_2 + b=0$. Note also that, the distance between a point $\mathbf{x}_0$ and $(H)$ is given by,
 
 $$
 \text{d}(\mathbf{x}_0, H) = \frac{\vert\mathbf{w}^T\mathbf{x}_0 + b\vert}{\Vert\mathbf{w}\Vert_2}, \quad (1)
@@ -41,20 +43,20 @@ In order to understand the idea, we consider a 2D case with the classification o
 
 {:.img-full-50}
 ![Finding a hyperplane.]({{img-url}}/svm-6.jpg)
-*We need to find an optimal hyperplane between 2 classes (find $w\_1, w\_2$ and $b$).*
+*We need to find an optimal hyperplane between 2 classes (find $w_1, w_2$ and $b$).*
 
-Recall that a **margin** (*geometric margin*) is the minimum distance between a hyperplane and the closest point(s) to it. Thanks to $(1)$, we can find the margin to a hyperplane by determining the closet distance from an arbitrary points $(\mathbf{x}\_i, y\_i)$ to that hyperplane via,
+Recall that a **margin** (*geometric margin*) is the minimum distance between a hyperplane and the closest point(s) to it. Thanks to $(1)$, we can find the margin to a hyperplane by determining the closet distance from an arbitrary points $(\mathbf{x}_i, y_i)$ to that hyperplane via,
 
 $$
 \text{margin} = \min_i \frac{y_i(\mathbf{w}^T\mathbf{x}_i + b)}{||\mathbf{w}||_2}. \quad (2)
 $$
 
-Note that, because $y\_i$ takes values $-1$ or $+1$ and it always has the same sign as $\mathbf{w}^T\mathbf{x}\_i + b$, $y\_i(\mathbf{w}^T\mathbf{x}\_i + b)$ is always positive. 
+Note that, because $y_i$ takes values $-1$ or $+1$ and it always has the same sign as $\mathbf{w}^T\mathbf{x}_i + b$, $y_i(\mathbf{w}^T\mathbf{x}_i + b)$ is always positive. 
 
 The SVM problem is to find ($\mathbf{w}, b$) so that the *hard-margin* $(2)$ has the maximum value, i.e.,
 
 $$
-\begin{align}
+\begin{aligned}
 (\mathbf{w}, b) 
 &= \arg \max_{\mathbf{w}, b} \left(
     \min_i \frac{y_i(\mathbf{w}^T\mathbf{x}_i + b)}{\Vert\mathbf{w}\Vert_2} 
@@ -62,7 +64,7 @@ $$
 &= \arg \max_{\mathbf{w}, b}\left(
     \frac{1}{\Vert\mathbf{w}\Vert_2} \min_i y_i(\mathbf{w}^T\mathbf{x}_i + b)
 \right)
-\end{align} \quad (3)
+\end{aligned} \quad (3)
 $$
 
 ($\arg$ means you need to find $\mathbf{w},b$ so that the function reaches the $\max$.)
@@ -76,20 +78,20 @@ $$
 for all points on the hyperplane, and the problem $(3)$ becomes,
 
 $$
-\begin{align}
+\begin{aligned}
     &(\mathbf{w}, b) = \arg\max_{\mathbf{w}, b} \frac{1}{\Vert\mathbf{w}\Vert_2}   \\
     \text{subject to} &~~ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1, \forall i = 1, 2, \dots, N.
-\end{align}
+\end{aligned}
 $$
 
 The second line due to the fact that the closet points have distance $1$ to the hyperplane, the other points have distance greater than $1$. We can write above problem as,
 
 <p class="p-mark">
 $$
-\begin{align}
+\begin{aligned}
     &(\mathbf{w}, b) = \arg\min_{\mathbf{w}, b} \frac{1}{2}\Vert\mathbf{w}\Vert_2^2   \\
     \text{subject to} &~~ y_i(\mathbf{w}^T\mathbf{x}_i + b)-1 \geq 0, \forall i = 1, 2, \dots, N.
-\end{align} \quad (4)
+\end{aligned} \quad (4)
 $$
 </p>
 
@@ -98,32 +100,30 @@ This is called "*primal formulation of linear SVMs*". In mathematical optimizati
 Problem $(4)$ can be solved "more easily" by considering its [dual formulation](https://en.wikipedia.org/wiki/Duality_(optimization)). Apply the method of [Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier), we define a Lagrangian,
 
 $$
-\Lambda(\mathbf{w},b,\lambda) 
-= \dfrac{1}{2}\Vert \mathbf{w}\Vert_2^2
-  - \sum_{i=1}^N \lambda_i(y_i(\mathbf{w}^T\mathbf{x}_i+b)-1),
+\Lambda(\mathbf{w},b,\lambda) = \dfrac{1}{2}\Vert \mathbf{w}\Vert_2^2 - \sum_{i=1}^N \lambda_i(y_i(\mathbf{w}^T\mathbf{x}_i+b)-1),
 $$
 
-where $\mathbf{w}, \mathbf{x}\_i$ are vectors with $d$ elements and $\lambda$ is a vector with $N$ elements. We need to minimize this Lagrangian w.r.t. $\mathbf{w}, b$ and simultaneously require that the derivative w.r.t. $\lambda$ vanishes,  all subject to the constraints that $\lambda\_i \ge 0$. If we set the derivatives w.r.t. $\mathbf{w}, b$, we obtain,
+where $\mathbf{w}, \mathbf{x}_i$ are vectors with $d$ elements and $\lambda$ is a vector with $N$ elements. We need to minimize this Lagrangian w.r.t. $\mathbf{w}, b$ and simultaneously require that the derivative w.r.t. $\lambda$ vanishes,  all subject to the constraints that $\lambda_i \ge 0$. If we set the derivatives w.r.t. $\mathbf{w}, b$, we obtain,
 
 $$
-\begin{align}
+\begin{aligned}
 \dfrac{\partial \Lambda(\mathbf{w},b,\lambda)}{\partial b} &= 0 \Rightarrow \sum_{i=1}^N\lambda_iy_i=0, \\
 \dfrac{\partial \Lambda(\mathbf{w},b,\lambda)}{\partial \mathbf{w}} &= 0 \Rightarrow \mathbf{w}=\sum_{i=1}^N\lambda_iy_i\mathbf{x}_i.
-\end{align}
+\end{aligned}
 $$
 
 We substitute the above into the equation for $\Gamma(\mathbf{w},b,\lambda)$ and obtain "*dual formulation of linear SVMs*",
 
 <p class="p-mark">
 $$
-\begin{align}
+\begin{aligned}
     &\lambda = \arg\max_{\lambda} \left( \sum_{i=1}^N \lambda_i  -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \lambda_i\lambda_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j \right)  \\
     \text{subject to} &~~ \lambda_i \ge 0, \sum_{i=1}^N\lambda_iy_i = 0, ~\forall i=1,\ldots,N.
-\end{align} \quad (5)
+\end{aligned} \quad (5)
 $$
 </p>
 
-in that, $\mathbf{w}$ is defined in terms of $\lambda\_i$: $\mathbf{w} = \sum\_1^N\lambda\_iy\_i\mathbf{x}\_i$ and the solution becomes 
+in that, $\mathbf{w}$ is defined in terms of $\lambda_i$: $\mathbf{w} = \sum_1^N\lambda_iy_i\mathbf{x}_i$ and the solution becomes 
 
 $$
 f(\mathbf{x})=\text{sign}(\Sigma_1^N\lambda_iy_i\mathbf{x}_i^T\mathbf{x}_j + b).
@@ -137,7 +137,7 @@ $$
 
 The benefits of using dual formulation are:<sup>[[ref, slide 52]]({{file-url}}/svm-without-tears.pdf)</sup>
 
-- No need to access original data, need to access only dot products $\mathbf{x}\_i^T\mathbf{x}\_j$.
+- No need to access original data, need to access only dot products $\mathbf{x}_i^T\mathbf{x}_j$.
 - Number of free parameters is bounded by the number of support vectors and not by the number of variables
 (beneficial for high-dimensional problems).
 
@@ -167,19 +167,19 @@ More mathematical details<sup>[[ref, slide 59]]({{file-url}}/svm-without-tears.p
 Original data $\mathbf{x}$ (in input space),
 
 $$
-\begin{align}
+\begin{aligned}
 f(\mathbf{x}) =\text{sign}(\mathbf{w}^T\mathbf{x} + b), \quad
 \mathbf{w} =\sum_{i=1}^N\lambda_iy_i\mathbf{x}_i
-\end{align}
+\end{aligned}
 $$
 
 Data in a higher dimensional feature space $\Phi(\mathbf{x})$,
 
 $$
-\begin{align}
+\begin{aligned}
 f(\mathbf{x}) =\text{sign}(\mathbf{w}^T\Phi(\mathbf{x}) + b), \quad
 \mathbf{w} =\sum_{i=1}^N\lambda_iy_i\Phi(\mathbf{x}_i)
-\end{align}
+\end{aligned}
 $$
 
 We can rewrite $f(\mathbf{x})$ as,
@@ -192,10 +192,10 @@ or,
 
 <p class="p-mark">
 $$
-\begin{align}
+\begin{aligned}
 f(\mathbf{x}) &=\text{sign}(\sum_{i=1}^N\lambda_iy_iK(\mathbf{x}_i,\mathbf{x}) + b), \\
 K(\mathbf{x}_i,\mathbf{x}) &= \Phi(\mathbf{x}_i)^T\Phi(\mathbf{x}).
-\end{align}
+\end{aligned}
 $$
 </p>
 
@@ -216,12 +216,12 @@ It also measures **the similarity** between two points $\mathbf{x}_i$ and $\math
 
 We have some popular kernels,
 
-- **Linear kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \mathbf{x}\_i \cdot \mathbf{x}\_j$. We use `kernel = 'linear'` in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). Linear kernels are rarely used in practice.
-- **Gaussian kernel** (or ***Radial Basic Function* -- RBF**): $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$. It's used the most. We use `kernel = 'rbf'` (default) with keyword `gamma` for $\gamma$ (must be greater than $0$) in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
-- **Exponential kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert)$.
-- **Polynomial kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (r+\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j)^d$. We use `kernel = 'poly'` with keyword `degree` for $d$ and `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). It's more popular than RBF in NLP. The most common degree is $d = 2$ (quadratic), since larger degrees tend to overfit on NLP problems.<sup>[[ref]](https://en.wikipedia.org/wiki/Polynomial_kernel)</sup>
-- **Hybrid kernel**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = (p+\mathbf{x}\_i \cdot \mathbf{x}\_j)^q\exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$.
-- **Sigmoidal**: $K(\mathbf{x}\_i, \mathbf{x}\_j) = \tanh(\gamma\mathbf{x}\_i \cdot \mathbf{x}\_j+r)$. We use `kernel = 'sigmoid'` with keyword `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
+- **Linear kernel**: $K(\mathbf{x}_i, \mathbf{x}_j) = \mathbf{x}_i \cdot \mathbf{x}_j$. We use `kernel = 'linear'` in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). Linear kernels are rarely used in practice.
+- **Gaussian kernel** (or ***Radial Basic Function* -- RBF**): $K(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert^2)$. It's used the most. We use `kernel = 'rbf'` (default) with keyword `gamma` for $\gamma$ (must be greater than $0$) in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
+- **Exponential kernel**: $K(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert)$.
+- **Polynomial kernel**: $K(\mathbf{x}_i, \mathbf{x}_j) = (r+\gamma\mathbf{x}_i \cdot \mathbf{x}_j)^d$. We use `kernel = 'poly'` with keyword `degree` for $d$ and `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC). It's more popular than RBF in NLP. The most common degree is $d = 2$ (quadratic), since larger degrees tend to overfit on NLP problems.<sup>[[ref]](https://en.wikipedia.org/wiki/Polynomial_kernel)</sup>
+- **Hybrid kernel**: $K(\mathbf{x}_i, \mathbf{x}_j) = (p+\mathbf{x}_i \cdot \mathbf{x}_j)^q\exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert^2)$.
+- **Sigmoidal**: $K(\mathbf{x}_i, \mathbf{x}_j) = \tanh(\gamma\mathbf{x}_i \cdot \mathbf{x}_j+r)$. We use `kernel = 'sigmoid'` with keyword `coef0` for $r$ in [`sklearn.svm.SVM`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC).
 
 We can also define a custom kernel thanks to [this help](https://scikit-learn.org/stable/modules/svm.html#custom-kernels).
 
@@ -319,19 +319,19 @@ More mathematical details on $C$ and soft-margin problems
 Recall that the *hard-margin* problem is,
 
 $$
-\begin{align}
+\begin{aligned}
     &(\mathbf{w}, b) = \arg \min_{\mathbf{w}, b} \frac{1}{2}\Vert\mathbf{w}\Vert_2^2   \\
     \text{subject to} &~~ y_i(\mathbf{w}^T\mathbf{x}_i + b) -1 \geq 0, \forall i = 1, 2, \dots, N.
-\end{align} \quad (4~\text{revisited})
+\end{aligned} \quad (4~\text{revisited})
 $$
 
 and its duality is,
 
 $$
-\begin{align}
+\begin{aligned}
     &\lambda = \arg\max_{\lambda} \left( \sum_{i=1}^N \lambda_i  -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \lambda_i\lambda_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j \right)  \\
     \text{subject to} &~~ \lambda_i \ge 0, \sum_{i=1}^N\lambda_iy_i = 0, ~\forall i=1,\ldots,N.
-\end{align} \quad (5~\text{revisited})
+\end{aligned} \quad (5~\text{revisited})
 $$
 
 Instead of considering a *hard-margin* $(4)$, we consider following *soft-margin* problem (with the addition of *slack variables*)
@@ -342,28 +342,28 @@ Instead of considering a *hard-margin* $(4)$, we consider following *soft-margin
 *An introduction to slack variables.<sup>[[ref]](https://machinelearningcoban.com/2017/04/13/softmarginsmv/)</sup>*
 
 $$
-\begin{align}
+\begin{aligned}
     &(\mathbf{w}, b, \xi) = \arg\min_{\mathbf{w}, b, \xi} \left( \frac{1}{2}{\Vert\mathbf{w}\Vert_2^2} + C \sum_{i=1}^N \xi_i \right)  \\
     \text{subject to} &~~ y_i(\mathbf{w}^T\mathbf{x}_i + b) \geq 1 - \xi_i, \forall i = 1, \dots, N \\
     &~~ \xi_i \leq 0,  ~\forall i = 1, 2, \dots, N
-\end{align}
+\end{aligned}
 $$
 </div>
 
-With these new slack variables, we have to decide the trade-off between maximizing the margin (term $\frac{1}{2}\Vert \mathbf{w}\Vert\_2^2$) and minimizing the mistakes (term $C\Sigma\_1^n\xi\_i$).
+With these new slack variables, we have to decide the trade-off between maximizing the margin (term $\frac{1}{2}\Vert \mathbf{w}\Vert_2^2$) and minimizing the mistakes (term $C\Sigma_1^n\xi_i$).
 
-When $C$ is big, the term $\frac{1}{2}\Vert \mathbf{w}\Vert\_2^2$ is almost considered as $0$ in the minimized problem and the problem focuses on minimizing the term $C\Sigma\_1^n\xi\_i$ (avoiding misclassification). That's why the margin looks more narrow in the case of bigger $C$.
+When $C$ is big, the term $\frac{1}{2}\Vert \mathbf{w}\Vert_2^2$ is almost considered as $0$ in the minimized problem and the problem focuses on minimizing the term $C\Sigma_1^n\xi_i$ (avoiding misclassification). That's why the margin looks more narrow in the case of bigger $C$.
 
 A dual formulation of above soft-margin problem is,
 
 $$
-\begin{align}
+\begin{aligned}
     &\lambda = \arg\max_{\lambda} \left( \sum_{i=1}^N \lambda_i  -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \lambda_i\lambda_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j \right)  \\
     \text{subject to} &~~ 0 \le \lambda_i \le C, \sum_{i=1}^N\lambda_iy_i = 0,~\forall i=1,\ldots,N.
-\end{align} \quad (6)
+\end{aligned} \quad (6)
 $$
 
-Note that, $(6)$ looks like $(5)$ (duality of hard-margin problem) but condition $0 \le \lambda\_i \le C$.
+Note that, $(6)$ looks like $(5)$ (duality of hard-margin problem) but condition $0 \le \lambda_i \le C$.
 
 </div>
 </div>
@@ -393,10 +393,10 @@ $$
 
 where $\sigma$ is the standard deviation which shows the spread of the data.
 
-Compare to the one used in the scikit-learn, $K(\mathbf{x}\_i, \mathbf{x}\_j) = \exp(-\gamma\Vert \mathbf{x}\_i - \mathbf{x}\_j \Vert^2)$, we see that $\gamma$ is an inverse of $\sigma$. It implies,
+Compare to the one used in the scikit-learn, $K(\mathbf{x}_i, \mathbf{x}_j) = \exp(-\gamma\Vert \mathbf{x}_i - \mathbf{x}_j \Vert^2)$, we see that $\gamma$ is an inverse of $\sigma$. It implies,
 
-- When $\sigma$ is bigger (or $\gamma$ is smaller), the similarity between two points $\mathbf{x}\_i$ and $\mathbf{x}\_j$ are considered in a wide range (spreading widely).
-- Conversely, when $\sigma$ is smaller (or $\gamma$ is bigger), only two points $\mathbf{x}\_i$ and $\mathbf{x}\_j$ which are really near to each other will be considered to be similar. That's why we see there are many "groups" in the figure corresponding to $\gamma=100$. It leads to an overfitting problem.
+- When $\sigma$ is bigger (or $\gamma$ is smaller), the similarity between two points $\mathbf{x}_i$ and $\mathbf{x}_j$ are considered in a wide range (spreading widely).
+- Conversely, when $\sigma$ is smaller (or $\gamma$ is bigger), only two points $\mathbf{x}_i$ and $\mathbf{x}_j$ which are really near to each other will be considered to be similar. That's why we see there are many "groups" in the figure corresponding to $\gamma=100$. It leads to an overfitting problem.
 
 </div>
 </div>
@@ -431,6 +431,8 @@ Compare to the one used in the scikit-learn, $K(\mathbf{x}\_i, \mathbf{x}\_j) = 
 - **Jake VanderPlas** -- [In-Depth: Support Vector Machines](https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html). -- Example: How to code and illustrate hyperplane and support vectors in Python?
 - **Chris Albon** -- [Notes](https://chrisalbon.com/) about Support Vector Machines.
 - **Andrew NG** -- [My raw note](https://mynote.dinhanhthi.com/machine-learning-coursera-7) when I learned [the course Machine Learning](https://www.coursera.org/learn/machine-learning/) on Coursera.
+
+{% endkatexmm %}
 
 
 
