@@ -12,6 +12,10 @@ keywords: dataframe groupby group agg apply pivot table melt tables lambda group
 
 In this note, I use `df` as `DataFrame`, `s` as `Series`.
 
+<p class="text-center" markdown="1">
+{% colab https://colab.research.google.com/drive/1HoaVZDey8xVqqwNUg2e28uJnGUBTx8Hk %}
+</p>
+
 ## Libraries
 
 ~~~ python
@@ -29,7 +33,7 @@ df.head()
 ~~~
 
 <div class="table-wrapper">
-<table border="1" class="dataframe">
+<table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -235,7 +239,7 @@ df.groupby(['Country', 'Region']).agg([np.mean, np.max, max_min]).head()
     </tr>
     <tr>
       <th>Albania</th>
-      <th>Central and Eastern Europe</th>
+      <th>Central Europe</th>
       <td>95</td>
       <td>95</td>
       <td>0</td>
@@ -248,7 +252,7 @@ df.groupby(['Country', 'Region']).agg([np.mean, np.max, max_min]).head()
     </tr>
     <tr>
       <th>Algeria</th>
-      <th>Middle East and Northern Africa</th>
+      <th>Middle Africa</th>
       <td>68</td>
       <td>68</td>
       <td>0</td>
@@ -311,7 +315,7 @@ df.groupby(['Country', 'Region']).agg({
     </tr>
     <tr>
       <th>Albania</th>
-      <th>Central and Eastern Europe</th>
+      <th>Central Europe</th>
       <td>0</td>
       <td>4.959</td>
       <td>4.959</td>
@@ -319,7 +323,7 @@ df.groupby(['Country', 'Region']).agg({
     </tr>
     <tr>
       <th>Algeria</th>
-      <th>Middle East and Northern Africa</th>
+      <th>Middle Africa</th>
       <td>0</td>
       <td>5.605</td>
       <td>5.605</td>
@@ -343,12 +347,91 @@ Group by `Region` (as an index) and choosing `GDP` and `City` columns,{% ref htt
 df.pivot_table(values=['GDP', 'City'], index='Region') # returns df
 ~~~
 
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Standard Error</th>
+    </tr>
+    <tr>
+      <th>Region</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Australia and New Zealand</th>
+      <td>9.5</td>
+      <td>0.037270</td>
+    </tr>
+    <tr>
+      <th>Central and Eastern Europe</th>
+      <td>79.0</td>
+      <td>0.045208</td>
+    </tr>
+    <tr>
+      <th>Eastern Asia</th>
+      <td>64.5</td>
+      <td>0.037225</td>
+    </tr>
+  </tbody>
+</table>
+
 Apply some functions,
 
 ~~~ python
 df.pivot_table(['GDP', 'City'], 'Region', aggfunc=[np.mean, np.max], margins=True)
 # margins shows the "All" row
 ~~~
+
+<table class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">mean</th>
+      <th colspan="2" halign="left">amax</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Happiness Rank</th>
+      <th>Standard Error</th>
+      <th>Happiness Rank</th>
+      <th>Standard Error</th>
+    </tr>
+    <tr>
+      <th>Region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Australia and New Zealand</th>
+      <td>9.5</td>
+      <td>0.037270</td>
+      <td>10</td>
+      <td>0.04083</td>
+    </tr>
+    <tr>
+      <th>Central and Eastern Europe</th>
+      <td>79.0</td>
+      <td>0.045208</td>
+      <td>134</td>
+      <td>0.06913</td>
+    </tr>
+    <tr>
+      <th>Eastern Asia</th>
+      <td>64.5</td>
+      <td>0.037225</td>
+      <td>100</td>
+      <td>0.05051</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Reorganizing df using `pivot()`
 
@@ -528,20 +611,129 @@ display_side_by_side(df, pivot_1, pivot_2, pivot_3)
   </tbody>
 </table></div>
 
+For one who wanna know `display_side_by_side`: ref [this note](/jupyter-notebook#display-dataframes-side-by-side).
+
 ## Change shape of df with `melt()`
 
-Contrary to `pivot`, we now want to transform several columns into values of a single column,{% ref https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/dataquest-aio/blob/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis/notebooks_in_html/task-3-transforming-data-with-pandas.html %}
+Contrary to `pivot`, we now want to transform several columns into values of a single column,{% ref https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.melt.html %}
 
 ~~~ python
-# before: 6 columns
+df = pd.DataFrame({'A': {0: 'a', 1: 'b', 2: 'c'},
+                   'B': {0: 1, 1: 3, 2: 5},
+                   'C': {0: 2, 1: 4, 2: 6}})
 
-main_cols = ['A', 'B', 'C'] # columns will be kept (they are fix as ids)
-factors = ['D', 'E', 'F'] # columns will be melt
-pd.melt(df, id_vars = main_cols, value_vars = factors) # new df
+df1 = pd.melt(df, id_vars=['A'], value_vars=['B'])
+df2 = pd.melt(df, id_vars=['A'], value_vars=['B', 'C'])
 
-# after melting: new df with 5 columns 
-# (1 columns containg D, E, F and 1 column containing their values)
+display_side_by_side(df, df1, df2)
 ~~~
+
+<div class="output_subarea output_html rendered_html"><table style="display:inline; margin-right: 5px;" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table><table style="display:inline; margin-right: 5px;" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>B</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>B</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table><table style="display:inline; margin-right: 5px;" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>B</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>B</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>B</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>a</td>
+      <td>C</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b</td>
+      <td>C</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>c</td>
+      <td>C</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table></div>
 
 ## References
 
