@@ -1,17 +1,17 @@
 {% if page.js %}
   {% for js in page.js %}
-	<script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+	<script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}" async></script>
   {% endfor %}
 {% endif %}
 
 {% if layout.base-js %}
   {% for js in layout.base-js %}
-	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}" async></script>
   {% endfor %}
 {% endif %}
 
 {% if layout.more-js %}
   {% for js in layout.more-js %}
-	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}"></script>
+	  <script src="{{ js | prepend: site.baseurl | replace: '//', '/' }}" async></script>
   {% endfor %}
 {% endif %}
