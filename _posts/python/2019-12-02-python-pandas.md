@@ -3,7 +3,7 @@ layout: post
 title: "Pandas tips"
 categories: [python]
 icon-photo: pandas.png
-keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values "
+keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary to_csv write to files multiindex indexing"
 ---
 
 {% assign img-url = '/img/post/python/pandas' %}
@@ -19,23 +19,20 @@ import pandas as pd
 import numpy as np # import numpy if necessary
 ~~~
 
-## Read `.csv` file
+## Read/Write `.csv` file
 
 ~~~ python
-df = pd.read_csv('filename.csv')
+# READ
+df = pd.read_csv('filename.csv', sep=';') # default sep=','
 df.head() # read first 5 rows
 df.tail() # last 5 rows
 df.head(10) # first 10 rows
 ~~~
 
-## Other tasks using pandas
-
-<div class="two-columns-list" markdown="1">
-- [Data Overview]({{site.url}}{{site.baseurl}}/dataframe-overview)
-- [Data Aggregation]({{site.url}}{{site.baseurl}}/data-aggregation)
-- [Data Combining]({{site.url}}{{site.baseurl}}/data-combining)
-- [Data Preprocessing & Cleaning]({{site.url}}{{site.baseurl}}/data-preprocessing-cleaning)
-</div>
+~~~ python
+# WRITE
+df.to_csv(path, index=False) # don't incldue index
+~~~
 
 ## Create a dataframe
 
@@ -68,7 +65,7 @@ students = pd.DataFrame(my_dict)
 </div>
 </div>
 
-## Select rows/columns/item(s)
+## Select rows/columns/item(s) {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html %}
 
 In this part, we are going to use below dataframe `df`.
 
@@ -81,7 +78,7 @@ In this part, we are going to use below dataframe `df`.
 | 3 | Beo | 18 | 6 | New York |
 | 4 | Chang | 11 | 8 | DC |
 
-**Select a single value**{:.tbrown} (with condition): Get the mark of `Thi` (`9`).
+**Select a single value** (with condition): Get the mark of `Thi` (`9`).
 
 ~~~ python
 # interchange `.values[0]` and `.iloc[0]`
@@ -98,7 +95,7 @@ df[['Marks']].iloc[1].values[0] # column 'Marks', row 2
 df[df.Name=='Thi'].iloc[:,2].values[0] # column 3, row of 'Thi'
 ~~~
 
-**Select a column**{:.tbrown} (type `Series`): Get column `Name`.
+**Select a column** (type `Series`): Get column `Name`.
 
 ~~~ python
 # with column's name
@@ -109,7 +106,7 @@ df.loc[:, 'Name']
 df.iloc[:,0]
 ~~~
 
-Select multi-columns (type `DataFrame`): Get columns `Name` & `Place`:
+**Select multi-columns** (type `DataFrame`): Get columns `Name` & `Place`:
 
 ~~~ python
 # using columns's names
@@ -120,7 +117,7 @@ df.loc[:, ['Name', 'Place']]
 df.iloc[:, [0,-1]]
 ~~~
 
-**Select a row**{:.tbrown} (type `Series`): Get row `Thi`.
+**Select a row** (type `Series`): Get row `Thi`.
 
 <div class="code-box-copy" markdown="1">
 ~~~ python
@@ -137,12 +134,16 @@ df[df.Name=='Thi'].values[0] # type: ndarray
 ~~~ 
 </div>
 
-Select multi-rows (type `DataFrame`): Get first 3 rows of dataset,
+**Select multi-rows** (type `DataFrame`): Get first 3 rows of dataset,
 
 ~~~ python
 # using indexes
 df.iloc[:3]
 df.loc[:2]
 ~~~
+
+## MultiIndex {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html %}
+
+
 
 

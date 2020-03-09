@@ -3,7 +3,7 @@ layout: post
 title: "Data Processing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
-keywords: pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data
+keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -114,9 +114,14 @@ df.drop_duplicates(['col1', 'col2'])
 
 ### Drop if `NaN`
 
+Full reference of `dropna` is [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html).
+
 ~~~ python
 # Drop any rows which have any nans
 df.dropna()
+
+# Drop if all values in that row/columns are NA
+df.dropna(how='all') # default: how='any'
 
 # Drop columns that have any nans
 df.dropna(axis=1)

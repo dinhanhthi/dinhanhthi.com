@@ -2,9 +2,33 @@
 layout: post
 title: "Simple AutoEncoder (AE)"
 categories: [deep learning]
-keywords: autoencoder simple AE
+keywords: "autoencoder simple AE pytorch torch basic idea neural network NN layers activations encode encoder decode decoder relu linear sigmoid sequential"
 ---
 
+{% assign img-url = '/img/post/deep-learning' %}
+
+{% include toc.html %}
+
+## Basic idea of AE
+
+{:.img-full-80.pop}
+![Basic idea of autoencoder]({{img-url}}/basic-ae.jpg)
+
+## Using Keras
+
+
+
+## Using [PyTorch](/pytorch)
+
+~~~ python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+~~~
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
 class Autoencoder(nn.Module):
 
@@ -37,8 +61,7 @@ class Autoencoder(nn.Module):
         return x
 ~~~
 
-Other ways
-
+{:.flex-even.overflow-auto.pl-md-1}
 ~~~ python
 class Autoencoder(nn.Module):
     
@@ -68,3 +91,4 @@ class Autoencoder(nn.Module):
         x = self.decoder(x)
         return x
 ~~~
+</div>

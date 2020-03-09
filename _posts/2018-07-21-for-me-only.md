@@ -22,14 +22,15 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 - `custom-css` : if some page or post has different css, indicate it here.
 - `toc: 1` : if you wanna show the table of contents for this post. Jump to [this section](#add-table-of-contents).
 - `excluded_in_search: 1` : if you think that some post/page containing jekyll expressions that may lead to some errors in the search page. If you add this, this post won't be included in the search page.
-- `emoji` : (e.g. `":chicken:"`) if you wanna display an emoji icon in the header for that page/post. Jump to [this section](#jemoji).
-- `icon` : (e.g. `"fas fa-book-reader"`) if you wanna display an icon for that in the header for that page/post.
-- `icon-color` : (e.g. `#ffeead`) if you wanna set a color for that icon.
-- `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
 - `jsxgraph: 1` : if you use JSXGraph in your post. Jump to [this section](#insert-jsxgraph).
 - `sitemap: false` : If you would like to exclude specific pages/posts from the sitemap.
 - `subtitle` : Only used for pages.
 - `katex: 1` if you wanna use [katex](https://katex.org/) in this page. Remember to wrap the content with `{%raw%}{% katexmm %}{% endkatexmm %}{%endraw%}`.
+- Icon/Photo in the header of the post/page:
+  - `emoji` : (e.g. `":chicken:"`) if you wanna display an emoji icon in the header for that page/post. Jump to [this section](#jemoji).
+  - `icon` : (e.g. `"fas fa-book-reader"`) if you wanna display an icon for that in the header for that page/post.
+  - `icon-color` : (e.g. `#ffeead`) if you wanna set a color for that icon.
+  - `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
 
 ## CMS
 
@@ -108,7 +109,7 @@ Full but overflow outside the margin:
 ![Describe](link/to/figures)
 ~~~
 
-Full but 50% width. We can use `50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100` for the percentages.
+Full but 50% width. We can use `30 to 100` (steps 5) for the percentages.
 
 ~~~
 {:.img-full-50}

@@ -3,7 +3,7 @@ layout: post
 title: "Matplotlib tips"
 categories: [python]
 icon-photo: matplotlib.png
-keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares bernoulli distribution"
+keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -106,49 +106,13 @@ plt.legend(
 
 ### imshow
 
-Plot a grid of square based on Bernoulli distribution,
+Plot from a list of true/false (ref to [an example of Bernoulli distribution](/algorithm-1#plot-a-grid-of-square))
 
-<div class="d-md-flex" markdown="1">
-{:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
-# MORE understandable but executing SLOWER
-
-N = 100
-P = 0
-im_size = 15
-
-def bernoulli(num, P, N):
-  return 1-np.random.binomial(1, P*num/N)
-
-vfunc = np.vectorize(bernoulli)
-image = np.array(range(1,N+1))
-image = np.repeat(image.reshape(N, 1), N, axis=1)
-image = vfunc(image, P, N)
-
-plt.figure(figsize=(im_size, im_size))
-plt.axis('off')
-plt.imshow(image, cmap='gray')
-plt.show(block=True)
+image = # np.array(4, 4) of random True/False
+plt.imshow(image, cmap='gray') # plot
+plt.show()
 ~~~
-
-{:.flex-even.overflow-auto.pl-md-1}
-~~~ python
-# LESS understandable but executing FASTER
-N = 5
-P = 1
-im_size = 15
-
-image = np.array(range(1,N+1))
-image = np.repeat(image.reshape(N, 1), N, axis=1)
-image = P/N * image
-image = image <= np.random.rand(N,N)
-
-plt.figure(figsize=(im_size, im_size))
-plt.axis('off')
-plt.imshow(image, cmap='gray')
-plt.show(block=True)
-~~~
-</div>
 
 ## Plot a photo (imshow)
 
