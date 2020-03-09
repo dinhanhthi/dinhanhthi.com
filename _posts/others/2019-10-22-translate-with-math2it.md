@@ -16,8 +16,8 @@ Tùy vào mục đích và bạn biết về Github nhiều hay ít mà hãy ch�
 
 ## Bạn chỉ muốn góp ý sửa một bài viết nào đó?
 
-- **Dễ nhất**{:.tbrown}: Email trực tiếp [đến Math2IT](mailto:math2itblog@gmail.com) hoặc tác giả đã dịch bài đó để đề nghị sửa.
-- **Sửa trực tiếp trên Github**{:.tbrown}: Bạn phải có 1 tài khoản Github, hãy [đăng nhập](https://github.com/login) sau đó:
+- **Dễ nhất**: Email trực tiếp [đến Math2IT](mailto:math2itblog@gmail.com) hoặc tác giả đã dịch bài đó để đề nghị sửa.
+- **Sửa trực tiếp trên Github**: Bạn phải có 1 tài khoản Github, hãy [đăng nhập](https://github.com/login) sau đó:
     1. Vào ngay trang chỉnh sửa bài viết đó trên Github (đã được đề cập trong bài dịch), ví dụ bài "[Hiểu trực quan chuỗi Taylor thông qua sự liên hệ với ADN](https://github.com/math2it/BetterExplained-vn-translation/blob/master/docs/phep-tinh-vi-tich-phan-calculus/chuoi-taylor-va-adn.md)".
     2. Nhấn vào biểu tượng hình cây bút (bên phải nó là biểu tượng hình thùng rác).
     3. Tiến hành sửa theo ý bạn (bạn có thể xóa cái cũ, chúng tôi sẽ tự biết những thay đổi).
@@ -28,13 +28,13 @@ Tùy vào mục đích và bạn biết về Github nhiều hay ít mà hãy ch�
     {:.alert.alert-warning}
     Hãy tìm **tất cả các lỗi** cần sửa và chỉ tạo **1 pull request duy nhất**! Tránh tình trạng quá nhiều pull request cho cùng 1 bài viết.
 
-- **Chuyên nghiệp nhưng phức tạp hơn**{:.tbrown}: Làm theo [hướng dẫn này](https://codetot.net/contribute-github/) để vừa có thể cùng dịch bài, vừa có thể tạo pull request.
+- **Chuyên nghiệp nhưng phức tạp hơn**: Làm theo [hướng dẫn này](https://codetot.net/contribute-github/) để vừa có thể cùng dịch bài, vừa có thể tạo pull request.
 
 ## Chuẩn chung cho các bài dịch
 
-1. **Luôn kiểm tra bài viết trước khi dịch để tránh tình trạng trùng lặp**{:.tbrown}. Bạn cần **TRÁNH** các bài **đã dịch**, **đang dịch** và **sắp dịch** của dự án. Ví dụ dự án [BetterExplained-vn-translation](https://betterexplained.math2it.com/tat-ca-bai-viet).
-2. **Luôn dịch bằng file markdown**{:.tbrown} (`.md`). Nếu chưa biết nó là gì, hãy xem [ở đây](https://en.wikipedia.org/wiki/Markdown#Example) và [ví dụ ở đây](https://markdown-it.github.io/).
-2. **Gõ Toán học giống gõ trong LaTeX**{:.tbrown}. Đặc biệt, ta dùng `$$a+b$$` cho các công thức trong cùng dòng văn bản (inline) thay vì `$a+b$` như trong LaTeX. Các công thức khác dòng (display), bạn hãy dùng `$$` ở đầu và cuối của block toán, kể cả khi đã dùng `\begin{align}...\end{align}`. Ví dụ,
+1. **Luôn kiểm tra bài viết trước khi dịch để tránh tình trạng trùng lặp**. Bạn cần **TRÁNH** các bài **đã dịch**, **đang dịch** và **sắp dịch** của dự án. Ví dụ dự án [BetterExplained-vn-translation](https://betterexplained.math2it.com/tat-ca-bai-viet).
+2. **Luôn dịch bằng file markdown** (`.md`). Nếu chưa biết nó là gì, hãy xem [ở đây](https://en.wikipedia.org/wiki/Markdown#Example) và [ví dụ ở đây](https://markdown-it.github.io/).
+2. **Gõ Toán học giống gõ trong LaTeX**. Đặc biệt, ta dùng `$$a+b$$` cho các công thức trong cùng dòng văn bản (inline) thay vì `$a+b$` như trong LaTeX. Các công thức khác dòng (display), bạn hãy dùng `$$` ở đầu và cuối của block toán, kể cả khi đã dùng `\begin{align}...\end{align}`. Ví dụ,
 
     ~~~ latex
 $$
@@ -44,10 +44,10 @@ x+y &= z
 $$
     ~~~
 
-3. **Bám sát cấu trúc của bài gốc**{:.tbrown}. Bài gốc dùng heading sao thì trong bài dịch heading y vậy (heading là các đề tựa cho mục).
-4. **Chỉ dịch thuật ngữ nếu bạn chắc chắn thuật ngữ đó đã được dùng và công nhận phổ biến**{:.tbrown}. Không tự ý dịch thuật ngữ chưa bao giờ được dịch sang tiếng Việt! Hãy giữ tên gốc hoặc cùng thảo luận trên [Group Math2IT](https://www.facebook.com/groups/math2it/)!
+3. **Bám sát cấu trúc của bài gốc**. Bài gốc dùng heading sao thì trong bài dịch heading y vậy (heading là các đề tựa cho mục).
+4. **Chỉ dịch thuật ngữ nếu bạn chắc chắn thuật ngữ đó đã được dùng và công nhận phổ biến**. Không tự ý dịch thuật ngữ chưa bao giờ được dịch sang tiếng Việt! Hãy giữ tên gốc hoặc cùng thảo luận trên [Group Math2IT](https://www.facebook.com/groups/math2it/)!
 5. Không tự ý trang trí cho bài viết mà chưa qua thảo luận với các thành viên khác! Bạn có thể [email cho Math2IT](mailto:math2itblog@gmail.com) hoặc tạo post thảo luận trên [Group Math2IT](https://www.facebook.com/groups/math2it/). 
-6. **Luôn kiểm tra bài viết này thường xuyên**{:.tbrown} để biết các chuẩn mới/đã thay đổi.
+6. **Luôn kiểm tra bài viết này thường xuyên** để biết các chuẩn mới/đã thay đổi.
 
 ## Bạn chưa biết gì về Github hay Git và chỉ muốn dịch thôi?
 

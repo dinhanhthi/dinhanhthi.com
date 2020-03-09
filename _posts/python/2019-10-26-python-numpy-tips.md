@@ -79,12 +79,20 @@ print(array_3)
 <div class="d-md-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
+# single array
+np.repeat(np.nan, 5)
+
+# multi dimensional arrays
 a = np.empty((2,3))
 a[:] = np.nan
+# other way
+np.repeat([np.repeat(np.nan, 3)], 2, axis=0)
 ~~~
 
 {:.output.flex-fill.d-flex}
 ~~~
+array([nan, nan, nan, nan, nan])
+
 array([[nan, nan, nan],
        [nan, nan, nan]])
 ~~~
