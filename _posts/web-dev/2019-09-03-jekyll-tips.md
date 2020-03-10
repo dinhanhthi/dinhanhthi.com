@@ -6,7 +6,7 @@ math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24
 sitemap: false
-keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html"
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
@@ -17,12 +17,37 @@ This note is used for you who have already had the basic idea about jekyll and h
 
 ## Useful links
 
+<div class="two-columns-list" markdown="1">
 - [Jemoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).
 - Link to [post](https://jekyllrb.com/docs/liquid/tags/#linking-to-posts) / [page](https://jekyllrb.com/docs/liquid/tags/#link).
 - [Jekyll cheat sheet](https://learn.cloudcannon.com/jekyll-cheat-sheet/).
 - [Rouge CSS file theme](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) (Pygment)
 - [Compress HTML in Jekyll](http://jch.penibelst.de/).
 - [Kramdown quickref](https://kramdown.gettalong.org/quickref.html).
+</div>
+
+## Make jekyll build faster
+
+~~~ bash
+# BENCHMARKING your site
+bundle exec jekyll build --profile
+~~~
+
+1. Disable `jekyll-feed`
+2. Run `bundle exec jekyll serve -I` (wuth `-I`) to generate the changed file only. If you create a new file, you have to rebuild.
+3. Upgrade to Jekyll 4.0.
+4. Add `gem "liquid-c"` to `Gemfile` and make `bundle update`
+5. Use `jekyll-include-cache` (both in `Gemfile` and `_config.yml`)
+
+Read more in [this article](https://forestry.io/blog/how-i-reduced-my-jekyll-build-time-by-61/).
+
+If you need to clear jekyll cache any time, use `bundle exec jekyll clean`.
+
+## Disable jekyll-feed
+
+1. Comment line `jekyll-feed` in `Gemfile`
+2. Comment line `jekyll-feed` in `_config.yml`
+3. Rebuild.
 
 ## Sitemap
 
@@ -34,7 +59,6 @@ You can use directly by
 
 ~~~ html
 {%raw%}<span markdown="span"></span>
-
 <div markdown="1"></div>
 {%endraw%}~~~
 

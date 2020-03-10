@@ -1,6 +1,5 @@
 h2.heading-title{
-  font-family: $f-heading;
-  font-weight: 700;
+  font-weight: 600;
   color: $f-heading-color;
   font-size: 1.45rem;
   padding-bottom: 7px;
@@ -10,7 +9,6 @@ h2.heading-title{
     content: ""!important;
   }
   .more{
-    font-family: $f-heading;
     font-size: 1rem;
     border-left: 1px solid #ddd;
     margin-left: 7px;

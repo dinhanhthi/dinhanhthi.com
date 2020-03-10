@@ -389,6 +389,7 @@ Block of codes.
 - (Hide line numbers case) Add `.overflow-auto` before the **main code block** if its length is long.
 - If you want 2 boxes share equal widths, replace `.flex-fill.d-flex` with `.flex-even`!
 - If two column stick together (with no space between them), you can use `.pr-md-1` for the left and `.pl-md-1` for the right.
+- If you wanna the output box stick to the code box, use `.mt-m1.bt-none` class.
 
 ## Insert boxes
 

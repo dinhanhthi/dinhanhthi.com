@@ -3,7 +3,7 @@ layout: post
 title: "Data Overview"
 categories: [data science]
 icon-photo: data-overview.png
-keywords: dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate
+keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -67,6 +67,8 @@ df.Classes.value_counts() # give number of each 0 and 1
 
 ## Missing values
 
+👉 [Handle missing values](/data-preprocessing-cleaning#deal-with-missing-values-nan).
+
 Show the number of missing values in each column (including the zero ones)
 
 ~~~ python
@@ -97,8 +99,20 @@ sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
 
 ## Duplicates
 
-Check duplicates (or not) in some column,
+👉 [Handle duplicates](/data-preprocessing-cleaning#drop-duplicates).
 
 ~~~ python
-df['Student'].duplicated().any()
+# Check if there are duplicated values?
+df['col'].duplicated().any() # returns True/False
+
+# How many duplicates? (only count the first occurs)
+df['col'].duplicated().sum()
+
+# How many (including the repeated occurs)
+df['col'].duplicated(keep=False).sum()
+
+# List all duplicated values (LONG EXECUTING!!!)
+pd.concat( g for _, g in df.groupby('col') if len(g)>1 )
 ~~~
+
+

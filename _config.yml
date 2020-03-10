@@ -19,9 +19,10 @@ permalink: /:title
 plugins:
   - jemoji
   - jekyll-sitemap
-  - jekyll-feed
+  # - jekyll-feed
   - jekyll-katex
   - jekyll-admin
+  - jekyll-include-cache
   
 sass:
   style: compact

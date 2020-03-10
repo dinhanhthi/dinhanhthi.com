@@ -260,7 +260,6 @@ table{
 
 // learning-log-box
 .learning-log-box{
-  font-family: $f-heading;
   background-color: #f5f5f5;
   border-radius: 0;
   border: 1px solid #eee;
@@ -275,4 +274,8 @@ table{
       color: #066abf;
     }
   }
+}
+
+.bt-none{
+  border-top: none!important;
 }

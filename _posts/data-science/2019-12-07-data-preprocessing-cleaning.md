@@ -3,7 +3,7 @@ layout: post
 title: "Data Processing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
-keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing"
+keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -102,6 +102,8 @@ df.set_index(['col1', 'col2'])
 
 ### Drop duplicates
 
+👉 [Overview duplicates](/dataframe-overview#duplicates).
+
 ~~~ python
 # check duplicates
 df['Student'].duplicated().any()
@@ -110,9 +112,21 @@ df['Student'].duplicated().any()
 df.drop_duplicates(['col1', 'col2'])
 ~~~
 
+### Couple different columns
+
+~~~ python
+df = df0[['Date', 'Heure', 'tH (°C)']].copy()
+df['timestamp'] = df['Date'] + ' ' + df['Heure']
+
+# if you use without `.copy()`
+# WARNING: A value is trying to be set on a copy of a slice from a DataFrame. 
+~~~
+
 ## Deal with missing values `NaN`
 
-### Drop if `NaN`
+👉 [Overview missing values](/dataframe-overview#missing-values).
+
+### Drop `NaN` values
 
 Full reference of `dropna` is [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html).
 

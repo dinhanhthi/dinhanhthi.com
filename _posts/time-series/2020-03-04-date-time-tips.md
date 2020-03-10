@@ -2,7 +2,7 @@
 layout: post
 title: "Date / Time tips"
 categories: [time series]
-keywords: resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta
+keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide"
 ---
 
 {% include toc.html %}
@@ -68,6 +68,8 @@ We can make some arithmetic with them.
 
 This is used to find the offset string (or "DateOffsets" or "frequencies strings" or "offset aliases") for `rule` in [`Resample`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html) {% ref https://stackoverflow.com/questions/46429736/pandas-resampling-how-to-generate-offset-rules-string-from-timedelta %}.
 
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
 def timedelta_to_string(timedelta):
     c = timedelta.components
@@ -89,8 +91,7 @@ def timedelta_to_string(timedelta):
     return time_format
 ~~~
 
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
+<div markdown="1" class="flex-even overflow-auto pl-md-1">
 ~~~ python
 ## EXAMPLE
 import pandas as pd
@@ -98,12 +99,14 @@ test = pd.Timedelta('1 minutes')
 timedelta_to_string(test)
 ~~~
 
-{:.output.flex-fill.d-flex}
+{:.output.mt-m1.bt-none}
 ~~~
 Timedelta('0 days 00:01:00')
 '1T'
 ~~~
 </div>
+</div>
+
 
 ## Detect time series frequency
 
@@ -114,6 +117,9 @@ Find the different time steps in a datetime columns,
 ~~~ python
 # count the number of elements for each time steps
 df.date.diff().value_counts()
+
+# count number of different time steps
+df.date.diff().value_counts().count()
 
 # take the index of the largest 
 df.date.diff().value_counts().index[0]
@@ -130,9 +136,38 @@ df.date.diff().value_counts().index[-1]
 00:04:00     1
 Name: date, dtype: int64
 
+4
+
 Timedelta('0 days 00:01:00')
+
 Timedelta('0 days 00:04:00')
 ~~~
 </div>
 
 One can couple with function `timedelta_to_string` in the previous section to find out the most-appeared time steps to feed into `df.resample()`'s `rule`.
+
+## Check timestamps are well sorted?
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ python
+# CHECK
+df.date.is_monotonic # monotonic increasing?
+df.date.is_monotonic_decreasing # decreasing?
+
+# if using groupby
+def check_monotonic(group):
+    return group.is_monotonic
+df.groupby('label').agg({'timestamp': [check_monotonic] })
+~~~
+
+{:.flex-even.overflow-auto.pl-md-1}
+~~~ python
+# ARRANGE THEM
+df.sort_values(by='date', inplace=True)
+~~~
+</div>
+
+## References
+
+- [Time Series User Guide](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html) on [pandas](/python-pandas).
