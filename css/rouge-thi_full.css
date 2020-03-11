@@ -15,7 +15,7 @@
   background: #fdfdfd!important;
 }
 .output .highlight .highlight{
-  border-width: 0.5px!important;
+  border-width: 1px!important;
 }
 
 pre code{
@@ -99,7 +99,7 @@ pre code{
 }
 /* Name Tag */
 .highlight .nt {
-  color: #525252;
+  color: #2b93c5;
   background-color: transparent;
 }
 /* Name Variable */
