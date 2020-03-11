@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Web Design Tips"
+title: "Web Design tips"
 categories: [web development]
 math: 1
 keywords: autofocus separated columns page load google webfont sass

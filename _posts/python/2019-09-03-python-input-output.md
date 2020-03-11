@@ -2,7 +2,7 @@
 layout: post
 title: "Input & Output"
 categories: [python]
-keywords: "print string display"
+keywords: "print string display long strings long texts break the line word wrap multi lines multilines"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -89,6 +89,21 @@ print(f'Hello {"A"} and {b}.')
 {:.output.flex-fill.d-flex}
 ~~~
 Hello A and B.
+~~~
+</div>
+
+Long strings,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+print('This is a part of sentence.'
+      'This is other part.')
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+This is a part of sentence. This is other part.
 ~~~
 </div>
 

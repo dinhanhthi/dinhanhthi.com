@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Jekyll Tips"
+title: "Jekyll tips"
 categories: [web development]
 math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24
 sitemap: false
-keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear"
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear list of posts alpha beta order ABC order sort posts category by name"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
@@ -31,6 +31,9 @@ This note is used for you who have already had the basic idea about jekyll and h
 ~~~ bash
 # BENCHMARKING your site
 bundle exec jekyll build --profile
+
+# clean cache
+bundle exec jekyll clean
 ~~~
 
 1. Disable `jekyll-feed`
@@ -41,9 +44,7 @@ bundle exec jekyll build --profile
 
 Read more in [this article](https://forestry.io/blog/how-i-reduced-my-jekyll-build-time-by-61/).
 
-If you need to clear jekyll cache any time, use `bundle exec jekyll clean`.
-
-## Disable jekyll-feed
+### Disable jekyll-feed
 
 1. Comment line `jekyll-feed` in `Gemfile`
 2. Comment line `jekyll-feed` in `_config.yml`
@@ -52,6 +53,35 @@ If you need to clear jekyll cache any time, use `bundle exec jekyll clean`.
 ## Sitemap
 
 If there is no url in the ouput [sitemap](https://github.com/jekyll/jekyll-sitemap) (_https://dinhanhthi.com/sitemap.xml_, for example) like `<loc>/reading</loc>` instead of `<loc>https://dinhanhthi.com/reading</loc>`, please check your `_config.yml` file and make sure that there is the full url inside `url` field.
+
+## Loop through posts
+
+~~~ liquid
+{%raw%}{% for post in site.posts %}
+  {{ post.title }}
+{% endfor %}
+{%endraw%}~~~
+
+List all posts in each category,
+
+~~~ liquid
+{%raw%}{% for category in site.data.categories %}
+  {% if site.categories[category.name].size > 0 %}
+    {% for post in site.categories[category.name] %}
+      {{ post.title }}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{%endraw%}~~~
+
+List all posts in ABC order{% ref https://stackoverflow.com/questions/39922776/how-to-sort-site-posts-alphabetically-by-post-title-in-jekyll %},
+
+~~~ liquid
+{%raw%}{% assign sortedPosts = site.posts | sort: 'title' %}
+{% for post in sortedPosts %}
+  {{ post.title }}
+{% endfor %}
+{%endraw%}~~~
 
 ## Using markdown syntax inside html tags
 

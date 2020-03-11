@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Computer & Internet Tips"
+title: "Computer & Internet tips"
 categories: [others]
 icon-photo: tips.svg
 keywords: "download flash video browser extension video url google video download manager videoplay developer tools VSC visual studio code exclude files folders search technique skills patterns preference settings confige configure options"

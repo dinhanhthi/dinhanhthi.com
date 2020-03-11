@@ -3,7 +3,7 @@ layout: post
 title: "Pandas tips"
 categories: [python]
 icon-photo: pandas.png
-keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary to_csv write to files multiindex indexing"
+keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name"
 ---
 
 {% assign img-url = '/img/post/python/pandas' %}
@@ -78,6 +78,8 @@ In this part, we are going to use below dataframe `df`.
 | 3 | Beo | 18 | 6 | New York |
 | 4 | Chang | 11 | 8 | DC |
 
+### Select Single value
+
 **Select a single value** (with condition): Get the mark of `Thi` (`9`).
 
 ~~~ python
@@ -94,6 +96,14 @@ df[['Marks']].iloc[1].values[0] # column 'Marks', row 2
 # column's index with row's value
 df[df.Name=='Thi'].iloc[:,2].values[0] # column 3, row of 'Thi'
 ~~~
+
+### Select integer rows and named columns
+
+~~~ python
+df.loc[1:5, 'col']
+~~~
+
+### Select columns
 
 **Select a column** (type `Series`): Get column `Name`.
 
@@ -116,6 +126,8 @@ df.loc[:, ['Name', 'Place']]
 # using indexes
 df.iloc[:, [0,-1]]
 ~~~
+
+### Select rows
 
 **Select a row** (type `Series`): Get row `Thi`.
 
@@ -145,5 +157,12 @@ df.loc[:2]
 ## MultiIndex {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html %}
 
 
+
+## Invert True/False value in Series
+
+~~~ python
+s = pd.Series([True, True, False, True])
+~s
+~~~
 
 

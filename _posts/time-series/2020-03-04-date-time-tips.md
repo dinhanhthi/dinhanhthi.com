@@ -2,7 +2,7 @@
 layout: post
 title: "Date / Time tips"
 categories: [time series]
-keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide"
+keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta"
 ---
 
 {% include toc.html %}
@@ -64,7 +64,26 @@ True
 
 We can make some arithmetic with them.
 
-## Timedelta to offset string
+## `TimedeltaIndex` differences
+
+There is no `.diff` method with `TimedeltaIndex`, you can use,
+
+~~~ python
+np.subtract(df[1:], df[:-1])
+
+# convert to hour
+np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
+~~~
+
+## Converting
+
+~~~ python
+# numpy.timedelta64(208206000000000,'ns')
+# to: Timedelta('2 days 09:50:06')
+pd.Timedelta(time, unit='ns')
+~~~
+
+### Timedelta to offset string
 
 This is used to find the offset string (or "DateOffsets" or "frequencies strings" or "offset aliases") for `rule` in [`Resample`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html) {% ref https://stackoverflow.com/questions/46429736/pandas-resampling-how-to-generate-offset-rules-string-from-timedelta %}.
 
@@ -106,7 +125,6 @@ Timedelta('0 days 00:01:00')
 ~~~
 </div>
 </div>
-
 
 ## Detect time series frequency
 

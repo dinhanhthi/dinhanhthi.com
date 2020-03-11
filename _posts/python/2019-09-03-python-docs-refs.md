@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "References for learning Python"
+title: "Python references"
 categories: [python]
 keywords: "references documentation material courses practice python newsletter platform"
 ---

@@ -2,13 +2,15 @@
 layout: post
 title: "Decision Tree Classifier"
 categories: [machine learning]
-math: 1
+katex: 1
 icon-photo: decision-tree.svg
 keywords: classification regression outlook temperature huminity windy play golf Iterative Dichotomiser (ID3) CART (Classification And Regression Tree) information gain entropy Gini impurity root node branch child node internal node splitting pruning parent node sub nodes stopping condition gini gain Highly interpretable irrelevant features Non-parametric tuning unbalanced Graphviz Saed Sayad Tiep Vu Brian Ambielli Aurélien Géron
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
 {% assign file-url = '/files/ml' %}
+
+{% katexmm %}
 
 {% include toc.html %}
 
@@ -33,21 +35,16 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 - [**ID3**](https://en.wikipedia.org/wiki/ID3_algorithm) (*Iterative Dichotomiser*): uses **information gain** / **entropy**.
 - **[CART](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity)** (*Classification And Regression Tree*): uses **Gini impurity**.
 
-<div class="hide-show-box">
-<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box3ct">
-**Some basic concepts**
-</button>
-<div id="box3ct" markdown="1" class="collapse multi-collapse box-content">
+### Some basic concepts
 
-{:.img-full-85}
+{:.img-full-80}
 ![Concepts with a tree.]({{img-url}}/f5.jpg)
 
 - **Splitting**: It is a process of dividing a node into two or more sub-nodes.
 - **Pruning**: When we remove sub-nodes of a decision node, this process is called pruning.
 - **Parent node and Child Node**: A node, which is divided into sub-nodes is called parent node of sub-nodes where as sub-nodes are the child of parent node.
 
-</div>
-</div>
+### ID3 algorithm
 
 <div class="hide-show-box">
 <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box2ct">
@@ -63,7 +60,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
     $$
     </p>
     
-    where $i \in$ the number of classes and $p\_{S,i}$ is the probability of class $i$ in $S$.
+    where $i \in$ the number of classes and $p_{S,i}$ is the probability of class $i$ in $S$.
 
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
@@ -77,7 +74,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
     $$
     </p>
 
-    where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propability of property $O\_j$ in $O$.
+    where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$.
 
 4. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1. 
 
@@ -102,7 +99,7 @@ $$
 
 At the beginning, `entropy before split` ($H(S)$) shows us the disorder status of the whole dataset $S$. If $S$ contains only `Yes`, $S$ has no disorder or it's **pure** ($H(S)=0)$. If the amount of `Yes` and `No` in $S$ is equal, $S$ has the highest disorder ($H(S)=1$).
 
-{:.img-full-85}
+{:.img-full-80}
 ![Illustration of entropy with different proportions of Yes/No in S.]({{img-url}}/f6.jpg)
 *An illustration of entropy with different proportions of Yes/No in $S$.*
 
@@ -114,25 +111,25 @@ H(S) = -\sum_{i=1}^{2} p_{S,i} \log_2 p_{S,i},
 $$
 </p>
 
-where $i \in$ the number of classes (node $S$ has 2 classes, `Yes` and `No`), $p\_{S,i}$ is the probability of class $i$ in $S$.
+where $i \in$ the number of classes (node $S$ has 2 classes, `Yes` and `No`), $p_{S,i}$ is the probability of class $i$ in $S$.
 
-{:.img-full-50}
+{:.img-full-45}
 ![Graph of H(S) in the case there are 2 classes.]({{img-url}}/f11.svg)
 *Graph of $H(p)$ in the case of 2 classes. Max is 1.*
 
 {:.alert.alert-warning}
-In this case we use $\log\_2$ (binary logarithm) to obtain the maximum $H(S)=1$ and we also use a convention in which $0\times\log\_2(0)=0$. There are other documents using $\log$ (natural logarithm) instead.
+In this case we use $\log_2$ (binary logarithm) to obtain the maximum $H(S)=1$ and we also use a convention in which $0\times\log_2(0)=0$. There are other documents using $\log$ (natural logarithm) instead.
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
 On node $S$, we have,
 
 $$
-\begin{align}
+\begin{aligned}
 H(S) &= H([9,5]) \\ 
 &= -\frac{9}{14} \times \log_2(\frac{9}{14}) - \frac{5}{14}\times\log_2(\frac{5}{14})\\
 &= 0.94.
-\end{align}
+\end{aligned}
 $$
 
 We see that, $S$ is not pure but it's also not totally disordered.
@@ -151,7 +148,7 @@ $$
 $$
 </p>
 
-where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propability of property $O\_j$ in $O$. Therefore, the information gain if split $S$ on $O$ is,
+where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$. Therefore, the information gain if split $S$ on $O$ is,
 
 <p class="p-mark">
 $$
@@ -163,30 +160,30 @@ $$
 ![If we split S in O?]({{img-url}}/f2.jpg)
 *If we split S on Outlook (O), there will be 3 branches.*
 
-For example, we consider branch $O\_1$ (Sunny), it has $P(O\_1)=\frac{5}{14}$ and entropy at this node, $H(S,O\_1)$ is calculated as
+For example, we consider branch $O_1$ (Sunny), it has $P(O_1)=\frac{5}{14}$ and entropy at this node, $H(S,O_1)$ is calculated as
 
 <div class="columns-2" markdown="1">
 $$
-\begin{align}
+\begin{aligned}
 H(S,O_1) &= H([2,3]) \\
 &= -\frac{2}{5} \times \log_2(\frac{2}{5}) - \frac{3}{5}\times\log_2(\frac{3}{5})\\ 
 &= 0.97.
-\end{align}
+\end{aligned}
 $$
 
 {:.img-full-normal}
 ![Only consider O1]({{img-url}}/f3.jpg)
-*Only consider branch Sunny ($O\_1$).*
+*Only consider branch Sunny ($O_1$).*
 </div>
 
 Thus, the information gain after splitting $S$ on $O$ is,
 
 $$
-\begin{align}
+\begin{aligned}
 IG(S,O) &= H(S) - \sum_{j=1}^3 P(O_j) \times H(S,O_j) \\
 &= 0.94 - (\frac{5}{14}\times 0.971 + \frac{4}{14}\times 0 + \frac{5}{14}\times 0.971) \\
 &= 0.94 - 0.693 = 0.247.
-\end{align}
+\end{aligned}
 $$
 
 With the same method, we can calculate the information gain after splitting $S$ on other attributes (Temperature, Windy, Humidity) and get,
@@ -207,27 +204,27 @@ How about 3 others remaining attributes (Temperature, Humidity, Windy), which on
 ![Which attribute will be chosen next?]({{img-url}}/f10.jpg)
 *There are remaining Temperature, Humidity, Windy. Which attribute will be chosen next?*
 
-We repeat the steps again, for example, on the branch $O\_1$ (Sunny), we calculate IG after splitting $O\_1$ on each attribute Temperature (T), Humidity (H) or Windy (W). Other words, we need to calculate $IG(O\_1,T)$, $IG(O\_1, H)$ and $IG(O\_1, W)$ and then compare them to find the best one. Let's consider $H$ (Humidity) as an example,
+We repeat the steps again, for example, on the branch $O_1$ (Sunny), we calculate IG after splitting $O_1$ on each attribute Temperature (T), Humidity (H) or Windy (W). Other words, we need to calculate $IG(O_1,T)$, $IG(O_1, H)$ and $IG(O_1, W)$ and then compare them to find the best one. Let's consider $H$ (Humidity) as an example,
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
 $$
-\begin{align}
+\begin{aligned}
 IG(O_1,H) &= H(O_1) - \sum_{j=1}^2 P(H_j|O_1) \times H(O_1,H_j) \\
 &= H(S,O_1) - \frac{3}{5}\times 0 - \frac{2}{5} \times 0 \\
 &= 0.971.
-\end{align}
+\end{aligned}
 $$
 
-Nodes $W\_1$ and $W\_2$ are pure, that's why their entropy are $0$.
+Nodes $W_1$ and $W_2$ are pure, that's why their entropy are $0$.
 </div>
 
 {:.img-full-75.pop#ttt}
 ![Consider branch O1 and attribute W]({{img-url}}/f4.jpg)
-*Consider branch $O\_1$ and attribute Windy (W).*
+*Consider branch $O_1$ and attribute Windy (W).*
 </div>
 
-Similarly, we calculate $IG(O\_1,T)$, $IG(O\_1,H)$ and we see that $IG(O\_1,W)$ is the biggest one! So we choose $W$ (Windy) to split at node $O\_1$. On the branch $O\_3$ (Rainy), the biggest information gain after splitting is on $H$ (Humidity).
+Similarly, we calculate $IG(O_1,T)$, $IG(O_1,H)$ and we see that $IG(O_1,W)$ is the biggest one! So we choose $W$ (Windy) to split at node $O_1$. On the branch $O_3$ (Rainy), the biggest information gain after splitting is on $H$ (Humidity).
 
 {:.img-full-normal.pop}
 ![Example of dataset]({{img-url}}/dt-1.jpg)
@@ -236,6 +233,8 @@ From now, if we have a new input which contains information about *Outlook, Temp
 
 </div>
 </div>
+
+### CART algorithm
 
 <div class="hide-show-box">
 <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box5ct">
@@ -254,7 +253,7 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
     $$
     </p>
     
-    where $i \in$ the number of classes in $S$ and $p\_{S,i}$ is the probability of class $i$ in $S$.
+    where $i \in$ the number of classes in $S$ and $p_{S,i}$ is the probability of class $i$ in $S$.
 
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
@@ -268,7 +267,7 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
     $$
     </p>
 
-    where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propability of property $O\_j$ in $O$.
+    where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$.
 
 4. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1. 
 
@@ -281,9 +280,9 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
 </button>
 <div id="box6ct" markdown="1" class="collapse multi-collapse box-content">
 
-It's quite the same to the ID3 algorithm except a truth that it's based on the definition of **Gini impurity** instead of **Entropy**. *Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.*{:.tgreen}
+It's quite the same to the ID3 algorithm except a truth that it's based on the definition of **Gini impurity** instead of **Entropy**. *Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.*
 
-At every nonleaf node (which isn't pure), we have to answer a question "*Which attribute we should choose to split that node?*{:.tgreen}" We calculate the **Gini gain** for each split based on the attribute we are going to use. This *Gini gain* is quite the same as *Information gain*. <mark>The highest one will be chosen.</mark>
+At every nonleaf node (which isn't pure), we have to answer a question "*Which attribute we should choose to split that node?*" We calculate the **Gini gain** for each split based on the attribute we are going to use. This *Gini gain* is quite the same as *Information gain*. <mark>The highest one will be chosen.</mark>
 
 <p class="p-mark">
 $$
@@ -299,18 +298,18 @@ I_G(S) = \sum_{i=1}^2p_{S,i}(1-p_{S,i}),
 $$
 </p>
 
-where $i\in$ the number of classes in $S$, $p\_{S,i}$ is the probability of class $i$ in $S$. <mark>$I_G=0$ will be the best!</mark>
+where $i\in$ the number of classes in $S$, $p_{S,i}$ is the probability of class $i$ in $S$. <mark>$I_G=0$ will be the best!</mark>
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
 On node $S$, we have,
 
 $$
-\begin{align}
+\begin{aligned}
 I_G(S) &= I_G([9,5]) \\ 
 &= \frac{9}{14} \times \frac{5}{14} + \frac{5}{14} \times \frac{9}{14}\\
 &= 0.459.
-\end{align}
+\end{aligned}
 $$
 </div>
 
@@ -327,7 +326,7 @@ GG(S,O) = I_G(S) - \sum_{j=1}^3 P(O_j) \times I_G(S,O_j),
 $$
 </p>
 
-where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propability of property $O\_j$ in $O$.
+where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$.
 
 {:.img-full-normal.pop}
 ![If we split S in O?]({{img-url}}/f12.jpg)
@@ -336,10 +335,10 @@ where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propabi
 Apply above equation, we calculate all GG if splitting $S$ on each property and get,
 
 $$
-\begin{align}
+\begin{aligned}
 GG(S,O) &= I_G([9,5]) - ( \frac{5}{14}\times I_G([2,3]) + \frac{4}{14}\times I_G([4,0]) + \frac{5}{14}\times I_G([3,2])) \\
 &= \ldots
-\end{align}
+\end{aligned}
 $$
 
 The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy). Keep going the same arguments as in the section **ID3 in detail**, we will get the final tree. <mark>The difference between two algorithms is the difference between $H(S)$ and $I_G(S)$.</mark>
@@ -353,13 +352,8 @@ The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy)
 - Gini impurity is slightly faster.<sup>[[ref]](https://www.unine.ch/files/live/sites/imi/files/shared/documents/papers/Gini_index_fulltext.pdf)</sup>
 - Gini impurity tends to isolate the most frequent class in its own branch of the tree, while entropy tends to produce slightly more balanced trees.
 
-## Good / Bad of Decision Tree?
+## Good / Bad of Decision Tree?{% ref https://blog.easysol.net/machine-learning-algorithms-1 %}
 
-<div class="hide-show-box">
-<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box4ct">
-Click here to see<sup>[[ref]](https://blog.easysol.net/machine-learning-algorithms-1/)</sup>
-</button>
-<div id="box4ct" markdown="1" class="collapse multi-collapse box-content">
 Some highlight **advantages** of Decision Tree Classifier:
 
 1. Can be used for <mark>regression</mark> or <mark>classification</mark>.
@@ -380,8 +374,6 @@ Its **disadvantages**:
 4. Recursive binary splitting makes "locally optimal" decisions that may not result in a globally optimal tree.
 5. Doesn't tend to work well if the classes are highly unbalanced.
 6. Doesn't tend to work well with very small datasets.
-</div>
-</div>
 
 ## When to stop?
 
@@ -477,3 +469,5 @@ graph.write_png("thi.png")    # to png
 - **Brian Ambielli**. *[Information Entropy and Information Gain](https://bambielli.com/til/2017-10-22-information-gain/)*.
 - **Brian Ambielli**. *[Gini Impurity (With Examples)](https://bambielli.com/til/2017-10-29-gini-impurity/)*.
 - **Aurélien Géron**. *[Hands-on Machine Learning with Scikit-Learn and TensorFlow](https://books.google.fr/books/about/Hands_on_Machine_Learning_with_Scikit_Le.html?id=I6qkDAEACAAJ&source=kp_book_description&redir_esc=y)*, chapter 6.
+
+{% endkatexmm %}
