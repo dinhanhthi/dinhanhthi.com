@@ -28,14 +28,14 @@ df['date'].diff().max()
 # 4 biggest gaps
 df['date'].diff().sort_values().iloc[-5:]
 
-# count the number of windows
-df['date'].shape[0] - df.['date'].diff().sort_values().diff().abs().reset_index().timestamp.idxmax()
-
 # starting of each window (the gap used to separate windows is '1D')
 w_starts = df.reset_index()[~(df['date'].diff() < pd.to_timedelta('1D'))].index
 
 # ending of each window
 w_ends = (w_starts[1:] - 1).append(pd.Index([df.shape[0]-1]))
+
+# count the number of windows
+len(w_starts)
 
 # the biggest/average window size (in points)
 (w_ends - w_starts).max()
@@ -55,3 +55,13 @@ for i in range(w_starts.shape[0]):
     w_idx += 1
 df_tmp.window = df_tmp.window.astype(int) # convert dtype to int64
 ~~~
+
+There are other cases need to be considered,
+
+{:.img-full-100}
+![Group of time series intervals]({{img-url}}/ts-interval-example-2.png)
+_The gaps are not regular_
+
+{:.img-full-100}
+![Group of time series intervals]({{img-url}}/ts-interval-example-3.png)
+_If we choose the gaps (to determine the windows) too small, there are some windows have only 1 point like in this case._

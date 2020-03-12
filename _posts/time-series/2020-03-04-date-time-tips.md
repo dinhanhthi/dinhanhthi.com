@@ -2,7 +2,7 @@
 layout: post
 title: "Date / Time tips"
 categories: [time series]
-keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta"
+keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0"
 ---
 
 {% include toc.html %}
@@ -41,7 +41,7 @@ U, us     microseconds
 N         nanoseconds
 ~~~
 
-### Compare/Make arithmetic different frequency string
+### Compare/Make arithmetic different frequency strings
 
 We wanna compare `150S` (150 seconds) with `1T` (1 minutes).
 
@@ -77,10 +77,26 @@ np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
 
 ## Converting
 
+To `Timedelta`,
+
 ~~~ python
-# numpy.timedelta64(208206000000000,'ns')
-# to: Timedelta('2 days 09:50:06')
+# numpy.timedelta64(208206000000000,'ns') → Timedelta('2 days 09:50:06')
 pd.Timedelta(time, unit='ns')
+
+# DateOffsets ('14T') → Timedelta('0 days 00:14:00')
+pd.to_timedelta('14T')
+~~~
+
+Timestamps,
+
+~~~ python
+from datetime import datetime
+
+# to same timezone (UTC, +0)
+df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
+
+# UTC+0 to UNIX timestamp
+df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
 ~~~
 
 ### Timedelta to offset string

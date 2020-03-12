@@ -147,6 +147,21 @@ li{
     &:hover{
       background: #efefef!important;
     }
+
+    position: relative;
+    &::after{
+      content: "\f107";
+      color: #333;
+      top: -2px;
+      right: 0px;
+      position: absolute;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+    &[aria-expanded="true"]::after {
+      content: "\f106";
+    }
+
   }
   .box-content{
     border: 1px solid #ddd;

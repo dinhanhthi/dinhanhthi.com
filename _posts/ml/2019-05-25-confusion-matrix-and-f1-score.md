@@ -2,11 +2,13 @@
 layout: post
 title: "Confusion matrix & f1-score"
 categories: [machine learning]
-math: 1
+katex: 1
 keywords: true false negative positive type i type ii error precision recall f1 score email spam bank transaction is fraudulent skewed class accuracy specificity prediction support ROC curve machine learning crash course google developers Koo Ping Shung Marco Altini Salma Ghoneim Towards Data Science NLP blog
 ---
 
 {% assign img-url = '/img/post/ML/confusion-matrix-f1-score' %}
+
+{% katexmm %}
 
 {% include toc.html %}
 
@@ -26,7 +28,7 @@ keywords: true false negative positive type i type ii error precision recall f1 
 - **False Positive** (**FP**{:.tpink}): what we predict Positive is actually Negative.
 </div>
 
-{:.img-full-normal}
+{:.img-full-100.pop}
 ![This guy is pregnant?]({{img-url}}/cm_ex.png)
 *This guy is pregnant?*
 </div>
@@ -99,12 +101,12 @@ F1-score depends on how we label the class "positive". *This email is spam?* is 
 
 ### How to choose f1-score value?
 
-Normally, $f\_1\in (0,1]$ and it gets the higher values, the better our model is.
+Normally, $f_1\in (0,1]$ and it gets the higher values, the better our model is.
 
-- The best one ($f\_1=1$), both precision and recall get $100\%$.
-- One of precision and recall gets very small value (close to 0), $f\_1$ is very small, our model is not good!
+- The best one ($f_1=1$), both precision and recall get $100\%$.
+- One of precision and recall gets very small value (close to 0), $f_1$ is very small, our model is not good!
 
-What if we prefer one of precision and recall than the other? We consider $f\_{\beta}$<sup>[[ref]](https://pdfs.semanticscholar.org/3dcd/a1bec36586b46b1dc67a477beca2c5a105be.pdf)</sup>
+What if we prefer one of precision and recall than the other? We consider $f_{\beta}$<sup>[[ref]](https://pdfs.semanticscholar.org/3dcd/a1bec36586b46b1dc67a477beca2c5a105be.pdf)</sup>
 
 <p class="p-mark">
 $$
@@ -112,7 +114,7 @@ f_{\beta} = ( 1 + \beta^2)\frac{\text{precision}\cdot\text{recall}}{\beta^2\cdot
 $$
 </p>
 
-$f\_1$ is a special case of $f\_{\beta}$ when $\beta=1$:
+$f_1$ is a special case of $f_{\beta}$ when $\beta=1$:
 
 - When precision is more important than recall, we choose $\beta < 1$ (usually choose $\beta=0.5$).
 - When recall is more important than precision, we choose $\beta > 1$ (usually choose $\beta=2$).
@@ -182,6 +184,8 @@ _ = plt.legend(loc="lower right")
 4. [Accuracy, Precision, Recall or F1?](https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9){:target="_blank"} - **Koo Ping Shung**, *Towards Data Science*.
 5. [Dealing with Imbalanced data: undersampling, oversampling and proper cross-validation](https://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation#){:target="_blank"} - **Marco Altini**.
 6. [Accuracy, Recall, Precision, F-Score & Specificity, which to optimize on?](https://towardsdatascience.com/accuracy-recall-precision-f-score-specificity-which-to-optimize-on-867d3f11124){:target="_blank"} - **Salma Ghoneim**, *Towards Data Science*.
+
+{% endkatexmm %}
 
 
 

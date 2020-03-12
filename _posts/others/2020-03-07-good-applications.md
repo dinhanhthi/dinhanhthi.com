@@ -10,7 +10,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [Unikey](https://www.unikey.org/) : Vietnamese input method on Windows.
 - [ScreenToGif](https://www.screentogif.com/)
 - [LockHunter](https://lockhunter.com/) : find what application/process is preventing us from deleting some folder/file.
-- [cmder](https://cmder.net/) (Console Emulator) : drop-down terminal for windows.
+- [cmder](https://cmder.net/) (Console Emulator) : drop-down terminal for windows. My [setting file](/files/cmderSetting.xml).
 - [Everything](https://www.voidtools.com/) : an alternative to Spotlight in Mac. You can search any thing (app, docs, files,...) in your computer with hotkeys.
 
 ## Education

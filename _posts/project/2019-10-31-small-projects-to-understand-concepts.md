@@ -3,7 +3,7 @@ layout: post
 title: "Small projects for understanding concepts"
 categories: [project-based learning]
 math: 1
-keywords: Image compression K-Means PCA google drive github Lossy conversion Clipping input data to the valid range for imshow Face Recognition SVM XOR problem k means principal component analysis supoprt vector machine digit face Lossy conversion 
+keywords: "Image compression K-Means PCA google drive github Lossy conversion Clipping input data to the valid range for imshow Face Recognition SVM XOR problem k means principal component analysis supoprt vector machine digit face Lossy conversion pipeline"
 ---
 
 {% assign img-url = '/img/post/project/' %}
@@ -33,4 +33,5 @@ keywords: Image compression K-Means PCA google drive github Lossy conversion Cli
   - Grid search cross-validation to explore combinations of parameters (`gamma` and `C`).
   - Classification report: precision, recall, f1-score, support.
   - Confusion matrix.
+  - An example of using `pipeline`.
 - **XOR problem using [SVM]({{site.url}}{{site.baseurl}}/support-vector-machine)** to see the effect of `gamma` and `C` in the case of using RBF kernel -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/SVM-XOR-RBF-kernel-parameters.html) -- [Open in Colab](https://colab.research.google.com/dinhanhthi/data-science-learning/blob/master/mini-projects/SVM-XOR-RBF-kernel-parameters.ipynb).

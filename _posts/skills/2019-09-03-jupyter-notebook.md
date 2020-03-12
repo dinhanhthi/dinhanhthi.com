@@ -3,7 +3,7 @@ layout: post
 title: "Jupyter Notebook"
 categories: [skills]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade"
 date: 2020-03-02
 ---
 
@@ -113,6 +113,13 @@ import sys
 
 # DON'T DO THIS
 !pip install numpy
+~~~
+
+Check version and update/upgrade,
+
+~~~ python
+!pip show pandas
+
 ~~~
 
 ## Display dataframes side-by-side

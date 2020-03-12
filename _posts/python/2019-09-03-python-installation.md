@@ -2,7 +2,7 @@
 layout: post
 title: "Python Installation"
 categories: [python]
-keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL"
+keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version"
 ---
 
 {% assign img-url = '/img/post/python' %}

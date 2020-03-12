@@ -2,13 +2,15 @@
 layout: post
 title: "Decision Tree Regression"
 categories: [machine learning]
-math: 1
+katex: 1
 icon-photo: decision-tree.svg
 keywords: classification regression MSE Mean Square Error MAE Mean Absolute Error stopping conditions Standard Deviation Reduction SDR Graphviz example Saed Sayad
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
 {% assign file-url = '/files/ml' %}
+
+{% katexmm %}
 
 {% include toc.html %}
 
@@ -20,10 +22,10 @@ DT Regression is similar to [DT Classification](/decision-tree-classifier), howe
 
 <p class="p-mark">
 $$
-\begin{align}
+\begin{aligned}
 \text{MSE} &= \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y}_i)^2, \\
 \text{MAE} &= \frac{1}{n}\sum_{i=1}^n \vert y_i - \bar{y}_i \vert.
-\end{align}
+\end{aligned}
 $$
 </p>
 
@@ -39,11 +41,7 @@ Suppose that we have a dataset $S$ like in the figure below,
 *A decision tree we want.*
 </div>
 
-<div class="hide-show-box">
-<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box3ct">
-**Some basic concepts**
-</button>
-<div id="box3ct" markdown="1" class="collapse multi-collapse box-content">
+### Some basic concepts
 
 {:.img-full-85}
 ![Concepts with a tree.]({{img-url}}/r3.jpg)
@@ -51,9 +49,6 @@ Suppose that we have a dataset $S$ like in the figure below,
 - **Splitting**: It is a process of dividing a node into two or more sub-nodes.
 - **Pruning**: When we remove sub-nodes of a decision node, this process is called pruning.
 - **Parent node and Child Node**: A node, which is divided into sub-nodes is called parent node of sub-nodes where as sub-nodes are the child of parent node.
-
-</div>
-</div>
 
 {:.alert.alert-success}
 Other aspects of decision tree algorithm, check [this note](/decision-tree-classifier).
@@ -65,14 +60,14 @@ Looking for an example like in [the post of decision tree classifier](/decision-
 
     <p class="p-mark">
     $$
-    \begin{align}
+    \begin{aligned}
     SD(S) &= \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y}_i)^2, \\
     \text{or  } SD(S) &= \frac{1}{n}\sum_{i=1}^n \vert y_i - \bar{y}_i \vert,
-    \end{align}
+    \end{aligned}
     $$
     </p>
     
-    where $y\_i\in$ the target values (*Hours Played* in the above example), $\bar{y}=\frac{\Sigma y}{n}$ is the mean value and $n$ is the number of examples **in this node**.
+    where $y_i\in$ the target values (*Hours Played* in the above example), $\bar{y}=\frac{\Sigma y}{n}$ is the mean value and $n$ is the number of examples **in this node**.
 
 2. Check the **stopping conditions** (we don't need to make any split at this node) to stop the split and this node becomes a leaf node. Otherwise, go to step 3.
 
@@ -91,7 +86,7 @@ Looking for an example like in [the post of decision tree classifier](/decision-
     $$
     </p>
 
-    where $j \in$ number of different properties in $O$ and $P(O\_j)$ is the propability of property $O\_j$ in $O$. Note that, $SD(S,O\_j)$ means the SD of node $O\_j$ which is also a child of node $S$.
+    where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$. Note that, $SD(S,O_j)$ means the SD of node $O_j$ which is also a child of node $S$.
 
 4. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1. 
 
@@ -163,3 +158,5 @@ graph.write_png("thi.png")    # to png
 
 - **Skikit-learn**. *[Decision Tree Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor) official doc*.
 - **Saed Sayad**. *[Decision Tree - Regression](http://saedsayad.com/decision_tree_reg.htm)*.
+
+{% endkatexmm %}

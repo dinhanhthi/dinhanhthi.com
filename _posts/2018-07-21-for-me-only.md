@@ -2,7 +2,7 @@
 layout: post
 title: "For me only"
 categories: [others]
-math: 1
+katex: 1
 icon: "fas fa-pencil-ruler"
 icon-color: "#ffd661"
 jsxgraph: 1
@@ -464,7 +464,7 @@ Box's content.
 {% endhsbox %}{% endraw %} 
 ~~~
 
-If you don't wanna show the box as default, remove `{%raw%} | show{%endraw%}`!
+If you don't wanna show the box as default, remove `| show`.
 
 ### Definition box
 
@@ -645,6 +645,8 @@ Source of figures used in this post:
 
 ## Math expressions
 
+{% katexmm %}
+
 - Inline math, use `$math-expression$`
 - Block of math, use `$$math block$$` or
 
@@ -670,23 +672,21 @@ Source of figures used in this post:
 
 	~~~ latex
   $$
-  \begin{align}\tag{1}\label{eq1}
+  \begin{aligned}\tag{1}
   x^n + y^n = z^n
-  \end{align}
+  \end{aligned}
   $$
-
-  Call again equation $\eqref{eq1}$.
 	~~~
 
 - You don't need an enviroment `align` or `equation` to use `\label`, you can use it with `$$` only, for example,
 
 	~~~ latex
   $$
-  x^n + y^n = z^n \tag{1}\label{eq1}
+  x^n + y^n = z^n \tag{1}
   $$
-
-  Call again equation $\eqref{eq1}$.
 	~~~
+
+{% endkatexmm %}
 
 
 ## Katex

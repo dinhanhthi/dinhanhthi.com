@@ -4,10 +4,12 @@ title: "Setting up a café in Ho Chi Minh City"
 categories: [project-based learning]
 icon-photo: cafe.svg
 keywords: IBM applied data science capstone Coursera List of Ho Chi Minh City administrative units coordinates (latitude, longitude) housing price coffee json file Housing Sales Price Index hcmc OpenStreetMap geopy.geocoders.Nominatim folium district data preprocessing K-Mean clustering elbow method 
-math: 1
+katex: 1
 ---
 
 {% assign img-url = '/img/post/project/cafe-hcm' %}
+
+{% katexmm %}
 
 This is the final project for the course "[Applied Data Science Capstone](https://www.coursera.org/learn/applied-data-science-capstone)" given by IBM on Coursera. We will explore the venues in different districts of Ho Chi Minh City to find the best place to set up our business.
 
@@ -48,3 +50,5 @@ In order to explore the previous questions, we need to use the following data in
 - Using [K-Means clustering](/k-means) to cluster districts by category. We try with different values of `k` and use the "elbow" method to choose the best `k` for the K-Means.
 - Next, we examine the range of Average Housing Price (AHP): low, medium, high and very high.
 - Finally, based on the map, we can choose the best district to set up our business: the one in which there are a lot of people living there (high density), there are not many already-working café and the average housing price is low.
+
+{% endkatexmm %}

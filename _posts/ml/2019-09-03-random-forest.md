@@ -2,7 +2,6 @@
 layout: post
 title: "Random Forest"
 categories: [machine learning]
-math: 1
 icon-photo: decision-tree.svg
 keywords: decision tree ensemble learning votes from the trees relatively uncorrelated bagging Feature randomness entropy imbalanced classes feature importance Tony Yiu The Yhat Blog Chris Albon fast.ai
 ---
@@ -153,10 +152,6 @@ plt.show()
 {:.img-full-85}
 ![Features importances.]({{img-url}}/feature_importance_11_0.png)
 </div>
-
-
-
-
 
 Select features with importance greater than a threshold,<sup>[[ref]](https://chrisalbon.com/machine_learning/trees_and_forests/select_important_features_in_random_forest/)</sup>
 

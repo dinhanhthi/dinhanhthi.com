@@ -2,13 +2,15 @@
 layout: post
 title: "Principal Component Analysis (PCA)"
 categories: [machine learning]
-math: 1
+katex: 1
 jsxgraph: 1
 keywords: compress data dimensional reduction speed up algorithms or to visualize data feature selection Feature projection mean variance covariance eigenvalues covariance matrix eigenvectors explained_variance_ratio_ Whitening Image compression Luis Serrano Tiep Vu Jake VanderPlas UFLDL - Stanford Shankar Muthuswamy
 ---
 
 {% assign img-url = '/img/post/ML/PCA' %}
 {% assign file-url = '/files/ml/pca' %}
+
+{% katexmm %}
 
 {% include toc.html %}
 
@@ -52,8 +54,8 @@ An example of the same mean and variance but different covariance.
 ### PCA Algorithm
 
 1. Subtract the mean to move to the original axes.
-2. From the original data (a lot of features $x\_1, x\_2, \ldots, x\_N$), we construct a **covariance matrix $U$**.
-2. Find the **eigenvalues**{:.tbrown} $\lambda\_1, \lambda\_2,\ldots$ and correspondent **eigenvectors** $v\_1, v\_2, \ldots$ of that matrix (we call them **eigenstuffs**). Choose $K < N$ couples $\lambda$ and $v$ (the highest eigenvalues) and we get a reduced matrix *$U\_K$*.
+2. From the original data (a lot of features $x_1, x_2, \ldots, x_N$), we construct a **covariance matrix $U$**.
+2. Find the **eigenvalues**{:.tbrown} $\lambda_1, \lambda_2,\ldots$ and correspondent **eigenvectors** $v_1, v_2, \ldots$ of that matrix (we call them **eigenstuffs**). Choose $K < N$ couples $\lambda$ and $v$ (the highest eigenvalues) and we get a reduced matrix *$U_K$*.
 3. Projection original data points to the $K$-dimensional plane created based on these new *eigenstuffs*. This step creates new data points on a new dimensional space ($K$).
 
     $$
@@ -155,6 +157,8 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
 - **Andrew NG.** -- [My raw note](https://rawnote.dinhanhthi.com/machine-learning-coursera-8#principal-component-analysis-pca) of the course ["Machine Learning" on Coursera](https://www.coursera.org/learn/machine-learning/).
 - **Shankar Muthuswamy** -- [Facial Image Compression and Reconstruction with PCA](https://shankarmsy.github.io/posts/pca-sklearn.html).
 - **UFLDL - Stanford** -- [PCA Whitening](http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening/).
+
+{% endkatexmm %}
 
 
 

@@ -3,7 +3,7 @@ layout: post
 title: "Data Processing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
-keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns"
+keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -25,6 +25,30 @@ import numpy as np
 - [Data Overview]({{site.url}}{{site.baseurl}}/dataframe-overview)
 - [Data Aggregation]({{site.url}}{{site.baseurl}}/data-aggregation)
 - [Data Combining]({{site.url}}{{site.baseurl}}/data-combining)
+</div>
+
+## Things need to be checked
+
+<div class="two-columns-list" markdown="1">
+1. `csv` file:
+    1. Values are separated by `,` of `;`?
+    2. Encoding.
+    3. Timestamp type.
+2. Indexes are sorted?
+2. Indexes are continuous with step 1 (especially after using `.dropna()` or `.drop_duplicates`)?
+3. Are there `NaN` values? Drop them?
+4. Are there duplicates? Drop them?
+5. How many unique values?
+6. For `0/1` features, they have only 2 unique values (`0` and `1`)?
+7. `KDE` plot to check the values distribution.
+8. The number of columns?
+9. Unique labels?
+9. Time series:
+    1. Time range.
+    2. Time step.
+    3. Timestamp's type.
+    4. Timezone.
+    5. Timestamps are monotonic?
 </div>
 
 ## Deal with columns
@@ -110,6 +134,7 @@ df['Student'].duplicated().any()
 
 # remove duplicates in some columns
 df.drop_duplicates(['col1', 'col2'])
+# use "ignore_index=True" if you wanna reset indexes to 0,1,...,n-1
 ~~~
 
 ### Couple different columns
