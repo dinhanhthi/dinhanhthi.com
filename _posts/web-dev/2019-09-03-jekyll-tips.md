@@ -6,7 +6,7 @@ math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24
 sitemap: false
-keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear list of posts alpha beta order ABC order sort posts category by name"
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji emoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear list of posts alpha beta order ABC order sort posts category by name"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}

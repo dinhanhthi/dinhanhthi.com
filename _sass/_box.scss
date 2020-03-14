@@ -132,8 +132,10 @@ li{
   margin-bottom: $m-b;
   .box-button{
     padding: 0.5rem 1rem!important;
-    border: 1px solid #ddd;
-    background: #fbfbfb;
+    // border: 1px solid #ddd;
+    border: 1px solid #dce5f7;
+    // background: #fbfbfb;
+    background: #f7fbff;
     border-radius: 0!important;
     display: block;
     width: 100%;
@@ -145,15 +147,15 @@ li{
       box-shadow: none;
     }
     &:hover{
-      background: #efefef!important;
+      // background: #efefef!important;
+      background: #edf5ff !important
     }
 
     position: relative;
     &::after{
       content: "\f107";
-      color: #333;
-      top: -2px;
-      right: 0px;
+      color: #555;
+      right: 10px;
       position: absolute;
       font-family: "Font Awesome 5 Free";
       font-weight: 900;

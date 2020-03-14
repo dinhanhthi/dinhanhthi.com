@@ -64,7 +64,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
-3. Calculate the **information gain** (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. <mark>the biggest IG</mark> will be chosen!
+3. Calculate the **information gain** (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest IG will be chosen!
 
     <p class="p-mark">
     $$
@@ -87,7 +87,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 </button>
 <div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
 
-How we know we can split the dataset $S$ base on the **Outlook attribute** instead of the others (*Temperature, Humidity, Windy*)? $\Rightarrow$ We calculate the **information gain** after splitting $S$ on each attribute. *It’s the information which can increase the level of certainty after splitting*. <mark markdown="span">The **highest one** will be chosen</mark> (after this section, you will see that the Outlook attribute has the highest information gain).
+How we know we can split the dataset $S$ base on the **Outlook attribute** instead of the others (*Temperature, Humidity, Windy*)? $\Rightarrow$ We calculate the **information gain** after splitting $S$ on each attribute. *It’s the information which can increase the level of certainty after splitting*. The **highest one** will be chosen (after this section, you will see that the Outlook attribute has the highest information gain).
 
 In order to calculate the information gain, we need "**entropy**" which is *the amount of information disorder or the amount of randomness in the data*.
 
@@ -103,7 +103,7 @@ At the beginning, `entropy before split` ($H(S)$) shows us the disorder status o
 ![Illustration of entropy with different proportions of Yes/No in S.]({{img-url}}/f6.jpg)
 *An illustration of entropy with different proportions of Yes/No in $S$.*
 
-At each node, we need to calculate again its entropy (corresponding to the number of `Yes` and `No` in this node.). <mark markdown="span">We prefer **the lowest entropy**, of course!</mark> How can we calculate entropy of each node? More specifically, how to calculate $H(S)$?
+At each node, we need to calculate again its entropy (corresponding to the number of `Yes` and `No` in this node.). We prefer **the lowest entropy**, of course! How can we calculate entropy of each node? More specifically, how to calculate $H(S)$?
 
 <p class="p-mark">
 $$
@@ -282,7 +282,7 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
 
 It's quite the same to the ID3 algorithm except a truth that it's based on the definition of **Gini impurity** instead of **Entropy**. *Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset.*
 
-At every nonleaf node (which isn't pure), we have to answer a question "*Which attribute we should choose to split that node?*" We calculate the **Gini gain** for each split based on the attribute we are going to use. This *Gini gain* is quite the same as *Information gain*. <mark>The highest one will be chosen.</mark>
+At every nonleaf node (which isn't pure), we have to answer a question "*Which attribute we should choose to split that node?*" We calculate the **Gini gain** for each split based on the attribute we are going to use. This *Gini gain* is quite the same as *Information gain*. The highest one will be chosen.
 
 <p class="p-mark">
 $$
@@ -298,7 +298,7 @@ I_G(S) = \sum_{i=1}^2p_{S,i}(1-p_{S,i}),
 $$
 </p>
 
-where $i\in$ the number of classes in $S$, $p_{S,i}$ is the probability of class $i$ in $S$. <mark>$I_G=0$ will be the best!</mark>
+where $i\in$ the number of classes in $S$, $p_{S,i}$ is the probability of class $i$ in $S$. $I_G=0$ will be the best!
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
@@ -341,7 +341,7 @@ GG(S,O) &= I_G([9,5]) - ( \frac{5}{14}\times I_G([2,3]) + \frac{4}{14}\times I_G
 \end{aligned}
 $$
 
-The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy). Keep going the same arguments as in the section **ID3 in detail**, we will get the final tree. <mark>The difference between two algorithms is the difference between $H(S)$ and $I_G(S)$.</mark>
+The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy). Keep going the same arguments as in the section **ID3 in detail**, we will get the final tree. The difference between two algorithms is the difference between $H(S)$ and $I_G(S)$.
 
 </div>
 </div>
@@ -356,20 +356,20 @@ The same for $GG(S,H)$ (Humidity), $GG(S,T)$ (Temperature) and $GG(S,W)$ (Windy)
 
 Some highlight **advantages** of Decision Tree Classifier:
 
-1. Can be used for <mark>regression</mark> or <mark>classification</mark>.
+1. Can be used for regression or classification.
 2. Can be displayed graphically.
 3. Highly interpretable.
 4. Can be specified as a series of rules, and more closely approximate human decision-making than other models.
-5. Prediction is <mark>fast</mark>.
+5. Prediction is fast.
 6. Features don't need scaling.
 7. Automatically learns feature interactions.
 8. Tends to ignore irrelevant features.
-9. Non-parametric (will outperform linear models if relationship between features and response is highly <mark>non-linear</mark>).
+9. Non-parametric (will outperform linear models if relationship between features and response is highly non-linear).
 
 Its **disadvantages**:
 
 1. Performance is (generally) not competitive with the best supervised learning methods.
-2. Can <mark>easily overfit</mark> the training data ([tuning](https://stackoverflow.com/questions/22903267/what-is-tuning-in-machine-learning) is required).
+2. Can easily overfit the training data ([tuning](https://stackoverflow.com/questions/22903267/what-is-tuning-in-machine-learning) is required).
 3. Small variations in the data can result in a completely different tree (high variance).
 4. Recursive binary splitting makes "locally optimal" decisions that may not result in a globally optimal tree.
 5. Doesn't tend to work well if the classes are highly unbalanced.

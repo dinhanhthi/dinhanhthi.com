@@ -3,7 +3,7 @@ layout: post
 title: "Data Processing & Cleaning"
 categories: [data science]
 icon-photo: data-processing.png
-keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps"
+keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps rename index column"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -77,49 +77,37 @@ df[df.columns.difference(['b'])]
 
 ### Rename columns
 
-In this part, we are going to use below dataframe `df`.
-
-{:.dataframe}
-|  | Name | Ages | Marks | Place |
-|---|-------|------|-------|-------------------|
-| 0 | John | 10 | 8 | Ben Tre |
-| 1 | Thi | 20 | 9 | Paris |
-
 ~~~ python
-# implicitly
+# IMPLICITLY
 df.columns = ['Surname', 'Years', 'Grade', 'Location']
 
-# explicitly
-df.rename(columns={
-  'Name': 'Surname',
-  'Ages': 'Years',
-  ...
-}, inplace=True)
+# EXPLICITLY
+df.rename(columns={'Name': 'Surname', 'Ages': 'Years'}, inplace=True)
 ~~~
 
-We can use the *explicit* method to rename a specific column in df.
-
 ~~~ python
+# A SPECIFIC COLUMN
 data.rename(columns={'gdp':'log(gdp)'}, inplace=True)
 ~~~
 
+~~~ python
+# RENAME INDEX COLUMN
+df.index.name = 'new_name'
+~~~
+
+
 ### Make index
 
-Check if a column has unique values (so that it can be an index)
-
 ~~~ python
+# COLUMN HAS UNIQUE VALUES?
 df['col'].is_unique # True if yes
 ~~~
 
-Transform an index to column to a normal column,
-
 ~~~ python 
+# INDEX -> NORMAL COLUMN
 df.reset_index(inplace=True)
-~~~
 
-Make a column be an index,{% ref https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.set_index.html %}
-
-~~~ python
+# NORMAL COLUMN -> INDEX
 df.set_index('column')
 df.set_index(['col1', 'col2'])
 ~~~

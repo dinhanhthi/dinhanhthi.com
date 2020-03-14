@@ -3,7 +3,7 @@ layout: post
 title: "Pandas tips"
 categories: [python]
 icon-photo: pandas.png
-keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name"
+keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary list numpy array np.array to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name selection"
 ---
 
 {% assign img-url = '/img/post/python/pandas' %}
@@ -36,11 +36,15 @@ df.to_csv(path, index=False) # don't incldue index
 
 ## Create a dataframe
 
-From a dictionary
+~~~ python
+# FROM A LIST
+pd.DataFrame(a_list, colummns=['col_name'])
+~~~
 
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
+# FROM A DICTIONARY
 names = ['John', 'Thi', 'Bi', 'Beo', 'Chang']
 ages =  [10, 20, 21, 18, 11]
 marks = [8, 9, 10, 6, 8]
@@ -156,7 +160,226 @@ df.loc[:2]
 
 ## MultiIndex {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html %}
 
+~~~ python
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo'], ['one', 'two', 'one', 'two', 'one', 'two']]
+index = pd.MultiIndex.from_arrays(arrays)
+df = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
+~~~
 
+<table class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">bar</th>
+      <th colspan="2" halign="left">baz</th>
+      <th colspan="2" halign="left">foo</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>one</th>
+      <th>two</th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>-0.752333</td>
+      <td>0.490581</td>
+      <td>0.774629</td>
+      <td>0.487185</td>
+      <td>1.767773</td>
+      <td>0.028956</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.057864</td>
+      <td>-0.221516</td>
+      <td>-0.568726</td>
+      <td>-0.563732</td>
+      <td>1.362453</td>
+      <td>-0.563213</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>-0.338319</td>
+      <td>-0.346590</td>
+      <td>0.012845</td>
+      <td>0.755455</td>
+      <td>1.260937</td>
+      <td>-0.038209</td>
+    </tr>
+  </tbody>
+</table>
+
+Selection,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+df.loc['A', ('baz', 'two')]
+
+df.loc[:,('baz', 'two')]
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+0.487185
+
+A    0.487185
+B   -0.563732
+C    0.755455
+Name: (baz, two), dtype: float64
+~~~
+</div>
+
+If there are some column with single name,
+
+~~~ python
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo'], [i for i in range(2)]*3]
+index = pd.MultiIndex.from_arrays(arrays)
+df1 = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
+
+# BAD PRACTICE
+df2 = pd.DataFrame([1,2,3], index=['A', 'B', 'C'], columns=['time'])
+df_rs1 = pd.concat([df1, df2], axis=1)
+
+# GOOD PRACTICE
+df1['time'] = [1,2,3]
+df_rs2 = df1
+~~~
+
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(bar, 0)</th>
+      <th>(bar, 1)</th>
+      <th>(baz, 0)</th>
+      <th>(baz, 1)</th>
+      <th>(foo, 0)</th>
+      <th>(foo, 1)</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>-1.386119</td>
+      <td>-0.496755</td>
+      <td>1.482855</td>
+      <td>0.943795</td>
+      <td>-1.173290</td>
+      <td>-0.445365</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.900710</td>
+      <td>-1.571009</td>
+      <td>1.086964</td>
+      <td>1.546927</td>
+      <td>-1.564426</td>
+      <td>0.622763</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>0.712231</td>
+      <td>0.235247</td>
+      <td>-0.807031</td>
+      <td>0.671802</td>
+      <td>0.597149</td>
+      <td>0.111332</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">bar</th>
+      <th colspan="2" halign="left">baz</th>
+      <th colspan="2" halign="left">foo</th>
+      <th>time</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>1</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>-1.386119</td>
+      <td>-0.496755</td>
+      <td>1.482855</td>
+      <td>0.943795</td>
+      <td>-1.173290</td>
+      <td>-0.445365</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.900710</td>
+      <td>-1.571009</td>
+      <td>1.086964</td>
+      <td>1.546927</td>
+      <td>-1.564426</td>
+      <td>0.622763</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>0.712231</td>
+      <td>0.235247</td>
+      <td>-0.807031</td>
+      <td>0.671802</td>
+      <td>0.597149</td>
+      <td>0.111332</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+Selection,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# FOR BAD PRACTICE
+df.loc['A', [('baz', 0)]]
+df_rs1.loc['A', [('baz', i) for i in [0,1]]]
+
+# FOR GOOD PRACTICE
+df_rs2.loc['A', ('baz', 1)]
+df_rs2.loc['A', 'baz']
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~ bash
+# FOR BAD PRACTICE
+(baz, 0)    0.729023
+(baz, 0)    1.482855
+(baz, 1)    0.943795
+
+# FOR GOOD PRACTICE
+0.943795
+0    1.482855
+1    0.943795
+~~~
+</div>
 
 ## Invert True/False value in Series
 

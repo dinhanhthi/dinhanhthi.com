@@ -2,7 +2,7 @@
 layout: post
 title: "Python Installation"
 categories: [python]
-keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version"
+keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -35,27 +35,23 @@ C:\Users\<user>\AppData\Roaming\Python\Python36\Scripts
 
 (*You can find `C:\...\Roaming` by typing `%appdata%` in the Windows Explorer's navigation bar*)
 
-Using Windows' *command prompt* (cmd) or *PowerShell* as a command line environment. For me, I prefer [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmder_setting.xml) file).
+Using Windows' *command prompt* (cmd) or *PowerShell* as a command line environment. For me, I prefer [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmderSetting.xml) file).
 
 ### Jupyer Notebook
 
 Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
 
 ~~~ bash
+# RUN (after installing Anaconda)
 python -m notebook
-~~~
 
-If you meet the error `ImportError: DLL load failed`, try:
-
-~~~ bash
+# If `ImportError: DLL load failed`
 active base # active environment "base" in anaconda
 jupyter notebook
-~~~
 
-If you meet `import _ssl` problem (also in `ImportError`) (this error comes with _pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available_), try{% ref https://stackoverflow.com/questions/59768292/cant-start-jupyter-notebook-in-anaconda3-because-of-error-in-import-ssl %}:
-
-~~~ bash 
+# If `import _ssl`, `ImportError`
 set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
+python -m notebook
 ~~~
 
 ## MacOS
@@ -78,6 +74,19 @@ On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the
 
 ## Install new packages
 
+### Update pip
+
+~~~ bash
+# Check version of pip (with its path)
+pip -V
+
+# update pip
+easy_install -U pip
+~~~
+
+- If you meet `AttributeError: 'NoneType' object has no attribute 'bytes'` when updating `pip`, check the version and make sure that there is only 1 pip on your computer and then use `easy_install -U pip` (don't forget to `activate `)
+- If there is a problem with `python -m pip install --upgrade pip`, use `easy_install`!
+
 ### Install packages with pip
 
 Install [pip](https://pypi.org/project/pip/) (It's actually installed with Anaconda). If you wanna upgrade it to the latest version:
@@ -93,16 +102,12 @@ First, `activate <env>` and then using `easy_install -U pip`. You can check the 
 
 {% endhsbox %} 
 
-Install a package with pip:
-
 ~~~ bash
+# INSTALL A PACKAGE
 pip install <package> # administrator <-- SHOULDN'T!!!
 pip install --user <package> # current user only
-~~~
 
-Check the version & info of a package:
-
-~~~ bash
+# CHECK VERSION OF A PACKAGE
 pip show <package>
 ~~~
 
@@ -133,26 +138,18 @@ fastai                   C:\Users\thi\.conda\envs\fastai
 ### Install packages with conda
 
 ~~~ bash
+# INSTALL
 activate <env> # you need to activate an environment first
 conda install <package> # install for <env> only
-~~~
 
-Update,
-
-~~~ bash
+# UPDATE
 acctivate <env> # choose an env first
 conda update <package> # ud package in that env
-~~~
 
-List all installed packages (in `<env>`),
-
-~~~ bash
+# LIST ALL INSTALLED PACKAGES
 conda list
-~~~
 
-Update packages listed in an env file to current env,
-
-~~~ bash
+# Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml
 ~~~
 
@@ -170,33 +167,25 @@ Which one to be used?<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/inst
 
 ## Install Jupyter Notebook
 
-By using pip,
-
 ~~~ bash
+# USING PIP
 # first, always upgrade pip!
 pip install --upgrade pip
 pip install --upgrade ipython jupyter
-~~~
 
-By using conda,
-
-~~~ bash
+# USING CONDA
 conda install ipython jupyter
 ~~~
 
 ## Conda
 
-### Install conda without Anaconda
-
-You can even install `conda` using `pip` (without installing Anaconda / Minianaconda):
+### Install / Update conda
 
 ~~~ bash
+# INSTALL CONDA BY PIP (without Anaconda)
 pip install conda
-~~~
 
-### Update conda
-
-~~~ bash
+# UPDATE CONDA
 conda update -n base -c defaults conda
 ~~~
 
@@ -250,50 +239,30 @@ conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the defau
 ~~~
 </div>
 
-
-Deactivate an env:
-
 ~~~ bash
+# DEACTIVE AN ENV
 conda deactivate # Linux
 deactivate # Windows
 source deactivate # MacOS
-~~~
 
-Remove an env,
-
-~~~ bash
+# REMOVE AN ENV
 conda remove -n <env> --all
-~~~
 
-Show the list of current envs:
-
-~~~ bash
+# SHOW LIST OF CURRENT ENV
 conda info --envs
 # or
 conda env list
-~~~
 
-Export to an env file,
-
-~~~ bash
+# EXPORT TO A ENV FILE
 conda env export -f <file>.yml
-~~~
 
-Create from file,
-
-~~~ bash
+# CREATE FROM FILE
 conda env create -n <env> -f /path/to/<file>.yml
-~~~
 
-Update packages listed in an env file to current env,
-
-~~~ bash
+# Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml --prune
-~~~
 
-Clone from another env,
-
-~~~ bash
+# Clone from another env,
 conda create --name <cloned-env> --clone <env>
 ~~~
 
@@ -321,14 +290,10 @@ Restart the Jupyter Notebook, the list of kernels is available under **New**.
 
 ### Conda Revisions
 
-Check revisions,
-
 ~~~ bash
+# Check revisions
 conda list --revisions
-~~~
 
-Go back to revision `1`,
-
-~~~ bash
+# Go back to revision `1`,
 conda install --revision 1
 ~~~

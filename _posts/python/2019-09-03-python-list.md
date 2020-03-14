@@ -3,7 +3,7 @@ layout: post
 title: "Python List"
 categories: [python]
 icon-photo: list.png
-keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len"
+keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -416,7 +416,7 @@ print(x)
 
 ## Coupling 2 lists
 
-Using `+` and `*`,
+Using `+` and `*` (repeat),
 
 <div class="d-lg-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}

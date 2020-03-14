@@ -60,6 +60,9 @@ h2>code, h3>code{
     }
   }
 }
+@media (min-width: 768px){
+  .d-md-flex{}
+}
 
 
 // with line numbers
@@ -105,6 +108,9 @@ figure.highlight{
     }
     @media(min-width: $s-md){
       margin: 0 0 1rem 0;
+      .highlight{
+        border-left: none;
+      }
     }
   }
 }
