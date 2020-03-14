@@ -2,7 +2,7 @@
 
 Source code of my personal website. If you would like to use this source code, please indicate me in the credit and let me know first, thanks! My email: dinhanhthi@gmail.com.
 
-List of notebooks used in this website: [Google Drive folder](https://drive.google.com/drive/folders/1DHvEeX-_jT-ud9_kn8NWN51tR-xyje9c?usp=sharing).
+List of jupyter notebooks used in this website: [Google Drive folder](https://drive.google.com/drive/folders/1DHvEeX-_jT-ud9_kn8NWN51tR-xyje9c?usp=sharing).
 
 After cloning to a local server, run these:
 
