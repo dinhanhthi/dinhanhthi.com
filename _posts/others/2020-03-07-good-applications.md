@@ -2,8 +2,14 @@
 layout: post
 title: "Useful Applications"
 categories: [others]
-keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection"
+keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury"
 ---
+
+{% include toc.html %}
+
+## Multi-platforms
+
+- [XDM](http://xdman.sourceforge.net/#downloads) download manager.
 
 ## Windows
 
@@ -12,6 +18,15 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [LockHunter](https://lockhunter.com/) : find what application/process is preventing us from deleting some folder/file.
 - [cmder](https://cmder.net/) (Console Emulator) : drop-down terminal for windows. My [setting file](/files/cmderSetting.xml).
 - [Everything](https://www.voidtools.com/) : an alternative to Spotlight in Mac. You can search any thing (app, docs, files,...) in your computer with hotkeys.
+- [Big Stretch Reminder](https://monkeymatt.com/bigstretch/) : free simple reminder tool that prompts a user to take regular breaks and helps prevent the symptoms of Repetitive Strain Injury (RSI).
+
+## Linux
+
+- [Workrave](http://www.workrave.org/) : a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
+
+## MacOS
+
+- [Time Out](https://apps.apple.com/us/app/time-out-free/id402592703?mt=12): a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
 
 ## Education
 
@@ -19,3 +34,12 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [Lingoes](http://www.lingoes.net/): Global dictionary for Windows. Its [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
 - [DeepL](https://deepl.com/) : "better than google translate" app for Windows. You can use <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd> to quickly translate a word or phrase.
 - [QTranslate](https://quest-app.appspot.com/) : quickly translate any word / phrase and also their pronunciation by using hotkeys (for example, you can use <kbd>Ctrl</kbd> + <kbd>E</kbd> to hear the pronunciation and <kbd>Ctrl</kbd> + <kbd>Q</kbd> to see the translation). The data is obtained from various sources including deepl and google translate.
+
+## Chrome extension
+
+1. [Flash Video Downloader](https://chrome.google.com/webstore/detail/flash-video-downloader/aiimdkdngfcipjohbjenkahhlhccpdbc) -- get any video download link.
+2. [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof) -- save current tab list
+3. [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh?hl=en): Vietnamese input method
+5. [Hush](https://chrome.google.com/webstore/detail/hush-private-bookmarking/hjmoaenjknbdehbiaeeijcppnljflkff?hl=en) -- private bookmarking
+1. [Mate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke) -- Quick translater.
+7. [Print Friendly & PDF](https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj?hl=en) -- print any web page into pdf.
