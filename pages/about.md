@@ -70,5 +70,5 @@ I researched on the growth of [biofilm](https://en.wikipedia.org/wiki/Biofilm){:
 
 {% include heading-title.html title="Contact" icon="fas fa-at" %}
 
-- Call for a coffee talk in **Paris, France**.
-- I'm always available to discuss at [**dinhanhthi@gmail.com**](mailto:dinhanhthi@gmail.com?subject=Contact from Thi's site).
+- Call for a coffee talk in **{{site.data.me.location}}**.
+- I'm always available to discuss at [**{{site.data.me.email}}**](mailto:{{site.data.me.email}}?subject=Contact from {{site.data.me.short_name}}'s site).

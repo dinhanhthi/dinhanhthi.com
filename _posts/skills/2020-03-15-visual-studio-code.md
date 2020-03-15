@@ -16,11 +16,13 @@ Download and install [here](https://code.visualstudio.com/).
 
 You can find easily with their names in the marketplace (builtin with VSC)
 
+<div class="two-columns-list" markdown="1">
 1. [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
 2. [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 3. [Markdown Shortcuts](https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts)
 4. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 5. [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+</div>
 
 ## Enable font ligatures{% ref https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd %}
 

@@ -6,7 +6,9 @@ icon-photo: list.png
 keywords: "python for while loop iteration skip ignore some iteration loop"
 ---
 
-Skip some step{% ref https://stackoverflow.com/questions/24089924/skip-over-a-value-in-the-range-function-in-python %},
+{% include toc.html %}
+
+## Skip some step
 
 ~~~ python
 # Create a range that does not contain 50

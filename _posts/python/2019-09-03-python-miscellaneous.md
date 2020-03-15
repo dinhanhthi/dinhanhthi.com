@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Miscellaneous"
+title: "Python Miscellaneous"
 categories: [python]
 keywords: "clear variable comment __name__ __main__ __future__ reset docstring del delete variable system reset confirmation"
 ---
