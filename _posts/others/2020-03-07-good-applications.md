@@ -2,7 +2,8 @@
 layout: post
 title: "Useful Applications"
 categories: [others]
-keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury"
+icon-photo: apps.svg
+keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury iterm2 guake terminal cmder drop-down commander cmd quick open terminal commanline workrave time out screentogif lock hunter everything spotlight goldendict deepl lingoes Qtranslate tabcloud avim flash video downloader hush mate pdf printer"
 ---
 
 {% include toc.html %}
