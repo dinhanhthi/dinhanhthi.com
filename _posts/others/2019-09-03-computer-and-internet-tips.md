@@ -3,7 +3,7 @@ layout: post
 title: "Computer & Internet tips"
 categories: [others]
 icon-photo: tips.svg
-keywords: "download flash video browser extension video url google video download manager videoplay developer tools VSC visual studio code exclude files folders search technique skills patterns preference settings confige configure options remove apps google apps visual studio code vsc regex regular expression bit.ly cortana uses chrome instead of edge default browser windows 10 change default directory powershell ssh remote server cmder"
+keywords: "download flash video browser extension video url google video download manager videoplay developer tools exclude files folders search technique skills patterns preference settings confige configure options remove apps google apps bit.ly cortana uses chrome instead of edge default browser windows 10 change default directory powershell cmder"
 ---
 
 {% assign img-url = '/img/post/others' %}
@@ -53,38 +53,3 @@ https://r4---sn-25ge7ns7.googlevideo.com/videoplayback?expire=1568040368&ei=kEl2
 ~~~ 
 
 Open a new tab in your browser, <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the video. You can also open the Downloads manager in your browser (<kbd>Ctrl</kbd> + <kbd>J</kbd>) to copy the download link and use other Download Manager tools to download this video without using the browser!
-
-## Visual Studio Code
-
-### Regular Expression
-
--  Using regular expression in Visual Studio (Code) ⇾ [ref](https://docs.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2017)
-- Replace current bit.ly text with its same url:
-    - Find: `(http://bit.ly.*)` (Enable `.*`)
-    - Replace: `[$1]($1)`
-
-### Exlude files/folders in file search Visual Studio Code (VSC)
-
-Go to **Preferences** > **Settings** > search `exclude` and modify inside section `Search: Exclude`. More patterns can be found [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
-
-Below is an example list,
-
-~~~
-**/node_modules
-**/bower_components
-**/*.code-search
-**/_site
-**/.jekyll-cache
-**/.sass-cache
-**/*.ico
-**/*.png
-**/*.ipynb
-**/*.jpg
-**/*.jpeg
-**/*.svg
-~~~
-
-### Connect `ssh` folders in VSC
-
-Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
-

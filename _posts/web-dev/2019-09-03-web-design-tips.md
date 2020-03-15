@@ -3,12 +3,16 @@ layout: post
 title: "Web Design tips"
 categories: [web development]
 math: 1
-keywords: autofocus separated columns page load google webfont sass
+keywords: "autofocus separated columns page load google webfont sass Font ligatures terms"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
 
 {% include toc.html %}
+
+## Terms
+
+- **Font ligatures**: When you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
 
 ## Auto focus on an input field when page loads
 

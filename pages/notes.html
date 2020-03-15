@@ -43,9 +43,11 @@ permalink: /notes
                 <ul>
                   {% assign sortedPosts = site.categories[category.name] | sort: 'title' %}
                   {% for post in sortedPosts %}
-                    <li class="item">
-                      <a href="{{post.url}}">{{post.title}}</a>
-                    </li>
+                    {% unless post.draft %}
+                      <li class="item">
+                        <a href="{{post.url}}">{{post.title}}</a>
+                      </li>
+                    {% endunless %}
                   {% endfor %}
                 </ul>
               </div>
