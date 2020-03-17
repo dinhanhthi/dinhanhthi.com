@@ -56,7 +56,13 @@ python -m notebook
 
 ## MacOS
 
-*Updated later!*
+By default, Python 2 is already installed on MacOS, you can check this by 
+
+~~~ bash
+python --version
+# to be sure, check if python3 is installed?
+python3 --version
+~~~
 
 ## Linux (Ubuntu)
 

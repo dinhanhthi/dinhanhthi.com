@@ -2,14 +2,14 @@
 layout: post
 title: "Date / Time tips"
 categories: [time series]
-keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0"
+keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0 to_offset cannot use single T without number"
 ---
 
 {% include toc.html %}
 
 ## List of resampling rules
 
-Official ref [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html) — search "_DateOffsets_" to jump to the table.
+Official ref [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) — search "_DateOffsets_" to jump to the table.
 
 ~~~
 B         business day frequency
@@ -85,6 +85,10 @@ pd.Timedelta(time, unit='ns')
 
 # DateOffsets ('14T') → Timedelta('0 days 00:14:00')
 pd.to_timedelta('14T')
+
+# Can't use 'T' as '1T'?
+from pandas.tseries.frequencies import to_offset
+pd.to_timedelta(to_offset('T'))
 ~~~
 
 Timestamps,

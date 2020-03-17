@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright 2017 mathsisfun.com -->
+<svg xmlns="http://www.w3.org/2000/svg" width="511" height="152.9" version="1.1">
+<defs>
+<marker id="id1" style="overflow:visible;" orient="auto">
+<path transform="matrix(0.4,0,0,0.4,4,0)" style="fill:#19aeff; stroke:#19aeff; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+<marker id="id2" style="overflow:visible;" orient="auto">
+<path transform="matrix(-0.4,0,0,-0.4,-4,0)" style="fill:#19aeff; stroke:#19aeff; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+<marker id="id5" style="overflow:visible;" orient="auto">
+<path transform="matrix(0.4,0,0,0.4,4,0)" style="fill:#c4a000; stroke:#c4a000; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+<marker id="id6" style="overflow:visible;" orient="auto">
+<path transform="matrix(-0.4,0,0,-0.4,-4,0)" style="fill:#c4a000; stroke:#c4a000; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+<marker id="id3" style="overflow:visible;" orient="auto">
+<path transform="matrix(0.4,0,0,0.4,4,0)" style="fill:#c4a000; stroke:#c4a000; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+<marker id="id4" style="overflow:visible;" orient="auto">
+<path transform="matrix(-0.4,0,0,-0.4,-4,0)" style="fill:#c4a000; stroke:#c4a000; stroke-width:1pt;" d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"/>
+</marker>
+</defs>
+<g transform="translate(106.33,1650.6536)">
+<g transform="matrix(0.32340758,0,0,0.33729786,-352.54102,-1677.7723)">
+<path style="color:#008000; fill:none; stroke:#204a87; stroke-width:5.55;" d="m 1677,232 c 18.6,-30.5 61,-24.3 77,5 56.5,80.4 77.7,179.4 132,261 14.4,29.5 57,47.5 79,15 39.2,-46.1 58.2,-105.1 83.3,-159.3"/>
+</g>
+<g transform="matrix(0.32340758,0,0,0.33729786,-634.94198,-1677.7723)">
+<path style="color:#008000; fill:none; stroke:#204a87; stroke-width:5.55;" d="m 1677,232 c 18.6,-30.5 61,-24.3 77,5 56.5,80.4 77.7,179.4 132,261 14.4,29.5 57,47.5 79,15 39.2,-46.1 58.2,-105.1 83.3,-159.3 22.3,-46.9 39.7,-99.9 79.7,-135.3 32.9,-23.6 63,14.4 77.5,40.6 45.2,76.5 68.2,164.1 116.8,238.7 14.3,28 53.6,47.5 77,18.4 45.5,-53.9 66.2,-122.9 96,-185.7 19.2,-39.8 35.5,-84.6 71,-113.1 19.6,-14.6 43.9,-2.9 56.8,14.7"/>
+</g>
+<path style="fill:#2e3436; fill-opacity:0.75; stroke:#c4a000; stroke-width:1.25; stroke-dasharray:5, 2.5, 1.3, 2.5;" d="m -106.3,-1552.7 459.7,0"/>
+<path style="fill:none; stroke:#c4a000; stroke-width:0.84; stroke-dasharray:5, 1.7;" d="m 215.4,-1606.4 138,0"/>
+<path style="fill:#2e3436; fill-opacity:0.75; stroke:#c4a000; stroke-width:0.84; stroke-dasharray:5, 1.7;" d="m 288.9,-1498.8 64.5,0"/>
+<text x="103.2" y="-1637.5" style="font-family:'Comic Sans MS'; font-size:16.7px; color:black; overflow:visible; fill:#19aeff; stroke-width:1px;">Period</text>
+<text x="325.7" y="-1573.3" style="font-family:'Comic Sans MS'; font-size:16.7px; color:black; overflow:visible; fill:#c4a000; stroke-width:1px;">Amplitude</text>
+<text x="326" y="-1519.2" style="font-family:'Comic Sans MS'; font-size:16.7px; color:black; overflow:visible; fill:#c4a000; stroke-width:1px;">Amplitude</text>
+<g transform="matrix(1.1216665,0,0,0.04804576,-260.98212,-1642.8482)">
+<path style="fill:#19aeff; stroke:#19aeff; stroke-width:1.8;" d="M 286,692 286,50"/>
+</g>
+<g transform="matrix(1.1216665,0,0,0.04804576,-118.94614,-1642.8482)">
+<path style="fill:#19aeff; stroke:#19aeff; stroke-width:1.8;" d="M 286,692 286,50"/>
+</g>
+<path style="marker-start:url(#id1); marker-end:url(#id2); fill:#19aeff; fill-opacity:0.75; stroke:#19aeff; stroke-width:1.69;" d="m 62,-1631.9 136.8,0"/>
+<path style="marker-start:url(#id3); marker-end:url(#id4); fill:none; stroke:#c4a000; stroke-width:1.69;" d="m 320.2,-1551.8 0,50.8"/>
+<path style="marker-start:url(#id5); marker-end:url(#id6); fill:none; stroke:#c4a000; stroke-width:1.69;" d="m 320.2,-1604.5 0,50.8"/>
+</g>
+</svg>

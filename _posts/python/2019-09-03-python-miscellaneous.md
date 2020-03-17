@@ -2,7 +2,7 @@
 layout: post
 title: "Python Miscellaneous"
 categories: [python]
-keywords: "clear variable comment __name__ __main__ __future__ reset docstring del delete variable system reset confirmation"
+keywords: "clear variable __name__ __main__ __future__ reset del delete variable system reset confirmation"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -49,44 +49,3 @@ if '<var>' in globals(): del <var>
 %reset # with confirmation
 %reset -f # without confirmation
 ~~~
-
-## Comment
-
-Using `#` on each line.
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
-# print("This is not showed.")
-print("This is showed.)
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~
-This is showed.
-~~~
-</div>
-
-If you wanna make a [docstring](https://en.wikipedia.org/wiki/Docstring) (showing the information of a function when using `help(<func>)`).
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
-def reverse(text):
-    """Reverse a text.
-    Input the text.
-    Return text reversed.
-    """
-    return text[::-1]
-
-help(reverse)
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~
-reverse(text)
-    Reverse a text.
-    Input the text.
-    Return text reversed.
-~~~
-</div>

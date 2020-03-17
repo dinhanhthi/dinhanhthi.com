@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "Jupyter Notebook"
-categories: [skills]
+categories: [python]
 icon-photo: jupyter.png
 keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade"
-date: 2020-03-02
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -13,16 +12,12 @@ date: 2020-03-02
 
 ## Installation
 
-By using pip,
-
 ~~~ bash
+# BY PIP
 pip install --upgrade pip # first, always upgrade pip!
 pip install --upgrade ipython jupyter
-~~~
 
-By using conda,
-
-~~~ bash
+# BY CONDA
 conda install ipython jupyter
 ~~~
 
@@ -193,7 +188,9 @@ Auto update the new updated modules (put at the beginning of the notebook)
 
 ~~~ bash
 %load_ext autoreload
-%autoreload 2
+%autoreload 2 # Reload all modules every time before executing
+
+%autoreload 0 # disable autoreloader
 ~~~
 
 Check more settings of `%autoreload` [here](https://ipython.org/ipython-doc/3/config/extensions/autoreload.html).

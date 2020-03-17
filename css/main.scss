@@ -1,13 +1,19 @@
 ---
 ---
 
-$a-hover: #ea256a;
 
-$m-b: 1rem;
+// TEXT COLOR
+$text-a: #2f74bd;
+$text-a-hover: #ea256a;
+$text-green: #0e980e;
+$text-green-light: #90ee90;
+
+
+
+// SPACING
+$m-b: 1rem; // bottom spacing between components (paragraph, images, tables, lists,...)
 
 // main color
-$c-green: #0e980e;
-$c-green-light: #90ee90;
 $c-red: #fc5d76;
 $c-blue: #3292f6;
 $c-yellow: #fdb54b;
@@ -39,7 +45,6 @@ $s-lg: 992px;
 $s-xl: 1200px;
 
 // font
-// $f-main: 'Muli', sans-serif;
 $f-main: 'Livvic';
 $f-size: 1.05rem; // 16px
 $f-size-small: 0.9rem;
@@ -53,6 +58,13 @@ $f-heading-color: #444;
 $f-semi-bold: 500;
 $f-bold: 600;
 $f-extra-bold: 700;
+
+
+// BACKUP
+$a-hover: $text-a-hover;
+$c-green: $text-green;
+$c-green-light: $text-green-light;
+
 
 // navigation bar
 @import 'tnavigation'; // _tnavigation.scss

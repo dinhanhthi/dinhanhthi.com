@@ -42,7 +42,7 @@ pd.DataFrame(a_list, colummns=['col_name'])
 ~~~
 
 <div class="d-md-flex" markdown="1">
-{:.flex-even.overflow-auto.pr-md-1}
+{:.overflow-auto.pr-md-1}
 ~~~ python
 # FROM A DICTIONARY
 names = ['John', 'Thi', 'Bi', 'Beo', 'Chang']
@@ -54,7 +54,7 @@ my_dict = {'Name':names, 'Ages':ages, 'Marks':marks, 'Place': city}
 students = pd.DataFrame(my_dict)
 ~~~
 
-{:.flex-even.overflow-auto.pl-md-1}
+{:.overflow-auto.pl-md-1}
 <div markdown="1">
 
 {:.dataframe}
@@ -70,17 +70,6 @@ students = pd.DataFrame(my_dict)
 </div>
 
 ## Select rows/columns/item(s) {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html %}
-
-In this part, we are going to use below dataframe `df`.
-
-{:.dataframe}
-|  | Name | Ages | Marks | Place |
-|---|-------|------|-------|-------------------|
-| 0 | John | 10 | 8 | Ben Tre |
-| 1 | Thi | 20 | 9 | Paris |
-| 2 | Bi | 21 | 10 | Ho Chi Minh Ville |
-| 3 | Beo | 18 | 6 | New York |
-| 4 | Chang | 11 | 8 | DC |
 
 ### Select Single value
 

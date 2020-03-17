@@ -2,7 +2,7 @@
 layout: post
 title: "Python Functions"
 categories: [python]
-keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function"
+keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -234,3 +234,15 @@ def x(a): return a + 10
 15
 ~~~
 </div>
+
+## Check input & raise error
+
+Something like that,
+
+~~~ python
+if par1 is None:
+  msg = "par1 must be in type `int`"
+  raise TypeError(msg)
+~~~
+
+You can check other exceptions [here](https://docs.python.org/3/library/exceptions.html).

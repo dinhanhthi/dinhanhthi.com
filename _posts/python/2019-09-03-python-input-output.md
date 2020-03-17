@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Input & Output"
+title: "Python: Input & Output"
 categories: [python]
-keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert"
+keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -22,6 +22,23 @@ numbers = list(map(int, input().split()))
 # Get multi inputs on 1 line
 x, y, z, n = (int(input()) for _ in range(4))
 ~~~
+
+### Comment
+
+Using `#` on each line.
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# print("This is not showed.")
+print("This is showed.)
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+This is showed.
+~~~
+</div>
 
 ## Print / Display
 
@@ -115,3 +132,147 @@ log.debug('something')
 log.error('something')
 logger.critical('something')
 ~~~
+
+If the `log.info()` doesn't work, set below{% ref https://stackoverflow.com/questions/11548674/logging-info-doesnt-show-up-on-console-but-warn-and-error-do/11548754 %},
+
+~~~ python
+logging.getLogger().setLevel(logging.INFO)
+# or
+logging.basicConfig(level=logging.DEBUG)
+~~~
+
+## Docstring
+
+### What?
+
+If you wanna make a [docstring](https://en.wikipedia.org/wiki/Docstring) (showing the information of a function when using `help(<func>)` or `func.__doc__`).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+def reverse(text):
+    """Reverse a text.
+    Input the text.
+    Return text reversed.
+    """
+    return text[::-1]
+
+help(reverse)
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+Help on function reverse in module __main__:
+
+reverse(text)
+    Reverse a text.
+    Input the text.
+    Return text reversed.
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+reverse.__doc__
+
+print(reverse.__doc__)
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+'Reverse a text.\n    Input the text.\n    Return text reversed.\n    '
+
+Reverse a text.
+    Input the text.
+    Return text reversed.
+~~~
+</div>
+
+### Sample structure
+
+Using [nympydoc](https://numpydoc.readthedocs.io/en/latest/) format (there are [others](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)). It's recommended to be used later in [Sphinx](http://sphinx.pocoo.org/). See more [here](https://numpydoc.readthedocs.io/en/latest/example.html) and [Example NumPy Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+def ex_class(var1, var2):
+    """
+    Quick description.
+    Longer description with `keywords`.
+    
+    Parameters
+    ----------
+    var1 : int
+        Desc for var1.
+    var2 : {0 or 'index', 1 or 'columns'}, default 0
+        Long desc for var2. It may take a long line and we can break
+        this like that.
+        
+    Returns
+    -------
+    Resampler object
+    
+    See Also
+    --------
+    groupby : Group by mapping, function, label, or list of labels.
+    Series.resample : Resample a Series.
+
+    Notes
+    -----
+    See the `user guide
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
+    for more.
+    
+    Examples
+    --------
+    Start by creating a series with 9 one minute timestamps.
+    >>> index = 1 +1
+    2
+    Description for this example.
+    """
+    # some commands
+    return return_values
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+    Quick description.
+    Longer description with `keywords`.
+    
+    Parameters
+    ----------
+    var1 : int
+        Desc for var1.
+    var2 : {0 or 'index', 1 or 'columns'}, default 0
+        Long desc for var2. It may take a long line and we can break
+        this like that.
+        
+    Returns
+    -------
+    Resampler object
+    
+    See Also
+    --------
+    groupby : Group by mapping, function, label, or list of labels.
+    Series.resample : Resample a Series.
+
+    Notes
+    -----
+    See the `user guide
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
+    for more.
+    
+    Examples
+    --------
+    Start by creating a series with 9 one minute timestamps.
+    >>> index = 1 +1
+    2
+    Description for this example.
+~~~
+</div>
+
+
+
+
+

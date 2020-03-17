@@ -102,7 +102,7 @@ figure.highlight{
   }
 }
 .d-md-flex{
-  .output{
+  & > .output{
     @media(max-width: $s-md - 1){
       margin-top: -$m-b!important;
     }
