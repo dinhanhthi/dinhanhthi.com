@@ -98,5 +98,21 @@ array([[nan, nan, nan],
 ~~~
 </div>
 
+## Deleting
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# DELETE POSITIONS
+arr = np.arange(6)
+np.delete(arr, [3,4])
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+array([0, 1, 2, 3, 4, 5])
+array([0, 1, 2, 5])
+~~~
+</div>
 
 

@@ -80,7 +80,7 @@ df = pd.DataFrame({'timestamp': ['2019-01-31T16:47:00+01:00', '2019-01-31T16:48:
 Different time gaps (time steps),
 
 ~~~ python
-def generate_sample(starting_date, periods, gaps=None, freq="1T", n_vars=1):
+def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1):
     """
     General a sample time series dataframe with different periods and time steps.
     
@@ -90,7 +90,7 @@ def generate_sample(starting_date, periods, gaps=None, freq="1T", n_vars=1):
         Starting date of the data.
     periods: array, list of int
         The list of (different) periods to generate.
-    gaps: array, list of int, optional
+    gaps: array, list of numbers, optional
         The list of gaps (between periods).
     freq: frequency strings
         The most popular time steps.
@@ -98,11 +98,13 @@ def generate_sample(starting_date, periods, gaps=None, freq="1T", n_vars=1):
         Number of columns of variables.
     """
     df = pd.DataFrame()
+    periods = list(periods)
     for idx, _ in enumerate(periods):
         per = periods[idx]
         if gaps is not None:
+            gaps = list(gaps)
             gap = gaps[idx]
-            starting_date = str(pd.Timestamp(starting_date) + pd.to_timedelta(freq)*gap)
+            starting_date = str(pd.Timestamp(starting_date) + pd.to_timedelta(to_offset(freq))*gap)
         else:
             starting_date = str(pd.Timestamp(starting_date))
             
