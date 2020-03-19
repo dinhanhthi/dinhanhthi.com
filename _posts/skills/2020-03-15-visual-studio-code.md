@@ -71,3 +71,26 @@ Below is an example list,
 ## Connect `ssh` folders in VSC
 
 Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
+
+## Settings
+
+~~~ json
+{
+    "editor.tabSize": 4,
+    "editor.fontSize": 13,
+    "editor.rulers": [100],
+    "search.exclude": {
+        "**/_site": true,
+        "**/.jekyll-cache": true,
+        "**/.sass-cache": true,
+        "**/*.ico": true,
+        "**/*.ipynb": true,
+        "**/*.jpeg": true,
+        "**/*.jpg": true,
+        "**/*.png": true,
+        "**/*.svg": true
+    },
+    "explorer.confirmDelete": true,
+    "editor.minimap.enabled": false,
+}
+~~~

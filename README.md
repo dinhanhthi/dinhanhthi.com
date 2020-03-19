@@ -20,4 +20,10 @@ bundle install
 
 # run the server (http://localhost:4000)
 bundle exec jekyll serve
+
+# incremental build (only build the changes, faster)
+bundle exec jekyll serve -I
+
+# build also the posts in `_drafts`
+bundle exec jekyll serve --draft
 ~~~
