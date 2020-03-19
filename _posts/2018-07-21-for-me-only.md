@@ -2,7 +2,7 @@
 layout: post
 title: "For me only"
 categories: [others]
-katex: 1
+math: 1
 icon: "fas fa-pencil-ruler"
 icon-color: "#ffd661"
 jsxgraph: 1
@@ -645,8 +645,6 @@ Source of figures used in this post:
 
 ## Math expressions
 
-{% katexmm %}
-
 - Inline math, use `$math-expression$`
 - Block of math, use `$$math block$$` or
 
@@ -672,9 +670,9 @@ Source of figures used in this post:
 
 	~~~ latex
   $$
-  \begin{aligned}\tag{1}
+  \begin{align}\tag{1}
   x^n + y^n = z^n
-  \end{aligned}
+  \end{align}
   $$
 	~~~
 
@@ -685,8 +683,6 @@ Source of figures used in this post:
   x^n + y^n = z^n \tag{1}
   $$
 	~~~
-
-{% endkatexmm %}
 
 
 ## Katex
