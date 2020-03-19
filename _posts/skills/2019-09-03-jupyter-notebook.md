@@ -3,7 +3,7 @@ layout: post
 title: "Jupyter Notebook"
 categories: [python]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -85,6 +85,53 @@ Edit mode,
 
 </div>
 </div>
+
+## Jupyter notebook on remote server
+
+Open jupyter notebook in local browser but the backend-server is on remote.
+
+- If jupyter server **is already** running on remote at `http://192.168.0.155:9889`,
+    ~~~ bash
+  ssh -N -L localhost:9888:192.168.0.155:9889 <username-remote>@<remote-host> -p <port>
+  # if there is no port, remove `-p <port>`
+    ~~~
+    
+    Open browser: `http://localhost:9888` (type password if needed).
+
+- If jupyter server **is not** running on remote yet,
+    ~~~ bash
+  # connect to remote
+  ssh <username-remote>@<remote-host> -p <port>
+  # if there is no port, remove `-p <port>`
+    ~~~
+
+    On remote,
+    ~~~ bash
+  # run juputer with custom port
+  jupyter notebook --no-browser --port=9899
+
+  # if there is error `OSError: [Errno 99] Cannot assign requested address`
+  jupyter notebook --ip=0.0.0.0 --no-browser --port=9899
+
+  # if there is error `Running as root is not recommended`
+  jupyter notebook --ip=0.0.0.0 --no-browser --port=9899 --alow-root
+    ~~~
+
+    It's running and there are somethings like that,
+    ~~~ bash
+  http://127.0.0.1:9889/?token=717d9d276f0537a9...831793df6319ad389accd
+    ~~~
+
+    Open another terminal window and type,
+    ~~~ bash
+  ssh -N -L localhost:9888:localhost:9889 <username-remote>@<remote-host> -p <port>
+  # if there is no port, remove `-p <port>`
+  # there is nothing but it's running
+    ~~~
+
+    Open browser: `http://localhost:9888/?token=717d9d276f0537a9...831793df6319ad389accd`.
+
+You can choose any port number you wanna instead of `9888` and `9889` (they can be the same), note that, you need to use a port number GREATER THAN `8000`!
 
 ## Install new python package inside Jupyter Notebook
 

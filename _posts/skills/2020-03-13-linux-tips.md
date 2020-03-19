@@ -223,7 +223,7 @@ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 👉 How to add existing user to an existing group{% ref https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group %}
 
 ~~~ bash
-udo usermod -a -G groupName userName
+sudo usermod -a -G groupName userName
 ~~~
 
 👉 Change ownership of a folder and its children
@@ -235,7 +235,12 @@ chown -R thi:root folder
 chown <user>:<group> file
 ~~~
 
-👉 Check the permission of curent directory: `ll <file>` or `ll`
+👉 Check the permission of curent directory: 
+
+~~~ bash
+ls -l 
+ls -l <file>
+~~~
 
 {% hsbox Check this photo %}
 {:.img-full-80}
