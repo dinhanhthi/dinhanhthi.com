@@ -52,7 +52,7 @@ Read more in [this article](https://forestry.io/blog/how-i-reduced-my-jekyll-bui
 
 ## Sitemap
 
-If there is no url in the ouput [sitemap](https://github.com/jekyll/jekyll-sitemap) (_https://dinhanhthi.com/sitemap.xml_, for example) like `<loc>/reading</loc>` instead of `<loc>https://dinhanhthi.com/reading</loc>`, please check your `_config.yml` file and make sure that there is the full url inside `url` field.
+If in [sitemap](https://github.com/jekyll/jekyll-sitemap), there is error like `<loc>/reading</loc>`, check your `_config.yml` + make sure there is an url inside `url` field.
 
 ## Loop through posts
 
@@ -129,20 +129,29 @@ There are several choices for you to choose, it depends on your need.
 
 ### You don't have a custom domain
 
-By default, you should store your site on Github with a repository whose name is `<username>.github.io` (`<username>` is your Github account, exactly like that!) and set the default branch as `master`. Github Pages will do the rest for you to published your website at `https://<username>.github.io`.
+1. Suppose your github account is `<username>`.
+2. Create a repo `<username>.github.io`.
+3. Put your site in branch `master` (default).
+4. Your site is published at `https://<username>.github.io`
 
-In the case you wanna store your site in a custom repository, let's say `mywebsite` (instead of `<username>.github.io`), just create a branch whose name is `gh-pages` (exactly like that) and remove the content after `url:` in the `_config.yml` file. Finally, set `gh-pages` as the default branch for that repository. From now on, your site is on `https://<username>.github.io/mywebsite/`
+If you wanna store your site in a custom repo, e.g. `mysite`:
 
+1. Create a branch `gh-pages` + set it as default + store your site here.
+2. Remove content at `url:` in `_config.yml`.
+3. Your site is live at `https://<username>.github.io/mysite/`
 
 ### You have a custom domain
 
-At the root of your site, just create a file namely `CNAME` (without extension!) containing `<yourcustomdomain>.com`. Don't forget create either a `A` or `CNAME` record in your DNS provider (check the step 4 [here](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site)).
-
-Don't forget a very useful service from [netlify](http://netlify.com). You can store your site on Github and run with netlify. You can even use your custom/third-party plugins for your site on netlify (you couldn't do that on Github Pages).
+1. Create file `CNAME` at root and put `<customdomain>.com` in it.
+2. Create `A` or `CNAME` record in DNS provider. Check [more](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site).
+3. You can also use [netlify](http://netlify.com) to set all things up automatically.
 
 ## Using custom plugins?
 
-By default, Github Pages doesn't allow custom plugins. It only support [some specific plugins](https://pages.github.com/versions/). If you wanna use your custom plugins (or third party plugins), you can run your site on [netlify](https://netlify.com), it's free for non-commercial projects. You are able to host your site in a Github repository, the rest of work will be handled by netlify. Wonderful! 
+1. Build your site locally and get a folder `_site`.
+2. Put it to github and see the results.
+
+You can also use [`netlify`](https://netlify.com), it accepts custom plugin as well.
 
 ## Using `_data` with `include`
 

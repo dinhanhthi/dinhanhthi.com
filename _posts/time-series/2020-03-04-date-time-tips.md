@@ -11,6 +11,7 @@ keywords: "resample rule time step timedelta delta constructor format representa
 
 Official ref [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) — search "_DateOffsets_" to jump to the table.
 
+{:style='max-height: 200px;'}
 ~~~
 B         business day frequency
 C         custom business day frequency (experimental)
@@ -77,6 +78,8 @@ np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
 
 ## Converting
 
+### `Timedelta`
+
 To `Timedelta`,
 
 ~~~ python
@@ -91,19 +94,7 @@ from pandas.tseries.frequencies import to_offset
 pd.to_timedelta(to_offset('T'))
 ~~~
 
-Timestamps,
-
-~~~ python
-from datetime import datetime
-
-# to same timezone (UTC, +0)
-df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
-
-# UTC+0 to UNIX timestamp
-df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
-~~~
-
-### Timedelta to offset string
+Timedelta to offset string
 
 This is used to find the offset string (or "DateOffsets" or "frequencies strings" or "offset aliases") for `rule` in [`Resample`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html) {% ref https://stackoverflow.com/questions/46429736/pandas-resampling-how-to-generate-offset-rules-string-from-timedelta %}.
 
@@ -145,6 +136,22 @@ Timedelta('0 days 00:01:00')
 ~~~
 </div>
 </div>
+
+## Timestamps
+
+~~~ python
+from datetime import datetime
+
+# to same timezone (UTC, +0)
+df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
+
+# UTC+0 to UNIX timestamp
+df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
+
+# UNIX (ms) -> datetime64
+df['timestamp'] = df['timestamp'].astype('datetime64[ms])
+# change `ms` with others, e.g. `ns` for nanosecond
+~~~
 
 ## Detect time series frequency
 
