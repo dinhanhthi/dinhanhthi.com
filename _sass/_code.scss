@@ -1,7 +1,7 @@
 .highlighter-rouge{
   margin: 0 0 $m-b 0;
   font-size: 0.95*$f-size;
-  max-height: 500px;
+  max-height: $max-height-code-box;
   overflow: auto;
 }
 

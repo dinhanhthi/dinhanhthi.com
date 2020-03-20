@@ -132,8 +132,9 @@ li{
   margin-bottom: $m-b;
   .box-button{
     padding: 0.5rem 1rem 0.5rem 1.76rem !important;
-    border: 1px solid #dce5f7;
-    background: #f7fbff;
+    // border: 1px solid #dce5f7;
+    border: 1px solid #bfd0f3;
+    // background: #f7fbff;
     border-radius: 0!important;
     display: block;
     width: 100%;
@@ -145,7 +146,8 @@ li{
       box-shadow: none;
     }
     &:hover{
-      background: #edf5ff !important
+      // background: #edf5ff !important
+      background: #f1f1f147;
     }
 
     position: relative;
