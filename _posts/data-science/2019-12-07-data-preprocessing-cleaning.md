@@ -55,23 +55,20 @@ import numpy as np
 
 ### Remove or Keep some
 
-Removing columns,
-
 ~~~ python
+# REMOVING COLUMNS
 df.drop('New', axis=1, inplace=True) # drop column 'New'
 df.drop(['col1', 'col2'], axis=1, inplace=True)
 ~~~
 
-Only keep some,
-
 ~~~ python
+# ONLY KEEP SOME
 kept_cols = ['col1', 'col2', ...]
 df = df[kept_cols]
 ~~~
 
-Choose all columns except some,
-
 ~~~ python
+# ALL EXCEPT SOME
 df[df.columns.difference(['b'])]
 ~~~
 

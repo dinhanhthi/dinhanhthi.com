@@ -7,7 +7,7 @@ icon: "fas fa-pencil-ruler"
 icon-color: "#ffd661"
 jsxgraph: 1
 sitemap: false
-keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference for me only cms admin jekyll emoji emotion icon"
+keywords: "front matter table of content hide show box alert box insert code insert figure photo video jemoji emotion full width mathjax katex check box terminal box definition steps font texts badge reference for me only cms admin jekyll emoji emotion icon localhost"
 ---
 
 {% include toc.html %}
@@ -31,18 +31,20 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
   - `icon` : (e.g. `"fas fa-book-reader"`) if you wanna display an icon for that in the header for that page/post.
   - `icon-color` : (e.g. `#ffeead`) if you wanna set a color for that icon.
   - `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
+- `toc: 1` if you wanna show the table of content in your site.
+
+## TOC
+
+Either use `toc: 1` in the frontmatter or add
+
+~~~
+{%raw%}{% include toc.html %}
+{%endraw%}~~~
 
 ## CMS
 
 Only work on `localhost`: [http://localhost:4000/admin](http://localhost:4000/admin).
 
-## Add table of contents
-
-The table of contents is only shown if the min-width of the viewport is 1300 px. If you wanna insert the toc in some post, just add following line at the beginning of the post,
-
-~~~ html
-{% raw %}{% include toc.html %}{% endraw %}
-~~~
 
 ## Open in HTML - in Colab for Python Notes
 

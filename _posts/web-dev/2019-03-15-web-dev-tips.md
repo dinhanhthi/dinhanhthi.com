@@ -3,7 +3,7 @@ layout: post
 title: "Web Dev tips"
 categories: [web development]
 icon-photo: css.svg
-keywords: ""
+keywords: "html character terms font ligatures"
 ---
 
 {% include toc.html %}
@@ -15,7 +15,3 @@ keywords: ""
 ## Terms
 
 - **Font ligatures**: a font ligature is when two or more symbols, letters or characters are joined to form a new character.
-
-
-
-## 

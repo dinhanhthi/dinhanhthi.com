@@ -1,16 +1,18 @@
 ---
 layout: post
-title: "Wordpress 101"
+title: "Wordpress Installation"
 categories: [web development]
 icon-photo: "wordpress.svg"
-keywords: "create website wordpress wp apache2 mysql php phpmyadmin run locally database"
+keywords: "LAMP create website wordpress wp apache2 mysql php phpmyadmin run locally database MAMP WAMP WampServer www clone a website to localhost locally theme template desgin PHP visual studio code vsc PHP IntelliSense database ftp app winscp filezilla transmit localhost"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
 
 {% include toc.html %}
 
-## Install
+I create [Math2ITwp](https://github.com/dinhanhthi/math2itwp) theme for [math2it.com](https://math2it.com) from scratch. This note contains the basic things to create a theme like that.
+
+## Install Apache + MySQL + PHP.
 
 ### Linux
 
@@ -174,3 +176,66 @@ Go to `http://localhost/phpmyadmin`. Login with your user and password you creat
 
 1. Install [MAMP](https://www.mamp.info/en/downloads/).
 2. Follow [this post](https://www.taniarascia.com/local-environment/).
+
+### PHP executable (optional)
+
+Just for running PHP + `PHP IntelliSense` on [Visual Studio Code](/visual-studio-code).
+
+1. [Download PHP](https://windows.php.net/download/) (Windows, portable).
+2. Put below lines in VSC setting file (change the path to yours).
+
+    ~~~ json
+{
+    "php.validate.executablePath": "C:\\wamp64\\bin\\php\\php7.0.4\\php.exe",
+    "php.executablePath": "C:\\wamp64\\bin\\php\\php7.0.4\\php.exe"
+}
+    ~~~
+
+## Create local database + Wordpress
+
+### Create a database
+
+{% hsbox Only for Linux %}
+
+~~~ bash
+# Sign in to MySQL
+mysql -u root -p
+
+# Check the list of users
+SELECT user,authentication_string,plugin,host FROM mysql.user;
+
+
+# Create a new user `thi` and assign to this user a password, e.g. `thipassword`
+CREATE USER 'thi'@'localhost' IDENTIFIED BY 'thipassword';
+
+# Set the orivileges to this user
+GRANT ALL PRIVILEGES ON *.* TO 'thi'@'localhost' WITH GRANT OPTION;
+~~~
+
+{% endhsbox %} 
+
+1. Open [`http://localhost/phpmyadmin/`](http://localhost/phpmyadmin/),
+2. Create a new database `testing_db` (remember to choose `utf8_general_ci` before pressing **Create**)
+3. Create a new user `thi` with `ALL PRIVILEGES` (click on **Check all**).
+
+### Install Wordpress
+
+1. Download [Wordpress](https://wordpress.org/download/).
+2. Create a folder `thi` in `C:\wamp64\www` (Windows), `/var/www/html` (Linux).
+3. Extract the content (`wp-admin`, `wp-content`,...) of the zip file downloaded in step 1 to `/thi/`.
+4. Go to [`http://localhost/thi`](http://localhost/thi) and follow the instructions.
+5. Type the username and password you created (`thi` and `thipassword`).
+6. Press Install and wait.
+7. Login with username and password.
+8. All the configuration is at [`http://localhost/texmath/wp-admin/`](http://localhost/texmath/wp-admin/).
+
+## Clone a website to localhost
+
+1. Install [Apache + MySQL + PHP](#install-apache--mysql--php).
+2. [Create database + install Wordpress](#create-local-database--wordpress).
+3. At least, you have a workable site at [`http://localhost/thi/`](http://localhost/thi/).
+4. Download and install an FTP app like [WinSCP](WinSCP) (Windows) or [FileZilla](https://filezilla-project.org/download.php?platform=linux) or [Transmit]([Transmit](https://panic.com/transmit/)).
+5. Download the current theme on the remote to local. The theme is located at `/wp-content/themes/`.
+6. Clone database from remote site to local by using plugin [All-in-One WP Migration](https://wordpress.org/plugins/all-in-one-wp-migration/). More detailed guid: [English](https://wpshout.com/quick-guides/all-in-one-wp-migration/), [Vietnamese](https://wiki.matbao.net/kb/huong-dan-chuyen-du-lieu-website-wordpress-bang-plugin-all-in-one-wp-migration/). If your site's too big, exlude the media files and copy them later. They're all in `wp-content/uploads`.
+7. Note that, you have to use `username` and `password` given in the downloaded database instead of the one you created on localhost.
+8. Enable the downloaded theme in `/wp-admin`.
