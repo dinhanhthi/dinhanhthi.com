@@ -54,7 +54,7 @@ h2.heading-title{
       color: #6293ca;
     }
   }
-  h3{
+  & > h3{
     font-size: $f-h3-size;
     font-weight: $f-heading-weight;
     color: $f-heading-color;
@@ -66,7 +66,7 @@ h2.heading-title{
       font-size: 1.25rem;
     }
     &:before{
-      // content: "## ";
+      content: "∴ ";
       color: #d87638;
     }
   }
