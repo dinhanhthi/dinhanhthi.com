@@ -2,9 +2,14 @@
 layout: page
 ---
 
-{% if site.data.me.show-related-posts %}
-{% include related-posts.html %}
+{% if page.toc %}
+  <div id="toc">
+    <div class="toc-content" markdown="1">
+      {% include jekyll-toc.html html=content id="markdown-toc" ordered=false %}
+    </div>
+  </div>
 {% endif %}
+
 
 {{ content }}
 
