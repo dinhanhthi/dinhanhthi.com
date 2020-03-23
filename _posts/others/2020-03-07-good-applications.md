@@ -3,7 +3,7 @@ layout: post
 title: "Useful Applications & Tools"
 categories: [others]
 icon-photo: apps.svg
-keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury iterm2 guake terminal cmder drop-down commander cmd quick open terminal commanline workrave time out screentogif lock hunter everything spotlight goldendict deepl lingoes Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet tools image photo compression jpeg png remove background transparent photo luna lunapic"
+keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury iterm2 guake terminal cmder drop-down commander cmd quick open terminal commanline workrave time out screentogif lock hunter everything spotlight goldendict deepl lingoes Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet tools image photo compression jpeg png remove background transparent photo luna lunapic resize images iloveimg"
 ---
 
 {% include toc.html %}
@@ -12,8 +12,10 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 
 ### Images
 
-- [PNG / JPEG image compression.](https://compresspng.com/)
+- Compress images: [PNG](https://compresspng.com/), [JPG](https://compressjpeg.com/).
 - Remove background / Transparent photos: [online png tools](transparent), [lunapic](https://www5.lunapic.com/editor/).
+- **iloveimg**: [resize](https://www.iloveimg.com/resize-image), [crop](https://www.iloveimg.com/crop-image), [compress](https://www.iloveimg.com/compress-image), [rotate](https://www.iloveimg.com/rotate-image).
+- [SVG free](https://www.flaticon.com/).
 
 ## Multi-platforms
 

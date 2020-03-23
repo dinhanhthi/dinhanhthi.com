@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Web Dev tips"
+title: "Web Dev extra"
 categories: [web development]
 icon-photo: css.svg
 keywords: "html character terms font ligatures"

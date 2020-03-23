@@ -5,7 +5,7 @@ categories: [machine learning]
 katex: 1
 icon-photo: clustering.png
 date: 2020-03-05
-keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median"
+keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans"
 ---
 
 {% assign img-url = '/img/post/ML/clustering' %}

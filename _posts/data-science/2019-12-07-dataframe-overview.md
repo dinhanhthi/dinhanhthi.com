@@ -3,7 +3,7 @@ layout: post
 title: "Data Overview"
 categories: [data science]
 icon-photo: data-overview.png
-keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing"
+keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing KDE Kernel Density Estimation values distribution"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -42,18 +42,21 @@ df.dtypes # type of each column
 df.get_dtype_counts() # count the number of data types
 ~~~
 
-## Get columns' info
-
-Get the list of columns,
+Check distribution of values using **KDE** (Kernel Density Estimation),
 
 ~~~ python
-df.columns
-len(df.columns) # count the number of columns
+plt.figure(figsize=(20, 5))
+df['value'].plot.kde()
 ~~~
 
-Get all unique values in the columns,
+## Get columns' info
 
 ~~~ python
+# LIST OF COLUMNS
+df.columns
+len(df.columns) # count the number of columns
+
+# UNIQUE VALUES IN COL
 df['col'].unique()
 ~~~
 

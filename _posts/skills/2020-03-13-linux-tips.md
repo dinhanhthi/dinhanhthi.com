@@ -3,7 +3,7 @@ layout: post
 title: "Linux notes"
 categories: [skills]
 icon-photo: linux.svg
-keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner check disk space with command lines gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader check info cpu ram PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget"
+keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget"
 ---
 
 {% include toc.html %}
@@ -15,8 +15,6 @@ Quick tips / references for using Linux / Ubuntu.
 👉 Find in linux with command lines ⇾ [link](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
 
 👉 Cannot move files to the trash/wrong owner ⇾ [link](https://askubuntu.com/questions/288513/cant-move-files-to-the-trash)
-
-👉 Check disk space with command lines: `df -h`
 
 👉 Gnome screen shot ⇾ [link](https://www.howtoforge.com/tutorial/taking-screenshots-in-linux-using-gnome-screenshot/)
 
@@ -60,13 +58,6 @@ sudo apt-get install terminator
 - Menu on the top right > Add bookmarks
 - Click on bookmark and rename it
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> to save (instead of <kbd>Ctrl</kbd> + <kbd>S</kbd>)
-
-👉 Check CPU & RAM info
-
-~~~ bash
-cat /proc/cpuinfo # cpu
-cat /proc/meminfo # ram
-~~~
 
 👉 Remove PPA from ubuntu by terminal. For example, _The repository 'http://ppa.launchpad.net/b-eltzner/qpdfview/ubuntu artful Release' does not have a Release file._ Remove the file _b-eltzner-qpdfview-ubuntu_ from directory _/etc/apt/sources.list.d_
 
@@ -114,23 +105,6 @@ sudo chown -R yourusername:yourusername ~/.cache/thumbnails
 ~~~ bash
 sudo apt-get install nautilus-admin
 nautilus -q # restart nautilus
-~~~
-
-👉 Remove files/folders in terminal
-
-~~~ bash
-rm <file>
-rm -f <file> # force to remove
-rm -rf <dir> # remove folder and files includes
-rmdir <empty-dir> # remove empty directories
-~~~
-
-👉 Check size of a folder
-
-~~~ bash
-du -hs <directory>
-# `h` : human readable (6.7G)
-# `s` : only this directory (otherwise, it reads all included)
 ~~~
 
 👉 Mount iso file on linux
@@ -193,12 +167,6 @@ source ~/.profile
 - If one wants to copy files to iphone. Follow [this one](https://askubuntu.com/questions/799414/how-to-move-files-from-ubuntu-to-iphone)
 
 👉 Check the current path: `pwd`
-
-👉 Rename a file/folder in terminal linux:
-
-~~~ bash
-mv olname.txt newname.txt
-~~~
 
 ## Surface
 

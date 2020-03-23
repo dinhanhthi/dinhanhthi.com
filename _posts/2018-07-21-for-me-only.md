@@ -393,6 +393,18 @@ Block of codes.
 - If two column stick together (with no space between them), you can use `.pr-md-1` for the left and `.pl-md-1` for the right.
 - If you wanna the output box stick to the code box, use `.mt-m1.bt-none` class.
 
+### Auto-equal 50% code boxes
+
+~~~ html
+<div class="flex-auto-equal-2" markdown="1">
+code_block_1
+
+code_block_2
+
+code_block_3
+</div>
+~~~
+
 ## Insert boxes
 
 ### Box around formulas

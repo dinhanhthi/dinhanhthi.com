@@ -305,3 +305,22 @@ table{
 .bt-none{
   border-top: none!important;
 }
+
+// auto-equal 50-50
+@media (min-width: $s-md){
+  .flex-auto-equal-2{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+  
+    &>.highlighter-rouge{
+      width: 50%;
+      &:nth-child(odd){
+        padding-right: 5px;
+      }
+      &:nth-child(even){
+        padding-left: 5px;
+      }
+    }
+  }
+}
