@@ -46,11 +46,15 @@ a, b = b, a
 # Clear (without confirmation) a variable from workspace
 del <var>
 %reset_selective <var>
+~~~
 
+~~~ python
 # Check if available and then delete
 if '<var>' in globals(): del <var>
 # use locals() inside a def
+~~~
 
+~~~ python
 # Clear all variables
 %reset # with confirmation
 %reset -f # without confirmation

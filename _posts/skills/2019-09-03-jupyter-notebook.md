@@ -3,7 +3,7 @@ layout: post
 title: "Jupyter Notebook"
 categories: [python]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -12,14 +12,18 @@ keywords: "pip conda hotkey magic function display side by side dataframes previ
 
 ## Installation
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # BY PIP
-pip install --upgrade pip # first, always upgrade pip!
+pip install --upgrade pip
 pip install --upgrade ipython jupyter
+~~~
 
+~~~ bash
 # BY CONDA
 conda install ipython jupyter
 ~~~
+</div>
 
 Or read more in [this note](/python-installation).
 
@@ -92,7 +96,7 @@ Open jupyter notebook in local browser but the backend-server is on remote.
 
 - If jupyter server **is already** running on remote at `http://192.168.0.155:9889`,
     ~~~ bash
-  ssh -N -L localhost:9888:192.168.0.155:9889 <username-remote>@<remote-host> -p <port>
+  ssh -N -L localhost:9888:192.168.0.155:9899 <username-remote>@<remote-host> -p <port>
   # if there is no port, remove `-p <port>`
     ~~~
     
@@ -161,7 +165,6 @@ Check version and update/upgrade,
 
 ~~~ python
 !pip show pandas
-
 ~~~
 
 ## Display dataframes side-by-side

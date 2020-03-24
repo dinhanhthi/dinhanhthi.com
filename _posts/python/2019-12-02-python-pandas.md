@@ -79,13 +79,19 @@ students = pd.DataFrame(my_dict)
 # interchange `.values[0]` and `.iloc[0]`
 df[df.Name=='Thi'].Marks.values[0]
 df.loc[df.Name=='Thi', 'Marks'].values[0]
+~~~
 
+~~~ python
 # with indexes
 df.iloc[1,2] # row 2, column 3
+~~~
 
+~~~ python
 # column's name with row's index
 df[['Marks']].iloc[1].values[0] # column 'Marks', row 2
+~~~
 
+~~~ python
 # column's index with row's value
 df[df.Name=='Thi'].iloc[:,2].values[0] # column 3, row of 'Thi'
 ~~~
@@ -100,25 +106,33 @@ df.loc[1:5, 'col']
 
 **Select a column** (type `Series`): Get column `Name`.
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 # with column's name
 df['Name']
 df.loc[:, 'Name']
+~~~
 
+~~~ python
 # with an index
 df.iloc[:,0]
 ~~~
+</div>
 
 **Select multi-columns** (type `DataFrame`): Get columns `Name` & `Place`:
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 # using columns's names
 df[['Name', 'Place']]
 df.loc[:, ['Name', 'Place']]
+~~~
 
+~~~ python
 # using indexes
 df.iloc[:, [0,-1]]
 ~~~
+</div>
 
 ### Select rows
 
@@ -231,14 +245,12 @@ If there are some column with single name,
 arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo'], [i for i in range(2)]*3]
 index = pd.MultiIndex.from_arrays(arrays)
 df1 = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
+~~~
 
+~~~ python
 # BAD PRACTICE
 df2 = pd.DataFrame([1,2,3], index=['A', 'B', 'C'], columns=['time'])
 df_rs1 = pd.concat([df1, df2], axis=1)
-
-# GOOD PRACTICE
-df1['time'] = [1,2,3]
-df_rs2 = df1
 ~~~
 
 <table class="dataframe">
@@ -287,6 +299,12 @@ df_rs2 = df1
     </tr>
   </tbody>
 </table>
+
+~~~ python
+# GOOD PRACTICE
+df1['time'] = [1,2,3]
+df_rs2 = df1
+~~~
 
 <table class="dataframe">
   <thead>
@@ -350,7 +368,19 @@ Selection,
 # FOR BAD PRACTICE
 df.loc['A', [('baz', 0)]]
 df_rs1.loc['A', [('baz', i) for i in [0,1]]]
+~~~
 
+{:.output.flex-fill.d-flex}
+~~~ bash
+(baz, 0)    0.729023
+(baz, 0)    1.482855
+(baz, 1)    0.943795
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
 # FOR GOOD PRACTICE
 df_rs2.loc['A', ('baz', 1)]
 df_rs2.loc['A', 'baz']
@@ -358,12 +388,6 @@ df_rs2.loc['A', 'baz']
 
 {:.output.flex-fill.d-flex}
 ~~~ bash
-# FOR BAD PRACTICE
-(baz, 0)    0.729023
-(baz, 0)    1.482855
-(baz, 1)    0.943795
-
-# FOR GOOD PRACTICE
 0.943795
 0    1.482855
 1    0.943795

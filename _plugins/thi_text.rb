@@ -163,3 +163,60 @@ module Jekyll
   end
 end
 Liquid::Template.register_tag('mark', Jekyll::MarkText)
+
+# learning-log
+# =======================================
+module Jekyll
+  class LLDataML < Liquid::Tag
+    def render(context)
+      output = <<~EOS
+        <span class="tbadge badge-yellow">Data & ML</span>
+      EOS
+    end
+  end
+end
+Liquid::Template.register_tag('data_ml', Jekyll::LLDataML)
+
+module Jekyll
+  class LLPython < Liquid::Tag
+    def render(context)
+      output = <<~EOS
+        <span class="tbadge badge-orange">Python</span>
+      EOS
+    end
+  end
+end
+Liquid::Template.register_tag('python', Jekyll::LLPython)
+
+module Jekyll
+  class LLTech < Liquid::Tag
+    def render(context)
+      output = <<~EOS
+        <span class="tbadge badge-green">Tech</span>
+      EOS
+    end
+  end
+end
+Liquid::Template.register_tag('tech', Jekyll::LLTech)
+
+module Jekyll
+  class LLWeb < Liquid::Tag
+    def render(context)
+      output = <<~EOS
+        <span class="tbadge badge-blue">Web</span>
+      EOS
+    end
+  end
+end
+Liquid::Template.register_tag('web', Jekyll::LLWeb)
+
+module Jekyll
+  class LLWorkflow < Liquid::Tag
+    def render(context)
+      output = <<~EOS
+        <span class="tbadge badge-gray">Workflow</span>
+      EOS
+    end
+  end
+end
+Liquid::Template.register_tag('workflow', Jekyll::LLWorkflow)

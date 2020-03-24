@@ -76,7 +76,6 @@ import torch.optim as optim
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
-# 
 class Autoencoder(nn.Module):
 
     def __init__(self, input_size=100, encoded_size=10):

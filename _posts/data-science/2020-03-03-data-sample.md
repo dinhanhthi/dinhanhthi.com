@@ -2,10 +2,29 @@
 layout: post
 title: "Data Sample"
 categories: [data science]
-keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue"
+keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile"
 ---
 
 {% include toc.html %}
+
+## Temporary file and directory
+
+Using [tempfile](https://docs.python.org/3/library/tempfile.html). A file/directory will be created to work. Close files, files are deleted!
+
+~~~ python
+import tempfile
+
+# create tmp file and write some data
+fp = tempfile.TemporaryFile()
+fp.write(b'Hello world!')
+
+# read data from file
+fp.seek(0)
+fp.read()
+
+# close the file, it'll be removed!
+fp.close()
+~~~
 
 ## Time Series data
 
@@ -74,7 +93,7 @@ With timezone (manually)
 
 ~~~ python
 df = pd.DataFrame({'timestamp': ['2019-01-31T16:47:00+01:00', '2019-01-31T16:48:00+02:00', 
-                                  '2019-01-31T16:49:00+02:00', '2019-01-31T16:50:00+01:00']})
+                                 '2019-01-31T16:49:00+02:00', '2019-01-31T16:50:00+01:00']})
 ~~~
 
 Different time gaps (time steps),
@@ -123,8 +142,11 @@ def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1)
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
-df = generate_sample(starting_date='2020-01-01', periods=[3, 2], 
-                     gaps=[0, 5], freq='1T', n_vars=5)
+df = generate_sample(starting_date='2020-01-01', 
+                     periods=[3, 2], 
+                     gaps=[0, 5], 
+                     freq='1T', 
+                     n_vars=5)
 ~~~
 
 {:.flex-even.overflow-auto.pl-md-1}

@@ -7,64 +7,6 @@ keywords: "resample rule time step timedelta delta constructor format representa
 
 {% include toc.html %}
 
-## List of resampling rules
-
-Official ref [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) — search "_DateOffsets_" to jump to the table.
-
-{:style='max-height: 200px;'}
-~~~
-B         business day frequency
-C         custom business day frequency (experimental)
-D         calendar day frequency
-W         weekly frequency
-M         month end frequency
-SM        semi-month end frequency (15th and end of month)
-BM        business month end frequency
-CBM       custom business month end frequency
-MS        month start frequency
-SMS       semi-month start frequency (1st and 15th)
-BMS       business month start frequency
-CBMS      custom business month start frequency
-Q         quarter end frequency
-BQ        business quarter endfrequency
-QS        quarter start frequency
-BQS       business quarter start frequency
-A         year end frequency
-BA, BY    business year end frequency
-AS, YS    year start frequency
-BAS, BYS  business year start frequency
-BH        business hour frequency
-H         hourly frequency
-T, min    minutely frequency
-S         secondly frequency
-L, ms     milliseconds
-U, us     microseconds
-N         nanoseconds
-~~~
-
-### Compare/Make arithmetic different frequency strings
-
-We wanna compare `150S` (150 seconds) with `1T` (1 minutes).
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
-import pandas as pd
-pd.to_timedelta('150S') > pd.to_timedelta('1T')
-pd.to_timedelta('120S') == pd.to_timedelta('1T')
-pd.to_timedelta('120S') == pd.to_timedelta('2T')
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~
-True
-False
-True
-~~~
-</div>
-
-We can make some arithmetic with them.
-
 ## `TimedeltaIndex` differences
 
 There is no `.diff` method with `TimedeltaIndex`, you can use,
@@ -85,10 +27,14 @@ To `Timedelta`,
 ~~~ python
 # numpy.timedelta64(208206000000000,'ns') → Timedelta('2 days 09:50:06')
 pd.Timedelta(time, unit='ns')
+~~~
 
+~~~ python
 # DateOffsets ('14T') → Timedelta('0 days 00:14:00')
 pd.to_timedelta('14T')
+~~~
 
+~~~ python
 # Can't use 'T' as '1T'?
 from pandas.tseries.frequencies import to_offset
 pd.to_timedelta(to_offset('T'))
@@ -141,13 +87,19 @@ Timedelta('0 days 00:01:00')
 
 ~~~ python
 from datetime import datetime
+~~~
 
+~~~ python
 # to same timezone (UTC, +0)
 df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
+~~~
 
+~~~ python
 # UTC+0 to UNIX timestamp
 df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
+~~~
 
+~~~ python
 # UNIX (ms) -> datetime64
 df['timestamp'] = df['timestamp'].astype('datetime64[ms])
 # change `ms` with others, e.g. `ns` for nanosecond
@@ -212,6 +164,63 @@ df.groupby('label').agg({'timestamp': [check_monotonic] })
 df.sort_values(by='date', inplace=True)
 ~~~
 </div>
+
+## List of resampling rules
+
+Official ref [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects) — search "_DateOffsets_" to jump to the table.
+
+~~~
+B         business day frequency
+C         custom business day frequency (experimental)`
+D         calendar day frequency
+W         weekly frequency
+M         month end frequency
+SM        semi-month end frequency (15th and end of month)
+BM        business month end frequency
+CBM       custom business month end frequency
+MS        month start frequency
+SMS       semi-month start frequency (1st and 15th)
+BMS       business month start frequency
+CBMS      custom business month start frequency
+Q         quarter end frequency
+BQ        business quarter endfrequency
+QS        quarter start frequency
+BQS       business quarter start frequency
+A         year end frequency
+BA, BY    business year end frequency
+AS, YS    year start frequency
+BAS, BYS  business year start frequency
+BH        business hour frequency
+H         hourly frequency
+T, min    minutely frequency
+S         secondly frequency
+L, ms     milliseconds
+U, us     microseconds
+N         nanoseconds
+~~~
+
+### Compare/Make arithmetic different frequency strings
+
+We wanna compare `150S` (150 seconds) with `1T` (1 minutes).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+import pandas as pd
+pd.to_timedelta('150S') > pd.to_timedelta('1T')
+pd.to_timedelta('120S') == pd.to_timedelta('1T')
+pd.to_timedelta('120S') == pd.to_timedelta('2T')
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+True
+False
+True
+~~~
+</div>
+
+We can make some arithmetic with them.
 
 ## References
 

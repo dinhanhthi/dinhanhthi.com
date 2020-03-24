@@ -57,6 +57,20 @@ Only work on `localhost`: [http://localhost:4000/admin](http://localhost:4000/ad
 
 This will create automatically 2 button containing the link to open the html file and open the notebook in the
 
+## Learning log
+
+~~~
+{%raw%}{% data_ml %}
+
+{% python %}
+
+{% web %}
+
+{% tech %}
+
+{% workflow %}
+{%endraw%}~~~
+
 ## Insert youtube videos
 
 For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below codes:

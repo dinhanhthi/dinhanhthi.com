@@ -11,14 +11,15 @@ keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu 
 
 ## Windows
 
-Download and install [Anaconda](https://www.anaconda.com/distribution/). If it's too big, you can choose [Miniconda](https://docs.conda.io/en/latest/miniconda.html) instead. Suppose that the Anaconda is installed (by default) in:
+Download and install [Anaconda](https://www.anaconda.com/distribution/) or smaller version [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 {:.bg-gray}
 ~~~
+# default installed dir
 C:\ProgramData\Anaconda3
 ~~~
 
-Add below directories into *System Environment Variables*:
+Add to *System Environment Variables*:
 
 {:.bg-gray}
 ~~~
@@ -35,7 +36,7 @@ C:\Users\<user>\AppData\Roaming\Python\Python36\Scripts
 
 (*You can find `C:\...\Roaming` by typing `%appdata%` in the Windows Explorer's navigation bar*)
 
-Using Windows' *command prompt* (cmd) or *PowerShell* as a command line environment. For me, I prefer [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmderSetting.xml) file).
+App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmderSetting.xml) file).
 
 ### Jupyer Notebook
 
@@ -44,11 +45,15 @@ Anaconda contains JN in it, no need to install it again. `cd` to the folder you 
 ~~~ bash
 # RUN (after installing Anaconda)
 python -m notebook
+~~~
 
+~~~ bash
 # If `ImportError: DLL load failed`
 active base # active environment "base" in anaconda
 jupyter notebook
+~~~
 
+~~~ bash
 # If `import _ssl`, `ImportError`
 set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
 python -m notebook
