@@ -21,6 +21,7 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 - <kbd>Ctrl</kbd> + <kbd>L</kbd> : clear the screen.
 - <kbd>Tab</kbd> : autocomplete the commands / directories / file names / ....
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> : paste from clipboard.
+- For a long list: <kbd>Enter</kbd> to continue to read, <kbd>q</kbd> to quit.
 
 ## Check info
 
