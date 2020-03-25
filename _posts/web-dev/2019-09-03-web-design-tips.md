@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Web Design tips"
+title: "Web Design extra"
 categories: [web development]
-math: 1
 keywords: "autofocus separated columns page load google webfont sass Font ligatures terms"
 ---
 

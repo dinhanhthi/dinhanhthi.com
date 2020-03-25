@@ -1,11 +1,69 @@
 ---
 layout: post
-title: "Date / Time tips"
+title: "Date / Time extra"
 categories: [time series]
-keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0 to_offset cannot use single T without number"
+icon-photo: datetime.svg
+keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0 to_offset cannot use single T without number check info timestamp of a dataframe set index"
 ---
 
 {% include toc.html %}
+
+## Get info timestamps
+
+~~~ python
+def set_index(data, col_time):
+    """
+    Make a copy of a time-series dataframe `df` and set the column-time be the
+    index of the dataframe. 
+    In the case index has no name, we set it as `'index'`.
+    """
+    df0 = data.copy()
+    if col_time != 'index': # col_time is not the index
+        df0 = df0.set_index(col_time)
+    else:
+        if df0.index.name is None:
+            df0.index.name = 'index'
+    return df0
+~~~
+
+~~~ python
+def get_info_timestamps(df, col_date='index'):
+    # make sure timestamps are on index
+    df = set_index(df, col_date)
+    index_name = df.index.name
+    df = df.reset_index()
+    print('Time range: ', df[index_name].max() - df[index_name].min())
+    print('Number of different time steps: ', df[index_name].diff().value_counts().count())
+    print('Max time step: ', df[index_name].diff().max())
+    print('Min time step: ', df[index_name].diff().min())
+    print('The most popular time step: ', df[index_name].diff().value_counts().index[0])
+    print('timestamps are monotonic increasing? ', df[index_name].is_monotonic)
+    print('Are there duplicate timestamps? ', df[index_name].duplicated().any())
+    print('How many unique duplicates? ', df[index_name].duplicated().sum(), ' (in total ',df.shape[0], ')')
+    print('How many repeated duplicates? ', df[index_name].duplicated(keep=False).sum(), ' (in total ',df.shape[0], ')')
+~~~
+
+### Check timestamps are well sorted?
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ python
+# CHECK
+df.date.is_monotonic # monotonic increasing?
+df.date.is_monotonic_decreasing # decreasing?
+
+# if using groupby
+def check_monotonic(group):
+    return group.is_monotonic
+df.groupby('label').agg({'timestamp': [check_monotonic] })
+~~~
+
+{:.flex-even.overflow-auto.pl-md-1}
+~~~ python
+# ARRANGE THEM
+df.sort_values(by='date', inplace=True)
+~~~
+</div>
 
 ## `TimedeltaIndex` differences
 
@@ -83,7 +141,7 @@ Timedelta('0 days 00:01:00')
 </div>
 </div>
 
-## Timestamps
+### Timestamps
 
 ~~~ python
 from datetime import datetime
@@ -142,28 +200,6 @@ Timedelta('0 days 00:04:00')
 </div>
 
 One can couple with function `timedelta_to_string` in the previous section to find out the most-appeared time steps to feed into `df.resample()`'s `rule`.
-
-## Check timestamps are well sorted?
-
-<div class="d-md-flex" markdown="1">
-{:.flex-even.overflow-auto.pr-md-1}
-~~~ python
-# CHECK
-df.date.is_monotonic # monotonic increasing?
-df.date.is_monotonic_decreasing # decreasing?
-
-# if using groupby
-def check_monotonic(group):
-    return group.is_monotonic
-df.groupby('label').agg({'timestamp': [check_monotonic] })
-~~~
-
-{:.flex-even.overflow-auto.pl-md-1}
-~~~ python
-# ARRANGE THEM
-df.sort_values(by='date', inplace=True)
-~~~
-</div>
 
 ## List of resampling rules
 

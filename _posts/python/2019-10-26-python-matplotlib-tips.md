@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Matplotlib tips"
+title: "Matplotlib extra"
 categories: [python]
 icon-photo: matplotlib.png
 keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares"
@@ -35,18 +35,25 @@ def get_colors(list_vals, list_colors=["#fb4747", "#315ace", "#b5f6e5", "#FFB347
 
 Axes' options,
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 # Hide the axis
-plt.axis('off') # and 'on' to display it again
+plt.axis('off') 
+# and 'on' to display it again
+~~~
 
+~~~ python
 # Set the limit
 plt.xlim(0, 3.5)
 plt.ylim(0, 3.5)
+~~~
 
+~~~ python
 # Axes' label
 plt.xlabel('students')
 plt.ylabel('mark')
 ~~~
+</div>
 
 Set equal 2 axes{% ref https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.set_aspect.html %},
 
@@ -62,26 +69,38 @@ Check the [official doc](https://matplotlib.org/3.1.3/api/_as_gen/matplotlib.pyp
 
 ~~~ python
 plt.plot(X, y, 'ro') # red and 'o' points
+~~~
 
+<div class="flex-auto-equal-2" markdown="1">
+~~~ python
 # set figure size
 plt.figure(figsize=(20, 5))
 plt.figure(figsize=(20, 5), dpi= 60)
+~~~
 
+~~~ python
 # rotate z label
 plt.xticks(rotation=90, fontsize=10)
+~~~
 
+~~~ python
 # linestyle and marker
 plt.plot(marker='.', ls='') # scatter plot
 ~~~
+</div>
 
 Plot directly with dataframe,
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 df.plot(figsize=(20, 5))
+~~~
 
+~~~ python
 # different types
 df.plot(style='.')
 ~~~
+</div>
 
 ### Legend from list of colors
 
@@ -163,7 +182,7 @@ plt.show() # show the plot
 fig1.savefig('test.png', dpi=100)
 ~~~
 
-**Remark:**{:.tbrown} There are the axes inside the exported photo (all are printed on notebook)!!
+**Remark:** There are the axes inside the exported photo (all are printed on notebook)!!
 
 ### Using `imageio`
 
