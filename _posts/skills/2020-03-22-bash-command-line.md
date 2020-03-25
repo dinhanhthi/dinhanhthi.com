@@ -78,8 +78,8 @@ pwd
 ~~~
 
 ~~~ bash
-# FOLDER SIZE
-du -hs <directory>
+# FOLDER/FILE SIZE
+du -hs <directory / file>
 # `h` : human readable (6.7G)
 # `s` : only this directory
 ~~~
@@ -163,6 +163,11 @@ vim file.txt # ESC, :q to quit
 grep "string" file.txt
 ~~~
 </div>
+
+~~~ bash
+# ADD A LINE TO A FILE WITHOUT OPENNING IT
+echo "hello 'thi' world" >> my_file.txt
+~~~
 
 ## Alias
 
