@@ -42,9 +42,13 @@ h2.heading-title{
 }
 
 .page-content{
-  h2{
+
+  & > h2, h3, h4{
     font-weight: $f-heading-weight;
     color: $f-heading-color;
+  }
+
+  h2{
     font-size: $f-h2-size;
     padding-bottom: 7px;
     border-bottom: 1px solid #ddd;
@@ -56,8 +60,6 @@ h2.heading-title{
   }
   & > h3{
     font-size: $f-h3-size;
-    font-weight: $f-heading-weight;
-    color: $f-heading-color;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
     border-bottom: 1px solid #eee;
@@ -68,6 +70,20 @@ h2.heading-title{
     &:before{
       content: "∴ ";
       color: #d87638;
+    }
+  }
+  & > h4{
+    font-size: $heading-h4-size;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    @media (max-width: 575px){
+      font-size: 1.25rem;
+    }
+    &:before{
+      content: "● ";
+      color: #ddd;
     }
   }
   h2.question{

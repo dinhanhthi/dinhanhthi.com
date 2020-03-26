@@ -3,7 +3,7 @@ layout: post
 title: "Bash command lines"
 categories: [skills]
 icon-photo: terminal.svg
-keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor ssh connection download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut"
+keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor ssh connection download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash file ssh commands"
 ---
 
 {% include toc.html %}
@@ -22,6 +22,23 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 - <kbd>Tab</kbd> : autocomplete the commands / directories / file names / ....
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> : paste from clipboard.
 - For a long list: <kbd>Enter</kbd> to continue to read, <kbd>q</kbd> to quit.
+
+## Multiple commands
+
+Run at once,
+
+~~~ bash
+command_1 && command_2
+~~~
+
+Using script: create a script, e.g. `multiple_commands.sh`, and run `sh multiple_commands.sh`
+
+~~~ bash
+#!/bin/sh
+echo 'some info'
+command_1
+command_2
+~~~
 
 ## Check info
 
@@ -192,7 +209,7 @@ alias
 - **Linux** / **MacOS**: Add your alias to `.bash_aliases` (in home dir, `printenv HOME`) if you wanna store your alias permanently.
 - **Windows**: Using [cmder](https://cmder.net/) (its [setting file](/files/cmderSetting.xml)), add more aliases to `<cmder-install>/config/user_aliases.cmd`. You can also add (automatically) on the cmder UI, it adds them for you to the `.cmd` file.
 
-{% hsbox My personal aliases %}
+{% hsbox My personal aliases (on Windows) %}
 ~~~ bash
 raimon=ssh -p 15424 thi@185.163.221.115
 sshnotebook=ssh -N -L localhost:8765:192.168.0.155:9889 thi@185.163.221.115 -p 15424
@@ -200,6 +217,11 @@ dat=cd dinhanhthi.com
 serve=bundle exec jekyll serve -I
 build=bundle exec jekyll build
 condafix=set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
+playground=cd C:\Users\dinha\Documents\GitHub\dataswati\git\playground
+aquassay=cd C:\Users\dinha\Documents\GitHub\dataswati\git\aquassay
+bronze-alu=cd C:\Users\dinha\Documents\GitHub\dataswati\git\bronze-alu
+soufflet=cd C:\Users\dinha\Documents\GitHub\dataswati\git\soufflet
+popai=cd C:\Users\dinha\Documents\GitHub\dataswati\python-dataswati\popai
 ~~~
 {% endhsbox %} 
 

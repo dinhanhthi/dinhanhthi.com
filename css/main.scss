@@ -29,6 +29,7 @@ $text-gray-hover: #555;                         // gray text when mouse hover
 $heading-font: $font-main;                          // heading's font
 $heading-h2-size: $font-size*1.45;                  // h2's font size
 $heading-h3-size: $font-size*1.22;                  // h3's font size
+$heading-h4-size: $font-size*1.12;                  // h3's font size
 $heading-weight: 500;                               // heading's font weight
 $heading-color: #444;                             // heading's color
 
@@ -128,4 +129,3 @@ $f-extra-bold: $font-extra-bold;
 @import 'insert-video';                         // videos
 @import 'step';                                 // steps
 @import 'page';                                 // for pages
-@import 'related_posts';                        // related posts
