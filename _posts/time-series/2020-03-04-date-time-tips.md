@@ -80,7 +80,7 @@ np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
 
 ### `Timedelta`
 
-To `Timedelta`,
+#### To `Timedelta`,
 
 ~~~ python
 # numpy.timedelta64(208206000000000,'ns') → Timedelta('2 days 09:50:06')
@@ -98,7 +98,21 @@ from pandas.tseries.frequencies import to_offset
 pd.to_timedelta(to_offset('T'))
 ~~~
 
-Timedelta to offset string
+#### From `Timedelta`,
+
+~~~ python
+# Timedelta('0 days 00:01:20') -> 80 (s)
+# (SINGLE VALUE)
+td.total_seconds() # float
+~~~
+
+~~~ python
+# Timedelta('0 days 00:01:20') -> 80 (s) (FLOAT)
+# (ONLY WORK with a series, not a single value)
+series.astype('timedelta64[s]') # or 'ms'
+~~~
+
+### Timedelta to offset string
 
 This is used to find the offset string (or "DateOffsets" or "frequencies strings" or "offset aliases") for `rule` in [`Resample`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html) {% ref https://stackoverflow.com/questions/46429736/pandas-resampling-how-to-generate-offset-rules-string-from-timedelta %}.
 
@@ -106,22 +120,10 @@ This is used to find the offset string (or "DateOffsets" or "frequencies strings
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
 def timedelta_to_string(timedelta):
-    c = timedelta.components
+    units = ['D', 'H', 'T', 'S', 'L', 'U', 'N']
     time_format = ''
-    if c.days != 0:
-        time_format += '%dD' % c.days
-    if c.hours > 0:
-        time_format += '%dH' % c.hours
-    if c.minutes > 0:
-        time_format += '%dT' % c.minutes
-    if c.seconds > 0:
-        time_format += '%dS' % c.seconds
-    if c.milliseconds > 0:
-        time_format += '%dL' % c.milliseconds
-    if c.microseconds > 0:
-        time_format += '%dU' % c.microseconds
-    if c.nanoseconds > 0:
-        time_format += '%dN' % c.nanoseconds
+    for i, c in enumerate(timedelta.components):
+        if c != 0: time_format += str(c) + units[i]
     return time_format
 ~~~
 

@@ -13,7 +13,8 @@ $font-extra-bold: 700;                              // extra bold font
 
 
 // TEXT CODE
-$code-text-color: #333;
+$code-text-color: #333;                         // inline text code color
+$code-inline-background: #1b1f230d;             // inline text code background
 
 
 // TEXT COLOR
@@ -89,7 +90,7 @@ $c-gray-text: $text-gray;
 $c-yellow-text: $text-yellow;
 $c-gray-hover: $text-gray-hover;
 $c-t-code: #333;
-$c-b-code: rgba(27,31,35,.05);
+$c-b-code: $code-inline-background;
 $c-a-hover: #0085A1;
 $c-sec-bg: #F4F4F4;
 $c-bold-text: #000;

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data Science tips"
+title: "Data Science extra"
 categories: [data science]
 math: 1
 keywords: fake data graphviz

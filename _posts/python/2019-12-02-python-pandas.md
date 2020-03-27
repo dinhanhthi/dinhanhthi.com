@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pandas tips"
+title: "Pandas extra"
 categories: [python]
 icon-photo: pandas.png
 keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary list numpy array np.array to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name selection"

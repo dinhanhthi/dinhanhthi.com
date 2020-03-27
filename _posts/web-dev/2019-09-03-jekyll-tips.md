@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll tips"
+title: "Jekyll extra"
 categories: [web development]
 math: 1
 icon-photo: "jekyll.png"
