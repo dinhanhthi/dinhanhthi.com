@@ -26,7 +26,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 - {:.finish} {% python %} _Abstract Base Classes_ (ABC), understand to make a base model.
 
 
-## 1 / 2020`
+## 1 / 2020
 
 - {:.ongoing} {% tech %} Learning Docker.
 - {:.finish} {% workflow %} Team working with [Aha!](http://aha.io/), projects in company.
