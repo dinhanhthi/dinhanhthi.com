@@ -35,7 +35,7 @@ h2>code{
 h3>code{
   font-size: 0.9*$f-h3-size!important;
 }
-h2>code, h3>code{
+h2>code, h3>code, h4>code{
   background: $c-b-code;
   padding: 1px 5px 3px 5px;
   font-weight: normal;
@@ -59,9 +59,6 @@ h2>code, h3>code{
       border: 1px solid #eee;
     }
   }
-}
-@media (min-width: 768px){
-  .d-md-flex{}
 }
 
 
