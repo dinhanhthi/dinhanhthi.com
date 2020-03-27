@@ -8,8 +8,9 @@
 .header-content{
   text-align: center;
   h1{
+    font-family: $header-title;
     font-size: 2rem;
-    font-weight: $f-heading-weight;
+    font-weight: $header-weight;
     color: #fff;
     text-shadow: 2px 2px 4px #000;
   }
