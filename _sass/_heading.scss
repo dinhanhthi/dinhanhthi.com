@@ -80,11 +80,10 @@ h2.heading-title{
     padding-bottom: 5px;
     &:before{
       content: "● ";
-      color: #999;
-      font-size: $heading-h4-size*1.9;
+      color: #8ed08e;
+      font-size: 1.45rem;
       vertical-align: unset;
       line-height: 1;
-      margin-right: -10px;
     }
   }
   h2.question{

@@ -45,10 +45,10 @@ $header-weight: 700;                                 // header title's weight
 
 // HEADING
 //==========================================
-$heading-font: 'Comfortaa', cursive;                // heading's font
-$heading-weight: 700;                               // heading's font weight
+$heading-font: $font-main;                           // heading's font
+$heading-weight: 500;                               // heading's font weight
 $heading-color: #444;                             // heading's color
-$heading-h2-size: $font-size*1.37;                  // h2's font size (in comparison with global $font-size)
+$heading-h2-size: $font-size*1.4;                  // h2's font size (in comparison with global $font-size)
 $heading-h3-size: $heading-h2-size*0.9;             // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size*0.9;             // h3's font size (in comparison with global h3)
 
@@ -152,3 +152,4 @@ $f-extra-bold: $font-extra-bold;
 @import 'insert-video';                         // videos
 @import 'step';                                 // steps
 @import 'page';                                 // for pages
+@import 'tag';                                  // for tag page
