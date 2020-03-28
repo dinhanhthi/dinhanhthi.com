@@ -2,10 +2,11 @@
 layout: post
 title: "K-Means Clustering"
 categories: [machine learning]
+tags: ['clustering', 'popular method', 'partitioning clustering']
 katex: 1
 icon-photo: clustering.png
 date: 2020-03-05
-keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans"
+keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans distance between points"
 ---
 
 {% assign img-url = '/img/post/ML/clustering' %}
@@ -36,26 +37,32 @@ Using "Elbow" method.
 
 ## Discussion
 
-- A type of Partitioning clustering.
+- A type of **Partitioning clustering**.
+- Not good if there are outliers, noise.
 - The K-means method is sensitive to outliers ⇒ **K-medoids** clustering or **PAM** (Partitioning Around Medoids) is less sensitive to outliers{% ref https://www.datanovia.com/en/blog/types-of-clustering-methods-overview-and-quick-start-r-code/ %}
 
 ## Using K-Means with Scikit-learn
 
 ~~~ python
 from sklearn.cluster import KMeans
-
 kmeans = KMeans(n_clusters=10, random_state=0) # default k=8
-kmeans.fit(X)
+~~~
 
+<div class="flex-auto-equal-2" markdown="1">
+~~~ python
+kmeans.fit(X)
 kmeans.predict(X)
 ~~~
+
+~~~ python
+# or
+kmeans.fit_predict(X)
+~~~
+</div>
 
 Some notable parameters (see [full](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)):
 
 - `max_iter`{:.tpink}: Maximum number of iterations of the k-means algorithm for a single run.
-
-Some notable components:
-
 - `kmeans.labels_`{:.tpink}: show labels of each point.
 - `kmeans.cluster_centers_ `{:.tpink}: cluster centroids.
 
@@ -67,7 +74,6 @@ Some notable components:
 
 
 ## K-medois clustering
-
 
 
 

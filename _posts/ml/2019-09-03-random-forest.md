@@ -2,6 +2,7 @@
 layout: post
 title: "Random Forest"
 categories: [machine learning]
+tags: ['decision tree']
 icon-photo: decision-tree.svg
 keywords: decision tree ensemble learning votes from the trees relatively uncorrelated bagging Feature randomness entropy imbalanced classes feature importance Tony Yiu The Yhat Blog Chris Albon fast.ai
 ---

@@ -123,7 +123,7 @@ plt.legend(
 {:.img-full-100}
 ![Legend from list of colors]({{img-url}}/lengend_list.jpg)
 
-### imshow
+### `imshow`
 
 Plot from a list of true/false (ref to [an example of Bernoulli distribution](/algorithm-1#plot-a-grid-of-square))
 
@@ -133,7 +133,7 @@ plt.imshow(image, cmap='gray') # plot
 plt.show()
 ~~~
 
-## Plot a photo (imshow)
+## Plot a photo (`imshow`)
 
 ### With grayscale and `misc`
 

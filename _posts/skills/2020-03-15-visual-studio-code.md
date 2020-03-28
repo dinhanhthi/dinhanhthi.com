@@ -2,6 +2,7 @@
 layout: post
 title: "Visual Studio Code (VSC)"
 categories: [skills]
+tags: ['IDE']
 icon-photo: vsc.svg
 keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin"
 ---

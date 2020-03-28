@@ -2,6 +2,7 @@
 layout: post
 title: "Data Processing & Cleaning"
 categories: [data science]
+tags: ['data processing']
 icon-photo: data-processing.png
 keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps rename index column"
 ---

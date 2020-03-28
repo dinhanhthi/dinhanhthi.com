@@ -2,6 +2,7 @@
 layout: post
 title: "Gamler Ruin Problem"
 categories: [probability & statistics]
+tags: ['probability', 'algorithm']
 katex: 1
 keywords: probabilities statistics random walk 
 ---

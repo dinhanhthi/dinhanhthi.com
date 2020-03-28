@@ -2,6 +2,7 @@
 layout: post
 title: "Data Combining"
 categories: [data science]
+tags: ['data processing']
 icon-photo: coupling.png
 keywords: coupling dataframes inner outer left right merging pandas display side by side concatenate concat
 ---

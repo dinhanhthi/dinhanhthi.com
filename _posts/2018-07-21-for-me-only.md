@@ -19,6 +19,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
 
 - `math: 1` : only add if you wanna use math equations inside post. Jump to [this section](#math-expressions).
 - `categories: [cat1, cat2]` : add the categories/topics for posts. Current categories on this site: {% for category in site.categories reversed %}{% capture category_name %}{{ category | first }}{% endcapture %}<a href="{{site.url}}{{site.baseurl}}/#{{category_name | replace: " ","_"}}">{{ category_name }}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}
+- `tags: [tag1, tag2]`: tags. Current tags in this site: {% for tag in site.tags %}{% capture test %}{{tag[0] | slice: 0}}{% endcapture %}{% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}<a href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">{{tag[0]}}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}
 - `custom-css` : if some page or post has different css, indicate it here.
 - `toc: 1` : if you wanna show the table of contents for this post. Jump to [this section](#add-table-of-contents).
 - `excluded_in_search: 1` : if you think that some post/page containing jekyll expressions that may lead to some errors in the search page. If you add this, this post won't be included in the search page.

@@ -2,6 +2,7 @@
 layout: post
 title: "Gatsby : Work with markdown"
 categories: [JavaScript]
+tags: ['gatsby', 'markdown']
 icon-photo: gatsby.png
 keywords: create a website static web react js doc
 ---

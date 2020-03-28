@@ -2,6 +2,7 @@
 layout: post
 title: "Python with Sublime Text"
 categories: [python]
+tags: ['IDE']
 icon-photo: sublime.png
 keywords: "theme sublime text IDE tabnine build system anaconda"
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: "Decision Tree Regression"
 categories: [machine learning]
+tags: ['decision tree']
 katex: 1
 icon-photo: decision-tree.svg
 keywords: classification regression MSE Mean Square Error MAE Mean Absolute Error stopping conditions Standard Deviation Reduction SDR Graphviz example Saed Sayad

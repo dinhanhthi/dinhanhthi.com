@@ -2,6 +2,7 @@
 layout: post
 title: "Google Colab"
 categories: [skills]
+tags: ['IDE', 'online tool']
 icon-photo: colab.png
 keywords: github notebook google drive hotkey TensorFlow pytorch gpu 
 ---

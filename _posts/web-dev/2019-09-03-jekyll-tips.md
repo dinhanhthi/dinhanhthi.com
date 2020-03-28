@@ -6,7 +6,7 @@ math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24
 sitemap: false
-keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji emoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear list of posts alpha beta order ABC order sort posts category by name localhost"
+keywords: "lunrjs search js javascript content keywords jekyll markdown span markdown=\"1\" enlarge photo click to zoom in bigger photo bootstrap 4 run build jekyll site with draft posts --draft -I render the changes kramdown create plugin ruby hide show box nested block crossed using variables _plugins .rb badge liquid customizable liquid tags include proud of custom plugins custom domain rouge css syntax highlight pygment compress html jemoji emoji kramdown quick reference parse block html faster build jekyll-feed feed javascript benchmark liquid-c --profile profile jekyll-include-cache include cache jekyll clean cache clear list of posts alpha beta order ABC order sort posts category by name localhost list of tags list of categories"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
@@ -81,6 +81,16 @@ List all posts in ABC order{% ref https://stackoverflow.com/questions/39922776/h
 {% for post in sortedPosts %}
   {{ post.title }}
 {% endfor %}
+{%endraw%}~~~
+
+List of categories and tags in a single line with commas,
+
+~~~ liquid
+{%raw%}{% for category in site.categories reversed %}{% capture category_name %}{{ category | first }}{% endcapture %}<a href="{{site.url}}{{site.baseurl}}/#{{category_name | replace: " ","_"}}">{{ category_name }}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}
+{%endraw%}~~~
+
+~~~ liquid
+{%raw%}{% for tag in site.tags %}{% capture test %}{{tag[0] | slice: 0}}{% endcapture %}{% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}<a href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">{{tag[0]}}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}
 {%endraw%}~~~
 
 ## Using markdown syntax inside html tags

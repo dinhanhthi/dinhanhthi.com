@@ -3,6 +3,7 @@ layout: post
 title: "Bash command lines"
 categories: [skills]
 icon-photo: terminal.svg
+tags: ['terminal']
 keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor ssh connection download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash file ssh commands"
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: "Gatsby Images"
 categories: [JavaScript]
+tags: ['gatsby']
 icon-photo: gatsby.png
 keywords: create a website static web react js inserting images
 ---
