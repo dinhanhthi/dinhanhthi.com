@@ -1,0 +1,37 @@
+.tag-sec{
+    display: none;
+    h2.card-header{
+        text-transform: none;
+        &::before{
+            content: "#";
+            margin-right: 3px;
+            color: tag-in-post;
+        }
+    }
+}
+
+.tag-list.card-subject{
+    a{
+        font-size: 1.3rem;
+        text-transform: none;
+    }
+}
+
+.tag-in-post{
+	margin-bottom: $margin-bottom;
+	a{
+		color: #777;
+		margin-right: 10px;
+		font-size: $font-size*1.1;
+		&:hover{
+			color: $text-a-hover;
+		}
+		&:before{
+			content: "#";
+		}
+	}
+}
+
+:target{
+    display: block;
+}

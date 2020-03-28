@@ -2,6 +2,16 @@
 layout: page
 ---
 
+<div class="tag-in-post">
+  {% for tag in page.tags %}
+    {% capture test %}{{tag | slice: 0}}{% endcapture %}
+    {% capture testup %}{{tag | slice: 0 | upcase}}{% endcapture %}
+    <a href="{{site.baseurl}}/tags#{{tag | slugify}}{% if test == testup %}_cap{% endif %}">
+      {{tag}}
+    </a>
+  {% endfor %}
+</div>
+
 {% if page.toc %}
   <div id="toc">
     <div class="toc-content" markdown="1">
@@ -9,7 +19,6 @@ layout: page
     </div>
   </div>
 {% endif %}
-
 
 {{ content }}
 

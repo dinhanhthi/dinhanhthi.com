@@ -1,0 +1,52 @@
+---
+layout: base
+title: Posts by tags
+subtitle: Click on the tag you wanna see the posts
+icon-photo: tag.svg
+---
+
+{% include header.html %}
+
+<main role="main">
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+            
+            <div class="card-subject tag-list mb-4">
+              <div class="card-body py-1">
+                {% for tag in site.tags %}
+                  {% capture test %}{{tag[0] | slice: 0}}{% endcapture %}
+                  {% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}
+                  <a class="category" href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
+                    {{tag[0]}}
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
+
+            {% for tag in site.tags %}
+              {% capture test %}{{tag[0] | slice: 0}}{% endcapture %}
+              {% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}
+              <div class="card card-custom tag-sec" id="{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
+                <h2 class="card-header">
+                  {{ tag[0] }}
+                </h2>
+                <div class="card-body">
+                    <ul>
+                      {% for post in tag[1] %}
+                      <li class="item">
+                        <a href="{{post.url}}">{{post.title}}</a>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                </div>
+              </div>
+            {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
