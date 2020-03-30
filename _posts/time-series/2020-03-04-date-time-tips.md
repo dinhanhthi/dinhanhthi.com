@@ -2,6 +2,7 @@
 layout: post
 title: "Date / Time extra"
 categories: [time series]
+tags: ['time series', 'data processing', 'date overviewing']
 icon-photo: datetime.svg
 keywords: "resample rule time step timedelta delta constructor format representation days hours minute second milisecond microsecond nanosecond offset string frequency resampling how DateOffsets frequencies strings offset aliases freq compare arithmetic timedelta different well sorted correctly pandas time series user guide convert timedelta timedelta64 numpy. np. TimedeltaIndex diff() difference datetimeindex Timedelta UNIX timestamp UTC +0 to_offset cannot use single T without number check info timestamp of a dataframe set index"
 ---

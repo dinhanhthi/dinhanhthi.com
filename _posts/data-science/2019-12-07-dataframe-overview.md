@@ -2,7 +2,7 @@
 layout: post
 title: "Data Overview"
 categories: [data science]
-tags: ['data processing']
+tags: ['data processing', 'date overviewing']
 icon-photo: data-overview.png
 keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing KDE Kernel Density Estimation values distribution"
 ---

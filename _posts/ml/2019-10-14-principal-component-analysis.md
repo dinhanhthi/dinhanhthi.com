@@ -2,6 +2,7 @@
 layout: post
 title: "Principal Component Analysis (PCA)"
 categories: [machine learning]
+tags: ['dimensionality reduction', 'image compression']
 katex: 1
 jsxgraph: 1
 keywords: compress data dimensional reduction speed up algorithms or to visualize data feature selection Feature projection mean variance covariance eigenvalues covariance matrix eigenvectors explained_variance_ratio_ Whitening Image compression Luis Serrano Tiep Vu Jake VanderPlas UFLDL - Stanford Shankar Muthuswamy
@@ -14,7 +15,7 @@ keywords: compress data dimensional reduction speed up algorithms or to visualiz
 
 {% include toc.html %}
 
-## What's the idea of PCA?
+## What?
 
 Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use **dimensionality reduction** which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:
 
@@ -51,7 +52,7 @@ An example of the same mean and variance but different covariance.
 ***Figure 4.** Different data but the same mean and variance. That's why we need covariance!*
 
 
-### PCA Algorithm
+### Algorithm
 
 1. Subtract the mean to move to the original axes.
 2. From the original data (a lot of features $x_1, x_2, \ldots, x_N$), we construct a **covariance matrix $U$**.
@@ -68,7 +69,7 @@ An example of the same mean and variance but different covariance.
 ![A big picture of the idea of PCA algorithm.]({{img-url}}/pca-3.jpg)
 ***Figure 5.** A big picture of the idea of PCA algorithm.<sup>[[ref]](https://www.youtube.com/watch?v=g-Hb26agBFg)</sup>*
 
-## Using PCA with Scikit-learn
+## Code
 
 ~~~ python
 from sklearn.decomposition import PCA

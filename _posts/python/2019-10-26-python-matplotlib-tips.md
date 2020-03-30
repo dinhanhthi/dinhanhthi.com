@@ -2,8 +2,9 @@
 layout: post
 title: "Matplotlib extra"
 categories: [python]
+tags: ['visualization']
 icon-photo: matplotlib.png
-keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares"
+keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares figsize subplot multiple plots"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -53,6 +54,12 @@ plt.ylim(0, 3.5)
 plt.xlabel('students')
 plt.ylabel('mark')
 ~~~
+
+~~~ python
+# axes' tick size & rotation
+plt.xticks(fontsize=14, rotation=90)
+plt.yticks(fontsize=14, rotation=90)
+~~~
 </div>
 
 Set equal 2 axes{% ref https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.set_aspect.html %},
@@ -86,6 +93,7 @@ plt.xticks(rotation=90, fontsize=10)
 ~~~ python
 # linestyle and marker
 plt.plot(marker='.', ls='') # scatter plot
+plt.plot(X, '.', markersize=15, linewidth=2)
 ~~~
 </div>
 
@@ -131,6 +139,20 @@ Plot from a list of true/false (ref to [an example of Bernoulli distribution](/a
 image = # np.array(4, 4) of random True/False
 plt.imshow(image, cmap='gray') # plot
 plt.show()
+~~~
+
+### Subplot
+
+For example, we wanna create a `4x4` plots{% ref https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.subplot.html %},
+
+~~~ python
+plt.figure(figsize=(12, 10), dpi= 60)
+
+for i in range(4):
+    pos = i+1
+    plt.subplot(2,2,pos)
+    plt.plot(X[i])
+    plt.title('title_'+str(pos), fontsize=18)
 ~~~
 
 ## Plot a photo (`imshow`)
