@@ -18,13 +18,12 @@
 }
 
 .tag-in-post{
-	margin-bottom: $margin-bottom;
+	margin-bottom: 0.5rem;
 	a{
-		color: #777;
 		margin-right: 10px;
 		font-size: $font-size*1.1;
 		&:hover{
-			color: $text-a-hover;
+			color: #bbffbb;
 		}
 		&:before{
 			content: "#";
@@ -34,4 +33,10 @@
 
 :target{
     display: block;
+}
+
+.category.tag:before{
+    content: "#";
+    margin-right: 3px;
+    color: #34bd9e;
 }
