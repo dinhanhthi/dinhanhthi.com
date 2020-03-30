@@ -3,9 +3,10 @@ layout: post
 title: "Data Sample"
 categories: [data science]
 tags: ['time series', data generation]
-keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile"
+keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows"
 ---
 
+{% assign img-url = '/img/post/data/data-sample' %}
 {% include toc.html %}
 
 ## Temporary file and directory
@@ -28,6 +29,8 @@ fp.close()
 ~~~
 
 ## Time Series data
+
+### Simple range of time
 
 Read more about [`date_range()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html), there are other options, for example, adding timezones.
 
@@ -90,6 +93,8 @@ df = pd.DataFrame(df)
 </table>
 </div>
 
+### Manually
+
 With timezone (manually)
 
 ~~~ python
@@ -97,9 +102,14 @@ df = pd.DataFrame({'timestamp': ['2019-01-31T16:47:00+01:00', '2019-01-31T16:48:
                                  '2019-01-31T16:49:00+02:00', '2019-01-31T16:50:00+01:00']})
 ~~~
 
+### With time gaps
+
 Different time gaps (time steps),
 
 ~~~ python
+import pandas as pd
+import numpy as np
+from pandas.tseries.frequencies import to_offset
 def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1):
     """
     General a sample time series dataframe with different periods and time steps.
@@ -211,4 +221,96 @@ df = generate_sample(starting_date='2020-01-01',
     </tr>
   </tbody>
 </table>
+</div>
+
+### With windows of time
+
+~~~ python
+import pandas as pd
+import numpy as np
+from pandas.tseries.frequencies import to_offset
+def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, regular=True, 
+                            random_seed=None, dif_size=False, gaps='auto', n_point_spec='full', freq='T', n_vars=1):
+    """
+    General a sample time series dataframe with already-shaped windows.
+    
+    Parameters:
+    -----------
+    ts_start: datetime-like, str, int, float
+        Starting date of the data.
+    n_windows: int
+        The number of windows to be generated.
+    n_elements: int
+        Max number of elements in each window.
+    regular: boolean, default=True
+        The regularity of the distribution in each window.
+    random_seed: int, default=None
+        Seed the generator for generating the same data in every test.
+        If `None`, the choices in `n_elements` (when `dif_size=True`), `regular=True`
+        are chosen randomly.
+    dif_size: boolean
+        Windows with different sizes?
+    gaps: 'auto' or lst
+        If 'auto', the gaps between windows are chosen equally. 
+        Otherwise, you have to put the list of percentage (greater than 1) being plus to 
+        `n_elements` (minimum window' size). 
+        Note that, the length of this list is equal to `n_windows-1`.
+    n_point_spec: 'full' or int, default='full'
+        The number of points in the special window. If 'full', its number of elements
+        is generated as others'.
+    freq: frequency strings, default='T'
+        The most popular time steps.
+    n_vars: int
+        Number of variable columns.
+    """
+    
+    df = pd.DataFrame()
+    
+    gap = 0
+    np.random.seed(random_seed)
+    
+    # choose the special window
+    spec_win = np.random.randint(0, n_windows)
+    
+    for w in range(n_windows):
+        n_elements_new = n_elements
+        if (n_point_spec != 'full') and (w == spec_win):
+            n_elements_new = n_point_spec
+        elif dif_size:
+            # add randomly more data points
+            n_elements_new = int(n_elements + np.random.randint(1, 100 + 1)/100*n_elements)
+        ts_start = str(pd.Timestamp(ts_start) + pd.to_timedelta(to_offset(freq))*gap)
+        df_tmp = dict({'timestamp': pd.date_range(ts_start, periods=n_elements_new, freq=freq)})
+        for i_var in range(n_vars):
+            df_tmp['var'+str(i_var)] = 0.5 + np.random.random_sample((n_elements_new,))
+        df_tmp = pd.DataFrame(df_tmp)
+        if not regular:
+            # remove randomly 0% - 50% data points from a window
+            frac = 0.5+0.5*np.random.random()
+            df_tmp = df_tmp.sample(frac=frac, axis=0)
+        df = pd.concat([df, df_tmp], ignore_index=True, sort=False)
+        ts_start = str(df_tmp['timestamp'].iloc[-1])
+        
+        gap = n_elements / 2 # default: gap=50% length of n_elements
+        if (gaps != 'auto') and (w != n_windows-1):
+            gap = n_elements / 2 + gaps[w]*n_elements/100
+        print(gap)
+        
+    df = df.infer_objects()
+    return df
+~~~
+
+<div class="columns-2" markdown="1">
+~~~ python
+df = generate_ts_data_window(n_windows=3, 
+                            regular=True,
+                            n_elements=50,
+                            dif_size=False,
+                            n_point_spec=15,
+                            gaps=[1, 10])
+df.set_index('timestamp').plot(figsize=(10,5), style='.')
+~~~
+
+{:.img-full-100.pop}
+![Generated data.]({{img-url}}/ts_window.png)
 </div>

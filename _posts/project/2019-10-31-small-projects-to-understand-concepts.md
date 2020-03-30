@@ -2,9 +2,10 @@
 layout: post
 title: "Small projects for understanding concepts"
 categories: [project-based learning]
-tags: ['project']
+tags: ['project', image compression, classifier, regression, clustering, popular method]
 math: 1
 keywords: "Image compression K-Means PCA google drive github Lossy conversion Clipping input data to the valid range for imshow Face Recognition SVM XOR problem k means principal component analysis supoprt vector machine digit face Lossy conversion pipeline"
+nocomment: 1
 ---
 
 {% assign img-url = '/img/post/project/' %}

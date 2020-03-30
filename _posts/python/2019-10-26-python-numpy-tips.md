@@ -3,7 +3,7 @@ layout: post
 title: "Numpy extra"
 categories: [python]
 icon-photo: numpy.png
-keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array"
+keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -17,6 +17,26 @@ import numpy as np
 ~~~
 
 ## Creating
+
+### Random numbers
+
+<div class="flex-auto-equal-2" markdown="1">
+~~~ python
+# random int number between [1, 100]
+np.random.randint(1, 100 + 1)
+
+# random float number between [0, 1)
+np.random.random()
+~~~
+
+~~~ python
+# array of random between [0, 1)
+np.random.random_sample((5,)) # size: 5x1
+
+# betweeen (a, b)
+(b - a) * random_sample() + a
+~~~
+</div>
 
 ### Equal size
 

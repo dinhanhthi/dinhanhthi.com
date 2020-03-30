@@ -16,7 +16,7 @@ keywords: "find the common time invervals timestamps burst detection bursting bu
 - **Burst detection**: An unexpectedly large number of events occurring within some certain temporal or spatial region is called
 a burst, suggesting unusual behaviors or activities.
 
-## Find the common interval
+## Find the windows of time series
 
 Suppose we have data like in below, we wanna find the common length interval of all groups.
 
@@ -67,3 +67,23 @@ _The gaps are not regular_
 {:.img-full-100}
 ![Group of time series intervals]({{img-url}}/ts-interval-example-3.png)
 _If we choose the gaps (to determine the windows) too small, there are some windows have only 1 point like in this case._
+
+Find the gap's threshold automatically,
+
+~~~ python
+from sklearn.cluster import MeanShift
+
+def find_gap_auto(df):
+    
+    X = df['date'].diff().unique()
+    X.sort()
+    X = X[1:].reshape(-1,1) # don't forget to remove NaN at the beginning
+    
+    clustering = MeanShift().fit(X)
+    labels = clustering.labels_
+    cluster_min = labels[0]
+
+    gap = pd.to_timedelta((X[labels!=cluster_min].min() + X[labels==cluster_min].max())/2)
+
+    return gap
+~~~

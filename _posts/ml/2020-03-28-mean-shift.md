@@ -65,6 +65,10 @@ Components:
 
 - `clustering.labels_`: clusters' labels.
 
+## Usage example
+
+- Used to [determined windows of time](/time-series-tips#find-the-windows-of-time-series) in time series data.
+
 
 ## References
 
