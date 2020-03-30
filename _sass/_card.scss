@@ -43,9 +43,11 @@
   }
   .category{
     &:before{
-      content: "#";
-      margin-right: 3px;
-      color: #169074;
+      content: "● ";
+      color: #8ed08e;
+      font-size: 1.45rem;
+      vertical-align: unset;
+      line-height: 1;
     }
     color: #555;
     &:hover{

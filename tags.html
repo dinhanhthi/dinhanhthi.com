@@ -18,7 +18,7 @@ icon-photo: tag.svg
                 {% for tag in site.tags %}
                   {% capture test %}{{tag[0] | slice: 0}}{% endcapture %}
                   {% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}
-                  <a class="category" href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
+                  <a class="category tag" href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
                     {{tag[0]}}
                   </a>
                 {% endfor %}
