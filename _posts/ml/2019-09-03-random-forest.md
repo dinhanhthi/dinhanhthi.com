@@ -89,16 +89,22 @@ model.predict_proba([[ 5,  4,  3,  2]]) # predict class probabilities
 # load libraries
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import datasets
+~~~
 
+~~~ python
 # sample: Boston Housing Data
 boston = datasets.load_boston()
 X = boston.data[:,0:2]
 y = boston.target
+~~~
 
+~~~ python
 # train
 regr = RandomForestRegressor(random_state=0, n_jobs=-1)
 model = regr.fit(X, y)
+~~~
 
+~~~ python
 # predict
 model.predict(<something>)
 ~~~

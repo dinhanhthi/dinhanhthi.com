@@ -2,10 +2,13 @@
 layout: post
 title: "Python Exception"
 categories: [python]
+tags: ['error', 'styling']
 keywords: "error except try"
 ---
 
-# Try..Except
+{% include toc.html %}
+
+## Try..Except
 
 ~~~ python
 try: 
@@ -14,6 +17,7 @@ except:
   # codes run if there is an exception
 ~~~
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 try: 
   # codes
@@ -31,5 +35,6 @@ except FileNotFoundError as fnf_error:
 except AssertionError as error:
     print(error)
 ~~~
+</div>
 
 Other Errors, check [this list](https://docs.python.org/3/library/exceptions.html).

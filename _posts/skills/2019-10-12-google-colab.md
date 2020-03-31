@@ -4,7 +4,7 @@ title: "Google Colab"
 categories: [skills]
 tags: ['IDE', 'online tool']
 icon-photo: colab.png
-keywords: github notebook google drive hotkey TensorFlow pytorch gpu 
+keywords: "github notebook google drive hotkey TensorFlow pytorch gpu import library git with colab upload a file to colab 7zip zip graphviz pydot cartopy save as html keep google colab open awake prevent from disconnect"
 ---
 
 {% assign img-url = '/img/post/skills' %}
@@ -87,13 +87,19 @@ We can use system commands in Colab with `!<command>`. For example, `!git clone 
 ~~~ bash
 # To determine which version you're using:
 !pip show tensorflow
+~~~
 
+~~~ bash
 # For the current version: 
 !pip install --upgrade tensorflow
+~~~
 
+~~~ bash
 # For a specific version:
 !pip install tensorflow==1.2
+~~~
 
+~~~ bash
 # For the latest nightly build:
 !pip install tf-nightly
 ~~~
@@ -105,23 +111,33 @@ Check out [my note for Git](/git).
 ~~~ python
 # Initialize the git repository (optional)
 !git init
+~~~
 
+~~~ bash
 # Set the global username and email
 !git config --global user.email "youremail@domain.com"
 !git config --global user.name "Your Name"
+~~~
 
+~~~ bash
 # Add all the files
 !git add -A
 # or
 !git add .
+~~~
 
+~~~ bash
 # Commit
 !git commit -m "Comment for that commit"
+~~~
 
+~~~ bash
 # Pass your Github credentials
 !git remote rm origin # in the case you meet "fatal: remote origin already exists"
 !git remote add origin https://<github-username>:<github-password>@github.com/<github-username>/<repository-name>.git
+~~~
 
+~~~ bash
 # Push to origin
 !git push -u origin master
 ~~~
@@ -130,6 +146,18 @@ If you don't want to use your username andd password, you can use "Personal acce
 
 ~~~ python
 !git git remote add origin https://<username>:<access-token>@github.com/<username>/<repo>.git
+~~~
+
+## Keep Colab awake
+
+<kbd>F12</kbd> then **Console** and type,
+
+~~~ js
+function ClickConnect(){
+  console.log("Working");
+  document.querySelector("colab-connect-button").shadowRoot.getElementById("connect").click()
+}
+setInterval(ClickConnect,60000)
 ~~~
 
 ## Change to current working directory
@@ -204,11 +232,15 @@ not finished!!!
 # https://pypi.python.org/pypi/libarchive
 !apt-get -qq install -y libarchive-dev && pip install -q -U libarchive
 import libarchive
+~~~
 
+~~~ bash
 # https://pypi.python.org/pypi/pydot
 !apt-get -qq install -y graphviz && pip install -q pydot
 import pydot
+~~~
 
+~~~ bash
 !apt-get -qq install python-cartopy python3-cartopy
 import cartopy
 ~~~
