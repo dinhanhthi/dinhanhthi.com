@@ -4,7 +4,7 @@ title: "Random Forest"
 categories: [machine learning]
 tags: ['decision tree', 'classifier', 'regression']
 icon-photo: decision-tree.svg
-keywords: decision tree ensemble learning votes from the trees relatively uncorrelated bagging Feature randomness entropy imbalanced classes feature importance Tony Yiu The Yhat Blog Chris Albon fast.ai
+keywords: "decision tree ensemble learning votes from the trees relatively uncorrelated bagging Feature randomness entropy imbalanced classes feature importance Tony Yiu The Yhat Blog Chris Albon fast.ai"
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
@@ -28,12 +28,12 @@ Ensemble learning involves the **combination of several models** to solve a sing
 </div>
 </div>
 
-❓ **How (decision) trees are chosen?**{:.tbrown} RF ensures that the chosen trees are not too correlated to the others.
+❓ **How (decision) trees are chosen?** RF ensures that the chosen trees are not too correlated to the others.
 
 1. **Bagging**: From a sample of size N, trees are chosen so that they also have size N **with replacement**. For example, if our training data was [1, 2, 3, 4, 5] (size 5), then we might give one of our tree the list [1, 2, 2, 5, 5] (with replacement).
 2. **Feature randomness**: The features in the original dataset are chosen randomly. There may be some trees that are lacking in some features.
 
-<sup>[[ref]](https://towardsdatascience.com/understanding-random-forest-58381e0602d2)</sup>So in our random forest, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions.
+So in our random forest, we end up with trees that are not only trained on different sets of data (thanks to bagging) but also use different features to make decisions{% ref https://towardsdatascience.com/understanding-random-forest-58381e0602d2 %}.
 
 *For each tree*, we can use [decision tree classifier](/decision-tree-classifier) or [decision tree regression](/decision-tree-regression) depending on the type our problem (classification or regression).
 
@@ -42,8 +42,8 @@ Ensemble learning involves the **combination of several models** to solve a sing
 - [Decision tree algorithms](/search?q=decision+tree) easily lead to [overfitting problems](/underfitting-overfitting). Random forest algorithm can overcome this.
 - Capable of both regression and classification problems.
 - Handle a large number of features.
-- <sup>[[ref]](http://blog.yhat.com/posts/random-forests-in-python.html)</sup>Estimating which features are important in the underlying data being modeled.
-- <sup>[[ref]](http://blog.yhat.com/posts/random-forests-in-python.html)</sup>Random forest is capable of learning without carefully crafted data transformations.
+- Estimating which features are important in the underlying data being modeled{% ref http://blog.yhat.com/posts/random-forests-in-python.html %}.
+- Random forest is capable of learning without carefully crafted data transformations{% ref http://blog.yhat.com/posts/random-forests-in-python.html %}.
 - Output probabilities for classification problems.
 
 ## Using RF with Scikit-learn
@@ -125,7 +125,7 @@ y = iris.target
 clf = RandomForestClassifier(random_state=0, n_jobs=-1)
 ~~~
 
-Select feature importance,<sup>[[ref]](https://chrisalbon.com/machine_learning/trees_and_forests/feature_importance/)</sup>
+Select feature importance{% ref https://chrisalbon.com/machine_learning/trees_and_forests/feature_importance %},
 
 ~~~ python
 # Train model
