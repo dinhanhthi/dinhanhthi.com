@@ -2,6 +2,7 @@
 layout: post
 title: "Numpy extra"
 categories: [python]
+tags: [python-data, extra]
 icon-photo: numpy.png
 keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number"
 ---

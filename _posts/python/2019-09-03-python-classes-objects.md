@@ -2,6 +2,7 @@
 layout: post
 title: "Python Classes & Objects"
 categories: [python]
+tags: [fundamental]
 keywords: "classes vs objects methods blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue"
 ---
 

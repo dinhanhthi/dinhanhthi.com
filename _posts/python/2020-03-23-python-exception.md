@@ -2,6 +2,7 @@
 layout: post
 title: "Python Exception"
 categories: [python]
+tags: [fundamental]
 tags: ['error', 'styling']
 keywords: "error except try"
 ---

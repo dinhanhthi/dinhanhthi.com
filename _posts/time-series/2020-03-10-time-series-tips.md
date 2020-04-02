@@ -3,7 +3,7 @@ layout: post
 title: "Time Series extra"
 icon-photo: ts.png
 categories: [time series]
-tags: ['time series', 'algorithm']
+tags: ['time series', 'algorithm', extra]
 keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min"
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Matplotlib extra"
 categories: [python]
-tags: ['visualization']
+tags: ['visualization', 'python-data', extra]
 icon-photo: matplotlib.png
 keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares figsize subplot multiple plots"
 ---

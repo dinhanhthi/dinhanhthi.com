@@ -2,7 +2,7 @@
 layout: post
 title: "Jupyter Notebook"
 categories: [python]
-tags: ['IDE']
+tags: ['ide']
 icon-photo: jupyter.png
 keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection"
 ---

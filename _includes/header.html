@@ -47,12 +47,30 @@
           <h1>{{ page.title }}</h1>
           {% if page.layout == 'post' %}
             <div class="tag-in-post">
-              {% for tag in page.tags %}
-                {% capture test %}{{tag | slice: 0}}{% endcapture %}
-                {% capture testup %}{{tag | slice: 0 | upcase}}{% endcapture %}
-                <a href="{{site.baseurl}}/tags#{{tag | slugify}}{% if test == testup %}_cap{% endif %}">
-                  {{tag}}
-                </a>
+              {% assign tag_words = page.tags | sort %}
+              {% for tag in tag_words %}
+                {% assign show_tag = true %}
+                {% assign name_tag = tag %}
+                {% assign slug_tag = tag | slugify %}
+                {% for rn_tag in site.data.rename_tags %}
+                  {% if tag == rn_tag.old %}
+                    {% if rn_tag.new == '' %}
+                      {% assign show_tag = false %}
+                    {% else %}
+                      {% assign name_tag = rn_tag.new %}
+                      {% assign slug_tag = rn_tag.new | slugify %}
+                    {% endif %}
+                  {% endif %}
+                  {% if tag[0] == rn_tag.new %}
+                    {% assign show_tag = false %}
+                  {% endif %}
+                {% endfor %}
+                {% if show_tag == true %}
+                  <a href="{{site.baseurl}}/tags#{{slug_tag}}">
+                    {{ name_tag }}
+                  </a>
+                {% endif %}
+
               {% endfor %}
             </div>
           {% endif %}

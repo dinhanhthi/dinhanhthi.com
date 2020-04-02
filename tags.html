@@ -11,38 +11,80 @@ icon-photo: tag.svg
   <section class="section">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-9">
-            
-            <div class="card-subject tag-list mb-4">
-              <div class="card-body py-1">
+        
+        <div class="col-12 col-lg-11">
+          <div class="card-subject tag-list mb-4">
+            <div class="card-body py-1">
+              {% capture site_tags %}
                 {% for tag in site.tags %}
-                  {% capture test %}{{tag[0] | slice: 0}}{% endcapture %}
-                  {% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}
-                  <a class="category tag" href="#{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
-                    {{tag[0]}}
-                  </a>
+                  {% assign show_tag = true %}
+                  {% assign name_tag = tag[0] %}
+                  {% for rn_tag in site.data.rename_tags %}
+                    {% if tag[0] == rn_tag.old %}
+                      {% if rn_tag.new == '' %}
+                        {% assign show_tag = false %}
+                      {% else %}
+                        {% assign name_tag = rn_tag.new %}
+                      {% endif %}
+                    {% endif %}
+                    {% if tag[0] == rn_tag.new %}
+                      {% assign show_tag = false %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if show_tag == true %}
+                    {{ name_tag }}
+                    {% unless forloop.last %},{% endunless %}
+                  {% endif %}
                 {% endfor %}
-              </div>
-            </div>
+              {% endcapture %}
+              {% assign tag_words = site_tags | split:',' | sort %}
 
-            {% for tag in site.tags %}
-              {% capture test %}{{tag[0] | slice: 0}}{% endcapture %}
-              {% capture testup %}{{tag[0] | slice: 0 | upcase}}{% endcapture %}
-              <div class="card card-custom tag-sec" id="{{tag[0] | slugify}}{% if test == testup %}_cap{% endif %}">
+              {% for tag in tag_words %}
+                <a class="category tag" href="#{{ tag | slugify }}">
+                  {{ tag }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-10 col-xl-9">
+          {% for tag in site.tags %}
+
+            {% assign show_tag = true %}
+            {% assign name_tag = tag[0] %}
+            {% assign slug_tag = tag[0] | slugify %}
+            {% for rn_tag in site.data.rename_tags %}
+              {% if tag[0] == rn_tag.old %}
+                {% if rn_tag.new == '' %}
+                  {% assign show_tag = false %}
+                {% else %}
+                  {% assign name_tag = rn_tag.new %}
+                  {% assign slug_tag = rn_tag.new | slugify %}
+                {% endif %}
+              {% endif %}
+              {% if tag[0] == rn_tag.new %}
+                {% assign show_tag = false %}
+              {% endif %}
+            {% endfor %}
+            {% if show_tag == true %}
+              <div class="card card-custom tag-sec" id="{{slug_tag}}">
                 <h2 class="card-header">
-                  {{ tag[0] }}
+                  {{ name_tag }}
                 </h2>
                 <div class="card-body">
-                    <ul>
-                      {% for post in tag[1] %}
-                      <li class="item">
-                        <a href="{{post.url}}">{{post.title}}</a>
-                      </li>
-                      {% endfor %}
-                    </ul>
+                  <ul>
+                    {% for post in tag[1] %}
+                    <li class="item">
+                      <a href="{{post.url}}">{{post.title}}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
                 </div>
               </div>
-            {% endfor %}
+            {% endif %}
+
+          {% endfor %}
 
         </div>
       </div>

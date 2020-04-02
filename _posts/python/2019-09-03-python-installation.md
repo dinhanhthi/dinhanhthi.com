@@ -2,6 +2,7 @@
 layout: post
 title: "Python Installation"
 categories: [python]
+tags: [fundamental, installation]
 keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object"
 ---
 
@@ -42,6 +43,7 @@ App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.b
 
 Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # RUN (after installing Anaconda)
 python -m notebook
@@ -49,9 +51,10 @@ python -m notebook
 
 ~~~ bash
 # If `ImportError: DLL load failed`
-active base # active environment "base" in anaconda
+active base # active env "base" in anaconda
 jupyter notebook
 ~~~
+</div>
 
 ~~~ bash
 # If `import _ssl`, `ImportError`
@@ -87,13 +90,17 @@ On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the
 
 ### Update pip
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
-# Check version of pip (with its path)
+# Check pip version
 pip -V
+~~~
 
+~~~ bash
 # update pip
 easy_install -U pip
 ~~~
+</div>
 
 - If you meet `AttributeError: 'NoneType' object has no attribute 'bytes'` when updating `pip`, check the version and make sure that there is only 1 pip on your computer and then use `easy_install -U pip` (don't forget to `activate `)
 - If there is a problem with `python -m pip install --upgrade pip`, use `easy_install`!
@@ -117,7 +124,9 @@ First, `activate <env>` and then using `easy_install -U pip`. You can check the 
 # INSTALL A PACKAGE
 pip install <package> # administrator <-- SHOULDN'T!!!
 pip install --user <package> # current user only
+~~~
 
+~~~ bash
 # CHECK VERSION OF A PACKAGE
 pip show <package>
 ~~~
@@ -152,19 +161,25 @@ fastai                   C:\Users\thi\.conda\envs\fastai
 # INSTALL
 activate <env> # you need to activate an environment first
 conda install <package> # install for <env> only
+~~~
 
+~~~ bash
 # UPDATE
 acctivate <env> # choose an env first
 conda update <package> # ud package in that env
+~~~
 
+~~~ bash
 # LIST ALL INSTALLED PACKAGES
 conda list
+~~~
 
+~~~ bash
 # Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml
 ~~~
 
-### pip vs conda?
+### `pip` vs `conda`?
 
 Differences:<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/)</sup>
 
@@ -178,15 +193,19 @@ Which one to be used?<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/inst
 
 ## Install Jupyter Notebook
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # USING PIP
 # first, always upgrade pip!
 pip install --upgrade pip
 pip install --upgrade ipython jupyter
+~~~
 
+~~~ bash
 # USING CONDA
 conda install ipython jupyter
 ~~~
+</div>
 
 ## Conda
 
@@ -195,7 +214,9 @@ conda install ipython jupyter
 ~~~ bash
 # INSTALL CONDA BY PIP (without Anaconda)
 pip install conda
+~~~
 
+~~~ bash
 # UPDATE CONDA
 conda update -n base -c defaults conda
 ~~~
@@ -215,21 +236,31 @@ Create a new environment with python version 3.7:
 
 ~~~ bash
 conda create -n <env-name> python=3.7 anaconda
+~~~
 
+~~~ bash
 # The same python version with current shell's Python interpreter
 conda create -n <env-name> python 
+~~~
 
+~~~ bash
 # with addtional packages (python will be automatically installed)
 conda create -n <env-name> <package1> <package2>
 # with version
 conda create -n <env-name> <package1>=1.16 <package2>
+~~~
 
+~~~ bash
 # in different directory
 conda create --prefix /path/to/<env-name>
+~~~
 
+~~~ bash
 # create from file <file>.yml
 conda env create -n <env> -f /path/to/<file>.yml
+~~~
 
+~~~ bash
 # Clone from another env
 conda create --name <cloned-env> --clone <env>
 ~~~
@@ -243,36 +274,52 @@ Most of below commands are assumed to be run in an environment named `env` which
 conda update pandas             # <env> activated
 conda update -n <env> pandas    # <env> isn't activated
 conda update -p /path/to/<env>  # <env> isn't in the default directory of conda
+~~~
 
+~~~ bash
 conda env export -f <file>.yml                       # <env> activated & current folder
 conda env export -n <env> -f /path/to/<file>.yml      # <env> isn't activated & different folder
 conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the default directory of conda & different folder
 ~~~
 </div>
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # DEACTIVE AN ENV
 conda deactivate # Linux
 deactivate # Windows
 source deactivate # MacOS
+~~~
 
+~~~ bash
 # REMOVE AN ENV
 conda remove -n <env> --all
+~~~
 
+~~~ bash
 # SHOW LIST OF CURRENT ENV
 conda info --envs
 # or
 conda env list
+~~~
 
+~~~ bash
 # EXPORT TO A ENV FILE
 conda env export -f <file>.yml
+~~~
+</div>
 
+~~~ bash
 # CREATE FROM FILE
 conda env create -n <env> -f /path/to/<file>.yml
+~~~
 
+~~~ bash
 # Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml --prune
+~~~
 
+~~~ bash
 # Clone from another env,
 conda create --name <cloned-env> --clone <env>
 ~~~
@@ -301,10 +348,14 @@ Restart the Jupyter Notebook, the list of kernels is available under **New**.
 
 ### Conda Revisions
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # Check revisions
 conda list --revisions
+~~~
 
+~~~ bash
 # Go back to revision `1`,
 conda install --revision 1
 ~~~
+</div>

@@ -2,6 +2,7 @@
 layout: post
 title: "Wordpress Installation"
 categories: [web development]
+tags: ['wordpress', 'installation']
 icon-photo: "wordpress.svg"
 keywords: "LAMP create website wordpress wp apache2 mysql php phpmyadmin run locally database MAMP WAMP WampServer www clone a website to localhost locally theme template desgin PHP visual studio code vsc PHP IntelliSense database ftp app winscp filezilla transmit localhost"
 ---

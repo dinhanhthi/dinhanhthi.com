@@ -2,7 +2,8 @@
 layout: post
 title: "Python Functions"
 categories: [python]
-keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error"
+tags: ['fundamental']
+keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error should we check the arguments type"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -13,22 +14,30 @@ keywords: "function def Unpacking a function Functions with stars kwargs args ra
 
 If a function doesn't return any value, it returns `None`.
 
+<div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 # without arguments
 def func_name():
   pass
+~~~
 
+~~~ python
 # with arguments
 def func_name(<args>):
   pass
+~~~
 
+~~~ python
 # return
 def func_name(<args>):
   return <some_thing>
+~~~
 
+~~~ python
 # call a function
 func_name(<args>)
 ~~~
+</div>
 
 ## Unpacking a function
 
@@ -246,3 +255,7 @@ if par1 is None:
 ~~~
 
 You can check other exceptions [here](https://docs.python.org/3/library/exceptions.html).
+
+## Should we check the argument?
+
+No! The responsibility is on the caller! Your function should be well-documented, that's it!{% ref https://stackoverflow.com/questions/19684434/best-way-to-check-function-arguments-in-python %}

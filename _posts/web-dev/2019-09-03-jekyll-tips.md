@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll extra"
 categories: [web development]
-tags: ['static site']
+tags: ['static site', extra, jekyll]
 math: 1
 icon-photo: "jekyll.png"
 date: 2019-10-24

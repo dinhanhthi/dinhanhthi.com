@@ -2,9 +2,9 @@
 layout: post
 title: "Visual Studio Code (VSC)"
 categories: [skills]
-tags: ['IDE']
+tags: ['ide', installation]
 icon-photo: vsc.svg
-keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin"
+keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete"
 ---
 
 {% include toc.html %}
@@ -24,6 +24,29 @@ You can find easily with their names in the marketplace (builtin with VSC)
 4. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 5. [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 </div>
+
+## Add extra path to auto complete
+
+Open `settings.json` and add,
+
+~~~ json
+{
+    "python.autoComplete.extraPaths": [
+        "C:\\Users\\dinha\\Documents\\GitHub\\dataswati\\python-dataswati"
+    ],
+}
+~~~
+
+### Fix Pylint unable to import
+
+Open `settings.json` and add,
+
+~~~ json
+"python.linting.pylintArgs": [
+    "--init-hook",
+    "import sys; sys.path.append('C:\\Users\\dinha\\Documents\\GitHub\\dataswati\\python-dataswati')"
+]
+~~~
 
 ## Enable font ligatures{% ref https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd %}
 

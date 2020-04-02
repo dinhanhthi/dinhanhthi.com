@@ -308,7 +308,7 @@ table{
 
 // auto-equal 50-50
 @media (min-width: $s-md){
-  .flex-auto-equal-2{
+  .flex-auto-equal-2, .flex-50{
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;

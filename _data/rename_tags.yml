@@ -1,0 +1,11 @@
+# if you wanna delete some tag, just rename it with ""
+- old: gatsby
+  new: gatsbyjs
+- old: front-end
+  new: ""
+- old: image compression
+  new: image processing
+- old: styling
+  new: ""
+- old: terminal
+  new: bash

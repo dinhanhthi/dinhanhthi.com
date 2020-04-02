@@ -2,7 +2,7 @@
 layout: post
 title: "Google Colab"
 categories: [skills]
-tags: ['IDE', 'online tool']
+tags: ['ide', 'online tool']
 icon-photo: colab.png
 keywords: "github notebook google drive hotkey TensorFlow pytorch gpu import library git with colab upload a file to colab 7zip zip graphviz pydot cartopy save as html keep google colab open awake prevent from disconnect"
 ---

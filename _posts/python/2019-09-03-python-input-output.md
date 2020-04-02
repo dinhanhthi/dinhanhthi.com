@@ -2,6 +2,7 @@
 layout: post
 title: "Python: Input & Output"
 categories: [python]
+tags: [fundamental]
 keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats"
 ---
 
@@ -15,10 +16,14 @@ keywords: "print string display long strings long texts break the line word wrap
 # Get input from user and display (input's type is `string`)
 age = input("Your age? ") # python 3, raw_input for python 2
 print("Your age:", age) # don't need space after "age"
+~~~
 
+~~~ python
 # Get the input and store to numbers list
 numbers = list(map(int, input().split()))
+~~~
 
+~~~ python
 # Get multi inputs on 1 line
 x, y, z, n = (int(input()) for _ in range(4))
 ~~~
