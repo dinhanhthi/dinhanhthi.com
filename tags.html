@@ -15,16 +15,18 @@ icon-photo: tag.svg
         <div class="col-12 col-lg-11">
           <div class="card-subject tag-list mb-4">
             <div class="card-body py-1">
-              {% capture site_tags %}
+              
                 {% for tag in site.tags %}
                   {% assign show_tag = true %}
                   {% assign name_tag = tag[0] %}
+                  {% assign slug_tag = tag[0] | slugify %}
                   {% for rn_tag in site.data.rename_tags %}
                     {% if tag[0] == rn_tag.old %}
                       {% if rn_tag.new == '' %}
                         {% assign show_tag = false %}
                       {% else %}
                         {% assign name_tag = rn_tag.new %}
+                        {% assign slug_tag = rn_tag.new | slugify %}
                       {% endif %}
                     {% endif %}
                     {% if tag[0] == rn_tag.new %}
@@ -32,21 +34,16 @@ icon-photo: tag.svg
                     {% endif %}
                   {% endfor %}
                   {% if show_tag == true %}
-                    {{ name_tag }}
-                    {% unless forloop.last %},{% endunless %}
+                    <a class="category tag" href="#{{ slug_tag }}">
+                      {{ name_tag }}
+                    </a>
                   {% endif %}
                 {% endfor %}
-              {% endcapture %}
-              {% assign tag_words = site_tags | split:',' | sort %}
 
-              {% for tag in tag_words %}
-                <a class="category tag" href="#{{ tag | slugify }}">
-                  {{ tag }}
-                </a>
-              {% endfor %}
             </div>
           </div>
         </div>
+
 
         <div class="col-12 col-lg-10 col-xl-9">
           {% for tag in site.tags %}

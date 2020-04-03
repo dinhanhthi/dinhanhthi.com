@@ -9,3 +9,5 @@
   new: ""
 - old: terminal
   new: bash
+- old: course
+  new: mooc

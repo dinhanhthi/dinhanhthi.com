@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "JSON"
+title: "Python JSON"
 tags: [fundamental]
 categories: [python]
 icon-photo: json.svg
@@ -17,13 +17,17 @@ JSON (JavaScript Object Notation) is a format that encodes objects in a string.
 - **Serialization** : convert an object → string.
 - **Deserialization** : convert string → object.
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # object
 {foo: [1, 4, 7, 10], bar: "baz"}
+~~~
 
+~~~ python
 # string
 '{"foo":[1,4,7,10],"bar":"baz"}'
 ~~~
+</div>
 
 ## JSON with python{% ref https://docs.python.org/3/library/json.html %}
 

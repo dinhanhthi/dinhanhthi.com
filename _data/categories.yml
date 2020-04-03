@@ -1,6 +1,9 @@
 - name: project-based learning
   icon: "fas fa-project-diagram"
   color: "#e97c8e"
+- name: mooc
+  icon: "fas fa-laptop-code"
+  color: "#fdcb6e"
 - name: machine learning
   icon: "fas fa-robot"
   color: "#84f9ff"
