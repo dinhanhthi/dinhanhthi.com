@@ -14,7 +14,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 ### Images
 
 - Compress images: [PNG](https://compresspng.com/), [JPG](https://compressjpeg.com/).
-- Remove background / Transparent photos: [online png tools](transparent), [lunapic](https://www5.lunapic.com/editor/).
+- Remove background / Transparent photos: [online png tools](https://onlinepngtools.com/create-transparent-png), [lunapic](https://www5.lunapic.com/editor/).
 - **iloveimg**: [resize](https://www.iloveimg.com/resize-image), [crop](https://www.iloveimg.com/crop-image), [compress](https://www.iloveimg.com/compress-image), [rotate](https://www.iloveimg.com/rotate-image).
 - [SVG free](https://www.flaticon.com/).
 
