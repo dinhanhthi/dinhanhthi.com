@@ -30,16 +30,20 @@ This note is used for you who have already had the basic idea about jekyll and h
 
 ## Make jekyll build faster
 
+<div class="flex-50" markdown="1">
 ~~~ bash
 # BENCHMARKING your site
 bundle exec jekyll build --profile
+~~~
 
+~~~ bash
 # clean cache
 bundle exec jekyll clean
 ~~~
+</div>
 
 1. Disable `jekyll-feed`
-2. Run `bundle exec jekyll serve -I` (wuth `-I`) to generate the changed file only. If you create a new file, you have to rebuild.
+2. Run `bundle exec jekyll serve -I` (wuth `-I`) to generate the changed file only. If you create a new file, open a new terminal tab and run `bundle exec jekyll build`.
 3. Upgrade to Jekyll 4.0.
 4. Add `gem "liquid-c"` to `Gemfile` and make `bundle update`
 5. Use `jekyll-include-cache` (both in `Gemfile` and `_config.yml`)
