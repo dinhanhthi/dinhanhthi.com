@@ -14,7 +14,7 @@ keywords: "deeplearning.ai deeplearning andrew NG courses online coursera machin
 This post contains the links to my handwriting notes for the courses and also my notes for the assignments.
 
 {:.alert.alert-warning}
-**Handwriting notes** is for the videos taught by Andrew NG (just the theoritical part). **Jupyter notebooks** are my personal notes for the quizzes and assignments (not the solutions because of the Honor Code rules from Coursera). **My personal solutions** for the assignement are stored in [a private repository](https://github.com/dinhanhthi/deeplearning-coursera-solutions). That's why the urls may not be available to you.
+**Handwriting notes** are for the videos taught by Andrew NG (just the theoritical part). **Jupyter notebooks** are my personal notes for the quizzes and assignments (not the solutions because of the Honor Code rules from Coursera). **My personal solutions** for the assignement are stored in [a private repository](https://github.com/dinhanhthi/deeplearning-coursera-solutions). That's why the urls may be not available to you.
 
 ## General info
 
