@@ -22,7 +22,6 @@ permalink: /tags
                 {% assign show_tag = true %}
                 {% assign name_tag = tag[0] %}
                 {% assign name_tag_dc = tag[0] | downcase %}
-                {% assign post_tag = tag[1] %}
                 {% assign has_more_friends = false %}
     
                 {% capture more_friends %}
@@ -31,6 +30,10 @@ permalink: /tags
                     {% assign rn_tag_new_dc = rn_tag.new | downcase %}
     
                     {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
+                      {% assign show_tag = false %}
+                    {% endif %}
+
+                    {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
                       {% assign show_tag = false %}
                     {% endif %}
     
@@ -61,19 +64,12 @@ permalink: /tags
           </div>
         </div>
 
-<div>
-        {% for tag in site.tags %}
-          {{ tag[0] }},
-        {% endfor %}
-      </div>
-
         <div class="col-12 col-lg-10 col-xl-9">
           {% for tag in site.tags %}
 
             {% assign show_tag = true %}
             {% assign name_tag = tag[0] %}
             {% assign name_tag_dc = tag[0] | downcase %}
-            {% assign post_tag = tag[1] %}
             {% assign has_more_friends = false %}
 
             {% capture more_friends %}
@@ -85,8 +81,12 @@ permalink: /tags
                   {% assign show_tag = false %}
                 {% endif %}
 
-                {% if name_tag_dc == rn_tag_old_dc %}
-                  {% assign name_tag = rn_tag.new %}
+                {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
+                  {% assign show_tag = false %}
+                {% endif %}
+
+                {% if name_tag_dc == rn_tag_old_dc and rn_tag.new != '' %}
+                  {% assign name_tag = rn_tag.new | downcase %}
                 {% endif %}
 
                 {% if name_tag_dc == rn_tag_new_dc %}
@@ -105,10 +105,6 @@ permalink: /tags
             {% assign tag_friends = more_friends | split: ',' | sort %}
 
             {% if show_tag == true %}
-
-
-
-
 
               <div class="card card-custom tag-sec" id="{{ name_tag | slugify }}">
                 <h2 class="card-header">
@@ -159,10 +155,7 @@ permalink: /tags
                 </div>
               </div>
 
-
-
-
-            {% endif %}
+              {% endif %}
 
           {% endfor %}
 
