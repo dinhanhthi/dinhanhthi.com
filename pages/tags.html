@@ -3,6 +3,7 @@ layout: base
 title: Posts by tags
 subtitle: Click on the tag you wanna see the posts
 icon-photo: tag.svg
+permalink: /tags
 ---
 
 {% include header.html %}
@@ -60,6 +61,11 @@ icon-photo: tag.svg
           </div>
         </div>
 
+<div>
+        {% for tag in site.tags %}
+          {{ tag[0] }},
+        {% endfor %}
+      </div>
 
         <div class="col-12 col-lg-10 col-xl-9">
           {% for tag in site.tags %}
