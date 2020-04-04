@@ -97,7 +97,7 @@ List of categories and tags in a single line with commas,
 
 ### Edit tags for all posts
 
-Read this source code.
+Read [this source code](https://github.com/dinhanhthi/dinhanhthi.com/blob/master/pages/tags.html).
 
 ## Using markdown syntax inside html tags
 
