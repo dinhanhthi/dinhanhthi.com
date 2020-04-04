@@ -11,3 +11,7 @@
   new: bash
 - old: course
   new: mooc
+- old: fundamental
+  new: "101"
+- old: date overviewing
+  new: data overviewing
