@@ -50,4 +50,13 @@
   -webkit-columns: 384px 2;
   -moz-columns: 384px 2;
   columns: 350px 2;
+  margin-bottom: $m-b;
+}
+
+ol, ul{
+  &.two-columns{
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
 }
