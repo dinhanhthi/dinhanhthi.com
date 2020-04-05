@@ -1,4 +1,3 @@
-_config.yml
 *.sublime-project
 *.sublime-workspace
 .sass-cache
@@ -14,5 +13,4 @@ test/test1.html
 .ipynb_checkpoints
 Gemfile.lock
 .jekyll-cache
-_config.yml
 _config.yml
