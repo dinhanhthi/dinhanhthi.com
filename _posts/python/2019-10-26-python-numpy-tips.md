@@ -4,7 +4,7 @@ title: "Numpy extra"
 categories: [python]
 tags: [python-data, extra]
 icon-photo: numpy.png
-keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number"
+keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -15,6 +15,24 @@ keywords: "linspace array arange range equal spaces range arange int integer num
 
 ~~~ python
 import numpy as np
+~~~
+
+## Checking
+
+Check if an object is an instance numpy array?
+
+~~~ python
+type(MyObect).__module__ == np.__name__
+~~~
+
+Compare 2 dicts of multiple objects:
+
+~~~ python
+def _compare_two_dict(dct_1, dct_2):
+    return np.array([(lambda key: (dct_1[key] == dct_2[key]).all() 
+       if type(dct_1[key]).__module__ == np.__name__ 
+       else dct_1[key] == dct2[key])(key) 
+       for key in dct_1]).all()
 ~~~
 
 ## Creating

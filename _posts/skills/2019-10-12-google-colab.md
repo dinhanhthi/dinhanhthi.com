@@ -221,9 +221,7 @@ The cloned folder are stored in `/content/`. If you wanna `pull` requests, use,
 
 ## PyTorch with GPU
 
-{% ref https://jovianlin.io/pytorch-with-gpu-in-google-colab/ %}To enable GPU backend for your notebook, go to **Edit** → **Notebook Settings** and set **Hardware accelerator** to **GPU**.
-
-not finished!!!
+To enable GPU backend for your notebook, go to **Edit** → **Notebook Settings** and set **Hardware accelerator** to **GPU**.{% ref https://jovianlin.io/pytorch-with-gpu-in-google-colab/ %}
 
 
 ## Install 7zip reader, GraphViz, PyDot, cartopy

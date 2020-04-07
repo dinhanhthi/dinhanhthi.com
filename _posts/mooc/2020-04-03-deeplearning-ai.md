@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Learning Specialization on Coursera"
+title: "Deep Learning Coursera -- Overview"
 categories: [mooc]
 tags: [mooc, coursera]
 icon-photo: deeplearning-ai.png

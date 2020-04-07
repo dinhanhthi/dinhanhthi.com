@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Learning Coursera: Course 1"
+title: "Deep Learning Coursera -- Course 1"
 categories: [mooc]
 tags: [mooc, coursera]
 icon-photo: deeplearning-ai.png
@@ -76,16 +76,17 @@ Initialize $w, b$ and then repeat until convergence ($m$: number of training exa
 
 {:.pl-4.two-columns}
 1. $A = \sigma(w^TX + b)$
-2. $J(w,b) = -\frac{1}{m} \left( Y \log(A^T) + (1-Y)\log(1-A^T) \right)$
-3. $\frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T$
-4. $\frac{\partial J}{\partial b} = \frac{1}{m} \sum (A-Y)$
-5. $w := w - \alpha \dfrac{\partial J}{\partial w}$
-6. $b := b - \alpha \dfrac{\partial J}{\partial b}$
+2. $J(w,b) = -\frac{1}{m} \left( Y \log A^T + (1-Y)\log(1-A^T) \right)$
+3. $\partial_{w}J = \frac{1}{m}X(A-Y)^T$
+4. $\partial_{b}J = \frac{1}{m} \Sigma (A-Y)$
+5. $w := w - \alpha \partial_{w}J$
+6. $b := b - \alpha \partial_{b}J$
 
-The dimension of variables: $X\in \mathbb{R}^{n_x \times m}, Y\in \mathbb{R}^{1\times m}, b\in \mathbb{R}^{1\times m}, w\in \mathbb{R}^{n_x \times 1}, A\in \mathbb{R}^{1\times m}, J\in \mathbb{R}$.
+The dimension of variables: $X\in \mathbb{R}^{n_x \times m}, Y\in \mathbb{R}^{1\times m}, b\in \mathbb{R}^{1\times m}, w\in \mathbb{R}^{n_x \times 1}, A\in \mathbb{R}^{1\times m}, J\in \mathbb{R}$, $\partial_wJ \in \mathbb{R}$, $\partial_bJ \in \mathbb{R}$.
 
 <div class="flex-50" markdown="1">
 ~~~ python
+# Initialize b and w
 def initialize_with_zeros(dim):
     w = np.zeros((dim, 1))
     b = 0   

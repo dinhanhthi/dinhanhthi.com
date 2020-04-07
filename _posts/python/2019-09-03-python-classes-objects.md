@@ -2,8 +2,8 @@
 layout: post
 title: "Python Classes & Objects"
 categories: [python]
-tags: [fundamental]
-keywords: "classes vs objects methods blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue"
+tags: ['101']
+keywords: "classes vs objects methods blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue get and access attributes of a class abstract class method"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -35,6 +35,23 @@ Objects `john_doe` and `jane_doe` defined from class `student` will have:
 - Their behaviors: `john_doe.take_exams()` and `jane_doe.graduate()`, ...
 </div>
 </div>
+
+## Get all attributes of a class
+
+~~~ python
+def props(cls):   
+    return [i for i in cls.__dict__.keys() if i[:1] != '_']
+
+# access these attributes
+properties = props(MyClass)
+for att in properties:
+    print(getattr(MyClass, att))
+~~~
+
+~~~ python
+# Get dictionaries of all attributes & their values
+MyClass.__dict__
+~~~
 
 ## Import local class
 
@@ -71,21 +88,73 @@ popai/
 
 We want import both classes `ABC` and `XYZ`,
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # b.py
 from popai.processings.a import ABC
+~~~
 
+~~~ python
 # a.py
 from popai.lib.c import XYZ
 ~~~
+</div>
 
 Just add `__init__.py` like in the right box above.
 
 Some errors may occur,
 
-~~~ bash
+~~~ python
 ValueError: attempted relative import beyond top-level package
 ~~~
+
+## Abstract Base Classes (ABC)
+
+~~~ python
+from abc import ABC, abstractmethod
+~~~
+
+<div class="flex-50" markdown="1">
+~~~ python
+# FATHER CLASS
+class BaseModel(ABC):
+  def __init__(self):
+    pass
+  
+  # child class must have
+  @abstractmethod
+  def fit(self, X):
+    pass
+
+  # child class must have
+  @abstractmethod
+  def predit(self, X):
+    pass
+
+  # children class don't need to have
+  #   but they can call
+  def fit_predict(self, X):
+    pass
+~~~
+
+~~~ python
+# CHILD CLASS
+class LinearModel(BaseModel)
+  def __init__(self):
+    pass
+
+  # must-have
+  def fit(self, X):
+    pass
+
+  # must-have
+  def predict(self, X):
+    pass
+
+  # this call can use .fix_predict()
+  #   from its father!
+~~~
+</div>
 
 
 
