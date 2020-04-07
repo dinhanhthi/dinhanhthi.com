@@ -8,11 +8,11 @@
   url: https://www.linkedin.com/in/dinhanhthi/
   opacity: 0.75
   title: My showcases for careers.
-# - name: HackerRank
-#   icon: hackerrank.svg
-#   url: https://www.hackerrank.com/dinhanhthi
-#   opacity: 0.75
-#   title: Where I practice to code and solve challenges.
+- name: HackerRank
+  icon: hackerrank.svg
+  url: https://www.hackerrank.com/dinhanhthi
+  opacity: 0.75
+  title: Where I practice to code and solve challenges.
 - name: Dataquest
   icon: dataquest.svg
   url: https://www.dataquest.io/profile/dinhanhthi
@@ -38,11 +38,11 @@
   url: https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556
   title: Where I've learned Machine Learning and Data Science.
   opacity: 0.75
-- name: Codecademy
-  icon: codecademy.svg
-  url: https://www.codecademy.com/profiles/dinhanhthi
-  opacity: 0.75
-  title: Where I've learned Python, Data Science and Web development.
+# - name: Codecademy
+#   icon: codecademy.svg
+#   url: https://www.codecademy.com/profiles/dinhanhthi
+#   opacity: 0.75
+#   title: Where I've learned Python, Data Science and Web development.
 # - name: freeCodeCamp
 #   icon: freecodecamp.svg
 #   url: https://www.freecodecamp.org/dinhanhthi
