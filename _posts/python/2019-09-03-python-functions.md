@@ -3,12 +3,20 @@ layout: post
 title: "Python Functions"
 categories: [python]
 tags: ['fundamental']
-keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error should we check the arguments type"
+keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error should we check the arguments type decorators @ notation at"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
+
+## Facts
+
+- In python, function is the **first-class object**. It's can be used as an argument.
+- Function can be used as a return value.
+  - `return func1`: reference to `func1`.
+  - `return func1()`: results of evaluating `func()`.
+- **Should we check the argument/input?**: **No!** The responsibility is on the caller! Your function should be well-documented, that's it!{% ref https://stackoverflow.com/questions/19684434/best-way-to-check-function-arguments-in-python %}
 
 ## Create a normal function
 
@@ -256,6 +264,59 @@ if par1 is None:
 
 You can check other exceptions [here](https://docs.python.org/3/library/exceptions.html).
 
-## Should we check the argument?
+## Decorators
 
-No! The responsibility is on the caller! Your function should be well-documented, that's it!{% ref https://stackoverflow.com/questions/19684434/best-way-to-check-function-arguments-in-python %}
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+def my_decorator(func):
+    def wrapper():
+        print("Before func called.")
+        func()
+        print("After func called.")
+    return wrapper
+
+def say_whee():
+    print("Whee!")
+
+say_whee = my_decorator(say_whee)
+say_whee()
+~~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+Something is happening before the function is called.
+Whee!
+Something is happening after the function is called.
+~~~
+</div>
+
+In a class
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+class test_class():
+    
+    def _deco(func):
+        def wrapper(self, name):
+            print('before func called')
+            func(self, name)
+            print('after func called')
+        return wrapper
+        
+    @_deco
+    def fit(self, name):
+        print('Hello, ', name)
+    
+a = test_class()
+a.fit('thi')
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+before func called
+Hello,  thi
+after func called
+~~~
+</div>
