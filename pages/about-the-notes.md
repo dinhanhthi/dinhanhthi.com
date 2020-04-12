@@ -7,7 +7,7 @@ icon-color: "#e97c8e"
 permalink: /about-the-notes
 ---
 
-I'm not a teacher with my notes, I'm a constantly self-learning guy. These are some facts:
+There are some facts:
 
 1. The notes aren't the tutorials!
 2. The notes aren't written by a pro but a bookworm. 
@@ -17,4 +17,4 @@ I'm not a teacher with my notes, I'm a constantly self-learning guy. These are s
 6. The notes always contains the mistakes and I need you to help me fix them.
 7. The notes have new brothers day by day.
 
-Thanks and welcome to my world of notes.
+Thanks and welcome to my [world of notes](/notes).

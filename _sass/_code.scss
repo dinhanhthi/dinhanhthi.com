@@ -109,6 +109,11 @@ figure.highlight{
         border-left: none;
       }
     }
+    @media(max-width: $s-md){
+      .highlight{
+        border-top: none;
+      }
+    }
   }
 }
 .d-lg-flex{
