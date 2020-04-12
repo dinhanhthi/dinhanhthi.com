@@ -4,7 +4,7 @@ title: "Data Processing & Cleaning"
 categories: [data science]
 tags: ['data processing']
 icon-photo: data-processing.png
-keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps rename index column"
+keywords: "pandas numpy remove columns drop choose some column except rename column make index reset_index drop NaNs missing values null fill nans fillnan text data dropna preprocessing warning A value is trying to be set on a copy of a slice from a DataFrame Couple different columns duplicate things need to be checked steps rename index column drop NaNs multi index filled with mean of each row"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -62,6 +62,7 @@ df.drop('New', axis=1, inplace=True) # drop column 'New'
 df.drop(['col1', 'col2'], axis=1, inplace=True)
 ~~~
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # ONLY KEEP SOME
 kept_cols = ['col1', 'col2', ...]
@@ -72,13 +73,16 @@ df = df[kept_cols]
 # ALL EXCEPT SOME
 df[df.columns.difference(['b'])]
 ~~~
+</div>
 
 ### Rename columns
 
 ~~~ python
 # IMPLICITLY
 df.columns = ['Surname', 'Years', 'Grade', 'Location']
+~~~
 
+~~~ python
 # EXPLICITLY
 df.rename(columns={'Name': 'Surname', 'Ages': 'Years'}, inplace=True)
 ~~~
@@ -96,6 +100,7 @@ df.index.name = 'new_name'
 
 ### Make index
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # COLUMN HAS UNIQUE VALUES?
 df['col'].is_unique # True if yes
@@ -104,11 +109,14 @@ df['col'].is_unique # True if yes
 ~~~ python 
 # INDEX -> NORMAL COLUMN
 df.reset_index(inplace=True)
+~~~
 
+~~~ python
 # NORMAL COLUMN -> INDEX
 df.set_index('column')
 df.set_index(['col1', 'col2'])
 ~~~
+</div>
 
 ### Drop duplicates
 
@@ -117,7 +125,9 @@ df.set_index(['col1', 'col2'])
 ~~~ python
 # check duplicates
 df['Student'].duplicated().any()
+~~~
 
+~~~ python
 # remove duplicates in some columns
 df.drop_duplicates(['col1', 'col2'])
 # use "ignore_index=True" if you wanna reset indexes to 0,1,...,n-1
@@ -141,34 +151,73 @@ df['timestamp'] = df['Date'] + ' ' + df['Heure']
 
 Full reference of `dropna` is [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html).
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # Drop any rows which have any nans
 df.dropna()
+~~~
 
-# Drop if all values in that row/columns are NA
+~~~ python
+# Drop if all values in that row/col are NA
 df.dropna(how='all') # default: how='any'
+~~~
 
+~~~ python
 # Drop columns that have any nans
 df.dropna(axis=1)
+~~~
 
-# Only drop columns which have at least 90% non-NaNs
-df.dropna(thresh=int(df.shape[0] * .9), axis=1)
+~~~ python
+# Only drop columns having min 90% non-NaNs
+df.dropna(thresh=int(df.shape[0]*.9), axis=1)
+~~~
+
+~~~ python
+# Only keep rows having >=2 non-NA values
+df.dropna(thresh=2)
+~~~
+
+~~~ python
+# Only consider some cols
+df.dropna(subset=['col1', 'col2'])
+~~~
+</div>
+
+~~~ python
+# multi-index
+df.dropna(subset=[(1,'a'), (1,'b'), (2,'a'), (2,'b')])
+
+# consider all cols '1' and '2'
+df.dropna(subset=df.loc[[], [1,2]].columns)
 ~~~
 
 ### Fill `NaN` with others
 
 Check other methods of `fillna` [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html).
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # Fill NaN with ' '
 df['col'] = df['col'].fillna(' ')
+~~~
 
+~~~ python
 # Fill NaN with 99
 df['col'] = df['col'].fillna(99)
+~~~
 
+~~~ python
 # Fill NaN with the mean of the column
 df['col'] = df['col'].fillna(df['col'].mean())
 ~~~
+
+~~~ python
+# Fill NA with mean of row
+m = df.mean(axis=1)
+for col in df.columns:
+    df.loc[:, col] = df.loc[:, col].fillna(m)
+~~~
+</div>
 
 ## Do with conditions
 

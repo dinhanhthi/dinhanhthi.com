@@ -121,6 +121,11 @@ First, `activate <env>` and then using `easy_install -U pip`. You can check the 
 {% endhsbox %} 
 
 ~~~ bash
+# LIST ALL INSTALLED PACKAGES
+pip freeze
+~~~
+
+~~~ bash
 # INSTALL A PACKAGE
 pip install <package> # administrator <-- SHOULDN'T!!!
 pip install --user <package> # current user only

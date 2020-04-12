@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Favorite repositories on Github"
+title: "Favorite Github repositories"
 categories: [others]
 icon: "fab fa-github"
 icon-color: "#e6b3ff"
+keywords: "repository github git"
 ---
 
 {% assign img-url = '/img/post/others' %}
@@ -19,6 +20,7 @@ icon-color: "#e6b3ff"
 
 1. [**faker**](https://github.com/joke2k/faker){:target="_blank"} -- Faker is a Python package that generates fake data for you.
 2. [**awesome-datascience**](https://github.com/bulutyazilim/awesome-datascience){:target="_blank"} -- An awesome Data Science repository to learn and apply for real world problems.
+3. **[Data Cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)** -- List of Data Science Cheatsheets to rule the world.
 
 ## Web Development
 
@@ -31,6 +33,7 @@ icon-color: "#e6b3ff"
 2. **[30-seconds](https://github.com/30-seconds)** -- The team behind 30-seconds-of-code and official 30-seconds projects.
 2. [**Learn to Code**](https://github.com/collections/learn-to-code) -- Resources to help people learn to code.
 3. [**The Algorithms - Python**](https://github.com/TheAlgorithms/Python) -- All Algorithms implemented in Python (for education).
+4. **[gitignore](https://github.com/github/gitignore)** -- A collection of useful .gitignore templates.
 
 ## Others
 

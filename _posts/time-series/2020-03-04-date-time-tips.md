@@ -13,10 +13,8 @@ keywords: "resample rule time step timedelta delta constructor format representa
 
 For duration:
 
-- `P` (duration, always at the beginning of the duration), `Y` (year), `M` (month), `W` (week), `D` (day), 
-  - `T` (time designator, always precedes the time components), `H` (hour), `M` (minute), `S` (second).
-- **Example**: `P3Y6M4DT12H30M5S`
-  - a duration of three years, six months, four days, twelve hours, thirty minutes, and five seconds.
+- `P` (duration, always at the beginning of the duration), `Y` (year), `M` (month), `W` (week), `D` (day), `T` (time designator, always precedes the time components), `H` (hour), `M` (minute), `S` (second).
+- **Example**: `P3Y6M4DT12H30M5S` -- a duration of three years, six months, four days, twelve hours, thirty minutes, and five seconds.
 
 Converter,
 
@@ -36,7 +34,123 @@ def get_isoformat(time):
         return duration_isoformat(time)
 ~~~
 
-## Get info timestamps
+## `Timedelta`
+
+### To `Timedelta`,
+
+~~~ python
+# numpy.timedelta64(208206000000000,'ns') → Timedelta('2 days 09:50:06')
+pd.Timedelta(time, unit='ns')
+~~~
+
+~~~ python
+# DateOffsets ('14T') → Timedelta('0 days 00:14:00')
+pd.to_timedelta('14T')
+~~~
+
+~~~ python
+# Can't use 'T' as '1T'?
+from pandas.tseries.frequencies import to_offset
+pd.to_timedelta(to_offset('T'))
+~~~
+
+### From `Timedelta`,
+
+~~~ python
+# Timedelta('0 days 00:01:20') -> 80 (s)
+# (SINGLE VALUE)
+td.total_seconds() # float
+~~~
+
+~~~ python
+# Timedelta('0 days 00:01:20') -> 80 (s) (FLOAT)
+# (ONLY WORK with a series, not a single value)
+series.astype('timedelta64[s]') # or 'ms'
+~~~
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.overflow-auto.pr-md-1}
+~~~ python
+# '1 minutes' -> '1T'
+def timedelta_to_string(timedelta):
+    units = ['D', 'H', 'T', 'S', 'L', 'U', 'N']
+    time_format = ''
+    for i, c in enumerate(timedelta.components):
+        if c != 0: time_format += str(c) + units[i]
+    return time_format
+~~~
+
+<div markdown="1" class="flex-even overflow-auto pl-md-1">
+~~~ python
+## EXAMPLE
+import pandas as pd
+test = pd.Timedelta('1 minutes')
+timedelta_to_string(test)
+~~~
+
+{:.output.mt-m1.bt-none}
+~~~
+Timedelta('0 days 00:01:00')
+'1T'
+~~~
+</div>
+</div>
+
+### `TimedeltaIndex` differences
+
+There is no `.diff` method with `TimedeltaIndex`, you can use,
+
+~~~ python
+np.subtract(df[1:], df[:-1])
+
+# convert to hour
+np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
+~~~
+
+### Compare/Make arithmetic different frequency strings
+
+We wanna compare `150S` (150 seconds) with `1T` (1 minutes).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+import pandas as pd
+pd.to_timedelta('150S') > pd.to_timedelta('1T')
+pd.to_timedelta('120S') == pd.to_timedelta('1T')
+pd.to_timedelta('120S') == pd.to_timedelta('2T')
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+True
+False
+True
+~~~
+</div>
+
+## Timestamps
+
+~~~ python
+from datetime import datetime
+~~~
+
+~~~ python
+# to same timezone (UTC, +0)
+df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
+~~~
+
+~~~ python
+# UTC+0 to UNIX timestamp
+df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
+~~~
+
+~~~ python
+# UNIX (ms) -> datetime64
+df['timestamp'] = df['timestamp'].astype('datetime64[ms])
+# change `ms` with others, e.g. `ns` for nanosecond
+~~~
+
+### Get info timestamps
 
 ~~~ python
 def set_index(data, col_time):
@@ -92,106 +206,6 @@ df.groupby('label').agg({'timestamp': [check_monotonic] })
 df.sort_values(by='date', inplace=True)
 ~~~
 </div>
-
-## `TimedeltaIndex` differences
-
-There is no `.diff` method with `TimedeltaIndex`, you can use,
-
-~~~ python
-np.subtract(df[1:], df[:-1])
-
-# convert to hour
-np.subtract(df[1:], df[:-1]) / pd.Timedelta('1 hour')
-~~~
-
-## Converting
-
-### `Timedelta`
-
-#### To `Timedelta`,
-
-~~~ python
-# numpy.timedelta64(208206000000000,'ns') → Timedelta('2 days 09:50:06')
-pd.Timedelta(time, unit='ns')
-~~~
-
-~~~ python
-# DateOffsets ('14T') → Timedelta('0 days 00:14:00')
-pd.to_timedelta('14T')
-~~~
-
-~~~ python
-# Can't use 'T' as '1T'?
-from pandas.tseries.frequencies import to_offset
-pd.to_timedelta(to_offset('T'))
-~~~
-
-#### From `Timedelta`,
-
-~~~ python
-# Timedelta('0 days 00:01:20') -> 80 (s)
-# (SINGLE VALUE)
-td.total_seconds() # float
-~~~
-
-~~~ python
-# Timedelta('0 days 00:01:20') -> 80 (s) (FLOAT)
-# (ONLY WORK with a series, not a single value)
-series.astype('timedelta64[s]') # or 'ms'
-~~~
-
-### Timedelta to offset string
-
-This is used to find the offset string (or "DateOffsets" or "frequencies strings" or "offset aliases") for `rule` in [`Resample`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.resample.html) {% ref https://stackoverflow.com/questions/46429736/pandas-resampling-how-to-generate-offset-rules-string-from-timedelta %}.
-
-<div class="d-md-flex" markdown="1">
-{:.flex-even.overflow-auto.pr-md-1}
-~~~ python
-def timedelta_to_string(timedelta):
-    units = ['D', 'H', 'T', 'S', 'L', 'U', 'N']
-    time_format = ''
-    for i, c in enumerate(timedelta.components):
-        if c != 0: time_format += str(c) + units[i]
-    return time_format
-~~~
-
-<div markdown="1" class="flex-even overflow-auto pl-md-1">
-~~~ python
-## EXAMPLE
-import pandas as pd
-test = pd.Timedelta('1 minutes')
-timedelta_to_string(test)
-~~~
-
-{:.output.mt-m1.bt-none}
-~~~
-Timedelta('0 days 00:01:00')
-'1T'
-~~~
-</div>
-</div>
-
-### Timestamps
-
-~~~ python
-from datetime import datetime
-~~~
-
-~~~ python
-# to same timezone (UTC, +0)
-df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_format=True, cache=True)
-~~~
-
-~~~ python
-# UTC+0 to UNIX timestamp
-df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
-~~~
-
-~~~ python
-# UNIX (ms) -> datetime64
-df['timestamp'] = df['timestamp'].astype('datetime64[ms])
-# change `ms` with others, e.g. `ns` for nanosecond
-~~~
 
 ## Detect time series frequency
 
@@ -264,29 +278,6 @@ L, ms     milliseconds
 U, us     microseconds
 N         nanoseconds
 ~~~
-
-### Compare/Make arithmetic different frequency strings
-
-We wanna compare `150S` (150 seconds) with `1T` (1 minutes).
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
-import pandas as pd
-pd.to_timedelta('150S') > pd.to_timedelta('1T')
-pd.to_timedelta('120S') == pd.to_timedelta('1T')
-pd.to_timedelta('120S') == pd.to_timedelta('2T')
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~
-True
-False
-True
-~~~
-</div>
-
-We can make some arithmetic with them.
 
 ## References
 

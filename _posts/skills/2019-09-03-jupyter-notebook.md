@@ -2,9 +2,9 @@
 layout: post
 title: "Jupyter Notebook"
 categories: [python]
-tags: ['ide']
+tags: [ide, bash, linux]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -26,7 +26,15 @@ conda install ipython jupyter
 ~~~
 </div>
 
-Or read more in [this note](/python-installation).
+Or read more in [this note](/python-installation#jupyer-notebook).
+
+If you meet error `OSError: [Errno 99] Cannot assign requested address`, try
+
+~~~ bash
+jupyter notebook --ip=127.0.0.1 --port=8080
+# or
+jupyter notebook --ip=127.0.0.1 --port=8080 --allow-root
+~~~
 
 ## Other tips
 

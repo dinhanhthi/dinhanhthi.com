@@ -76,8 +76,9 @@ from sklearn.cluster import MeanShift
 def find_gap_auto(df):
     
     X = df['date'].diff().unique()
+    X = X[~np.isnat(X)] # remove 'NaT'
     X.sort()
-    X = X[1:].reshape(-1,1) # don't forget to remove NaN at the beginning
+    X = X.reshape(-1,1)
     
     clustering = MeanShift().fit(X)
     labels = clustering.labels_

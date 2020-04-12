@@ -2,11 +2,11 @@
 layout: post
 title: "Python: Input & Output"
 categories: [python]
-tags: [fundamental]
-keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats"
+tags: ['101', python-data]
+keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats HDF Hierarchical Data Format hdf5"
 ---
 
-{% assign img-url = '/img/post/python' %}
+{% assign img-url = '/img/post/python/input-output' %}
 
 {% include toc.html %}
 
@@ -277,7 +277,32 @@ def ex_class(var1, var2):
 ~~~
 </div>
 
+## Hierarchical Data Format (HDF)
 
+- Designed to store and organize large amounts of data.
+- Store multiple data files in **a single data file**!
+  - Different types of information.
+  - Self describing (metadata included in the file)
+- **Properties**{% ref https://www.youtube.com/watch?v=nddj5OA8LJo %}:
+  - **Datasets** (numpy arrays): fast slicing, compression.
+  - **Group** (dictionaries): nesting, POSIX path syntax.
+  - **Attributrs** (metadata): datasets/group, key-value.
+- HDF5 is row based and really effient than csv for very large file size{% ref https://stackoverflow.com/questions/16639877/hdf5-taking-more-space-than-csv %}.
+- Extensions: `.h5`, `.hdf`, `.hdf4`, ...
+- Tool: [HDFView](https://www.hdfgroup.org/downloads/hdfview/)
+- Example{% ref https://www.neonscience.org/about-hdf5 %}:
 
+{:.img-full-70}
+![An example of HDF5 structure]({{img-url}}/hdf5_structure4.jpg)
+_An example HDF5 file structure which contains groups, datasets and associated metadata._
+
+~~~ python
+import h5py
+
+f = h5py.File('mytestfile.hdf5', 'r') # read a file
+# h5py.File acts like Python dict
+dset = f['mydataset']
+dset.attrs # attribute
+~~~
 
 

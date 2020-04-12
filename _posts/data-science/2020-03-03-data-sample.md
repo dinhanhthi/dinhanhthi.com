@@ -3,7 +3,7 @@ layout: post
 title: "Data Sample"
 categories: [data science]
 tags: ['time series', data generation]
-keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows"
+keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows fake data to function"
 ---
 
 {% assign img-url = '/img/post/data/data-sample' %}
@@ -27,6 +27,20 @@ fp.read()
 # close the file, it'll be removed!
 fp.close()
 ~~~
+
+## Create some fake data w.r.t. a function
+
+<div class="columns-2" markdown="1">
+~~~ python
+# f(x) = log(x)
+import numpy as np
+x = np.random.uniform(1, 100, 1000)
+y = np.log(x) + np.random.normal(0, .3, 1000)
+~~~
+
+{:.img-full-75.pop}
+![Fake data w.r.t. log function]({{img-url}}/log_with_noise.png)
+</div>
 
 ## Time Series data
 

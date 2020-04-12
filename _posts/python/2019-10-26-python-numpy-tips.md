@@ -4,7 +4,7 @@ title: "Numpy extra"
 categories: [python]
 tags: [python-data, extra]
 icon-photo: numpy.png
-keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries"
+keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries remove delete an element from an array"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -41,9 +41,22 @@ def _compare_two_dict(dct_1, dct_2):
 
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ python
-# random int number between [1, 100]
-np.random.randint(1, 100 + 1)
+# random int between 0, 5
+np.random.randint(5)
 
+# random int between [1, 100]
+np.random.randint(1, 100 + 1)
+~~~
+
+~~~ python
+# random array of int between 1, 5
+np.random.randint(1,5,size=(2,3))
+
+# random array of int between 0, 3
+np.random.randint(3,size=(2,3))
+~~~
+
+~~~ python
 # random float number between [0, 1)
 np.random.random()
 ~~~
@@ -51,7 +64,9 @@ np.random.random()
 ~~~ python
 # array of random between [0, 1)
 np.random.random_sample((5,)) # size: 5x1
+~~~
 
+~~~ python
 # betweeen (a, b)
 (b - a) * random_sample() + a
 ~~~
@@ -142,7 +157,7 @@ array([[nan, nan, nan],
 <div class="d-md-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
-# DELETE POSITIONS
+# DELETE BY POSITIONS
 arr = np.arange(6)
 np.delete(arr, [3,4])
 ~~~
@@ -151,6 +166,45 @@ np.delete(arr, [3,4])
 ~~~
 array([0, 1, 2, 3, 4, 5])
 array([0, 1, 2, 5])
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# DELETE BY VALUES
+a = np.array([1, 2, 3, 4, 5, 6])
+np.delete(a, np.where(a == 3))
+
+b = np.array([1, 2, 3, 'a'])
+np.delete(a, np.where(b == 'a'))
+
+# OR
+a[a!=3]
+b[b!='a']
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+array([1, 2, 4, 5, 6])
+
+array(['1', '2', '3'], dtype='<U21')
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# Remove 'NaT' from an array
+Y = np.array([600000, 300000, 'NaT'], 
+              dtype='timedelta64[ns]')
+Y[~np.isnat(Y)]
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+array([600000, 300000], 
+       dtype='timedelta64[ns]')
 ~~~
 </div>
 
