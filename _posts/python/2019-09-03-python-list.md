@@ -2,7 +2,7 @@
 layout: post
 title: "Python List"
 categories: [python]
-tags: [fundamental]
+tags: [fundamental, python]
 icon-photo: list.png
 keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list"
 ---

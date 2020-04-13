@@ -2,7 +2,7 @@
 layout: post
 title: "Python references"
 categories: [python]
-tags: [fundamental, documentation]
+tags: ['101', documentation, python]
 keywords: "references documentation material courses practice python newsletter platform"
 ---
 

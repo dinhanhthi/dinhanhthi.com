@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python extra"
-tags: [extra]
+tags: [extra, python]
 categories: [python]
 keywords: "python tips swap 2 variables huyen chip clear variable __name__ __main__ __future__ reset del delete variable system reset confirmation"
 ---

@@ -2,8 +2,8 @@
 layout: post
 title: "Python: Input & Output"
 categories: [python]
-tags: ['101', python-data]
-keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats HDF Hierarchical Data Format hdf5"
+tags: ['101', python-data, python]
+keywords: "print string display long strings long texts break the line word wrap multi lines multilines display decimal numbers display dataframes log logging warning info error alert docstring comment multiline comments documentation class definition sample structure example docstring __doc__ help sphinx numpydoc formats HDF Hierarchical Data Format hdf5 hdf"
 ---
 
 {% assign img-url = '/img/post/python/input-output' %}

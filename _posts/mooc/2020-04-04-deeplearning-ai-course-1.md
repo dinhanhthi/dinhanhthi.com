@@ -70,7 +70,7 @@ def softmax(x):
 ~~~
 </div>
 
-## Forward and Backward propagation
+### Forward and Backward propagation
 
 Initialize $w, b$ and then repeat until convergence ($m$: number of training examples, $\alpha$: learning rate, $J$: cost function, $A$: activation function):
 
@@ -84,6 +84,7 @@ Initialize $w, b$ and then repeat until convergence ($m$: number of training exa
 
 The dimension of variables: $X\in \mathbb{R}^{n_x \times m}, Y\in \mathbb{R}^{1\times m}, b\in \mathbb{R}^{1\times m}, w\in \mathbb{R}^{n_x \times 1}, A\in \mathbb{R}^{1\times m}, J\in \mathbb{R}$, $\partial_wJ \in \mathbb{R}$, $\partial_bJ \in \mathbb{R}$.
 
+{% hsbox Show the codes %}
 <div class="flex-50" markdown="1">
 ~~~ python
 # Initialize b and w
@@ -100,7 +101,7 @@ def propagate(w, b, X, Y):
     # FORWARD PROPAGATION (FROM X TO COST)
     A = sigmoid(np.dot(w.T,X) + b)
     cost = -1/m * (np.dot(Y, np.log(A.T)) 
-                 + p.dot((1-Y), np.log(1-A.T)))
+            + p.dot((1-Y), np.log(1-A.T)))
     # BACKWARD PROPAGATION (TO FIND GRAD)
     dw = 1/m * np.dot(X, (A-Y).T)
     db = 1/m * np.sum(A-Y)
@@ -140,11 +141,13 @@ def predict(w, b, X):
     return Y_pred
 ~~~
 </div>
+{% endhsbox %}
 
-## Simple NN model
+### Logistic Regression Model
 
 Using above functions `initialize_with_zeros`, `propagate`, `optimize` and `predict`.
 
+{% hsbox Show the codes %}
 ~~~ python
 def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate = 0.5):    
     # initialize parameters with zeros
@@ -161,9 +164,11 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate
     print("train accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))
     print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
 ~~~
+{% endhsbox %}
 
 ### Predict an image of cat
 
+{% hsbox Show the codes %}
 ~~~ python
 import scipy
 from PIL import Image
@@ -180,9 +185,10 @@ my_predicted_image = predict(d["w"], d["b"], my_image)
 plt.imshow(image)
 print("y = " + str(np.squeeze(my_predicted_image)) 
       + ", your algorithm predicts a \"" 
-      + + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") 
-      + +  "\" picture.")
+      + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") 
+      + "\" picture.")
 ~~~
+{% endhsbox %}
 
 ## Python tips
 

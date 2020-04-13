@@ -2,8 +2,8 @@
 layout: post
 title: "Python Functions"
 categories: [python]
-tags: ['fundamental']
-keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error should we check the arguments type decorators @ notation at"
+tags: ['101', python]
+keywords: "function def Unpacking a function Functions with stars kwargs args rargs lambda function check input verify raise error should we check the arguments type decorators @ notation at wrapper"
 ---
 
 {% assign img-url = '/img/post/python' %}

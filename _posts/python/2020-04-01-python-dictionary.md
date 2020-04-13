@@ -2,7 +2,7 @@
 layout: post
 title: "Python Dictionary"
 categories: [python]
-tags: [fundamental]
+tags: ['101', python]
 icon-photo: dict.svg
 keywords: "dict dictionary access elements sorted by keys"
 ---

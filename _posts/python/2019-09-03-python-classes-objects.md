@@ -2,8 +2,8 @@
 layout: post
 title: "Python Classes & Objects"
 categories: [python]
-tags: ['101']
-keywords: "classes vs objects methods instances blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue get and access attributes of a class abstract class method super father child son Syntactic sugar easier to read why self"
+tags: ['101', python]
+keywords: "classes vs objects methods instances blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue get and access attributes of a class abstract class method super father child son Syntactic sugar easier to read why self Syntactic sugar"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -71,6 +71,13 @@ class MyClass():
 </div>
 
 ## Get all attributes of a class
+
+~~~ python
+# CHECK THERE IS AN ATTRIBUTE
+getattr(MyClass, 'report', None)
+# if there is a class, it return this class' detail
+# if not, return None
+~~~
 
 ~~~ python
 def props(cls):   

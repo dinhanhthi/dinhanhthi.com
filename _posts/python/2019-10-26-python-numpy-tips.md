@@ -2,7 +2,7 @@
 layout: post
 title: "Numpy extra"
 categories: [python]
-tags: [python-data, extra]
+tags: [python-data, extra, python]
 icon-photo: numpy.png
 keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries remove delete an element from an array"
 ---
