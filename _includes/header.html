@@ -24,11 +24,7 @@
           {% elsif page.categories %}
             {% for cat in site.data.categories %}
               {% if page.categories[0] == cat.name %}
-                {% if cat.color %}
-                  {% assign iconColor = cat.color %}
-                {% else %}
-                  {% assign iconColor = '#a0ffa0' %}
-                {% endif %}
+                {% assign iconColor = cat.color %}
                 {% assign icon = cat.icon %}
               {% endif %}
             {% endfor %}

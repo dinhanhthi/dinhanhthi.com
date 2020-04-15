@@ -2,15 +2,15 @@
   subtitle: my learning path in data science
   img: img/proud-of/data-science-learning.png
   url: https://github.com/dinhanhthi/data-science-learning
-# - title: dataquest-aio
-#   img: img/proud-of/dataquest-aio.png
-#   subtitle: Guided notebooks of Dataquest
-#   url: https://github.com/dinhanhthi/dataquest-aio
+- title: dataquest-aio
+  img: img/proud-of/dataquest-aio.png
+  subtitle: Guided notebooks of Dataquest
+  url: https://github.com/dinhanhthi/dataquest-aio
 - title: deeplearning.ai-notes
   subtitle: handwriting-notes for deeplearning.ai 
   img: img/proud-of/deeplearning-ai.png
   url: https://github.com/dinhanhthi/deeplearning.ai-notes
-# - title: web-dev-learning
-#   subtitle: my learning path in web dev
-#   img: img/proud-of/web-dev-learning.png
-#   url: https://github.com/dinhanhthi/web-dev-learning
+- title: web-dev-learning
+  subtitle: my learning path in web dev
+  img: img/proud-of/web-dev-learning.png
+  url: https://github.com/dinhanhthi/web-dev-learning

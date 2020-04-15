@@ -19,9 +19,6 @@
 - name: natural language processing
   icon: "fas fa-language"
   color: "#eac1ea"
-- name: "deploy & run"
-  icon: "fas fa-rocket"
-  color: "#a0ffa0"
 - name: python
   icon: "fab fa-python"
   color: "#a0ffa0"
