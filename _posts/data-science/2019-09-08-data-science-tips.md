@@ -2,6 +2,7 @@
 layout: post
 title: "Data Science extra"
 categories: [data science]
+notfull: 1
 keywords: "graphviz"
 ---
 

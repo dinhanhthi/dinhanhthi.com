@@ -3,6 +3,7 @@ layout: post
 title: "Fast Fourier Transform (fft)"
 categories: [time series]
 icon-photo: signal.png
+notfull: 1
 keywords: "fft DFT discrete fourier transform phase frequency amplitude 3 properties of a wave fundamental"
 ---
 

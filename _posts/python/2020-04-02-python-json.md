@@ -3,6 +3,7 @@ layout: post
 title: "Python JSON"
 categories: [python]
 tags: ['101', python]
+notfull: 1
 icon-photo: json.svg
 keywords: "json JavaScript Object Notation Serialization Deserialization"
 ---

@@ -3,6 +3,7 @@ layout: post
 title: "Python Tuple"
 categories: [python]
 tags: ['101', python]
+notfull: 1
 icon-photo: tuple.svg
 keywords: ""
 ---

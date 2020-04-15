@@ -3,6 +3,7 @@ layout: post
 title: "Python sys & os"
 icon-photo: sys.svg
 tags: ['101', python]
+notfull: 1
 categories: [python]
 keywords: "list all files in a directory add path"
 ---

@@ -3,6 +3,7 @@ layout: post
 title: "Python Loop"
 categories: [python]
 tags: ['101', python]
+notfull: 1
 icon-photo: list.png
 keywords: "python for while loop iteration skip ignore some iteration loop"
 ---

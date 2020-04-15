@@ -3,6 +3,7 @@ layout: post
 title: "Regular Expression in Python"
 categories: [python]
 tags: [python, '101']
+notfull: 1
 icon-photo: re.png
 keywords: special characters
 ---

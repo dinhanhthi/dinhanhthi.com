@@ -3,6 +3,7 @@ layout: post
 title: "Titanic Disaster on Kaggle"
 categories: [project-based learning]
 icon-photo: titanic.png
+notfull: 1
 keywords: survive passenger drop features convert to dummy variables impute missing data gridsearchcv Continuous to categorical random forest create an output file Manav Sehgal Dataquest Abhinav Sagar
 ---
 

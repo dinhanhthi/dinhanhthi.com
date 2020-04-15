@@ -56,9 +56,12 @@ df['value'].plot.kde()
 # LIST OF COLUMNS
 df.columns
 len(df.columns) # count the number of columns
+~~~
 
+~~~ python
 # UNIQUE VALUES IN COL
 df['col'].unique()
+df['col'].unique().size # number of unique values
 ~~~
 
 ## Counting
@@ -108,13 +111,19 @@ sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
 ~~~ python
 # Check if there are duplicated values?
 df['col'].duplicated().any() # returns True/False
+~~~
 
+~~~ python
 # How many duplicates? (only count the first occurs)
 df['col'].duplicated().sum()
+~~~
 
+~~~ python
 # How many (including the repeated occurs)
 df['col'].duplicated(keep=False).sum()
+~~~
 
+~~~ python
 # List all duplicated values (LONG EXECUTING!!!)
 pd.concat( g for _, g in df.groupby('col') if len(g)>1 )
 ~~~

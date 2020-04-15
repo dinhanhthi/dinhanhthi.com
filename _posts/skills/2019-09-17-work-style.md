@@ -2,6 +2,7 @@
 layout: post
 title: "Work style"
 categories: [skills]
+notfull: 1
 keywords: "work with git on local coding style code branch git class"
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "Favorite Youtube Channels"
 categories: [others]
 icon: "fab fa-youtube"
+notfull: 1
 icon-color: "#ff8484"
 ---
 
@@ -10,5 +11,9 @@ icon-color: "#ff8484"
 
 {% include toc.html %}
 
-{% updfreq %}
+# Maths
+
+- [StatQuest with Josh Starmer](https://www.youtube.com/user/joshstarmer/about) -- Stats.
+
+
 

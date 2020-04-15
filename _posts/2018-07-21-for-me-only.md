@@ -33,6 +33,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
   - `icon-color` : (e.g. `#ffeead`) if you wanna set a color for that icon.
   - `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
 - `toc: 1` if you wanna show the table of content in your site.
+- `notfull: 1` if the note is not good enough.
 
 ## TOC
 

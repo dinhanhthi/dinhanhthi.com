@@ -5,6 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera]
 icon-photo: deeplearning-ai.png
 katex: 1
+notfull: 1
 keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat"
 ---
 
