@@ -11,7 +11,6 @@ Gemfile.lock
 test/test1.html
 *.code-workspace
 .ipynb_checkpoints
-Gemfile.lock
 .jekyll-cache
 _config.yml
 Gemfile

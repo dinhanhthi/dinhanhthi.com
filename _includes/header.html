@@ -48,7 +48,9 @@
               <i class="{{ icon }}"></i>
             </div>
           {% endif %}
-          <h1>{{ page.title }}</h1>
+          <h1 class="post-title">
+            {{ page.title }}{% if page.notfull %}<sup>•</sup>{% endif %}
+          </h1>
           {% if page.layout == 'post' %}
             <div class="tag-in-post">
               {% assign tag_words = page.tags | sort %}

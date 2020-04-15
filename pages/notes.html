@@ -45,7 +45,9 @@ permalink: /notes
                   {% for post in sortedPosts %}
                     {% unless post.draft %}
                       <li class="item">
-                        <a href="{{post.url}}">{{post.title}}</a>
+                        <a href="{{post.url}}" class="post-title">
+                          {{post.title}}{% if post.notfull %}<sup>•</sup>{% endif %}
+                        </a>
                       </li>
                     {% endunless %}
                   {% endfor %}
@@ -54,6 +56,10 @@ permalink: /notes
             </div>
           {% endif %}
         {% endfor %}
+        
+        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 2rem;">
+          <sup style="color: #bbb">•</sup>The notes are not taken well enough. They're being ameliorated to be better.
+        </p>
 
       </main>
     </div>

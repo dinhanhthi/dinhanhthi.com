@@ -168,9 +168,12 @@ des{
 
 // highlight
 .mark, mark{
-  padding: .1em .2em;
-  background-color: #fff9d0;
+  // padding: .1em .2em;
+  // background-color: #fff9d0;
   color: inherit;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: inset 0 -4px 0px 0px #ffc1077d;
 }
 
 // more link
