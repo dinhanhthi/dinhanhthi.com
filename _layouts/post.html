@@ -18,6 +18,13 @@ Everything on this site is <a href="{{ site.data.me.github }}/dinhanhthi.com" ta
 </div> -->
 
 <div class="sec-comment">
+
+  {% if page.notfull %}
+    <p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 1rem;">
+      <sup style="color: #bbb">•</sup>The notes are not taken well enough. They're being ameliorated to be better.
+    </p>
+  {% endif %}
+
   <button class="btn btn-info w-100" id="show-comments" onclick="load_comment();return false;">
     If you find something wrong or need a comment, click here.
   </button>
