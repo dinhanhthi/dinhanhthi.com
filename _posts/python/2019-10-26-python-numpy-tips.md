@@ -4,7 +4,7 @@ title: "Numpy extra"
 categories: [python]
 tags: [python-data, extra, python]
 icon-photo: numpy.png
-keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries remove delete an element from an array"
+keywords: "linspace array arange range equal spaces range arange int integer numbers list step evenly spaced create creating initialize nans values empty array random number isinstance check type numpy array compare 2 two dict dictionaries remove delete an element from an array count nans non nans not null"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -34,6 +34,28 @@ def _compare_two_dict(dct_1, dct_2):
        else dct_1[key] == dct2[key])(key) 
        for key in dct_1]).all()
 ~~~
+
+### Count 0, NaNs
+
+<div class="flex-50" markdown="1">
+~~~ python
+# count nans
+arr = [1,2,3,4, np.nan,np.nan, 0,0,0]
+np.isnan(arr).sum() # 2
+~~~ 
+
+~~~ python
+# count non-nans
+arr = [1,2,3,4, np.nan,np.nan, 0,0,0]
+np.count_nonzero(~np.isnan(arr)) # 7
+~~~
+
+~~~ python
+# count non-zeros
+arr = [1,2,3,4, np.nan,np.nan, 0,0,0]
+np.count_nonzero(arr) # 6
+~~~
+</div>
 
 ## Creating
 

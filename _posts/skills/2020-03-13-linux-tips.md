@@ -340,22 +340,34 @@ sudo apt install exfalso  # Ex Falso
 
 ○ Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)): 
 
+<div class="flex-50" markdown="1">
 ~~~ bash
 # install
 sudo apt-get install imagemagick
+~~~
 
+~~~ bash
 # resize but keep the ratio (save to jpg)
 mogrify -resize 50% -format jpg *
+~~~
 
+~~~ bash
 # resize keep the extension
 mogrify -resize 50% *
+~~~
 
+~~~ bash
 # with a specific size (save to jpg)
 mogrify -resize 800x600 -format jpg *
+~~~
 
+~~~ bash
 # just the width (save to jpg)
 mogrify -resize 800x -format jpg *
+~~~
 
+~~~ bash
 # only resize images bigger than 1000px width
 mogrify -resize 1000x\> *
 ~~~
+</div>
