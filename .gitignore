@@ -14,3 +14,4 @@ test/test1.html
 .jekyll-cache
 _config.yml
 Gemfile
+vendor

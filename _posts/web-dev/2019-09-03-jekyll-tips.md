@@ -28,6 +28,18 @@ This note is used for you who have already had the basic idea about jekyll and h
 - [Official dependencies / gems](https://pages.github.com/versions/) supported by Github Pages.
 </div>
 
+## Install and run Jekyll on fresh machine
+
+### Ubuntu
+
+1. Install Ruby Dev (don't use already installed version): `sudo apt-get install ruby-dev`
+2. Install bundler: `sudo gem install bundler`
+3. Clone a jekyll theme.
+4. `cd` to the folder containing that theme.
+5. `bundle install`
+6. `bundle exec jekyll serve`
+   1. Error: ExecJS and could not find a JavaScript runtime: install nodejs fix it. `sudo apt-get install nodejs`
+
 ## Make jekyll build faster
 
 <div class="flex-50" markdown="1">
