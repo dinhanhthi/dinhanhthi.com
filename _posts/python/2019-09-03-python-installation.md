@@ -76,6 +76,10 @@ python3 --version
 
 Python is already installed on Ubuntu. You would like to install Anaconda, [download and install](https://www.anaconda.com/distribution/) it.
 
+~~~ bash
+bash Anaconda...sh
+~~~
+
 Add Anaconda to the `$path`:
 
 1. Open `~/.profile`.
