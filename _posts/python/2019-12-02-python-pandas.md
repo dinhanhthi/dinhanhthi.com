@@ -162,7 +162,11 @@ df.iloc[:3]
 df.loc[:2]
 ~~~
 
-## MultiIndex {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html %}
+## MultiIndex
+
+More option [at here](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html).
+
+### All multiindex
 
 ~~~ python
 arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo'], ['one', 'two', 'one', 'two', 'one', 'two']]
@@ -240,6 +244,8 @@ Name: (baz, two), dtype: float64
 ~~~
 </div>
 
+### With a single name column
+
 If there are some column with single name,
 
 ~~~ python
@@ -248,58 +254,7 @@ index = pd.MultiIndex.from_arrays(arrays)
 df1 = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
 ~~~
 
-~~~ python
-# BAD PRACTICE
-df2 = pd.DataFrame([1,2,3], index=['A', 'B', 'C'], columns=['time'])
-df_rs1 = pd.concat([df1, df2], axis=1)
-~~~
-
-<table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(bar, 0)</th>
-      <th>(bar, 1)</th>
-      <th>(baz, 0)</th>
-      <th>(baz, 1)</th>
-      <th>(foo, 0)</th>
-      <th>(foo, 1)</th>
-      <th>time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>A</th>
-      <td>-1.386119</td>
-      <td>-0.496755</td>
-      <td>1.482855</td>
-      <td>0.943795</td>
-      <td>-1.173290</td>
-      <td>-0.445365</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>-0.900710</td>
-      <td>-1.571009</td>
-      <td>1.086964</td>
-      <td>1.546927</td>
-      <td>-1.564426</td>
-      <td>0.622763</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>C</th>
-      <td>0.712231</td>
-      <td>0.235247</td>
-      <td>-0.807031</td>
-      <td>0.671802</td>
-      <td>0.597149</td>
-      <td>0.111332</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
+#### Good practice
 
 ~~~ python
 # GOOD PRACTICE
@@ -366,22 +321,6 @@ Selection,
 <div class="d-md-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
-# FOR BAD PRACTICE
-df.loc['A', [('baz', 0)]]
-df_rs1.loc['A', [('baz', i) for i in [0,1]]]
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~ bash
-(baz, 0)    0.729023
-(baz, 0)    1.482855
-(baz, 1)    0.943795
-~~~
-</div>
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
 # FOR GOOD PRACTICE
 df_rs2.loc['A', ('baz', 1)]
 df_rs2.loc['A', 'baz']
@@ -392,6 +331,79 @@ df_rs2.loc['A', 'baz']
 0.943795
 0    1.482855
 1    0.943795
+~~~
+</div>
+
+#### Bad practice
+
+~~~ python
+# BAD PRACTICE
+df2 = pd.DataFrame([1,2,3], index=['A', 'B', 'C'], columns=['time'])
+df_rs1 = pd.concat([df1, df2], axis=1)
+~~~
+
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(bar, 0)</th>
+      <th>(bar, 1)</th>
+      <th>(baz, 0)</th>
+      <th>(baz, 1)</th>
+      <th>(foo, 0)</th>
+      <th>(foo, 1)</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>-1.386119</td>
+      <td>-0.496755</td>
+      <td>1.482855</td>
+      <td>0.943795</td>
+      <td>-1.173290</td>
+      <td>-0.445365</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>-0.900710</td>
+      <td>-1.571009</td>
+      <td>1.086964</td>
+      <td>1.546927</td>
+      <td>-1.564426</td>
+      <td>0.622763</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>0.712231</td>
+      <td>0.235247</td>
+      <td>-0.807031</td>
+      <td>0.671802</td>
+      <td>0.597149</td>
+      <td>0.111332</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+Selection,
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+# FOR BAD PRACTICE
+df.loc['A', [('baz', 0)]]
+df_rs1.loc['A', [('baz', i) for i in [0,1]]]
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~ bash
+(baz, 0)    0.729023
+(baz, 0)    1.482855
+(baz, 1)    0.943795
 ~~~
 </div>
 

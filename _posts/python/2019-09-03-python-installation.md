@@ -164,6 +164,23 @@ fastai                   C:\Users\thi\.conda\envs\fastai
 ~~~
 </div>
 
+Install packages with requirement file,
+
+~~~ bash
+pip install -r requirements.txt
+~~~
+
+An example of requirement file,
+
+~~~ bash
+geopandas==0.4.1
+grpcio==1.27.1
+grpcio-tools==1.27.1
+h5py==2.10.0
+isodate==0.6.0
+PyYAML==5.3.1
+~~~
+
 ### Install packages with conda
 
 ~~~ bash
@@ -186,6 +203,14 @@ conda list
 ~~~ bash
 # Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml
+~~~
+
+~~~ bash
+# example of yml file
+name: stats
+dependencies:
+    - python=3.6
+    - geopandas==0.4.1
 ~~~
 
 ### `pip` vs `conda`?

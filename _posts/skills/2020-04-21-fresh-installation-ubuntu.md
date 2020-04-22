@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fresh Ubuntu Installation"
-categories: [skills]
+categories: [others]
 tags: [bash, linux]
 icon-photo: ubuntu.svg
 keywords: "to do list after installing ubuntu debian elementary os linux"
@@ -87,4 +87,4 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicaton: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/). 
+12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/). 

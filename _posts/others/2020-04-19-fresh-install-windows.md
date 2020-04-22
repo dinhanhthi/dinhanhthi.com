@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fresh starting with a new Windows"
+title: "Fresh Windows 10 Installation"
 categories: [others]
 tags: ['online tool']
 icon-photo: windows.svg

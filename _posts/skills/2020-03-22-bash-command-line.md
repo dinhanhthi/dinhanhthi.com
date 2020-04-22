@@ -4,7 +4,7 @@ title: "Bash command lines"
 categories: [skills]
 icon-photo: terminal.svg
 tags: ['terminal']
-keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor ssh connection download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash file ssh commands print tree folder files structure"
+keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure"
 ---
 
 {% include toc.html %}
@@ -258,60 +258,4 @@ mv olname.txt newname.txt
 cp file file
 cp -r file&dir file&dir
 ~~~
-</div>
-
-## Vim
-
-## SSH
-
-### Commands
-
-~~~ bash
-ssh remote_username@remote_host
-ssh remote_username@remote_host -p remote_port
-~~~
-
-<div class="flex-auto-equal-2" markdown="1">
-~~~ bash
-# CHECK VERSION
-ssh -V
-
-# DISCONNECT
-exit
-~~~
-
-~~~ bash
-# COPY FILE: LOCAL -> REMOTE
-scp local_file user@remote-host:/var/tmp/
-
-# REMOTE -> LOCAL
-scp user@remote-host:/usr/local/bin/add.sh .
-~~~
-</div>
-
-### How it works?
-
-1. Local creates `public_key` (`id_rsa.pub`) & `private_key` (`id_rsa`).
-2. Only `private_key` can understand `public_key`.
-3. Remote sends messages encrypted based on `public_key`.
-4. Local has to use `private_key` to understand (decrypt) remote's messages.
-
-### SSH command lines
-
-~~~ bash
-# FOR EXAMPLE
-ssh -C # use data compression
-~~~
-
-**Usage**: [Access jupyter notebooks from remote server on local machine](/jupyter-notebook#jupyter-notebook-on-remote-server).
-
-Below are some popular commands{% ref https://www.ssh.com/ssh/command#ssh-command-line-options %}:
-
-<div class="two-columns-list" markdown="1">
-- `-C`: use data compression.
-- `-p <port>`: port to connect.
-- `-q`: quiet mode.
-- `-v`: verbose mode.
-- `-X`: running GUI remote app locally.
-- `-L`: local port forwarding{% ref https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding %}.
 </div>
