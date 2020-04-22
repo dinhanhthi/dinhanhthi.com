@@ -39,3 +39,16 @@ except AssertionError as error:
 </div>
 
 Other Errors, check [this list](https://docs.python.org/3/library/exceptions.html).
+
+## Apply
+
+### Check `str` of float
+
+~~~ python
+element = 'mean'
+try:
+    print(float(element))
+except ValueError:
+    if element == 'mean':
+        print('hello mean')
+~~~

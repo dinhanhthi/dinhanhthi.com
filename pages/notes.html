@@ -32,6 +32,10 @@ permalink: /notes
 
         {% include proud-of.html data=site.data.proudof-notes ncards=2 %}
 
+        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 2rem;">
+          <sup style="color: #bbb">•</sup>{{ site.data.me.notfull }}
+        </p>
+
         {% for category in site.data.categories %}
           {% if site.categories[category.name].size > 0 %}
             <div class="card card-custom">
@@ -58,7 +62,7 @@ permalink: /notes
         {% endfor %}
         
         <p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 2rem;">
-          <sup style="color: #bbb">•</sup>The notes are not taken well enough. They're being ameliorated to be better.
+          <sup style="color: #bbb">•</sup>{{ site.data.me.notfull }}
         </p>
 
       </main>
