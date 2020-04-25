@@ -4,7 +4,7 @@ title: "Pandas extra"
 categories: [python]
 tags: [python-data, extra, data generation, python]
 icon-photo: pandas.png
-keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary list numpy array np.array to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name selection convert true false to 1 0"
+keywords: "pandaframe series df dataframe data overview data aggregation data combining data preprocessing cleaning row column select values export write csv files output input sep separate comma semicolon read csv read_csv from dictionary list numpy array np.array to_csv write to files multiindex indexing reverse values True False element wise invert integer rows and named columns index and column name selection convert true false to 1 0 add a row to current dataframe"
 ---
 
 {% assign img-url = '/img/post/python/pandas' %}
@@ -68,6 +68,20 @@ students = pd.DataFrame(my_dict)
 | 4 | Chang | 11 | 8 | DC |
 
 </div>
+</div>
+
+## Adding
+
+<div class="flex-50" markdown="1">
+~~~ python
+# a column
+df['new_col] = [new_values]
+~~~
+
+~~~ python
+# a row
+df.loc['new_index'] = [new_value]
+~~~
 </div>
 
 ## Select rows/columns/item(s) {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html %}
@@ -406,6 +420,19 @@ df_rs1.loc['A', [('baz', i) for i in [0,1]]]
 (baz, 1)    0.943795
 ~~~
 </div>
+
+### Rename multiindex
+
+~~~ python
+# all columns' name at the level 1
+df.columns.set_levels(['b1','c1','f1'], level=1, inplace=True)
+~~~
+
+## Compare 2 dataframes
+
+``` python
+df1.equals(df2)
+```
 
 ## True / False
 

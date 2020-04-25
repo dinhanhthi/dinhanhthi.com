@@ -76,29 +76,36 @@ df.Classes.value_counts() # give number of each 0 and 1
 
 👉 [Handle missing values](/data-preprocessing-cleaning#deal-with-missing-values-nan).
 
-Show the number of missing values in each column (including the zero ones)
-
 ~~~ python
+# number of missing values in each column (including zeros)
 df.isnull().sum()
 ~~~
 
-If you wanna show the columns having the null,
-
 ~~~ python
+# columns having the nulls (any nan)
 null_columns = df.columns[f().any()]
-df[null_columns].isnull().sum()
+df[null_columns].isnull().sum() # how many?
 ~~~
 
-The number of `null` values in df (missing values),
+~~~ python
+# number rows having ALL nans
+df.isna().all(axis=1).sum()
+
+# number columns having ALL nans
+df.isna().all(axis=0).sum()
+
+# find index of rows having ALL nans
+df.index[df.isna().all(axis=1)].to_list()
+~~~
 
 ~~~ python
+# number of nans in df
 df.isnull().sum().sort_values(ascending=False)
 df.isnull().sum()/df_train.isnull().count()*100 # find % of null values
 ~~~
 
-Visualize the locations of missing values,
-
 ~~~ python
+# Visualize the locations of missing values,
 import seaborn as sns
 df = df.set_index('YEAR') # y-axis is YEAR
 sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name

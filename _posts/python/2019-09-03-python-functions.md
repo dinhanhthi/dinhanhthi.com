@@ -291,7 +291,7 @@ Something is happening after the function is called.
 ~~~
 </div>
 
-In a class,
+In a class (note that, there is no `self` parameter in `_deco`),
 
 <div class="d-md-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
