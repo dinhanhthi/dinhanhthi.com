@@ -15,7 +15,7 @@ This is my personal list of to-do things after reinstall Windows.
 2. [Opera browsers](https://www.opera.com) and sign in to sync.
     - Enable Block ads and Block tracker (in Settings).
     - Disable _Enable the search pop-up when selecting text_ at the section _Search pop-up_
-    - Install addons: [Install Chrome Extensions](https://addons.opera.com/en/extensions/details/install-chrome-extensions/), [LastPass](https://addons.opera.com/en/extensions/details/lastpass/), [Mate Translate](https://addons.opera.com/en/extensions/details/instant-translate-2/) (diable _Double-click translation_), [Save to Pocket](https://addons.opera.com/en/extensions/details/pocket-formerly-read-it-later/), [Tab Cloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof/related), [Google Dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [Microsoft Editor](https://chrome.google.com/webstore/detail/microsoft-editor/gpaiobkfhnonedkhhfjpmhdalgeoebfa), [IDM Integration Module](https://chrome.google.com/webstore/detail/idm-integration-module/ngpampappnmepgilojfohadhhmbhlaek).
+    - Install addons: [Install Chrome Extensions](https://addons.opera.com/en/extensions/details/install-chrome-extensions/), [LastPass](https://addons.opera.com/en/extensions/details/lastpass/), [Mate Translate](https://addons.opera.com/en/extensions/details/instant-translate-2/) (diable _Double-click translation_), [Save to Pocket](https://addons.opera.com/en/extensions/details/pocket-formerly-read-it-later/), [Tab Cloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof/related), [Google Dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [Microsoft Editor](https://chrome.google.com/webstore/detail/microsoft-editor/gpaiobkfhnonedkhhfjpmhdalgeoebfa), [IDM Integration Module](https://chrome.google.com/webstore/detail/idm-integration-module/ngpampappnmepgilojfohadhhmbhlaek), [Google Reverse Image Search](https://addons.opera.com/en/extensions/details/google-reverse-image-search-2/).
     - Change search engine to [DuckDuckGo](https://duckduckgo.com).
 1. [DeepL](https://www.deepl.com/translator): best translator for Windows using AI.
 2. [QTTranslate](https://quest-app.appspot.com): quick and easy translate words and hear the pronounciation.
@@ -27,7 +27,7 @@ This is my personal list of to-do things after reinstall Windows.
 8. [Notion](https://www.notion.so).
 9.  [Git](https://git-scm.com) & [Gitkraken](https://www.gitkraken.com/git-client)/[Github Desktop](https://desktop.github.com).
 10. Clone [repositories](https://github.com/dinhanhthi?tab=repositories) from Github.
-11. [Visual Studio Code](https://code.visualstudio.com) and extensions (Bracket Pair Colorizer, Docker, Markdown All in One, Markdown Shortcuts, Python, Remote Development)
+11. [Visual Studio Code](https://code.visualstudio.com) and extensions (Bracket Pair Colorizer, Docker, Markdown All in One, Markdown Shortcuts, Python, Remote Development, Auto Close Tag)
 12. [Microsoft Office](https://www.microsoft.com/en-us/download/office.aspx).
 13. [GoldenDict](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Windows) + [dictionaries](https://drive.google.com/open?id=1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv) & [Lingoes](http://www.lingoes.net/) + [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
 14. Uninstall OneDrive.
