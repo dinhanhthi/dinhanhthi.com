@@ -12,3 +12,5 @@ keywords: "coursera ibm professional courses mooc IBM Data Science Professional 
 
 {% include toc.html %}
 
+I haven't finished to rewrite this note. Please check out [my raw note for this course](https://rawnote.dinhanhthi.com/tags#ibm-data), it's also well-taken.
+

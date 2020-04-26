@@ -11,3 +11,5 @@ keywords: "andre NG machine learning coursera"
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
+
+I haven't finished to rewrite this note. Please check out [my raw note for this course](https://rawnote.dinhanhthi.com/tags#ml-coursera), it's also well-taken.
