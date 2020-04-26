@@ -368,6 +368,10 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 - <mark>Applied deep learning is a very empirical process!</mark> Best values depend much on data, algorithms, hyperparameters, CPU, GPU,...
 - Learning algorithm works sometimes from data, not from your thousands line of codes (surprise!!!)
 
+## Application: recognize a cat
+
+This section contains an idea, not a complete task! 
+
 ## Python tips
 
 ○ Reshape quickly from `(10,9,9,3)` to `(9*9*3,10)`:
