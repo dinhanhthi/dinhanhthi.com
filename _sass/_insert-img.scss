@@ -4,7 +4,7 @@ p > img{
     text-align: center;
     display: block;
     margin-top: 10px;
-    font-size: 90%;
+    font-size: $image-title-size;
     opacity: 0.7;
   }
   &.emoji{
@@ -18,7 +18,7 @@ li > .emoji{
   vertical-align: top!important;
 }
 
-.img-full-normal, .img-full-100, .img-full, .img-full-50, .img-full-75, .img-full-85, .img-full-90{
+.img-full-normal, .img-full-100, .img-full, .img-full-50, .img-full-75, .img-full-85, .img-full-90, .img-100, .img-50, .img-75, .img-85, .img-90{
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 	img{
@@ -41,7 +41,7 @@ li > .emoji{
 	}
 }
 
-.img-full-normal, .img-full-100{
+.img-full-normal, .img-full-100, .img-100{
 	img{
 		@media (min-width:768px) {
 			margin: 0 auto;
@@ -51,7 +51,7 @@ li > .emoji{
 
 @media (min-width:768px) {
 	@each $size in $imgage-sizes{
-		.img-full-#{$size}{
+		.img-full-#{$size}, .img-#{$size}{
 			width: $size/100*100%;
 			margin-left: auto;
 			margin-right: auto;
@@ -68,7 +68,7 @@ li > .emoji{
 	em{
 		display: block;
 		text-align: center;
-		font-size: 90%;
+		font-size: $image-title-size;
 		margin-top: 10px;
 		color: #778899;
 	}
@@ -92,7 +92,7 @@ li > .emoji{
 		display: block;
 		margin-top: 10px;
 		text-align: center;
-		font-size: 90%;
+		font-size: $image-title-size;
 		color: #778899;
 	}
 	@media (min-width:768px) {
