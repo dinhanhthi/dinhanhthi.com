@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL Coursera -- C1: NN & DL"
+title: "Deep Learning Coursera - Course 1"
 categories: [mooc]
 tags: [mooc, coursera]
 icon-photo: deeplearning-ai.png
