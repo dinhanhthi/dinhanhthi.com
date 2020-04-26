@@ -370,7 +370,17 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 
 ## Application: recognize a cat
 
-This section contains an idea, not a complete task! 
+This section contains an idea, not a [complete task](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-1/week-4/Deep%2BNeural%2BNetwork%2B-%2BApplication%2Bv8.ipynb)! 
+
+<div class="columns-2" markdown="1">
+{:.img-95.pop}
+![Image to vector conversion.]({{img-url}}/imvectorkiank.png)
+_Image to vector conversion. Image from the course._
+
+{:.img-95.pop}
+![L-layer deep neural network]({{img-url}}/l-layer-dnn.png)
+_L-layer deep neural network. Image from the course._
+</div>
 
 ## Python tips
 
