@@ -20,6 +20,7 @@ sudo apt install fonts-noto-color-emoji
 ~~~ bash
 sudo apt install guake
 ~~~
+Install Zsh, follow [this note](/terminal#zsh).
 5. Update & Upgrade
 ~~~ bash
 sudo apt update & sudo apt upgrade
