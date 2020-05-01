@@ -264,38 +264,37 @@ cp -r file&dir file&dir
 
 - cmder.
 - Windows Terminal.
-
-``` json
-// ...
-"defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
-// ...
-"profiles":
-    {
-        "defaults":
+    ``` json
+    // ...
+    "defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
+    // ...
+    "profiles":
         {
-            // Put settings here that you want to apply to all profiles.
-        },
-        "list":
-        [
-            // ...
+            "defaults":
             {
-                "guid": "{00000000-0000-0000-ba54-000000000002}",
-                "acrylicOpacity" : 0.75,
-                "closeOnExit" : true,
-                "colorScheme" : "Campbell",
-                "commandline" : "\"%PROGRAMFILES%\\git\\usr\\bin\\bash.exe\" -i -l",
-                "cursorColor" : "#FFFFFF",
-                "cursorShape" : "bar",
-                "fontFace" : "Consolas",
-                "fontSize" : 12,
-                "historySize" : 9001,
-                "icon" : "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name" : "Bash",
-                "padding" : "0, 0, 0, 0",
-                "snapOnInput" : true,
-                "startingDirectory" : "%USERPROFILE%\\Documents\\git",
-                "useAcrylic" : true
-            }
-        ]
-    },
-```
+                // Put settings here that you want to apply to all profiles.
+            },
+            "list":
+            [
+                // ...
+                {
+                    "guid": "{00000000-0000-0000-ba54-000000000002}",
+                    "acrylicOpacity" : 0.75,
+                    "closeOnExit" : true,
+                    "colorScheme" : "Campbell",
+                    "commandline" : "\"%PROGRAMFILES%\\git\\usr\\bin\\bash.exe\" -i -l",
+                    "cursorColor" : "#FFFFFF",
+                    "cursorShape" : "bar",
+                    "fontFace" : "Consolas",
+                    "fontSize" : 12,
+                    "historySize" : 9001,
+                    "icon" : "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                    "name" : "Bash",
+                    "padding" : "0, 0, 0, 0",
+                    "snapOnInput" : true,
+                    "startingDirectory" : "%USERPROFILE%\\Documents\\git",
+                    "useAcrylic" : true
+                }
+            ]
+        },
+    ```
