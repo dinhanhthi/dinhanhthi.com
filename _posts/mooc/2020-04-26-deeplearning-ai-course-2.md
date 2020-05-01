@@ -2,7 +2,7 @@
 layout: post
 title: "Deep Learning Coursera - Course 2"
 categories: [mooc]
-tags: [mooc, coursera]
+tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
 notfull: 1

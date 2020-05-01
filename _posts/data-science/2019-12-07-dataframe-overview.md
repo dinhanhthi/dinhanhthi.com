@@ -101,7 +101,7 @@ df.index[df.isna().all(axis=1)].to_list()
 ~~~ python
 # number of nans in df
 df.isnull().sum().sort_values(ascending=False)
-df.isnull().sum()/df_train.isnull().count()*100 # find % of null values
+df.isnull().sum()/df.isnull().count()*100 # find % of null values
 ~~~
 
 ~~~ python

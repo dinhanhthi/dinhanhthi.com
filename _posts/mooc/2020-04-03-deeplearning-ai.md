@@ -2,7 +2,7 @@
 layout: post
 title: "Deep Learning Coursera -- Overview"
 categories: [mooc]
-tags: [mooc, coursera]
+tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 notfull: 1
 keywords: "deeplearning.ai deeplearning andrew NG courses online coursera machine learning certificate Neural Networks and Deep Learning Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization Structuring Machine Learning Projects Convolutional Neural Networks Sequence Models"

@@ -2,10 +2,10 @@
 layout: post
 title: "Deep Learning Coursera - Course 1"
 categories: [mooc]
-tags: [mooc, coursera]
+tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
-keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat tanh relu leaky relu gradient descent L layer L-layer initialize parameters and hyperparameters shallow nn"
+keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat tanh relu leaky relu gradient descent L layer L-layer initialize parameters and hyperparameters shallow nn recognize a cat reshape"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}

@@ -4,7 +4,7 @@ title: "Bash command lines"
 categories: [skills]
 icon-photo: terminal.svg
 tags: ['terminal']
-keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure"
+keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure windows terminal"
 ---
 
 {% include toc.html %}
@@ -259,3 +259,43 @@ cp file file
 cp -r file&dir file&dir
 ~~~
 </div>
+
+## Terminal
+
+- cmder.
+- Windows Terminal.
+
+``` json
+// ...
+"defaultProfile": "{00000000-0000-0000-ba54-000000000002}",
+// ...
+"profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles.
+        },
+        "list":
+        [
+            // ...
+            {
+                "guid": "{00000000-0000-0000-ba54-000000000002}",
+                "acrylicOpacity" : 0.75,
+                "closeOnExit" : true,
+                "colorScheme" : "Campbell",
+                "commandline" : "\"%PROGRAMFILES%\\git\\usr\\bin\\bash.exe\" -i -l",
+                "cursorColor" : "#FFFFFF",
+                "cursorShape" : "bar",
+                "fontFace" : "Consolas",
+                "fontSize" : 12,
+                "historySize" : 9001,
+                "icon" : "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
+                "name" : "Bash",
+                "padding" : "0, 0, 0, 0",
+                "snapOnInput" : true,
+                "startingDirectory" : "%USERPROFILE%\\Documents\\git",
+                "useAcrylic" : true
+            }
+        ]
+    },
+```
