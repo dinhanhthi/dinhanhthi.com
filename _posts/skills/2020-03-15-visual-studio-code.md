@@ -116,5 +116,7 @@ Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
     },
     "explorer.confirmDelete": true,
     "editor.minimap.enabled": false,
+    "editor.parameterHints.enabled": false,
+    "files.trimTrailingWhitespace": true
 }
 ~~~

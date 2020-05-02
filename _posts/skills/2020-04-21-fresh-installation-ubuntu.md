@@ -32,10 +32,10 @@ sudo ubuntu-drivers autoinstall
 ~~~
 In case you wanna switch between Intel (more power efficient) and NVDIA driver (more powerful)
 ~~~ bash
-sudo prime-select intel 
+sudo prime-select intel
 sudo prime-select nvidia
 ~~~
-5. Check the NVDIA driver and install the newest version: check in **Additional Drivers**. In case you wanna remove it and reinstall it later, use 
+5. Check the NVDIA driver and install the newest version: check in **Additional Drivers**. In case you wanna remove it and reinstall it later, use
 ~~~ bash
 sudo apt purge nvidia-*
 ~~~
@@ -68,7 +68,7 @@ install git: sudo apt install git-all
 ~~~ bash
 sudo apt install gnome-shell-extensions
 ~~~
-    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/).
+    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/).
 1. [Microsoft Teams](https://teams.microsoft.com/).
 2. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
 3. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
@@ -88,4 +88,20 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/). 
+12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/).
+13. If you wanna create some app shortcut in launcher
+``` bash
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/home/thi/apps/notion/notion
+Name=Notion
+Comment=Notion
+Icon=/home/thi/apps/notion/resources/app/icon.png
+```
+1. If you wanna make some web app a desktop app, use [nativefier](github.com/jiahaog/nativefier).
+1.  <mark>Backup before installing a new system.</mark>
+    - settings in `~/.config/` or `~/.<software-name>`
+    - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
