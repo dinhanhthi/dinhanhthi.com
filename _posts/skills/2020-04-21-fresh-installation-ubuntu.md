@@ -16,12 +16,42 @@ The basic steps I often do every time I install a new Ubuntu system. The order o
 ~~~ bash
 sudo apt install fonts-noto-color-emoji
 ~~~
+    After that (make browser regonize more icons), create a new file
+    ``` bash
+    ~/.config/fontconfig/conf.d/01-emoji.conf
+    ```
+    with the content,
+    ``` html
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+    <fontconfig>
+    <alias>
+        <family>serif</family>
+        <prefer>
+        <family>Noto Color Emoji</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>sans-serif</family>
+        <prefer>
+        <family>Noto Color Emoji</family>
+        </prefer>
+    </alias>
+    <alias>
+        <family>monospace</family>
+        <prefer>
+        <family>Noto Color Emoji</family>
+        </prefer>
+    </alias>
+    </fontconfig>
+    ```
 5. Install Guake Terminal (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
 ~~~ bash
 sudo apt install guake
 ~~~
 Install Zsh, follow [this note](/terminal#zsh).
-5. Update & Upgrade
+1. Install Terminator (can split, in appstore)
+2. Update & Upgrade
 ~~~ bash
 sudo apt update & sudo apt upgrade
 ~~~
@@ -68,7 +98,7 @@ install git: sudo apt install git-all
 ~~~ bash
 sudo apt install gnome-shell-extensions
 ~~~
-    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/).
+    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/), [icon-hider](https://extensions.gnome.org/extension/351/icon-hider/) (on gnome taskbar), [Emoji selector](https://extensions.gnome.org/extension/1162/emoji-selector/).
 1. [Microsoft Teams](https://teams.microsoft.com/).
 2. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
 3. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
@@ -88,7 +118,7 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/).
+12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu).
 13. If you wanna create some app shortcut in launcher
 ``` bash
 #!/usr/bin/env xdg-open

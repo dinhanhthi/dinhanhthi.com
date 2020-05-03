@@ -14,6 +14,8 @@ keywords: "logistic regression sigmoid derivative function python tips softmax a
 
 This is my note for the course ([Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)). The codes in this note are rewritten to be more clear and concise.
 
+⏩ **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-1).
+
 {% katexmm %}
 
 ## Activation functions
@@ -36,7 +38,7 @@ You might not have any hidden layer! Your model is just Logistic Regression, no 
 
 ### Sigmoid function
 
-- Usually used in the output layer in the binary classification. 
+- Usually used in the output layer in the binary classification.
 - <mark>Don't use sigmoid in the hidden layers!</mark>
 
 <div class="columns-2" markdown="1">
@@ -163,7 +165,7 @@ The <mark>dimension of variables</mark>: $X\in \mathbb{R}^{n_x \times m}, Y\in \
 ### Code
 
 ``` python
-def logistic_regression_model(X_train, Y_train, X_test, Y_test, 
+def logistic_regression_model(X_train, Y_train, X_test, Y_test,
                               num_iterations = 2000, learning_rate = 0.5):
     m = X_train.shape[1] # number of training examples
 
@@ -175,7 +177,7 @@ def logistic_regression_model(X_train, Y_train, X_test, Y_test,
     for i in range(num_iterations):
         # FORWARD PROPAGATION (from x to cost)
         A = sigmoid(np.dot(w.T, X_train) + b)
-        cost = -1/m * (np.dot(Y, np.log(A.T)) 
+        cost = -1/m * (np.dot(Y, np.log(A.T))
                + p.dot((1-Y), np.log(1-A.T)))
 
         # BACKWARD PROPAGATION (find grad)
@@ -210,7 +212,7 @@ def logistic_regression_model(X_train, Y_train, X_test, Y_test,
 - $a^{[0]} = X$ : activation in the input layer.
 - $a^{[2]}_i$ : activation in layer $2$, node $i$.
 - $a^{[2](i)}$ : activation in layer $2$, example $i$.
-- $a^{[L]} = \hat{y}$. 
+- $a^{[L]} = \hat{y}$.
 </div>
 
 ### Dimensions
@@ -237,7 +239,7 @@ _L-layer deep neural network. Image from the course._
     1. Forward propagation
     2. Compute cost function
     3. Backward propagation
-    4. Update parameters (using parameters, and grads from backprop) 
+    4. Update parameters (using parameters, and grads from backprop)
 4. Use trained parameters to predict labels.
 </div>
 </div>
@@ -260,7 +262,7 @@ _Blocks of forward and backward propagation deep NN. Image from the course._
 
 **Forward Propagation**: Loop through number of layers
 
-1. $A^{[0]} = X$ 
+1. $A^{[0]} = X$
 2. $Z^{[l]} = W^{[l]}A^{[l-1]} + b^{[l]}$ (linear)
 3. $A^{[l]} = \sigma^{[l]}(Z^{[l]})$ (for $l=1 \ldots L-1$, non-linear activations)
 4. $A^{[L]} = \sigma^{[L]}(Z^{[L]})$ (sigmoid function)
@@ -284,7 +286,7 @@ _Blocks of forward and backward propagation deep NN. Image from the course._
 ### Code
 
 ``` python
-def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075, 
+def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
                num_iterations=3000, print_cost=False):
     costs = []
     m = X_train.shape[1] # number of training examples
@@ -318,7 +320,7 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 
         # COST
         cost = -1/m * np.dot(np.log(A), Y.T) - 1/m * np.dot(np.log(1-A), 1-Y.T)
-        
+
         #FORWARD PROPAGATION (Linear -> ReLU x (L-1) -> Linear -> Sigmoid (L))
         dA = - (np.divide(Y, A) - np.divide(1 - Y, 1 - A))
         grads = {'dW':[], 'db':[]}
@@ -352,7 +354,7 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 ## Parameters vs Hyperparameters
 
 - **Parameters**: $W, b$.
-- **Hyperparameters**: 
+- **Hyperparameters**:
   - Learning rate ($\alpha$).
   - Number of iterations (in gradient descent algorithm) ($num_iterations$).
   - Number of layers ($L$).
@@ -370,7 +372,7 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 
 ## Application: recognize a cat
 
-This section contains an idea, not a [complete task](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-1/week-4/Deep%2BNeural%2BNetwork%2B-%2BApplication%2Bv8.ipynb)! 
+This section contains an idea, not a [complete task](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-1/week-4/Deep%2BNeural%2BNetwork%2B-%2BApplication%2Bv8.ipynb)!
 
 <div class="columns-2" markdown="1">
 {:.img-95.pop}
@@ -393,5 +395,7 @@ X = X.reshape(10,-1).T
 
 ○ Don't use loop, use **vectorization**!
 
+{:.mt-3}
+⏩ **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-1).
 
 {% endkatexmm %}

@@ -88,7 +88,7 @@ mkdir <dir>
 
 ~~~ bash
 # LIST
-ls 
+ls
 ls -a # including hidden
 ~~~
 
@@ -130,7 +130,7 @@ tree -d # only folders
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # CHECK PERMISSION
-ls -l 
+ls -l
 ls -l <file>
 ~~~
 
