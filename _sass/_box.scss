@@ -176,6 +176,10 @@ li{
   }
 }
 
+li > .hide-show-box{
+    margin-top: 0.5rem;
+}
+
 .table{
   margin: 1.5rem 0;
 }
@@ -317,7 +321,7 @@ table{
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
-  
+
     &>.highlighter-rouge{
       width: 50%;
       &:nth-child(odd){
