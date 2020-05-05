@@ -131,7 +131,12 @@ Name=Notion
 Comment=Notion
 Icon=/home/thi/apps/notion/resources/app/icon.png
 ```
-1. If you wanna make some web app a desktop app, use [nativefier](github.com/jiahaog/nativefier).
-1.  <mark>Backup before installing a new system.</mark>
+1. If you wanna make nautilus default again:
+``` bash
+xdg-mime default nautilus.desktop inode/directory application/x-gnome-saved-search
+gsettings set org.gnome.desktop.background show-desktop-icons true
+```
+2. If you wanna make some web app a desktop app, use [nativefier](github.com/jiahaog/nativefier).
+3.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
