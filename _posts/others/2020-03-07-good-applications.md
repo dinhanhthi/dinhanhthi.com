@@ -18,6 +18,10 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - **iloveimg**: [resize](https://www.iloveimg.com/resize-image), [crop](https://www.iloveimg.com/crop-image), [compress](https://www.iloveimg.com/compress-image), [rotate](https://www.iloveimg.com/rotate-image).
 - [SVG free](https://www.flaticon.com/).
 
+### Office
+
+- Convert PDF to Word (conserve format): [freepdfconverter](https://www.freepdfconvert.com/).
+
 ## Multi-platforms
 
 - [XDM](http://xdman.sourceforge.net/#downloads) download manager.
