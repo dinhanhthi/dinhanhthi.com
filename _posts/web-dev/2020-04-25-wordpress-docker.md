@@ -100,6 +100,21 @@ max_execution_time = 600
 
 Browse `http://localhost:8080` to install wordpress by gui.
 
+## Debug
+
+In the case you wanna see the list of users or access to the mysql environement,
+
+``` bash
+# connect to MySQL running container
+docker exec -it <container_db> bash
+
+# connect to mysql database
+mysql -u wordpress -p
+
+# list all users
+SELECT host, user FROM mysql.user;
+```
+
 ## Install WP-CLI
 
 ``` bash
