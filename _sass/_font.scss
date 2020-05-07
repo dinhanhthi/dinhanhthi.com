@@ -58,6 +58,10 @@ li > .table{
   color: $c-t-bold;
 }
 
+.dt, dt{
+  font-weight: normal;
+}
+
 .semibold{
   font-weight: $f-semi-bold;
 }
