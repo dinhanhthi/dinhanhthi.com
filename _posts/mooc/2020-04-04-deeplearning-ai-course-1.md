@@ -14,7 +14,7 @@ keywords: "logistic regression sigmoid derivative function python tips softmax a
 
 This is my note for the course ([Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)). The codes in this note are rewritten to be more clear and concise.
 
-⏩ **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-1).
+👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 
 {% katexmm %}
 
@@ -396,6 +396,6 @@ X = X.reshape(10,-1).T
 ○ Don't use loop, use **vectorization**!
 
 {:.mt-3}
-⏩ **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-1).
+👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 
 {% endkatexmm %}
