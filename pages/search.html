@@ -15,7 +15,7 @@ permalink: /search
   window.data = {
     {% for post in site.posts %}
       {% if post.title %}
-        {% unless post.excluded_in_search %}
+        {% unless post.excluded_in_search or post.draft %}
           {% if added %},{% endif %}
           {% assign added = false %}
           "{{ post.url | slugify }}": {

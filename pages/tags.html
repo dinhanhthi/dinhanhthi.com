@@ -113,9 +113,11 @@ permalink: /tags
                 <div class="card-body">
                   <ul>
                     {% for post in tag[1] %}
-                      <li class="item">
-                        <a href="{{post.url}}">{{post.title}}</a>
-                      </li>
+                      {% unless post.draft %}
+                        <li class="item">
+                          <a href="{{post.url}}">{{post.title}}</a>
+                        </li>
+                      {% endunless %}
                     {% endfor %}
 
                     {% if has_more_friends == true %}
@@ -127,16 +129,18 @@ permalink: /tags
                       {% for tag_fr in tag_friends %}
                         {% assign tag_fr_ws = tag_fr | strip %}
                         {% for post_fr in site.tags[tag_fr_ws] %}
-                          {% if first_list_posts == false %}
-                            {% assign list_posts = list_posts | append: post_fr.url %}
-                            {% assign list_posts_title = list_posts_title | append: post_fr.title %}
-                            {% assign first_list_posts = true %}
-                          {% else %}
-                            {% assign list_posts = list_posts | append: ',' %}
-                            {% assign list_posts = list_posts | append: post_fr.url %}
-                            {% assign list_posts_title = list_posts_title | append: ',' %}
-                            {% assign list_posts_title = list_posts_title | append: post_fr.title %}
-                          {% endif %}
+                          {% unless post.draft %}
+                            {% if first_list_posts == false %}
+                              {% assign list_posts = list_posts | append: post_fr.url %}
+                              {% assign list_posts_title = list_posts_title | append: post_fr.title %}
+                              {% assign first_list_posts = true %}
+                            {% else %}
+                              {% assign list_posts = list_posts | append: ',' %}
+                              {% assign list_posts = list_posts | append: post_fr.url %}
+                              {% assign list_posts_title = list_posts_title | append: ',' %}
+                              {% assign list_posts_title = list_posts_title | append: post_fr.title %}
+                            {% endif %}
+                          {% endunless %}
                         {% endfor %}
                       {% endfor %}
 
