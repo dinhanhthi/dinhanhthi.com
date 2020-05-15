@@ -17,6 +17,10 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
   <span class="task fail d-inline-block">Interrupted tasks!</span>
 </p>
 
+## 3 - 5 / 2020
+
+_Filled up later!_
+
 ## 2 / 2020
 
 - {:.finish} {% data_ml %} **Processing a raw data**: check the properties, make some convertings and exporting to csv files. This task belongs to [Dataswati](https://www.dataswati.com/).

@@ -5,7 +5,6 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
-notfull: 1
 keywords: "train test dev sets big data training cross validation hold out mismatched distribution bias variance underfitting overfitting just right high low recipe machine learning tradeoff supervised learning unsupervised regularization logistic regression neural network deep learning L1 L2 Frobenius norm weight decay lambda variance problem implementation dropout regularization inverted dropout keep prob make prediction computer vision frequently downside drawback data augmentation horizontally flip double size distortion zoom rotate early stopping orthoganalization mean normalize unnormalized vanishing exploding gradients weight initialization relu tanh gradient checking euclide distance debug Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization"
 ---
 
@@ -490,6 +489,6 @@ There are two typical ways to create and use sessions in tensorflow:
 - You can execute the graph multiple times as you've seen in model()
 - The backpropagation and optimization is automatically done when running the session on the "optimizer" object.
 
-👉 Check more details about code in [the notebook](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-2/week-3/TensorFlow_Tutorial_v3b.ipynb).
+👉 Check more details about the codes in [the notebook](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-2/week-3/TensorFlow_Tutorial_v3b.ipynb).
 
 {% endkatexmm %}
