@@ -337,16 +337,159 @@ _Coarse to fine: first try on a big square, then focus on the smaller one (blue)
 ![Appropriate scale for hyperparameters]({{img-url}}/app-scale-hp.jpg)
 _Appropriate scale for hyperparameters. Image from the course._
 
-- Hyperparameters for _exponentially weighted averages_.
+- Hyperparameters for __exponentially weighted averages__: 
+  - We cannot try with values between $[0.9, 0.999]$ because,
+    - $\beta: 0.9000 \to 0.9005$ : no much changes,
+    - $\beta: 0.999 \to 0.995$ : huge impact!
+  - Consider $1-\beta \in [10^{-1}, 10^{-3}]$ instead!
 
-### Panda vs Caviar
+    $$
+    \begin{aligned}
+    r &\in [-3, -1] \\
+    1-\beta = 10^r &\Leftrightarrow \beta = 1-10^r
+    \end{aligned}
+    $$
+
+### In practice: Panda vs Caviar
+
+- How to organize your hyperparameter search?
+- **Advice**: Re-testing/Re-evaluating your hyperparameters at least once every several months.
+- 2 ways:
+    1. **Babysitting one model** (<mark>Panda</mark>): when we have huge data but weak CPU/GPU $\Rightarrow$ try very small number of models at a time. Check the performance step by step (cost function reduces...)
+        - In some domains like advertising, computer vision apps,...
+        - We call "panda" because panda has very few number of babies at a time (and in their life) $\Rightarrow$ try to keep them alike once at a time.
+    2. **Training many models in parallel** (<mark>Caviar</mark>): when we don't work on huge data + strong CPU/GPU. $\Rightarrow$ Try many models in parallel and choose the best performance!
+        - We call "Caviar" because of intuition.
 
 ## Batch Normalization
 
+- Make NN much more robust to the choice of hyperparameters. $\Leftarrow$ doesn't work for all NN but if it does, make training faster!
+- <mark>One of the most important ideas</mark> in the rise of Deep Learning.
+- Like we wanna normalize input to speed up learning, <mark markdown="span">in this case, we wanna normalize $Z$</mark> (in the hidden layers)
 
+<div class="simple-box" markdown="1">
 
-## Multi-class Classification
+Given some initial values in NN $Z^{[l](1)},\ldots, Z^{[l](m)}$,
+
+1. $\mu = \dfrac{1}{m} \sum_i Z^{[l](i)}$
+2. $\sigma^2 = \dfrac{1}{m}\sum_i (Z^{[l](i)} - \mu)^2$
+3. $Z^{[l](i)}_{\text{norm}} = \dfrac{Z^{[l](i)} - \mu}{\sqrt{\sigma^2} + \epsilon}$ to get mean $\mu=0$ and STD $\sigma=1$.
+4. $\tilde{Z}^{[l](i)} = \gamma Z^{[l](i)}_{\text{norm}} + \beta$ to have different other normal distribution.
+
+{:.mb-0}
+<mark>Now, $\gamma, \beta$ are learnable parameters of the model.</mark>
+</div>
+
+- If we choose different $\beta, \gamma$ $\Rightarrow$ hidden units have other means & variances.
+- Instead of using $Z^{[l](1)}, \ldots, Z^{[l](m)}$, we use $\tilde{Z}^{[l](i)}$.
+- Difference between normalizing input $X$ and normalizing in hidden units:
+  - $X$: after normalizing, $\mu=0, \sigma=1$.
+  - $Z$: after normalizing, various $\mu, \sigma$.
+
+$$
+X \xrightarrow[]{W^{[1]}, b^{[1]}} Z^{[1]} \xrightarrow[\text{Batch Norm}]{\beta^{[1]}, \gamma^{[1]}} \tilde{Z}^{[1]} \to a^{[1]} = g^{[1]}(\tilde{Z}^{[1]}) \xrightarrow[]{W^{[2]}, b^{[2]}} Z^{[2]} \xrightarrow[\text{Batch Norm}]{\beta^{[2]}, \gamma^{[2]}} \tilde{Z}^{[2]} \to a^{[2]} \to \ldots
+$$
+
+- Note that, $\beta$ in this case is different from $\beta$ in [Adam optimization](#adam-optimization)!
+- We can use gradient descent to update $\beta$ and **even use** Adam/RMSprop/Momentum to update params $\gamma, \beta$, not just for Gradient Descent.
+- **In practice**, we won't have to implement Batch Norm step by step by ourself, programming framework (like Tensorflow) will do!
+- **In practice**, Batch Norm is usually applied with mini-batch of your training set.
+- **Parameters**: $W^{[l]}, \beta^{[l]}, \gamma^{[l]}$. We don't need to consider $b^{[l]}$ becase it will be subtracted out in the process of normalization!
+- **Fitting Batch Norm into a NN**: for $t$ goes through the number of mini-batches,
+    1. Compute forward prop on $X^{\{t\}}$.
+    2. In each hidden layer, use Batch Norm to reparameter $Z^{[l]}$ to $\tilde{Z}^{[l]}$.
+    3. Use backprop to compute $dW^{[l]}, d\beta^{[l]}, d\gamma^{[l]}$.
+    4. Update params (we can use Momentum / RMSprop / Adam):
+
+        $$
+        \begin{aligned}
+        W^{[l]} &:= W^{[l]} - \alpha dW^{[l]}, \\
+        \beta^{[l]} &:= \beta^{[l]} - \alpha d\beta^{[l]}, \\
+        \gamma^{[l]} &:= \gamma^{[l]} - \alpha d\gamma^{[l]}.
+        \end{aligned}
+        $$
+
+- Sometimes, BN has a 2nd effect as a regularization technique but it's unintended! We don't use it for the purpose of regularization, use L1, L2 or dropout instead.
+
+<div class="simple-box" markdown="1">
+{:.mb-0}
+(Recall) **Regularization**: techniques that lower the complexity of a NN during training, thus prevent the overfitting.
+</div>
+
+### Why BN works?
+
+- Make weights in later / deeper layers be more robust to changing to the weights in the earlier layers.
+- **Covariate shift problem**: suppose we have $X \to Y$. If $X$'s distribution changes, it changes the result in $Y$ much. We have to re-train our model.
+  - Example: "cat vs non-cat" problem. If we apply params from the model of "black cat vs non-cat" to the problem of "colored-cat vs non-cat", it won't work because distribution in "black cat" is different from "colored cat".
+
+{:.img-70}
+![Covariate problem]({{img-url}}/cat-vs-noncat.jpg)
+_Covariate problem. Image from the course._
+
+{:.img-60}
+![Why BN works?]({{img-url}}/bn-work.jpg)
+_Why BN works?. Image from the course._
+
+In the perspective of layer 3, it depends only on layer 2 $\Rightarrow$ If layers before layer 2 changes $\Rightarrow$ distribution of layer 2 changes $\Rightarrow$ covariate shift problem for layer 3 $\Rightarrow$ Batch Norm makes sure that mean and variance in layer 2 is always robust before going to layer 3!
+
+### Batch Norm in test time
+
+- BN processes our data one min-batch at a time. However, in test time, you need to process the examples at a time. $\Rightarrow$ Need to adapt your network to do that.
+- **Idea**: calculate $\mu, \sigma^2$ using _exponentially weighted average_ (across mini-batches). Other words, 
+  - In the training time, we calculate (and store) also the $\mu^{\{t\}[l]}, \sigma^{\{t\}[l]}$ in each mini-batch.
+  - Find $\mu, \sigma^2$ (exponentially weighted average) of all mini-batches.
+  - Use this $\mu, \sigma^2$ to find $Z_{\text{norm}}$ and $\tilde{Z}$ (at each example $i$).
+- <mark>Don't worry, it's easy to use with Deep Learning Frameworks.</mark>
 
 ## Tensorflow introduction
+
+Writing and running programs in TensorFlow has the following steps:
+
+1. Create Tensors (variables) that are not yet executed/evaluated. 
+2. Write operations between those Tensors.
+3. Initialize your Tensors. 
+4. Create a Session. 
+5. Run the Session. This will run the operations you'd written above. 
+
+``` python
+# create placeholders
+x = tf.placeholder(tf.int64, name = 'x')
+X = tf.placeholder(tf.float32, [n_x, None], name="X")
+
+# initialize
+W1 = tf.get_variable("W1", [25,12288], initializer = tf.contrib.layers.xavier_initializer(seed = 1))
+b1 = tf.get_variable("b1", [25,1], initializer = tf.zeros_initializer())
+```
+
+There are two typical ways to create and use sessions in tensorflow: 
+
+1. Method 1:
+    ```python
+    sess = tf.Session()
+    # Run the variables initialization (if needed), run the operations
+    result = sess.run(..., feed_dict = {...})
+    sess.close() # Close the session
+    ```
+2. Method 2:
+    ```python
+    with tf.Session() as sess: 
+        # run the variables initialization (if needed), run the operations
+        result = sess.run(..., feed_dict = {...})
+        # This takes care of closing the session for you :)
+    ```
+
+**What you should remember**:
+
+- Tensorflow is a programming framework used in deep learning
+- The two main object classes in tensorflow are Tensors and Operators. 
+- When you code in tensorflow you have to take the following steps:
+    - Create a graph containing Tensors (Variables, Placeholders ...) and Operations (`tf.matmul`, `tf.add`, ...)
+    - Create a session
+    - Initialize the session
+    - Run the session to execute the graph
+- You can execute the graph multiple times as you've seen in model()
+- The backpropagation and optimization is automatically done when running the session on the "optimizer" object.
+
+👉 Check more details about code in [the notebook](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-2/week-3/TensorFlow_Tutorial_v3b.ipynb).
 
 {% endkatexmm %}

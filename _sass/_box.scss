@@ -205,11 +205,11 @@ li > .hide-show-box{
 }
 
 
-.box-error{
+.box-error, .simple-box{
   border: 1px solid #ddd;
   padding: 1rem;
-  margin-top: 3rem;
   color: #555;
+  margin-bottom: $m-b;
   h4{
     font-size: 1.3rem;
     font-weight: $f-heading-weight;

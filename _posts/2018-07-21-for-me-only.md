@@ -521,7 +521,7 @@ Box's id `boxid` is optional and you can use markdown syntax for `Title`.
 
 ### A simple white box
 
-Like the error box at the end of this post.
+Like the error box at the end of this post. You can also use class `simple-box`!
 
 ~~~ html
 <div class="box-error">
