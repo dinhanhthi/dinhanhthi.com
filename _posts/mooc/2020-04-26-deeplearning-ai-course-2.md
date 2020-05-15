@@ -31,8 +31,8 @@ parameters['W'+str(l)] = np.zeros((layers_dims[l], layers_dims[l-1]))
 parameters['b'+str(l)] = np.zeros((layers_dims[l], 1))
 ```
 
-- The performance is really bad, and the cost does not really decrease.
-- In general, initializing all the weights to zero results in the network failing to break symmetry. This means that every neuron in each layer will learn the same thing, and you might as well be training a neural network with $n^{[l]}=1$ for every layer, and the network is no more powerful than a linear classifier such as logistic regression.
+- The performance is really **bad**, and the **cost** does **not** really **decrease**.
+- initializing all the weights to zero ⇒ failing to break symmetry ⇒ every neuron in each layer will learn the same thing ⇒ $n^{[l]}=1$ for every layer ⇒ no more powerful than a linear classifier such as logistic regression.
 
 ### Random initialization
 
@@ -42,9 +42,10 @@ parameters['b'+str(l)] = np.zeros((layers_dims[l], 1))
 parameters['W'+str(l)] = np.random.randn(layers_dims[l], layers_dims[l-1]) * 10 # <- LARGE (just an example of SHOULDN'T)
 parameters['b'+str(l)] = np.zeros((layers_dims[l], 1))
 ```
-- The cost starts very high. This is because with large random-valued weights, the last activation (sigmoid) outputs results that are very close to 0 or 1 for some examples, and when it gets that example wrong it incurs a very high loss for that example. Indeed, when $\log(a^{[l]}) = \log(0)$, the loss goes to infinity.
-- Poor initialization can lead to vanishing/exploding gradients, which also slows down the optimization algorithm.
-- If you train this network longer you will see better results, but initializing with overly large random numbers slows down the optimization.
+
+- High initial weights ⇒ The cost starts very high (near 0 or 1 or infinity).
+- Poor initialization ⇒ vanishing/exploding gradients ⇒ slows down the optimization algorithm.
+- If you train this network longer ⇒ better results, BUT initializing with overly large random numbers ⇒ slows down the optimization.
 
 ### He initialization
 
@@ -110,7 +111,7 @@ dA3 /= keep_drop
 
 ### Mini-batch gradient descent
 
-- **Problem**: NN works great on big data but many data leads to slow the training $\Rightarrow$ We need to optimize!
+- **Problem**: NN works great on big data but many data leads to slow the training ⇒ We need to optimize!
 - **Solution**: Divide into smaller "mini-batches" (for example, from 5M to 5K of 1K each).
 
 $$
@@ -183,13 +184,13 @@ _Different between 3 types of mini-batch. Image from the course._
         v_t = \beta v_{t-1} + (1-\beta)\theta_t
         $$
     - E.g. $\beta=0.9 \Rightarrow v_t \simeq 10$ days temperature; $\beta=0.98 \Rightarrow v_t \simeq 50$ days temperature.
-- $\beta$ larger $\Rightarrow$ smoother average line because we consider more days. However, curve is now shifted further to the right.
+- $\beta$ larger ⇒ smoother average line because we consider more days. However, curve is now shifted further to the right.
 
 {:.img-50}
 ![Exponentially weighted average curves.]({{img-url}}/exponentially-weighted-average.png)
 _Exponentially weighted average curves: red line ($\beta=0.9$), green line ($\beta=0.98$). Image from the course._
 
-- When $\beta$ is so large $\Rightarrow$ $v_t$ adapts slowly to the changes of temperature  (more latency).
+- When $\beta$ is so large ⇒ $v_t$ adapts slowly to the changes of temperature  (more latency).
 - Why we call "exponentially"?
     $$
     \begin{aligned}
@@ -205,7 +206,7 @@ _Exponentially weighted average curves: red line ($\beta=0.9$), green line ($\be
     $$
     \dfrac{v_t}{1-\beta_t}
     $$
-- When $t$ is large $\Rightarrow$ $\beta^t \simeq 0 \Rightarrow \dfrac{v_t}{1-\beta_t} \simeq v_t$
+- When $t$ is large ⇒ $\beta^t \simeq 0 \Rightarrow \dfrac{v_t}{1-\beta_t} \simeq v_t$
 
 {:.img-50}
 ![Bias correction.]({{img-url}}/bias-correction.png)
@@ -217,7 +218,7 @@ _Bias correction for the green line, it's effective at the beginning of the line
 
 - It's faster than Gradient Descent!
 - **Why**: when we use mini-batch, there are oscillation, momentum helps use reduce this.
-- **One sentence**: compute the exponential weighted average of your gradient $\Rightarrow$ use that gradient to update your weights instead. 
+- **One sentence**: compute the exponential weighted average of your gradient ⇒ use that gradient to update your weights instead. 
 - **Idea**: Momentum takes into account the past gradients to smooth out the update. We will store the 'direction' of the previous gradients in the variable $v$ . Formally, this will be the exponentially weighted average of the gradient on previous steps.
 - **Intuition**: You can also think of $v$ as the "velocity" of a ball rolling downhill, building up speed (and momentum) according to the direction of the gradient/slope of the hill.
   - $dW, db$ like "acceleration".
@@ -310,5 +311,42 @@ _Local optima problem: local & right optima (left) and saddle point (right). Ima
 - Try mini-batch GD.
 - Try using Adam
 - Try tuning learning rate $\alpha$.
+
+## Hyperparameter tuning
+
+### Tuning process
+
+- There are many hyperparameters but <mark>some are more important than others!</mark>
+- Learning rate $\alpha$ (most important), #hiddien units, $\beta$, mini-batch size (2nd important), #layers, learning decay,...
+- Don't use grid, use random!
+
+{:.img-80}
+![Tuning process]({{img-url}}/tuning-process.jpg)
+_Tuning process. Don't use grid (left), use random (right). Image from the course._
+
+- **Coarse to fine**: find an area containing effective values ⇒ zoom in and take more points in that area,
+
+{:.img-50}
+![Coarse to fine]({{img-url}}/coarse-to-fine.jpg)
+_Coarse to fine: first try on a big square, then focus on the smaller one (blue). Image from the course._
+
+- Choose randomly but NOT mean uniform scale! We can choose uniformly on #hidden units, #layers, but not for the others (e.g. $\alpha$).
+- For $\alpha$, for example, we need to divide into equal "large" spaces and then use uniform.
+
+{:.img-70}
+![Appropriate scale for hyperparameters]({{img-url}}/app-scale-hp.jpg)
+_Appropriate scale for hyperparameters. Image from the course._
+
+- Hyperparameters for _exponentially weighted averages_.
+
+### Panda vs Caviar
+
+## Batch Normalization
+
+
+
+## Multi-class Classification
+
+## Tensorflow introduction
 
 {% endkatexmm %}

@@ -70,6 +70,10 @@ For example, you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
 - Replace current bit.ly text with its same url:
     - Find: `(http://bit.ly.*)` (Enable `.*`)
     - Replace: `[$1]($1)`
+- Replace `**Course 1**` by `Course 1`:
+  - Find: `\*\*Course (.*)\*\*`
+  - Replace: `Course $1`
+
 
 ## Exlude files/folders in file search Visual Studio Code (VSC)
 
