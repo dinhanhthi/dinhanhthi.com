@@ -152,6 +152,6 @@ This post contains the links to videos of the courses and my notes for them.
     - Whether to use end-to-end deep learning -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/H56eb/whether-to-use-end-to-end-deep-learning)
     - Ruslan Salakhutdinov interview -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/kR8gk/ruslan-salakhutdinov-interview)
 
-## Course 4
+### Course 4
 
-## Course 5
+### Course 5

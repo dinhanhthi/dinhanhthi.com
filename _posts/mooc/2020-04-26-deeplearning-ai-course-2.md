@@ -325,7 +325,7 @@ _Tuning process. Don't use grid (left), use random (right). Image from the cours
 
 - **Coarse to fine**: find an area containing effective values ⇒ zoom in and take more points in that area,
 
-{:.img-50}
+{:.img-40}
 ![Coarse to fine]({{img-url}}/coarse-to-fine.jpg)
 _Coarse to fine: first try on a big square, then focus on the smaller one (blue). Image from the course._
 
