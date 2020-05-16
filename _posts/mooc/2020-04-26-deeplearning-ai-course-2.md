@@ -2,10 +2,10 @@
 layout: post
 title: "Deep Learning Coursera - Course 2"
 categories: [mooc]
-tags: [mooc, coursera, deeplearning.ai]
+tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: deeplearning-ai.png
 katex: 1
-keywords: "train test dev sets big data training cross validation hold out mismatched distribution bias variance underfitting overfitting just right high low recipe machine learning tradeoff supervised learning unsupervised regularization logistic regression neural network deep learning L1 L2 Frobenius norm weight decay lambda variance problem implementation dropout regularization inverted dropout keep prob make prediction computer vision frequently downside drawback data augmentation horizontally flip double size distortion zoom rotate early stopping orthoganalization mean normalize unnormalized vanishing exploding gradients weight initialization relu tanh gradient checking euclide distance debug Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization"
+keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization specialization Initialization step zero initialization Random initialization break symmetry He initialization Xavier initialization Regularization L2 regularization Dropout activation Gradient checking Optimization Momentum RMSprop Adam Mini-batch gradient descent slow the training oscillated Shuffle Partition Batch Gradient Descent Stochastic Gradient Descent Exponentially weighted averages Bias correction Adaptive Moment Estimation Hyperparameter choicesLearning rate decay Problem of local optima Problem of plateau Tuning process Hyperparameter tuning Coarse to fine Panda Caviar Babysitting one model Training many models in parallel Batch Normalization Covariate shift problem test time Deep Learning Frameworks Tensorflow"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
