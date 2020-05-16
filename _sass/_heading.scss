@@ -66,9 +66,10 @@ h2.heading-title{
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     &:before{
-      content: "∴ ";
-      color: #d87638;
-      font-size: $heading-h3-size*1.3;
+      content: "● ";
+      color: #8ed08e;
+      font-size: 1.45rem;
+      vertical-align: unset;
       line-height: 1;
     }
   }
@@ -79,10 +80,9 @@ h2.heading-title{
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
     &:before{
-      content: "● ";
-      color: #8ed08e;
-      font-size: 1.45rem;
-      vertical-align: unset;
+      content: "∴ ";
+      color: #d87638;
+      font-size: 1.48;
       line-height: 1;
     }
   }
