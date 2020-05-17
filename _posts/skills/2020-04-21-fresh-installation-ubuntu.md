@@ -118,7 +118,7 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu).
+12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store).
 13. If you wanna create some app shortcut in launcher
 ``` bash
 #!/usr/bin/env xdg-open
