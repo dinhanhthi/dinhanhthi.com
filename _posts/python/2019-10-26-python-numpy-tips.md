@@ -19,21 +19,41 @@ import numpy as np
 
 ## Checking
 
+### Isinstance
+
 Check if an object is an instance numpy array?
 
 ~~~ python
 type(MyObect).__module__ == np.__name__
 ~~~
 
+### Comparing
+
 Compare 2 dicts of multiple objects:
 
 ~~~ python
+# 2 dicts of multiple objects
 def _compare_two_dict(dct_1, dct_2):
     return np.array([(lambda key: (dct_1[key] == dct_2[key]).all() 
        if type(dct_1[key]).__module__ == np.__name__ 
        else dct_1[key] == dct2[key])(key) 
        for key in dct_1]).all()
 ~~~
+
+``` python
+# 2 numpy arrays containing `np.nan`
+def nan_equal(a,b):
+    try:
+        np.testing.assert_equal(a,b)
+    except AssertionError:
+        return False
+    return True
+
+# if using in a pytest
+# instead of `assert np.testing`,
+# just use
+np.testing.assert_equal(a,b)
+```
 
 ### Count 0, NaNs
 

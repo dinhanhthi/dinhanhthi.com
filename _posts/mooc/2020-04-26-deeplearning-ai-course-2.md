@@ -489,6 +489,6 @@ There are two typical ways to create and use sessions in tensorflow:
 - You can execute the graph multiple times as you've seen in model()
 - The backpropagation and optimization is automatically done when running the session on the "optimizer" object.
 
-👉 Check more details about the codes in [the notebook](https://github.com/dinhanhthi/deeplearning-coursera-solutions/blob/master/course-2/week-3/TensorFlow_Tutorial_v3b.ipynb).
+👉 Check more details about the codes in [the notebook](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/coursera-deep-learning-deeplearning.ai/course-2/week-3/TensorFlow_Tutorial_v3b.html).
 
 {% endkatexmm %}
