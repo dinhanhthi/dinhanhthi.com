@@ -49,7 +49,12 @@ sudo apt install fonts-noto-color-emoji
 ~~~ bash
 sudo apt install guake
 ~~~
-Install Zsh, follow [this note](/terminal#zsh).
+  - Install [Zsh](https://ohmyz.sh/), follow [this note](/terminal#zsh).
+  - Save / Restore guake with [this setting file](/files/ubuntu/myguakeprefs),
+  ``` bash
+guake --save-preferences ~/Downloads/myguakeprefs
+guake --restore-preferences ~/Downloads/myguakeprefs
+  ```
 1. Install Terminator (can split, in appstore)
 2. Update & Upgrade
 ~~~ bash
@@ -90,7 +95,7 @@ alias pip=pip3
     Also add below settings to setting json file (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and search "Preferences: Open Settings (JSON)", it's in `~/.config/Code/User`)
 6. Install GIT
 ~~~ bash
-install git: sudo apt install git-all
+sudo apt install git-all
 ~~~
 1. Install Git Client as [Gitkraken](https://www.gitkraken.com/). Log in with Github account and clone [all working repositories](https://github.com/dinhanhthi?tab=repositories).
 2. [Slack](https://slack.com/intl/en-fr/downloads/linux) and sign in.
@@ -98,12 +103,17 @@ install git: sudo apt install git-all
 ~~~ bash
 sudo apt install gnome-shell-extensions
 ~~~
-    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/), [icon-hider](https://extensions.gnome.org/extension/351/icon-hider/) (on gnome taskbar), [Emoji selector](https://extensions.gnome.org/extension/1162/emoji-selector/).
-1. [Microsoft Teams](https://teams.microsoft.com/).
-2. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
-3. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
-4. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account).
-5. LaTeX
+    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/) (use [this setting file](/files/ubuntu/dash_to_panel_setting)), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/), [icon-hider](https://extensions.gnome.org/extension/351/icon-hider/) (on gnome taskbar), [Emoji selector](https://extensions.gnome.org/extension/1162/emoji-selector/).
+1. Turn off Gnome Shell Activities Animations (click on window taskbar to toggle max/min),
+``` bash
+gsettings set org.gnome.desktop.interface enable-animations true # enable
+gsettings set org.gnome.desktop.interface enable-animations false # disable
+```
+2. [Microsoft Teams](https://teams.microsoft.com/).
+3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
+4. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
+5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account).
+6. LaTeX
 ~~~ bash
 sudo apt-get install texlive-full # 5GB
 sudo apt-get install texmaker
@@ -118,7 +128,7 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store).
+12. Other applicatons: [WPS Office](https://www.wps.com/), [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app).
 13. If you wanna create some app shortcut in launcher
 ``` bash
 #!/usr/bin/env xdg-open
