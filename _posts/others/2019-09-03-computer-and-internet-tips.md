@@ -3,6 +3,7 @@ layout: post
 title: "Computer & Internet tips"
 categories: [others]
 tags: ['online tool']
+notfull: 1
 icon-photo: tips.svg
 notfull: 1
 keywords: "download flash video browser extension video url google video download manager videoplay developer tools exclude files folders search technique skills patterns preference settings confige configure options remove apps google apps bit.ly cortana uses chrome instead of edge default browser windows 10 change default directory powershell cmder"

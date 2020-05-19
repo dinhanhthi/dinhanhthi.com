@@ -628,4 +628,4 @@ title: Search on this page
 
 Note that, you can change some personal settings in the files `search.js` and `search.html` if you like.
 
-**Remark**: if your site has so many posts, you can remove the last line (`"content"....`) to ignore the content from the search. You can even add "keywords" (resplace for "content") and put that "keywords" in the frontmatter. That's what I did on this site.  
+**Remark**: if your site has so many posts, you can remove the last line (`"content"....`) to ignore the content from the search. You can even add "keywords" (resplace for "content") and put that "keywords" in the frontmatter, change also the term "content" in `search.js` by "keywords". That's what I did on this site.  
