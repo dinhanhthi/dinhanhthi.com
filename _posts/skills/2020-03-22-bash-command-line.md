@@ -43,6 +43,20 @@ command_1
 command_2
 ~~~
 
+## Search
+
+<div class="flex-50" markdown='1'>
+``` bash
+# all files / folders containing 'abc'
+ls | grep -i abc
+```
+
+``` bash
+# find command lines containing 'abc'
+dpkg -l | grep -i abc
+```
+</div>
+
 ## Check info
 
 ### System

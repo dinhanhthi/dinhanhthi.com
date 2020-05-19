@@ -120,7 +120,7 @@ docker exec -it <container> bash
 # add
 echo 'ServerName localhost' >> /etc/apache2/apache2.conf
 # restart apache/container
-sudo systemctl reload apache2
+service apache2 restart
 ```
 </div>
 

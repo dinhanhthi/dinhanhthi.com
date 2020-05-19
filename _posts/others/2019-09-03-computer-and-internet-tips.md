@@ -4,6 +4,7 @@ title: "Computer & Internet tips"
 categories: [others]
 tags: ['online tool']
 icon-photo: tips.svg
+notfull: 1
 keywords: "download flash video browser extension video url google video download manager videoplay developer tools exclude files folders search technique skills patterns preference settings confige configure options remove apps google apps bit.ly cortana uses chrome instead of edge default browser windows 10 change default directory powershell cmder"
 ---
 
@@ -51,6 +52,6 @@ In the case browser extensions cannot capture the url, you can open the **Develo
 {:.bg-gray}
 ~~~
 https://r4---sn-25ge7ns7.googlevideo.com/videoplayback?expire=1568040368&ei=kEl2Xb...f_cW7qE=
-~~~ 
+~~~
 
 Open a new tab in your browser, <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the video. You can also open the Downloads manager in your browser (<kbd>Ctrl</kbd> + <kbd>J</kbd>) to copy the download link and use other Download Manager tools to download this video without using the browser!
