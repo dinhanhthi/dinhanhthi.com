@@ -19,6 +19,10 @@ This is my note for the course ([Structuring Machine Learning Projects](https://
 👉 **Course 2** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-2).<br />
 👉 **Course 4** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-4).
 
+⭐ **Case study** (should read): [Bird recognition in the city of Peacetopia](/deeplearning-ai-course-3-bird-recognition-peacetopia).<br />
+⭐ **Case study** (should read): [Autonomous driving](/deeplearning-ai-course-3-autonomous-driving).
+
+
 This course will give you some strategies to help analyze your problem to go in a direction that will help you get better results.
 
 {% katexmm %}

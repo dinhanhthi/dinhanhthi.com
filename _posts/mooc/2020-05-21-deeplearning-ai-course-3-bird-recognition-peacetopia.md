@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Deep Learning Coursera - Bird recognition in the city of Peacetopia"
-categories: [mooc, project-based learning]
 tags: [mooc, coursera, deeplearning.ai, tensorflow, project]
 icon-photo: deeplearning-ai.png
 keywords: "case study"
