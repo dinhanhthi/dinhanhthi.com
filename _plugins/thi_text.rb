@@ -65,6 +65,41 @@ end
 Liquid::Template.register_tag('ref', SupRef)
 
 
+# sup certificate
+# =========================================
+class SupCert < Liquid::Tag
+  def initialize(tag_name, input, tokens)
+    super
+    @input = input
+  end
+
+  def render(context)
+    # Split the input variable (omitting error checking)
+    input_split = split_params(@input)
+    url = input_split[0]
+
+    if input_split[1] != nil
+      custom_text = input_split[1].strip
+    else
+      custom_text = 'certificate'
+    end
+
+    # Write the output HTML string
+    output = <<~EOS
+      <span class="tbadge badge-green">[#{custom_text}](#{url}){:target="_blank"}</span>
+    EOS
+
+    # Render it on the page by returning it
+    return output;
+  end
+
+  def split_params(params)
+    params.split("|")
+  end
+end
+Liquid::Template.register_tag('cert', SupCert)
+
+
 ## Open in Colab
 # ======================================
 module Jekyll
