@@ -64,6 +64,10 @@ permalink: /tags
           </div>
         </div>
 
+        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 2rem;">
+          <sup style="color: #bbb">•</sup>{{ site.data.me.notfull }}
+        </p>
+
         <div class="col-12 col-lg-10 col-xl-9">
           {% for tag in site.tags %}
 
@@ -115,7 +119,7 @@ permalink: /tags
                     {% for post in tag[1] %}
                       {% unless post.draft %}
                         <li class="item">
-                          <a href="{{post.url}}">{{post.title}}</a>
+                          <a href="{{post.url}}">{{post.title}}{% if post.notfull %}<sup>•</sup>{% endif %}</a>
                         </li>
                       {% endunless %}
                     {% endfor %}
