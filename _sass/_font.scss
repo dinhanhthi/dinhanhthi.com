@@ -204,6 +204,11 @@ p.more-link{
   font-size: 1.1rem!important;
 }
 
+.katex-display{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .p-intro{
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.75rem;
