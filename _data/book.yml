@@ -3,11 +3,11 @@
   intro: "Following Sophie Amundsen, a Norwegian teenager who is introduced to the history of philosophy by Alberto Knox, a middle-aged philosopher."
   goodreads: "https://www.goodreads.com/book/show/10959.Sophie_s_World"
   reading: true
-- title: "Harry Potter à l'école des sorciers"
-  author: J.K. Rowling
-  intro: French version. I reread it for learning French.
-  goodreads: "https://www.goodreads.com/book/show/430569.Harry_Potter_l_cole_des_sorciers"
-  reading: true
+# - title: "Harry Potter à l'école des sorciers"
+#   author: J.K. Rowling
+#   intro: French version. I reread it for learning French.
+#   goodreads: "https://www.goodreads.com/book/show/430569.Harry_Potter_l_cole_des_sorciers"
+#   reading: true
 - title: "Con đường Hồi giáo"
   author: Nguyễn Phương Mai
   goodreads: https://www.goodreads.com/review/show/3027338701?book_show_action=false&from_review_page=1

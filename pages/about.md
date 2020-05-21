@@ -8,9 +8,9 @@ icon-color: "#e97c8e"
 permalink: /about
 ---
 
-I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [University Paris 13](https://www.math.univ-paris13.fr){:target="_blank"}, France.
+I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
-After my Ph.D., I am **currently working as a Data Scientist** at [Dataswati](https://www.dataswati.com/). I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
+After my Ph.D., <mark markdown='span'>I am **currently working as a Data Scientist** at [Dataswati](https://www.dataswati.com/)</mark>. I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
@@ -54,7 +54,7 @@ I've totally learned by myself, created website Math2IT and designed some websit
 I have learned math since the beginning of my study life and keep writing about math under an intuitive way.
 
 - **2018 - today** &mdash; I keep studying about maths, especially about its application in life. I write about it on [Math2IT](https://math2it.com){:target="_blank"} (in Vietnamese) under an accessible and intuitive way so that Vietnamese people no longer see maths as useless.
-- **2014 - 2018** &mdash; Ph.D. researcher in applied maths at [LAGA, University Paris 13](https://www.math.univ-paris13.fr/applications/accueil/index.html){:target="_blank"}.
+- **2014 - 2018** &mdash; Ph.D. researcher in applied maths at [LAGA, Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr/applications/accueil/index.html){:target="_blank"}.
 - **2012 - 2014** &mdash; I learned different applied maths topics in [France-Vietnam master 2](https://sites.google.com/view/french-vietnam-master2/){:target="_blank"}.
 - **2008 - 2012** &mdash; I learned to be a maths teacher at [Ho Chi Minh City University of Pedagofy](http://www.hcmup.edu.vn/){:target="_blank"}.
 - **2005 - 2008** &mdash; I learned advanced maths at [Ben Tre high school](https://thptchuyenbentre.edu.vn/){:target="_blank"} which is a school for gifted students.
