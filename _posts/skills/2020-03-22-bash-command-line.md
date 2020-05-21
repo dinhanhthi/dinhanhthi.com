@@ -28,20 +28,20 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 
 ## Multiple commands
 
-Run at once,
-
+<div class="flex-50" markdown="1">
 ~~~ bash
+# run at once
 command_1 && command_2
 ~~~
 
-Using script: create a script, e.g. `multiple_commands.sh`, and run `sh multiple_commands.sh`
-
-~~~ bash
+``` bash
+# using script: file .sh
 #!/bin/sh
 echo 'some info'
 command_1
 command_2
-~~~
+```
+</div>
 
 ## Search
 
@@ -162,6 +162,7 @@ chown -R thi:root folder # folder & children
 
 ### Network
 
+<div class="flex-50" markdown='1'>
 ~~~ bash
 # CHECK IP
 ifconfig
@@ -169,13 +170,14 @@ ipconfig # windows
 ~~~
 
 ~~~ bash
-# INTERNET SPEED (need python)
-curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
-~~~
-
-~~~ bash
 # DOWNLOAD A FILE
 wget https://website.com/filename.ext
+~~~
+</div>
+
+~~~ bash
+# INTERNET SPEED (need python)
+curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
 ~~~
 
 ### Text file
@@ -202,12 +204,12 @@ vim file.txt # ESC, :q to quit
 # SEARCH STRING
 grep "string" file.txt
 ~~~
-</div>
 
 ~~~ bash
 # ADD A LINE TO A FILE WITHOUT OPENNING IT
 echo "hello 'thi' world" >> my_file.txt
 ~~~
+</div>
 
 ## Alias
 
@@ -223,7 +225,9 @@ alias yourAlias=cd /usr/ # windows
 ~~~ bash
 # CALL
 yourAlias
+~~~
 
+~~~ bash
 # LIST OF ALIASES
 alias
 ~~~
