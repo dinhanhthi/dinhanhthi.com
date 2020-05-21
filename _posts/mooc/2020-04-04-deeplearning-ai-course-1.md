@@ -16,6 +16,8 @@ This is my note for the course ([Neural Networks and Deep Learning](https://www.
 
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 
+If you want to break into cutting-edge AI, this course will help you do so.
+
 {% katexmm %}
 
 ## Activation functions

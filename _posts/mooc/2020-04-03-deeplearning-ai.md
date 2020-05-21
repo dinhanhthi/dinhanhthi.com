@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Learning Coursera -- Overview"
+title: "Deep Learning Coursera - Overview"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
@@ -18,18 +18,18 @@ This post contains the links to videos of the courses and my notes for them.
 
 - [The main URL](https://www.coursera.org/specializations/deep-learning) of the specialization.
 - There are in total 5 courses in the specialization:
-    - [x] [Course 1](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning) — Neural Networks and Deep Learning -- [my note](/deeplearning-ai-course-1).
-    - [x] [Course 2](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning) — Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization -- [my note](/deeplearning-ai-course-2).
-    - [x] [Course 3](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning) — Structuring Machine Learning Projects -- [my note](/deeplearning-ai-course-3).
-    - [ ] [Course 4](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning) — Convolutional Neural Networks -- [my note](/deeplearning-ai-course-4).
-    - [ ] [Course 5](https://www.coursera.org/learn/nlp-sequence-models) — Sequence Models -- [my note](/deeplearning-ai-course-5).
+    - [x] [Course 1](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning) — Neural Networks and Deep Learning 👉 [my notes](/deeplearning-ai-course-1).
+    - [x] [Course 2](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning) — Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization 👉 [my notes](/deeplearning-ai-course-2).
+    - [x] [Course 3](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning) — Structuring Machine Learning Projects 👉 [my notes](/deeplearning-ai-course-3).
+    - [ ] [Course 4](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning) — Convolutional Neural Networks 👉 [my notes](/deeplearning-ai-course-4).
+    - [ ] [Course 5](https://www.coursera.org/learn/nlp-sequence-models) — Sequence Models 👉 [my notes](/deeplearning-ai-course-5).
 - You can use <kbd>Ctr</kbd> + <kbd>F</kbd> to find quickly terms and corresponding notes.
 
 ## Syllabus
 
 ### Course 1
 
-- [x] **Week 1** -- **Introduction to deep learning**
+- [x] **Week 1** -- **Introduction to deep learning** 👉 [my notes](/deeplearning-ai-course-1)
     - Welcome — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/welcome-Cuf2f)
     - What is a neural network? — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/what-is-a-neural-network-eAE2G)
     - Supervised Learning with Neural Networks — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/supervised-learning-with-neural-networks-2c38r)
@@ -37,7 +37,7 @@ This post contains the links to videos of the courses and my notes for them.
     - About this Course — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/about-this-course-6A3es) 
     - Course Resources — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/course-resources-2PhD4)
     - Geoffrey Hinton interview — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/geoffrey-hinton-interview-dcm5r)
-- [x] **Week 2** -- **Neural Networks Basics**
+- [x] **Week 2** -- **Neural Networks Basics** 👉 [my notes](/deeplearning-ai-course-1#logistic-regression)
     - Binary Classification — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/binary-classification-Z8j0R)
     - Logistic Regression — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/logistic-regression-LoKih)
     - Logistic Regression Cost Function — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/logistic-regression-cost-function-yWaRd)
@@ -57,7 +57,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Quick tour of Jupyter/iPython Notebooks — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/quick-tour-of-jupyter-ipython-notebooks-ChN1T)
     - Explanation of logistic regression cost function (optional) — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/explanation-of-logistic-regression-cost-function-optional-SmIbQ)
     - Pieter Abbeel interview — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/pieter-abbeel-interview-eqiZZ)
-- [x] **Week 3** -- **Shallow neural networks**
+- [x] **Week 3** -- **Shallow neural networks** 👉 [my notes](/deeplearning-ai-course-1#neural-network-overview)
     - Neural Networks Overview — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/neural-networks-overview-qg83v)
     - Neural Network Representation — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/neural-network-representation-GyW9e)
     - Computing a Neural Network's Output — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/computing-a-neural-networks-output-tyAGh)
@@ -70,7 +70,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Backpropagation intuition (optional) — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/backpropagation-intuition-optional-6dDj7)
     - Random Initialization — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/random-initialization-XtFPI)
     - Ian Goodfellow interview — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/ian-goodfellow-interview-WSia1)
-- [x] **Week 4** -- **Shallow neural networks**
+- [x] **Week 4** -- **Shallow neural networks** 👉 [my notes](/deeplearning-ai-course-1#l-layer-deep-neural-network)
     - Deep L-layer neural network — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/deep-l-layer-neural-network-7dP6E)
     - Forward Propagation in a Deep Network — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/forward-propagation-in-a-deep-network-MijzH)
     - Getting your matrix dimensions right — [video](https://www.coursera.org/lecture/neural-networks-deep-learning/getting-your-matrix-dimensions-right-Rz47X)
@@ -82,7 +82,7 @@ This post contains the links to videos of the courses and my notes for them.
 
 ### Course 2
 
-- [x] **Week 1** -- **Practical aspects of Deep Learning**
+- [x] **Week 1** -- **Practical aspects of Deep Learning** 👉 [my notes](/deeplearning-ai-course-2)
     - Train / Dev / Test sets — [video](https://www.coursera.org/lecture/deep-neural-network/train-dev-test-sets-cxG1s)
     - Bias / Variance — [video](https://www.coursera.org/lecture/deep-neural-network/bias-variance-ZhclI)
     - Basic Recipe for Machine Learning — [video](https://www.coursera.org/lecture/deep-neural-network/basic-recipe-for-machine-learning-ZBkx4)
@@ -98,7 +98,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Gradient checking — [video](https://www.coursera.org/lecture/deep-neural-network/gradient-checking-htA0l)
     - Gradient Checking Implementation Notes — [video](https://www.coursera.org/lecture/deep-neural-network/gradient-checking-implementation-notes-6igIc) 
     - Yoshua Bengio interview — [video](https://www.coursera.org/lecture/deep-neural-network/yoshua-bengio-interview-bqUgf)
-- [x] **Week 2** -- **Optimization algorithms**
+- [x] **Week 2** -- **Optimization algorithms** 👉 [my notes](/deeplearning-ai-course-2#optimization-algorithms)
     - Mini-batch gradient descent — [video](https://www.coursera.org/lecture/deep-neural-network/mini-batch-gradient-descent-qcogH)
     - Understanding mini-batch gradient descent — [video](https://www.coursera.org/lecture/deep-neural-network/understanding-mini-batch-gradient-descent-lBXu8)
     - Exponentially weighted averages — [video](https://www.coursera.org/lecture/deep-neural-network/exponentially-weighted-averages-duStO)
@@ -110,7 +110,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Learning rate decay — [video](https://www.coursera.org/lecture/deep-neural-network/learning-rate-decay-hjgIA)
     - The problem of local optima — [video](https://www.coursera.org/lecture/deep-neural-network/the-problem-of-local-optima-RFANA)
     - Yuanqing Lin interview — [video](https://www.coursera.org/lecture/deep-neural-network/yuanqing-lin-interview-CXqid)
-- [x] **Week 3** -- **Hyperparameter tuning, Batch Normalization and Programming Frameworks**
+- [x] **Week 3** -- **Hyperparameter tuning, Batch Normalization and Programming Frameworks** 👉 [my notes](/deeplearning-ai-course-2#hyperparameter-tuning)
     - Tuning process -- [video](https://www.coursera.org/lecture/deep-neural-network/tuning-process-dknSn).
     - Using an appropriate scale to pick hyperparameters -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/3rdqN/using-an-appropriate-scale-to-pick-hyperparameters).
     - Hyperparameters tuning in practice: Pandas vs. Caviar -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/DHNcc/hyperparameters-tuning-in-practice-pandas-vs-caviar).
@@ -125,7 +125,7 @@ This post contains the links to videos of the courses and my notes for them.
 
 ### Course 3
 
-- [ ] **Week 1** -- **ML Strategy (1)**
+- [x] **Week 1** -- **ML Strategy (1)** 👉 [my notes](/deeplearning-ai-course-3)
     - Why ML Strategy -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/yeHYT/why-ml-strategy)
     - Orthogonalization -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/FRvQe/orthogonalization)
     - Single number evaluation metric -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/wIKkC/single-number-evaluation-metric)
@@ -139,7 +139,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Surpassing human-level performance -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/LiV7n/surpassing-human-level-performance)
     - Improving your model performance -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/4IPD6/improving-your-model-performance)
     - Andrej Karpathy interview -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/Ggkxn/andrej-karpathy-interview)
-- [ ] **Week 2** -- **ML Strategy (2)**
+- [x] **Week 2** -- **ML Strategy (2)** 👉 [my notes](/deeplearning-ai-course-3)
     - Carrying out error analysis -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/GwViP/carrying-out-error-analysis)
     - Cleaning up incorrectly labeled data -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/IGRRb/cleaning-up-incorrectly-labeled-data)
     - Build your first system quickly, then iterate -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/jyWpn/build-your-first-system-quickly-then-iterate)
