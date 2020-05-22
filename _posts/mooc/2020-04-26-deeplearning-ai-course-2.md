@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: deeplearning-ai.png
 katex: 1
-keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization specialization Initialization step zero initialization Random initialization break symmetry He initialization Xavier initialization Regularization L2 regularization Dropout activation Gradient checking Optimization Momentum RMSprop Adam Mini-batch gradient descent slow the training oscillated Shuffle Partition Batch Gradient Descent Stochastic Gradient Descent Exponentially weighted averages Bias correction Adaptive Moment Estimation Hyperparameter choicesLearning rate decay Problem of local optima Problem of plateau Tuning process Hyperparameter tuning Coarse to fine Panda Caviar Babysitting one model Training many models in parallel Batch Normalization Covariate shift problem test time Deep Learning Frameworks Tensorflow"
+keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization specialization Initialization step zero initialization Random initialization break symmetry He initialization Xavier initialization Regularization L2 regularization Dropout activation Gradient checking Optimization Momentum RMSprop Adam Mini-batch gradient descent slow the training oscillated Shuffle Partition Batch Gradient Descent Stochastic Gradient Descent Exponentially weighted averages Bias correction Adaptive Moment Estimation Hyperparameter choicesLearning rate decay Problem of local optima Problem of plateau Tuning process Hyperparameter tuning Coarse to fine Panda Caviar Babysitting one model Training many models in parallel Batch Normalization Covariate shift problem test time Deep Learning Frameworks Tensorflow train test validation dev set bias variance basic recipe for ML regulaization overfitting Vanishing / Exploding gradients Weight Initialization for Deep Networks Numerical approximation of gradients Gradient checking Yoshua Bengio Yuanqing Lin Fitting Batch Norm into a neural network Batch Norm"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
@@ -13,6 +13,8 @@ keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuni
 {% include toc.html %}
 
 This is my note for the course ([Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network)). The codes in this note are rewritten to be more clear and concise.
+
+🎯 [Overview of all 5 courses.](/deeplearning-ai)
 
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).<br />
 👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).

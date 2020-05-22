@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
-keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat tanh relu leaky relu gradient descent L layer L-layer initialize parameters and hyperparameters shallow nn recognize a cat reshape"
+keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat tanh relu leaky relu gradient descent L layer L-layer initialize parameters and hyperparameters shallow nn recognize a cat reshape neural networks supervised learning geoffrey hinton binary classification logistic gradient descent derivatives computation graph vetorization jupyter notebook Pieter Abbeel NN representation backprop intuition matrix dimension deep l-layer building blocks hyperparameters"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
@@ -13,6 +13,8 @@ keywords: "logistic regression sigmoid derivative function python tips softmax a
 {% include toc.html %}
 
 This is my note for the course ([Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)). The codes in this note are rewritten to be more clear and concise.
+
+🎯 [Overview of all 5 courses.](/deeplearning-ai)
 
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 

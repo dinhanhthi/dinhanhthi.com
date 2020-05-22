@@ -15,7 +15,7 @@ keywords: "front matter table of content hide show box alert box insert code ins
 ## Front matter
 
 {:.alert.alert-success}
-If you don't want to use any item below, don't write it down. `math: 0` will be considered similarly to `math: 1` and jekyll understand that they are the same unless you don't write either of them.
+If you don't want to use any item below, don't write it down. `math: 0` will be considered similarly to `math: 1` and jekyll understands that they are the same unless you don't write either of them.
 
 - `math: 1` : only add if you wanna use math equations inside post. Jump to [this section](#math-expressions).
 - `categories: [cat1, cat2]` : add the categories/topics for posts. Current categories on this site: {% for category in site.categories reversed %}{% capture category_name %}{{ category | first }}{% endcapture %}<a href="{{site.url}}{{site.baseurl}}/#{{category_name | replace: " ","_"}}">{{ category_name }}</a>{% if forloop.length > 1 and forloop.last != true %}, {% else %}.{% endif %}{% endfor %}

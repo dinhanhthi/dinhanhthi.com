@@ -113,7 +113,7 @@ This post contains the links to videos of the courses and my notes for them.
 - [x] **Week 3** -- **Hyperparameter tuning, Batch Normalization and Programming Frameworks** 👉 [my notes](/deeplearning-ai-course-2#hyperparameter-tuning)
     - Tuning process -- [video](https://www.coursera.org/lecture/deep-neural-network/tuning-process-dknSn).
     - Using an appropriate scale to pick hyperparameters -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/3rdqN/using-an-appropriate-scale-to-pick-hyperparameters).
-    - Hyperparameters tuning in practice: Pandas vs. Caviar -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/DHNcc/hyperparameters-tuning-in-practice-pandas-vs-caviar).
+    - Hyperparameters tuning in practice: Panda vs. Caviar -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/DHNcc/hyperparameters-tuning-in-practice-pandas-vs-caviar).
     - Normalizing activations in a network -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/4ptp2/normalizing-activations-in-a-network).
     - Fitting Batch Norm into a neural network -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/RN8bN/fitting-batch-norm-into-a-neural-network).
     - Why does Batch Norm work? -- [video](https://www.coursera.org/learn/deep-neural-network/lecture/81oTm/why-does-batch-norm-work).
@@ -139,7 +139,7 @@ This post contains the links to videos of the courses and my notes for them.
     - Surpassing human-level performance -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/LiV7n/surpassing-human-level-performance)
     - Improving your model performance -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/4IPD6/improving-your-model-performance)
     - Andrej Karpathy interview -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/Ggkxn/andrej-karpathy-interview)
-- [x] **Week 2** -- **ML Strategy (2)** 👉 [my notes](/deeplearning-ai-course-3)
+- [x] **Week 2** -- **ML Strategy (2)** 👉 [my notes](/deeplearning-ai-course-3#error-analysis)
     - Carrying out error analysis -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/GwViP/carrying-out-error-analysis)
     - Cleaning up incorrectly labeled data -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/IGRRb/cleaning-up-incorrectly-labeled-data)
     - Build your first system quickly, then iterate -- [video](https://www.coursera.org/learn/machine-learning-projects/lecture/jyWpn/build-your-first-system-quickly-then-iterate)

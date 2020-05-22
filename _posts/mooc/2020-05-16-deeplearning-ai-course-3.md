@@ -6,7 +6,7 @@ tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: deeplearning-ai.png
 katex: 1
 notfull: 1
-keywords: ""
+keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
@@ -14,6 +14,8 @@ keywords: ""
 {% include toc.html %}
 
 This is my note for the course ([Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects)). The codes in this note are rewritten to be more clear and concise.
+
+🎯 [Overview of all 5 courses.](/deeplearning-ai)
 
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).<br />
 👉 **Course 2** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-2).<br />
