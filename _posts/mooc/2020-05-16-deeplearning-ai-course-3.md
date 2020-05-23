@@ -2,11 +2,11 @@
 layout: post
 title: "Deep Learning Coursera - Course 3"
 categories: [mooc]
-tags: [mooc, coursera, deeplearning.ai, tensorflow]
+tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
 notfull: 1
-keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov"
+keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov andrew ng"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
@@ -22,7 +22,7 @@ This is my note for the course ([Structuring Machine Learning Projects](https://
 👉 **Course 4** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-4).
 
 ⭐ **Case study** (should read): [Bird recognition in the city of Peacetopia](/deeplearning-ai-course-3-bird-recognition-peacetopia).<br />
-⭐ **Case study** (should read): [Autonomous driving](/deeplearning-ai-course-3-autonomous-driving).
+⭐ **Case study** (should read): [Autonomous driving](/deeplearning-ai-course-3-autonomous-driving) (I copied it from [this](https://github.com/Kulbear/deep-learning-coursera/blob/master/Structuring%20Machine%20Learning%20Projects/Week%202%20Quiz%20-%20Autonomous%20driving%20(case%20study).md)).
 
 
 This course will give you some strategies to help analyze your problem to go in a direction that will help you get better results.
@@ -125,14 +125,14 @@ This course will give you some strategies to help analyze your problem to go in 
 
 ### Why human-level performance?
 
-- Reasons:
+- **Reasons**:
   1. ML algos are now work better & easier (than the past) $\Rightarrow$ only them is not enough $\Rightarrow$ need human-level performance (HLP).
-  2. Workflow of building ML system $\Rightarrow$ wanna more efficient? $\Rightarrow$ tru to do something that human can also do.
+  2. Workflow of building ML system $\Rightarrow$ wanna more efficient? $\Rightarrow$ try to do something that human can also do.
 - **Bayes error** = best possible error (theory).
-- After surpassing HLP, it's slow down, why?
+- After surpassing HLP, _it's slow down_, why?
   1. HLP is very closed to Bayes optimal error. Ex: we can recognize things in blur.
   2. Whenever under HLP, there are certain tools to use to improve the performance but there is no tool to do after surpassing HLP.
-- So long as ML is worse than HLP, you can:
+- <mark>So long as ML is worse than HLP, you can:</mark>
   - Get labeled data from human.
   - Gain insight from manual error analysis: why did a person get this right?
   - Better analysis of bias / variance.
@@ -140,21 +140,22 @@ This course will give you some strategies to help analyze your problem to go in 
 ### Avoidable bias
 
 - Sometimes we don't want algo works TOO WELL on the training set $\Rightarrow$ use HLP.
-- **Example**: cat recognition gives 2 different results (but the same gap between train/% test)
-  1. **Big gap** between train and human. $\Rightarrow$ focus on <mark>reducing bias</mark> (bigger NN, run training longer,...) $\Leftarrow$ Underfitting!
+- **Example**: cat recognition gives 2 different results (but the same gap between train & test)
+  1. **Big gap** between train and human. $\Rightarrow$ focus on <mark>reducing bias</mark> (bigger NN, run training longer,...) $\Leftarrow$ **Underfitting**!
    
         | Humans             | 1%   | 1%   |
         | ------------------ | ---- | ---- |
         | **Training error** | 8%   | 8%   |
         | **Dev Error**      | 10%  | 10%  |
-  2. **Small gap** between train and human. $\Rightarrow$ focus on <mark>reducing variance</mark> $\Leftarrow$ Overfitting!
+  2. **Small gap** between train and human. $\Rightarrow$ focus on <mark>reducing variance</mark> $\Leftarrow$ **Overfitting**!
    
         | Humans             | 1%   | 7.5% |
         | ------------------ | ---- | ---- |
         | **Training error** | 8%   | 8%   |
         | **Dev Error**      | 10%  | 10%  |
 - Based on the human error $\Rightarrow$ decide whether high/low error $\Rightarrow$ bias / variance reduction!
-- Gap between human & training $\to$ **Avoidable bias**. Gap between training & test $\to$ Variance!
+- Gap between human & training $\Rightarrow$ **Avoidable bias**.
+- Gap between training & test $\Rightarrow$ **Variance**!
 
 ### Understanding human-level performance
 
@@ -167,17 +168,17 @@ This course will give you some strategies to help analyze your problem to go in 
 - When training error **less than** human error, it's difficile to decide what's avoidable bias!
 - In some problems, deep learning has surpassed human-level performance. Like: Online advertising, Product recommendation, Loan approval. $\Leftarrow$ **Structured data**.
 - In **natural perception tasks** (speech recognition, NLP,...): ML surpasses human!
-- In short:
+- <mark markdown='span'>**In short**</mark>:
   - Machine > human $\Leftarrow$ structured data.
   - Machine > **One** person $\Leftarrow$ some natural perception tasks.
   - Machine > human $\Leftarrow$ natural perception tasks.
 
 ### Improving your model performance
 
-- The two fundamental asssumptions of supervised learning:
+- <mark markdown='span'>The two fundamental asssumptions of supervised learning</mark>:
   1. You can fit the training set pretty well. This is roughly saying that you can achieve low **avoidable bias**. 
   2. The training set performance generalizes pretty well to the dev/test set. This is roughly saying that **variance** is not too bad.
-- To improve your deep learning supervised system follow these guidelines:
+- <mark markdown='span'>To improve your deep learning supervised system</mark> follow these guidelines:
   1. Look at the difference between human level error and the training error - **avoidable bias**.
   2. Look at the difference between the dev/test set and training set error - **Variance**.
   3. If **avoidable bias** is large you have these options:
@@ -190,6 +191,8 @@ This course will give you some strategies to help analyze your problem to go in 
      - Find better NN architecture/hyperparameters search.
 
 ## Error Analysis
+
+
 
 ## Mismatched training and dev/test set
 

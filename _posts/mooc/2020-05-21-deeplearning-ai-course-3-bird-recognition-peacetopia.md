@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Deep Learning Coursera - Bird recognition in the city of Peacetopia"
+categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow, project]
 icon-photo: deeplearning-ai.png
-keywords: "case study"
+hide: 1
+keywords: "case study andrew ng"
 ---
-
-{% assign img-url = '/img/post/mooc/dl' %}
 
 {% include toc.html %}
 
