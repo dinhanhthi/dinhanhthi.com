@@ -34,6 +34,7 @@ If you don't want to use any item below, don't write it down. `math: 0` will be 
   - `icon-photo: jekyll.png` : header photo for your post (if it exists). Photos must be stored in `/img/header/`.
 - `toc: 1` if you wanna show the table of content in your site.
 - `notfull: 1` if the note is not good enough.
+- `hide: 1` if you wanna hide some post from `/notes` (it's still available in other pages)
 
 ## TOC
 
@@ -365,7 +366,7 @@ There must be a language!:
 
 Depend on the length of codes, you decides to use `.d-md-flex` or `.d-lg-flex`.
 
-If you don't wanna show the line numbers:
+Output with flexible widths
 
 ~~~ html
 <div class="d-md-flex" markdown="1">
@@ -373,6 +374,18 @@ If you don't wanna show the line numbers:
 Other code blocks
 
 {:.output.flex-fill.d-flex}
+Result code blocks
+</div>
+~~~
+
+Output with equal widths,
+
+~~~ html
+<div class="d-md-flex" markdown="1">
+{:.flex-even.d-flex.overflow-auto}
+Other code blocks
+
+{:.output.flex-even.d-flex}
 Result code blocks
 </div>
 ~~~

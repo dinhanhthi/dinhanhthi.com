@@ -47,7 +47,7 @@ permalink: /notes
                 <ul>
                   {% assign sortedPosts = site.categories[category.name] | sort: 'title' %}
                   {% for post in sortedPosts %}
-                    {% unless post.draft %}
+                    {% unless post.draft or post.hide %}
                       <li class="item">
                         <a href="{{post.url}}" class="post-title">
                           {{post.title}}{% if post.notfull %}<sup>•</sup>{% endif %}
