@@ -180,7 +180,7 @@ You can also use `<div>` tag to enclose the section you wanna show in only 1 sid
 
 ### Click to enlarge / zoom images
 
-If you wanna some photos having the function "click to enlarge", just add class `.pop` to this photo. 
+If you wanna some photos having the function "click to enlarge", just add class `.pop` (or `.zoom`) to this photo. 
 
 ### Insert JSXGraph
 

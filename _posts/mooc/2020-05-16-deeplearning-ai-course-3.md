@@ -5,8 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png
 katex: 1
-notfull: 1
-keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov andrew ng"
+keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov andrew ng the quick brown fox jumps over the lazy dog A-Z shortest sentence speech recognition"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}
@@ -18,8 +17,8 @@ This is my note for the course ([Structuring Machine Learning Projects](https://
 🎯 [Overview of all 5 courses.](/deeplearning-ai)
 
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).<br />
-👉 **Course 2** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-2).<br />
-👉 **Course 4** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-4).
+👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).<br />
+👉 **Course 4** -- [Convolutional Neural Networks](/deeplearning-ai-course-4).
 
 ⭐ **Case study** (should read): [Bird recognition in the city of Peacetopia](/deeplearning-ai-course-3-bird-recognition-peacetopia).<br />
 ⭐ **Case study** (should read): [Autonomous driving](/deeplearning-ai-course-3-autonomous-driving) (I copied it from [this](https://github.com/Kulbear/deep-learning-coursera/blob/master/Structuring%20Machine%20Learning%20Projects/Week%202%20Quiz%20-%20Autonomous%20driving%20(case%20study).md)).
@@ -166,7 +165,7 @@ This course will give you some strategies to help analyze your problem to go in 
 ### Surpassing human-level performance
 
 - When training error **less than** human error, it's difficile to decide what's avoidable bias!
-- In some problems, deep learning has surpassed human-level performance. Like: Online advertising, Product recommendation, Loan approval. $\Leftarrow$ **Structured data**.
+- In some problems, deep learning has surpassed human-level performance. Example: Online advertising, Product recommendation, Loan approval. $\Leftarrow$ **Structured data**.
 - In **natural perception tasks** (speech recognition, NLP,...): ML surpasses human!
 - <mark markdown='span'>**In short**</mark>:
   - Machine > human $\Leftarrow$ structured data.
@@ -192,12 +191,166 @@ This course will give you some strategies to help analyze your problem to go in 
 
 ## Error Analysis
 
+### Carrying out error analysis
 
+- <mark markdown='span'>**Error Analysis**</mark> = manually examining mistakes that your algorithm is making can give you insight what to do next.
+- **Example**: in cat recognition, there are some factors affecting $\Rightarrow$ Consider a <mark markdown='span'>table **ERROR ANALYSIS**</mark> $\Rightarrow$ Evaluate multiple ideas in parallel,
+
+  | Image        | Dog    | Great Cats | blurry  | Instagram filters |    Comments    |
+  | ------------ | ------ | ---------- | ------- | ----------------- |--------------- |
+  | 1            | ✓      |            |         | ✓                 |  Pitbull       |
+  | 2            | ✓      |            | ✓       | ✓                 |                |
+  | 3            |        |            |         |                   |Rainy day at zoo|
+  | 4            |        | ✓          |         |                   |                |
+  | ....         |        |            |         |                   |                |
+  | **% totals** | **8%** | **43%**    | **61%** |      **12%**      |                |
+
+  - We focus on _Great Cats_ and _blurry_ (have much influence).
+- <mark>To carry out error analysis</mark> $\Rightarrow$ you should find a set of mislabeled examples in dev set $\Rightarrow$ look at mislabeled: False Positive or False Negative (number of errors) $\Rightarrow$ decide if to create a new category?
+
+### Cleaning up incorrectly labaled data
+
+- **In training**: DL algo is robust to random errors $\Rightarrow$ we can ignore them!
+  - However, DL algo is LESS robust to systematic errors.
+- **Solutions**: Using table Error Analysis to decide what types of error to focus in the next step (base of their fraction of errors in the total of errors).
+- (Recall) <mark markdown='1'>The purpose of **dev set** is to help you select between 2 classifier A and B</mark>.
+- **If you decide to fix labels**:
+  1. Apply the <mark>same process to dev and test sets</mark> and make sure they come from the same distribution!
+  2. Examine **also** on examples got **right** (not only on the ones got wrong) $\Rightarrow$ otherwise, we have overfitting problem!
+  3. Train vs dev/test may have different distribution $\Rightarrow$ **No need** to be corrected mislabeled on training set!
+
+### When starting a new project?
+
+<mark markdown='span'>**Advice**</mark>: Build your first system **quickly** and then iterate!!
+
+1. Quickly set up dev/test sets + metric.
+2. Build initial system quickly.
+3. Check bias analysis and Error analysis $\Rightarrow$ Priopritize the next step!
 
 ## Mismatched training and dev/test set
 
+### Training & testing on different distribution
+
+- Example: **training** (photos from internet, 200K), **dev & test** (photos from phone, 4K).
+- **Shouldn't**: Shufflt all 204K and split into train/dev/test!
+- <mark markdown='span'>**Should**</mark>: 
+  - Train - 200K (web) + 2K (mobile).
+  - Dev = Test = 0.5K (mobile).
+
+### Bias and Variance with mismatched data dist
+
+- Sometimes, <mark markdown='span'>dev err > training err</mark> $\Rightarrow$ (possibly) the data in dev is **more difficult** to predict than the data in training.
+- When comming from training err to dev err:
+  1. The algo saw data in training set but not in dev set.
+  2. The distribution of data in dev set is different!
+- **IDEA**: create a new <mark>"train-dev" set</mark> which has the same distribution as training data but not used for training.
+- <mark markdown='span'>**Keys to be considered**</mark>: Human error, Train error, Train-dev error, Dev error, Test error:
+  - [**Avoidable bias**](#avoidable-bias) = _train_ - _human_.
+  - **Variance problem** = _train-dev_ - _train_
+  - **Data mismatch** = _dev_ - _train-dev_
+  - **Overfitting to dev set** = _test_ - _dev_
+- If there is a **huge gap between dev & test err** $\Rightarrow$ overtune to the dev set $\Rightarrow$ may need to find a bigger dev set!
+- **Example 1**: A high _variance problem_! (train/train-dev $\to$ big, train-dev/dev $\to$ small)
+  - Human error: 0%
+  - Train error: **1%**
+  - Train-dev error: **9%**
+  - Dev error: 10%
+- **Example 2**: _data mismatch problem_ (train/train-dev $\to$ small, train-dev/dev $\to$ big)
+  - Human error: 0%
+  - Train error: **1%**
+  - Train-dev error: **1.5%**
+  - Dev error: **10%**
+- **Example 3**: _avoidable bias problem_ (because training err is much worse than human level, others are small)
+  - Human error: **0%**
+  - Train error: **10%**
+  - Train-dev error: 11%
+  - Dev error: 12%
+- **Example 4**: _Avoidable bias problem_ and _mismatch problem_. (human/train $\to$ big, train-dev/dev $\to$ big)
+  - Human error: **0%**
+  - Train error: **1%**
+  - Train-dev error: **1.5%**
+  - Dev error: **10%**
+- **Remark**: most of the time, the errs are decreasing from _human_ to _test_. However if (sometimes) _dev_ > _train-dev_, we rewrite all above errors in to a new table like this,
+
+  {:.img-80.pop}
+  ![Error table]({{img-url}}/mismatch.jpg)
+  _Error table. Image from the course._
+
+  - We find **by hand** 2 6% errors to consider the quality of dev/test err. In the figure, your figure is infact GOOD!
+
+### Addressing data mismatch
+
+- Addressing data mismatch (_don't garantee it will work but you can try_):
+  - Carry out manually error analysis $\Rightarrow$ try to understand difference between training and dev/test errors.
+  - Make the training data more similar or collect more data similar to dev/test set.
+- <mark markdown='span'>**Artificial data synthesis**</mark>:
+  - "_the quick brown fox jumps over the lazy dog_" $\Leftarrow$ shortest sentence contains all A-Z letters in English.
+  - Create manually data (combine 2 different types of data). However, BE CAREFUL if one of 2 data is much smaller to the other. It may be overfitting to the smaller!
+
 ## Learning from multiple tasks
 
+### Transfer learning
+
+- **IDEA**: already trained on 1 task (_Task A_) + don't have enough data on the current task (_Task B_) $\Rightarrow$ we can apply the trained network on the current one.
+
+{:.img-90.pop}
+![Transfer learning]({{img-url}}/transfer-learning.jpg)
+_Transfer learning. Image from the course._
+
+- To do transfer learning, delete the last layer of NN and it's weights and:
+  1. Option 1: if you **have a small data set** - keep all the other weights as a fixed weights. Add a new last layer(-s) and initialize the new layer weights and feed the new data to the NN and learn the new weights.
+  2. Option 2: if you **have enough data** you can retrain all the weights.
+- **Pretraining** = training on task A.
+- **Fine-tuning** = using pretrained weights + use new data to train task B.
+- This idea is useful because some of layers of trained NN contain helpful information for the new problem.
+- <mark markdown='span'>**Transfer learning makes sense when**</mark> (e.g. from A to B):
+  1. Task A and B have the same input X.
+  1. You have a lot more data for task A than task B.
+  1. Low level features from A could be helpful for learning B.
+
+### Multi-task learning
+
+- 1 NN do several things at the same time and each of these tasks helps hopefully all of the other tasks!
+- **Example**: Autonomous driving example $\Rightarrow$ Detect several things (not only 1) at the same time like: pedestrians, other cars, stop signs, traffic lights,...
+
+{:.img-80.pop}
+![Multi-task learning]({{img-url}}/multi-task.jpg)
+_Multi-task learning. Image from the course._
+
+- We use **Logistic Regression** for the last layer. It's DIFFERENT from **softmax regression** because in this case, we need to determine more than 2 labels!
+- If there are some infos unclear in Y (e.g. don't know if there is a traffic light or not?), we consider only the rest and just ignore the unclear!
+- <mark markdown='span'>**Multi-task makes sense when**</mark> (e.g. from A to B):
+  1. Training on a set of tasks that could benefit from having shred lover-level features.
+  2. Usually: amount of data you have for each task is quite similar.
+  3. Can train a big enough NN to do well on all the task.
+- In general (have ENOUGH DATA), multi-task gives better performances!
+- **Other remarks**:
+  - Multi-task learning (usually) works good in **object detection**.
+  - (Usually) transfer learning is USED MORE OFTEN (an better) than multi task learning!
+
 ## End-to-end deep learning
+
+- There have been some data processing system require multiple stages of processing. $\Rightarrow$ <mark>End-to-end does take all of them into 1 NN</mark>.
+- **Example**: speech recognition from English to French: this case, end-to-end works better than separated problems because it has enough data!
+
+  {:.img-90.pop}
+  ![End to end learning]({{img-url}}/end-to-end.jpg)
+  _End-to-end learning. Image from the course._
+
+- **Example**: auto open gate system: in this case, separated task is better end-to-end.
+  1. Determine the head.
+  2. Determine the name.
+- <mark>When end-to-end works, it works very well!</mark>
+- **Pros & Cons**:
+  - **Pros**:
+    - Let the data speaks.
+    - Let hand-designing of components needed.
+  - **Cons**:
+    - May need a lot of data.
+    - Excludes potentially useful hand-designing components.
+- If having enough data $\Rightarrow$ can think of using end-to-end!
+- <mark markdown='span'>**Advice**</mark>: carefully choose what type of $X \to Y$ mapping $\Leftarrow$ depends on what tasks you can get data for!
+
+👉 **Course 4** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-4).
 
 {% endkatexmm %}
