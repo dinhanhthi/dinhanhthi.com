@@ -20,6 +20,9 @@
       &:before{
         margin-left: -25px;
       }
+      ul{
+        padding-left: 0;
+      }
     }
   }
   li, .task{
@@ -46,5 +49,14 @@
   li.delay:before, .task.delay:before{
     content: "\f06a";
     color: #fa9815;
+  }
+
+  div#toc{
+    ul{
+      list-style: circle;
+      li:before{
+        content: '';
+      }
+    }
   }
 }

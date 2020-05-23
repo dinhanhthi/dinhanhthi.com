@@ -8,6 +8,8 @@ permalink: /my-learning-log
 custom-css: "learning-log"
 ---
 
+{% include toc.html %}
+
 I want to be an expert in **Data Science** and **Artificial Intelligence** and below are what I've learned/done so far to achieve it.
 
 <p class="text-left">
@@ -19,7 +21,16 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 ## 3 - 5 / 2020
 
-_Filled up later!_
+- {:.finish} {% python %} [Sphinx Documentation Generator](https://www.sphinx-doc.org/en/master/) 101.
+- {:.finish} {% python %} Pytest ([more](https://docs.pytest.org/en/latest/example/markers.html#mark-examples)), building AI services (Dataswati's tasks).
+- {:.finish} {% data_ml %} [Mean-Shift](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html) clustering.
+- {:.finish} {% web %} Created docker repositories for quickly cloning [Math2IT](https://math2it.com) and [TEXmath](https://texmath.com) on localhost.
+- {:.finish} {% data_ml %} Finished 3 of 5 courses in the [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) given by [deeplearning.ai](deeplearning.ai) and taught by Andrew NG on Coursera.
+  - {:.finish} Course 1 — [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-1) -- [certificate](https://www.coursera.org/account/accomplishments/records/VJG62Z8QP7ZF).
+  - {:.finish} Course 2 — [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-2) -- [certificate](https://www.coursera.org/account/accomplishments/records/VEVBU5BWBC8S).
+  - {:.finish} Course 3 — [Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-3) -- [certificate](https://www.coursera.org/account/accomplishments/records/VREJ8QGGDHWA).
+- {:.finish} {% data_ml %} Finish the course [Leveraging Cloud-Based Machine Learning on Google Cloud Platform: Real World Applications](https://www.linkedin.com/learning/leveraging-cloud-based-machine-learning-on-google-cloud-platform-real-world-applications/intro-to-artificial-intelligence-ai-on-google) on LinkedIn Learning. -- [certificate](https://github.com/dinhanhthi/my-certificates/blob/master/LinkedIn%20Learning%20-%20Leveraging%20Cloud-Based%20Machine%20Learning%20on%20Google%20Cloud%20Platform_%20Real%20World%20Applications.pdf).
+- {:.finish} {% tech %} Created & Discussing on **P13 Discussion Group**, a group of Vietnamese students from University Sorbonne Paris Nord. We share knowledge and discuss mainly on Information Technology -- [Group's Github Repository](https://github.com/dinhanhthi/P13-discuss-group) (private).
 
 ## 2 / 2020
 
