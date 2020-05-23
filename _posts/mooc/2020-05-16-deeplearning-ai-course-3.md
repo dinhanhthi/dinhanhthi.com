@@ -115,8 +115,8 @@ This course will give you some strategies to help analyze your problem to go in 
     \end{aligned}
     $$
 
-- This is actually an example of an orthogonalization where you should take a machine learning problem and break it into distinct steps: 
-  1. Figure out how to define a metric that captures what you want to do (place the target). 
+- This is actually an example of an orthogonalization where you should take a machine learning problem and break it into distinct steps:
+  1. Figure out how to define a metric that captures what you want to do (place the target).
   2. Worry about how to actually do well on this metric (how to aim/shoot accurately at the target).
 - **Conclusion**: if doing well on your metric + dev/test set doesn't correspond to doing well in your application, change your metric and/or dev/test set.
 
@@ -141,13 +141,13 @@ This course will give you some strategies to help analyze your problem to go in 
 - Sometimes we don't want algo works TOO WELL on the training set $\Rightarrow$ use HLP.
 - **Example**: cat recognition gives 2 different results (but the same gap between train & test)
   1. **Big gap** between train and human. $\Rightarrow$ focus on <mark>reducing bias</mark> (bigger NN, run training longer,...) $\Leftarrow$ **Underfitting**!
-   
+
         | Humans             | 1%   | 1%   |
         | ------------------ | ---- | ---- |
         | **Training error** | 8%   | 8%   |
         | **Dev Error**      | 10%  | 10%  |
   2. **Small gap** between train and human. $\Rightarrow$ focus on <mark>reducing variance</mark> $\Leftarrow$ **Overfitting**!
-   
+
         | Humans             | 1%   | 7.5% |
         | ------------------ | ---- | ---- |
         | **Training error** | 8%   | 8%   |
@@ -175,7 +175,7 @@ This course will give you some strategies to help analyze your problem to go in 
 ### Improving your model performance
 
 - <mark markdown='span'>The two fundamental asssumptions of supervised learning</mark>:
-  1. You can fit the training set pretty well. This is roughly saying that you can achieve low **avoidable bias**. 
+  1. You can fit the training set pretty well. This is roughly saying that you can achieve low **avoidable bias**.
   2. The training set performance generalizes pretty well to the dev/test set. This is roughly saying that **variance** is not too bad.
 - <mark markdown='span'>To improve your deep learning supervised system</mark> follow these guidelines:
   1. Look at the difference between human level error and the training error - **avoidable bias**.
@@ -213,7 +213,7 @@ This course will give you some strategies to help analyze your problem to go in 
 - **In training**: DL algo is robust to random errors $\Rightarrow$ we can ignore them!
   - However, DL algo is LESS robust to systematic errors.
 - **Solutions**: Using table Error Analysis to decide what types of error to focus in the next step (base of their fraction of errors in the total of errors).
-- (Recall) <mark markdown='1'>The purpose of **dev set** is to help you select between 2 classifier A and B</mark>.
+- (Recall) <mark markdown='span'>The purpose of **dev set** is to help you select between 2 classifier A and B</mark>.
 - **If you decide to fix labels**:
   1. Apply the <mark>same process to dev and test sets</mark> and make sure they come from the same distribution!
   2. Examine **also** on examples got **right** (not only on the ones got wrong) $\Rightarrow$ otherwise, we have overfitting problem!
@@ -233,7 +233,7 @@ This course will give you some strategies to help analyze your problem to go in 
 
 - Example: **training** (photos from internet, 200K), **dev & test** (photos from phone, 4K).
 - **Shouldn't**: Shufflt all 204K and split into train/dev/test!
-- <mark markdown='span'>**Should**</mark>: 
+- <mark markdown='span'>**Should**</mark>:
   - Train - 200K (web) + 2K (mobile).
   - Dev = Test = 0.5K (mobile).
 
