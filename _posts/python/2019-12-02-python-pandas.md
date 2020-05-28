@@ -25,9 +25,9 @@ import numpy as np # import numpy if necessary
 ~~~ python
 # READ
 df = pd.read_csv('filename.csv', sep=';') # default sep=','
-df.head() # read first 5 rows
-df.tail() # last 5 rows
-df.head(10) # first 10 rows
+
+# if 1st col contains 0,1,2,...
+df = pd.read_csv('filename.csv', index_col=1)
 ~~~
 
 ~~~ python
@@ -153,28 +153,45 @@ df.iloc[:, [0,-1]]
 
 **Select a row** (type `Series`): Get row `Thi`.
 
-<div class="code-box-copy" markdown="1">
-~~~ python
+<div class="flex-50" markdown="1">
+``` python
 # with an index
 df.iloc[1]
+```
 
+``` python
 # with a condition
-df[df['Name']=='Thi'] # type: DataFrame
-df[df['Name']=='Thi'].iloc[0] # type: Series
+df[df['Name']=='Thi'] # DataFrame
+df[df['Name']=='Thi'].iloc[0] # Series
+```
 
-df[df.Name=='Thi'] # type: DataFrame
-df[df.Name=='Thi'].iloc[0] # type: Series
-df[df.Name=='Thi'].values[0] # type: ndarray
-~~~ 
+``` python
+df[df.Name=='Thi'] # DataFrame
+df[df.Name=='Thi'].iloc[0] # Series
+df[df.Name=='Thi'].values[0] # ndarray
+```
 </div>
 
-**Select multi-rows** (type `DataFrame`): Get first 3 rows of dataset,
+**Select multi-rows** (type `DataFrame`)
 
+<div class="flex-50" markdown="1">
 ~~~ python
 # using indexes
 df.iloc[:3]
 df.loc[:2]
 ~~~
+
+``` python
+# with conditions
+df[df['A'].isin([3, 6])]
+```
+</div>
+
+<div class="flex-50" markdown="1">
+
+</div>
+
+
 
 ## MultiIndex
 
@@ -445,7 +462,7 @@ s = pd.Series([True, True, False, True])
 
 ~~~ python
 # Convert True / False to 1 / 0
-df['col'] = df['col'].astype(int) 
+df['col'] = df['col'].astype(int)
 # int or float
 ~~~
 </div>

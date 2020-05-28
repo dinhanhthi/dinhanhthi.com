@@ -106,7 +106,7 @@ df.index.name = 'new_name'
 df['col'].is_unique # True if yes
 ~~~
 
-~~~ python 
+~~~ python
 # INDEX -> NORMAL COLUMN
 df.reset_index(inplace=True)
 ~~~
@@ -140,7 +140,7 @@ df = df0[['Date', 'Heure', 'tH (°C)']].copy()
 df['timestamp'] = df['Date'] + ' ' + df['Heure']
 
 # if you use without `.copy()`
-# WARNING: A value is trying to be set on a copy of a slice from a DataFrame. 
+# WARNING: A value is trying to be set on a copy of a slice from a DataFrame.
 ~~~
 
 ## Deal with missing values `NaN`
@@ -158,8 +158,8 @@ df.dropna()
 ~~~
 
 ~~~ python
-# Drop if all values in that row/col are NA
-df.dropna(how='all') # default: how='any'
+# Drop if all values in that col are NA
+df.dropna(how='all', axis=1)
 ~~~
 
 ~~~ python

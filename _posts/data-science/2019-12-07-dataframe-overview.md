@@ -31,7 +31,7 @@ df.head(10) # first 10 rows
 
 ## Get general infos
 
-~~~ python 
+~~~ python
 df.info() # show dtype of dataframe
 df.describe() # numerical features
 df.describe(include=['O']) # categorical features
@@ -52,17 +52,19 @@ df['value'].plot.kde()
 
 ## Get columns' info
 
+<div class='flex-50' markdown='1'>
 ~~~ python
 # LIST OF COLUMNS
 df.columns
-len(df.columns) # count the number of columns
+len(df.columns) # #cols?
 ~~~
 
 ~~~ python
 # UNIQUE VALUES IN COL
 df['col'].unique()
-df['col'].unique().size # number of unique values
+df['col'].unique().size #unique vals
 ~~~
+</div>
 
 ## Counting
 
@@ -76,32 +78,54 @@ df.Classes.value_counts() # give number of each 0 and 1
 
 👉 [Handle missing values](/data-preprocessing-cleaning#deal-with-missing-values-nan).
 
+<div class='flex-50' markdown='1'>
+``` python
+# total number of nans in df
+df.isnull().sum().sum()
+```
+
 ~~~ python
-# number of missing values in each column (including zeros)
+# #nans in each col (including zeros)
 df.isnull().sum()
 ~~~
 
+``` python
+# #not-nans in each col
+df.count()
+
+# each row
+df.count(axis=1)
+```
+
 ~~~ python
 # columns having the nulls (any nan)
-null_columns = df.columns[f().any()]
-df[null_columns].isnull().sum() # how many?
+null_columns = df.columns[df.isna().any()].tolist()
+
+# how many?
+df[null_columns].isnull().sum()
 ~~~
 
 ~~~ python
-# number rows having ALL nans
+# number of rows having ALL nans
 df.isna().all(axis=1).sum()
+~~~
 
-# number columns having ALL nans
+~~~ python
+# number of columns having ALL nans
 df.isna().all(axis=0).sum()
+~~~
 
+~~~ python
 # find index of rows having ALL nans
 df.index[df.isna().all(axis=1)].to_list()
 ~~~
+</div>
 
 ~~~ python
 # number of nans in df
 df.isnull().sum().sort_values(ascending=False)
-df.isnull().sum()/df.isnull().count()*100 # find % of null values
+# find % of null values
+(df.isnull().sum()/df.isnull().count()*100).sort_values(ascending=False)
 ~~~
 
 ~~~ python

@@ -4,7 +4,7 @@ title: "Python List"
 categories: [python]
 tags: [fundamental, python]
 icon-photo: list.png
-keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list"
+keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list random number int"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -33,7 +33,7 @@ x == z
 ~~~
 
 {:.output.flex-fill.d-flex}
-~~~ 
+~~~
 True
 False
 ~~~
@@ -55,13 +55,13 @@ print(y)
 ~~~
 
 {:.output.flex-fill.d-flex}
-~~~ 
+~~~
 [1, 5, 3]
 [1, 20, 30, 4, 5]
 ~~~
 </div>
 
-## Create a list
+## Create
 
 Directly,
 
@@ -79,7 +79,7 @@ print(z)
 ~~~
 
 {:.output.flex-fill.d-flex}
-~~~ 
+~~~
 [1, 'Thi', 3]
 [[1, 2, 3], [4, 5, 6]]
 []
@@ -134,7 +134,14 @@ Create a list from range,
 ~~~
 </div>
 
-## Copy a list
+A list of random int numbers,
+
+``` python
+random.sample(range(10, 30), 5)
+# [16, 19, 13, 18, 15]
+```
+
+## Copy
 
 Don't use `y = x` directly!
 
@@ -415,7 +422,15 @@ print(x)
 ~~~
 </div>
 
-## Coupling 2 lists
+## 2 lists
+
+### Intersection
+
+``` python
+list(set(a) & set(b))
+```
+
+### Coupling 2 lists
 
 Using `+` and `*` (repeat),
 

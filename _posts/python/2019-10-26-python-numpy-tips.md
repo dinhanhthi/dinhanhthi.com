@@ -34,9 +34,9 @@ Compare 2 dicts of multiple objects:
 ~~~ python
 # 2 dicts of multiple objects
 def _compare_two_dict(dct_1, dct_2):
-    return np.array([(lambda key: (dct_1[key] == dct_2[key]).all() 
-       if type(dct_1[key]).__module__ == np.__name__ 
-       else dct_1[key] == dct2[key])(key) 
+    return np.array([(lambda key: (dct_1[key] == dct_2[key]).all()
+       if type(dct_1[key]).__module__ == np.__name__
+       else dct_1[key] == dct2[key])(key)
        for key in dct_1]).all()
 ~~~
 
@@ -62,7 +62,7 @@ np.testing.assert_equal(a,b)
 # count nans
 arr = [1,2,3,4, np.nan,np.nan, 0,0,0]
 np.isnan(arr).sum() # 2
-~~~ 
+~~~
 
 ~~~ python
 # count non-nans
@@ -104,13 +104,18 @@ np.random.random()
 ~~~
 
 ~~~ python
+# random float number between [a, b)
+(b - a)*np.random.random() + a
+~~~
+
+~~~ python
 # array of random between [0, 1)
 np.random.random_sample((5,)) # size: 5x1
 ~~~
 
 ~~~ python
-# betweeen (a, b)
-(b - a) * random_sample() + a
+# array of random between (a, b)
+(b - a)*np.random.random_sample((5,1)) + a
 ~~~
 </div>
 
@@ -238,14 +243,14 @@ array(['1', '2', '3'], dtype='<U21')
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
 # Remove 'NaT' from an array
-Y = np.array([600000, 300000, 'NaT'], 
+Y = np.array([600000, 300000, 'NaT'],
               dtype='timedelta64[ns]')
 Y[~np.isnat(Y)]
 ~~~
 
 {:.output.flex-fill.d-flex}
 ~~~
-array([600000, 300000], 
+array([600000, 300000],
        dtype='timedelta64[ns]')
 ~~~
 </div>

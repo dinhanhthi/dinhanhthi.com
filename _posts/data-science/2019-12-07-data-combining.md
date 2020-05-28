@@ -13,10 +13,6 @@ keywords: coupling dataframes inner outer left right merging pandas display side
 
 Sometimes, we wanna couple multiple dataframes together. In this note, I use `df` as `DataFrame`, `s` as `Series`.
 
-<p class="text-center" markdown="1">
-{% colab https://colab.research.google.com/drive/1eDh5XKD7XB5_nGmhQp17CTdTGuq6auKc %}
-</p>
-
 ## Libraries
 
 ~~~ python
@@ -621,7 +617,7 @@ df_concat_0 = pd.concat([df1, df2]) # the same columns
 df_concat_1 = pd.concat([df1, df2], axis=1) # the same rows
 
 df_concat_0_idx = pd.concat([df1, df2], ignore_index=True)
-# ignore_index=True prevent duplicating indexes 
+# ignore_index=True prevent duplicating indexes
 
 display_side_by_side(df1, df2)
 display_side_by_side(df_concat_0, df_concat_1, df_concat_0_idx)

@@ -13,10 +13,6 @@ keywords: "dataframe groupby group agg apply pivot table melt tables lambda grou
 
 In this note, I use `df` as `DataFrame`, `s` as `Series`.
 
-<p class="text-center" markdown="1">
-{% colab https://colab.research.google.com/drive/1HoaVZDey8xVqqwNUg2e28uJnGUBTx8Hk %}
-</p>
-
 ## Libraries
 
 ~~~ python
