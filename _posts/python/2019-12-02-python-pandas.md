@@ -257,17 +257,25 @@ df = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
 Selection,
 
 <div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
+{:.flex-even.d-flex.overflow-auto}
 ~~~ python
 df.loc['A', ('baz', 'two')]
+~~~
 
+{:.output.flex-even.d-flex}
+~~~
+0.487185
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.d-flex.overflow-auto}
+~~~ python
 df.loc[:,('baz', 'two')]
 ~~~
 
-{:.output.flex-fill.d-flex}
+{:.output.flex-even.d-flex}
 ~~~
-0.487185
-
 A    0.487185
 B   -0.563732
 C    0.755455
