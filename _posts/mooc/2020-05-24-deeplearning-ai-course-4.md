@@ -27,6 +27,11 @@ This course will teach you how to build convolutional neural networks and apply 
 {% katexmm %}
 
 
+## References
+
+- [2 ResNet Architecture](https://www.youtube.com/watch?v=0tBPSxioIZE).
+- [Understand how works Resnet… without talking about residual](https://medium.com/@pierre_guillou/understand-how-works-resnet-without-talking-about-residual-64698f157e0c)
+
 
 👉 **Course 5** -- [Sequence Models](/deeplearning-ai-course-5).
 
