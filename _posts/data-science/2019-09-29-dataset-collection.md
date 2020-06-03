@@ -8,6 +8,8 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 
 {% assign img-url = '/img/post/ML/data-tips' %}
 
+{% include toc.html %}
+
 ## Create artificial dataset
 
 - [sklearn dataset module](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets): `from sklearn import datasets`. This contains also some popular reference datasets.
@@ -28,10 +30,17 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [Quandl](https://www.quandl.com/) — your perfect choice for testing your machine learning algorithms and don’t waste your time on cleaning data.
 - [r/datasets](https://www.reddit.com/r/datasets/).
 - [Built-in datasets in Scikit-Learn](https://scikit-learn.org/stable/datasets/).
+- [NLP-progress](http://nlpprogress.com/).
 
 ## Datasets
 
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
+
+### Vietnamese
+
+- [PhoBERT: Pre-trained language models for Vietnamese](https://github.com/VinAIResearch/PhoBERT).
+- [IWSLT'15 English-Vietnamese data](https://nlp.stanford.edu/projects/nmt/) (small from Stanford).
+- [NLP-progress - Vietnamese](http://nlpprogress.com/#vietnamese)
 
 ## Sample datasets
 

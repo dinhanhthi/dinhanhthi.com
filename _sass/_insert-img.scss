@@ -19,8 +19,8 @@ li > .emoji{
 }
 
 .img-full-normal, .img-full-100, .img-full, .img-full-50, .img-full-75, .img-full-85, .img-full-90, .img-100, .img-50, .img-75, .img-85, .img-90{
-	margin-bottom: 1rem;
-	margin-top: 1rem;
+	margin-bottom: $mb;
+	// margin-top: 1rem;
 	img{
 		display: block;
 		margin: 0 auto;

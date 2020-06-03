@@ -94,7 +94,7 @@ For example, if the video's URL is `youtube.com/watch?v=57oX5RMHHdQ`, use below 
 
 ## Inset figures / images
 
-### Beginning of each post: 
+### Beginning of each post:
 
 ~~~ liquid
 {% raw %}{% assign img-url = '/img/post/ML' %}{% endraw %}
@@ -180,7 +180,7 @@ You can also use `<div>` tag to enclose the section you wanna show in only 1 sid
 
 ### Click to enlarge / zoom images
 
-If you wanna some photos having the function "click to enlarge", just add class `.pop` (or `.zoom`) to this photo. 
+If you wanna some photos having the function "click to enlarge", just add class `.pop` (or `.zoom`) to this photo.
 
 ### Insert JSXGraph
 
@@ -254,12 +254,12 @@ JXG.Options = JXG.merge(JXG.Options, {
       ticks:{
         majorHeight: 0,
         insertTicks: false,
-        ticksDistance : 6, 
+        ticksDistance : 6,
       },
       lastArrow: {
           type: 1,
           highlightSize: 8,
-          size: 10 
+          size: 10
       },
     },
     text:{
@@ -276,7 +276,7 @@ var brd1 = JXG.JSXGraph.initBoard('jsx-box', {
   axis:true,
   boundingbox: [-8, 5, 8, -4],
   grid: false,
-  showScreenshot: false, 
+  showScreenshot: false,
   showNavigation: false,
   showCopyright: false
   }
@@ -314,7 +314,7 @@ Example like [this site](/to-be-done).
 - [x] Finished task.
 </div>
 ~~~
- 
+
 Two equal sized columns,
 
 ~~~ html
@@ -352,7 +352,7 @@ Spread Operator (ES6)
 - Gray: `{:.bg-gray}` before `~~~`.
 - Output: `{:.output}` before `~~~`.
 
-### Code with line numbers 
+### Code with line numbers
 
 There must be a language!:
 
@@ -366,7 +366,7 @@ There must be a language!:
 
 Depend on the length of codes, you decides to use `.d-md-flex` or `.d-lg-flex`.
 
-Output with flexible widths
+#### Output with flexible widths
 
 ~~~ html
 <div class="d-md-flex" markdown="1">
@@ -378,7 +378,7 @@ Result code blocks
 </div>
 ~~~
 
-Output with equal widths,
+#### Output with equal widths,
 
 ~~~ html
 <div class="d-md-flex" markdown="1">
@@ -390,7 +390,7 @@ Result code blocks
 </div>
 ~~~
 
-If you wanna show the line numbers:
+#### With line numbers:
 
 ~~~ html
 <div class="d-md-flex of-auto" markdown="1">
@@ -413,7 +413,20 @@ Block of codes.
 </div>
 ~~~
 
-**Options:**{:.tbrown}
+#### Code with figure
+
+``` html
+<div class="columns-2" markdown="1">
+``` python
+code
+```
+
+{:.img-full-85}
+![]()
+</div>
+```
+
+#### Options
 
 - Add `.overflow-auto` before the **result block** if its length is long.
 - (Show line numbers case) Add `of-auto` like in above example if the **main code block** has a long length.
@@ -425,7 +438,7 @@ Block of codes.
 ### Auto-equal 50% code boxes
 
 ~~~ html
-<div class="flex-auto-equal-2" markdown="1">
+<div class="flex-50" markdown="1">
 code_block_1
 
 code_block_2
@@ -453,7 +466,7 @@ $ sudo apt-get update
 
 ### Alert boxes by Bootstrap
 
-Checkm all other types of alert boxes [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}. Below are 3 of them (success--green, warning--yellow, danger--red). You have 3 ways to add an alert box in this site. Note that, you can use interchangeably between `warning`, `success` and `danger`. 
+Checkm all other types of alert boxes [here](https://getbootstrap.com/docs/4.1/components/alerts/){:target="_blank"}. Below are 3 of them (success--green, warning--yellow, danger--red). You have 3 ways to add an alert box in this site. Note that, you can use interchangeably between `warning`, `success` and `danger`.
 
 If your alert box has only 1 paragraph,
 
@@ -475,7 +488,7 @@ You can use my self-defined tags (**Be careful:** if you run your site on Github
 ~~~
 {% raw %}{% alertbox warning %}
 Content
-{% endalertbox %}{% endraw %} 
+{% endalertbox %}{% endraw %}
 ~~~
 
 <div class="alert alert-warning" role="alert" markdown="1">
@@ -504,7 +517,7 @@ If you wanna show the box as default, add class `show"` to the `div#box1ct`.
 ~~~
 {% raw %}{% hsbox **Tựa đề box** | show %}
 Box's content.
-{% endhsbox %}{% endraw %} 
+{% endhsbox %}{% endraw %}
 ~~~
 
 If you don't wanna show the box as default, remove `| show`.
@@ -527,7 +540,7 @@ Content
 ~~~
 {% raw %}{% defbox Title | boxid %}
 Content
-{% enddefbox %}{% endraw %} 
+{% enddefbox %}{% endraw %}
 ~~~
 
 Box's id `boxid` is optional and you can use markdown syntax for `Title`.
@@ -604,7 +617,7 @@ Content of step 1.
 Content of step 2.
 {% endeachstep %}
 
-{% endstepblock %}{% endraw %} 
+{% endstepblock %}{% endraw %}
 ~~~
 
 
@@ -619,7 +632,7 @@ Content of step 2.
 If you wanna add something like that ({% ref http://math2it.com custom text %}), you can use
 
 ~~~
-{% raw %}{% ref http://domain.com | custom text %}{% endraw %} 
+{% raw %}{% ref http://domain.com | custom text %}{% endraw %}
 ~~~
 
 where `| custom text` is optional, defaut is `ref`.

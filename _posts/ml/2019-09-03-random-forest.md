@@ -58,7 +58,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 A sample dataset:
 
-~~~ python 
+~~~ python
 iris = datasets.load_iris() # iris flowers
 X = iris.data
 y = iris.target
