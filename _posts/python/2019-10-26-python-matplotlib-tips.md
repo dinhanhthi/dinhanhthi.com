@@ -39,7 +39,7 @@ Axes' options,
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 # Hide the axis
-plt.axis('off') 
+plt.axis('off')
 # and 'on' to display it again
 ~~~
 
@@ -51,7 +51,7 @@ plt.ylim(0, 3.5)
 
 ~~~ python
 # Axes' label
-plt.xlabel('students')
+plt.xlabel('students', fontsize=14)
 plt.ylabel('mark')
 ~~~
 
@@ -60,6 +60,12 @@ plt.ylabel('mark')
 plt.xticks(fontsize=14, rotation=90)
 plt.yticks(fontsize=14, rotation=90)
 ~~~
+
+``` python
+# range of ticks
+plt.xticks(np.arange(0., 1., step=0.01))
+plt.yticks(np.arange(0., 1., step=0.01))
+```
 </div>
 
 Set equal 2 axes{% ref https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.set_aspect.html %},
@@ -176,8 +182,8 @@ from PIL import Image
 
 fname = 'image.png'
 image = Image.open(fname).convert("L")
-# If you have an L mode image, that means it is a single channel image - normally 
-#   interpreted as greyscale. The L means that is just stores the Luminance. 
+# If you have an L mode image, that means it is a single channel image - normally
+#   interpreted as greyscale. The L means that is just stores the Luminance.
 #   It is very compact, but only stores a greyscale, not colour.
 
 arr = np.asarray(image)
@@ -200,7 +206,7 @@ To be sure that `plt.savefig()`{% ref https://matplotlib.org/3.1.1/api/_as_gen/m
 
 ~~~ python
 fig1 = plt.gcf() # get the current figure
-plt.show() # show the plot 
+plt.show() # show the plot
 fig1.savefig('test.png', dpi=100)
 ~~~
 

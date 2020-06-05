@@ -16,9 +16,9 @@ keywords: "true false negative positive type i type ii error precision recall f1
 ## Confusion matrix
 
 {:.table.bd-right.table-dark}
-|              	|    actual (yes)   	|      actual (no)     	| 
+|              	|    actual (yes)   	|      actual (no)     	|
 |:------------:	|:------------------:	|:---------------------:	|
-| predict (yes) 	| <span class="tgreen-light">TP</span>	| <span class="tpink-light">FP</span>	| 
+| predict (yes) 	| <span class="tgreen-light">TP</span>	| <span class="tpink-light">FP</span>	|
 |  predict (no) 	| <span class="tpink-light">FN</span> 	|   <span class="tgreen-light">TN</span>   	|
 
 <div class="columns-2" markdown="1">
@@ -36,7 +36,7 @@ keywords: "true false negative positive type i type ii error precision recall f1
 
 ### How to remember?
 
-- **True**/**False** indicates what we predicted is right/wrong. 
+- **True**/**False** indicates what we predicted is right/wrong.
 - **Positive**/**Negative** is what we predicted (yes or no).
 
 ### Type I / Type II errors
@@ -57,7 +57,7 @@ Give a general view about our model, "is it really good?" thanks to precision an
 |  predict (no) 	| <span class="tpink-light">FN</span> 	|   <span class="tgreen-light">TN</span>   	|        	|
 |              	|      **Recall**     	|                       	|        	|
 
-- **Precision**: How many our positive predictions are really true? (Check the accuracy of our positive predictions).
+- **Precision**: How many of our positive predictions are really true? (Check the accuracy of our positive predictions).
 
     <p class="p-mark">
     $$
@@ -67,7 +67,7 @@ Give a general view about our model, "is it really good?" thanks to precision an
     $$
     </p>
 
-- **Recall**: How many positive results belong to our predictions? (Do we miss some negative predictions?)
+- **Recall**: How many of positive results belong to our predictions? (Do we miss some negative predictions?)
 
     <p class="p-mark">
     $$

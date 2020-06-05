@@ -118,6 +118,11 @@ print("1", 5, "thi") # there are spaces
 ~~~
 </div>
 
+``` python
+# first 20 characters, second 10 characters
+print( '{:<20s} {:<10s}'.format(string_one, string_two) )
+```
+
 Display separated results (like in executing multiple code cells),
 
 ~~~ python
@@ -205,7 +210,7 @@ def ex_class(var1, var2):
     """
     Quick description.
     Longer description with `keywords`.
-    
+
     Parameters
     ----------
     var1 : int
@@ -213,11 +218,11 @@ def ex_class(var1, var2):
     var2 : {0 or 'index', 1 or 'columns'}, default 0
         Long desc for var2. It may take a long line and we can break
         this like that.
-        
+
     Returns
     -------
     Resampler object
-    
+
     See Also
     --------
     groupby : Group by mapping, function, label, or list of labels.
@@ -228,7 +233,7 @@ def ex_class(var1, var2):
     See the `user guide
     <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
     for more.
-    
+
     Examples
     --------
     Start by creating a series with 9 one minute timestamps.
@@ -244,7 +249,7 @@ def ex_class(var1, var2):
 ~~~
     Quick description.
     Longer description with `keywords`.
-    
+
     Parameters
     ----------
     var1 : int
@@ -252,11 +257,11 @@ def ex_class(var1, var2):
     var2 : {0 or 'index', 1 or 'columns'}, default 0
         Long desc for var2. It may take a long line and we can break
         this like that.
-        
+
     Returns
     -------
     Resampler object
-    
+
     See Also
     --------
     groupby : Group by mapping, function, label, or list of labels.
@@ -267,7 +272,7 @@ def ex_class(var1, var2):
     See the `user guide
     <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
     for more.
-    
+
     Examples
     --------
     Start by creating a series with 9 one minute timestamps.

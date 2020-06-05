@@ -84,6 +84,13 @@ df.loc['new_index'] = [new_value]
 ~~~
 </div>
 
+## Shuffle rows
+
+``` python
+# shuffle all rows and reset the index
+df_new = df.sample(frac=1).reset_index(drop=True)
+```
+
 ## Select rows/columns/item(s) {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html %}
 
 ### Select Single value
