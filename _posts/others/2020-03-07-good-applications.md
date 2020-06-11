@@ -51,6 +51,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [Lingoes](http://www.lingoes.net/): Global dictionary for Windows. Its [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
 - [DeepL](https://deepl.com/) -- "better than google translate" app for Windows. You can use <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd> to quickly translate a word or phrase.
 - [QTranslate](https://quest-app.appspot.com/) -- quickly translate any word / phrase and also their pronunciation by using hotkeys (for example, you can use <kbd>Ctrl</kbd> + <kbd>E</kbd> to hear the pronunciation and <kbd>Ctrl</kbd> + <kbd>Q</kbd> to see the translation). The data is obtained from various sources including deepl and google translate.
+- [Raindrop](raindrop.io) : bookmark to read later the articles (like Pocket)
 
 ## Chrome extension
 

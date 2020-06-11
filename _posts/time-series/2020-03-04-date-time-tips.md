@@ -145,8 +145,8 @@ df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000
 ~~~
 
 ~~~ python
-# UNIX (ms) -> datetime64
-df['timestamp'] = df['timestamp'].astype('datetime64[ms])
+# UNIX float (ms) -> datetime64
+df['timestamp'] = df['timestamp'].astype('datetime64[ms]')
 # change `ms` with others, e.g. `ns` for nanosecond
 ~~~
 
@@ -156,7 +156,7 @@ df['timestamp'] = df['timestamp'].astype('datetime64[ms])
 def set_index(data, col_time):
     """
     Make a copy of a time-series dataframe `df` and set the column-time be the
-    index of the dataframe. 
+    index of the dataframe.
     In the case index has no name, we set it as `'index'`.
     """
     df0 = data.copy()
@@ -220,7 +220,7 @@ df.date.diff().value_counts()
 # count number of different time steps
 df.date.diff().value_counts().count()
 
-# take the index of the largest 
+# take the index of the largest
 df.date.diff().value_counts().index[0]
 
 # take the index of the smallest

@@ -108,6 +108,7 @@ Plot directly with dataframe,
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ python
 df.plot(figsize=(20, 5))
+df.plot(fontsize=12)
 ~~~
 
 ~~~ python

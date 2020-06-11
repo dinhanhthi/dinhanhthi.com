@@ -148,6 +148,8 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 ```
 2. If you wanna make some web app a desktop app, use [nativefier](github.com/jiahaog/nativefier).
 3. Bluetooth problem on Dell XPS 15 only: cannot turn on bluetooth ⇒ Try turn off and turn on again the bluetooth in BIOS setting.
-4.  <mark>Backup before installing a new system.</mark>
+4. Useful shortcuts:
+   - Capture fullscreen: `Ctrl+Alt+Print` (photos will be saved in **Pictures**)
+5.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

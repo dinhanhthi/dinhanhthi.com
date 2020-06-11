@@ -35,6 +35,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 ## Datasets
 
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
+- [Dataset samples from Machine Learning Mastery](https://github.com/jbrownlee/Datasets).
 
 ### Vietnamese
 
