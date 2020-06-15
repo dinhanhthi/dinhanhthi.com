@@ -199,6 +199,12 @@ array([[nan, nan, nan],
 ~~~
 </div>
 
+### Repeated values
+
+``` python
+np.full((5,), 50) # 5x1 of 5
+```
+
 ## Deleting
 
 <div class="d-md-flex" markdown="1">

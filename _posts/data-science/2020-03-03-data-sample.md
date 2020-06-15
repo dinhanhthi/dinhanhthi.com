@@ -3,7 +3,7 @@ layout: post
 title: "Data Sample"
 categories: [data science]
 tags: ['time series', data generation]
-keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows fake data to function"
+keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows fake data to function pyplot plt anomalies plot time series anomaly abnormal stationary time series"
 ---
 
 {% assign img-url = '/img/post/data/data-sample' %}
@@ -36,6 +36,8 @@ fp.close()
 import numpy as np
 x = np.random.uniform(1, 100, 1000)
 y = np.log(x) + np.random.normal(0, .3, 1000)
+plt.plot(x,y, '.')
+plt.plot(x, np.log(x), '.')
 ~~~
 
 {:.img-full-75.pop}
@@ -112,7 +114,7 @@ df = pd.DataFrame(df)
 With timezone (manually)
 
 ~~~ python
-df = pd.DataFrame({'timestamp': ['2019-01-31T16:47:00+01:00', '2019-01-31T16:48:00+02:00', 
+df = pd.DataFrame({'timestamp': ['2019-01-31T16:47:00+01:00', '2019-01-31T16:48:00+02:00',
                                  '2019-01-31T16:49:00+02:00', '2019-01-31T16:50:00+01:00']})
 ~~~
 
@@ -127,7 +129,7 @@ from pandas.tseries.frequencies import to_offset
 def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1):
     """
     General a sample time series dataframe with different periods and time steps.
-    
+
     Parameters:
     -----------
     starting_date: datetime-like, str, int, float
@@ -151,15 +153,15 @@ def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1)
             starting_date = str(pd.Timestamp(starting_date) + pd.to_timedelta(to_offset(freq))*gap)
         else:
             starting_date = str(pd.Timestamp(starting_date))
-            
+
         df_tmp = dict({'date': pd.date_range(starting_date, periods=per, freq=freq)})
         df_tmp = pd.DataFrame(df_tmp)
         df = pd.concat([df, df_tmp], ignore_index=True, sort=False)
         starting_date = str(df_tmp.date.iloc[-1])
-    
+
     for i_var in range(n_vars):
         df['var'+str(i_var)] = np.arange(i_var*10, i_var*10+sum(periods))
-    
+
     df = df.infer_objects()
     return df
 ~~~
@@ -167,10 +169,10 @@ def generate_sample(starting_date, periods=None, gaps=None, freq="1T", n_vars=1)
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~ python
-df = generate_sample(starting_date='2020-01-01', 
-                     periods=[3, 2], 
-                     gaps=[0, 5], 
-                     freq='1T', 
+df = generate_sample(starting_date='2020-01-01',
+                     periods=[3, 2],
+                     gaps=[0, 5],
+                     freq='1T',
                      n_vars=5)
 ~~~
 
@@ -243,11 +245,11 @@ df = generate_sample(starting_date='2020-01-01',
 import pandas as pd
 import numpy as np
 from pandas.tseries.frequencies import to_offset
-def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, regular=True, 
+def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, regular=True,
                             random_seed=None, dif_size=False, gaps='auto', n_point_spec='full', freq='T', n_vars=1):
     """
     General a sample time series dataframe with already-shaped windows.
-    
+
     Parameters:
     -----------
     ts_start: datetime-like, str, int, float
@@ -265,9 +267,9 @@ def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, r
     dif_size: boolean
         Windows with different sizes?
     gaps: 'auto' or lst
-        If 'auto', the gaps between windows are chosen equally. 
-        Otherwise, you have to put the list of percentage (greater than 1) being plus to 
-        `n_elements` (minimum window' size). 
+        If 'auto', the gaps between windows are chosen equally.
+        Otherwise, you have to put the list of percentage (greater than 1) being plus to
+        `n_elements` (minimum window' size).
         Note that, the length of this list is equal to `n_windows-1`.
     n_point_spec: 'full' or int, default='full'
         The number of points in the special window. If 'full', its number of elements
@@ -277,15 +279,15 @@ def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, r
     n_vars: int
         Number of variable columns.
     """
-    
+
     df = pd.DataFrame()
-    
+
     gap = 0
     np.random.seed(random_seed)
-    
+
     # choose the special window
     spec_win = np.random.randint(0, n_windows)
-    
+
     for w in range(n_windows):
         n_elements_new = n_elements
         if (n_point_spec != 'full') and (w == spec_win):
@@ -304,19 +306,19 @@ def generate_ts_data_window(ts_start='2020-03-27', n_windows=3, n_elements=20, r
             df_tmp = df_tmp.sample(frac=frac, axis=0)
         df = pd.concat([df, df_tmp], ignore_index=True, sort=False)
         ts_start = str(df_tmp['timestamp'].iloc[-1])
-        
+
         gap = n_elements / 2 # default: gap=50% length of n_elements
         if (gaps != 'auto') and (w != n_windows-1):
             gap = n_elements / 2 + gaps[w]*n_elements/100
         print(gap)
-        
+
     df = df.infer_objects()
     return df
 ~~~
 
 <div class="columns-2" markdown="1">
 ~~~ python
-df = generate_ts_data_window(n_windows=3, 
+df = generate_ts_data_window(n_windows=3,
                             regular=True,
                             n_elements=50,
                             dif_size=False,
@@ -328,3 +330,57 @@ df.set_index('timestamp').plot(figsize=(10,5), style='.')
 {:.img-full-100.pop}
 ![Generated data.]({{img-url}}/ts_window.png)
 </div>
+
+### Stationary TS with noise
+
+Random choose the positions of anomal group + random choose the number of points in each group.
+
+``` python
+# CREATE A SAMPLE OF STATIONARY TIME SERIES
+np.random.seed(124)
+ts_start = '2020-01-01'
+periods = 500
+num_group_noise = 4
+max_point_each_group_noise = 50
+max_noise = 7
+
+date = pd.date_range(ts_start, periods=periods, freq='D')
+data = np.random.randn(periods)
+# add noises
+noise_num_pts = np.random.randint(5,max_point_each_group_noise, (num_group_noise,)) # number of points at each position of noise
+noise_pos = np.random.choice(periods, num_group_noise) # number of position having noises
+list_of_idx_noise = []
+for idx, pos in enumerate(noise_pos):
+    if periods - pos > max_point_each_group_noise:
+
+#         noises = (-1)**(idx)*max_noise + 0.5*np.random.randn(noise_num_pts[idx]) # 2 sides
+        noises = max_noise + 0.5*np.random.randn(noise_num_pts[idx]) # 1 sides
+
+        data[pos:pos+noise_num_pts[idx]] = noises
+        list_of_idx_noise += [*range(pos, pos+noise_num_pts[idx], 1)]
+
+df = pd.DataFrame({'date': date, 'value': data})
+df = df.set_index('date')
+
+list_of_idx_noise = list(set(list_of_idx_noise))
+df_out = df.iloc[list_of_idx_noise] # df of noises
+```
+
+``` python
+# PLOT DATA WITH ANOMALIES
+def plot_anomalies(df, df_anomalies=None, idx_anomalies=None, title=None):
+    if not idx_anomalies:
+        idx_anomalies = df_anomalies['ts_start'].astype('datetime64[ms]').to_list()
+    plt.figure(figsize=(20, 5))
+    plt.scatter(df.index, df.value)
+    plt.scatter(idx_anomalies, df.loc[idx_anomalies], c='r')
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.xlabel('date', fontsize=14)
+    plt.ylabel('value', fontsize=14)
+    if title:
+        plt.title(title, fontsize=14)
+```
+
+{:.img-100}
+![Stationary TS with noise]({{img-url}}/stationary_ts_with_noise.png)

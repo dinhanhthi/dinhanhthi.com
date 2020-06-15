@@ -35,7 +35,7 @@ kill -9 <pid> # kill some process
 ○ Install file `.bin`, `.run`
 
 ~~~ bash
-chmod +x file-name.run 
+chmod +x file-name.run
 ./file-name.run
 ~~~
 
@@ -47,7 +47,7 @@ unzip <file>
 unzip <file> -d <destination>
 ~~~
 
-○ Terminal multi windows: 
+○ Terminal multi windows:
 
 ~~~ bash
 sudo apt-get install terminator
@@ -147,7 +147,7 @@ cp -r /mnt/iso <directory>
     ~~~ bash
   megaget /Root/Apps/matlab17b/R2017b_glnxa64_dvd2.iso
     ~~~
-- Download from uploaded directory: 
+- Download from uploaded directory:
     ~~~ bash
   megacopy --local <folder> --remote <folder-to-download> --download
     ~~~
@@ -182,7 +182,7 @@ source ~/.profile
 ○ Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
 
 ○  `Failed to load module 'canberra-gtk-module'`
-    
+
 ~~~ bash
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 ~~~
@@ -204,17 +204,17 @@ chown -R thi:root folder
 chown <user>:<group> file
 ~~~
 
-○ Check the permission of curent directory: 
+○ Check the permission of curent directory:
 
 ~~~ bash
-ls -l 
+ls -l
 ls -l <file>
 ~~~
 
 {% hsbox Check this photo %}
 {:.img-full-80}
 ![check ll](/img/post/linux/ll-user.png)
-{% endhsbox %} 
+{% endhsbox %}
 
 ## Matlab
 
@@ -241,7 +241,7 @@ sudo env "PATH=$PATH"
 
 from this, you can `sudo matlab`
 
-○ Matlab drive connector: after installing, run 
+○ Matlab drive connector: after installing, run
 
 ~~~ bash
 ~/bin/MATLABConnector toggle
@@ -261,7 +261,7 @@ sudo /home/thi/matlab_install/install -agreeToLicense yes -mode silent -destinat
 1. After the installation, copy file `license_standalone.lic` to `/home/thi/matlabR/licenses/`
 1. Copy file `libmwservices.so` to `/home/thi/matlabR/bin/glnxa64/`
 1. Try running matlab: `/home/thi/matlabR/bin/matlab`
-1. If you have an error like `libXt.so.6: cannot open shared object file: No such file or directory`, try to install 
+1. If you have an error like `libXt.so.6: cannot open shared object file: No such file or directory`, try to install
     ~~~ bash
 sudo apt-get install libxt6
     ~~~
@@ -332,13 +332,20 @@ youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <link-playl
 
 ## Media / Photo / Music
 
+○ Convert `.ts` videos to `.mp4`
+
+``` bash
+sudo apt install ffmpeg
+ffmpeg -i input.ts -c:v libx264 -c:a aac output.mp4
+```
+
 ○ Mp3 tag editor:
 
 ~~~ bash
 sudo apt install exfalso  # Ex Falso
 ~~~
 
-○ Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)): 
+○ Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)):
 
 <div class="flex-50" markdown="1">
 ~~~ bash

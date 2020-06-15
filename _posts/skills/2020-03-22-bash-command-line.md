@@ -68,9 +68,10 @@ df -h
 ~~~
 
 ~~~ bash
-# CPU & RAM
-cat /proc/cpuinfo
-cat /proc/meminfo
+# CPU
+cat /proc/cpuinfo | grep 'model name' | uniq # model
+cat /proc/cpuinfo | grep 'vendor' | uniq # vendor
+cat /proc/cpuinfo | grep processor | wc -l # number of processes
 ~~~
 
 ~~~ bash
@@ -82,6 +83,12 @@ free -m
 # ALL ENV
 printenv
 ~~~
+
+``` bash
+# NVIDIA
+nvidia-smi
+lspci -nn | grep '\[03' # another way
+```
 </div>
 
 ### Folders / Files

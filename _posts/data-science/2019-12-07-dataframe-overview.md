@@ -63,6 +63,7 @@ len(df.columns) # #cols?
 # UNIQUE VALUES IN COL
 df['col'].unique()
 df['col'].unique().size #unique vals
+df['col'].nunique() # number of unique vals
 ~~~
 </div>
 
