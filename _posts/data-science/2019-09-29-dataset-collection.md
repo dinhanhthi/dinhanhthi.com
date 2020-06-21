@@ -17,6 +17,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 ## Source of datasets
 
 - [Google Dataset Search](https://toolbox.google.com/datasetsearch).
+- [Google Trends Datastore](https://googletrends.github.io/data/)
 - [Google AI Datasets](https://ai.google/tools/datasets/) — In order to contribute to the broader research community, Google periodically releases data of interest to researchers in a wide range of computer science disciplines.
 - [Data Hub Datasets collection](https://datahub.io/collections) — high quality data and datasets organized by topic.
 - [Kaggle Datasets](https://www.kaggle.com/datasets).

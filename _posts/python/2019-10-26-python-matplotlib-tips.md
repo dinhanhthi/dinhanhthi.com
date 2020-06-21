@@ -4,7 +4,7 @@ title: "Matplotlib extra"
 categories: [python]
 tags: ['visualization', 'python-data', extra, python]
 icon-photo: matplotlib.png
-keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares figsize subplot multiple plots"
+keywords: "plot in python axes grayscale PIL Image cmap imshow savefig gcf imageio imwrite plt.plot line style marker scatter plot dot line connect point generate list of colors automatically based on a list of input legend from list of colors imshow plot true false grid squares figsize subplot multiple plots legend independent from the plot line2d"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -117,6 +117,21 @@ df.plot(style='.')
 ~~~
 </div>
 
+### Legend
+
+``` python
+# from the plots
+plt.plot(x, np.sin(x), '-b', label='Sine')
+plt.plot(x, np.cos(x), '--r', label='Cosine')
+plt.legend(fontsize=13)
+```
+
+``` python
+# custom: independent from the plots
+from matplotlib.lines import Line2D
+plt.legend([Line2D([0], [0], color='b'), Line2D([0], [0], color='r')], ['blue', 'red'])
+```
+
 ### Legend from list of colors
 
 Suppose we have a list of group with different colors. We wanna make legends for them (from notebook _dataswati/2020-02-13-Thi-aquassay-anomaly-ligne\_a.ipynb_),
@@ -154,13 +169,25 @@ For example, we wanna create a `4x4` plots{% ref https://matplotlib.org/3.1.1/ap
 
 ~~~ python
 plt.figure(figsize=(12, 10), dpi= 60)
-
 for i in range(4):
     pos = i+1
     plt.subplot(2,2,pos)
     plt.plot(X[i])
     plt.title('title_'+str(pos), fontsize=18)
 ~~~
+
+Using `ax`,
+
+``` python
+size = len(list_features)
+f, axs = plt.subplots(int((size+1)/2), 2, figsize=(15,15/5*int(size/2 + 1/2)))
+for ax, feat in zip(axs.ravel(), list_features):
+    df_feat = df[feat]
+    for idt, df_id in df_feat.groupby('batch_id'):
+        ax.plot(x, y, color='royalblue', alpha=0.5)
+        ax.set_title('plot_'+feat)
+plt.show()
+```
 
 ## Plot a photo (`imshow`)
 

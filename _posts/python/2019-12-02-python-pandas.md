@@ -126,7 +126,7 @@ df.loc[1:5, 'col']
 
 ### Select columns
 
-**Select a column** (type `Series`): Get column `Name`.
+**Select a column** (returns a `Series`)
 
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ python
@@ -138,6 +138,20 @@ df.loc[:, 'Name']
 ~~~ python
 # with an index
 df.iloc[:,0]
+~~~
+</div>
+
+Returns a `pd.DataFrame`,
+
+<div class="flex-auto-equal-2" markdown="1">
+~~~ python
+df[['Name']]
+df.loc[:, ['Name']]
+~~~
+
+~~~ python
+# with an index
+df.iloc[:,[0]]
 ~~~
 </div>
 
@@ -158,7 +172,7 @@ df.iloc[:, [0,-1]]
 
 ### Select rows
 
-**Select a row** (type `Series`): Get row `Thi`.
+**Select a row** (returns a `Series`)
 
 <div class="flex-50" markdown="1">
 ``` python

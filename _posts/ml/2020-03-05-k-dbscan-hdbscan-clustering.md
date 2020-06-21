@@ -16,7 +16,7 @@ The key idea is that for each point of a cluster, the neighborhood of a given ra
 
 ### DBSCAN
 
-DescriptionDensity-based spatial clustering of applications with noise.
+Description Density-based spatial clustering of applications with noise.
 
 ### HDBSCAN
 
@@ -57,10 +57,38 @@ Parameters ([others](https://scikit-learn.org/stable/modules/generated/sklearn.c
 
 Components:
 
-- `clustering.labels_`: clusters' labels.
+- `clr.labels_`: clusters' labels.
 
 ### HDBSCAN
 
+For a ref of paramaters, check [here](https://hdbscan.readthedocs.io/en/latest/api.html).
+
 ~~~ python
 from hdbscan import HDBSCAN
+clr = DBSCAN(eps=3, min_cluster_size=3, metric='euclidean')
 ~~~
+
+Parameters:
+
+- `min_cluster_size` {% ref https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-cluster-size %} the smallest size grouping that you wish to consider a cluster.
+- `min_samples`{% ref https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-samples %}: The number of samples in a neighbourhood for a point to be considered a core point. The larger value $\to$ the more points will be declared as noise & clusters will be restricted to progressively more dense areas.
+
+Results:
+
+- Label `-1` means that this sample is not assigned to any cluster, or noise!
+- `clt.labels_`: labels of clusters (including `-1`)
+- `clt.probabilities_`: scores (between 0 and 1). `0` means sample is not in cluster at all (noise), `1` means the heart of cluster.
+
+
+#### HDBSCAN and scikit-learn
+
+Note that, HDBSCAN [is built based on scikit-learn](https://github.com/scikit-learn-contrib/hdbscan/blob/master/hdbscan/hdbscan_.py#L642) but it doesn't have an `.predict()` method as other clustering methods does on scikit-learn. Below code gives you a new version of HDBSCAN (`WrapperHDBSCAN`) which has an additional `.predict()` method.
+
+``` python
+from hdbscan import HDBSCAN
+
+class WrapperHDBSCAN(HDBSCAN):
+    def predict(self, X):
+        self.fit(X)
+        return self.labels_
+```

@@ -27,7 +27,7 @@ An example
 <div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
 A **class** `student` represents (a template of) an **object** student with:
 
-- Attributes: `name`, `marks` and 
+- Attributes: `name`, `marks` and
 - Methods: `take_exams()`, `graduate()`.
 
 **Instances** `john_doe` and `jane_doe` defined from class `student` will have:
@@ -80,7 +80,7 @@ getattr(MyClass, 'report', None)
 ~~~
 
 ~~~ python
-def props(cls):   
+def props(cls):
     return [i for i in cls.__dict__.keys() if i[:1] != '_']
 
 # access these attributes
@@ -169,6 +169,21 @@ class son_class(father_class):
 ~~~
 </div>
 
+If you want son takes all parameters of father and use additional parameters,
+
+``` python
+class Shape:
+    def __init__(self, shapename):
+        self.shapename = shapename
+
+class ColoredShape(Shape):
+    def __init__(self, color, **kwargs):
+        super().__init__(**kwargs)
+        self.color = color
+
+cs = ColoredShape(color='red', shapename='circle')
+```
+
 ## Abstract Base Classes (ABC)
 
 ~~~ python
@@ -181,7 +196,7 @@ from abc import ABC, abstractmethod
 class BaseModel(ABC):
   def __init__(self):
     pass
-  
+
   # child class must have
   @abstractmethod
   def fit(self, X):

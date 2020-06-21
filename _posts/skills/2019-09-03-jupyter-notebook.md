@@ -4,7 +4,7 @@ title: "Jupyter Notebook"
 categories: [python]
 tags: [ide, bash, linux]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address list of variable environement"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -39,6 +39,47 @@ jupyter notebook --ip=127.0.0.1 --port=8080 --allow-root
 ## Other tips
 
 - Running 2 tasks in the same cell TAKE LONGER TIME than running each on different cells.
+- Download a folder in jupyter notebook:
+  - Inside notebook, use:
+
+    ``` python
+    %%bash
+    tar -czf archive.tar.gz foldername
+    ```
+  - Or using [nbzip](https://github.com/data-8/nbzip) (only working on current server).
+
+## Check the info
+
+Check the info of a function (gives us the documentation):
+
+~~~ bash
+?<func-name>
+~~~
+
+Check the shortcodes of a function:
+
+~~~ bash
+??<func-name>
+~~~
+
+Check where command executed from (in your `$path`)?
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+!type python
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+python is /Users/thi/anaconda/envs/python3.6/bin/python
+~~~
+</div>
+
+``` python
+# get the list of current variables
+whos
+```
 
 ## Multiline commands
 
@@ -108,7 +149,7 @@ Open jupyter notebook in local browser but the backend-server is on remote.
   ssh -N -L localhost:9888:192.168.0.155:9899 <username-remote>@<remote-host> -p <port>
   # if there is no port, remove `-p <port>`
     ~~~
-    
+
     Open browser: `http://localhost:9888` (type password if needed).
 
 - If jupyter server **is not** running on remote yet,
@@ -209,34 +250,6 @@ Put below codes in the markdown cell of Jupyter Notebook.
   <td> <img src="Nordic_trails.jpg" alt="Drawing" style="width: 250px;"/> </td>
 </tr>
 ~~~
-
-## Check the info
-
-Check the info of a function (gives us the documentation):
-
-~~~ bash
-?<func-name>
-~~~
-
-Check the shortcodes of a function:
-
-~~~ bash
-??<func-name>
-~~~
-
-Check where command executed from (in your `$path`)?
-
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
-~~~ python
-!type python
-~~~
-
-{:.output.flex-fill.d-flex}
-~~~
-python is /Users/thi/anaconda/envs/python3.6/bin/python
-~~~
-</div>
 
 ## Magic Functions
 

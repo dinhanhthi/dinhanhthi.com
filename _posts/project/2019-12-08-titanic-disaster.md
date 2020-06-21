@@ -3,7 +3,6 @@ layout: post
 title: "Titanic Disaster on Kaggle"
 categories: [project-based learning]
 icon-photo: titanic.png
-notfull: 1
 keywords: survive passenger drop features convert to dummy variables impute missing data gridsearchcv Continuous to categorical random forest create an output file Manav Sehgal Dataquest Abhinav Sagar
 ---
 
@@ -43,7 +42,7 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
 - Take an overview about dataset.
   - `.describe` for numerical / categorical features.
   - Find percentage of missing data on each feature.
-  - Survival based on some categorical features. 
+  - Survival based on some categorical features.
   - Visualize survival based on `Age`.
   - Check if the result depends on the titles indicated in the `Name`?
 - **Preprocessing data**:
@@ -169,7 +168,7 @@ For continuous variables, we wanna fill missing data with the mean value.
 def impute_data(df_train, df_test, column_name):
   imputer = SimpleImputer(missing_values=np.nan, strategy='mean', verbose=0)
   # Fit the imputer object on the training data
-  imputer.fit(df_train[column_name].values.reshape(-1, 1)) # transform single column to 1 
+  imputer.fit(df_train[column_name].values.reshape(-1, 1)) # transform single column to 1
   # Apply the imputer object to the df_train and df_test
   df_train[column_name] = imputer.transform(df_train[column_name].values.reshape(-1, 1))
   df_test[column_name] = imputer.transform(df_test[column_name].values.reshape(-1, 1))

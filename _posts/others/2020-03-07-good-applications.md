@@ -21,6 +21,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 ### Office
 
 - Convert PDF to Word (conserve format): [freepdfconverter](https://www.freepdfconvert.com/).
+- PDF Editor online free: [pdfescape](https://www.pdfescape.com/)
 
 ## Multi-platforms
 
