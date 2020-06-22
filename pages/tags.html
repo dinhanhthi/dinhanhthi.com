@@ -12,23 +12,23 @@ permalink: /tags
   <section class="section">
     <div class="container">
       <div class="row justify-content-center">
-        
+
         <div class="col-12 col-lg-11">
           <div class="card-subject tag-list mb-4">
             <div class="card-body py-1">
-              
+
               {% for tag in site.tags %}
 
                 {% assign show_tag = true %}
                 {% assign name_tag = tag[0] %}
                 {% assign name_tag_dc = tag[0] | downcase %}
                 {% assign has_more_friends = false %}
-    
+
                 {% capture more_friends %}
                   {% for rn_tag in site.data.rename_tags %}
                     {% assign rn_tag_old_dc = rn_tag.old | downcase %}
                     {% assign rn_tag_new_dc = rn_tag.new | downcase %}
-    
+
                     {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
                       {% assign show_tag = false %}
                     {% endif %}
@@ -36,11 +36,11 @@ permalink: /tags
                     {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
                       {% assign show_tag = false %}
                     {% endif %}
-    
+
                     {% if name_tag_dc == rn_tag_old_dc %}
                       {% assign name_tag = rn_tag.new %}
                     {% endif %}
-    
+
                     {% if name_tag_dc == rn_tag_new_dc %}
                       {% if has_more_friends == true %}
                         ,
@@ -49,10 +49,10 @@ permalink: /tags
                       {% endif %}
                       {{ rn_tag.old | strip }}
                     {% endif %}
-    
+
                   {% endfor %}
                 {% endcapture %}
-    
+
                 {% if show_tag == true %}
                   <a class="category tag" href="#{{ name_tag | slugify }}">
                     {{ name_tag }}
@@ -105,7 +105,7 @@ permalink: /tags
               {% endfor %}
             {% endcapture %}
 
-            
+
             {% assign tag_friends = more_friends | split: ',' | sort %}
 
             {% if show_tag == true %}
@@ -157,7 +157,7 @@ permalink: /tags
                           <a href="{{ list_posts[forloop.index0] }}">{{ list_posts_title[forloop.index0] }}</a>
                         </li>
                       {% endfor %}
-                    
+
                     {% endif %}
                   </ul>
                 </div>

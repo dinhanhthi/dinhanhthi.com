@@ -22,7 +22,7 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/data-science-learning){:target="_blank"}).
 
-- <mark markdown='span'>**Working as a Data Scientist** at [Dataswati](https://www.dataswati.com/)</mark>. My role is to amiliorate the library `popai`, a tool Dataswati uses to work on their projects. I work much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_.
+- <mark markdown='span'>**Working as a Data Scientist** at [Dataswati](https://www.dataswati.com/)</mark>. My role is to ameliorate the library `popai`, a tool Dataswati uses to work on their projects. I work much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_.
 - {% badge I'm following | yellow %} [Learning Docker](https://www.linkedin.com/learning/learning-docker-2/the-docker-flow-images-to-containers) on LinkedIn Learning.
 - {% badge I'm following | yellow %} [Deep Learning specialization](https://www.coursera.org/specializations/deep-learning) (*5 courses*) given by *deeplearning.ai* on Coursera &mdash; [my notes](/tags#deeplearning-ai).
   1. {% cert https://www.coursera.org/account/accomplishments/records/VJG62Z8QP7ZF %} [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning).
