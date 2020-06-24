@@ -2,6 +2,7 @@
 layout: post
 title: "Datasets Collection"
 categories: [data science]
+tags: [dataset, collection]
 math: 1
 keywords: dataset collection google dataset google AI kaggle dataset data hub stanford large network dataset FiveThirtyEight data.world quandl r/datasets scikit-learn dataset fruit images labeled faces Wild Home Iris flower digits dataset module generator fake data
 ---

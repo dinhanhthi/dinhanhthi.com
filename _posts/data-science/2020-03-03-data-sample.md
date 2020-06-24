@@ -2,7 +2,7 @@
 layout: post
 title: "Data Sample"
 categories: [data science]
-tags: ['time series', data generation]
+tags: ['time series', data generation, collection]
 keywords: "create data sample example dataframe fake data time series data int numbers columns list of int numbers from numpy different time steps gaps don't continue Temporary file and directory tempfile time series with windows fake data to function pyplot plt anomalies plot time series anomaly abnormal stationary time series"
 ---
 

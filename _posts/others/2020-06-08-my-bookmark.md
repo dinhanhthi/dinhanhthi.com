@@ -2,7 +2,8 @@
 layout: post
 title: "My bookmarks"
 categories: [others]
-tags: ['online tool']
+tags: ['online tool', collection]
+notfull: 1
 icon-photo: bookmark.svg
 keywords: "useful websites articles links"
 ---
@@ -15,6 +16,7 @@ My favorite websites.
 
 - [DeepAI: The front page of A.I.](https://deepai.org/)
 - [Analytics Vidhya](https://www.analyticsvidhya.com/blog/)
+- [Papers with code](https://paperswithcode.com/)
 
 ## Maths
 

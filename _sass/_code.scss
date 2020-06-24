@@ -62,6 +62,12 @@ h2>code, h3>code, h4>code{
   }
 }
 
+.highlighter-rouge + .output.highlighter-rouge{
+  pre.highlight{
+    border-top: none;
+  }
+}
+
 
 // with line numbers
 figure.highlight{

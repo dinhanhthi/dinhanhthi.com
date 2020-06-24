@@ -2,7 +2,7 @@
 layout: post
 title: "Computer & Internet tips"
 categories: [others]
-tags: ['online tool']
+tags: ['online tool', collection]
 notfull: 1
 icon-photo: tips.svg
 notfull: 1

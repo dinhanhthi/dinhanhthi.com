@@ -2,6 +2,7 @@
 layout: post
 title: "Favorite Github repositories"
 categories: [others]
+tags: [collection]
 icon: "fab fa-github"
 icon-color: "#e6b3ff"
 keywords: "repository github git"

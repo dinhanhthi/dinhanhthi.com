@@ -3,7 +3,7 @@ layout: post
 title: "Type of Time Series"
 icon-photo: ts.png
 categories: [time series]
-tags: ['time series']
+tags: ['time series', collection]
 notfull: 1
 keywords: "univariate time series multivariate time series"
 ---

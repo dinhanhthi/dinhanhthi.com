@@ -2,7 +2,7 @@
 layout: post
 title: "Fresh Ubuntu Installation"
 categories: [others]
-tags: [bash, linux]
+tags: [bash, linux, collection, fresh install]
 icon-photo: ubuntu.svg
 keywords: "to do list after installing ubuntu debian elementary os linux"
 ---

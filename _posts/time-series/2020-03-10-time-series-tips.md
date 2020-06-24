@@ -5,17 +5,26 @@ icon-photo: ts.png
 categories: [time series]
 tags: ['time series', 'algorithm', extra]
 notfull: 1
-keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min"
+keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min problems with time series time series regression time series classification anomaly detection"
 ---
 
 {% include toc.html %}
 
 {% assign img-url = '/img/post/time-series' %}
 
-## Terminology
+## Terminologies & fields of research
 
 - **Burst detection**: An unexpectedly large number of events occurring within some certain temporal or spatial region is called
 a burst, suggesting unusual behaviors or activities.
+- **Time Series Regression**: {% ref https://ch.mathworks.com/discovery/time-series-regression.html %} Time series regression is a statistical method for predicting a future response based on the response history (known as autoregressive dynamics) and the transfer of dynamics from relevant predictors. Time series regression can help you understand and predict the behavior of dynamic systems from experimental or observational data. Time series regression is commonly used for modeling and forecasting of economic, financial, and biological systems.
+- **Time Series Classification**: {% ref https://medium.com/datadriveninvestor/time-series-classification-using-feature-extraction-16209570a22e %} Time series classification deals with classifying the data points over the time based on its' behavior. There can be data sets which behave in an abnormal manner when comparing with other data sets. Identifying unusual and anomalous time series is becoming increasingly common for organizations
+  - {% ref https://www.analyticsvidhya.com/blog/2019/01/introduction-time-series-classification/ %} Time series classification data differs from a regular classification problem since the attributes have an ordered sequence.
+- **Anomaly Detection**:
+  - A part in the same time series.
+  - Finding one or more time series which are different from others.
+  - Some abnormal points in the same time series.
+  - Applied for both univariate and multivariate time series.
+
 
 ## Find the windows of time series
 
@@ -75,12 +84,12 @@ Find the gap's threshold automatically,
 from sklearn.cluster import MeanShift
 
 def find_gap_auto(df):
-    
+
     X = df['date'].diff().unique()
     X = X[~np.isnat(X)] # remove 'NaT'
     X.sort()
     X = X.reshape(-1,1)
-    
+
     clustering = MeanShift().fit(X)
     labels = clustering.labels_
     cluster_min = labels[0]

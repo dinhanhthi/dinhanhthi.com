@@ -2,6 +2,7 @@
 layout: post
 title: "Favorite Youtube Channels"
 categories: [others]
+tags: [collection]
 icon: "fab fa-youtube"
 notfull: 1
 icon-color: "#ff8484"
