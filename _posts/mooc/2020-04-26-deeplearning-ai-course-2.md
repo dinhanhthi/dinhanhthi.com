@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Learning Coursera - Course 2"
+title: "DL 2 - Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: deeplearning-ai.png
@@ -90,7 +90,7 @@ dA3 *= D3
 dA3 /= keep_drop
 ```
 
-- <mark>Dropout is a widely used regularization technique that is specific to deep learning</mark>. 
+- <mark>Dropout is a widely used regularization technique that is specific to deep learning</mark>.
 - Randomly shuts down some neurons in each iteration.
 - When you shut some neurons down, you actually modify your model. <mark>The idea behind drop-out</mark> is that at each iteration, you train a different model that uses only a subset of your neurons.
 - With dropout, your neurons thus become <mark>less sensitive to the activation</mark> of one other specific neuron, because that other neuron might be shut down at any time.
@@ -180,7 +180,7 @@ _Different between 3 types of mini-batch. Image from the course._
 ### Exponentially weighted averages
 
 - It's faster than Gradient Descent!
-- **Example** (temperature in London): 
+- **Example** (temperature in London):
     - $\theta_t$: the temperature on day $t$.
     - $v_t$: the average temp of each day. It's called exponential average over $\frac{1}{1-\beta}$ days temperature.
         $$
@@ -221,7 +221,7 @@ _Bias correction for the green line, it's effective at the beginning of the line
 
 - It's faster than Gradient Descent!
 - **Why**: when we use mini-batch, there are oscillation, momentum helps use reduce this.
-- **One sentence**: compute the exponential weighted average of your gradient ⇒ use that gradient to update your weights instead. 
+- **One sentence**: compute the exponential weighted average of your gradient ⇒ use that gradient to update your weights instead.
 - **Idea**: Momentum takes into account the past gradients to smooth out the update. We will store the 'direction' of the previous gradients in the variable $v$ . Formally, this will be the exponentially weighted average of the gradient on previous steps.
 - **Intuition**: You can also think of $v$ as the "velocity" of a ball rolling downhill, building up speed (and momentum) according to the direction of the gradient/slope of the hill.
   - $dW, db$ like "acceleration".
@@ -279,7 +279,7 @@ _We want slower learning in vertial direction and faster in horizontal direction
 ## Learning rate decay
 
 - **Idea**: slowly reduce learning rate over time, it's learning rate decay.
-- **Why**? Below figure showes that, we need slower rate $\alpha$ (smaller step) at the area near the center. 
+- **Why**? Below figure showes that, we need slower rate $\alpha$ (smaller step) at the area near the center.
 
 {:.img-70}
 ![Learning rate decay.]({{img-url}}/learning-rate-decay.png)
@@ -340,7 +340,7 @@ _Coarse to fine: first try on a big square, then focus on the smaller one (blue)
 ![Appropriate scale for hyperparameters]({{img-url}}/app-scale-hp.jpg)
 _Appropriate scale for hyperparameters. Image from the course._
 
-- Hyperparameters for __exponentially weighted averages__: 
+- Hyperparameters for __exponentially weighted averages__:
   - We cannot try with values between $[0.9, 0.999]$ because,
     - $\beta: 0.9000 \to 0.9005$ : no much changes,
     - $\beta: 0.999 \to 0.995$ : huge impact!
@@ -438,7 +438,7 @@ In the perspective of layer 3, it depends only on layer 2 $\Rightarrow$ If layer
 ### Batch Norm in test time
 
 - BN processes our data one min-batch at a time. However, in test time, you need to process the examples at a time. $\Rightarrow$ Need to adapt your network to do that.
-- **Idea**: calculate $\mu, \sigma^2$ using _exponentially weighted average_ (across mini-batches). Other words, 
+- **Idea**: calculate $\mu, \sigma^2$ using _exponentially weighted average_ (across mini-batches). Other words,
   - In the training time, we calculate (and store) also the $\mu^{\{t\}[l]}, \sigma^{\{t\}[l]}$ in each mini-batch.
   - Find $\mu, \sigma^2$ (exponentially weighted average) of all mini-batches.
   - Use this $\mu, \sigma^2$ to find $Z_{\text{norm}}$ and $\tilde{Z}$ (at each example $i$).
@@ -448,11 +448,11 @@ In the perspective of layer 3, it depends only on layer 2 $\Rightarrow$ If layer
 
 Writing and running programs in TensorFlow has the following steps:
 
-1. Create Tensors (variables) that are not yet executed/evaluated. 
+1. Create Tensors (variables) that are not yet executed/evaluated.
 2. Write operations between those Tensors.
-3. Initialize your Tensors. 
-4. Create a Session. 
-5. Run the Session. This will run the operations you'd written above. 
+3. Initialize your Tensors.
+4. Create a Session.
+5. Run the Session. This will run the operations you'd written above.
 
 ``` python
 # create placeholders
@@ -464,7 +464,7 @@ W1 = tf.get_variable("W1", [25,12288], initializer = tf.contrib.layers.xavier_in
 b1 = tf.get_variable("b1", [25,1], initializer = tf.zeros_initializer())
 ```
 
-There are two typical ways to create and use sessions in tensorflow: 
+There are two typical ways to create and use sessions in tensorflow:
 
 1. Method 1:
     ```python
@@ -475,7 +475,7 @@ There are two typical ways to create and use sessions in tensorflow:
     ```
 2. Method 2:
     ```python
-    with tf.Session() as sess: 
+    with tf.Session() as sess:
         # run the variables initialization (if needed), run the operations
         result = sess.run(..., feed_dict = {...})
         # This takes care of closing the session for you :)
@@ -484,7 +484,7 @@ There are two typical ways to create and use sessions in tensorflow:
 **What you should remember**:
 
 - Tensorflow is a programming framework used in deep learning
-- The two main object classes in tensorflow are Tensors and Operators. 
+- The two main object classes in tensorflow are Tensors and Operators.
 - When you code in tensorflow you have to take the following steps:
     - Create a graph containing Tensors (Variables, Placeholders ...) and Operations (`tf.matmul`, `tf.add`, ...)
     - Create a session

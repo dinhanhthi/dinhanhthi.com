@@ -4,7 +4,7 @@ title: "Jupyter Notebook"
 categories: [python]
 tags: [ide, bash, linux]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address list of variable environement"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address list of variable environement toc extension table of content"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -279,7 +279,13 @@ Get the commands from 1 to 4:
 %history -n 1-4 # get commands 1 to 4
 ~~~
 
+## Extensions
 
+### Table of contents
 
+1. Install [npm and nodejs](/npm-nodejs).
+2. Install [this extension](https://github.com/jupyterlab/jupyterlab-toc).
+3. Enable in jupyter lab view.
+4. Refresh the page.
 
 

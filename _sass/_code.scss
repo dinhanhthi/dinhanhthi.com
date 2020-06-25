@@ -66,6 +66,11 @@ h2>code, h3>code, h4>code{
   pre.highlight{
     border-top: none;
   }
+  &.d-flex{
+    @media (min-width: 768px){
+      border-top: 1px solid #eee;
+    }
+  }
 }
 
 

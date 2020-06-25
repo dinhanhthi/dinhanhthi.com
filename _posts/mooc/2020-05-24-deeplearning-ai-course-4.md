@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Deep Learning Coursera - Course 4"
+title: "DL 4 - Convolutional Neural Networks"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png

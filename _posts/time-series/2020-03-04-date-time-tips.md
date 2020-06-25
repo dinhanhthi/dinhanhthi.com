@@ -150,6 +150,11 @@ df['timestamp'] = df['timestamp'].astype('datetime64[ms]')
 # change `ms` with others, e.g. `ns` for nanosecond
 ~~~
 
+``` python
+# remove timezone
+df['time'].dt.tz_localize(None)
+```
+
 ### Get info timestamps
 
 ~~~ python
