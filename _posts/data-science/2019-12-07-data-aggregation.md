@@ -7,7 +7,7 @@ icon-photo: aggregation.png
 keywords: "dataframe groupby group agg apply pivot table melt tables lambda group different functions pivot_table"
 ---
 
-{% assign img-url = '/img/post/data/data-cleaning' %}
+{% assign img-url = '/img/post/data/data-aggregation' %}
 
 {% include toc.html %}
 
@@ -338,6 +338,10 @@ orders.groupby('shoes').price.apply(lambda x: np.min(x, 25)).reset_index()
 
 ## Group using `pivot_table()`
 
+{:.img-90}
+![An example of pivotting by a single column]({{img-url}}/pivoting_table_simple1.png)
+_An example of pivotting by a single column ([ref](https://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/))_
+
 Group by `Region` (as an index) and choosing `GDP` and `City` columns,{% ref https://github.com/dinhanhthi/data-science-learning/blob/master/codecademy-data-science/course-10%20Data%20Analysis%20with%20Pandas/Aggregates%20in%20Pandas.ipynb %}
 
 ~~~ python
@@ -431,6 +435,10 @@ df.pivot_table(['GDP', 'City'], 'Region', aggfunc=[np.mean, np.max], margins=Tru
 </table>
 
 ## Reorganizing df using `pivot()`
+
+{:.img-90}
+![An example of multi-column pivoting]({{img-url}}/pivoting_simple_multicolumn.png)
+_An example of multi-column pivoting ([ref](https://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/))_
 
 Make values in one columns be columns in a new "pivot" table,{% ref https://github.com/dinhanhthi/data-science-learning/blob/master/codecademy-data-science/course-10%20Data%20Analysis%20with%20Pandas/Aggregates%20in%20Pandas.ipynb %}
 
@@ -736,5 +744,6 @@ display_side_by_side(df, df1, df2)
 
 - [Data Cleaning and Analysis](https://github.com/dinhanhthi/dataquest-aio/tree/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis) on Dataquest.
 - [Transforming data with pandas](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/dataquest-aio/blob/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis/notebooks_in_html/task-3-transforming-data-with-pandas.html) on Dataquest.
+- **pandas official** -- [Group By: split-apply-combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html)
 
 

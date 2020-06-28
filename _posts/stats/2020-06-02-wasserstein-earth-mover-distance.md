@@ -5,7 +5,7 @@ categories: [probability & statistics]
 tags: ['distribution', distance]
 katex: 1
 notfull: 1
-keywords: "compare distribution CDF Earth mover's distance earth mover Wasserstein Distance Kolmogorov test ks test"
+keywords: "compare distribution CDF Earth mover's distance earth mover Wasserstein Distance Kolmogorov test ks test EMD"
 ---
 
 {% assign img-url = '/img/post/stats' %}
@@ -103,6 +103,6 @@ sns.distplot(arr2, kde=False, hist_kws={"histtype": "step", "linewidth": 3, "alp
 
 - [What is an intuitive explanation of the Wasserstein distance?](https://www.quora.com/What-is-an-intuitive-explanation-of-the-Wasserstein-distance)
 - [GAN — Wasserstein GAN & WGAN-GP](https://medium.com/@jonathan_hui/gan-wasserstein-gan-wgan-gp-6a1a2aa1b490)
-- [An example](https://www.youtube.com/watch?v=U7xdiGc7IRU) of why we need to use EMD instead of Kolmogorov–Smirnov distance (video).
+- [An example](https://www.youtube.com/watch?v=U7xdiGc7IRU) of why we need to use EMD instead of [Kolmogorov–Smirnov distance](/KS-test) (video).
 
 {% endkatexmm %}

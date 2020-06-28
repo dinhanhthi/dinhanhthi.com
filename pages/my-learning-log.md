@@ -19,6 +19,12 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
   <span class="task fail d-inline-block">Interrupted tasks!</span>
 </p>
 
+## 6 / 2020
+
+- {:.finish} {% data_ml %} **Time Series**: different types of time series, anomaly detection with time series.
+- {:.finish} {% data_ml %} Finish [Course 4 -- Convolution Neural Network](https://www.coursera.org/learn/convolutional-neural-networks/home/welcome) in the [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) given by [deeplearning.ai](deeplearning.ai) and taught by Andrew NG on Coursera -- [my notes](/deeplearning-ai-course-4) -- [certificate](https://www.coursera.org/account/accomplishments/certificate/5KKYWZMSD3B3).
+- {:.finish} {% data_ml %} Finish course [Anomaly Detection in Time Series Data with Keras](https://www.coursera.org/learn/anomaly-detection-time-series-keras/home/welcome) on Coursera.
+
 ## 3 - 5 / 2020
 
 - {:.finish} {% python %} [Sphinx Documentation Generator](https://www.sphinx-doc.org/en/master/) 101.
@@ -26,16 +32,16 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 - {:.finish} {% data_ml %} [Mean-Shift](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html) clustering.
 - {:.finish} {% web %} Created docker repositories for quickly cloning [Math2IT](https://math2it.com) and [TEXmath](https://texmath.com) on localhost.
 - {:.finish} {% data_ml %} Finished 3 of 5 courses in the [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) given by [deeplearning.ai](deeplearning.ai) and taught by Andrew NG on Coursera.
-  - {:.finish} Course 1 — [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-1) -- [certificate](https://www.coursera.org/account/accomplishments/records/VJG62Z8QP7ZF).
-  - {:.finish} Course 2 — [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-2) -- [certificate](https://www.coursera.org/account/accomplishments/records/VEVBU5BWBC8S).
-  - {:.finish} Course 3 — [Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning) -- [my notes](http://localhost:4000/deeplearning-ai-course-3) -- [certificate](https://www.coursera.org/account/accomplishments/records/VREJ8QGGDHWA).
+  - {:.finish} Course 1 — [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning) -- [my notes](/deeplearning-ai-course-1) -- [certificate](https://www.coursera.org/account/accomplishments/records/VJG62Z8QP7ZF).
+  - {:.finish} Course 2 — [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning) -- [my notes](/deeplearning-ai-course-2) -- [certificate](https://www.coursera.org/account/accomplishments/records/VEVBU5BWBC8S).
+  - {:.finish} Course 3 — [Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning) -- [my notes](/deeplearning-ai-course-3) -- [certificate](https://www.coursera.org/account/accomplishments/records/VREJ8QGGDHWA).
 - {:.finish} {% data_ml %} Finish the course [Leveraging Cloud-Based Machine Learning on Google Cloud Platform: Real World Applications](https://www.linkedin.com/learning/leveraging-cloud-based-machine-learning-on-google-cloud-platform-real-world-applications/intro-to-artificial-intelligence-ai-on-google) on LinkedIn Learning. -- [certificate](https://github.com/dinhanhthi/my-certificates/blob/master/LinkedIn%20Learning%20-%20Leveraging%20Cloud-Based%20Machine%20Learning%20on%20Google%20Cloud%20Platform_%20Real%20World%20Applications.pdf).
 - {:.finish} {% tech %} Created & Discussing on **P13 Discussion Group**, a group of Vietnamese students from University Sorbonne Paris Nord. We share knowledge and discuss mainly on Information Technology -- [Group's Github Repository](https://github.com/dinhanhthi/P13-discuss-group) (private).
 
 ## 2 / 2020
 
 - {:.finish} {% data_ml %} **Processing a raw data**: check the properties, make some convertings and exporting to csv files. This task belongs to [Dataswati](https://www.dataswati.com/).
-- {:.finish} {% data_ml %} **Concepts**: _Sampling_; _Resampling_; different types of _activations_; Hyperparameter choosing (_GridSearch_, _Random Search_, _Bayesian Seach_); _frequency spectrum_; 
+- {:.finish} {% data_ml %} **Concepts**: _Sampling_; _Resampling_; different types of _activations_; Hyperparameter choosing (_GridSearch_, _Random Search_, _Bayesian Seach_); _frequency spectrum_;
 - {:.finish} {% data_ml %} Working with [**Time Series**](/notes#time_series): _Dynamic Time Warping_; dimension of TS to feed into a Neural Network (especially with PyTorch); handle different-length time series (check [my presentation](/files/ml/thi_presentation_AE_tsfresh_clustering_02-03-20.pdf){:target="_blank"}).
 - {:.finish} {% data_ml %} Understand the idea of CNN AE applied to a time series.
 - {:.finish} {% python %} _Abstract Base Classes_ (ABC), understand to make a base model.
