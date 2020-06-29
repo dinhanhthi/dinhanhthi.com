@@ -476,17 +476,20 @@ df.columns.set_levels(['b1','c1','f1'], level=1, inplace=True)
 
 ### Drop multiindex
 
+<div class="d-md-flex" markdown="1">
+{:.flex-even.d-flex.overflow-auto}
 ``` python
 df.columns = df.columns.droplevel()
 ```
 
-{:.output}
+{:.output.flex-even.d-flex}
 ``` python
    a
    b  c         b c
 0  1  2   ->  0 1 2
 1  3  4       1 3 4
 ```
+</div>
 
 ## Compare 2 dataframes
 

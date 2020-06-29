@@ -4,7 +4,7 @@ title: "Fresh Ubuntu Installation"
 categories: [others]
 tags: [bash, linux, collection, fresh install]
 icon-photo: ubuntu.svg
-keywords: "to do list after installing ubuntu debian elementary os linux"
+keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder"
 ---
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
@@ -150,6 +150,25 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 3. Bluetooth problem on Dell XPS 15 only: cannot turn on bluetooth ⇒ Try turn off and turn on again the bluetooth in BIOS setting.
 4. Useful shortcuts:
    - Capture fullscreen: `Ctrl+Alt+Print` (photos will be saved in **Pictures**)
-5.  <mark>Backup before installing a new system.</mark>
+1. Connect Airpod to Ubuntu 20.04:
+
+    ``` bash
+    # check bluetooth service is running
+    hciconfig -a
+
+    # open a file
+    sudo nano /etc/bluetooth/main.conf
+
+    # add
+    ControllerMode = bredr
+
+    # restart bluetooth service
+    sudo /etc/init.d/bluetooth restart
+
+    # disconnect other headphone device
+    # press and hold backward button in the airpod case (flash light)
+    # connect to airpod as other device via bluetooth
+    ```
+2.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
