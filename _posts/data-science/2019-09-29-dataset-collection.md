@@ -25,7 +25,6 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets) — A topic-centric list of HQ open datasets.
 - [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/).
 - [FiveThirtyEight](https://fivethirtyeight.com/) — hard data and statistical analysis to tell stories about politics, sports, societal matters and more.
-.
 - [data.world](https://data.world/).
 - [BuzzFeedNews/everything](https://github.com/BuzzFeedNews/everything) — data from BuzzFeed.
 - [data.gov](https://www.data.gov/) — a large dataset aggregator and the home of the US Government’s open data.
@@ -36,6 +35,8 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 
 ## Datasets
 
+- [WordNet](https://wordnet.princeton.edu/) -- A Lexical Database for English.
+- [ImageNet](http://www.image-net.org/) -- ImageNet is an image database organized according to the WordNet hierarchy.
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
 - [Dataset samples from Machine Learning Mastery](https://github.com/jbrownlee/Datasets).
 

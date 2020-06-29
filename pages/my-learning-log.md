@@ -23,7 +23,7 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 
 - {:.finish} {% data_ml %} **Time Series**: different types of time series, anomaly detection with time series.
 - {:.finish} {% data_ml %} Finish [Course 4 -- Convolution Neural Network](https://www.coursera.org/learn/convolutional-neural-networks/home/welcome) in the [Deep Learning Specialization](https://www.coursera.org/specializations/deep-learning) given by [deeplearning.ai](deeplearning.ai) and taught by Andrew NG on Coursera -- [my notes](/deeplearning-ai-course-4) -- [certificate](https://www.coursera.org/account/accomplishments/certificate/5KKYWZMSD3B3).
-- {:.finish} {% data_ml %} Finish course [Anomaly Detection in Time Series Data with Keras](https://www.coursera.org/learn/anomaly-detection-time-series-keras/home/welcome) on Coursera.
+- {:.finish} {% data_ml %} Finish course [Anomaly Detection in Time Series Data with Keras](https://www.coursera.org/learn/anomaly-detection-time-series-keras/home/welcome) on Coursera. -- [my certificate](https://www.coursera.org/account/accomplishments/certificate/GQQ7E4NU6RZ2)
 
 ## 3 - 5 / 2020
 

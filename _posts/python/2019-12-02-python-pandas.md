@@ -474,6 +474,20 @@ df_rs1.loc['A', [('baz', i) for i in [0,1]]]
 df.columns.set_levels(['b1','c1','f1'], level=1, inplace=True)
 ~~~
 
+### Drop multiindex
+
+``` python
+df.columns = df.columns.droplevel()
+```
+
+{:.output}
+``` python
+   a
+   b  c         b c
+0  1  2   ->  0 1 2
+1  3  4       1 3 4
+```
+
 ## Compare 2 dataframes
 
 ``` python
