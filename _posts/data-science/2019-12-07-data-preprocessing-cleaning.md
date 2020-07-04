@@ -206,6 +206,11 @@ df['col'] = df['col'].fillna(' ')
 df['col'] = df['col'].fillna(99)
 ~~~
 
+``` python
+# mean / median of each column
+df.fillna(df.mean())
+```
+
 ~~~ python
 # Fill NaN with the mean of the column
 df['col'] = df['col'].fillna(df['col'].mean())

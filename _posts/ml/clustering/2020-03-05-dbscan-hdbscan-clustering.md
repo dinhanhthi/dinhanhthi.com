@@ -5,7 +5,7 @@ categories: [machine learning]
 tags: ['clustering', 'density based clustering']
 icon-photo: clustering.png
 notfull: 1
-keywords: "cluster clustering dbscan hdbscan density based spatial clustering of application with noise high varying shapes sort data points neighborhood min point core points border noise phase discover number of clusters automatically ignoire outliers detect outliers Scikit-learn density based clustering"
+keywords: "cluster clustering dbscan hdbscan density based spatial clustering of application with noise high varying shapes sort data points neighborhood min point core points border noise phase discover number of clusters automatically ignoire outliers detect outliers Scikit-learn density based clustering DTW (Dynamic Time Warping)"
 katex: 1
 ---
 
@@ -85,20 +85,31 @@ clr.fit_predict(X)
 
 ### HDBSCAN
 
-For a ref of paramaters, check [here](https://hdbscan.readthedocs.io/en/latest/api.html).
+For a ref of paramaters, check [the API](https://hdbscan.readthedocs.io/en/latest/api.html).
 
 ~~~ python
 from hdbscan import HDBSCAN
-clr = DBSCAN(eps=3, min_cluster_size=3, metric='euclidean')
+clr = HDBSCAN(eps=3, min_cluster_size=3, metric='euclidean')
 ~~~
 
 **Parameters**:
 
 - `min_cluster_size`: {% ref https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-cluster-size %} the smallest size grouping that you wish to consider a cluster.
 - `min_samples`: {% ref https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-samples %} The number of samples in a neighbourhood for a point to be considered a core point. The larger value $\to$ the more points will be declared as noise & clusters will be restricted to progressively more dense areas.
+- Working with DTW (Dynamic Time Warping) ([more](https://dtaidistance.readthedocs.io/en/latest/usage/dtw.html#dtw-between-set-of-series)): `metric='precomputed'` {% ref https://hdbscan.readthedocs.io/en/latest/basic_hdbscan.html?highlight=precomputed %}
+
+  ``` python
+  from dtaidistance import dtw
+  matrix = dtw.distance_matrix_fast(series) # something likes that
+  model = HDBSCAN(metric='precomputed')
+  clusters = model.fit_predict(matrix)
+  ```
 
 {% hsbox Examples to understand `min_cluster_size` and `min_samples` %}
-Box's content.
+
+- `min_cluster_size=12` & `min_samples=2` gives less noises than `min_cluster_size=12` & `min_samples=3`: It's because we need at least `min_samples` points to determine a core points. That's why the bigger `min_samples`, the harder to form a cluster, or the more chances we have more noises.
+- `min_cluster_size=7` & `min_sampls=3` gives less noises than `min_cluster_size=12` & `min_samples=3`: It's because we need at least `min_cluster_size` points to determine a cluster. That's why the bigger `min_cluster_size`, the harder the form a cluster, or the more chances we have more noise.
+
 {% endhsbox %}
 
 **Attributes**:

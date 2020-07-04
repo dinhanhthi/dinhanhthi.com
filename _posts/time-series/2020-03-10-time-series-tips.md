@@ -5,7 +5,7 @@ icon-photo: ts.png
 categories: [time series]
 tags: ['time series', 'algorithm', extra]
 notfull: 1
-keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min problems with time series time series regression time series classification anomaly detection"
+keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min problems with time series time series regression time series classification anomaly detection input read csv read_csv"
 ---
 
 {% include toc.html %}
@@ -25,6 +25,17 @@ a burst, suggesting unusual behaviors or activities.
   - Some abnormal points in the same time series.
   - Applied for both univariate and multivariate time series.
 
+## Read_CSV
+
+More [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html).
+
+``` python
+df_13 = pd.read_csv(path_file,
+                    index_col='timestamp',
+                    parse_dates=True, # index contains dates
+                    infer_datetime_format=True, # auto regconize format
+                    cache_dates=True) # faster
+```
 
 ## Find the windows of time series
 

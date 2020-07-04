@@ -111,6 +111,7 @@ mkdir <dir>
 # LIST
 ls
 ls -a # including hidden
+ls | grep 'ubuntu' # files containing 'ubuntu' in name
 ~~~
 
 ~~~ bash
