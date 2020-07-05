@@ -26,6 +26,28 @@ This course will teach you how to build convolutional neural networks and apply 
 
 {% katexmm %}
 
+## Computer vision
+
+- Challenges of computer vision: inputs get really big. $\Rightarrow$ Easily lead to overfitting and infeasible!
+
+## Edge Detection
+
+- We wanna detect vertical / horizontal edges. $*$ is called a <mark>convolution</mark> operator. The $3\times 3$ square is called a <mark>filter</mark> (<mark>kernel</mark>)
+
+    {:.img-90.pop}
+    ![Horizontal edge detection]({{img-url}}/edge_detection.png)
+    _Horizontal edge detection.<sup>[ref](http://datahacker.rs/edge-detection-extended/)</sup>_
+
+    {:.img-80.pop}
+    ![Vertical vs horizontal]({{img-url}}/verticle_horizontal.png)
+    _Vertical vs Horizontal.<sup>[ref](http://datahacker.rs/edge-detection-extended/)</sup>_
+
+- There are many different filers we could use. __Sobel filter__ and __Scharr filter__ 's advantage is that it allows you to put a little bit more weight to the central row of the central pixel, this makes it maybe a little bit more robust.
+
+    {:.img-80.pop}
+    ![Sobel filter and Scharr filter]({{img-url}}/conv_3_filtri_sobel_sch.png)
+    _Sobel filter and Scharr filter.<sup>[ref](http://datahacker.rs/edge-detection-extended/)</sup>_
+
 
 ## References
 
