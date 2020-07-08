@@ -4,7 +4,7 @@ title: "Jupyter Notebook"
 categories: [python]
 tags: [ide, bash, linux]
 icon-photo: jupyter.png
-keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address list of variable environement toc extension table of content"
+keywords: "pip conda hotkey magic function display side by side dataframes previous output hotkeys install packages multiline commands shortcuts pip conda figures markdown cell code cell check info system autoreload inline history description of a function IPython sys display_side_by_side version update upgrade jupyter notebook on remote server OSError: [Errno 99] Cannot assign requested address Running as root is not recommended localhost port ssh connection Cannot assign requested address list of variable environement toc extension table of content docker docker-compose SHA1 sha password hashed"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -36,6 +36,41 @@ jupyter notebook --ip=127.0.0.1 --port=8080
 jupyter notebook --ip=127.0.0.1 --port=8080 --allow-root
 ~~~
 
+### Setting up a password
+
+``` bash
+# create a juputer notebook config file
+# it can be used for other settings
+# https://jupyter-notebook.readthedocs.io/en/stable/public_server.html#prerequisite-a-notebook-configuration-file
+jupyter notebook --generate-config
+
+# create a new password
+# note: sha1 cannot be reverted!!
+jupyter notebook password
+```
+
+Inside notebook:
+
+``` python
+from notebook.auth import passwd
+passwd()
+```
+
+With docker
+
+``` bash
+# create a sha1 password
+# download file create_sha1.py from https://github.com/dinhanhthi/scripts
+# run ./create_sha1.py
+
+# docker-compose.yml
+environment:
+  - PASSWD='sha1:d03968479249:319e92302e68d601392918f011d6c9334493023f'
+
+# Dockerfile
+CMD /bin/bash -c 'jupyter lab --no-browser --allow-root --ip=0.0.0.0 --NotebookApp.password="$PASSWD" "$@"'
+```
+
 ## Other tips
 
 - Running 2 tasks in the same cell TAKE LONGER TIME than running each on different cells.
@@ -50,17 +85,22 @@ jupyter notebook --ip=127.0.0.1 --port=8080 --allow-root
 
 ## Check the info
 
-Check the info of a function (gives us the documentation):
-
-~~~ bash
+<div class="flex-50" markdown="1">
+~~~ python
+# function's info
 ?<func-name>
 ~~~
 
-Check the shortcodes of a function:
-
 ~~~ bash
+# function's shortcode
 ??<func-name>
 ~~~
+
+``` python
+# get the list of current variables
+whos
+```
+</div>
 
 Check where command executed from (in your `$path`)?
 
@@ -75,11 +115,6 @@ Check where command executed from (in your `$path`)?
 python is /Users/thi/anaconda/envs/python3.6/bin/python
 ~~~
 </div>
-
-``` python
-# get the list of current variables
-whos
-```
 
 ## Multiline commands
 
