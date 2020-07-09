@@ -4,7 +4,7 @@ title: "Visual Studio Code (VSC)"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg
-keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete"
+keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote"
 ---
 
 {% include toc.html %}
@@ -23,7 +23,18 @@ You can find easily with their names in the marketplace (builtin with VSC)
 3. [Markdown Shortcuts](https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts)
 4. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 5. [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+6. [reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
 </div>
+
+### reStructuredText
+
+`preview engine sphinx is not installed` => in Ubuntu 20.04+
+
+``` bash
+sudo apt install python-is-python3
+# prevent Python 2 from being installed as a dependency of something
+sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
+```
 
 ## Add extra path to auto complete
 

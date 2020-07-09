@@ -41,6 +41,8 @@ App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.b
 
 ### Jupyer Notebook
 
+👉 [Jupyter notebook note](/jupyter-notebook).
+
 Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
 
 <div class="flex-auto-equal-2" markdown="1">
@@ -64,7 +66,7 @@ python -m notebook
 
 ## MacOS
 
-By default, Python 2 is already installed on MacOS, you can check this by 
+By default, Python 2 is already installed on MacOS, you can check this by
 
 ~~~ bash
 python --version
@@ -88,7 +90,18 @@ Add Anaconda to the `$path`:
 4. Check with `which python`, if it returns `/home/<user>/anaconda3/bin/python` then it works (`python -v` returns anaconda also).
 5. If you wanna go back to the system default, open the `.bashrc` file and comment out settings of anaconda with `#`. That’s it!
 
-On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the system terminal. 
+On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the system terminal.
+
+### Make right version
+
+``` bash
+alias python=python3
+alias pip=pip3
+# for ubuntu >=20.04
+sudo apt install python-is-python3
+# prevent Python 2 from being installed as a dependency of something
+sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
+```
 
 ## Install new packages
 
@@ -122,7 +135,7 @@ python -m pip install --upgrade pip # need to run cmder as administrator
 
 First, `activate <env>` and then using `easy_install -U pip`. You can check the version of pip by `pip -V`.
 
-{% endhsbox %} 
+{% endhsbox %}
 
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
@@ -225,21 +238,23 @@ Which one to be used?<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/inst
 - If you installed Python using Anaconda or Miniconda, then use `conda` to install Python packages. If `conda` tells you the package you want doesn't exist, then use `pip` (or try `conda-forge`, which has more packages available than the default conda channel).
 - If you installed Python any other way (from source, using `pyenv`, `virtualenv`, etc.), then use `pip` to install Python packages
 
-## Install Jupyter Notebook
+## Python virtual environnement
 
-<div class="flex-auto-equal-2" markdown="1">
-~~~ bash
-# USING PIP
-# first, always upgrade pip!
-pip install --upgrade pip
-pip install --upgrade ipython jupyter
-~~~
+Main guide is [here](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments).
 
-~~~ bash
-# USING CONDA
-conda install ipython jupyter
-~~~
-</div>
+``` bash
+sudo apt-get install python3-venv
+
+# cd to <DIR> where python venv stored
+python3 -m venv <DIR>
+
+# activate
+tutorial-env\Scripts\activate.bat # windows
+source <DIR>/bin/activate # linux
+
+# deactivate
+deactivate
+```
 
 ## Conda
 
@@ -274,7 +289,7 @@ conda create -n <env-name> python=3.7 anaconda
 
 ~~~ bash
 # The same python version with current shell's Python interpreter
-conda create -n <env-name> python 
+conda create -n <env-name> python
 ~~~
 
 ~~~ bash
@@ -362,19 +377,19 @@ conda create --name <cloned-env> --clone <env>
 
 Check if `nb_conda_kernels` is installed by `conda list`. If not, install it by:
 
-~~~ bash 
+~~~ bash
 conda install nb_conda_kernels
 ~~~
 
 If you are using **Python 2** and you wanna separate **Python 3**,
 
-~~~ bash 
+~~~ bash
 conda create -n py37 python=3.7 ipykernel # "py37" is a custom name
 ~~~
 
 If you are using **Python 3** and you wanna separate **Python 2**,
 
-~~~ bash 
+~~~ bash
 conda create -n py27 python=2.7 ipykernel # "py37" is a custom name
 ~~~
 

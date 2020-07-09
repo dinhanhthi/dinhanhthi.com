@@ -56,3 +56,13 @@ https://r4---sn-25ge7ns7.googlevideo.com/videoplayback?expire=1568040368&ei=kEl2
 ~~~
 
 Open a new tab in your browser, <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the video. You can also open the Downloads manager in your browser (<kbd>Ctrl</kbd> + <kbd>J</kbd>) to copy the download link and use other Download Manager tools to download this video without using the browser!
+
+## Github README.md on localhost
+
+In stall [grip](https://github.com/joeyespo/grip).
+
+``` bash
+# go to the file's directory
+grip # if file is README.md
+grip file.md
+```
