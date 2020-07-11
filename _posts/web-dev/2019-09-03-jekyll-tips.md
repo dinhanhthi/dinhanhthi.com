@@ -117,7 +117,7 @@ Read [this source code](https://github.com/dinhanhthi/dinhanhthi.com/blob/master
 
 ## Using markdown syntax inside html tags
 
-You can use directly by 
+You can use directly by
 
 ~~~ html
 {%raw%}<span markdown="span"></span>
@@ -208,7 +208,7 @@ where there is a data file located in `_data/proudof-notes.yml`.
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~
-{% raw %}{% render_time page rendered at: %}{% endraw %} 
+{% raw %}{% render_time page rendered at: %}{% endraw %}
 ~~~
 
 {:.flex-even.pl-md-1.overflow-auto}
@@ -242,7 +242,7 @@ Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 <div class="d-md-flex" markdown="1">
 {:.flex-even.overflow-auto.pr-md-1}
 ~~~
-{% raw %}{% badge update | green %}{% endraw %} 
+{% raw %}{% badge update | green %}{% endraw %}
 ~~~
 
 {:.flex-even.pl-md-1.overflow-auto}
@@ -291,7 +291,7 @@ For example, we wanna create a custom block `alertbox` using [class from Bootstr
 ~~~
 {% raw %}{% alertbox warning %}
 Content
-{% endalertbox %}{% endraw %} 
+{% endalertbox %}{% endraw %}
 ~~~
 
 {:.flex-even.pl-md-1.overflow-auto}
@@ -363,7 +363,7 @@ Box's title
 Box's content.
 {% endhscontent %}
 
-{% endhsbox %}{% endraw %} 
+{% endhsbox %}{% endraw %}
 ~~~
 
 {:.flex-even.overflow-auto.pl-md-1}
@@ -454,7 +454,7 @@ Liquid::Template.register_tag('hscontent', Jekyll::HSBcontent)
 ~~~
 {% raw %}{% hsbox **Box's title** | show %}
 Box's content.
-{% endhsbox %}{% endraw %} 
+{% endhsbox %}{% endraw %}
 ~~~
 
 {:.flex-even.overflow-auto.pl-md-1}
@@ -570,6 +570,24 @@ In the case you have already build your site (all new posts are rendered to `_si
 bundle exec jekyll serve -I
 ~~~
 
+## Serve in background
+
+<div class="flex-50" markdown="1">
+``` bash
+# start
+bundle exec jekyll serve 2>&1 &
+bundle exec jekyll serve -I 2>&1 &
+```
+
+``` bash
+# stop
+# find jekyll server process
+ps -ef | grep jekyll
+# substitute pid# with process id
+kill -9 pid#
+```
+</div>
+
 ## Using markdown syntax inside a HTML tag/block
 
 For a block, we use `markdown="1"`,
@@ -628,4 +646,4 @@ title: Search on this page
 
 Note that, you can change some personal settings in the files `search.js` and `search.html` if you like.
 
-**Remark**: if your site has so many posts, you can remove the last line (`"content"....`) to ignore the content from the search. You can even add "keywords" (resplace for "content") and put that "keywords" in the frontmatter, change also the term "content" in `search.js` by "keywords". That's what I did on this site.  
+**Remark**: if your site has so many posts, you can remove the last line (`"content"....`) to ignore the content from the search. You can even add "keywords" (resplace for "content") and put that "keywords" in the frontmatter, change also the term "content" in `search.js` by "keywords". That's what I did on this site.

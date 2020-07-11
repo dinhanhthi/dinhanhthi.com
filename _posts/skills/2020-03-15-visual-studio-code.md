@@ -4,7 +4,7 @@ title: "Visual Studio Code (VSC)"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg
-keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote"
+keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote regular expression regex"
 ---
 
 {% include toc.html %}
@@ -111,27 +111,12 @@ Below is an example list,
 
 Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
 
+1. Install extension [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
+2. **View** > **Command Palette...** > type "SSH" and choose "_Remote-SSH: Connect to Host..._" > choose "_+ Add New SSH Host..._"
+3. Type `ssh user@host` > <kbd>Enter</kbd> > choose a file to be updated, e.g. `~/.ssh/config`.
+4. Click **Connect** if there is any popup in VSC.
+5. Choose platform on the server, usually Linux.
+
 ## Settings
 
-~~~ json
-{
-    "editor.tabSize": 4,
-    "editor.fontSize": 13,
-    "editor.rulers": [100],
-    "search.exclude": {
-        "**/_site": true,
-        "**/.jekyll-cache": true,
-        "**/.sass-cache": true,
-        "**/*.ico": true,
-        "**/*.ipynb": true,
-        "**/*.jpeg": true,
-        "**/*.jpg": true,
-        "**/*.png": true,
-        "**/*.svg": true
-    },
-    "explorer.confirmDelete": true,
-    "editor.minimap.enabled": false,
-    "editor.parameterHints.enabled": false,
-    "files.trimTrailingWhitespace": true
-}
-~~~
+Check [this file](https://github.com/dinhanhthi/scripts/blob/master/settings/VSC_settings.json).

@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Python Docs: Sphinx"
+title: "Sphinx & reStructuredText"
 categories: [python]
 tags: ['101', python]
+notfull: 1
 keywords: "documentation sphinx napoleon google style numpy style ReadTheDocs rst reStructuredText"
 ---
 
@@ -91,6 +92,9 @@ Cross url (in the same document){% ref https://sublime-and-sphinx-guide.readthed
 ``` bash
 # place to ref
 :ref:`custum text<CSVLoader>`.
+
+# Display "CSV"
+:ref:`CSVLoader`
 ```
 
 ``` bash
@@ -98,9 +102,11 @@ Cross url (in the same document){% ref https://sublime-and-sphinx-guide.readthed
 .. _CSVLoader:
 
 CSV
-~~~
+===
 ```
 </div>
 
 ## References
 
+- **Thomas Cokelaer** -- [Sphinx and RST syntax guide](https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html)
+- **Sam Nicholls** -- [An idiot’s guide to Python documentation with Sphinx and ReadTheDocs](https://samnicholls.net/2016/06/15/how-to-sphinx-readthedocs/)
