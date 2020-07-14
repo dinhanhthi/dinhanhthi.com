@@ -4,7 +4,7 @@ title: "Sphinx & reStructuredText"
 categories: [python]
 tags: ['101', python]
 notfull: 1
-keywords: "documentation sphinx napoleon google style numpy style ReadTheDocs rst reStructuredText"
+keywords: "documentation sphinx napoleon google style numpy style ReadTheDocs rst reStructuredText autodoc class theme docstrings"
 ---
 
 {% assign img-url = '/img/post/python/input-output' %}
@@ -24,20 +24,21 @@ pip install sphinxcontrib-napoleon # theme
 ## Folder structure
 
 ``` bash
-|-- package # python package
-|-- root
-    |-- build
-        |-- html # rendered html
-    |-- source
-        |-- conf.py
+|-- project
+    |-- custom_lib # python package
+    |-- custom_lib-doc
+        |-- source
+            |-- conf.py
 ```
 
 ``` python
 # conf.py
-import os
-import sys
+import os, sys
 import sphinx_rtd_theme
 import sphinxcontrib
+
+path_custom_lib = os.path.abspath('../../')
+sys.path.append(path_custom_lib)
 
 project = 'My notes'
 copyright = '2020, Math2IT'
@@ -69,6 +70,15 @@ html_theme_options = {
 
 ## Build
 
+``` bash
+# folder structure
+|-- project
+    |-- custom_lib
+    |-- custom_lib-doc
+        |-- source
+            |-- conf.py
+```
+
 <div class="flex-50" markdown="1">
 ``` bash
 # build
@@ -77,7 +87,7 @@ sphinx-build source build
 
 ``` bash
 # auto build + watch the change
-sphinx-autobuild source build
+sphinx-autobuild source _local
 # http://127.0.0.1:8000/
 ```
 </div>
@@ -106,7 +116,103 @@ CSV
 ```
 </div>
 
+``` bash
+# if heading inside the same file as the caller
+Call to `Name of heading`_
+
+Name of heading
+===============
+```
+
+External urls:
+
+<div class="flex-50" markdown="1">
+``` bash
+External hyperlinks, like Python_.
+
+.. _Python: http://www.python.org/
+```
+
+``` bash
+External hyperlinks, like `About Python`_.
+
+.. _About Python: http://www.python.org/
+```
+</div>
+
+
+### Alert boxes
+
+<div class="flex-50" markdown="1">
+``` bash
+# note
+.. note:: First paragraph.
+
+    Second paragraph.
+```
+
+``` bash
+# warning
+.. warning:: Content of the warning.
+```
+</div>
+
+### Insert images
+
+<div class="flex-50" markdown="1">
+``` bash
+# block
+.. image:: images/ball1.gif
+```
+
+``` bash
+# inline
+The |biohazard| symbol.
+
+.. |biohazard| image:: biohazard.png
+```
+</div>
+
+## Autodoc from python library
+
+<div class="flex-50" markdown="1">
+``` bash
+# folder structure
+|-- project
+    |-- custom_lib
+    |-- custom_lib-doc
+        |-- source
+            |-- conf.py
+```
+
+``` python
+# conf.py
+import os
+import sys
+
+path_custom_lib = os.path.abspath('../../')
+sys.path.append(path_custom_lib)
+```
+</div>
+
+<div class="flex-50" markdown="1">
+``` bash
+# all classes in classes.py
+.. automodule:: custom_lib.folder.classes
+   :members:
+```
+
+``` bash
+# a specific class in classes.py
+.. autoclass:: custom_lib.folder.classes.ClassA
+   :members:
+```
+</div>
+
 ## References
 
+- [Rest and Sphinx Memo](https://rest-sphinx-memo.readthedocs.io/en/latest/intro.html).
+- **docutils** -- [Quick ref to rst format](https://docutils.sourceforge.io/docs/user/rst/quickref.html).
 - **Thomas Cokelaer** -- [Sphinx and RST syntax guide](https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html)
 - **Sam Nicholls** -- [An idiot’s guide to Python documentation with Sphinx and ReadTheDocs](https://samnicholls.net/2016/06/15/how-to-sphinx-readthedocs/)
+- **sphinx-doc** -- [Include documentation from docstrings](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html)

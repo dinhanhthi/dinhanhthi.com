@@ -120,3 +120,15 @@ Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
 ## Settings
 
 Check [this file](https://github.com/dinhanhthi/scripts/blob/master/settings/VSC_settings.json).
+
+Use settings for a custom file extension,
+
+``` json
+# the list of extension name will be showed when typing
+"[markdown]": {
+    "editor.tabSize": 4,
+},
+"[restructuredtext]": {
+    "editor.wordWrap": "on",
+}
+```
