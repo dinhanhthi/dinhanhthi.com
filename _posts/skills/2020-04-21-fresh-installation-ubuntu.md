@@ -169,17 +169,6 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     # press and hold backward button in the airpod case (flash light)
     # connect to airpod as other device via bluetooth
     ```
-1. Using Cinnamon Desktop Environment:
-
-    ``` bash
-    sudo apt install cinnamon-desktop-environment
-    ```
-1. Using Deepin DE
-
-    ``` bash
-    sudo add-apt-repository ppa:ubuntudde-dev/stable
-    sudo apt-get install ubuntudde-dde
-    ```
 2.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

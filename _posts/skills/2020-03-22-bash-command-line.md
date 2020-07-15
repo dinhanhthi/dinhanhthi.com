@@ -43,6 +43,10 @@ command_2
 ```
 </div>
 
+## Commands with parameters
+
+
+
 ## Search
 
 <div class="flex-50" markdown='1'>

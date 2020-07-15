@@ -12,7 +12,7 @@ icon-color: "#ff8484"
 
 {% include toc.html %}
 
-# Maths
+## Maths
 
 - [StatQuest with Josh Starmer](https://www.youtube.com/user/joshstarmer/about) -- Stats.
 
