@@ -62,3 +62,25 @@ div#toc{
     color: #1976d2!important;
   }
 }
+
+// toc on notes
+#toc.toc-note{
+  @media (max-width: 1399px){
+    display: none;
+  }
+  background: transparent;
+  border: none;
+  #markdown-toc{
+    a{
+      text-transform: capitalize;
+      font-size: 0.82rem;
+    }
+  }
+  .toc-content{
+    padding-top: 0;
+    ul{
+      list-style: none;
+      border-left: 1px solid #ddd;
+    }
+  }
+}
