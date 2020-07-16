@@ -72,16 +72,39 @@ def dict_to_json(dictionary):
     for key in dictionary:
         if isinstance(dictionary[key], dict):
             dict_json[key] = dict_to_json(dictionary[key])
+
         elif isinstance(dictionary[key], str):
             dict_json[key] = dictionary[key]
+
         elif hasattr(dictionary[key], "__len__"):
             dict_json[key] = [to_json(v) for v in dictionary[key]]
-        elif isinstance(dictionary[key], np.integer):
+
+        elif isinstance(dictionary[key], (np.integer, int, np.int64)):
             dict_json[key] = int(dictionary[key])
-        elif isinstance(dictionary[key], np.floating):
+
+        elif isinstance(dictionary[key], (np.floating, float)):
             dict_json[key] = float(dictionary[key])
+
+        elif isinstance(dictionary[key], (pd.Timedelta, pd.Timestamp,
+            dt.timedelta, dt.datetime, dt.date, dt.time)):
+            dict_json[key] = str(dictionary[key])
+
+        elif isinstance(dictionary[key], np.bool_): # numpy boolean
+            dict_json[key] = bool(dictionary[key])
+
+        elif dictionary[key] is None:
+            dict_json[key] = None
+
+        elif dictionary[key] == True:
+            dict_json[key] = bool(True)
+
+        elif dictionary[key] == False:
+            dict_json[key] = bool(False)
+
         else:
-            dict_json[key] = dictionary[key]
+            log.debug('type pb: %s', type(dictionary[key]))
+            dict_json[key] = 'not JSON serializable'
+
     return dict_json
 ~~~
 

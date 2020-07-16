@@ -130,7 +130,9 @@ display(df_1)
 display(df_2)
 ~~~
 
-## Logging{% ref https://docs.python.org/3/howto/logging-cookbook.html %}
+## Logging
+
+Check more [here](https://docs.python.org/3/howto/logging-cookbook.html).
 
 ~~~ python
 import logging
@@ -150,6 +152,27 @@ logging.getLogger().setLevel(logging.INFO)
 # or
 logging.basicConfig(level=logging.DEBUG)
 ~~~
+
+<div class="flex-50" markdown="1">
+``` python
+# in the class
+import logging
+log = logging.getLogger(__name__)
+
+log.info("abc")
+log.debug("xyz")
+
+log.info("abc: %s", abc)
+log.debug("xyz: {}".format(xyz))
+```
+
+``` python
+# in the jupyter notebook
+import logging
+log = logging.getLogger(__name__)
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
+```
+</div>
 
 ## Docstring
 

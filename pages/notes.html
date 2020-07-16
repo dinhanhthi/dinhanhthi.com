@@ -19,7 +19,7 @@ permalink: /notes
               {% for category in site.data.categories %}
                 {% if site.categories[category.name].size > 0 %}
                   <li>
-                    <a href="#{{category.name | replace: " ","_"}}">{{ category.name }}</a>
+                    <a href="#{{category.name | replace: " ","_"}}"><i class="{{ category.icon }} mr-2"></i> {{ category.name }}</a>
                   </li>
                 {% endif %}
               {% endfor %}

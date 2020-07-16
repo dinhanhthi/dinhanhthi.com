@@ -31,3 +31,4 @@ keywords: "data science deep learing tools resources application good choice col
 
 1. [TensorFlow Playground](http://playground.tensorflow.org/)
 2. [Observale](https://observablehq.com/) -- Observable is the magic notebook for exploring data and thinking with code.
+3. [Travis-CI](https://travis-ci.org/) -- a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
