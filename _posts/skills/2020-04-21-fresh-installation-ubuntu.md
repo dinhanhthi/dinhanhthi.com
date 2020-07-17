@@ -122,13 +122,13 @@ sudo apt-get install texmaker
 6. Use <kbd>super</kbd> + <kbd>E</kbd> to open File Manager: change in Keyboard shortcut.
 7. Default text editor `gedit`, you can use this command in terminal.
 8. **Gnome Calendar** in app store.
-9. Screen Recorder, use **Kazam** (app store).
+9. Screen Recorder, use **Kazam** (app store). If cannot recognize mic and speaker, read [this solution](https://askubuntu.com/questions/1234314/screen-recording-applications-are-not-detecting-audio-in-ubuntu-20-04). An alternative is [SimpleScreenRecorder](https://www.maartenbaert.be/simplescreenrecorder/).
 10. VLC (app store).
 11. Read SD card
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app).
+12. Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
 13. If you wanna create some app shortcut in launcher (`/home/thi/.local/share/applications/notion.desktop`)
 ``` bash
 #!/usr/bin/env xdg-open
@@ -179,6 +179,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     locate *.desktop # bash
     locate *.desktop # zsh
     ```
-2.  <mark>Backup before installing a new system.</mark>
+2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
+3.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
