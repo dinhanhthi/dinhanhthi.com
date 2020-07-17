@@ -13,33 +13,33 @@ Quick tips / references for using Linux / Ubuntu.
 
 ## General
 
-○ Find in linux with command lines ⇾ [link](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
+🔅 Find in linux with command lines ⇾ [link](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
 
-○ Cannot move files to the trash/wrong owner ⇾ [link](https://askubuntu.com/questions/288513/cant-move-files-to-the-trash)
+🔅 Cannot move files to the trash/wrong owner ⇾ [link](https://askubuntu.com/questions/288513/cant-move-files-to-the-trash)
 
-○ Gnome screen shot ⇾ [link](https://www.howtoforge.com/tutorial/taking-screenshots-in-linux-using-gnome-screenshot/)
+🔅 Gnome screen shot ⇾ [link](https://www.howtoforge.com/tutorial/taking-screenshots-in-linux-using-gnome-screenshot/)
 
-○ Windows shrink drive in windows ⇾ [link](https://somoit.net/windows/windows-cannot-shrink-volume-unmovable-files) (partition, resize disk drive, hard disk)
+🔅 Windows shrink drive in windows ⇾ [link](https://somoit.net/windows/windows-cannot-shrink-volume-unmovable-files) (partition, resize disk drive, hard disk)
 
-○ Turn off animation open and minimize windows on ubuntu 17.10 and later (gnome desktop): *Gnome Tweak Tools > Apperance > Animations OFF*
+🔅 Turn off animation open and minimize windows on ubuntu 17.10 and later (gnome desktop): *Gnome Tweak Tools > Apperance > Animations OFF*
 
-○ Type Vietnamese in SublimeText, install `vn ime` (exactly like that). Press <kbd>F2</kbd> for using.
+🔅 Type Vietnamese in SublimeText, install `vn ime` (exactly like that). Press <kbd>F2</kbd> for using.
 
-○ Look and kill an app process:
+🔅 Look and kill an app process:
 
 ~~~ bash
 ps ax | grep teamviewer # check the id
 kill -9 <pid> # kill some process
 ~~~
 
-○ Install file `.bin`, `.run`
+🔅 Install file `.bin`, `.run`
 
 ~~~ bash
 chmod +x file-name.run
 ./file-name.run
 ~~~
 
-○ Unzip a file,
+🔅 Unzip a file,
 
 ~~~ bash
 sudo apt-get install unzip
@@ -47,40 +47,40 @@ unzip <file>
 unzip <file> -d <destination>
 ~~~
 
-○ Terminal multi windows:
+🔅 Terminal multi windows:
 
 ~~~ bash
 sudo apt-get install terminator
 ~~~
 
-○ Add bookmark for evince (default pdf reader)
+🔅 Add bookmark for evince (default pdf reader)
 
 - <kbd>F9</kbd>: hide/show sidebar
 - Menu on the top right > Add bookmarks
 - Click on bookmark and rename it
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> to save (instead of <kbd>Ctrl</kbd> + <kbd>S</kbd>)
 
-○ Remove PPA from ubuntu by terminal. For example, _The repository 'http://ppa.launchpad.net/b-eltzner/qpdfview/ubuntu artful Release' does not have a Release file._ Remove the file _b-eltzner-qpdfview-ubuntu_ from directory _/etc/apt/sources.list.d_
+🔅 Remove PPA from ubuntu by terminal. For example, _The repository 'http://ppa.launchpad.net/b-eltzner/qpdfview/ubuntu artful Release' does not have a Release file._ Remove the file _b-eltzner-qpdfview-ubuntu_ from directory _/etc/apt/sources.list.d_
 
 ~~~ bash
 sudo rm /etc/apt/sources.list.d/<file>
 ~~~
 
-○ Get ip address: `ifconfig`
+🔅 Get ip address: `ifconfig`
 
 ## Nautilus / Files management
 
-○ Make a shortcut link to a folder/file in linux terminal ⇾ [link](https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
+🔅 Make a shortcut link to a folder/file in linux terminal ⇾ [link](https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
 
-○ Shortcut to a folder in linux ⇾ [link]( https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
+🔅 Shortcut to a folder in linux ⇾ [link]( https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
 
-○ Thumbnail nautilus: go to setting, set and apply this line
+🔅 Thumbnail nautilus: go to setting, set and apply this line
 
 ~~~ bash
 sudo chown -R yourusername:yourusername ~/.cache/thumbnails
 ~~~
 
-○ Shorten directory in terminal
+🔅 Shorten directory in terminal
 
 - Temporarily, just enter `PS1='\u:\W\$ '` en press enter.
 - Permanently, open `sudo gedit ~/.bashrc` and find
@@ -101,14 +101,14 @@ sudo chown -R yourusername:yourusername ~/.cache/thumbnails
     ~~~
 - Save, exit, close terminal and start another to see the result.
 
-○ Right click nautilus "Open as Administrator":
+🔅 Right click nautilus "Open as Administrator":
 
 ~~~ bash
 sudo apt-get install nautilus-admin
 nautilus -q # restart nautilus
 ~~~
 
-○ Mount iso file on linux
+🔅 Mount iso file on linux
 
 ~~~ bash
 sudo mount -o loop <image>.iso /mnt/<folder>
@@ -116,13 +116,13 @@ sudo mount -o loop <image>.iso /mnt/<folder>
 
 If you mount another iso file to the same <folder>, it will replace the current one.
 
-○ Extract a iso file: first, mount it like in 37 to folder named `iso` then copy all the contents in `iso` to some folder you want.
+🔅 Extract a iso file: first, mount it like in 37 to folder named `iso` then copy all the contents in `iso` to some folder you want.
 
 ~~~ bash
 cp -r /mnt/iso <directory>
 ~~~
 
-○ Sync files with mega right on terminal
+🔅 Sync files with mega right on terminal
 
 - Install megatools: `sudo apt-get install megatools`
 - Using megatools, cf the [main website](https://megatools.megous.com).
@@ -152,7 +152,7 @@ cp -r /mnt/iso <directory>
   megacopy --local <folder> --remote <folder-to-download> --download
     ~~~
 
-○ Save a directory a `$PATH` of local profile.
+🔅 Save a directory a `$PATH` of local profile.
 
 ~~~ bash
 sudo gedit ~/.profile
@@ -162,26 +162,26 @@ export PATH=/home/thi/anaconda3/bin:$PATH
 source ~/.profile
 ~~~
 
-○ Copy files from ubuntu to iPhone iOS iPad
+🔅 Copy files from ubuntu to iPhone iOS iPad
 
 - Don't need to install any files if one needs to copy photos/videos from iphone to ubuntu, one can use gThumb to do this or just use file manager to copy.
 - If one wants to copy files to iphone. Follow [this one](https://askubuntu.com/questions/799414/how-to-move-files-from-ubuntu-to-iphone)
 
-○ Check the current path: `pwd`
+🔅 Check the current path: `pwd`
 
 ## Surface
 
-○ Tweaks for ubuntu on surface book ⇾ [link](https://medium.com/@viettrungdang/tweaks-for-ubuntu-on-surface-book-cd05cdb8f378)
+🔅 Tweaks for ubuntu on surface book ⇾ [link](https://medium.com/@viettrungdang/tweaks-for-ubuntu-on-surface-book-cd05cdb8f378)
 
-○ App [`linux-surface`](https://github.com/jakeday/linux-surface).
+🔅 App [`linux-surface`](https://github.com/jakeday/linux-surface).
 
 ## Errors
 
-○ Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
+🔅 Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
 
-○ Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
+🔅 Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
 
-○  `Failed to load module 'canberra-gtk-module'`
+🔅  `Failed to load module 'canberra-gtk-module'`
 
 ~~~ bash
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
@@ -189,13 +189,13 @@ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
 ## User / Group / Ownership
 
-○ How to add existing user to an existing group{% ref https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group %}
+🔅 How to add existing user to an existing group{% ref https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group %}
 
 ~~~ bash
 sudo usermod -a -G groupName userName
 ~~~
 
-○ Change ownership of a folder and its children
+🔅 Change ownership of a folder and its children
 
 ~~~ bash
 # folder and its children
@@ -204,7 +204,7 @@ chown -R thi:root folder
 chown <user>:<group> file
 ~~~
 
-○ Check the permission of curent directory:
+🔅 Check the permission of curent directory:
 
 ~~~ bash
 ls -l
@@ -218,20 +218,20 @@ ls -l <file>
 
 ## Matlab
 
-○ Scale matlab: need to install matleb version >= R2017b
+🔅 Scale matlab: need to install matleb version >= R2017b
 
 ~~~ matlab
 s = settings;s.matlab.desktop.DisplayScaleFactor
 s.matlab.desktop.DisplayScaleFactor.PersonalValue = 2
 ~~~
 
-○ Launching matlab without graphic ui{% ref https://blogs.mathworks.com/community/2010/02/22/launching-matlab-without-the-desktop/ %}
+🔅 Launching matlab without graphic ui{% ref https://blogs.mathworks.com/community/2010/02/22/launching-matlab-without-the-desktop/ %}
 
 ~~~ bash
 matlab -nodesktop
 ~~~
 
-○ Cannot open matlab without sudo: change the owner permission of folder */home/thi/.matlab* to thi*
+🔅 Cannot open matlab without sudo: change the owner permission of folder */home/thi/.matlab* to thi*
 
 Another solution: suppose that matlab is installed on a user's directory and you have already add this to the `$PATH`. IT's only work if you use `matlab` (not `sudo matlab`). Then do
 
@@ -241,13 +241,13 @@ sudo env "PATH=$PATH"
 
 from this, you can `sudo matlab`
 
-○ Matlab drive connector: after installing, run
+🔅 Matlab drive connector: after installing, run
 
 ~~~ bash
 ~/bin/MATLABConnector toggle
 ~~~
 
-○ How to install matlab silently (only with command lines) on linux? (if below doesn't work, you can [check here](http://installfights.blogspot.com/2016/11/how-to-install-matlab-without-gui.html), my method is different from this one)
+🔅 How to install matlab silently (only with command lines) on linux? (if below doesn't work, you can [check here](http://installfights.blogspot.com/2016/11/how-to-install-matlab-without-gui.html), my method is different from this one)
 
 1. Suppose that you have 2 dvd iso files which contains the installation of matlab (`dvd1.iso` and `dvd2.iso`)
 1. For the activation, you have `libmwservices.so` and `license_standalone.lic`
@@ -267,7 +267,7 @@ sudo apt-get install libxt6
     ~~~
 1. Make linux recognize your matlab command `matlab` like in the instruction 40.
 
-○ Make linux recognize matlab command
+🔅 Make linux recognize matlab command
 
 - Suppose that you have installed matlab on `/home/thi/matlabR`
 - You need to add above directory to the `$PATH` so that the system can recognize your `matlab` command
@@ -276,24 +276,24 @@ sudo apt-get install libxt6
     ~~~
 - You can use `echo $PATH` to check if the path is located in it or not.
 
-○ Remove matlab on linux: simply `rm -rf <matlab-folder>`
+🔅 Remove matlab on linux: simply `rm -rf <matlab-folder>`
 
 ## Download / Internet
 
-○ Download a direct link by terminal
+🔅 Download a direct link by terminal
 
 ~~~ bash
 wget <direct-link> -O <name-of-file>.<file-extension>
 ~~~
 
-○ Download from google drive by terminal
+🔅 Download from google drive by terminal
 
 - Download as usual without terminal by a web browser
 - Open Downloads windows of the browser and then copy the download link.
 - Stop the download process
 - Use the command link in 33 where `<direct-link>` is the link copied above.
 
-○ Use `ssh` to get access to another computer in the same network (LAN)
+🔅 Use `ssh` to get access to another computer in the same network (LAN)
 
 0. Follow (a little bit) [here](https://www.makeuseof.com/tag/remotely-manage-linux-server-ssh/).
 1. On the remote machine
@@ -307,7 +307,7 @@ wget <direct-link> -O <name-of-file>.<file-extension>
 7. On the local machine
     8. Install the same tool and use `ssh username@remote-host`
 
-○ Connect `ssh` to a virtual machine (the same network)
+🔅 Connect `ssh` to a virtual machine (the same network)
 
 - Install openssh for both client and server machine
     ~~~ bash
@@ -320,7 +320,7 @@ wget <direct-link> -O <name-of-file>.<file-extension>
   # return [number] ?  00:00:00 sshd then it works
     ~~~
 
-○ Download playlist audio youtube, using [`youtube-dl`](https://github.com/rg3/youtube-dl/blob/master/README.md#readme)
+🔅 Download playlist audio youtube, using [`youtube-dl`](https://github.com/rg3/youtube-dl/blob/master/README.md#readme)
 
 ~~~ bash
 sudo apt-get install curl -y (cài curl nếu chưa cài)
@@ -332,20 +332,20 @@ youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <link-playl
 
 ## Media / Photo / Music
 
-○ Convert `.ts` videos to `.mp4`
+🔅 Convert `.ts` videos to `.mp4`
 
 ``` bash
 sudo apt install ffmpeg
 ffmpeg -i input.ts -c:v libx264 -c:a aac output.mp4
 ```
 
-○ Mp3 tag editor:
+🔅 Mp3 tag editor:
 
 ~~~ bash
 sudo apt install exfalso  # Ex Falso
 ~~~
 
-○ Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)):
+🔅 Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)):
 
 <div class="flex-50" markdown="1">
 ~~~ bash

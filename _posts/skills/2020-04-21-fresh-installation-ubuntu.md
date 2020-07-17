@@ -112,7 +112,7 @@ gsettings set org.gnome.desktop.interface enable-animations false # disable
 2. [Microsoft Teams](https://teams.microsoft.com/).
 3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
 4. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
-5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account).
+5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account). An alternative to [Vgrive](https://github.com/bcedu/VGrive).
 6. LaTeX
 ~~~ bash
 sudo apt-get install texlive-full # 5GB
@@ -129,7 +129,7 @@ sudo apt-get install texmaker
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
 12. Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app).
-13. If you wanna create some app shortcut in launcher
+13. If you wanna create some app shortcut in launcher (`/home/thi/.local/share/applications/notion.desktop`)
 ``` bash
 #!/usr/bin/env xdg-open
 [Desktop Entry]
@@ -168,6 +168,16 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     # disconnect other headphone device
     # press and hold backward button in the airpod case (flash light)
     # connect to airpod as other device via bluetooth
+    ```
+1. Location of `.desktop` files,
+
+    ``` bash
+    /home/thi/.local/share/applications/
+    /usr/share/applications/
+    /var/lib/snapd/desktop/applications/
+    # or
+    locate *.desktop # bash
+    locate *.desktop # zsh
     ```
 2.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
