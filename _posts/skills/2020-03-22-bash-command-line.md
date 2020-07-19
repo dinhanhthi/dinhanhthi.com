@@ -242,33 +242,17 @@ yourAlias
 ~~~ bash
 # LIST OF ALIASES
 alias
+alias abc # "abs" stands for what?
 ~~~
+
+``` bash
+# remove an alias
+unalias abc
+```
 </div>
 
 - **Linux** / **MacOS**: Add your alias to `.bash_aliases` (in home dir, `printenv HOME`) if you wanna store your alias permanently.
 - **Windows**: Using [cmder](https://cmder.net/) (its [setting file](/files/cmderSetting.xml)), add more aliases to `<cmder-install>/config/user_aliases.cmd`. You can also add (automatically) on the cmder UI, it adds them for you to the `.cmd` file.
-
-  <div class="hide-show-box">
-  <button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
-  My personal aliases
-  </button>
-  <div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
-  ~~~ bash
-  raimon=ssh -p 15424 thi@185.163.221.115
-  sshnotebook=ssh -N -L localhost:8765:192.168.0.155:9889 thi@185.163.221.115 -p 15424
-  dat=cd dinhanhthi.com
-  nt2=cd notetheme2
-  serve=bundle exec jekyll serve -I
-  build=bundle exec jekyll build
-  condafix=set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
-  playground=cd C:\Users\dinha\Documents\GitHub\dataswati\git\playground
-  aquassay=cd C:\Users\dinha\Documents\GitHub\dataswati\git\aquassay
-  bronze-alu=cd C:\Users\dinha\Documents\GitHub\dataswati\git\bronze-alu
-  soufflet=cd C:\Users\dinha\Documents\GitHub\dataswati\git\soufflet
-  popai=cd C:\Users\dinha\Documents\GitHub\dataswati\python-dataswati\popai
-  ~~~
-  </div>
-  </div>
 
 
 ## Copy / Cut / Paste

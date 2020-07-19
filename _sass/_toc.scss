@@ -50,7 +50,9 @@ div#toc{
     position: sticky;
     top: 60px;
     margin-bottom: 0;
-    max-height: 500px;
+    // max-height: 500px;
+    // overflow: auto;
+    max-height: 85vh;
     overflow: auto;
   }
 }

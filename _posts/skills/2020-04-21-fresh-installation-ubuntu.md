@@ -20,32 +20,8 @@ sudo apt install fonts-noto-color-emoji
     ``` bash
     ~/.config/fontconfig/conf.d/01-emoji.conf
     ```
-    with the content,
-    ``` html
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-    <fontconfig>
-    <alias>
-        <family>serif</family>
-        <prefer>
-        <family>Noto Color Emoji</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>sans-serif</family>
-        <prefer>
-        <family>Noto Color Emoji</family>
-        </prefer>
-    </alias>
-    <alias>
-        <family>monospace</family>
-        <prefer>
-        <family>Noto Color Emoji</family>
-        </prefer>
-    </alias>
-    </fontconfig>
-    ```
-5. Install Guake Terminal (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
+    with [this content](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/01-emoji.conf).
+1. Install Guake Terminal (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
 ~~~ bash
 sudo apt install guake
 ~~~
@@ -177,7 +153,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     /var/lib/snapd/desktop/applications/
     # or
     locate *.desktop # bash
-    locate *.desktop # zsh
+    locate \*.desktop # zsh
     ```
 2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
 3.  <mark>Backup before installing a new system.</mark>

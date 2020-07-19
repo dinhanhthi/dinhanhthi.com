@@ -23,6 +23,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - Convert PDF to Word (conserve format): [freepdfconverter](https://www.freepdfconvert.com/).
 - PDF Editor online free: [pdfescape](https://www.pdfescape.com/)
 - [Etherpad](https://etherpad.org/) -- a highly customizable Open Source online editor providing collaborative editing in really real-time.
+- Text recognition (OCR): [newocr](https://www.newocr.com/)
 
 ## Multi-platforms
 
@@ -34,7 +35,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [Unikey](https://www.unikey.org/) -- Vietnamese input method on Windows.
 - [ScreenToGif](https://www.screentogif.com/) -- screen recorder and auto convert to gif file.
 - [LockHunter](https://lockhunter.com/) -- find what application/process is preventing us from deleting some folder/file.
-- [cmder](https://cmder.net/) (Console Emulator) -- drop-down terminal for windows. My [setting file](/files/cmderSetting.xml).
+- [cmder](https://cmder.net/) (Console Emulator) -- drop-down terminal for windows. My [setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/windows/user-ConEmu.xml).
 - [Everything](https://www.voidtools.com/) -- an alternative to Spotlight in Mac. You can search any thing (app, docs, files,...) in your computer with hotkeys.
 - [Big Stretch Reminder](https://monkeymatt.com/bigstretch/) -- free simple reminder tool that prompts a user to take regular breaks and helps prevent the symptoms of Repetitive Strain Injury (RSI).
 
