@@ -156,6 +156,13 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     locate \*.desktop # zsh
     ```
 2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
-3.  <mark>Backup before installing a new system.</mark>
+3. Remove icon from dash application
+
+    ``` bash
+    sudo add-apt-repository ppa:caldas-lopes/ppa
+    sudo apt-get update
+    sudo apt-get install ezame
+    ```
+4.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

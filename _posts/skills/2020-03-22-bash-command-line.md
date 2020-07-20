@@ -11,7 +11,8 @@ keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim edit
 
 Bash commands are mainly supported in MacOS, Linux but also support in Windows. You can use integrated tools for using bash on these platforms.
 
-👉 Terminals: check [this note](/terminal).
+👉 [Note about terminals](/terminal).<br />
+👉 [Note about Screen](/screen).
 
 ## Tools
 
@@ -43,10 +44,6 @@ command_2
 ```
 </div>
 
-## Commands with parameters
-
-
-
 ## Search
 
 <div class="flex-50" markdown='1'>
@@ -77,6 +74,11 @@ cat /proc/cpuinfo | grep 'model name' | uniq # model
 cat /proc/cpuinfo | grep 'vendor' | uniq # vendor
 cat /proc/cpuinfo | grep processor | wc -l # number of processes
 ~~~
+
+``` bash
+# like monitor
+top
+```
 
 ~~~ bash
 # MEM USAGE
@@ -185,6 +187,23 @@ ipconfig # windows
 # DOWNLOAD A FILE
 wget https://website.com/filename.ext
 ~~~
+
+``` bash
+# open ports
+sudo apt install nmap
+nmap localhost
+```
+
+``` bash
+# very simple server
+python3 -m http.server # localhost:8000
+python3 -m http.server 1337 # localhost:1337
+```
+
+``` bash
+# current running servers
+netstat -lepunt
+```
 </div>
 
 ~~~ bash

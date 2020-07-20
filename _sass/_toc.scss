@@ -62,6 +62,9 @@ div#toc{
 @media (min-width: 1300px){
   a.toc-active{
     color: #1976d2!important;
+    i{
+      color: #1976d2!important;
+    }
   }
 }
 
@@ -76,6 +79,14 @@ div#toc{
     a{
       text-transform: capitalize;
       font-size: 0.9rem;
+      i{
+        color: #999;
+      }
+      &:hover{
+        i{
+          color: #ea256a;
+        }
+      }
     }
   }
   .toc-content{
