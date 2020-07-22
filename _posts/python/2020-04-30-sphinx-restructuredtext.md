@@ -87,8 +87,8 @@ sphinx-build source build
 
 ``` bash
 # auto build + watch the change
-sphinx-autobuild source _local
-# http://127.0.0.1:8000/
+sphinx-autobuild source _local -p 8555
+# http://127.0.0.1:8555/
 ```
 </div>
 
