@@ -9,6 +9,8 @@ keywords: "to do list after installing ubuntu debian elementary os linux airpod 
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
 
+👉 [Linux note.](/linux-tips)
+
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
 2. Using [Rufus](https://rufus.ie/) to create a bootable USB drives.
 3. Download and install [Google Chrome](https://www.google.com/chrome).
@@ -21,18 +23,9 @@ sudo apt install fonts-noto-color-emoji
     ~/.config/fontconfig/conf.d/01-emoji.conf
     ```
     with [this content](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/01-emoji.conf).
-1. Install Guake Terminal (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
-~~~ bash
-sudo apt install guake
-~~~
-  - Install [Zsh](https://ohmyz.sh/), follow [this note](/terminal#zsh).
-  - Save / Restore guake with [this setting file](/files/ubuntu/myguakeprefs),
-  ``` bash
-guake --save-preferences ~/Downloads/myguakeprefs
-guake --restore-preferences ~/Downloads/myguakeprefs
-  ```
-1. Install Terminator (can split, in appstore)
-2. Update & Upgrade
+1. Install [Guake Terminal](/terminal#guake-terminal) (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
+2. Install Terminator (can split, in appstore)
+3. Update & Upgrade
 ~~~ bash
 sudo apt update & sudo apt upgrade
 ~~~
@@ -87,7 +80,15 @@ gsettings set org.gnome.desktop.interface enable-animations false # disable
 ```
 2. [Microsoft Teams](https://teams.microsoft.com/).
 3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
-4. Make things in **Tweaks** tool. For example, choose theme "Adwaita-dark".
+4. Make things in **GNOME Tweak** tool. Using [this setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/dconf-settings.ini).
+
+    ``` bash
+    # save settings
+    dconf dump /home/thi/ > dconf-settings.ini
+
+    # load settings
+    dconf load /home/thi/ < dconf-settings.ini
+    ```
 5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account). An alternative to [Vgrive](https://github.com/bcedu/VGrive).
 6. LaTeX
 ~~~ bash

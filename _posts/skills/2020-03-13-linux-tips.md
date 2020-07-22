@@ -9,29 +9,19 @@ keywords: "find with command line in linux ubuntu elementary os distro distribut
 
 {% include toc.html %}
 
-Quick tips / references for using Linux / Ubuntu.
+Quick tips / references for using Linux / **Ubuntu**.
+
+👉 [Fresh installation Ubuntu note.](/fresh-installation-ubuntu)
 
 ## General
-
-🔅 Save / Load dconf ({% ref https://bgstack15.wordpress.com/2017/10/04/dconf-save-and-load-from-file/ %}): `~/.config/dconf/user`
-
-``` bash
-# save guake configs to a file
-dconf dump /apps/guake/ > Downloads/guake.dconf
-
-# load
-dconf load /apps/guake/ < Downloads/guake.dconf
-```
 
 🔅 Find in linux with command lines ⇾ [link](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
 
 🔅 Cannot move files to the trash/wrong owner ⇾ [link](https://askubuntu.com/questions/288513/cant-move-files-to-the-trash)
 
-🔅 Gnome screen shot ⇾ [link](https://www.howtoforge.com/tutorial/taking-screenshots-in-linux-using-gnome-screenshot/)
+🔅 Gnome screenshot ⇾ [link](https://www.howtoforge.com/tutorial/taking-screenshots-in-linux-using-gnome-screenshot/)
 
 🔅 Windows shrink drive in windows ⇾ [link](https://somoit.net/windows/windows-cannot-shrink-volume-unmovable-files) (partition, resize disk drive, hard disk)
-
-🔅 Turn off animation open and minimize windows on ubuntu 17.10 and later (gnome desktop): *Gnome Tweak Tools > Apperance > Animations OFF*
 
 🔅 Type Vietnamese in SublimeText, install `vn ime` (exactly like that). Press <kbd>F2</kbd> for using.
 
@@ -87,6 +77,29 @@ sudo add-apt-repository --remove ppa:name
 ```
 
 🔅 Get ip address: `ifconfig`
+
+## Settings
+
+🔅 Turn off animation open and minimize windows on ubuntu 17.10 and later (gnome desktop): *Gnome Tweak Tools > Apperance > Animations OFF*
+
+🔅 Choose between "lightdm" and "gdm3" ([ref](https://wiki.debian.org/LightDM)):
+
+``` bash
+sudo apt install lightdm
+dpkg-reconfigure lightdm
+# current config
+lightdm --show-config
+```
+
+🔅 Save / Load dconf ({% ref https://bgstack15.wordpress.com/2017/10/04/dconf-save-and-load-from-file/ %}): `~/.config/dconf/user`
+
+``` bash
+# save guake configs to a file
+dconf dump /apps/guake/ > Downloads/guake.dconf
+
+# load
+dconf load /apps/guake/ < Downloads/guake.dconf
+```
 
 ## Nautilus / Files management
 

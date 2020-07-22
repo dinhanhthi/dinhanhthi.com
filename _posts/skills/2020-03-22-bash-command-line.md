@@ -95,6 +95,11 @@ printenv
 nvidia-smi
 lspci -nn | grep '\[03' # another way
 ```
+
+``` bash
+# list of devices
+lsusb
+```
 </div>
 
 ### Folders / Files
