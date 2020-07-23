@@ -4,7 +4,7 @@ title: "Fresh Ubuntu Installation"
 categories: [others]
 tags: [bash, linux, collection, fresh install]
 icon-photo: ubuntu.svg
-keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder"
+keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake"
 ---
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
@@ -164,6 +164,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     sudo apt-get update
     sudo apt-get install ezame
     ```
-4.  <mark>Backup before installing a new system.</mark>
+1. Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
+2.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

@@ -111,6 +111,7 @@ cd <dir>
 cd # to the startup dir
 cd / # to root
 cd .. # to father dir
+cd - # back to previous dir
 ~~~
 
 ~~~ bash

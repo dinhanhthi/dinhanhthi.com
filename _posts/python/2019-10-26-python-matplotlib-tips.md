@@ -114,6 +114,7 @@ df.plot(fontsize=12)
 ~~~ python
 # different types
 df.plot(style='.')
+df.plot(style=['r.', 'bx']) # 2 features
 ~~~
 </div>
 
