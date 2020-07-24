@@ -42,7 +42,7 @@ div#toc{
     }
   }
 
-  @media (min-width: 1400px){
+  @media (min-width: 1300px){
     float: right;
     margin-right: -280px;
     width: 250px;
@@ -60,6 +60,22 @@ div#toc{
 
 // scrolling-toc
 @media (min-width: 1300px){
+  div#toc{
+    background: transparent;
+    border: none;
+    border-left: 1px solid #eee;
+    .toc-content{
+      padding: 0px 10px 5px 10px;
+      ul{
+        list-style: none;
+        padding-left: 5px;
+      }
+    }
+    a{
+      font-size: 0.82rem;
+      color: #666;
+    }
+  }
   a.toc-active{
     color: #1976d2!important;
     i{
