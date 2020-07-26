@@ -50,8 +50,6 @@ div#toc{
     position: sticky;
     top: 60px;
     margin-bottom: 0;
-    // max-height: 500px;
-    // overflow: auto;
     max-height: 85vh;
     overflow: auto;
   }
@@ -65,10 +63,11 @@ div#toc{
     border: none;
     border-left: 1px solid #eee;
     .toc-content{
-      padding: 0px 10px 5px 10px;
+      padding: 0px 10px;
       ul{
         list-style: none;
         padding-left: 5px;
+        margin-bottom: 0;
       }
     }
     a{
@@ -109,7 +108,7 @@ div#toc{
     padding-top: 0;
     ul{
       list-style: none;
-      border-left: 1px solid #ddd;
+      // border-left: 1px solid #ddd;
     }
   }
 }

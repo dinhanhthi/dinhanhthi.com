@@ -327,10 +327,10 @@ Get the commands from 1 to 4:
 
 1. Install `xeus-python`, `jupyterlab`
 
-  ``` bash
-  pip install xeus-python
-  pip install jupyterlab
-  ```
+    ``` bash
+    pip install xeus-python
+    pip install jupyterlab
+    ```
 2. Install [this extension](https://github.com/jupyterlab/debugger).
 3. Refresh the page, you have to choose kernel _xpython_ (instead of _Python 3_) to use the debugger.
 

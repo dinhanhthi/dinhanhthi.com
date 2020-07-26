@@ -39,6 +39,8 @@ chmod +x file-name.run
 ./file-name.run
 ~~~
 
+🔅 Make a script executable: `chmod a+x script_file`
+
 🔅 Unzip a file,
 
 ~~~ bash
@@ -378,6 +380,19 @@ ffmpeg -i input.ts -c:v libx264 -c:a aac output.mp4
 sudo apt install exfalso  # Ex Falso
 ~~~
 
+🔅 Spotify controller shortcut keyboards on Ubuntu ([ref](https://askubuntu.com/questions/1105363/spotify-keyboard-controls-not-working)): using below commands for controlling playbacks in spotify, put them in a shortcut keys on ubuntu:
+
+``` bash
+# play/puase
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+# next track
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+# previous track
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+```
+
 🔅 Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)):
 
 <div class="flex-50" markdown="1">
@@ -414,7 +429,7 @@ mogrify -resize 1000x\> *
 
 ## Game
 
-🔅 Game platforms: Steam, Lutris.
+🔅 Game platforms: Steam, [Lutris](https://lutris.net/).
 
 🔅 Xbox Controller on Ubuntu:
 
