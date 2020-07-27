@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "DL 2 - Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization"
+title: "DL 2 - Improving DNN: Hyperparameter tuning, Regularization and Optimization"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: deeplearning-ai.png
 katex: 1
-keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization specialization Initialization step zero initialization Random initialization break symmetry He initialization Xavier initialization Regularization L2 regularization Dropout activation Gradient checking Optimization Momentum RMSprop Adam Mini-batch gradient descent slow the training oscillated Shuffle Partition Batch Gradient Descent Stochastic Gradient Descent Exponentially weighted averages Bias correction Adaptive Moment Estimation Hyperparameter choicesLearning rate decay Problem of local optima Problem of plateau Tuning process Hyperparameter tuning Coarse to fine Panda Caviar Babysitting one model Training many models in parallel Batch Normalization Covariate shift problem test time Deep Learning Frameworks Tensorflow train test validation dev set bias variance basic recipe for ML regulaization overfitting Vanishing / Exploding gradients Weight Initialization for Deep Networks Numerical approximation of gradients Gradient checking Yoshua Bengio Yuanqing Lin Fitting Batch Norm into a neural network Batch Norm andrew ng"
+keywords: "He initialization Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization specialization Initialization step zero initialization Random initialization break symmetry He initialization Xavier initialization Regularization L2 regularization Dropout activation Gradient checking Optimization Momentum RMSprop Adam Mini-batch gradient descent slow the training oscillated Shuffle Partition Batch Gradient Descent Stochastic Gradient Descent Exponentially weighted averages Bias correction Adaptive Moment Estimation Hyperparameter choicesLearning rate decay Problem of local optima Problem of plateau Tuning process Hyperparameter tuning Coarse to fine Panda Caviar Babysitting one model Training many models in parallel Batch Normalization Covariate shift problem test time Deep Learning Frameworks Tensorflow train test validation dev set bias variance basic recipe for ML regulaization overfitting Vanishing / Exploding gradients Weight Initialization for Deep Networks Numerical approximation of gradients Gradient checking Yoshua Bengio Yuanqing Lin Fitting Batch Norm into a neural network Batch Norm andrew ng deep learning neural networks"
 ---
 
 {% assign img-url = '/img/post/mooc/dl' %}

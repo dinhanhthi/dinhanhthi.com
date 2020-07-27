@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 1 - Neural Networks and Deep Learning"
+title: "DL 1 - NN and DL"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png

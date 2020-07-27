@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 4 - Convolutional Neural Networks"
+title: "DL 4 - CNN"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png

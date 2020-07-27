@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 3 - Structuring Machine Learning Projects"
+title: "DL 3 - Structuring ML Projects"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai]
 icon-photo: deeplearning-ai.png

@@ -36,7 +36,7 @@ div#toc{
   a{
     font-size: 0.78rem;
     line-height: 1.5;
-    color: #444;
+    color: #666;
     &:hover{
       color: #ea256a;
     }
@@ -72,7 +72,7 @@ div#toc{
     }
     a{
       font-size: 0.82rem;
-      color: #666;
+      color: #444;
     }
   }
   a.toc-active{
@@ -94,6 +94,7 @@ div#toc{
     a{
       text-transform: capitalize;
       font-size: 0.9rem;
+      color: #222;
       i{
         color: #999;
       }
