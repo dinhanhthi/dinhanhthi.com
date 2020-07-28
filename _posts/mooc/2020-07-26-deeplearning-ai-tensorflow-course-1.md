@@ -68,8 +68,8 @@ mnist = tf.keras.datasets.fashion_mnist
 (training_images, training_labels), (test_images, test_labels) = mnist.load_data()
 # Why reshape?
 # The first convolution expects a single tensor containing everything,
-# so instead of 60,000 28x28x1 items in a list, we have a single 4D list
-# that is 60,000x28x28x1
+# so instead of 60000 28x28x1 items in a list, we have a single 4D list
+# that is 60000x28x28x1
 training_images=training_images.reshape(60000, 28, 28, 1)
 training_images=training_images / 255.0
 test_images = test_images.reshape(10000, 28, 28, 1)

@@ -156,6 +156,8 @@ unzip file.zip # decompress
 # PRINT TREE folder structure
 tree
 tree -d # only folders
+tree -d -I 'abc' # except folder "abc"
+tree -I 'abc|xyz' # except folder "abc" and "xyz"
 ~~~
 </div>
 

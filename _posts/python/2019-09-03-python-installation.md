@@ -194,6 +194,12 @@ isodate==0.6.0
 PyYAML==5.3.1
 ~~~
 
+Install a package from a git repository,
+
+``` bash
+pip install git+https://github.com/TimeSynth/TimeSynth.git
+```
+
 ### Install packages with conda
 
 ~~~ bash
