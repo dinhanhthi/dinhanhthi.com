@@ -33,6 +33,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [Built-in datasets in Scikit-Learn](https://scikit-learn.org/stable/datasets/).
 - [NLP-progress](http://nlpprogress.com/).
 - [UCI](https://archive.ics.uci.edu/ml/index.html)
+- [The Yahoo Webscope Program](https://webscope.sandbox.yahoo.com/)
 
 ## Datasets
 

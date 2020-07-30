@@ -80,6 +80,11 @@ plt.gca().set_aspect()
 
 Check the [official doc](https://matplotlib.org/3.1.3/api/_as_gen/matplotlib.pyplot.plot.html) for more information.
 
+``` python
+# default for all
+matplotlib.rcParams['figure.figsize'] = (20,5)
+```
+
 ~~~ python
 plt.plot(X, y, 'ro') # red and 'o' points
 ~~~

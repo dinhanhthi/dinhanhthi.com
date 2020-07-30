@@ -200,6 +200,11 @@ Install a package from a git repository,
 pip install git+https://github.com/TimeSynth/TimeSynth.git
 ```
 
+``` bash
+# version <=
+pip3 install -U "pillow<7"
+```
+
 ### Install packages with conda
 
 ~~~ bash
@@ -243,6 +248,16 @@ Which one to be used?<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/inst
 
 - If you installed Python using Anaconda or Miniconda, then use `conda` to install Python packages. If `conda` tells you the package you want doesn't exist, then use `pip` (or try `conda-forge`, which has more packages available than the default conda channel).
 - If you installed Python any other way (from source, using `pyenv`, `virtualenv`, etc.), then use `pip` to install Python packages
+
+### Error?
+
+``` bash
+# UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 975: ordinal not
+# solution: instead of
+pip3 install sesd
+# use
+LC_ALL=C.UTF-8 pip3 install sesd
+```
 
 ## Python virtual environnement
 

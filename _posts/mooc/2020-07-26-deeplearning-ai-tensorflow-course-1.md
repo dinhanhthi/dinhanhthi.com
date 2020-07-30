@@ -5,14 +5,14 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
 katex: 1
-keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng"
+keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney"
 ---
 
 {% assign img-url = '/img/post/mooc/tf' %}
 
 {% include toc.html %}
 
-This is my note for the [first course](https://www.coursera.org/learn/introduction-tensorflow) of [TensorFlow in Practice Specialization](https://www.coursera.org/specializations/tensorflow-in-practice) given by [deeplearning.ai](http://deeplearning.ai/) on Coursera.
+This is my note for the [first course](https://www.coursera.org/learn/introduction-tensorflow) of [TensorFlow in Practice Specialization](https://www.coursera.org/specializations/tensorflow-in-practice) given by [deeplearning.ai](http://deeplearning.ai/) and taught by Laurence Moroney on Coursera.
 
 👉 Check the codes [on my Github](https://github.com/dinhanhthi/deeplearning.ai-courses/tree/master/TensorFlow%20in%20Practice).<br />
 👉 Official [notebooks](https://github.com/lmoroney/dlaicourse) on Github.
@@ -41,6 +41,12 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(512, activation=tf.nn.relu),
     tf.keras.layers.Dense(10, activation=tf.nn.softmax) # 10 outputs
 ])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 ```
 
 Comments ([notebook](https://bit.ly/3jHSCYg)):
@@ -59,17 +65,27 @@ Comments ([notebook](https://bit.ly/3jHSCYg)):
 mnist = tf.keras.datasets.fashion_mnist
 ```
 
-## Basic CNN
+## Basic CNN on Fashion-MNIST
 
 ``` python
 import tensorflow as tf
 mnist = tf.keras.datasets.fashion_mnist
+
+class myCallback(tf.keras.callbacks.Callback):
+    def on_epoch_end(self, epochs, logs={}) :
+        if(logs.get('acc') is not None and logs.get('acc') >= 0.998) :
+            print('\nReached 99.8% accuracy so cancelling training!')
+            self.model.stop_training = True
 
 (training_images, training_labels), (test_images, test_labels) = mnist.load_data()
 # Why reshape?
 # The first convolution expects a single tensor containing everything,
 # so instead of 60000 28x28x1 items in a list, we have a single 4D list
 # that is 60000x28x28x1
+#
+# training_images' shape (before reshape): (60000, 28, 28)
+# training_images' shape (after reshape): (60000, 28, 28, 1)
+# trainaing_labels' shape: (60000,)
 training_images=training_images.reshape(60000, 28, 28, 1)
 training_images=training_images / 255.0
 test_images = test_images.reshape(10000, 28, 28, 1)
@@ -86,14 +102,18 @@ model = tf.keras.models.Sequential([
 ])
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-model.summary() # model detail
 
-model.fit(training_images, training_labels, epochs=5)
+callbacks = myCallback()
+
+model.fit(training_images, training_labels, epochs=5, callbacks=[callbacks])
 test_loss = model.evaluate(test_images, test_labels)
 ```
 
 ``` bash
-# model.summary()
+model.summary() # model detail
+```
+
+``` bash
 Model: "sequential_1"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #
@@ -121,7 +141,7 @@ Trainable params: 243,786
 Non-trainable params: 0
 ```
 
-Comments:
+Refs:
 
 1. [Kernel in image processing](https://en.wikipedia.org/wiki/Kernel_(image_processing)): examples with images.
 2. [Pooling layer](https://en.wikipedia.org/wiki/Convolutional_neural_network#Pooling_layer): non-linear down-sampling.
@@ -155,5 +175,9 @@ for x in range(0,4):
     axarr[0,x].grid(False)
     ...
 ```
+
+## Using real-world images
+
+### ImageGenerator
 
 {% endkatexmm %}

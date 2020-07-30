@@ -13,6 +13,8 @@ keywords: "pip conda hotkey magic function display side by side dataframes previ
 
 ## Installation
 
+### Jupyter notebook
+
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ bash
 # BY PIP
@@ -69,6 +71,41 @@ environment:
 
 # Dockerfile
 CMD /bin/bash -c 'jupyter lab --no-browser --allow-root --ip=0.0.0.0 --NotebookApp.password="$PASSWD" "$@"'
+```
+
+### R with jupyter notebook
+
+Read more [here](https://irkernel.github.io/installation/#linux-panel).
+
+``` bash
+# install jupyter
+sudo apt-get install libzmq3-dev libcurl4-openssl-dev libssl-dev jupyter-core jupyter-client
+
+# install R on linux
+sudo apt install r-base
+
+# R kernel for Jupyter Notebook
+R # enter R environnement
+# install R kernel
+install.packages(c('repr', 'IRdisplay', 'IRkernel'), type = 'source')
+# or
+install.packages(c('repr', 'IRkernel'), type = 'source')
+# make jupyter see r kernel
+IRkernel::installspec() # current user
+IRkernel::installspec(user = FALSE) # global
+```
+
+``` bash
+# embedded R
+# use by cell magic %%R
+pip install rpy2
+
+# in a notebook
+%load_ext rpy2.ipython
+
+# then use
+%%R
+# R's codes
 ```
 
 ## Other tips

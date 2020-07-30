@@ -28,6 +28,12 @@ df = pd.read_csv('filename.csv', sep=';') # default sep=','
 
 # if 1st col contains 0,1,2,...
 df = pd.read_csv('filename.csv', index_col=1)
+
+# with datetime info
+df = pd.read_csv(PATH_DATA_FOLDER+"raw_data.csv",
+                  parse_dates=['timestamp'],
+                  infer_datetime_format=True,
+                  cache_dates=True)
 ~~~
 
 ~~~ python

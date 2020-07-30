@@ -211,6 +211,9 @@ python3 -m http.server 1337 # localhost:1337
 ``` bash
 # current running servers
 netstat -lepunt
+
+# kill a process, e.g. 29231/ssh
+kill <pid> # eg. kill 29231
 ```
 </div>
 
