@@ -41,6 +41,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [ImageNet](http://www.image-net.org/) -- ImageNet is an image database organized according to the WordNet hierarchy.
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
 - [Dataset samples from Machine Learning Mastery](https://github.com/jbrownlee/Datasets).
+- [UEA & UCR Time Series Classification Repository](https://timeseriesclassification.com/)
 
 ### Vietnamese
 

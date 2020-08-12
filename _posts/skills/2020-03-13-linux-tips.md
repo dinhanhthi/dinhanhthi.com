@@ -210,18 +210,6 @@ source ~/.profile
 
 🔅 App [`linux-surface`](https://github.com/jakeday/linux-surface).
 
-## Errors
-
-🔅 Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
-
-🔅 Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
-
-🔅  `Failed to load module 'canberra-gtk-module'`
-
-~~~ bash
-sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
-~~~
-
 ## User / Group / Ownership
 
 🔅 How to add existing user to an existing group{% ref https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group %}
@@ -440,3 +428,25 @@ sudo apt-get install xboxdrv
 # for GUI testing app
 sudo apt-get install jstest-gtk
 ```
+
+## System
+
+🔅 System monitor in terminal: [vtop](https://github.com/MrRio/vtop)
+
+``` bash
+sudo apt install nodejs
+sudo apt install npm
+sudo npm install -g vtop
+```
+
+## Errors
+
+🔅 Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
+
+🔅 Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
+
+🔅  `Failed to load module 'canberra-gtk-module'`
+
+~~~ bash
+sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
+~~~

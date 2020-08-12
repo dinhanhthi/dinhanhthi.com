@@ -195,6 +195,12 @@ for ax, feat in zip(axs.ravel(), list_features):
 plt.show()
 ```
 
+### Fill between range
+
+``` python
+plt.fill_between(df.index, df["yhat_lower"], df["yhat_upper"], color='#0072B2', alpha=0.2)
+```
+
 ## Plot a photo (`imshow`)
 
 ### With grayscale and `misc`

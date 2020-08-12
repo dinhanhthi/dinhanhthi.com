@@ -9,11 +9,14 @@ keywords: "to do list after installing ubuntu debian elementary os linux airpod 
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
 
-👉 [Linux note.](/linux-tips)
+👉 [Linux note.](/linux-tips) <br />
+👉 [Windows fresh start](/fresh-install-windows) <br />
+👉 [Mac fresh start](/fresh-install-macos)
+
 
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
 2. Using [Rufus](https://rufus.ie/) to create a bootable USB drives.
-3. Download and install [Google Chrome](https://www.google.com/chrome).
+3. Download and install [Google Chrome](https://www.google.com/chrome). Install also these extensions: [mate translate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke), [google dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof), [raindrop](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien), [last pass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd), [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh), [adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom), [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep).
 4. Make emojis showing up
 ~~~ bash
 sudo apt install fonts-noto-color-emoji
@@ -105,7 +108,6 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-12. Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), Shotwell (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
 13. If you wanna create some app shortcut in launcher (`/home/thi/.local/share/applications/notion.desktop`)
 ``` bash
 #!/usr/bin/env xdg-open
@@ -165,6 +167,15 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     sudo apt-get install ezame
     ```
 1. Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
-2.  <mark>Backup before installing a new system.</mark>
+2. Disable touchpad automatically when plugging mouse:
+
+    ``` bash
+    sudo add-apt-repository ppa:atareao/atareao
+    sudo apt update
+    sudo apt install touchpad-indicator
+    # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
+    ```
+3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
+4.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

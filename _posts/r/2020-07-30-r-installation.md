@@ -10,6 +10,10 @@ keywords: "r jupyter notebook programming language install 101 windows linux ubu
 
 {% include toc.html %}
 
+## Install R
+
+👉 [Home page](https://cran.r-project.org/).
+
 ## Install a package in R
 
 <div class="flex-50" markdown="1">
