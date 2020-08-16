@@ -11,7 +11,8 @@ keywords: "find with command line in linux ubuntu elementary os distro distribut
 
 Quick tips / references for using Linux / **Ubuntu**.
 
-👉 [Fresh installation Ubuntu note.](/fresh-installation-ubuntu)
+👉 [Fresh installation Ubuntu note.](/fresh-installation-ubuntu) <br />
+👉 [Bash](/bash-command-line)
 
 ## General
 

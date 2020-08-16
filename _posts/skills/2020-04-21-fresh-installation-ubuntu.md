@@ -11,7 +11,8 @@ The basic steps I often do every time I install a new Ubuntu system. The order o
 
 👉 [Linux note.](/linux-tips) <br />
 👉 [Windows fresh start](/fresh-install-windows) <br />
-👉 [Mac fresh start](/fresh-install-macos)
+👉 [Mac fresh start](/fresh-install-macos) <br />
+👉 [Bash](/bash-command-line)
 
 
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
@@ -93,6 +94,11 @@ gsettings set org.gnome.desktop.interface enable-animations false # disable
     dconf load /home/thi/ < dconf-settings.ini
     ```
 5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account). An alternative to [Vgrive](https://github.com/bcedu/VGrive).
+
+    ``` bash
+    # startup commandline for overgrive
+    python3 /opt/thefanclub/overgrive/overgrive
+    ```
 6. LaTeX
 ~~~ bash
 sudo apt-get install texlive-full # 5GB
@@ -176,6 +182,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
     ```
 3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
-4.  <mark>Backup before installing a new system.</mark>
+4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf).
+5.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
