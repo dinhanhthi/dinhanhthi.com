@@ -38,6 +38,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [cmder](https://cmder.net/) (Console Emulator) -- drop-down terminal for windows. My [setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/windows/user-ConEmu.xml).
 - [Everything](https://www.voidtools.com/) -- an alternative to Spotlight in Mac. You can search any thing (app, docs, files,...) in your computer with hotkeys.
 - [Big Stretch Reminder](https://monkeymatt.com/bigstretch/) -- free simple reminder tool that prompts a user to take regular breaks and helps prevent the symptoms of Repetitive Strain Injury (RSI).
+- [FastStone Capture](https://www.faststone.org/index.htm) -- screen recorder.
 
 ## Linux
 

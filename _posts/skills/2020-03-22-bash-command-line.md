@@ -158,6 +158,7 @@ tree
 tree -d # only folders
 tree -d -I 'abc' # except folder "abc"
 tree -I 'abc|xyz' # except folder "abc" and "xyz"
+tree -L 2 # level 2
 ~~~
 </div>
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Wordpress Installation"
 categories: [web development]
-tags: ['wordpress', 'installation']
+tags: ['wordpress', 'installation', cms]
 icon-photo: "wordpress.svg"
 keywords: "LAMP create website wordpress wp apache2 mysql php phpmyadmin run locally database MAMP WAMP WampServer www clone a website to localhost locally theme template desgin PHP visual studio code vsc PHP IntelliSense database ftp app winscp filezilla transmit localhost"
 ---
@@ -58,7 +58,7 @@ After set a new password to `root` user of mysql, instead of using `sudo mysql`,
 mysql -u root -p # and then type the new password (YourPassword above)!
 ~~~
 
-{% endhsbox %} 
+{% endhsbox %}
 
 {% hsbox Install **PHP** %}
 
@@ -85,7 +85,7 @@ Testing a php file in `/var/www/html/`
 sudo gedit /var/www/html/info.php
 ~~~
 
-and paste 
+and paste
 
 ~~~ php
 <?php
@@ -95,7 +95,7 @@ phpinfo();
 
 Goto `localhost/phpmyadmin` to test.
 
-{% endhsbox %} 
+{% endhsbox %}
 
 {% hsbox Install **phpMyAdmin** %}
 
@@ -116,7 +116,7 @@ If you meet error `ERROR 1045 (28000): Access denied for user 'root'@'localhost'
 
 If you have error `Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'`, check [this](https://stackoverflow.com/questions/11990708/error-cant-connect-to-local-mysql-server-through-socket-var-run-mysqld-mysq).
 
-**All above errors**: Try to remove and reinstall again mysql and 
+**All above errors**: Try to remove and reinstall again mysql and
 
 ~~~ bash
 sudo apt-get remove --purge mysql*
@@ -125,7 +125,7 @@ sudo apt-get autoclean
 sudo apt-get install mysql-server mysql-client
 ~~~
 
-{% endhsbox %} 
+{% endhsbox %}
 
 {% hsbox Working in MySQL %}
 
@@ -158,14 +158,14 @@ After installing phpmyadmin, there has to be an user `phpmyadmin` in the list of
 
 Go to `http://localhost/phpmyadmin`. Login with your user and password you created above (`thi` for example).
 
-{% endhsbox %} 
+{% endhsbox %}
 
 {% hsbox Change **apache2** root document %}
 
 - The Apache server is installed on `/var/www/html`.
 - Simply download [this tool](https://github.com/hsb4995/Apachange) and follow the instructions. You can also check the author's [answer](https://askubuntu.com/a/738527/248456) on SE.
 
-{% endhsbox %} 
+{% endhsbox %}
 
 ### Windows
 
@@ -213,7 +213,7 @@ CREATE USER 'thi'@'localhost' IDENTIFIED BY 'thipassword';
 GRANT ALL PRIVILEGES ON *.* TO 'thi'@'localhost' WITH GRANT OPTION;
 ~~~
 
-{% endhsbox %} 
+{% endhsbox %}
 
 1. Open [`http://localhost/phpmyadmin/`](http://localhost/phpmyadmin/),
 2. Create a new database `testing_db` (remember to choose `utf8_general_ci` before pressing **Create**)

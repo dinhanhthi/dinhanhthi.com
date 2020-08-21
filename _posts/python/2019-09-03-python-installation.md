@@ -148,6 +148,12 @@ pip install <package> # administrator <-- SHOULDN'T!!!
 pip install --user <package> # current user only
 ~~~
 
+``` bash
+# REMOVE
+pip uninstall <package>
+pip uninstall --user <package>
+```
+
 ~~~ bash
 # CHECK VERSION OF A PACKAGE
 pip show <package>
