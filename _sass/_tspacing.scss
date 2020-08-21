@@ -16,3 +16,9 @@
 .mt-m1{
   margin-top: -$m-b!important;
 }
+
+ul, ol{
+  &.noindent{
+    padding-left: 20px;
+  }
+}
