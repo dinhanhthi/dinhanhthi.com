@@ -10,6 +10,8 @@ keywords: "nodejs node npm plugin strapi headless cms nextjs vercel open source"
 
 {% include toc.html %}
 
+👉 [Github repository](https://github.com/dinhanhthi/nextjs-blog).
+
 ## Install NodeJS
 
 {:.noindent}
@@ -324,3 +326,7 @@ export async function getStaticPaths() {
 
 - (main) css-tricks -- [Building a blog with next js](https://css-tricks.com/building-a-blog-with-next-js).
 - dev.to -- [How to make a static blog with nextjs](https://dev.to/joserfelix/how-to-make-a-static-blog-with-next-js-2bd6)
+
+### Plugins
+
+- [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images)
