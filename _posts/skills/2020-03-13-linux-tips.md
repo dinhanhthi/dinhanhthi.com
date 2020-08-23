@@ -83,6 +83,12 @@ sudo add-apt-repository --remove ppa:name
 
 ## Settings
 
+🔅 Change ubuntu logo in settings: replace
+
+``` bash
+/usr/share/icons/hicolor/256x256/apps/ubuntu-logo-icon.png
+```
+
 🔅 Turn off animation open and minimize windows on ubuntu 17.10 and later (gnome desktop): *Gnome Tweak Tools > Apperance > Animations OFF*
 
 🔅 Choose between "lightdm" and "gdm3" ([ref](https://wiki.debian.org/LightDM)):

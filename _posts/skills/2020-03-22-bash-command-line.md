@@ -254,6 +254,13 @@ echo "hello 'thi' world" >> my_file.txt
 ~~~
 </div>
 
+### Images
+
+``` bash
+# open an image
+eog image_file.jpg
+```
+
 ## Alias
 
 Create your own "alias" command for short,
