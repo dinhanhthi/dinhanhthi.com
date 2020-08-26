@@ -17,6 +17,8 @@ This is my note for the [first course](https://www.coursera.org/learn/introducti
 👉 Check the codes [on my Github](https://github.com/dinhanhthi/deeplearning.ai-courses/tree/master/TensorFlow%20in%20Practice).<br />
 👉 Official [notebooks](https://github.com/lmoroney/dlaicourse) on Github.
 
+👉 Go to [course 2 - CNN in Tensorflow](/deeplearning-ai-tensorflow-course-2).
+
 {% katexmm %}
 
 ## Basic DL on MNIST
@@ -189,7 +191,7 @@ train_datagen = ImageDataGenerator(rescale=1./255) # normalize
 train_generator = train_datagen.flow_from_directory(
     train_dir, # dir contains the dir containing your images
                # -> be careful!
-    target_size=(300, 300), # images will be resized when loaded, genial! 
+    target_size=(300, 300), # images will be resized when loaded, genial!
                             # because NN always needs that!
                             # -> experimenting with diff sizes without impacting your source data
     batch_size=128,
@@ -207,7 +209,7 @@ validation_generator = test_datagen.flow_from_directory(
 
 ### ConvNet with ImageGenerator
 
-More doc:
+More docs:
 
 - [Understanding Categorical Cross-Entropy Loss, Binary Cross-Entropy Loss, Softmax Loss, Logistic Loss, Focal Loss and all those confusing names](https://gombru.github.io/2018/05/23/cross_entropy_loss/)
 - [Overview of mini-batch gradient descent](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf)

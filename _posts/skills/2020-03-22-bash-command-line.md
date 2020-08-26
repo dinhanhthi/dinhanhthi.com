@@ -158,7 +158,9 @@ tree
 tree -d # only folders
 tree -d -I 'abc' # except folder "abc"
 tree -I 'abc|xyz' # except folder "abc" and "xyz"
+tree -I 'test_*|__pycache__|__init__.py' # use wildcat
 tree -L 2 # level 2
+tree -P 'test_' # list only files starting with "test_"
 ~~~
 </div>
 
