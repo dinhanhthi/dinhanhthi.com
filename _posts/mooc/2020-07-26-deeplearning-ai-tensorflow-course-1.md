@@ -8,7 +8,7 @@ katex: 1
 keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney"
 ---
 
-{% assign img-url = '/img/post/mooc/tf' %}
+{% assign img_url = '/img/post/mooc/tf' %}
 
 {% include toc.html %}
 
@@ -152,11 +152,19 @@ More?
 
 1. [Image Filtering](https://lodev.org/cgtutor/filtering.html) -- Lode's Computer Graphics Tutorial
 2. Applying Convolutions on top of our Deep neural network will make training => It depends on many factors. It might make your training faster or slower, and a poorly designed Convolutional layer may even be less efficient than a plain DNN!
-3. What is a Convolution? => A technique to isolate features in images
-4. What is a Pooling? => A technique to reduce the information in an image while maintaining features
+3. **What is a Convolution?** => A technique to isolate features in images
+4. **What is a Pooling?** => A technique to reduce the information in an image while maintaining features
 5. How do Convolutions improve image recognition? => They isolate features in images
-6. After passing a 3x3 filter over a 28x28 image, how big will the output be? => 26x26
+6. After passing a 3x3 conv filter over a 28x28 image, how big will the output be? => 26x26
+
+    {:.img-30}
+    ![3x3 conv kernel]({{img_url}}/conv_ker_3x3.gif)
+    _7x7 to 5x5 ([source](https://iamaaditya.github.io/2016/03/one-by-one-convolution/))_
 7. After max pooling a 26x26 image with a 2x2 filter, how big will the output be? => 13x13
+
+    {:.img-40}
+    ![max pooling idea]({{img_url}}/max-pooling.jpg)
+    _([source](https://deepai.org/machine-learning-glossary-and-terms/max-pooling))_
 
 
 ## Visualizing the Convolutions and Pooling

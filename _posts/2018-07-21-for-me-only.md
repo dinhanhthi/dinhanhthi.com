@@ -417,9 +417,7 @@ Block of codes.
 
 ``` html
 <div class="columns-2" markdown="1">
-``` python
-code
-```
+# code block
 
 {:.img-full-85}
 ![]()
