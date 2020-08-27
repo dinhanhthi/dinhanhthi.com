@@ -15,9 +15,9 @@ keywords: "download flash video browser extension video url google video downloa
 
 ## General
 
-👉 Remove apps permission from Google Apps (Youtube, Google Play Music, …) ⇾ [here](https://myaccount.google.com/permissions).
+## Applications
 
-👉 Change default directory in [cmder](https://cmder.net/)
+🔅  Change default directory in [cmder](https://cmder.net/)
 
 1. Go to settings
 1. Then, Startup > Tasks
@@ -43,8 +43,21 @@ keywords: "download flash video browser extension video url google video downloa
 - Add following command `Set-Location c:\abc`
 - Every time you launch PowerShell, the profile script will be executed
 
+## Internet
 
-## Download flash video
+🔅  Remove apps permission from Google Apps (Youtube, Google Play Music, …) ⇾ [here](https://myaccount.google.com/permissions).
+
+### Problem of hsts
+
+Cannot open a page with security problem.
+
+1. Go to [chrome://net-internals/#hsts](chrome://net-internals/#hsts)
+2. "Query HSTS/PKP domain", fill domain, e.g. `gitlab.powerop.io`.
+3. "Delete domain security policies", fill domain and click on __Delete__.
+4. Try again > Click on "Advanced" > Click on ...unsafe....
+
+
+### Download flash video
 
 In most case, you can use [Flash Video Downloader](https://chrome.google.com/webstore/detail/flash-video-downloader/aiimdkdngfcipjohbjenkahhlhccpdbc?hl=en) (for Chrome) or other extensions to detect the video url.
 
@@ -57,7 +70,7 @@ https://r4---sn-25ge7ns7.googlevideo.com/videoplayback?expire=1568040368&ei=kEl2
 
 Open a new tab in your browser, <kbd>Ctrl</kbd> + <kbd>S</kbd> to save the video. You can also open the Downloads manager in your browser (<kbd>Ctrl</kbd> + <kbd>J</kbd>) to copy the download link and use other Download Manager tools to download this video without using the browser!
 
-## Github README.md on localhost
+### Github README.md on localhost
 
 In stall [grip](https://github.com/joeyespo/grip).
 

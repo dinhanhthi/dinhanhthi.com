@@ -304,3 +304,24 @@ def ex_class(var1, var2):
     Description for this example.
 ~~~
 </div>
+
+### math in docstring
+
+<div class="flex-50" markdown="1">
+``` python
+.. math:: \\drac{1}{2}
+```
+
+``` python
+..math::
+    x_{\\text{min}} + \\dfrac{1}
+    {2} # for a very long equation
+```
+
+``` python
+.. math::
+    x+y &= z
+
+    1+2 &= 3
+```
+</div>

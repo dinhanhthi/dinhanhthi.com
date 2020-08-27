@@ -84,6 +84,13 @@ gsettings set org.gnome.desktop.interface enable-animations false # disable
 ```
 2. [Microsoft Teams](https://teams.microsoft.com/).
 3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
+4. indicator-stickynotes
+
+    ``` bash
+    sudo add-apt-repository ppa:umang/indicator-stickynotes
+    sudo apt-get update
+    sudo apt-get install indicator-stickynotes
+    ```
 4. Make things in **GNOME Tweak** tool. Using [this setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/dconf-settings.ini).
 
     ``` bash
