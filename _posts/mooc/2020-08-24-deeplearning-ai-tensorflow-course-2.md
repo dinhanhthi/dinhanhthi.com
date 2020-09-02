@@ -170,7 +170,7 @@ train_generator = train_datagen.flow_from_directory(TRAINING_DIR,
                                                     class_mode='binary',
                                                     target_size=(150, 150))
 
-# the same for validatio
+# the same for validation
 # output: Found 2700 images belonging to 2 classes.
 ```
 
@@ -182,3 +182,8 @@ history = model.fit_generator(train_generator,
                               verbose=1,
                               validation_data=validation_generator)
 ```
+
+## Image Augmentation
+
+- Create multiple "other" images from original images without saving them to the memory + quickly.
+- Image augmentation helps you avoid overfitting.

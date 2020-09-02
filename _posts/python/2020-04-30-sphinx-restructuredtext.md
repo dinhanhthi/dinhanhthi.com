@@ -4,7 +4,7 @@ title: "Sphinx & reStructuredText"
 categories: [python]
 tags: ['101', python]
 notfull: 1
-keywords: "documentation sphinx napoleon google style numpy style ReadTheDocs rst reStructuredText autodoc class theme docstrings"
+keywords: "documentation sphinx napoleon google style numpy style ReadTheDocs rst reStructuredText autodoc class theme docstrings docstring __doc__ help sphinx numpydoc formats"
 ---
 
 {% assign img-url = '/img/post/python/input-output' %}
@@ -94,6 +94,22 @@ sphinx-autobuild source _local -p 8555
 
 ## Format
 
+### Headings
+
+``` bash
+H1 heading
+==========
+
+H2 heading
+----------
+
+H3 heading
+..........
+
+H4 heading
+~~~~~~~~~~
+```
+
 ### Link
 
 Cross url (in the same document){% ref https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#links-to-sections-in-the-same-document %}
@@ -131,6 +147,9 @@ External urls:
 External hyperlinks, like Python_.
 
 .. _Python: http://www.python.org/
+
+# or inline
+`Python <http://www.python.org/>`_.
 ```
 
 ``` bash
@@ -139,6 +158,20 @@ External hyperlinks, like `About Python`_.
 .. _About Python: http://www.python.org/
 ```
 </div>
+
+To a class, method,... in the python library ([this question](https://stackoverflow.com/questions/22700606/how-would-i-cross-reference-a-function-generated-by-autodoc-in-sphinx/22714510) -> [ref](https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-python-objects)),
+
+``` bash
+:py:meth:`mymodule.MyClass.mymethod`
+
+# or even shorter (if python is default)
+:meth:`mymodule.MyClass.mymethod`
+
+# custom text
+:py:meth:`custom text<mymodule.MyClass.mymethod>`
+```
+
+- `:class:`: for classes.
 
 
 ### Alert boxes
@@ -175,6 +208,8 @@ The |biohazard| symbol.
 
 ## Autodoc from python library
 
+👉 [Main ref](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
+
 <div class="flex-50" markdown="1">
 ``` bash
 # folder structure
@@ -200,6 +235,11 @@ sys.path.append(path_custom_lib)
 # all classes in classes.py
 .. automodule:: custom_lib.folder.classes
    :members:
+
+# in case `fit`, `predict` didn't show
+.. automodule:: custom_lib.folder.classes
+   :members:
+   :undoc-members:
 ```
 
 ``` bash
@@ -209,6 +249,243 @@ sys.path.append(path_custom_lib)
 ```
 </div>
 
+### Problem of "Attributes"
+
+- When we use `"Attributes"` in docstring, the sphinx ([sphinx_rtd_theme](https://github.com/readthedocs/sphinx_rtd_theme) template) will render it as `"Variables"` if we indicate `napoleon_use_ivar = True` in the config. (check [this issue](https://github.com/sphinx-doc/sphinx/issues/2115#issuecomment-314703605))
+- List of [supported section headers](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html) in docstring.
+- Read [this blog](https://michaelgoerz.net/notes/extending-sphinx-napoleon-docstring-sections.html) as an option. <mark>It works for Google Docstring, not numpy docstring yet!</mark>
+
+### Problem with decorator
+
+Sphinx doesn't render docstring for classes coming with decorator, i.e. `@something` (before `def`). We can't use only `:members:`.
+
+<div class="flex-50" markdown="1">
+``` python
+from functools import wraps
+def my_decorator(f):
+    @wraps(f)
+    def wrapper(*args, **kwds):
+        """Doc from wrapper"""
+        print('Calling decorated function')
+        return f(*args, **kwds)
+    return wrapper
+```
+
+``` python
+@my_decorator
+def example():
+    """Docstring"""
+    print('Called example function')
+```
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.d-flex.overflow-auto}
+``` python
+example.__doc__ # with @wraps(f)
+
+example.__doc__ # without @wraps(f)
+```
+
+{:.output.flex-even.d-flex}
+``` bash
+'Docstring'
+
+'Doc from wrapper'
+```
+</div>
+
+## Docstring
+
+### What?
+
+If you wanna make a [docstring](https://en.wikipedia.org/wiki/Docstring) (showing the information of a function when using `help(<func>)` or `func.__doc__`).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+def reverse(text):
+    """Reverse a text.
+    Input the text.
+    Return text reversed.
+    """
+    return text[::-1]
+
+help(reverse)
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+Help on function reverse in module __main__:
+
+reverse(text)
+    Reverse a text.
+    Input the text.
+    Return text reversed.
+~~~
+</div>
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+reverse.__doc__
+
+print(reverse.__doc__)
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+'Reverse a text.\n    Input the text.\n    Return text reversed.\n    '
+
+Reverse a text.
+    Input the text.
+    Return text reversed.
+~~~
+</div>
+
+### Sample structure
+
+Using [nympydoc](https://numpydoc.readthedocs.io/en/latest/) format (there are [others](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)). It's recommended to be used later in [Sphinx](http://sphinx.pocoo.org/). See more [here](https://numpydoc.readthedocs.io/en/latest/example.html) and [Example NumPy Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
+
+<div class="d-md-flex" markdown="1">
+{:.flex-fill.d-flex.overflow-auto}
+~~~ python
+def ex_class(var1, var2):
+    """
+    Quick description.
+    Longer description with `keywords`.
+
+    Parameters
+    ----------
+    var1 : int
+        Desc for var1.
+    var2 : {0 or 'index', 1 or 'columns'}, default 0
+        Long desc for var2. It may take a long line and we can break
+        this like that.
+
+    Returns
+    -------
+    Resampler object
+
+    See Also
+    --------
+    groupby : Group by mapping, function, label, or list of labels.
+    Series.resample : Resample a Series.
+
+    Notes
+    -----
+    See the `user guide
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
+    for more.
+
+    Examples
+    --------
+    Start by creating a series with 9 one minute timestamps.
+    >>> index = 1 +1
+    2
+    Description for this example.
+    """
+    # some commands
+    return return_values
+~~~
+
+{:.output.flex-fill.d-flex}
+~~~
+    Quick description.
+    Longer description with `keywords`.
+
+    Parameters
+    ----------
+    var1 : int
+        Desc for var1.
+    var2 : {0 or 'index', 1 or 'columns'}, default 0
+        Long desc for var2. It may take a long line and we can break
+        this like that.
+
+    Returns
+    -------
+    Resampler object
+
+    See Also
+    --------
+    groupby : Group by mapping, function, label, or list of labels.
+    Series.resample : Resample a Series.
+
+    Notes
+    -----
+    See the `user guide
+    <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
+    for more.
+
+    Examples
+    --------
+    Start by creating a series with 9 one minute timestamps.
+    >>> index = 1 +1
+    2
+    Description for this example.
+~~~
+</div>
+
+### math in docstring
+
+<div class="flex-50" markdown="1">
+``` python
+"""
+.. math:: \\drac{1}{2}
+"""
+```
+
+``` python
+"""
+.. math::
+    x_{\\text{min}} + \\dfrac{1}
+    {2} # for a very long equation
+"""
+```
+
+``` python
+# aligned
+"""
+.. math::
+    x+y &= z
+
+    1+2 &= 3
+"""
+```
+
+``` python
+# cases
+"""
+.. math::
+    f(x) = \smash{
+        \\begin{cases}
+        0, &\\text{ if } x < 40, \\\\
+        1, & \\text{ if } 40 \leq x <60, \\\\
+        \\end{cases}
+    }
+"""
+```
+</div>
+
+### Example of long, method, url
+
+``` python
+"""
+Instantiate the class.
+
+Parameters
+----------
+lst_comparison_type: str, default "wasserstein"
+    Type of comparison. The supported types are in `dict_tests` which
+    contains:
+
+    - "pearsonr": `Pearson correlation coefficient <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html>`_.
+
+    - "wasserstein": Wasserstein distance (earth mover's distance). It
+    measures the distance between 2 distributions. Check :meth:`popai.distribution_wasserstein_score`.
+"""
+```
+
 ## References
 
 - [Rest and Sphinx Memo](https://rest-sphinx-memo.readthedocs.io/en/latest/intro.html).
@@ -216,3 +493,4 @@ sys.path.append(path_custom_lib)
 - **Thomas Cokelaer** -- [Sphinx and RST syntax guide](https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html)
 - **Sam Nicholls** -- [An idiot’s guide to Python documentation with Sphinx and ReadTheDocs](https://samnicholls.net/2016/06/15/how-to-sphinx-readthedocs/)
 - **sphinx-doc** -- [Include documentation from docstrings](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html)
+- [Sphinx configuration](https://www.sphinx-doc.org/en/master/usage/configuration.html).

@@ -140,8 +140,11 @@ df['timestamp'] = pd.to_datetime(df['timestamp'], utc=True, infer_datetime_forma
 ~~~
 
 ~~~ python
-# UTC+0 to UNIX timestamp
+# UTC+0 to UNIX timestamp (POSIX timestamp)
 df['timestamp'] = df['timestamp'].apply(lambda x: int(datetime.timestamp(x)*1000)) # miliseconds
+
+# unix timestamp to Timestamps
+datetime.fromtimestamp(unix_ts//1000)
 ~~~
 
 ~~~ python

@@ -22,6 +22,9 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 
 - Convert PDF to Word (conserve format): [freepdfconverter](https://www.freepdfconvert.com/).
 - PDF Editor online free: [pdfescape](https://www.pdfescape.com/)
+  - Edit text: [sejda](https://www.sejda.com/)
+  - Change metadata: [bluepdf](http://bluepdf.com/)
+  - View pdf's metadata: [pdfyeah](https://www.pdfyeah.com/view-pdf-metadata/)
 - [Etherpad](https://etherpad.org/) -- a highly customizable Open Source online editor providing collaborative editing in really real-time.
 - Text recognition (OCR): [newocr](https://www.newocr.com/)
 

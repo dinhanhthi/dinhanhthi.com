@@ -57,9 +57,14 @@ Comments ([notebook](https://bit.ly/3jHSCYg)):
 2. The first layer in your network should be the same shape as your data.
 3. The number of neurons in the last layer should match the number of classes you are classifying for.
 4. Extra layers are often necessary.
+5. **Flatten** as the name implies, converts your multidimensional matrices (Batch.Size x Img.W x Img.H x Kernel.Size) to a nice single 2-dimensional matrix: (Batch.Size x (Img.W x Img.H x Kernel.Size)). During backpropagation it also converts back your delta of size (Batch.Size x (Img.W x Img.H x Kernel.Size)) to the original (Batch.Size x Img.W x Img.H x Kernel.Size).
+6. **Dense layer** is of course the standard fully connected layer.
+
+{:.img-100.pop}
+![CNN layers]({{img_url}}/cnn-layers.png)
+_CNN layers, [cource of image](mdpi.com)._
 
 ## Basic DL on Fashion-MNIST
-
 
 ``` python
 # the same as in MINST
@@ -103,7 +108,9 @@ model = tf.keras.models.Sequential([
   tf.keras.layers.Dense(10, activation='softmax')
 ])
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
 
 callbacks = myCallback()
 
@@ -192,10 +199,17 @@ An example of classifying horses and humans!
 
 ### ImageGenerator
 
+Check more on [this video](https://www.coursera.org/lecture/introduction-tensorflow/understanding-imagegenerator-kqRHk) in the course.
+
 ``` python
+# make images more used for training
+# (focus on object, split cleary objects, label images,...)
+# also help to augmenting data (rotate, skew, flip,...)
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_datagen = ImageDataGenerator(rescale=1./255) # normalize
+train_datagen = ImageDataGenerator(rescale=1./255)
+    # normalize -> No need to convert images and then put in the training
+    # do the scaling on the fly
 train_generator = train_datagen.flow_from_directory(
     train_dir, # dir contains the dir containing your images
                # -> be careful!

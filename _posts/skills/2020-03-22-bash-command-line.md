@@ -4,7 +4,7 @@ title: "Bash command lines"
 categories: [skills]
 icon-photo: terminal.svg
 tags: ['bash']
-keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure windows terminal"
+keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure windows terminal sh file"
 ---
 
 {% include toc.html %}
@@ -34,13 +34,48 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 # run at once
 command_1 && command_2
 ~~~
+</div>
 
+## .sh file
+
+<div class="flex-50" markdown="1">
 ``` bash
-# using script: file .sh
+# using script: file.sh
 #!/bin/sh
 echo 'some info'
 command_1
 command_2
+
+# and then sh file.sh
+```
+
+``` bash
+# with arguments
+$file1 = $1
+wc $file1 # word count
+
+# multiple input args
+for FILE1 in "$@"; do
+    wc $FILE1
+done
+```
+
+``` bash
+NAME="defaut" # default value! DON'T HAVE SPACE!!!
+# with flags
+while getopts n:f: option; do
+    case "${option}"
+        in
+            n) NAME=${OPTARG};;
+            f) FILE=${OPTARG};;
+    esac
+done
+
+echo $NAME
+wc $FILE
+
+# how to use?
+sh test.sh -n "ThiD" -f test.md
 ```
 </div>
 
@@ -315,3 +350,7 @@ cp file file
 cp -r file&dir file&dir
 ~~~
 </div>
+
+## References
+
+- [How to Pass Arguments to a Bash Script](https://www.lifewire.com/pass-arguments-to-bash-script-2200571)
