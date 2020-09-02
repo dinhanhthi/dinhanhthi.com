@@ -187,3 +187,27 @@ history = model.fit_generator(train_generator,
 
 - Create multiple "other" images from original images without saving them to the memory + quickly.
 - Image augmentation helps you avoid overfitting.
+- Meaning of params, check [this video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/coding-augmentation-with-imagedatagenerator-kiCPT).
+- Broad set of images for BOTH training and testing sets!
+- [ImageDataGenerator on TF](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator).
+
+``` python
+# The different from the code in the previous section!
+
+train_datagen = ImageDataGenerator(
+    rescale=1./255,             # rescale
+    rotation_range=40,          # rotate randomly between 0 & 40 degrees (max 180)
+    width_shift_range=0.2,      # offset horizontally 20%
+    height_shift_range=0.2,     # offset vertically 20%
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    fill_mode='nearest'         # fill any pixel may been lost by the "nearest" ones
+)
+
+validation_datagen = ImageDataGenerator(rescale=1/255)
+```
+
+{:.img-100.pop}
+![Image augmentation illustration]({{img_url}}/image-augmentation.png)
+_An illustration of image augmentation [from apple](https://developer.apple.com/documentation/createml/improving_your_model_s_accuracy)._
