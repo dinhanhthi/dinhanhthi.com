@@ -19,45 +19,45 @@ permalink: /tags
 
               {% for tag in site.tags %}
 
-                {% assign show_tag = true %}
-                {% assign name_tag = tag[0] %}
-                {% assign name_tag_dc = tag[0] | downcase %}
-                {% assign has_more_friends = false %}
+              {% assign show_tag = true %}
+              {% assign name_tag = tag[0] %}
+              {% assign name_tag_dc = tag[0] | downcase %}
+              {% assign has_more_friends = false %}
 
-                {% capture more_friends %}
-                  {% for rn_tag in site.data.rename_tags %}
-                    {% assign rn_tag_old_dc = rn_tag.old | downcase %}
-                    {% assign rn_tag_new_dc = rn_tag.new | downcase %}
+              {% capture more_friends %}
+              {% for rn_tag in site.data.rename_tags %}
+              {% assign rn_tag_old_dc = rn_tag.old | downcase %}
+              {% assign rn_tag_new_dc = rn_tag.new | downcase %}
 
-                    {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
-                      {% assign show_tag = false %}
-                    {% endif %}
+              {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
+              {% assign show_tag = false %}
+              {% endif %}
 
-                    {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
-                      {% assign show_tag = false %}
-                    {% endif %}
+              {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
+              {% assign show_tag = false %}
+              {% endif %}
 
-                    {% if name_tag_dc == rn_tag_old_dc %}
-                      {% assign name_tag = rn_tag.new %}
-                    {% endif %}
+              {% if name_tag_dc == rn_tag_old_dc %}
+              {% assign name_tag = rn_tag.new %}
+              {% endif %}
 
-                    {% if name_tag_dc == rn_tag_new_dc %}
-                      {% if has_more_friends == true %}
-                        ,
-                      {% else %}
-                        {% assign has_more_friends = true %}
-                      {% endif %}
-                      {{ rn_tag.old | strip }}
-                    {% endif %}
+              {% if name_tag_dc == rn_tag_new_dc %}
+              {% if has_more_friends == true %}
+              ,
+              {% else %}
+              {% assign has_more_friends = true %}
+              {% endif %}
+              {{ rn_tag.old | strip }}
+              {% endif %}
 
-                  {% endfor %}
-                {% endcapture %}
+              {% endfor %}
+              {% endcapture %}
 
-                {% if show_tag == true %}
-                  <a class="category tag" href="#{{ name_tag | slugify }}">
-                    {{ name_tag }}
-                  </a>
-                {% endif %}
+              {% if show_tag == true %}
+              <a class="category tag" href="#{{ name_tag | slugify }}">
+                {{ name_tag }}
+              </a>
+              {% endif %}
               {% endfor %}
 
             </div>
@@ -71,99 +71,99 @@ permalink: /tags
         <div class="col-12 col-lg-10 col-xl-9">
           {% for tag in site.tags %}
 
-            {% assign show_tag = true %}
-            {% assign name_tag = tag[0] %}
-            {% assign name_tag_dc = tag[0] | downcase %}
-            {% assign has_more_friends = false %}
+          {% assign show_tag = true %}
+          {% assign name_tag = tag[0] %}
+          {% assign name_tag_dc = tag[0] | downcase %}
+          {% assign has_more_friends = false %}
 
-            {% capture more_friends %}
-              {% for rn_tag in site.data.rename_tags %}
-                {% assign rn_tag_old_dc = rn_tag.old | downcase %}
-                {% assign rn_tag_new_dc = rn_tag.new | downcase %}
+          {% capture more_friends %}
+          {% for rn_tag in site.data.rename_tags %}
+          {% assign rn_tag_old_dc = rn_tag.old | downcase %}
+          {% assign rn_tag_new_dc = rn_tag.new | downcase %}
 
-                {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
-                  {% assign show_tag = false %}
+          {% if name_tag_dc == rn_tag_old_dc and site.tags contains rn_tag.new %}
+          {% assign show_tag = false %}
+          {% endif %}
+
+          {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
+          {% assign show_tag = false %}
+          {% endif %}
+
+          {% if name_tag_dc == rn_tag_old_dc and rn_tag.new != '' %}
+          {% assign name_tag = rn_tag.new | downcase %}
+          {% endif %}
+
+          {% if name_tag_dc == rn_tag_new_dc %}
+          {% if has_more_friends == true %}
+          ,
+          {% else %}
+          {% assign has_more_friends = true %}
+          {% endif %}
+          {{ rn_tag.old | strip }}
+          {% endif %}
+
+          {% endfor %}
+          {% endcapture %}
+
+
+          {% assign tag_friends = more_friends | split: ',' | sort %}
+
+          {% if show_tag == true %}
+
+          <div class="card card-custom tag-sec" id="{{ name_tag | slugify }}">
+            <h2 class="card-header">
+              {{ name_tag }}
+            </h2>
+            <div class="card-body">
+              <ul>
+                {% for post in tag[1] %}
+                {% unless post.draft %}
+                <li class="item">
+                  <a href="{{post.url}}">{{post.title}}{% if post.notfull %}<sup>•</sup>{% endif %}</a>
+                </li>
+                {% endunless %}
+                {% endfor %}
+
+                {% if has_more_friends == true %}
+
+                {% assign list_posts = '' %}
+                {% assign list_posts_title = '' %}
+                {% assign first_list_posts = false %}
+
+                {% for tag_fr in tag_friends %}
+                {% assign tag_fr_ws = tag_fr | strip %}
+                {% for post_fr in site.tags[tag_fr_ws] %}
+                {% unless post.draft %}
+                {% if first_list_posts == false %}
+                {% assign list_posts = list_posts | append: post_fr.url %}
+                {% assign list_posts_title = list_posts_title | append: post_fr.title %}
+                {% assign first_list_posts = true %}
+                {% else %}
+                {% assign list_posts = list_posts | append: ',' %}
+                {% assign list_posts = list_posts | append: post_fr.url %}
+                {% assign list_posts_title = list_posts_title | append: ',' %}
+                {% assign list_posts_title = list_posts_title | append: post_fr.title %}
                 {% endif %}
+                {% endunless %}
+                {% endfor %}
+                {% endfor %}
 
-                {% if name_tag_dc == rn_tag_old_dc and rn_tag.new == '' %}
-                  {% assign show_tag = false %}
+                {% assign list_posts = list_posts | split: ',' | sort | uniq %}
+                {% assign list_posts_title = list_posts_title | split: ',' | sort | uniq %}
+
+                {% assign n_posts = list_posts.size | minus: 1 %}
+                {% for num in (0..n_posts) %}
+                <li class="item">
+                  <a href="{{ list_posts[forloop.index0] }}">{{ list_posts_title[forloop.index0] }}</a>
+                </li>
+                {% endfor %}
+
                 {% endif %}
+              </ul>
+            </div>
+          </div>
 
-                {% if name_tag_dc == rn_tag_old_dc and rn_tag.new != '' %}
-                  {% assign name_tag = rn_tag.new | downcase %}
-                {% endif %}
-
-                {% if name_tag_dc == rn_tag_new_dc %}
-                  {% if has_more_friends == true %}
-                    ,
-                  {% else %}
-                    {% assign has_more_friends = true %}
-                  {% endif %}
-                  {{ rn_tag.old | strip }}
-                {% endif %}
-
-              {% endfor %}
-            {% endcapture %}
-
-
-            {% assign tag_friends = more_friends | split: ',' | sort %}
-
-            {% if show_tag == true %}
-
-              <div class="card card-custom tag-sec" id="{{ name_tag | slugify }}">
-                <h2 class="card-header">
-                  {{ name_tag }}
-                </h2>
-                <div class="card-body">
-                  <ul>
-                    {% for post in tag[1] %}
-                      {% unless post.draft %}
-                        <li class="item">
-                          <a href="{{post.url}}">{{post.title}}{% if post.notfull %}<sup>•</sup>{% endif %}</a>
-                        </li>
-                      {% endunless %}
-                    {% endfor %}
-
-                    {% if has_more_friends == true %}
-
-                      {% assign list_posts = '' %}
-                      {% assign list_posts_title = '' %}
-                      {% assign first_list_posts = false %}
-
-                      {% for tag_fr in tag_friends %}
-                        {% assign tag_fr_ws = tag_fr | strip %}
-                        {% for post_fr in site.tags[tag_fr_ws] %}
-                          {% unless post.draft %}
-                            {% if first_list_posts == false %}
-                              {% assign list_posts = list_posts | append: post_fr.url %}
-                              {% assign list_posts_title = list_posts_title | append: post_fr.title %}
-                              {% assign first_list_posts = true %}
-                            {% else %}
-                              {% assign list_posts = list_posts | append: ',' %}
-                              {% assign list_posts = list_posts | append: post_fr.url %}
-                              {% assign list_posts_title = list_posts_title | append: ',' %}
-                              {% assign list_posts_title = list_posts_title | append: post_fr.title %}
-                            {% endif %}
-                          {% endunless %}
-                        {% endfor %}
-                      {% endfor %}
-
-                      {% assign list_posts = list_posts | split: ',' | sort | uniq %}
-                      {% assign list_posts_title = list_posts_title | split: ',' | sort | uniq %}
-
-                      {% assign n_posts = list_posts.size | minus: 1 %}
-                      {% for num in (0..n_posts) %}
-                        <li class="item">
-                          <a href="{{ list_posts[forloop.index0] }}">{{ list_posts_title[forloop.index0] }}</a>
-                        </li>
-                      {% endfor %}
-
-                    {% endif %}
-                  </ul>
-                </div>
-              </div>
-
-              {% endif %}
+          {% endif %}
 
           {% endfor %}
 
@@ -172,4 +172,3 @@ permalink: /tags
     </div>
   </section>
 </main>
-

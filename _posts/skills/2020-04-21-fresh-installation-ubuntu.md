@@ -116,7 +116,7 @@ sudo apt-get install texmaker
 7. Default text editor `gedit`, you can use this command in terminal.
 8. **Gnome Calendar** in app store.
 9. Screen Recorder, use **Kazam** (app store). If cannot recognize mic and speaker, read [this solution](https://askubuntu.com/questions/1234314/screen-recording-applications-are-not-detecting-audio-in-ubuntu-20-04). An alternative is [SimpleScreenRecorder](https://www.maartenbaert.be/simplescreenrecorder/).
-10. VLC (app store).
+10. VLC (app store). If there is a problem of displaying video (there is only sound without video), check [this](https://askubuntu.com/questions/668834/vlc-media-player-is-not-displaying-video-but-audio-works).
 11. Read SD card
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse

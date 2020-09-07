@@ -6,6 +6,7 @@ tags: [collection]
 icon: "fab fa-github"
 icon-color: "#e6b3ff"
 keywords: "repository github git"
+notfull: 1
 ---
 
 {% assign img-url = '/img/post/others' %}

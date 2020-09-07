@@ -211,3 +211,9 @@ validation_datagen = ImageDataGenerator(rescale=1/255)
 {:.img-100.pop}
 ![Image augmentation illustration]({{img_url}}/image-augmentation.png)
 _An illustration of image augmentation [from apple](https://developer.apple.com/documentation/createml/improving_your_model_s_accuracy)._
+
+## Transfer learning
+
+- __Transfer learning__ = Taking existing model that's trained on far more data + use the features that model learned.
+- (Tensorflow tutorial) [Transfer learning and fine-tuning](https://www.tensorflow.org/tutorials/images/transfer_learning)
+- (article) [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567)
