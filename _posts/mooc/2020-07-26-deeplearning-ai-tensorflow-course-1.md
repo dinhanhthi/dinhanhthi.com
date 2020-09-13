@@ -39,7 +39,8 @@ x_train, x_test = x_train / 255.0, x_test / 255.0 # normalize
 callbacks = myCallback() # define the callback
 
 model = tf.keras.models.Sequential([
-    tf.keras.layers.Flatten(input_shape=(28, 28)), # takes that square and turns it into a 1 dim
+    tf.keras.layers.Flatten(input_shape=(28, 28)), # Takes that square and
+                                                   # turns it into a 1 dim
     tf.keras.layers.Dense(512, activation=tf.nn.relu),
     tf.keras.layers.Dense(10, activation=tf.nn.softmax) # 10 outputs
 ])
@@ -80,7 +81,7 @@ mnist = tf.keras.datasets.fashion_mnist
 
 class myCallback(tf.keras.callbacks.Callback):
     def on_epoch_end(self, epochs, logs={}) :
-        if(logs.get('acc') is not None and logs.get('acc') >= 0.998) :
+        if(logs.get('accuracy') is not None and logs.get('accuracy') >= 0.998) :
             print('\nReached 99.8% accuracy so cancelling training!')
             self.model.stop_training = True
 
@@ -215,7 +216,8 @@ train_generator = train_datagen.flow_from_directory(
                # -> be careful!
     target_size=(300, 300), # images will be resized when loaded, genial!
                             # because NN always needs that!
-                            # -> experimenting with diff sizes without impacting your source data
+                            # -> experimenting with diff sizes without
+                            # impacting your source data
     batch_size=128,
     class_mode="binary"     # 2 diff things
 )

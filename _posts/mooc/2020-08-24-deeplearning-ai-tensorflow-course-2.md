@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
 notfull: 1
-keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney zip python gzip unzip"
+keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney zip python gzip unzip transfer learning inception module network ImageDataGenerator RMSprop cat vs dog accuracy loss make a larger dataset dropout"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
@@ -185,6 +185,10 @@ history = model.fit_generator(train_generator,
 
 ## Image Augmentation
 
+👉 Notebook: [Cats v Dogs using augmentation](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_1_Cats_v_Dogs_Augmentation.html) & [the final exercise](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_3_Cats_vs_Dogs_using_augmentation_Question-FINAL.html) (more data). <br />
+👉 Notebook: [Human vs Horse using augmentation](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_2_horse_human.html).
+
+{:.noindent}
 - Create multiple "other" images from original images without saving them to the memory + quickly.
 - Image augmentation helps you avoid overfitting.
 - Meaning of params, check [this video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/coding-augmentation-with-imagedatagenerator-kiCPT).
@@ -214,6 +218,76 @@ _An illustration of image augmentation [from apple](https://developer.apple.com/
 
 ## Transfer learning
 
+👉 Notebook: [Coding transfer learning from the inception mode](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_1_Coding%20transfer%20learning%20from%20the%20inception%20mode.html). ➡ [Video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/exploring-transfer-learning-with-inception-ZQ6dw) explains this notebook. <br />
+👉 Notebook: [Horses v Humans using callBack, Augmentation, transfer learning](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_2_Horses_vs_humans_using_Transfer_Learning_Question-FINAL.html) (final exercise).
+
+{:.noindent}
 - __Transfer learning__ = Taking existing model that's trained on far more data + use the features that model learned.
 - (Tensorflow tutorial) [Transfer learning and fine-tuning](https://www.tensorflow.org/tutorials/images/transfer_learning)
-- (article) [Rethinking the Inception Architecture for Computer Vision](https://arxiv.org/abs/1512.00567)
+- [__Inception/GoogLeNet network__](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf): Inception Modules are used in CNN to allow for more efficient computation and deeper Networks through a dimensionality reduction with stacked 1x1 convolutions. The modules were designed to solve the problem of computational expense, as well as overfitting, among other issues. The solution, in short, is to _take multiple kernel filter sizes within the CNN, and rather than stacking them sequentially, ordering them to operate on the same level._ {% ref https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch %} Check more in [Refereces](#references) 1, 2, 3.
+- __Dropout__: remove a random number of neurons in your NN. It works well because:
+  - neighboring neurons often end up with similar weights, which can lead to overfitting.
+  - a neuron can over-weigh the input from a neuron in the previous layer
+
+``` python
+from tensorflow.keras import layers
+from tensorflow.keras import Model
+
+# download snapshot of weights
+
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+local_weights_file = '/tmp/inception_v3_weights.h5'
+
+pre_trained_model = InceptionV3(
+    input_shape = (150, 150, 3),
+    include_top = False, # Inception v3 has a fully-connected
+                         # layer at the top -> False to ignore
+                         # it and get straight to the convolution.
+    weights = None # don't wana use built-in weights
+)
+
+pre_trained_model.load_weights(local_weights_file) # but use the snapshot downloaded
+
+for layer in pre_trained_model.layers:
+    layer.trainable = False # lock pretrained layers
+                            # they're not going to be trained
+                            # with this code
+
+# pre_trained_model.summary()   # DON'T DO THAT, IT'S HUGE!!!
+```
+
+``` python
+# By default, the output of the last layer will be 3x3 but we wanna
+# get more info, so we grap layer "mixed7" from inception and take its output
+# mixed7: output of a lot of conv that are 7x7
+last_layer = pre_trained_model.get_layer('mixed7')
+last_output = last_layer.output
+```
+
+``` python
+from tensorflow.keras.optimizers import RMSprop
+
+# Define a new model
+
+x = layers.Flatten()(last_output) # Take the output (mixed7) from inception model
+                                  # last_output: look like dense model
+                                  #     -> input of the new model
+                                  # Starting by flatting the input
+x = layers.Dense(1024, activation='relu')(x)
+x = layers.Dropout(0.2)(x)  # randomly remove 20% of neurons (avoid overfitting)
+x = layers.Dense  (1, activation='sigmoid')(x)
+
+model = Model(pre_trained_model.input, x)
+model.compile(optimizer = RMSprop(lr=0.0001),
+              loss = 'binary_crossentropy',
+              metrics = ['accuracy'])
+```
+
+## References
+
+1. [Inception Network - Implementation Of GoogleNet In Keras](https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch/)
+2. [ResNet, AlexNet, VGGNet, Inception: Understanding various architectures of Convolutional Networks – CV-Tricks.com](https://cv-tricks.com/cnn/understand-resnet-alexnet-vgg-inception/)
+3. [Review: GoogLeNet (Inception v1)— Winner of ILSVRC 2014 (Image Classification)](https://medium.com/coinmonks/paper-review-of-googlenet-inception-v1-winner-of-ilsvlc-2014-image-classification-c2b3565a64e7)
+4. [Transfer learning and fine-tuning  -  TensorFlow Core](https://www.tensorflow.org/tutorials/images/transfer_learning)
+
+

@@ -206,6 +206,26 @@ The |biohazard| symbol.
 ```
 </div>
 
+### Insrt code
+
+<div class="flex-50" markdown="1">
+``` bash
+# without syntax highlight
+::
+
+    def abc():
+        pass
+```
+
+``` bash
+# with syntax highlight
+.. code-block:: python
+
+    def abc():
+        pass
+```
+</div>
+
 ## Autodoc from python library
 
 👉 [Main ref](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
