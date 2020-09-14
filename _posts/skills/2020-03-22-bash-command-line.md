@@ -202,6 +202,27 @@ tree -P 'test_' # list only files starting with "test_"
 ### Permission
 
 <div class="flex-auto-equal-2" markdown="1">
+``` bash
+# list of groups
+groups
+```
+
+``` bash
+# which groups a user belongs to
+group <user_name>
+id -nG # or
+```
+
+``` bash
+# check info of a current user
+id <user_name>
+```
+
+``` bash
+# list all members of a group
+grep <group_name> /etc/group
+```
+
 ~~~ bash
 # CHECK PERMISSION
 ls -l
@@ -349,6 +370,20 @@ mv olname.txt newname.txt
 cp file file
 cp -r file&dir file&dir
 ~~~
+</div>
+
+## Display
+
+<div class="flex-50" markdown="1">
+``` bash
+# only display 3 last directory names
+PROMPT_DIRTRIM=3
+```
+
+``` bash
+# display only user:current_folder#
+PS1='\u:\W\$ '
+```
 </div>
 
 ## References

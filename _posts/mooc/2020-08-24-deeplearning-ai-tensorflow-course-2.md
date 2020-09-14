@@ -4,7 +4,6 @@ title: "TF 2 - CNN in TensorFlow"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-notfull: 1
 keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney zip python gzip unzip transfer learning inception module network ImageDataGenerator RMSprop cat vs dog accuracy loss make a larger dataset dropout"
 ---
 
@@ -218,7 +217,7 @@ _An illustration of image augmentation [from apple](https://developer.apple.com/
 
 ## Transfer learning
 
-👉 Notebook: [Coding transfer learning from the inception mode](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_1_Coding%20transfer%20learning%20from%20the%20inception%20mode.html). ➡ [Video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/exploring-transfer-learning-with-inception-ZQ6dw) explains this notebook. <br />
+👉 Notebook: [Coding transfer learning from the inception mode](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_1_Coding%20transfer%20learning%20from%20the%20inception%20mode.html). ➪ [Video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/exploring-transfer-learning-with-inception-ZQ6dw) explains this notebook. <br />
 👉 Notebook: [Horses v Humans using callBack, Augmentation, transfer learning](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_2_Horses_vs_humans_using_Transfer_Learning_Question-FINAL.html) (final exercise).
 
 {:.noindent}
@@ -282,6 +281,40 @@ model.compile(optimizer = RMSprop(lr=0.0001),
               loss = 'binary_crossentropy',
               metrics = ['accuracy'])
 ```
+
+## Multi-class classification
+
+👉 Notebook: Rock Paper Scissors. <br />
+👉 Notebook: MNIST.
+
+{:.noindent}
+- [Rock-Paper-Scissors dataset](http://www.laurencemoroney.com/rock-paper-scissors-dataset/) (generated using CGI techniques)
+
+The codes are quite the same as in the case of binary classification, the differences are
+
+``` python
+train_generator = train_datagen.flow_from_directory(
+    ...
+    class_mode='categorical' # 'binary' for binary
+)
+```
+
+``` python
+model = tf.keras.models.Sequential([
+    ...
+    tf.keras.layers.Dense(3, activation='softmax') # 'sigmoid' for binary
+])
+```
+
+``` python
+model.compile(
+    loss='categorical_crossentropy' # 'binary_lossentropy' for binary
+)
+```
+
+## More
+
+- Applying Convolutions on top of our Deep neural network will make training ➪ It depends on many factors. It might make your training faster or slower, and a poorly designed Convolutional layer may even be less efficient than a plain DNN!
 
 ## References
 

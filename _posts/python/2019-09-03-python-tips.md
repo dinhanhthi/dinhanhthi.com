@@ -3,7 +3,7 @@ layout: post
 title: "Python extra"
 tags: [extra, python]
 categories: [python]
-keywords: "python tips swap 2 variables huyen chip clear variable __name__ __main__ __future__ reset del delete variable system reset confirmation"
+keywords: "python tips swap 2 variables huyen chip clear variable __name__ __main__ __future__ reset del delete variable system reset confirmation elif else if inside lambda function"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -27,7 +27,7 @@ keywords: "python tips swap 2 variables huyen chip clear variable __name__ __mai
   for _ in range(2):
     print("Thi")
   ~~~
-  
+
   {:.output.flex-fill.d-flex}
   ~~~
   Thi
@@ -60,6 +60,12 @@ if '<var>' in globals(): del <var>
 %reset # with confirmation
 %reset -f # without confirmation
 ~~~
+
+## Ese if with lambda function
+
+``` python
+lambda row: 'good' if (row>=80) else ('bad' if row<80 else '')
+```
 
 ## References
 

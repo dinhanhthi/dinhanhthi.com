@@ -90,6 +90,12 @@ df.loc['new_index'] = [new_value]
 ~~~
 </div>
 
+``` python
+# add a new col based on another's values
+df_im = df0.copy()[['col']]
+df_im['status'] = df0['col'].apply(lambda row: 1 if row>=80 else 0)
+```
+
 ## Shuffle rows
 
 ``` python
