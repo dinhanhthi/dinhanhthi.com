@@ -17,7 +17,9 @@ This is my note for the [first course](https://www.coursera.org/learn/introducti
 👉 Check the codes [on my Github](https://github.com/dinhanhthi/deeplearning.ai-courses/tree/master/TensorFlow%20in%20Practice).<br />
 👉 Official [notebooks](https://github.com/lmoroney/dlaicourse) on Github.
 
-👉 Go to [course 2 - CNN in Tensorflow](/deeplearning-ai-tensorflow-course-2).
+👉 Go to [course 2 - CNN in Tensorflow](/deeplearning-ai-tensorflow-course-2).<br />
+👉 Go to [course 3 - NLP in Tensorflow](/deeplearning-ai-tensorflow-course-3).<br />
+👉 Go to [course 4 - Sequences, Time Series and Prediction](/deeplearning-ai-tensorflow-course-4).
 
 {% katexmm %}
 

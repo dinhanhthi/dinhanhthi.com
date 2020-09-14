@@ -17,7 +17,8 @@ This is my note for the [2nd course](https://www.coursera.org/learn/convolutiona
 👉 Official [notebooks](https://github.com/lmoroney/dlaicourse) on Github.
 
 👉 Go to [course 1 - Intro to TensorFlow for AI, ML, DL](/deeplearning-ai-tensorflow-course-1).<br />
-👉 Go to [course 3 - NLP in Tensorflow](/deeplearning-ai-tensorflow-course-3).
+👉 Go to [course 3 - NLP in Tensorflow](/deeplearning-ai-tensorflow-course-3).<br />
+👉 Go to [course 4 - Sequences, Time Series and Prediction](/deeplearning-ai-tensorflow-course-4).
 
 ## Larger dataset
 
