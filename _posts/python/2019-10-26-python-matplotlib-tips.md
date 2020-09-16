@@ -108,7 +108,9 @@ plt.plot(X, '.', markersize=15, linewidth=2)
 ~~~
 </div>
 
-Plot directly with dataframe,
+### Plot directly with dataframe,
+
+👉 Check more in [official doc](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.plot.html).
 
 <div class="flex-auto-equal-2" markdown="1">
 ~~~ python
@@ -121,6 +123,18 @@ df.plot(fontsize=12)
 df.plot(style='.')
 df.plot(style=['r.', 'bx']) # 2 features
 ~~~
+
+``` python
+# add x,y labels
+df.plot(kind='bar)
+plt.xlabel('features', fontsize=14)
+plt.ylabel('% of nans', fontsize=14)
+```
+
+``` python
+# rotate x ticks
+df.plot(kind='bar', rot=90)
+```
 </div>
 
 ### Legend

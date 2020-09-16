@@ -138,19 +138,23 @@ Check more [here](https://docs.python.org/3/howto/logging-cookbook.html).
 import logging
 log = logging.getLogger(__name__)
 
-log.warning('something')
-log.info('something')
+# order of increasing severity
 log.debug('something')
+log.info('something')
+log.warning('something')
 log.error('something')
 logger.critical('something')
+
+# by default, the logging module logs the messages with a severity level of WARNING or above
+# thus: debug and info aren't show by default
 ~~~
 
 If the `log.info()` doesn't work, set below{% ref https://stackoverflow.com/questions/11548674/logging-info-doesnt-show-up-on-console-but-warn-and-error-do/11548754 %},
 
 ~~~ python
-logging.getLogger().setLevel(logging.INFO)
+logging.getLogger().setLevel(logging.INFO) # show all except "debug"
 # or
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG) # show all
 ~~~
 
 <div class="flex-50" markdown="1">

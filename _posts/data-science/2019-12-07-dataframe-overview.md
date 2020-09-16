@@ -4,7 +4,7 @@ title: "Data Overview"
 categories: [data science]
 tags: ['data processing', 'date overviewing']
 icon-photo: data-overview.png
-keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing KDE Kernel Density Estimation values distribution"
+keywords: "dataframe dataset import csv pandas numpy describe shape dtype list of columns counting missing values NaNs null heatmap seaborn check duplicate show all deal handle processing KDE Kernel Density Estimation values distribution bar plot visuzlize visualization null values percentage features"
 ---
 
 {% assign img-url = '/img/post/data/data-cleaning' %}
@@ -69,11 +69,15 @@ df['col'].nunique() # number of unique vals
 
 ## Counting
 
-Counting the number of elements of each class in df,
-
 ~~~ python
+# Counting #elements of each class in df
 df.Classes.value_counts() # give number of each 0 and 1
 ~~~
+
+``` python
+# count #elements each unique values in a col/series
+df[col].value_counts()
+```
 
 ## Missing values
 
@@ -135,6 +139,14 @@ import seaborn as sns
 df = df.set_index('YEAR') # y-axis is YEAR
 sns.heatmap(df.isnull(), cbar=False) # x-axis is columns' name
 ~~~
+
+``` python
+# Plot the percentage of nans w.r.t. each column (feature)
+df_tmp = (df.isnull().sum()/df.isnull().count()*100).sort_values(ascending=False).to_frame(name='percentage')
+df_tmp.reset_index().plot(kind='bar', x='index', y='percentage', figsize=(20,5))
+plt.xlabel('features', fontsize=14)
+plt.ylabel('% of nans', fontsize=14)
+```
 
 ## Duplicates
 

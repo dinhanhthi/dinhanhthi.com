@@ -103,7 +103,15 @@ df_im['status'] = df0['col'].apply(lambda row: 1 if row>=80 else 0)
 df_new = df.sample(frac=1).reset_index(drop=True)
 ```
 
-## Select rows/columns/item(s) {% ref https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html %}
+## Sorting
+
+``` python
+df.sort_values(by='col1', ascending=False)
+```
+
+## Select rows/columns/item(s)
+
+👉 [Indexing and selecting data — pandas 1.1.2 documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html)
 
 ### Select Single value
 
@@ -224,11 +232,9 @@ df[df['A'].isin([3, 6])]
 
 </div>
 
-
-
 ## MultiIndex
 
-More option [at here](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html).
+👉 [MultiIndex / advanced indexing — pandas 1.1.2 documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html)
 
 ### All multiindex
 

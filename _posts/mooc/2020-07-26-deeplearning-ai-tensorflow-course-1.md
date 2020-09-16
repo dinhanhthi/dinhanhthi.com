@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
 katex: 1
-keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney"
+keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney fashion mnist optimizer loss metrics model sequential summary pooling convolution visualization"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
