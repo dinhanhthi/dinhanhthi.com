@@ -23,6 +23,7 @@ plugins:
   - jekyll-katex
   - jekyll-admin
   - jekyll-include-cache
+  - jekyll-last-modified-at
   
 sass:
   style: compact
