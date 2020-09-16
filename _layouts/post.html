@@ -2,6 +2,10 @@
 layout: page
 ---
 
+<p style="font-style: italic; color: #777; font-size: 0.95rem; margin-bottom: 2rem;">
+  Last modified on {{ page.last_modified_at | date: '%d %b %Y' }}.
+</p>
+
 {% if page.toc %}
   <div id="toc">
     <div class="toc-content" markdown="1">
