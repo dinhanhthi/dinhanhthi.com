@@ -35,7 +35,6 @@ This is my note for the [3rd course](https://www.coursera.org/learn/natural-lang
 
 ``` python
 from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 sentences = [
     'i love my dog',
@@ -71,6 +70,8 @@ print(sequences)
 
 ``` python
 # make encoded sentences equal
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
 padded = pad_sequences(sequences, value=-1,
                        maxlen=5, padding="post", truncating="post")
          # maxlen: max len of encoded sentence
