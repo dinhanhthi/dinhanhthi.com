@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem 'jekyll-katex'
   gem 'jekyll-admin'
   gem "jekyll-include-cache"
+  gem "jekyll-last-modified-at"
 end
 
 # gem 'jekyll-paginate'
