@@ -61,12 +61,6 @@ if '<var>' in globals(): del <var>
 %reset -f # without confirmation
 ~~~
 
-## Ese if with lambda function
-
-``` python
-lambda row: 'good' if (row>=80) else ('bad' if row<80 else '')
-```
-
 ## References
 
 - **Huyền Chip** -- [A gentle guide to Python features that I didn't know exist or was too afraid to use](https://github.com/chiphuyen/python-is-cool/blob/master/cool-python-tips.ipynb).

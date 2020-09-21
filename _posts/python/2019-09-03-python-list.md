@@ -120,6 +120,11 @@ print(x)
 ~~~
 </div>
 
+``` python
+# list comprehension with if else
+[x+1 if x >= 45 else x+5 for x in l]
+```
+
 Create a list from range,
 
 <div class="d-md-flex" markdown="1">

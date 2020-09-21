@@ -56,7 +56,7 @@ def sum_and_div(num1, num2):
   sum_nums = num1 + num2
   div_nums = num1 / num2
   return sum_nums, div_nums # multiple returns
-  
+
 sum, div = sum_and_div(18, 9)
 print(sum, div)
 ~~~
@@ -252,6 +252,11 @@ def x(a): return a + 10
 ~~~
 </div>
 
+``` python
+# if else with lambda function
+lambda row: 'good' if (row>=80) else ('bad' if row<80 else '')
+```
+
 ## Check input & raise error
 
 Something like that,
@@ -297,18 +302,18 @@ In a class (note that, there is no `self` parameter in `_deco`),
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
 class test_class():
-    
+
     def _deco(func):
         def wrapper(self, name):
             print('before func called')
             func(self, name)
             print('after func called')
         return wrapper
-        
+
     @_deco
     def fit(self, name):
         print('Hello, ', name)
-    
+
 a = test_class()
 a.fit('thi')
 ~~~

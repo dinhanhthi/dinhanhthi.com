@@ -506,6 +506,31 @@ lst_comparison_type: str, default "wasserstein"
 """
 ```
 
+### Examples
+
+<div class="flex-50" markdown="1">
+``` python
+# returns
+"""
+Returns
+-------
+tuple (float, dict)
+    Description.
+"""
+```
+
+``` python
+"""
+Returns
+-------
+reject : ndarray, boolean
+    Description.
+pvals_corrected : ndarray
+    p-Description.
+"""
+```
+</div>
+
 ## References
 
 - [Rest and Sphinx Memo](https://rest-sphinx-memo.readthedocs.io/en/latest/intro.html).
