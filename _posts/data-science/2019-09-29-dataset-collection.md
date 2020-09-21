@@ -34,6 +34,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [NLP-progress](http://nlpprogress.com/).
 - [UCI](https://archive.ics.uci.edu/ml/index.html)
 - [The Yahoo Webscope Program](https://webscope.sandbox.yahoo.com/)
+- [TensorFlow Datasets](https://www.tensorflow.org/datasets)
 
 ## Datasets
 
@@ -44,6 +45,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [UEA & UCR Time Series Classification Repository](https://timeseriesclassification.com/)
 - [Sarcasm detection dataset.](https://rishabhmisra.github.io/publications/)
 - [Insight - BBC News Datasets](http://mlg.ucd.ie/datasets/bbc.html)
+- [Large Movie Review Dataset (IMDB)](http://ai.stanford.edu/~amaas/data/sentiment/)
 
 ### Vietnamese
 
