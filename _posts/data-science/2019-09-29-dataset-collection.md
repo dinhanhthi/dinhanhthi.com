@@ -56,6 +56,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [Labeled Faces in the Wild Home](http://vis-www.cs.umass.edu/lfw/) (`from sklearn.datasets import fetch_lfw_people`).
 - [Iris flower dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html) (`from sklearn.datasets import load_iris`).
 - [The digits dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html) (`sklearn.datasets.load_digits`).
+- [pydatafaker](https://github.com/SamEdwardes/pydatafaker) -- A python package to create fake data with relationships between tables.
 
 ## Tools
 

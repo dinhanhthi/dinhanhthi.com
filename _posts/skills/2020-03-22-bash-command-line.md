@@ -347,6 +347,13 @@ unalias abc
 ```
 </div>
 
+``` bash
+# group of commands
+my_alias() {
+    screen -S dat -dm bash -c "cd /dinhanhthi.com; iserve; exec sh"
+}
+```
+
 - **Linux** / **MacOS**: Add your alias to `.bash_aliases` (in home dir, `printenv HOME`) if you wanna store your alias permanently.
 - **Windows**: Using [cmder](https://cmder.net/) (its [setting file](/files/cmderSetting.xml)), add more aliases to `<cmder-install>/config/user_aliases.cmd`. You can also add (automatically) on the cmder UI, it adds them for you to the `.cmd` file.
 

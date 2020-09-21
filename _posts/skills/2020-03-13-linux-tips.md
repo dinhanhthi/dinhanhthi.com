@@ -390,6 +390,13 @@ dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPl
 
 🔅 Resize multiple photos (keep the ratio/scale) ([more options](https://imagemagick.org/Usage/resize/)):
 
+🔅 __Youtube Music Controller for Linux__:
+
+1. Download and install [this app](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-).
+2. Change to Youtube Music interface.
+3. Remove all shortcut keyboards that look like the ones you wanna set in the app in Ubuntu system (__Keyboard shortcuts__).
+4. On taskbar, right click on the You Tube Music app > Desktop settings > Hotkeys > Set your keyboards (eg. `Ctrl+Shift+>` for next track, `Ctrl+Shift+<` for previous track, `Ctrl+Shift+Space` for play/pause track).
+
 <div class="flex-50" markdown="1">
 ~~~ bash
 # install

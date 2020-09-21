@@ -355,10 +355,16 @@ Get the commands from 1 to 4:
 
 ### Table of contents
 
-1. Install [npm and nodejs](/npm-nodejs).
+1. Install [npm and nodejs](https://github.com/nodesource/distributions/blob/master/README.md#debinstall).
 2. Install [this extension](https://github.com/jupyterlab/jupyterlab-toc).
 3. Enable in jupyter lab view.
 4. Refresh the page.
+
+``` bash
+# errors
+# UnicodeDecodeError: 'ascii' codec can't decode byte 0xf0 in position 23: ordinal not in range(128)
+npm config set unicode false
+```
 
 ### Debugger
 
