@@ -464,3 +464,9 @@ sudo npm install -g vtop
 ~~~ bash
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 ~~~
+
+🔅 `nvidia docker signatures invalid`, `The following signatures were invalid: EXPKEYSIG`
+
+``` bash
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+```

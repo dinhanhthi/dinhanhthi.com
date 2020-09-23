@@ -529,6 +529,20 @@ pvals_corrected : ndarray
     p-Description.
 """
 ```
+
+``` python
+# break lines in itemize
+"""
+Returns
+-------
+info: dict
+    Description.
+
+    - Item 1.
+    - Item 2 very long lines
+      can be broken here.
+"""
+```
 </div>
 
 ## References
