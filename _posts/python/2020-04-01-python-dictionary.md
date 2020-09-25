@@ -4,12 +4,20 @@ title: "Python Dictionary"
 categories: [python]
 tags: ['101', python]
 icon-photo: dict.svg
+notfull: 1
 keywords: "dict dictionary access elements sorted by keys"
 ---
 
 {% assign img-url = '/img/post/python' %}
 
 {% include toc.html %}
+
+## Checking
+
+``` python
+# check if empty
+bool(my_dict) # False if empty
+```
 
 ## Creating
 
@@ -29,6 +37,20 @@ my_dict = {1: "a", 2: 3}
 # contains complicated types
 my_dict = {1: ["1", "2"], "2": {1: 1, 2: 2}, 3: (1, 2)}
 ~~~
+
+## Updating
+
+``` python
+d = {1: "one", 2: "three"}
+d1 = {2: "two"}
+
+# update value of key "2"
+d.update(d1)
+
+# add new key "3"
+d2 = {3: "three"}
+d.update(d2)
+```
 
 ## Access elements
 

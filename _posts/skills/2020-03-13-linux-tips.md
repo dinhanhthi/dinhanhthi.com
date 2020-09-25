@@ -459,14 +459,24 @@ sudo npm install -g vtop
 
 🔅 Prevent bluetooth devices disconnected after sleep ⇾ [link](https://unix.stackexchange.com/questions/177998/bluetooth-mouse-disconnects)
 
-🔅  `Failed to load module 'canberra-gtk-module'`
+🔅  _Failed to load module 'canberra-gtk-module_
 
 ~~~ bash
 sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 ~~~
 
-🔅 `nvidia docker signatures invalid`, `The following signatures were invalid: EXPKEYSIG`
+🔅 _nvidia docker signatures invalid. The following signatures were invalid: EXPKEYSIG_
 
 ``` bash
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 ```
+
+### GPU-NVDIA problems
+
+🔅 Problems with pytorch versions: [check this](/pytorch#errors).
+
+🔅 _RuntimeError: cuda runtime error (804) : forward compatibility was attempted on non supported HW at /pytorch/aten/src/THC/THCGeneral.cpp:47_ (after update system including nvdia-cli, maybe) => The same problem with below, need to restart the computer.
+
+🔅 `nvidia-smi`: _Failed to initialize NVML: Driver/library version mismatch_.
+
+- [This thread](https://stackoverflow.com/questions/43022843/nvidia-nvml-driver-library-version-mismatch): just restart the computer.

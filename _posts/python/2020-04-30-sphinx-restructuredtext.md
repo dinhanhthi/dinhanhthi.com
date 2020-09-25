@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sphinx & reStructuredText"
+title: "Sphinx & reStructuredText & docstring"
 categories: [python]
 tags: ['101', python]
 notfull: 1
@@ -363,13 +363,16 @@ Reverse a text.
 ~~~
 </div>
 
-### Sample structure
+### Numpy Style
 
-Using [nympydoc](https://numpydoc.readthedocs.io/en/latest/) format (there are [others](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)). It's recommended to be used later in [Sphinx](http://sphinx.pocoo.org/). See more [here](https://numpydoc.readthedocs.io/en/latest/example.html) and [Example NumPy Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
+👉 [Official docs](https://numpydoc.readthedocs.io/en/latest/). <br />
+👉 [Example of numpy docstring with sphinx](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
+
+An overview example,
 
 <div class="d-md-flex" markdown="1">
 {:.flex-fill.d-flex.overflow-auto}
-~~~ python
+``` python
 def ex_class(var1, var2):
     """
     Quick description.
@@ -407,55 +410,58 @@ def ex_class(var1, var2):
     """
     # some commands
     return return_values
-~~~
+```
 
 {:.output.flex-fill.d-flex}
-~~~
-    Quick description.
-    Longer description with `keywords`.
+```
+Quick description.
+Longer description with `keywords`.
 
-    Parameters
-    ----------
-    var1 : int
-        Desc for var1.
-    var2 : {0 or 'index', 1 or 'columns'}, default 0
-        Long desc for var2. It may take a long line and we can break
-        this like that.
+Parameters
+----------
+var1 : int
+    Desc for var1.
+var2 : {0 or 'index', 1 or 'columns'}, default 0
+    Long desc for var2. It may take a long line and we can break
+    this like that.
 
-    Returns
-    -------
-    Resampler object
+Returns
+-------
+Resampler object
 
-    See Also
-    --------
-    groupby : Group by mapping, function, label, or list of labels.
-    Series.resample : Resample a Series.
+See Also
+--------
+groupby : Group by mapping, function, label, or list of labels.
+Series.resample : Resample a Series.
 
-    Notes
-    -----
-    See the `user guide
-    <https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
-    for more.
+Notes
+-----
+See the `user guide
+<https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#resampling>`_
+for more.
 
-    Examples
-    --------
-    Start by creating a series with 9 one minute timestamps.
-    >>> index = 1 +1
-    2
-    Description for this example.
-~~~
+Examples
+--------
+Start by creating a series with 9 one minute timestamps.
+>>> index = 1 +1
+2
+Description for this example.
+```
 </div>
 
-### math in docstring
+
+Math equations,
 
 <div class="flex-50" markdown="1">
 ``` python
+# inline equation
 """
 .. math:: \\drac{1}{2}
 """
 ```
 
 ``` python
+# break very long equation
 """
 .. math::
     x_{\\text{min}} + \\dfrac{1}
@@ -487,9 +493,8 @@ def ex_class(var1, var2):
 ```
 </div>
 
-### Example of long, method, url
-
 ``` python
+# Methof, url.
 """
 Instantiate the class.
 
@@ -499,18 +504,27 @@ lst_comparison_type: str, default "wasserstein"
     Type of comparison. The supported types are in `dict_tests` which
     contains:
 
-    - "pearsonr": `Pearson correlation coefficient <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html>`_.
+    - "pearsonr": `Pearson correlation coefficient
+      <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html>`_.
 
     - "wasserstein": Wasserstein distance (earth mover's distance). It
-    measures the distance between 2 distributions. Check :meth:`popai.distribution_wasserstein_score`.
+      measures the distance between 2 distributions.
+      Check :meth:`popai.distribution_wasserstein_score`.
 """
 ```
 
-### Examples
+``` python
+# long line url
+"""
+- "pearsonr": `Pearson correlation coefficient
+  <https://docs.scipy.org/doc/scipy/reference/\
+generated/scipy.stats.pearsonr.html>`_.
+"""
+```
 
 <div class="flex-50" markdown="1">
 ``` python
-# returns
+# single returns
 """
 Returns
 -------
@@ -520,6 +534,7 @@ tuple (float, dict)
 ```
 
 ``` python
+# return a tuple
 """
 Returns
 -------
@@ -544,6 +559,10 @@ info: dict
 """
 ```
 </div>
+
+## Errors
+
+Problems with [VSCode](/visual-studio-code) which cannot run the preview: Select and activate an environment, `Ctrl + Shift + P` then choose `Python: Select Interpreter` then choose the right version of python you wanna run the docs on.
 
 ## References
 

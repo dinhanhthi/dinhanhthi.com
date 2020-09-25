@@ -121,8 +121,21 @@ print(x)
 </div>
 
 ``` python
+# list comprehension with if
+[e for e in lst if e>0]
+
 # list comprehension with if else
 [x+1 if x >= 45 else x+5 for x in l]
+```
+
+``` python
+# 2 fors in list comprehension
+[(x,y) for x in seq_x for y in seq_y]
+[entry for tag in tags for entry in entries if tag in entry]
+
+a = [[1,2], [3,4]]
+{i for e in a for i in e}
+# {1, 2, 3, 4}
 ```
 
 Create a list from range,

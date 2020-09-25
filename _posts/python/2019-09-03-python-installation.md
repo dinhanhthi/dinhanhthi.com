@@ -103,7 +103,7 @@ sudo apt install python-is-python3
 sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
 ```
 
-## Install new packages
+## pip
 
 ### Update pip
 
@@ -137,6 +137,7 @@ First, `activate <env>` and then using `easy_install -U pip`. You can check the 
 
 {% endhsbox %}
 
+<div class="flex-50" markdown="1">
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 pip freeze
@@ -144,7 +145,7 @@ pip freeze
 
 ~~~ bash
 # INSTALL A PACKAGE
-pip install <package> # administrator <-- SHOULDN'T!!!
+pip install <package> # admin <-- SHOULDN'T!!!
 pip install --user <package> # current user only
 ~~~
 
@@ -158,6 +159,7 @@ pip uninstall --user <package>
 # CHECK VERSION OF A PACKAGE
 pip show <package>
 ~~~
+</div>
 
 If install packages with `pip`, they are installed in which environment of conda? Where `pip` is executed from.
 
@@ -211,39 +213,7 @@ pip install git+https://github.com/TimeSynth/TimeSynth.git
 pip3 install -U "pillow<7"
 ```
 
-### Install packages with conda
-
-~~~ bash
-# INSTALL
-activate <env> # you need to activate an environment first
-conda install <package> # install for <env> only
-~~~
-
-~~~ bash
-# UPDATE
-acctivate <env> # choose an env first
-conda update <package> # ud package in that env
-~~~
-
-~~~ bash
-# LIST ALL INSTALLED PACKAGES
-conda list
-~~~
-
-~~~ bash
-# Update packages listed in an env file to current env,
-conda env update -n <env> -f /path/to/<file>.yml
-~~~
-
-~~~ bash
-# example of yml file
-name: stats
-dependencies:
-    - python=3.6
-    - geopandas==0.4.1
-~~~
-
-### `pip` vs `conda`?
+## `pip` vs `conda`?
 
 Differences:<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/)</sup>
 
@@ -254,16 +224,6 @@ Which one to be used?<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/inst
 
 - If you installed Python using Anaconda or Miniconda, then use `conda` to install Python packages. If `conda` tells you the package you want doesn't exist, then use `pip` (or try `conda-forge`, which has more packages available than the default conda channel).
 - If you installed Python any other way (from source, using `pyenv`, `virtualenv`, etc.), then use `pip` to install Python packages
-
-### Error?
-
-``` bash
-# UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 975: ordinal not
-# solution: instead of
-pip3 install sesd
-# use
-LC_ALL=C.UTF-8 pip3 install sesd
-```
 
 ## Python virtual environnement
 
@@ -303,6 +263,43 @@ If there is an error `TypeError: LoadLibrary() argument 1 must be str, not None`
 activate base # on Windows
 source activate base # on MacOS
 ~~~
+
+### Install packages with conda
+
+~~~ bash
+# INSTALL
+activate <env> # you need to activate an environment first
+conda install <package> # install for <env> only
+~~~
+
+~~~ bash
+# UPDATE
+acctivate <env> # choose an env first
+conda update <package> # ud package in that env
+~~~
+
+~~~ bash
+# LIST ALL INSTALLED PACKAGES
+conda list
+~~~
+
+~~~ bash
+# Update packages listed in an env file to current env,
+conda env update -n <env> -f /path/to/<file>.yml
+~~~
+
+~~~ bash
+# example of yml file
+name: stats
+dependencies:
+    - python=3.6
+    - geopandas==0.4.1
+~~~
+
+``` bash
+# install packages with requirements.txt
+conda install --file requirements.txt
+```
 
 ### Environment
 
@@ -435,3 +432,27 @@ conda list --revisions
 conda install --revision 1
 ~~~
 </div>
+
+## Error?
+
+``` bash
+# UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 975: ordinal not
+# solution: instead of
+pip3 install sesd
+# use
+LC_ALL=C.UTF-8 pip3 install sesd
+```
+
+``` bash
+# conda: The following packages are not available from current channels:
+# Solution 1: One can use pip in this case (the same env with conda)
+# Solution 2:
+conda install -c anaconda <package>
+```
+
+``` bash
+# The following required packages can not be built: * freetype (from matplotlib)
+# try to use conda to install matplotlib
+conda install matplotlib
+# it actually install the same thing as pip does on the same env
+```

@@ -4,7 +4,7 @@ title: "Visual Studio Code (VSC)"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg
-keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote regular expression regex"
+keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote regular expression regex vscode"
 ---
 
 {% include toc.html %}
@@ -15,16 +15,50 @@ Download and install [here](https://code.visualstudio.com/).
 
 ## Extensions
 
-You can find easily with their names in the marketplace (builtin with VSC)
+``` bash
+# list the installed extensions
+# unix
+code --list-extensions | xargs -L 1 echo code --install-extension
+# windows
+code --list-extensions | % { "code --install-extension $_" }
 
-<div class="two-columns-list" markdown="1">
-1. [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
-2. [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-3. [Markdown Shortcuts](https://marketplace.visualstudio.com/items?itemName=mdickin.markdown-shortcuts)
-4. [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-5. [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-6. [reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
-</div>
+# To re-install on a new machine
+# just copy-paste the results and run on terminal
+```
+
+{% hsbox my favorite extensios %}
+``` bash
+code --install-extension bierner.markdown-emoji
+code --install-extension bierner.markdown-preview-github-styles
+code --install-extension CoenraadS.bracket-pair-colorizer
+code --install-extension eamodio.gitlens
+code --install-extension formulahendry.auto-close-tag
+code --install-extension himanoa.Python-autopep8
+code --install-extension James-Yu.latex-workshop
+code --install-extension lextudio.restructuredtext
+code --install-extension mdickin.markdown-shortcuts
+code --install-extension mhutchie.git-graph
+code --install-extension mrmlnc.vscode-apache
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-mssql.mssql
+code --install-extension ms-python.python
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension Perkovec.emoji
+code --install-extension ritwickdey.live-sass
+code --install-extension ritwickdey.LiveServer
+code --install-extension ronnidc.nunjucks
+code --install-extension SolarLiner.linux-themes
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension zxh404.vscode-proto3
+```
+{% endhsbox %}
+
+
 
 ### reStructuredText
 
