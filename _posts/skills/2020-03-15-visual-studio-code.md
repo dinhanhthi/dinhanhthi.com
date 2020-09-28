@@ -93,7 +93,9 @@ Open `settings.json` and add,
 ]
 ~~~
 
-## Enable font ligatures{% ref https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd %}
+## Enable font ligatures
+
+👉 [Reference](https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd).
 
 For example, you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
 
@@ -166,3 +168,14 @@ Use settings for a custom file extension,
     "editor.wordWrap": "on",
 }
 ```
+
+## Pylint
+
+``` bash
+# _Unable to import_ some user-defined package
+# 1. Make sure the right env running in vscode
+# For example, popai (conda)
+# 2. Make a symblic link
+ln -s /home/thi/git/dataswati/python-dataswati/popai /home/thi/miniconda3/envs/popai/lib/python3.8/popai
+```
+

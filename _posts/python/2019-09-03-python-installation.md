@@ -92,6 +92,11 @@ Add Anaconda to the `$path`:
 
 On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the system terminal.
 
+``` bash
+# check version
+conda --version
+```
+
 ### Make right version
 
 ``` bash
@@ -357,6 +362,12 @@ conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the defau
 </div>
 
 <div class="flex-auto-equal-2" markdown="1">
+``` bash
+# Activate an env
+activate <env> # windows
+source activate <env> # linux / macos
+```
+
 ~~~ bash
 # DEACTIVE AN ENV
 conda deactivate # Linux
@@ -383,18 +394,8 @@ conda env export -f <file>.yml
 </div>
 
 ~~~ bash
-# CREATE FROM FILE
-conda env create -n <env> -f /path/to/<file>.yml
-~~~
-
-~~~ bash
 # Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml --prune
-~~~
-
-~~~ bash
-# Clone from another env,
-conda create --name <cloned-env> --clone <env>
 ~~~
 
 ### Kernel 2 & 3 for Jupyter Notebook
@@ -460,4 +461,11 @@ conda install matplotlib
 ``` bash
 # dtaidistance: C-library is not available
 pip install -vvv --upgrade --force-reinstall dtaidistance
+```
+
+``` bash
+# zsh: command not found: conda
+# Make sure your installation folder is already
+# in the $PATH
+export PATH="/home/thi/miniconda3/bin:$PATH"
 ```

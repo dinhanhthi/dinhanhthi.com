@@ -562,7 +562,12 @@ info: dict
 
 ## Errors
 
-Problems with [VSCode](/visual-studio-code) which cannot run the preview: Select and activate an environment, `Ctrl + Shift + P` then choose `Python: Select Interpreter` then choose the right version of python you wanna run the docs on.
+Problems with [VSCode](/visual-studio-code) which cannot run the preview:
+
+- Select and activate an environment, `Ctrl + Shift + P` then choose `Python: Select Interpreter` then choose the right version of python you wanna run the docs on.
+- Make sure the conda is already in `$PATH` + update the bashrc or zshrc (try `conda --version`).
+- Make sure the right environement is activate in VSCode + all necessary libs are already istalled!
+
 
 ## References
 
