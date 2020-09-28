@@ -111,7 +111,7 @@ for item in datastore:
 👉 [Video explain the code](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-1-Q1Ln5).
 
 {:.noindent}
-- Word embeddings = the idea in which words and associated words are _clustered as vectors_ in a multi-dimensional space. That allows words with similar meaning to have a similar representation.
+- **Word embeddings** = the idea in which words and associated words are _clustered as vectors_ in a multi-dimensional space. That allows words with similar meaning to have a similar representation.
 - The meaning of the words can come from labeling of the dataset.
   - Ex: "dull" and "boring" show up a lot in negative reviews => they have similar sentiments => they are close to each other in the sentence => thus their vector will be similar => NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
 

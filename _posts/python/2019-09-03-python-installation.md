@@ -3,7 +3,7 @@ layout: post
 title: "Python Installation"
 categories: [python]
 tags: ['101', installation, python]
-keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object"
+keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object UnicodeDecodeError: 'ascii' codec conda: The following packages are not available from current channels freetype (from matplotlib) dtaidistance: C-library is not available"
 ---
 
 {% assign img-url = '/img/post/python' %}
@@ -455,4 +455,9 @@ conda install -c anaconda <package>
 # try to use conda to install matplotlib
 conda install matplotlib
 # it actually install the same thing as pip does on the same env
+```
+
+``` bash
+# dtaidistance: C-library is not available
+pip install -vvv --upgrade --force-reinstall dtaidistance
 ```
