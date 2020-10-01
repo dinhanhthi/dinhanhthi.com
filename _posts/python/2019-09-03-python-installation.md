@@ -58,6 +58,8 @@ jupyter notebook
 ~~~
 </div>
 
+The `-m` option allows you to execute a module or package as a script{% ref https://www.quora.com/What-does-m-mean-in-the-terminal-command-Python-m-pip-install-openpyxl %}.
+
 ~~~ bash
 # If `import _ssl`, `ImportError`
 set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
@@ -79,23 +81,20 @@ python3 --version
 Python is already installed on Ubuntu. You would like to install Anaconda, [download and install](https://www.anaconda.com/distribution/) it.
 
 ~~~ bash
-bash Anaconda...sh
-~~~
+# ADD CONDA TO $PATH
 
-Add Anaconda to the `$path`:
+nano ~/.profile
+# find where conda is installed and then
+export PATH=/home/<user>/anaconda3/bin:$PATH
+source ~/.profile
 
-1. Open `~/.profile`.
-2. Paste `export PATH=/home/<user>/anaconda3/bin:$PATH` (this is the default directory when you install anaconda)
-3. Excute: `source ~/.profile` in order to immediately reflect changes to your current terminal instance
-4. Check with `which python`, if it returns `/home/<user>/anaconda3/bin/python` then it works (`python -v` returns anaconda also).
-5. If you wanna go back to the system default, open the `.bashrc` file and comment out settings of anaconda with `#`. That’s it!
+# check
+which python
+# should return: /home/<user>/anaconda3/bin/python
 
-On Ubuntu, I use [Guake Terminal](https://github.com/Guake/guake) to replace the system terminal.
-
-``` bash
 # check version
 conda --version
-```
+~~~
 
 ### Make right version
 

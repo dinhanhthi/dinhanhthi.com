@@ -471,6 +471,28 @@ sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 ```
 
+🔅 _bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)_
+
+``` bash
+echo "LC_ALL=en_US.UTF-8" >> /etc/environment
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+locale-gen en_US.UTF-8
+```
+
+🔅 _dpkg: error processing package install-info_
+
+``` bash
+sudo mv /var/lib/dpkg/info/install-info.postinst /var/lib/dpkg/info/install-info.postinst.bad
+```
+
+🔅 _APT had planned for dpkg to do more than it reported back_
+
+``` bash
+dpkg --configure -a
+apt-get install -f
+```
+
 ### GPU-NVDIA problems
 
 🔅 Problems with pytorch versions: [check this](/pytorch#errors).

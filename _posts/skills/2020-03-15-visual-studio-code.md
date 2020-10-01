@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Visual Studio Code (VSC)"
+title: "Visual Studio Code (VSCode)"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg
@@ -153,6 +153,33 @@ Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
 4. Click **Connect** if there is any popup in VSC.
 5. Choose platform on the server, usually Linux.
 
+### Error?
+
+``` bash
+# Could not establish connection to "undefined". Could not resolve hostname.
+# ref: https://github.com/microsoft/vscode-remote-release/issues/1047
+
+# Open config ssh file
+# Ctrl+Shift+P then "Remote-SSH: Open Configuration File"
+
+# In stead of
+Host XXX.XXX.XXX.XXX
+User bob
+Port 22
+IdentityFile ~/.ssh/id
+
+# use this
+Host server_name # Do not put ip here
+HostName XXX.XXX.XXX.XXX # But put it here
+User bob
+Port 22
+IdentityFile ~/.ssh/id
+
+# Then Ctrl+Shift+P > "Remote-SSH: Connect to host"
+# Pick "server_name"
+```
+
+
 ## Settings
 
 Check [this file](https://github.com/dinhanhthi/scripts/blob/master/settings/VSC_settings.json).
@@ -179,3 +206,21 @@ Use settings for a custom file extension,
 ln -s /home/thi/git/dataswati/python-dataswati/popai /home/thi/miniconda3/envs/popai/lib/python3.8/popai
 ```
 
+``` bash
+# unresolved import
+# Ctrl + Shift + P
+# Preferences: Open Workspace Settings (JSON)
+"settings": {
+    "python.pythonPath": "/usr/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "/usr/lib/python3/dist-packages",
+        "/app/src/python/"
+        # or other paths you want!
+    ]
+}
+```
+
+## Hot keys
+
+- Get back to previous views: `Ctrl + Alt + -` (Linux), `Alt + <` (Windows), `Ctrl + -` (MacOS).
+- Get forward: `Ctrl + Shift + -` (Linux), `Alt + >` (Windows), `Ctrl + Shift + -` (MacOS).

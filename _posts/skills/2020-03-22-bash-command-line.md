@@ -79,7 +79,7 @@ sh test.sh -n "ThiD" -f test.md
 ```
 </div>
 
-## Search
+## Search / grep / sed
 
 <div class="flex-50" markdown='1'>
 ``` bash
@@ -90,6 +90,14 @@ ls | grep -i abc
 ``` bash
 # find command lines containing 'abc'
 dpkg -l | grep -i abc
+```
+
+``` bash
+# search and extract a part of result
+pip show numpy
+# Location: /usr/lib/python3/dist-packages
+pip show numpy | sed -n 's/Location: //p'
+# /usr/lib/python3/dist-packages
 ```
 </div>
 
@@ -317,6 +325,15 @@ echo "hello 'thi' world" >> my_file.txt
 ``` bash
 # open an image
 eog image_file.jpg
+```
+
+## Symbolic link (shortcut)
+
+``` bash
+ln -s original_folder sym_folder
+
+# remove
+rm sym_folder
 ```
 
 ## Alias
