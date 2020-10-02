@@ -107,7 +107,7 @@ for item in datastore:
 
 ### IMDB review dataset
 
-👉 Notebook: [Train IMDB review dataset](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_IMDB_reviews.html). <br />
+👉 Notebook: [Train IMDB review dataset](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_1_IMDB_reviews.html). <br />
 👉 [Video explain the code](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-1-Q1Ln5).
 
 {:.noindent}
@@ -219,3 +219,70 @@ else:
 
 ### Sarcasm dataset
 
+👉 Notebook: [Train Sacarsm dataset](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_2_sacarsm.html). <br />
+
+
+- In text data, it usually happens that the accuracy increase over the number of training but the loss increase sharply also. We can "play" with hyperparameter to see the effect.
+
+``` python
+# Run this to ensure TensorFlow 2.x is used
+try:
+  # %tensorflow_version only exists in Colab.
+  %tensorflow_version 2.x
+except Exception:
+  pass
+```
+
+## Pre-tokenized datasets
+
+👉 [datasets/imdb_reviews.md at master · tensorflow/datasets](https://github.com/tensorflow/datasets/blob/master/docs/catalog/imdb_reviews.md)<br />
+👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)
+👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html). <br />
+
+- There are someones who did the work (tokemization) for you.
+- Try on IMDB dataset that has been pre-tokenized.
+- The tokenization is done on subwords!
+- The sequence of words can be just important as their existence.
+
+``` python
+# load imdb dataset from tensorflow
+import tensorflow_datasets as tfds
+imdb, info = tfds.load("imdb_reviews/subwords8k", with_info=True, as_supervised=True)
+
+# extract train/test sets
+train_data, test_data = imdb['train'], imdb['test']
+
+# take the tokernizer
+tokenizer = info.features['text'].encoder
+
+print(tokenizer.subwords)
+# ['the_', ', ', '. ', 'a_', 'and_', 'of_', 'to_', 's_', 'is_',...
+```
+
+``` python
+sample_string = 'TensorFlow, from basics to mastery'
+
+tokenized_string = tokenizer.encode(sample_string)
+print ('Tokenized string is {}'.format(tokenized_string))
+# Tokenized string is [6307, 2327, 4043, 2120, 2, 48, 4249, 4429, 7, 2652, 8050]
+
+original_string = tokenizer.decode(tokenized_string)
+print ('The original string: {}'.format(original_string))
+# The original string: TensorFlow, from basics to mastery
+```
+
+``` python
+# take a look on tokenized string
+# case sensitive + punctuation maintained
+for ts in tokenized_string:
+  print ('{} ----> {}'.format(ts, tokenizer.decode([ts])))
+
+# 6307 ----> Ten
+# 2327 ----> sor
+# 4043 ----> Fl
+# ...
+```
+
+- The code run quite long (4 minutes each epoch if using GPU on colab) because there are a lot of hyperparameters and sub-words.
+- Result: 50% acc & loss is decreasing but very small.
+  - Because we are using sub-words, not for-words -> they (sub-words) are nonsensical. -> they are only when we put them together in sequences -> __learning from sequences would be a great way forward__ -> __RNN__ (Recurrent Neural Networks)

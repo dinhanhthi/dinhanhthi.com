@@ -34,7 +34,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [NLP-progress](http://nlpprogress.com/).
 - [UCI](https://archive.ics.uci.edu/ml/index.html)
 - [The Yahoo Webscope Program](https://webscope.sandbox.yahoo.com/)
-- [TensorFlow Datasets](https://www.tensorflow.org/datasets)
+- [TensorFlow Datasets](https://www.tensorflow.org/datasets/catalog/overview)
 
 ## Datasets
 

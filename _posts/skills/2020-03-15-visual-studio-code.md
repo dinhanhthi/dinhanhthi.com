@@ -224,3 +224,4 @@ ln -s /home/thi/git/dataswati/python-dataswati/popai /home/thi/miniconda3/envs/p
 
 - Get back to previous views: `Ctrl + Alt + -` (Linux), `Alt + <` (Windows), `Ctrl + -` (MacOS).
 - Get forward: `Ctrl + Shift + -` (Linux), `Alt + >` (Windows), `Ctrl + Shift + -` (MacOS).
+- Open Command Palette: `Ctrl` + `Shift` + `P`.
