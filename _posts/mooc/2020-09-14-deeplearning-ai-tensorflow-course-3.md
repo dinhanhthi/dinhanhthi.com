@@ -42,7 +42,9 @@ sentences = [
 ]
 
 tokenizer = Tokenizer(num_words = 100, oov_token="<OOV>")
-            # more words, more accuracy, more time to train
+            # num_words: max of words to be tokenized & pick
+            #   the most common 100 words.
+            # More words, more accuracy, more time to train
             # oov_token: replace unseen words by "<OOV>"
 tokenizer.fit_on_texts(sentences) # fix texts based on tokens
 ```
@@ -113,7 +115,8 @@ for item in datastore:
 {:.noindent}
 - **Word embeddings** = the idea in which words and associated words are _clustered as vectors_ in a multi-dimensional space. That allows words with similar meaning to have a similar representation.
 - The meaning of the words can come from labeling of the dataset.
-  - Ex: "dull" and "boring" show up a lot in negative reviews => they have similar sentiments => they are close to each other in the sentence => thus their vector will be similar => NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
+  - _Example_: "dull" and "boring" show up a lot in negative reviews => they have similar sentiments => they are close to each other in the sentence => thus their vector will be similar => NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
+- The purpose of _embedding dimension_ is the number of dimensions for the vector representing the word encoding.
 
 ``` python
 import tensorflow as tf
@@ -236,13 +239,15 @@ except Exception:
 ## Pre-tokenized datasets
 
 👉 [datasets/imdb_reviews.md at master · tensorflow/datasets](https://github.com/tensorflow/datasets/blob/master/docs/catalog/imdb_reviews.md)<br />
-👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)
+👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)<br />
 👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html). <br />
 
-- There are someones who did the work (tokemization) for you.
+- There are someones who did the work (tokenization) for you.
 - Try on IMDB dataset that has been pre-tokenized.
-- The tokenization is done on subwords!
+- The tokenization is done on **subwords**!
 - The sequence of words can be just important as their existence.
+
+👉 [Video exaplain the codes](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-3-piQXt).
 
 ``` python
 # load imdb dataset from tensorflow
@@ -286,3 +291,135 @@ for ts in tokenized_string:
 - The code run quite long (4 minutes each epoch if using GPU on colab) because there are a lot of hyperparameters and sub-words.
 - Result: 50% acc & loss is decreasing but very small.
   - Because we are using sub-words, not for-words -> they (sub-words) are nonsensical. -> they are only when we put them together in sequences -> __learning from sequences would be a great way forward__ -> __RNN__ (Recurrent Neural Networks)
+
+## Sequence models
+
+- The relative ordering, the sequence of words, matters for the meaning of the sentence .
+- For NN to take into account for the __ordering of the words__: **RNN** (Recurrent Neural Networks), **LSTM** (Long short-term memory).
+- __Why not RNN but LSTM ?__ With RNN, the context is preserved from timstamp to timestamp BUT that may get lost in longer sentences => LSTM gets better because it has cell state.
+- __Example of using LSTM__: "_I grew up in Ireland, I went to school and at school, they made me learn how to speak..._" => "speak" is the context and we go back to the beginning to catch "Ireland", then the next word could be "leanr how to speak __Gaelic__"!
+
+### RNN idea
+
+👉 [Note of the course of sequence model](/deeplearning-ai-course-5).
+
+{:.noindent}
+- The usual NN, something like "f(data, labels)=rules" cannot take into account of sequences.
+- **An example of using sequences**: Fibonacci sequence => the result of current function is the input of next function itself,...
+
+{:.img-70.pop}
+![RNN basic idea]({{img_url}}/rnn-basic-idea.png)
+_RNN basic idea ([source](https://medium.com/@kangeugine/long-short-term-memory-lstm-concept-cb3283934359))._
+
+### LSTM idea
+
+👉 (Video) [Illustrated Guide to LSTM's and GRU's: A step by step explanation](https://www.youtube.com/watch?v=8HyCNIVRbSU&feature=emb_title) & [its article](https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21). <br />
+👉 (Video) Long Short Term Memory (LSTM).
+
+{:.noindent}
+- Sometimes, the sequence context leads to lose information like the example of "Ireland" and "Gaelic" before.
+- LSTM has an additional pipeline called __Cell State__. It can pass through the network to impact it + help to keep context from earlier tokens relevance.
+
+{:.img-75.pop}
+![LSTM basic idea]({{img_url}}/lstm-basic-idea.png)
+_LSTM basic idea (image from the course)._
+
+``` python
+# SINGLE LAYER LSTM
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(tokenizer.vocab_size, 64),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64)),
+      # 64: #oututs desired (but the result may be different)
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
+
+👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_4_IMDB_subwords_8K_with_single_layer_LSTM)
+
+``` python
+# MULTI PLAYER LSTM
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(tokenizer.vocab_size, 64),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, return_sequences=True)),
+      # return_sequences=True: required if we wanna feed LSTM into another one
+      # It ensures that the output of LSTM match the desired inputs of the next one
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
+
+👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_5_IMDB_subwords_8K_with_multi_layer_LSTM)
+
+{:.img-90.pop}
+![1layer vs 2 later LSTM acc]({{img_url}}/1layer-vs-2layer-lstm.png)
+_1 layer vs 2 layer LSTM accuracy after 50 epochs (image from the course). 2 layer is better (smoother) which makes us more confident about the model. The validation acc is sticked to 80% because we used 8000 sub-words taken from training set, so there may be many tokens from the test set that would be out of vocabulary._
+
+### With vs without LSTM
+
+``` python
+# WITHOUT LSTM (like previous section)
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(vocab_size, embedding_dim,
+                              input_length=max_length),
+    #
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.GlobalmaxPooling1D(),
+    #
+    tf.keras.layers.Dense(6, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
+
+``` python
+# WITH LSTM
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(vocab_size, embedding_dim,
+                              input_length=max_length),
+    #
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)),
+    #
+    tf.keras.layers.Dense(6, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
+
+{:.img-90.pop}
+![With vs without LSTM]({{img_url}}/with-vs-without-lstm.png)
+_With vs without LSTM (image from the course). With LSTM is really better but there is still overfitting here._
+
+### Using a ConvNet
+
+👉 [Video explains the dimension](https://www.coursera.org/lecture/natural-language-processing-tensorflow/using-a-convolutional-network-fSE8o).<br />
+👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_6_IMDB_subwords_8K_with_Conv.html).
+
+``` python
+model = tf.keras.Sequential([
+    tf.keras.layers.Embedding(tokenizer.vocab_size, 64),
+    #
+    tf.keras.layers.Conv1D(128, 5, activation='relu'),
+    #
+    tf.keras.layers.GlobalAveragePooling1D(),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(1, activation='sigmoid')
+])
+```
+
+{:.img-90.pop}
+![Using Convolution network.]({{img_url}}/using-conv-net.png)
+_Using Convolution network. (image from the course). It's really better but there is overfitting there._
+
+### IBDM dataset
+
+👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_6_IMDB_subwords_8K_with_Conv.html). <br />
+👉 [Video compares the results](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/NFvFd/going-back-to-the-imdb-dataset).
+
+Try with 3 different choices:
+
+- __Simple NN__: 5s/epoch, 170K params, nice acc, overfitting.
+- __LSTM__: 43s/epoch, 30K params, acc better, overfitting.
+- __GRU__ (Gated Recurrent Unit layer, a different type of RNN): 20s/epoch, 169K params, very good acc, overfitting.
+- __Conv1D__: 6s/epoch, 171K params, good acc, overfitting.
+
+__Remark__: <mark>With the texts, you'll probably get a bit more overfitting than you would have done with images.</mark> Because we have out of voca words in validation data.

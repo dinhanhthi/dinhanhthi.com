@@ -222,6 +222,10 @@ ln -s /home/thi/git/dataswati/python-dataswati/popai /home/thi/miniconda3/envs/p
 
 ## Hot keys
 
-- Get back to previous views: `Ctrl + Alt + -` (Linux), `Alt + <` (Windows), `Ctrl + -` (MacOS).
-- Get forward: `Ctrl + Shift + -` (Linux), `Alt + >` (Windows), `Ctrl + Shift + -` (MacOS).
-- Open Command Palette: `Ctrl` + `Shift` + `P`.
+One can change the default keyboard shortcut by going to: **File** > **Preferences** > **Keyboard Shortcuts**.
+
+- Quick search file: <kbd>Ctrl</kbd> + <kbd>P</kbd>.
+- Get back to previous views: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd> (Linux), <kbd>Alt</kbd> + <kbd><</kbd> (Windows), <kbd>Ctrl</kbd> + <kbd>-</kbd> (MacOS).
+- Get forward: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (Linux), <kbd>Alt</kbd> + <kbd>></kbd> (Windows), <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (MacOS).
+- Open Command Palette: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
+- Forat on save: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.

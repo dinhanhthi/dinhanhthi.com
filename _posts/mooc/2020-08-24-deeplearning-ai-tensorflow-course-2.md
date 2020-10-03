@@ -4,7 +4,7 @@ title: "TF 2 - CNN in TensorFlow"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney zip python gzip unzip transfer learning inception module network ImageDataGenerator RMSprop cat vs dog accuracy loss make a larger dataset dropout"
+keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney zip python gzip unzip transfer learning inception module network ImageDataGenerator RMSprop cat vs dog accuracy loss make a larger dataset dropout crop image scaling extract zip file using python image to np array plot accuracy and loss split shuffle data sequential model keras dense flatten conv2d max pooling generate data image augmentation human vs horse image generator transfer learning Inception GoogleNet network Dropout pre trained model multi class classification mnist rock paper scissors"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}

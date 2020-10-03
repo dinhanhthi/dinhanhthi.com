@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
 katex: 1
-keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney fashion mnist optimizer loss metrics model sequential summary pooling convolution visualization"
+keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney fashion mnist optimizer loss metrics model sequential summary pooling convolution visualization MNIST layers flatten kernel size dense layer classification features extraction mycallback my callback on_epoch_end train test set pooling conv image filtering visualize convolutions and pooling real world images ImageGenerator ConvNet"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
@@ -54,13 +54,13 @@ model.compile(optimizer='adam',
 model.fit(x_train, y_train, epochs=10, callbacks=[callbacks])
 ```
 
-Comments ([notebook](https://bit.ly/3jHSCYg)):
+**Comments** ([notebook](https://bit.ly/3jHSCYg)):
 
 1. Adding more Neurons we have to do more calculations, slowing down the process, but get more accurate.
 2. The first layer in your network should be the same shape as your data.
 3. The number of neurons in the last layer should match the number of classes you are classifying for.
 4. Extra layers are often necessary.
-5. **Flatten** as the name implies, converts your multidimensional matrices (Batch.Size x Img.W x Img.H x Kernel.Size) to a nice single 2-dimensional matrix: (Batch.Size x (Img.W x Img.H x Kernel.Size)). During backpropagation it also converts back your delta of size (Batch.Size x (Img.W x Img.H x Kernel.Size)) to the original (Batch.Size x Img.W x Img.H x Kernel.Size).
+5. **Flatten** as the name implies, converts your multidimensional matrices (`Batch.Size x Img.W x Img.H x Kernel.Size`) to a nice single 2-dimensional matrix: (`Batch.Size x (Img.W x Img.H x Kernel.Size)`). During backpropagation it also converts back your delta of size (`Batch.Size x (Img.W x Img.H x Kernel.Size)`) to the original (`Batch.Size x Img.W x Img.H x Kernel.Size`).
 6. **Dense layer** is of course the standard fully connected layer.
 
 {:.img-100.pop}
@@ -202,7 +202,7 @@ An example of classifying horses and humans!
 
 ### ImageGenerator
 
-Check more on [this video](https://www.coursera.org/lecture/introduction-tensorflow/understanding-imagegenerator-kqRHk) in the course.
+👉 [Video explain ImageGenerator](https://www.coursera.org/lecture/introduction-tensorflow/understanding-imagegenerator-kqRHk).
 
 ``` python
 # make images more used for training

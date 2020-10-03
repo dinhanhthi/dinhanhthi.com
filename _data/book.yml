@@ -1,8 +1,11 @@
+- title: "The Godfather"
+  author: Mario Puzo
+  goodreads: "https://www.goodreads.com/book/show/22034.The_Godfather"
+  reading: true
 - title: "The ABC Murders"
   author: Agatha Christie
   intro: "When Alice Asher is murdered in Andover, Hercule Poirot is already on to the clues. Alphabetically speaking, it's one down, twenty-five to go."
   goodreads: "https://www.goodreads.com/book/show/16322.The_A_B_C_Murders"
-  reading: true
 - title: "Inside the Minds of Serial Killers: Why They Kill"
   author: Katherine Ramsland
   goodreads: "https://www.goodreads.com/book/show/421369.Inside_the_Minds_of_Serial_Killers"
