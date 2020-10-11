@@ -423,3 +423,97 @@ Try with 3 different choices:
 - __Conv1D__: 6s/epoch, 171K params, good acc, overfitting.
 
 __Remark__: <mark>With the texts, you'll probably get a bit more overfitting than you would have done with images.</mark> Because we have out of voca words in validation data.
+
+## Sequence models and literature
+
+One application of sequence models: read text then **generate another look-alike text**.
+
+👉 [Notebook 1](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html). & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
+
+- How they predict a new word in the notebook? -> Check [this video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/LGBS2/predicting-a-word).
+
+``` python
+input_sequences = []
+for line in corpus:
+	# convert each sentence to list of numbers
+	token_list = tokenizer.texts_to_sequences([line])[0]
+	# convert each list to n-gram sequence
+	# eg. from [1,2,3,4,5]
+	# 		to [1,2], [1,2,3], [1,2,3,4], [1,2,3,4,5]
+	for i in range(1, len(token_list)):
+		n_gram_sequence = token_list[:i+1]
+		input_sequences.append(n_gram_sequence)
+
+# pad sequences to the maximum length of all sentences
+max_sequence_len = max([len(x) for x in input_sequences])
+input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='pre'))
+
+# create predictors and label
+# [0,0,1,2] -> 2 is label
+# [0,1,2,3] -> 3 is label
+# [1,2,3,4] -> 4 is label
+xs, labels = input_sequences[:,:-1],input_sequences[:,-1]
+
+# one-hot encoding the labels (classification problem)
+ys = tf.keras.utils.to_categorical(labels, num_classes=total_words)
+```
+
+``` python
+model = Sequential()
+model.add(Embedding(total_words, 64, input_length=max_sequence_len-1))
+model.add(Bidirectional(LSTM(20))) # take only 20 units (bi-direction) to train
+model.add(Dense(total_words, activation='softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+history = model.fit(xs, ys, epochs=500, verbose=1)
+```
+
+``` python
+seed_text = "Laurence went to dublin"
+next_words = 100
+
+for _ in range(next_words):
+	token_list = tokenizer.texts_to_sequences([seed_text])[0]
+	# "went to dublin" -> [134, 13, 59]
+	token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding='pre')
+	#  [0, 0, 0, 0, 0, 0, 0, 134, 13, 59]
+	predicted = model.predict_classes(token_list, verbose=0)
+	output_word = ""
+	# revert an index back to the word
+	for word, index in tokenizer.word_index.items():
+		if index == predicted:
+			output_word = word
+			break
+	# add predicted word to the seed text and make another prediction
+	seed_text += " " + output_word
+print(seed_text)
+# all the words are predicted based on the probability
+# next one will be less certain than the previous
+# -> less meaningful
+```
+
+- Using more words will help.
+
+👉 [Notebook 3 (more data)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_3_more_data_on_train.html)
+
+``` python
+# read from a file
+tokenizer = Tokenizer()
+data = open('/tmp/irish-lyrics-eof.txt').read()
+corpus = data.lower().split("\n")
+```
+
+A little changes from the previous,
+
+``` python
+model = Sequential()
+model.add(Embedding(total_words, 100, input_length=max_sequence_len-1))
+model.add(Bidirectional(LSTM(150)))
+model.add(Dense(total_words, activation='softmax'))
+adam = Adam(lr=0.01) # customized optimizer
+model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
+#earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=5, verbose=0, mode='auto')
+history = model.fit(xs, ys, epochs=100, verbose=1)
+```
+
+- Different convernges can create different poetry.
+- If we use one-hot for a very big corpus -> take a lot of RAM -> use **character-based prediction** -> #unique characters is far less than #unique words. -> [notebook "Text generation with RNN"](https://www.tensorflow.org/tutorials/text/text_generation)
