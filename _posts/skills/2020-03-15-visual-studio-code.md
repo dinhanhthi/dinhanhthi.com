@@ -229,3 +229,4 @@ One can change the default keyboard shortcut by going to: **File** > **Preferenc
 - Get forward: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (Linux), <kbd>Alt</kbd> + <kbd>></kbd> (Windows), <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (MacOS).
 - Open Command Palette: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
 - Forat on save: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
+- Go to line: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> then _Go to line_.

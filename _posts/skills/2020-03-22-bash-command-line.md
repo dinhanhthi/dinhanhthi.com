@@ -131,6 +131,9 @@ free -m
 ~~~ bash
 # ALL ENV
 printenv
+
+# add new
+export ABC=/xyz/thi/
 ~~~
 
 ``` bash
@@ -277,10 +280,17 @@ python3 -m http.server 1337 # localhost:1337
 
 ``` bash
 # current running servers
+sudo apt install net-tools
 netstat -lepunt
 
 # kill a process, e.g. 29231/ssh
 kill <pid> # eg. kill 29231
+```
+
+``` bash
+# mb data used
+sudo apt install vnstat
+vnstat -d
 ```
 </div>
 
