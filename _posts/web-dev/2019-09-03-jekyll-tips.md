@@ -40,6 +40,10 @@ This note is used for you who have already had the basic idea about jekyll and h
 6. `bundle exec jekyll serve`
    1. Error: ExecJS and could not find a JavaScript runtime: install nodejs fix it. `sudo apt-get install nodejs`
 
+### Windows
+
+Follow [this guide](/docker-wsl2-windows#jekyll-on-wsl2) using WSL2 on Windows.
+
 ## Make jekyll build faster
 
 <div class="flex-50" markdown="1">
