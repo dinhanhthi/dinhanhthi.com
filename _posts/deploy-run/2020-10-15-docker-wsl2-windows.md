@@ -138,4 +138,4 @@ set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d debian
 set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d ubuntu
 ```
 
-You may need to rerun `p10k configure` to fix problems with icons.
+Choose font _Cascadia Code_ in General > Fonts.
