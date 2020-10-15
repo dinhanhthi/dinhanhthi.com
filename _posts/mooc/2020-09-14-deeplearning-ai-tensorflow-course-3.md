@@ -4,8 +4,7 @@ title: "TF 3 - NLP in TensorFlow"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-notfull: 1
-keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment"
+keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment RNN LSTM long short term memory Recurrent neural network sarcasm tokenizer imdb movie review embedding word embeddings GRU Gated Recurrent Unit layer conv character-based prediction"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
@@ -335,7 +334,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_4_IMDB_subwords_8K_with_single_layer_LSTM)
+👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM)
 
 ``` python
 # MULTI PLAYER LSTM
@@ -350,7 +349,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_5_IMDB_subwords_8K_with_multi_layer_LSTM)
+👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM)
 
 {:.img-90.pop}
 ![1layer vs 2 later LSTM acc]({{img_url}}/1layer-vs-2layer-lstm.png)
@@ -392,7 +391,7 @@ _With vs without LSTM (image from the course). With LSTM is really better but th
 ### Using a ConvNet
 
 👉 [Video explains the dimension](https://www.coursera.org/lecture/natural-language-processing-tensorflow/using-a-convolutional-network-fSE8o).<br />
-👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_6_IMDB_subwords_8K_with_Conv.html).
+👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_3_IMDB_subwords_8K_with_Conv.html).
 
 ``` python
 model = tf.keras.Sequential([
@@ -410,9 +409,9 @@ model = tf.keras.Sequential([
 ![Using Convolution network.]({{img_url}}/using-conv-net.png)
 _Using Convolution network. (image from the course). It's really better but there is overfitting there._
 
-### IBDM dataset
+### IMDB dataset
 
-👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_6_IMDB_subwords_8K_with_Conv.html). <br />
+👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_4_IMDB_review_with_GRU.html). <br />
 👉 [Video compares the results](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/NFvFd/going-back-to-the-imdb-dataset).
 
 Try with 3 different choices:
