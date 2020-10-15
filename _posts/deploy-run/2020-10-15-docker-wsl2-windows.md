@@ -48,6 +48,17 @@ wsl --set-default-version 2
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
 
+## WSL with cmder
+
+Settings > Startup > Tasks > +
+
+``` bash
+# for debian
+set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d debian
+# for ubuntu
+set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d ubuntu
+```
+
 ### Dependencies
 
 ``` bash
