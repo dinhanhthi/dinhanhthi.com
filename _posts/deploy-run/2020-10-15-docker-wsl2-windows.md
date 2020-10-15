@@ -48,17 +48,6 @@ wsl --set-default-version 2
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
 
-## WSL with cmder
-
-Settings > Startup > Tasks > +
-
-``` bash
-# for debian
-set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d debian
-# for ubuntu
-set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d ubuntu
-```
-
 ### Dependencies
 
 ``` bash
@@ -137,3 +126,16 @@ sudo apt-get install -y nodejs
 
 1. Install extension [Remote-WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
 2. Connect via Debian instead! (`><SWL: Debian`)
+
+## WSL with cmder
+
+Settings > Startup > Tasks > +
+
+``` bash
+# for debian
+set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d debian
+# for ubuntu
+set PATH="%ConEmuBaseDirShort%\wsl";%PATH% & wsl -d ubuntu
+```
+
+You may need to rerun `p10k configure` to fix problems with icons.
