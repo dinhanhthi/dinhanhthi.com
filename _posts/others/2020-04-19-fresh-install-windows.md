@@ -44,3 +44,4 @@ This is my personal list of to-do things after reinstall Windows.
 28. [Affinity Designer](https://affinity.serif.com/en-us/designer/).
 29. [K-Lite Codec Pack](https://www.codecguide.com/download_kl.htm): video media player.
 30. [Foxit Reader](https://www.foxitsoftware.com/pdf-reader/): PDF reader.
+31. Custom/Disable fn function on keyboard K380 -> download [Logitech Options](https://support.logi.com/hc/en-ch/articles/360025297893) -> install & signin with dinhanhthimail@gmail.com -> check on "Use F1-F12 as standard function keys".

@@ -5,7 +5,7 @@ categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python sequences"
-notefull: 1
+notfull: 1
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
