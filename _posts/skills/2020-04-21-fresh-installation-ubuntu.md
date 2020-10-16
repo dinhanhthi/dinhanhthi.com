@@ -4,7 +4,7 @@ title: "Fresh Ubuntu Installation"
 categories: [others]
 tags: [bash, linux, collection, fresh install]
 icon-photo: ubuntu.svg
-keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake"
+keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake xps k380 keyboard logitech"
 ---
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.

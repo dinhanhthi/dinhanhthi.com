@@ -4,7 +4,7 @@ title: "TF 3 - NLP in TensorFlow"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment RNN LSTM long short term memory Recurrent neural network sarcasm tokenizer imdb movie review embedding word embeddings GRU Gated Recurrent Unit layer conv character-based prediction"
+keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment RNN LSTM long short term memory Recurrent neural network sarcasm tokenizer imdb movie review embedding word embeddings GRU Gated Recurrent Unit layer conv character-based prediction Shakespeare poem"
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
@@ -240,13 +240,13 @@ except Exception:
 👉 [datasets/imdb_reviews.md at master · tensorflow/datasets](https://github.com/tensorflow/datasets/blob/master/docs/catalog/imdb_reviews.md)<br />
 👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)<br />
 👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html). <br />
+👉 [Video exaplain the codes](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-3-piQXt).
 
 - There are someones who did the work (tokenization) for you.
 - Try on IMDB dataset that has been pre-tokenized.
 - The tokenization is done on **subwords**!
 - The sequence of words can be just important as their existence.
 
-👉 [Video exaplain the codes](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-3-piQXt).
 
 ``` python
 # load imdb dataset from tensorflow
@@ -313,7 +313,6 @@ _RNN basic idea ([source](https://medium.com/@kangeugine/long-short-term-memory-
 ### LSTM idea
 
 👉 (Video) [Illustrated Guide to LSTM's and GRU's: A step by step explanation](https://www.youtube.com/watch?v=8HyCNIVRbSU&feature=emb_title) & [its article](https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21). <br />
-👉 (Video) Long Short Term Memory (LSTM).
 
 {:.noindent}
 - Sometimes, the sequence context leads to lose information like the example of "Ireland" and "Gaelic" before.
@@ -334,7 +333,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM)
+👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM.html)
 
 ``` python
 # MULTI PLAYER LSTM
@@ -349,7 +348,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM)
+👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM.html)
 
 {:.img-90.pop}
 ![1layer vs 2 later LSTM acc]({{img_url}}/1layer-vs-2layer-lstm.png)
@@ -427,7 +426,7 @@ __Remark__: <mark>With the texts, you'll probably get a bit more overfitting tha
 
 One application of sequence models: read text then **generate another look-alike text**.
 
-👉 [Notebook 1](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html). & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
+👉 [Notebook 1](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html) & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
 
 - How they predict a new word in the notebook? -> Check [this video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/LGBS2/predicting-a-word).
 
@@ -516,3 +515,5 @@ history = model.fit(xs, ys, epochs=100, verbose=1)
 
 - Different convernges can create different poetry.
 - If we use one-hot for a very big corpus -> take a lot of RAM -> use **character-based prediction** -> #unique characters is far less than #unique words. -> [notebook "Text generation with RNN"](https://www.tensorflow.org/tutorials/text/text_generation)
+
+👉 Notebook [Using LSTMs, see if you can write Shakespeare!](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_4_using_lstm_write_shakespeare.html)
