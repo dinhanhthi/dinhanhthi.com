@@ -2,7 +2,16 @@
 
 Source code of my personal website. If you would like to use this source code, please indicate me in the credit and let me know first, thanks! My email: dinhanhthi@gmail.com.
 
-List of jupyter notebooks used in this website: [Google Drive folder](https://drive.google.com/drive/folders/1G5uYgtmAbsr_7wYnkZviwkT3d6B0fSb1?usp=sharing).
+## Installation
+
+On Windows, using [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and then install jekyll on Linux.
+
+``` bash
+# ruby
+sudo apt-get install ruby-dev
+```
+
+## Build and deploy
 
 After cloning to a local server, run these:
 

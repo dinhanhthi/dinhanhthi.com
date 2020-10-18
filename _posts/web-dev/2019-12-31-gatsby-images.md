@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Gatsby Images"
-categories: [JavaScript]
+categories: [web development]
 tags: ['gatsby', 'react', 'front-end', static site]
 icon-photo: gatsby.png
 keywords: create a website static web react js inserting images
@@ -87,7 +87,7 @@ import Img from 'gatsby-image';
 
 const Header = ({ data }) => (
   <header>
-    <Img fluid={data.myAvatar.childImageSharp.fluid} />  
+    <Img fluid={data.myAvatar.childImageSharp.fluid} />
   </header>
 )
 
@@ -112,7 +112,7 @@ export default props => (
 
 👉 Most of tutorials like [this](https://alligator.io/gatsbyjs/images-in-gatsby/) or [this](https://codebushi.com/using-gatsby-image/) don't talk about [`StaticQuery`](https://www.gatsbyjs.org/docs/static-query/) (Gatsby v2). I followed them but it didn't work, we have to use `StaticQuery` to make things work! 👉 The reason is that the (old) page query can only be added to page components (in my try, I add in `Header.js` component). `StaticQuery` can be used as a replacement of page query, it can be added to any component.{% ref https://www.gatsbyjs.org/docs/static-query/#how-staticquery-differs-from-page-query %}
 
-👉 There are 2 types: 
+👉 There are 2 types:
 
 - `fixed`: has a set width and height and is for supporting *different screen resolutions*. It accepts `width` and `height`.
 - `fluid`: has a max-width and sometimes a max-height, and will create multiple images for supporting *different screen sizes*.  It accepts `maxWidth` and `maxHeight`.
@@ -212,7 +212,7 @@ npm install gatsby-transformer-json gatsby-source-filesystem --save
 
 4/ Suppose that we wanna load images in a component `/src/components/ListAccount.js`. Put in it,{% ref https://github.com/gatsbyjs/gatsby/issues/10297#issuecomment-464834529 %}
 
-~~~ jsx 
+~~~ jsx
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image'
 
@@ -221,7 +221,7 @@ const ListAccount = ( {accounts} ) => (
     {accounts.map(account => (
       <div className="item">
         <div className="img">
-          {!account.node.icon.childImageSharp 
+          {!account.node.icon.childImageSharp
             && (account.node.icon.extension === 'svg')
             && <img src={account.node.icon.publicURL} />
             }
@@ -278,7 +278,7 @@ Explaination:
   }
 ]
 ~~~
- 
+
 ### Using YAML data file
 
 Suppose our `yaml` file,
@@ -325,8 +325,8 @@ There is a data file `/data/MostProudOfItems.yaml`.
 import ShortcutListing from "../components/ShortcutListing"
 
 const indexPage = (props) => (
-  <ShortcutListing 
-    shortcuts={props.data.allMostProudOfItemsYaml.edges} 
+  <ShortcutListing
+    shortcuts={props.data.allMostProudOfItemsYaml.edges}
     nShortcutsPerRow='3' />
 )
 
@@ -392,8 +392,8 @@ export default ListShortcut
 export const pageQuery = graphql`
   query IndexQuery {
     allFile(filter: {
-      extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
-      sourceInstanceName: {eq: "sketchFolder"}}) 
+      extension: {regex: "/(jpg)|(jpeg)|(png)/"},
+      sourceInstanceName: {eq: "sketchFolder"}})
     {
       edges {
         node {
@@ -440,8 +440,8 @@ export const pageQuery = graphql`
 export const pageQuery = graphql`
   query IndexQuery {
     allFile(filter: {
-      extension: {regex: "/(jpg)|(jpeg)|(png)/"}, 
-      relativeDirectory: {eq: "sketches"}}) 
+      extension: {regex: "/(jpg)|(jpeg)|(png)/"},
+      relativeDirectory: {eq: "sketches"}})
     {
       edges {
         node {

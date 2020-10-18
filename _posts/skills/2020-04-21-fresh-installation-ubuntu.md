@@ -188,7 +188,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     sudo apt install touchpad-indicator
     # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
     ```
-3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
+3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf).
 5.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`

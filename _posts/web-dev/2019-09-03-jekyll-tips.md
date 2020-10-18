@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll extra"
+title: "Jekyll"
 categories: [web development]
 tags: ['static site', extra, jekyll]
 math: 1

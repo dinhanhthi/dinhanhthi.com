@@ -112,6 +112,30 @@ dconf load /apps/guake/ < Downloads/guake.dconf
 
 ## Nautilus / Files management
 
+🔅 Sync one folder to another ([more info](https://unix.stackexchange.com/questions/203846/how-to-sync-two-folders-with-command-line-tools))
+
+``` bash
+# A -> B/A
+rsync -avu --delete "/home/user/A" "/home/user/B"
+
+# A/* -> B/A
+rsync -avu --delete "/home/user/A/" "/home/user/B/A"
+
+# A, C -> B/A, B/C
+rsync -avu --delete "/home/user/A" "/home/user/C" "/home/user/B"
+```
+
+- `-a` Do the sync preserving all filesystem attributes
+- `-v` run verbosely
+- `-u` only copy files with a newer modification time (or size difference if the times are equal)
+- `--delete` delete the files in target folder that do not exist in the source
+
+``` bash
+# exclude
+rsync -a --exclude 'dir1' src_directory/ dst_directory/
+rsync -a --exclude={'file1.txt','dir1/*','dir2'} src_directory/ dst_directory/
+```
+
 🔅 Make a shortcut link to a folder/file in linux terminal ⇾ [link](https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
 
 🔅 Shortcut to a folder in linux ⇾ [link]( https://unix.stackexchange.com/questions/226315/how-to-use-ln-s-to-create-a-command-line-shortcut)
@@ -308,7 +332,29 @@ sudo apt-get install libxt6
 
 🔅 Remove matlab on linux: simply `rm -rf <matlab-folder>`
 
-## Download / Internet
+## Network
+
+🔅 Share terminal for other (via SSH): using [Teleconsole](https://www.teleconsole.com/),
+
+``` bash
+# install
+curl https://www.teleconsole.com/get.sh | sh
+
+# share current terminal
+teleconsole
+
+# choose to connect via web browser
+# or via terminal
+teleconsole join <id>
+
+# stop broadcasting
+exit
+
+# port forwarding
+# suppose that a port is open at 3000 on your machine and you
+# wanna share it with your friend
+teleconsole -f localhost:3000
+```
 
 🔅 Download a direct link by terminal
 
