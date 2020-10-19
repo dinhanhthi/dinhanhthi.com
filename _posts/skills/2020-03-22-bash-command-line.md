@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bash command lines"
+title: "Bash"
 categories: [skills]
 icon-photo: terminal.svg
 tags: ['bash']

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Visual Studio Code (VSCode)"
+title: "VSCode"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg

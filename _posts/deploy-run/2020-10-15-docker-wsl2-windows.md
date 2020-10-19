@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Docker: install docker WSL2 + Windows"
-categories: [deploy & run]
+title: "WSL 2 on Windows"
+categories: [skills]
 tags: [bash, linux, docker, "deploy & run"]
 icon-photo: docker.svg
 keywords: "wsl wsl2 windows subsystem linux windows terminal zsh oh my szh jekyll ruby bundle vscode"
