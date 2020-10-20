@@ -93,7 +93,20 @@ Open `settings.json` and add,
 ]
 ~~~
 
-## Enable font ligatures
+## Appearances
+
+### Change font for internal terminal
+
+Make a good corresponding to [zsh](/terminal#zsh-linux).
+
+``` bash
+# Open settings JSON
+"terminal.integrated.cursorStyle": "line",
+"terminal.integrated.fontFamily": "Source Code Pro Medium",
+"terminal.integrated.fontSize": 15
+```
+
+### Enable font ligatures
 
 👉 [Reference](https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd).
 
@@ -182,7 +195,7 @@ IdentityFile ~/.ssh/id
 
 ## Settings
 
-Check [this file](https://github.com/dinhanhthi/scripts/blob/master/settings/VSC_settings.json).
+👉 Check [this file](https://github.com/dinhanhthi/scripts/blob/master/settings/VSC_settings.json).
 
 Use settings for a custom file extension,
 
