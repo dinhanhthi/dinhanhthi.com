@@ -107,6 +107,26 @@ sudo apt install python-is-python3
 sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
 ```
 
+## Check GPU
+
+👉 Read more on [note of pytorch](/pytorch#problem-with-cuda-version).
+
+``` python
+# with pytorch
+import torch
+print('cuda is available? ', torch.cuda.is_available())
+print('device_count: ', torch.cuda.device_count())
+print('current device: ', torch.cuda.current_device())
+print('device name: ', torch.cuda.get_device_name(0))
+```
+
+``` python
+# with tensorflow
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+
+```
+
 ## pip
 
 ### Update pip
@@ -246,6 +266,8 @@ source <DIR>/bin/activate # linux
 # deactivate
 deactivate
 ```
+
+To detele, just remove the corresponding folder, i.e., `<DIR>`.
 
 ## Conda
 

@@ -112,6 +112,12 @@ dconf load /apps/guake/ < Downloads/guake.dconf
 
 ## Nautilus / Files management
 
+🔅 Force Unity Dash to index all files on Home
+
+``` bash
+sudo updatedb
+```
+
 🔅 Sync one folder to another ([more info](https://unix.stackexchange.com/questions/203846/how-to-sync-two-folders-with-command-line-tools))
 
 ``` bash
