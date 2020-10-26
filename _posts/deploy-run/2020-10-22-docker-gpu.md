@@ -2,7 +2,7 @@
 layout: post
 title: "Docker + GPUs"
 categories: [deploy & run]
-tags: [bash, ide, linux, docker, "deploy & run"]
+tags: [bash, ide, linux, docker, "deploy & run", pytorch, tensorflow, gpu]
 icon-photo: docker.svg
 keywords: "pybash tania rascia CI CD continuous integration deployment pipeline docker idea how to use airflow kubernetes k8s k apache container images dangling images vscode vsc visual studio code ssh container env environnement file variable nvidia docker runtime gpus tensorflow torch"
 ---
@@ -160,7 +160,7 @@ services:
       - ./object_detection:/object_detection
 ```
 
-👉 Check more on my repo [my-dockerfiles](https://github.com/dinhanhthi/my-dockerfiles) on Github.
+👉 Check more in my repo [my-dockerfiles](https://github.com/dinhanhthi/my-dockerfiles) on Github.
 
 Run the test,
 
