@@ -2,6 +2,7 @@
 layout: post
 title: "Tensorflow extra"
 categories: [deep learning]
+tags: [tensorflow, docker]
 icon-photo: tensorflow.svg
 notfull: 1
 keywords: device gpu cuda nvidia graphical device torch deep learning neural network dell xps 7590 gpu install nvidia installation torch docker nvidia-docker nvidia-container-runtime packages
@@ -17,7 +18,7 @@ import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
 
-## Using docker
+## Installation with docker
 
 👉 [Official guide](https://www.tensorflow.org/install/docker). <br />
 👉 [Docker & GPU note](/docker-gpu).
@@ -66,17 +67,20 @@ tf.config.list_physical_devices('GPU')
 
 On my computer, [Dell XPS 15 7590](https://www.dell.com/fr-fr/work/shop/laptops/15-7590/spd/xps-15-7590-laptop) - NVIDIA® GeForce® GTX 1650 Mobile.
 
+{:.alert.alert-danger}
+This section is not complete, the guide is still not working!
+
 ### Installation
 
 👉 [GPU support : TensorFlow](https://www.tensorflow.org/install/gpu)
 
-Specific for:
+This guide is specific for:
 
-1. Tensorflow 2.3.1
-2. Tensorflow-gpu 2.3.1
-3. nvidia-driver-440 (installed in _Additional Drivers_)
-4. NVIDIA-SMI 450.80.02
-5. CUDA version 11.0
+``` bash
+pip show tensorflow # 2.3.1
+pip show tensorflow-gpu # 2.3.1
+nvidia-smi # NVIDIA-SMI 450.80.02 Driver Version: 450.80.02 CUDA Version: 11.0
+```
 
 👉 [PyTorch note](/pytorch#installation). <br />
 👉 [Ubuntu note](/fresh-installation-ubuntu). <br />
