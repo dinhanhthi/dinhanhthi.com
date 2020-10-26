@@ -167,7 +167,7 @@ With `docker-compose.yml`?
 FROM tensorflow/tensorflow:latest-gpu-jupyter
 ```
 
-``` bash
+``` yaml
 # ~/Download/test/docker-compose.yml
 version: '2'
 services:
