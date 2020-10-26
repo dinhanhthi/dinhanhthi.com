@@ -9,21 +9,7 @@ keywords: device gpu cuda nvidia graphical device torch deep learning neural net
 
 {% include toc.html %}
 
-## Using docker
-
-The advantage of this method is that you only have to install GPU driver on the host machine.
-
-
-
-### On Linux
-
-### On Windows WSL2
-
-## Install directly on Linux (without docker)
-
-On my computer, [Dell XPS 15 7590](https://www.dell.com/fr-fr/work/shop/laptops/15-7590/spd/xps-15-7590-laptop) - NVIDIA® GeForce® GTX 1650 Mobile.
-
-### Check if GPU available?
+## Check if GPU available?
 
 ``` python
 # check if GPU available?
@@ -31,9 +17,58 @@ import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
 
+## Using docker
+
+👉 [Official guide](https://www.tensorflow.org/install/docker). <br />
+👉 [Docker & GPU note](/docker-gpu).
+
+The advantage of this method is that you <mark>only have to install GPU driver on the host machine</mark>.
+
+{% hsbox Note about docker version %}
+
+Check docker version: `docker --version`:
+
+- `<19.03`: requires [`nvidia-docker2`](/docker-gpu#install-nvidia-docker2) (check by `nvidia-docker version`) and `--runtime=nvidia`.
+- `>=19.03`: requires `nvidia-container-toolkit` (check by `which nvidia-container-toolkit`) and `--gpus all`.
+{% endhsbox %}
+
+### Without docker-compose
+
+👉 [Different types of images for tensorflow](https://www.tensorflow.org/install/docker#download_a_tensorflow_docker_image).
+
+``` bash
+# pull the image
+docker pull tensorflow/tensorflow:latest-gpu-jupyter
+
+# run a container
+mkdir ~/Downloads/test/notebooks
+docker run --name docker_thi_test -it --rm -v $(realpath ~/Downloads/test/notebooks):/tf/notebooks -p 8888:8888 tensorflow/tensorflow:latest-gpu-jupyter
+```
+
+``` bash
+# check if gpu available?
+nvidia-smi
+
+# check if tf2 working?
+docker exec -it docker_thi_test bash
+python
+import tensorflow as tf
+tf.config.list_physical_devices('GPU')
+```
+
+### With docker-compose?
+
+👉 Read [this note](/docker-gpu#using-docker-compose) instead.
+
+### On Windows WSL2
+
+## Install directly on Linux (without docker)
+
+On my computer, [Dell XPS 15 7590](https://www.dell.com/fr-fr/work/shop/laptops/15-7590/spd/xps-15-7590-laptop) - NVIDIA® GeForce® GTX 1650 Mobile.
+
 ### Installation
 
-👉 [GPU support  |  TensorFlow](https://www.tensorflow.org/install/gpu)
+👉 [GPU support : TensorFlow](https://www.tensorflow.org/install/gpu)
 
 Specific for:
 

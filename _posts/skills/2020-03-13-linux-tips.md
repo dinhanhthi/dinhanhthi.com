@@ -16,6 +16,10 @@ Quick tips / references for using Linux / **Ubuntu**.
 
 ## General
 
+🔅 Run MacOS apps on Linux, use [Darling](https://darlinghq.org/).
+
+🔅 Run Android apps on Linux, use [Anbox](https://anbox.io/).
+
 🔅 Find in linux with command lines ⇾ [link](https://chrisjean.com/4-great-tools-to-find-files-quickly-in-ubuntu/)
 
 🔅 Cannot move files to the trash/wrong owner ⇾ [link](https://askubuntu.com/questions/288513/cant-move-files-to-the-trash)
