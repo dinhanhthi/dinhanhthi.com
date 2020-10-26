@@ -15,7 +15,8 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 
 ## With Tensorflow or PyTorch
 
-👉 [Docker : TensorFlow](https://www.tensorflow.org/install/docker) <br />
+👉 [Official doc for TF + docker](https://www.tensorflow.org/install/docker) <br />
+👉 My [note for docker + TF](/tensorflow#installation-with-docker). <br />
 👉 [An example of docker pytorch with gpu support](https://github.com/dinhanhthi/git_dataswati/tree/master/docker-thi).
 
 ## Check info
