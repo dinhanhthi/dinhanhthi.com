@@ -11,6 +11,25 @@ On Windows, using [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-wi
 sudo apt-get install ruby-dev
 ```
 
+## Using docker?
+
+``` bash
+export JEKYLL_VERSION=4.1.0
+# Check more versions here: https://hub.docker.com/r/jekyll/jekyll/tags
+
+# first time
+docker run --name dat.com --volume="$PWD:/srv/jekyll" -p 4000:4000 -it jekyll/jekyll:$JEKYLL_VERSION jekyll serve -I
+
+# later uses
+docker start dat.com
+
+# build all site in container dat.com
+docker exec -it dat.com jekyll build
+
+# update changes for principle pages
+docker exec dat.com /bin/bash update_dat.sh
+```
+
 ## Build and deploy
 
 After cloning to a local server, run these:
