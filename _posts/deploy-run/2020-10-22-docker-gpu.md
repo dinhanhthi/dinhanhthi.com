@@ -70,7 +70,7 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ## Install `nvidia-docker2`
 
 {% hsbox More information ([ref](https://github.com/NVIDIA/nvidia-docker/issues/1268)) %}
-> This package is the only docker-specific package of any of them. It takes the script associated with the `nvidia-container-runtime` and installs it into docker's `/etc/docker/daemon.json` file for you. This then allows you to run (for example) docker run --runtime=nvidia ... to automatically add GPU support to your containers. It also installs a wrapper script around the native docker CLI called nvidia-docker which lets you invoke docker without needing to specify --runtime=nvidia every single time. It also lets you set an environment variable on the host (NV_GPU) to specify which GPUs should be injected into a container.
+> This package is the only docker-specific package of any of them. It takes the script associated with the `nvidia-container-runtime` and installs it into docker's `/etc/docker/daemon.json` file for you. This then allows you to run (for example) `docker run --runtime=nvidia ...` to automatically add GPU support to your containers. It also installs a wrapper script around the native docker CLI called `nvidia-docker` which lets you invoke docker without needing to specify `--runtime=nvidia` every single time. It also lets you set an environment variable on the host (NV_GPU) to specify which GPUs should be injected into a container.
 {% endhsbox %}
 
 
