@@ -28,6 +28,10 @@ This note is used for you who have already had the basic idea about jekyll and h
 - [Official dependencies / gems](https://pages.github.com/versions/) supported by Github Pages.
 </div>
 
+## Using docker to run/deply jekyll
+
+Read this [readme](https://github.com/dinhanhthi/my-dockerfiles/tree/master/quick-jekyll). An example is [repo of this site](https://github.com/dinhanhthi/dinhanhthi.com).
+
 ## Install and run Jekyll on fresh machine
 
 ### Ubuntu
