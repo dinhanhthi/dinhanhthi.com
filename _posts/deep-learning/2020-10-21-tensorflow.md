@@ -53,6 +53,9 @@ nvidia-smi
 # check if tf2 working?
 docker exec -it docker_thi_test bash
 python
+```
+
+``` python
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```

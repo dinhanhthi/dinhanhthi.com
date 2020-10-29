@@ -34,6 +34,15 @@ nvidia-smi
 ```
 
 ``` bash
+# check current version of cuda
+nvcc --version
+# If there is not nvcc, it may be in /usr/local/cuda/bin/
+# Add this location to PATH
+# modify ~/.zshrc or ~/.bashrc
+export PATH=/usr/local/cuda/bin:$PATH
+```
+
+``` bash
 # install and check nvidia-docker
 dpkg -l | grep nvidia-docker
 # or
@@ -99,7 +108,7 @@ nvidia-docker version
 
 > In this note, with Docker 19.03+ (`docker --version`), he says that `nvidia-container-toolkit` is used for `--gpus` (in `docker run ...`), `nvidia-container-runtime` is used for `--runtime=nvidia` (can also be used in `docker-compose` file).
 
-> However, <mark markdown="span">if you want to use Kubernetes with Docker 19.03, you actually **need to continue using nvidia-docker2**</mark> because Kubernetes doesn't support passing GPU information down to docker through the --gpus flag yet. It still relies on the nvidia-container-runtime to pass GPU information down the stack via a set of environment variables.
+> However, <mark markdown="span">if you want to use Kubernetes with Docker 19.03, you actually **need to continue using nvidia-docker2**</mark> because Kubernetes doesn't support passing GPU information down to docker through the `--gpus` flag yet. It still relies on the nvidia-container-runtime to pass GPU information down the stack via a set of environment variables.
 
 👉 [Installation Guide — NVIDIA Cloud Native Technologies documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 
@@ -151,7 +160,7 @@ sudo pkill -SIGHUP dockerd
 ``` bash
 # DOCKER-COMPOSE'S VERSION >=2.3
 # docker-compose.yml => able to use "runtime"
-version: '2.3' # THIS ONE!!!
+version: '2.3' # MUST BE >=2.3 AND <3
 services:
   testing:
     ports:
@@ -205,9 +214,9 @@ Then run,
 docker-compose run --rm jupyter
 ```
 
-## [OLD] Make NVIDIA work in docker (Linux)
+## Make NVIDIA work in docker (Linux)
 
-{:.alert.alert-warning}
+{:.alert.alert-danger}
 This section is still work (on 26-Oct-2020) but old for new methods.
 
 **Idea**: Using NVIDIA driver of the base machine, don't install anything in docker!
@@ -273,3 +282,8 @@ Detail of steps
 
 </div>
 </div>
+
+## References
+
+1. [Difference between `base`, `runtime` and `devel` in `Dockerfile` of CUDA](https://github.com/NVIDIA/nvidia-docker/wiki/CUDA).
+2. [Dockerfile on Github](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/tools/dockerfiles/dockerfiles) of Tensorflow.
