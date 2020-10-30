@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Fresh Ubuntu Installation"
+title: "Fresh Ubuntu / Pop!_OS Installation"
 categories: [others]
 tags: [bash, linux, collection, fresh install]
 icon-photo: ubuntu.svg
-keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake xps k380 keyboard logitech"
+keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake xps k380 keyboard logitech pop os popos"
 ---
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
@@ -14,11 +14,33 @@ The basic steps I often do every time I install a new Ubuntu system. The order o
 👉 [Mac fresh start](/fresh-install-macos) <br />
 👉 [Bash](/bash-command-line)
 
+{:.alert.alert-info}
+Most of commands are for both Ubuntu and Pop!_OS, there are some which are only for Pop!_OS.
 
+{:.noindent}
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
-2. Using [Rufus](https://rufus.ie/) to create a bootable USB drives.
-3. Download and install [Google Chrome](https://www.google.com/chrome). Install also these extensions: [mate translate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke), [google dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof), [raindrop](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien), [last pass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd), [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh), [adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom), [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep).
-4. Make emojis showing up
+2. __[Pop!_OS]__ Download [Pop!_OS](https://pop.system76.com/) (with NVIDIA)
+3. Using [Rufus](https://rufus.ie/) (on Windows) or [Etcher](https://www.balena.io/etcher/) (on any system) to create a bootable USB drives.
+3. Update & Upgrade
+~~~ bash
+sudo apt update & sudo apt upgrade
+~~~
+4. Download and install [Google Chrome](https://www.google.com/chrome).
+   1. Sign in to Google Account + sync all extensions + settings.
+   2. Disable Tab hover information: Go to [chrome://flags/](chrome://flags/) and search "tab hover" then choose "Disable".
+   3. Install also these extensions: [mate translate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke), [google dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof), [raindrop](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien), [last pass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd), [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh), [adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom), [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep).
+5. Install [Guake Terminal](/terminal#guake-terminal) (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
+``` bash
+sudo apt-get install guake
+# then add it to startup applications
+```
+6. Install [git](https://git-scm.com/download/linux)
+~~~ bash
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+~~~
+7. Make emojis showing up
 ~~~ bash
 sudo apt install fonts-noto-color-emoji
 ~~~
@@ -27,14 +49,9 @@ sudo apt install fonts-noto-color-emoji
     ~/.config/fontconfig/conf.d/01-emoji.conf
     ```
     with [this content](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/01-emoji.conf).
-1. Install [Guake Terminal](/terminal#guake-terminal) (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
-2. Install Terminator (can split, in appstore)
-3. Update & Upgrade
-~~~ bash
-sudo apt update & sudo apt upgrade
-~~~
-1. Change user avatar.
-4. Auto install drivers
+1. Clone firstly repos: [scripts](https://github.com/dinhanhthi/scripts), [dinhanhthi.com](https://github.com/dinhanhthi/dinhanhthi.com).
+1. Change user avatar and desktop background.
+4. [__Ubuntu only__] Auto install drivers
 ~~~ bash
 sudo ubuntu-drivers autoinstall
 ~~~
@@ -43,11 +60,18 @@ In case you wanna switch between Intel (more power efficient) and NVDIA driver (
 sudo prime-select intel
 sudo prime-select nvidia
 ~~~
-5. Check the NVDIA driver and install the newest version: check in **Additional Drivers**. In case you wanna remove it and reinstall it later, use
+5. [__Ubuntu only__] Check the NVDIA driver and install the newest version: check in **Additional Drivers**. In case you wanna remove it and reinstall it later, use
 ~~~ bash
 sudo apt purge nvidia-*
 ~~~
-6. Install video codecs,
+1. Install **GNOME Tweaks** from App Store.
+2. Install [Dash to panel](https://extensions.gnome.org/extension/1160/dash-to-panel/) extension and use [this config](https://github.com/dinhanhthi/scripts/blob/master/settings/pop!os/dash_to_panel.py) for pop and [this](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/dash_to_panel) for ubuntu.
+3. [__Ubuntu only__] Install GNOME Shell extensions
+~~~ bash
+sudo apt install gnome-shell-extensions
+~~~
+1. Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/), [icon-hider](https://extensions.gnome.org/extension/351/icon-hider/) (on gnome taskbar), [Emoji selector](https://extensions.gnome.org/extension/1162/emoji-selector/).
+2. Install video codecs,
 ~~~ bash
 sudo apt install ubuntu-restricted-extras
 ~~~
@@ -58,7 +82,7 @@ sudo apt install ubuntu-restricted-extras
 ~~~ bash
 alias python='python3' # and call python 2 as `python2`
 ~~~
-Install PIP
+Install pip
 ~~~ bash
 pip sudo apt install python3-pip
 alias pip=pip3
@@ -66,46 +90,25 @@ alias pip=pip3
 5. [Visual Studio Code](https://code.visualstudio.com/) and its basic extensions: Bracket Pair Colorizer, Docker, Linux Themes for VS Code, Markdown All in One, Markdown Shortcuts, Remote Development, Python, Auto Close Tags
 
     Also add below settings to setting json file (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and search "Preferences: Open Settings (JSON)", it's in `~/.config/Code/User`)
-6. Install GIT
-~~~ bash
-sudo apt install git-all
-~~~
 1. Install Git Client as [Gitkraken](https://www.gitkraken.com/). Log in with Github account and clone [all working repositories](https://github.com/dinhanhthi?tab=repositories).
-2. [Slack](https://slack.com/intl/en-fr/downloads/linux) and sign in.
-3. Install GNOME Shell extensions
-~~~ bash
-sudo apt install gnome-shell-extensions
-~~~
-    Install also [chrome extension](https://extensions.gnome.org/). Go to the corresponding extension link and turn it on and install it. List of useful extensions: [Start Overlay in Application View](https://extensions.gnome.org/extension/1198/start-overlay-in-application-view/), [ESC to close overview from applications list](https://extensions.gnome.org/extension/1122/esc-to-close-overview-from-applications-list/), [Caffein](https://extensions.gnome.org/extension/517/caffeine/), [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/) (use [this setting file](/files/ubuntu/dash_to_panel_setting)), [Alt-Tab Switcher Popup Delay Removal](https://extensions.gnome.org/extension/1317/alt-tab-switcher-popup-delay-removal/), [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/), [gtile](https://extensions.gnome.org/extension/28/gtile/), [icon-hider](https://extensions.gnome.org/extension/351/icon-hider/) (on gnome taskbar), [Emoji selector](https://extensions.gnome.org/extension/1162/emoji-selector/).
 1. Turn off Gnome Shell Activities Animations (click on window taskbar to toggle max/min),
 ``` bash
 gsettings set org.gnome.desktop.interface enable-animations true # enable
 gsettings set org.gnome.desktop.interface enable-animations false # disable
 ```
-2. [Microsoft Teams](https://teams.microsoft.com/).
 3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
-4. indicator-stickynotes
-
-    ``` bash
-    sudo add-apt-repository ppa:umang/indicator-stickynotes
-    sudo apt-get update
-    sudo apt-get install indicator-stickynotes
-    ```
 4. Make things in **GNOME Tweak** tool. Using [this setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/dconf-settings.ini).
-
-    ``` bash
-    # save settings
-    dconf dump /home/thi/ > dconf-settings.ini
-
-    # load settings
-    dconf load /home/thi/ < dconf-settings.ini
-    ```
+``` bash
+# save settings
+dconf dump /home/thi/ > dconf-settings.ini
+# load settings
+dconf load /home/thi/ < dconf-settings.ini
+```
 5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account). An alternative to [Vgrive](https://github.com/bcedu/VGrive).
-
-    ``` bash
-    # startup commandline for overgrive
-    python3 /opt/thefanclub/overgrive/overgrive
-    ```
+``` bash
+# startup commandline for overgrive
+python3 /opt/thefanclub/overgrive/overgrive
+```
 6. LaTeX
 ~~~ bash
 sudo apt-get install texlive-full # 5GB
@@ -173,24 +176,22 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
     ```
 2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
 3. Remove icon from dash application
-
-    ``` bash
-    sudo add-apt-repository ppa:caldas-lopes/ppa
-    sudo apt-get update
-    sudo apt-get install ezame
-    ```
+``` bash
+sudo add-apt-repository ppa:caldas-lopes/ppa
+sudo apt-get update
+sudo apt-get install ezame
+```
 1. Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
 2. Disable touchpad automatically when plugging mouse:
-
-    ``` bash
-    sudo add-apt-repository ppa:atareao/atareao
-    sudo apt update
-    sudo apt install touchpad-indicator
-    # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
-    ```
-3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/) (optimizer system like Advanced System Care).
+``` bash
+sudo add-apt-repository ppa:atareao/atareao
+sudo apt update
+sudo apt install touchpad-indicator
+# then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
+```
+3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care).
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf).
-5.  Force Unity Dash to index all files on Home: `sudo updatedb`
+5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`

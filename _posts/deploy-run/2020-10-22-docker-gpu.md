@@ -19,6 +19,18 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 👉 My [note for docker + TF](/tensorflow#installation-with-docker). <br />
 👉 [An example of docker pytorch with gpu support](https://github.com/dinhanhthi/git_dataswati/tree/master/docker-thi).
 
+## Basic installation
+
+It works perfectly on Pop!_OS 20.04,
+
+``` bash
+sudo apt update
+sudo apt install -y nvidia-container-runtime
+sudo apt install -y nvidia-container-toolkit
+sudo apt install -y nvidia-cuda-toolkit
+# restard required
+```
+
 ## Check info
 
 ``` bash
@@ -40,6 +52,9 @@ nvcc --version
 # Add this location to PATH
 # modify ~/.zshrc or ~/.bashrc
 export PATH=/usr/local/cuda/bin:$PATH
+
+# You may need to install
+sudo apt install -y nvidia-cuda-toolkit
 ```
 
 ``` bash
@@ -68,7 +83,7 @@ docker run -it --rm --gpus all ubuntu nvidia-smi
 
 ``` bash
 # test a working setup container-toolkit
-sudo docker run --rm --gpus all nvidia/cuda nvidia-smi
+docker run --rm --gpus all nvidia/cuda nvidia-smi
 ```
 
 ``` bash
