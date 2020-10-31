@@ -165,7 +165,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 3. Bluetooth problem on Dell XPS 15 only: cannot turn on bluetooth ⇒ Try turn off and turn on again the bluetooth in BIOS setting.
 4. Useful shortcuts:
    - Capture fullscreen: `Ctrl+Alt+Print` (photos will be saved in **Pictures**)
-1. Connect Airpod to Ubuntu 20.04:
+1. [__Only Ubuntu__] Connect Airpod to Ubuntu 20.04:
 ``` bash
 # check bluetooth service is running
 hciconfig -a
@@ -192,15 +192,15 @@ sudo /etc/init.d/bluetooth restart
 locate *.desktop # bash
 locate \*.desktop # zsh
 ```
-2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
+2. [__Optional__]Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
 3. Remove icon from dash application
 ``` bash
 sudo add-apt-repository ppa:caldas-lopes/ppa
 sudo apt-get update
 sudo apt-get install ezame
 ```
-1. Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
-2. Disable touchpad automatically when plugging mouse:
+1. [__Only Ubuntu__] Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
+2. [__Optional__] Disable touchpad automatically when plugging mouse:
 ``` bash
 sudo add-apt-repository ppa:atareao/atareao
 sudo apt update
@@ -210,7 +210,7 @@ sudo apt install touchpad-indicator
 3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care).
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf) (try all keyboard hidraws if you are not sure!).
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
-6.  There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
+6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`

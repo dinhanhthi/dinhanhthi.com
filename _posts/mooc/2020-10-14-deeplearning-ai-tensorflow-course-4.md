@@ -21,6 +21,7 @@ This is my note for the [4th course](https://www.coursera.org/learn/tensorflow-s
 👉 Go to [course 2 - CNN in TensorFlow](/deeplearning-ai-tensorflow-course-2).<br />
 👉 Go to [course 3 - NLP in Tensorflow](/deeplearning-ai-tensorflow-course-3).
 
+{:.noindent}
 - __Sequence models__: focus on _time series_ (there are others) -- stock, weather,...
 - At the end, we wanna model __sunspot actitivity cycles__ which is important to NASA and other space agencies.
 - Using RNN on time series data.
