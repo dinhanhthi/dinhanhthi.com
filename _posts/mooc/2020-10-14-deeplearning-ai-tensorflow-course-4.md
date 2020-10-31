@@ -4,13 +4,16 @@ title: "TF 4 - Sequences, Time Series and Prediction"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality"
+keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality lambda layer sequence to vector sequence to sequence univariate multivariate learning rate"
 notfull: 1
+katex: 1
 ---
 
 {% assign img_url = '/img/post/mooc/tf' %}
 
 {% include toc.html %}
+
+{% katexmm %}
 
 This is my note for the [4th course](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/) of [TensorFlow in Practice Specialization](https://www.coursera.org/specializations/tensorflow-in-practice) given by [deeplearning.ai](http://deeplearning.ai/) and taught by Laurence Moroney on Coursera.
 
@@ -34,7 +37,7 @@ This is my note for the [4th course](https://www.coursera.org/learn/tensorflow-s
 
 {:.noindent}
 - Time series is everywhere: stock prices, weather focasts, historical trends (Moore's law),...
-- **Univariate** TS and **MUltivariate** TS.
+- **Univariate** TS and **Miltivariate** TS.
 - Type of things can we do with ML over TS:
   - Any thing has a time factor can be analysed using TS.
   - Predicting a focasting (eg. birth & death in Japan -> predict future for retirement, immigration, impacts...).
@@ -159,3 +162,199 @@ _Smoothing both past and present values. MAE=4.5 (optimal is 4)._
 
 Keep in mind before using Deep Learning, <mark>sometimes simple approaches just work fine!</mark>
 
+## Deep NN for Time Series
+
+### Preparing features and labels
+
+- We need to split our TS data into features and labels so that we can use them in ML algos.
+- In this case: features=#values in TS, label=next_value.
+  - Feature: window size and train to predict next value.
+  - Ex: 30 days of values as features and next value as label.
+  - Overtime, train ML to match 30 features to match a single label.
+
+👉 Notebook: [Preparing features and labels](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_1_preparing_features_and_labels.html).<br />
+👉 [Video explains how to split to features and labels from dataset](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/TYErD/preparing-features-and-labels).
+
+``` python
+def windowed_dataset(series, window_size, batch_size, shuffle_buffer):
+    dataset = tf.data.Dataset.from_tensor_slices(series)
+    dataset = dataset.window(window_size + 1, shift=1, drop_remainder=True)
+    dataset = dataset.flat_map(lambda window: window.batch(window_size + 1))
+    dataset = dataset.shuffle(shuffle_buffer).map(lambda window: (window[:-1], window[-1]))
+    dataset = dataset.batch(batch_size).prefetch(1)
+    return dataset
+```
+
+{% hsbox Explaine the codes %}
+``` python
+# create a very simple dataset
+dataset = tf.data.Dataset.range(6)
+arr = [val.numpy() for val in dataset]
+print(arr)
+# [0, 1, 2, 3, 4, 5]
+```
+
+``` python
+# make equal (drop_remaninder) windows
+dataset = dataset.window(5, shift=1, drop_remainder=True)
+dataset = dataset.flat_map(lambda window: window.batch(5))
+    # instead of val.numpy for each val in each window
+for window in dataset:
+    print(window.numpy())
+# [0 1 2 3 4]
+# [1 2 3 4 5]
+```
+
+``` python
+# split the last value to be label
+dataset = dataset.map(lambda window: (window[:-1], window[-1:]))
+# [0 1 2 3] [4]
+# [1 2 3 4] [5]
+```
+
+``` python
+# shuffle
+dataset = dataset.shuffle(buffer_size=6)
+# construct batch of 2
+dataset = dataset.batch(2).prefetch(1)
+# x =  [[1 2 3 4], [0 1 2 3]]
+# y =  [[5], [4]]
+```
+{% endhsbox %}
+
+## Sequence bias
+
+Sequence bias is when the order of things can impact the selection of things. <mark>It's ok to shuffle!</mark>
+
+## Feeding windowed datasets into NN
+
+👉 Notebook: [Single layer NN](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_2_1layer_NN_linear_reg.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/YERBd/more-on-single-layer-neural-network).
+
+``` python
+# Simple linear regression (1 layer NN)
+dataset = windowed_dataset(x_train, window_size, batch_size, shuffle_buffer_size)
+l0 = tf.keras.layers.Dense(1, input_shape=[window_size])
+model = tf.keras.models.Sequential([l0])
+model.compile(loss="mse", optimizer=tf.keras.optimizers.SGD(lr=1e-6, momentum=0.9))
+model.fit(dataset,epochs=100,verbose=0)
+print("Layer weights {}".format(l0.get_weights()))
+
+forecast = []
+
+for time in range(len(series) - window_size):
+    forecast.append(model.predict(series[time:time + window_size][np.newaxis]))
+    # np.newaxis: reshape X to input dimension that used by the model
+
+forecast = forecast[split_time-window_size:]
+results = np.array(forecast)[:, 0, 0]
+```
+
+👉 Notebook: [DNN with TS](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_3_DNN_TS.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/HecKT/deep-neural-network-training-tuning-and-prediction).
+
+``` python
+# A way to choose an optimal learning rate
+lr_schedule = tf.keras.callbacks.LearningRateScheduler(
+    lambda epoch: 1e-8 * 10**(epoch / 20))
+optimizer = tf.keras.optimizers.SGD(lr=1e-8, momentum=0.9)
+model.compile(loss="mse", optimizer=optimizer)
+history = model.fit(dataset, epochs=100, callbacks=[lr_schedule], verbose=0)
+```
+
+<div class="d-md-flex" markdown="1">
+{:.flex-even.d-flex.overflow-auto}
+``` python
+lrs = 1e-8 * (10 ** (np.arange(100) / 20))
+plt.semilogx(lrs, history.history["loss"])
+plt.axis([1e-8, 1e-3, 0, 300])
+```
+
+{:.output.flex-even.d-flex}
+<div markdown="1">
+{:.img-100}
+![Loss w.r.t different learning rates.]({{img_url}}/c4_w2_lr.png)
+_Loss w.r.t different learning rates. We choose the lowest one, around 8e-6._
+</div>
+</div>
+
+👉 Notebook: [DNN with synthetic TS](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_4_DNN_synthetic_data.html).
+
+## RNN for TS
+
+{:.noindent}
+- RRN is a NN containing Recurrent layer.
+- The different from DNN is the input shape is __3 dimensional__ (`batch_size x #time_step x dims_input_at each_timestep`).
+- Re-use 1 cell multiple times in different layers (in this course).
+
+{:.img-100}
+![Idea of how RNN works with TS data.]({{img_url}}/rnn_ts_idea.png)
+_Idea of how RNN works with TS data. The current location can be impacted more by the nearby locations._
+
+### Shape of input to RNN
+
+👉 [Video explains the dimensional and sequence-to-vector RNN](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/fP3ND/shape-of-the-inputs-to-the-rnn).
+
+{:.noindent}
+- Suppose: _window size_ of 30 time steps, _batch size_ of 4: Shape will be 4x30x1 and the _memory cell_ input will be 4x1 matrix.
+- If the memory cell comprises 3 neurons then the _output matrix_ will be 4x3. Therefore, the full output of the layer will be 4x30x3.
+- $H_i$ is just a copy of $Y_i$.
+- Below figure: input and also output a sequence.
+
+{:.img-100}
+![Dimension of input to RNN.]({{img_url}}/rnn_ts_dim.png)
+_Dimension of input to RNN._
+
+### Sequence to vector RNN
+
+{:.noindent}
+- Sometimes, we want only input a sequence but not output. This called __sequence-to-vector RNN__. I.E., <mark>ignore all of the outputs except the last one!</mark>. In `tf.keras`, it's default setting!
+
+{:.img-100}
+![Sequence to vector RNN.]({{img_url}}/rnn_ts_sequence_to_vector.png)
+_Sequence to vector RNN._
+
+``` python
+# Check the figure below as an illustration
+model = tf.keras.models.Sequential([
+tf.keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+    # input_shape:
+    #   TF assumes that 1st dim is batch size -> any size at all -> no need to define
+    #   None -> number of time steps, None means RNN can handle sequence of any length
+    #   1 -> univariate TS
+tf.keras.layers.SimpleRNN(20),
+    # if there is `return_sequences=True` -> sequence-to-sequence RNN
+tf.keras.layers.Dense(1),
+])
+```
+
+{:.img-80}
+![Illustration with keras.]({{img_url}}/rnn_ts_illustraction_with_keras.png)
+_Illustration with keras._
+
+### Lambda layer
+
+👉 [Video explains the use of lambda layer in RNN.](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/I0K6b/lambda-layers).
+
+``` python
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Lambda(lambda x: tf.expand_dims(x, axis=-1), # expand to 1 dim (from 2) so that we have 3 dims: batch size x #timesteps x series dim
+                        input_shape=[None]), # can use any size of sequences
+    tf.keras.layers.SimpleRNN(40, return_sequences=True),
+    tf.keras.layers.SimpleRNN(40),
+    tf.keras.layers.Dense(1),
+    tf.keras.layers.Lambda(lambda x: x * 100.0)
+        # default activation in RNN is tanh -> (-1, 1) -> scale to -100, 100
+])
+```
+
+### Simple RNN
+
+{:.noindent}
+- Loss function __Huber__ ([wiki](https://en.wikipedia.org/wiki/Huber_loss)): less sensitive to outliers. => we use this because our data in this case get a little bit noisy!
+
+👉 Notebook: [Simple RNN with a TS data](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_1_simple_RNN_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/5W1Rw/rnn).
+
+### RNN
+
+👉 Notebook: [LSTM with a TS data](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_2_LSTM_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/IqcpX/more-on-lstm).
+
+{% endkatexmm %}
