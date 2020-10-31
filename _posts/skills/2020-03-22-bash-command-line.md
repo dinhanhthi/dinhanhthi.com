@@ -181,7 +181,16 @@ pwd
 # FOLDER/FILE SIZE
 du -hs <directory / file>
 # `h` : human readable (6.7G)
-# `s` : only this directory
+# `s` : display size
+
+# all folders/files of current folder
+du -hs * | sort -rh
+
+# only folders
+du -sh ./*/
+
+# only first 5 retrieves
+du -h /home/thi/ | sort -rh | head -5
 ~~~
 
 ~~~ bash

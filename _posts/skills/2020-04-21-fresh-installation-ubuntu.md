@@ -17,6 +17,9 @@ The basic steps I often do every time I install a new Ubuntu system. The order o
 {:.alert.alert-info}
 Most of commands are for both Ubuntu and Pop!_OS, there are some which are only for Pop!_OS.
 
+{:.alert.alert-warning}
+__For Pop!_OS__: You don't need to do everything in below steps.
+
 {:.noindent}
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
 2. __[Pop!_OS]__ Download [Pop!_OS](https://pop.system76.com/) (with NVIDIA)
@@ -33,6 +36,9 @@ sudo apt update & sudo apt upgrade
 ``` bash
 sudo apt-get install guake
 # then add it to startup applications
+#
+# load preferences
+guake --restore-preferences ~/Downloads/guake_prefs
 ```
 6. Install [git](https://git-scm.com/download/linux)
 ~~~ bash
@@ -40,7 +46,28 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 ~~~
-7. Make emojis showing up
+1. [**Pop!_OS**] Dual boot with Windows and others Linux distro: different from Ubuntu (using **groub**), Pop!_OS uses **systemd-boot** -> follow [this guide](https://pop-planet.info/forums/threads/copy-the-microsoft-bootloader-into-pops-efi-beginners-guide.357/).
+``` bash
+# 1. Open Disks
+# Click on "play" icon on the partition having "Partition type" is "EFI system"
+#
+# 2. Run to check the mount point of these partitions
+lsblk -o NAME,FSTYPE,FSSIZE,MOUNTPOINT
+# output (s/t like that)
+# nvme0n1
+# ├─nvme0n1p1 vfat     176M /media/thi/ESP # <- this is windows mounting point
+# ├─...
+# └─nvme0n1p9 vfat     511M /boot/efi
+#
+# 3. copy to pop!_os
+sudo cp -r /media/thi/ESP/EFI/Microsoft /boot/efi/EFI
+#
+# 4. Add timeout (wait for choosing)
+sudo nano /boot/efi/loader/loader.conf
+# add below others
+timeout 15
+```
+2. Make emojis showing up
 ~~~ bash
 sudo apt install fonts-noto-color-emoji
 ~~~
@@ -97,13 +124,6 @@ gsettings set org.gnome.desktop.interface enable-animations true # enable
 gsettings set org.gnome.desktop.interface enable-animations false # disable
 ```
 3. [IBUS Bamboo](https://github.com/BambooEngine/ibus-bamboo), Vietnamese Input Method. Need to restart Ibus and choose Bamboo in the keyboard layout. You can use also <kbd>Shift</kbd> + <kbd>~</kbd> for changing the options (remove the underline, for example). Use <kbd>Super</kbd> + <kbd>Space</kbd> to change between input methods.
-4. Make things in **GNOME Tweak** tool. Using [this setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/dconf-settings.ini).
-``` bash
-# save settings
-dconf dump /home/thi/ > dconf-settings.ini
-# load settings
-dconf load /home/thi/ < dconf-settings.ini
-```
 5. Google Drive client for Ubuntu: [OverGrive](https://www.thefanclub.co.za/overgrive) (5\$ for each account). An alternative to [Vgrive](https://github.com/bcedu/VGrive).
 ``` bash
 # startup commandline for overgrive
@@ -146,34 +166,32 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 4. Useful shortcuts:
    - Capture fullscreen: `Ctrl+Alt+Print` (photos will be saved in **Pictures**)
 1. Connect Airpod to Ubuntu 20.04:
-
-    ``` bash
-    # check bluetooth service is running
-    hciconfig -a
-
-    # open a file
-    sudo nano /etc/bluetooth/main.conf
-
-    # add
-    ControllerMode = bredr
-
-    # restart bluetooth service
-    sudo /etc/init.d/bluetooth restart
-
-    # disconnect other headphone device
-    # press and hold backward button in the airpod case (flash light)
-    # connect to airpod as other device via bluetooth
-    ```
+``` bash
+# check bluetooth service is running
+hciconfig -a
+#
+# open a file
+sudo nano /etc/bluetooth/main.conf
+#
+# add
+ControllerMode = bredr
+#
+# restart bluetooth service
+sudo /etc/init.d/bluetooth restart
+#
+# disconnect other headphone device
+# press and hold backward button in the airpod case (flash light)
+# connect to airpod as other device via bluetooth
+```
 1. Location of `.desktop` files,
-
-    ``` bash
-    /home/thi/.local/share/applications/
-    /usr/share/applications/
-    /var/lib/snapd/desktop/applications/
-    # or
-    locate *.desktop # bash
-    locate \*.desktop # zsh
-    ```
+``` bash
+/home/thi/.local/share/applications/
+/usr/share/applications/
+/var/lib/snapd/desktop/applications/
+# or
+locate *.desktop # bash
+locate \*.desktop # zsh
+```
 2. Xbox controller bluetooth connection: check [this](https://askubuntu.com/questions/998144/how-can-i-use-my-xbox-one-s-controller-via-bluetooth).
 3. Remove icon from dash application
 ``` bash
@@ -190,7 +208,7 @@ sudo apt install touchpad-indicator
 # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
 ```
 3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care).
-4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf).
+4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf) (try all keyboard hidraws if you are not sure!).
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
