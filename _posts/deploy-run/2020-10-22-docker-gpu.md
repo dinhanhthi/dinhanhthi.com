@@ -89,6 +89,10 @@ docker run --rm --gpus all nvidia/cuda nvidia-smi
 ``` bash
 # test a working setup container-runtime
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+
+# Error response from daemon: Unknown runtime specified nvidia.
+# Search below for "/etc/docker/daemon.json"
+# Maybe it helps.
 ```
 
 ## Install `nvidia-docker2`
@@ -154,7 +158,7 @@ docker-compose --version
 ```
 
 ``` bash
-# DOCKER-COMPOSE'S VERSION < 2.3
+# If "version" in docker-compose.yml < 2.3
 # Modify: /etc/docker/daemon.json
 {
     "default-runtime": "nvidia",
@@ -173,7 +177,7 @@ sudo pkill -SIGHUP dockerd
 ```
 
 ``` bash
-# DOCKER-COMPOSE'S VERSION >=2.3
+# If "version" in docker-compose.yml >=2.3
 # docker-compose.yml => able to use "runtime"
 version: '2.3' # MUST BE >=2.3 AND <3
 services:
