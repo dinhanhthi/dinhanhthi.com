@@ -87,6 +87,8 @@ sudo add-apt-repository --remove ppa:name
 
 ## Settings
 
+🔅 Add / Remove / Manage app icon in launcher: `sudo apt-get install alacarte`.
+
 🔅 Change ubuntu logo in settings: replace
 
 ``` bash
