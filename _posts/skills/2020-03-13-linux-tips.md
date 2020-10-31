@@ -110,10 +110,39 @@ lightdm --show-config
 
 ``` bash
 # save guake configs to a file
-dconf dump /apps/guake/ > Downloads/guake.dconf
+dconf dump / > dconf-settings.ini
 
 # load
-dconf load /apps/guake/ < Downloads/guake.dconf
+dconf load / < dconf-settings.ini
+# or
+cat dconf-settings.ini | dconf load /
+```
+
+🔅 Save / load custom keyboard shortcuts ([ref](https://askubuntu.com/questions/682513/how-to-backup-restore-system-custom-keyboard-shortcuts))
+
+``` bash
+# keybindings
+dconf dump /org/gnome/desktop/wm/keybindings/ > keybindings.dconf
+# media keys
+dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > media-keys.dconf
+
+# load
+dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < keybindings.dconf
+```
+
+## Applications
+
+🔅 Remove snap store
+
+``` bash
+sudo apt autoremove --purge snapd
+```
+
+🔅 Uninstall snap applications
+
+``` bash
+sudo snap remove <app_name>
 ```
 
 ## Nautilus / Files management

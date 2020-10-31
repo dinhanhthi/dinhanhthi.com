@@ -144,18 +144,6 @@ sudo apt-get install texmaker
 ~~~ bash
 sudo apt-get install exfat-utils exfat-fuse
 ~~~
-13. If you wanna create some app shortcut in launcher (`/home/thi/.local/share/applications/notion.desktop`)
-``` bash
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Type=Application
-Terminal=false
-Exec=/home/thi/apps/notion/notion
-Name=Notion
-Comment=Notion
-Icon=/home/thi/apps/notion/resources/app/icon.png
-```
 1. If you wanna make nautilus default again:
 ``` bash
 xdg-mime default nautilus.desktop inode/directory application/x-gnome-saved-search
@@ -165,6 +153,7 @@ gsettings set org.gnome.desktop.background show-desktop-icons true
 3. Bluetooth problem on Dell XPS 15 only: cannot turn on bluetooth ⇒ Try turn off and turn on again the bluetooth in BIOS setting.
 4. Useful shortcuts:
    - Capture fullscreen: `Ctrl+Alt+Print` (photos will be saved in **Pictures**)
+   - Show desktop: set in Keyboards settings, try to find "Hide all normal windows".
 1. [__Only Ubuntu__] Connect Airpod to Ubuntu 20.04:
 ``` bash
 # check bluetooth service is running
@@ -199,15 +188,26 @@ sudo add-apt-repository ppa:caldas-lopes/ppa
 sudo apt-get update
 sudo apt-get install ezame
 ```
-1. [__Only Ubuntu__] Restore [dconf settings](https://github.com/dinhanhthi/scripts/blob/master/settings/ubuntu/user_dconf): copy to `~/.config/dconf/user`.
-2. [__Optional__] Disable touchpad automatically when plugging mouse:
+1. Restore [dconf setting](https://github.com/dinhanhthi/scripts/tree/master/settings):
+``` bash
+dconf load / < dconf-settings.ini
+# or
+cat dconf-settings.ini | dconf load /
+```
+1. Restore [custom keyboard shortcuts](https://github.com/dinhanhthi/scripts/tree/master/settings),
+``` bash
+# load
+dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < keybindings.dconf
+```
+1. [__Optional__] Disable touchpad automatically when plugging mouse:
 ``` bash
 sudo add-apt-repository ppa:atareao/atareao
 sudo apt update
 sudo apt install touchpad-indicator
 # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
 ```
-3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care).
+3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://klaussinani.tech/ao/) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care), [Youtube Music](https://www.googleplaymusicdesktopplayer.com/).
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf) (try all keyboard hidraws if you are not sure!).
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.

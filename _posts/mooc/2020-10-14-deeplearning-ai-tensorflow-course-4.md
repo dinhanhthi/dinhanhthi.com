@@ -158,3 +158,4 @@ Above method still get the noises (because we add the differencing to the previo
 _Smoothing both past and present values. MAE=4.5 (optimal is 4)._
 
 Keep in mind before using Deep Learning, <mark>sometimes simple approaches just work fine!</mark>
+
