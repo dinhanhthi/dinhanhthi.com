@@ -4,8 +4,7 @@ title: "TF 4 - Sequences, Time Series and Prediction"
 categories: [mooc]
 tags: [mooc, coursera, deeplearning.ai, tensorflow]
 icon-photo: tensorflow.svg
-keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality lambda layer sequence to vector sequence to sequence univariate multivariate learning rate"
-notfull: 1
+keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality lambda layer sequence to vector sequence to sequence univariate multivariate learning rate LSTM callback recurrent layer moving average differencing metric train test validation set windowed dataset loss function Huber"
 katex: 1
 ---
 
@@ -353,8 +352,40 @@ model = tf.keras.models.Sequential([
 
 👉 Notebook: [Simple RNN with a TS data](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_1_simple_RNN_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/5W1Rw/rnn).
 
-### RNN
+### LSTM
 
 👉 Notebook: [LSTM with a TS data](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_2_LSTM_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/IqcpX/more-on-lstm).
+
+``` python
+# clear internal variables
+tf.keras.backend.clear_session()
+dataset = windowed_dataset(x_train, window_size, batch_size, shuffle_buffer_size)
+
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Lambda(lambda x: tf.expand_dims(x, axis=-1),
+                        input_shape=[None]),
+    # LSTM here
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32, return_sequences=True)),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32, return_sequences=True)),
+    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(32)),
+    #
+    tf.keras.layers.Dense(1),
+    tf.keras.layers.Lambda(lambda x: x * 100.0)
+])
+```
+
+👉 Notebook: [LSTM with synthetic TS](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_3_LSTM_synthetic_data.html).
+
+## Real-world time series data
+
+{:.noindent}
+- We are going to predict the __sunspot actitivity cycles__ ([download dataset](https://www.kaggle.com/robervalt/sunspots)).
+- Combine CNN + LSTM.
+
+👉 Andrew's [video on Optimization Algo: Mini-batch gradient descent](https://www.youtube.com/watch?v=4qJaSmvhxi8). <br />
+👉 Notebook: [Sunspot dataset with CNN+LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_1_sunspot_cnn_lstm.html). + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/zAaeD/combining-our-tools-for-analysis).<br />
+👉 Notebook: [Sunspot dataset with DNN only](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_2_sunspot_DNN_only.html) + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/EPaeW/sunspots).
+
+👉 [Video explains train & tune the model](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/LYbcx/train-and-tune-the-model) (how to choose suitable values for sizes)
 
 {% endkatexmm %}
