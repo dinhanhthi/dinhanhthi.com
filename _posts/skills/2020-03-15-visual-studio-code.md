@@ -4,7 +4,7 @@ title: "VSCode"
 categories: [skills]
 tags: ['ide', installation]
 icon-photo: vsc.svg
-keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote regular expression regex vscode"
+keywords: "visual studio code vsc regex regular expression ssh remote server character combining font ligatures couple characters symbols letters new characters installation install extension plugin add extra path to auto complete reStructuredText rst markdown extension pythonremote regular expression regex vscode live server scss css compiler"
 ---
 
 {% include toc.html %}

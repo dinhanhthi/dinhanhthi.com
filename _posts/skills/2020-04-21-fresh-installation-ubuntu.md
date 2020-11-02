@@ -23,7 +23,7 @@ __For Pop!_OS__: You don't need to do everything in below steps.
 {:.noindent}
 1. Download [Ubuntu ISO](https://ubuntu.com/download/desktop). If you like a MacOS-like version, you can choose [Elementary OS](https://elementary.io/).
 2. __[Pop!_OS]__ Download [Pop!_OS](https://pop.system76.com/) (with NVIDIA)
-3. Using [Rufus](https://rufus.ie/) (on Windows) or [Etcher](https://www.balena.io/etcher/) (on any system) to create a bootable USB drives.
+3. Using [Rufus](https://rufus.ie/) (on Windows) or [Etcher](https://www.balena.io/etcher/) (on any system) or [popsicle](https://github.com/pop-os/popsicle) (usb flasher, on pop!_os) to create a bootable USB drives.
 3. Update & Upgrade
 ~~~ bash
 sudo apt update & sudo apt upgrade

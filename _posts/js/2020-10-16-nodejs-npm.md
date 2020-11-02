@@ -42,6 +42,17 @@ npm -v
 node -v
 ```
 
+### Shorthand
+
+<div class="two-columns-list" markdown="1">
+- `i`: `install`
+- `-D`: `--save-dev` (`devDependencies`)
+- `-P`: `--save-prod` (default), `--save`
+- `-g`: `--global`
+- `-f`: `--force`
+- `ls`: `list`
+</div>
+
 ## Install package
 
 👉 [Official documentation](https://docs.npmjs.com/cli/install#:~:text=Install%20the%20dependencies%20in%20the,json%20.).
@@ -75,19 +86,31 @@ ls node_modules
 ```
 
 ``` bash
-# Check current version of a package
-npm -v package_name
+# list all local (installed) packages
+npm list # -g for globel # or use "ls"
+npm list --depth=0 # without dependencies
+
+# Check the current version of a (installed) package
+npm list package_name # with "-g" for global
+
+# Check the latest (not current) version of a package
+npm view package_name version
 ```
 
-### Shorthand
+## Update package
 
-<div class="two-columns-list" markdown="1">
-- `i`: `install`
-- `-D`: `--save-dev` (`devDependencies`)
-- `-P`: `--save-prod` (default), `--save`
-- `-g`: `--global`
-- `-f`: `--force`
-</div>
+``` bash
+# which global packages need to be updated?
+npm outdated -g --depth=0
+
+# update all global packages
+npm update -g
+```
+
+``` bash
+# update a package
+npm update package_name # -g for global
+```
 
 ## Remove package
 
