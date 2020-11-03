@@ -31,7 +31,9 @@ sudo apt update & sudo apt upgrade
 4. Download and install [Google Chrome](https://www.google.com/chrome).
    1. Sign in to Google Account + sync all extensions + settings.
    2. Disable Tab hover information: Go to [chrome://flags/](chrome://flags/) and search "tab hover" then choose "Disable".
-   3. Install also these extensions: [mate translate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke), [google dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof), [raindrop](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien), [last pass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd), [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh), [adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom), [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep).
+   3. Install also these extensions:
+      1. [mate translate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke), [google dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja), [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof), [raindrop](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien), [last pass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd), [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh), [adblock](https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom), [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep).
+      2. Google Aut alternative on Chrome: use [this](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai).
 5. Install [Guake Terminal](/terminal#guake-terminal) (drop-down terminal supporting tabs). We install it first because we working mainly on terminal.
 ``` bash
 sudo apt-get install guake
@@ -207,10 +209,23 @@ sudo apt update
 sudo apt install touchpad-indicator
 # then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
 ```
-3.  Other applicatons: [Skype](https://www.skype.com/en/get-skype/), [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`), [AO](https://github.com/klaussinani/ao) (MS to do for Ubuntu), **Shotwell** or **gThumb** (image viewer + quick editor, install on Store), **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore), **Cheese** (camera app), [Drawing](https://maoschanz.github.io/drawing/), [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care), [Youtube Music](https://www.googleplaymusicdesktopplayer.com/).
+3.  Other applicatons:
+    1.  [Skype](https://www.skype.com/en/get-skype/)
+    2.  [Extreme Download Manager](https://subhra74.github.io/xdm/) (uninstall by running as root `/opt/xdman/uninstall.sh`)
+    3.  [AO](https://github.com/klaussinani/ao) (MS to do for Ubuntu): `snap install ao`
+    4.  **Shotwell** or **gThumb** (image viewer + quick editor, install on Store)
+    5.  **KolourPaint** (photo editor supports cut and move a selection like Paint on Windows, install from AppStore)
+    6.  **Cheese** (camera app)
+    7.  [Drawing](https://maoschanz.github.io/drawing/)
+    8.  [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care)
+    9.  [Youtube Music](https://www.googleplaymusicdesktopplayer.com/)
+    10. [Authenticator](https://flathub.org/apps/details/com.github.bilelmoussaoui.Authenticator)
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf) (try all keyboard hidraws if you are not sure!).
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
     - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
+8. **Pop!_OS Tips**:
+   1. `Super` + `Y`: toggle tiling mode.
+   2. Add a windows/applition exepton of tiling mode (it won't be counted)
