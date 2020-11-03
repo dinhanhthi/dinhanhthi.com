@@ -35,6 +35,16 @@
       float: left;
       line-height: 1.35;
     }
+    ul{
+      list-style: circle;
+      li{
+        padding-left: 0;
+        margin-left: 15px;
+        &:before{
+          content: '';
+        }
+      }
+    }
   }
   li.finish:before, .task.finish:before{
     color: #1e951e;
