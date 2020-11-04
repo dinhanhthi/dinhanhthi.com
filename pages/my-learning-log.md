@@ -22,19 +22,19 @@ I want to be an expert in **Data Science** and **Artificial Intelligence** and b
 ## 2020
 
 - {:.finish} {% data_ml %} Wowrking with [**Time Series**](/notes#time_series): DTW, using TensorFlow and Pytorch, clustering, anomaly detection, prediction,...
-- {:.finish} {% tech %} **Infrastructure**: [Docker](/tags#docker), Docker with GPU + Tensorflow + PyTorch, [Airflow](/airflow-k8s-101), gRPC, k8s.
-- {:.finish} {% data_ml %} **Clustering methods**: HDBSCAN/DBSCAN, Mean Shift, ...
+- {:.finish} {% tech %} **Infrastructure**: [Docker](/tags#docker), [Docker with GPU + Tensorflow + PyTorch](/docker-gpu), [Airflow](/airflow-k8s-101), gRPC, k8s,...
+- {:.finish} {% data_ml %} **Clustering methods**: [HDBSCAN/DBSCAN](/dbscan-hdbscan-clustering), [Mean Shift](/mean-shift), ...
 - {:.finish} {% data_ml %} **Metrics**: Silhouette Score, Calinski and Harabasz, Rand Index, Adjusted Rand Index,...
 - {:.finish} {% data_ml %} **Dimention reduction**: UMAP, t-SNE,...
 - {:.finish} {% workflow %} **Tools**: [Aha!](http://aha.io/), Trello, Miro.
-- {:.finish} {% data_ml %} **Processing raw data**: 4 projects at Dataswati.
+- {:.finish} {% data_ml %} **Processing raw data**: 4 projects at [Dataswati](https://www.dataswati.com/).
 - {:.finish} {% tech %} Created & Discussing on **P13 Discussion Group**, a group of Vietnamese students from University Sorbonne Paris Nord. We share knowledge and discuss mainly on Information Technology -- [Group's Github Repository](https://github.com/dinhanhthi/P13-discuss-group) (private).
-- {:.finish} {% data_ml %} **Courses**:
+- {:.finish} {% data_ml %} **Courses** -- [my certificates](https://github.com/dinhanhthi/my-certificates).
   - [Leveraging Cloud-Based Machine Learning on Google Cloud Platform: Real World Applications](https://www.linkedin.com/learning/leveraging-cloud-based-machine-learning-on-google-cloud-platform-real-world-applications/intro-to-artificial-intelligence-ai-on-google) on LinkedIn Learning.
-  - Specification [Deep Learning](https://www.coursera.org/specializations/deep-learning) (5 courses) taught by Andrew NG on Coursera.
-  - Specification [DeepLearning.AI TensorFlow Developer](https://www.coursera.org/specializations/tensorflow-in-practice) (4 courses) taught by Laurence Moroney on Coursera.
+  - Specialization [Deep Learning](https://www.coursera.org/specializations/deep-learning) (5 courses) taught by Andrew NG on Coursera.
+  - Specialization [DeepLearning.AI TensorFlow Developer](https://www.coursera.org/specializations/tensorflow-in-practice) (4 courses) taught by Laurence Moroney on Coursera.
   - [Anomaly Detection in Time Series Data with Keras](https://www.coursera.org/learn/anomaly-detection-time-series-keras/home/welcome) on Coursera.
-- {:.finish} {% python %} **Python Coding**: [Sphinx Documentation Generator](https://www.sphinx-doc.org/en/master/), Pytest, build AI services (Dataswati's tasks), Data Controller using gRPC + Airflow + MongoDB + SQL + InfluxDB, Abstract model,...
+- {:.finish} {% python %} **Python Coding**: [Sphinx Documentation Generator](https://www.sphinx-doc.org/en/master/), [Pytest](/pytest), build AI services (Dataswati's tasks), Data Controller using gRPC + Airflow + MongoDB + SQL + InfluxDB, Abstract model,...
 
 ## 2019
 

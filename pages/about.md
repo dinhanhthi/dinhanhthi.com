@@ -10,7 +10,7 @@ permalink: /about
 
 I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
-After my Ph.D., <mark markdown='span'>I am **currently working as a Data Scientist** at [Dataswati](https://www.dataswati.com/)</mark>. I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
+After my Ph.D., I worked at [Dataswati](https://www.dataswati.com/) as a Data Scientist, a company who helps Food&Beverage Industries more efficient today and more resilient to climatic. <mark markdown='span'>I am **currently looking for a job as a Data Scientist**</mark>. I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
@@ -22,21 +22,17 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/data-science-learning){:target="_blank"}).
 
-- <mark markdown='span'>**Working as a Data Scientist** at [Dataswati](https://www.dataswati.com/)</mark>. My role is to ameliorate the library `popai`, a tool Dataswati uses to work on their projects. I work much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_.
-- {% badge I'm following | yellow %} [Learning Docker](https://www.linkedin.com/learning/learning-docker-2/the-docker-flow-images-to-containers) on LinkedIn Learning.
-- {% badge I'm following | yellow %} [Deep Learning specialization](https://www.coursera.org/specializations/deep-learning) (*5 courses*) given by *deeplearning.ai* on Coursera &mdash; [my notes](/tags#deeplearning-ai).
-  1. {% cert https://www.coursera.org/account/accomplishments/records/VJG62Z8QP7ZF %} [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning).
-  2. {% cert https://www.coursera.org/account/accomplishments/records/VEVBU5BWBC8S %} [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning).
-  3. {% cert https://www.coursera.org/account/accomplishments/records/VREJ8QGGDHWA %} [Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects?specialization=deep-learning).
-  4. {% badge I'm following | yellow %} [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks?specialization=deep-learning).
+- <mark markdown="span">**Looking for a job as a Data Scientist!**</mark>
+- **1/2020 - 11/2020** &mdash; Data Scientist at [Dataswati](https://www.dataswati.com/) (end probationary period because of economic problem). My role was to ameliorate the library `popai`, a tool Dataswati uses to work on their projects. I worked much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_. I also worked on Data Controller (a tool Dataswati built for connecting everything - Dev, Data, Research, Frontend, Backend).
+- {% cert https://www.coursera.org/account/accomplishments/specialization/certificate/42U2KN5BZ8LT %} [DeepLearning.AI TensorFlow Developer Specialization](https://www.coursera.org/specializations/tensorflow-in-practice) (4 courses) aught by Laurence Moroney on Coursera.
+- {% cert https://www.coursera.org/account/accomplishments/specialization/certificate/JCB5JFFM49Q9 %} [Deep Learning specialization](https://www.coursera.org/specializations/deep-learning) (*5 courses*) given by *deeplearning.ai* on Coursera &mdash; [my notes](/tags#deeplearning-ai).
 - {% cert https://github.com/dinhanhthi/my-certificates/blob/master/LinkedIn%20Learning%20-%20Leveraging%20Cloud-Based%20Machine%20Learning%20on%20Google%20Cloud%20Platform_%20Real%20World%20Applications.pdf %} [Leveraging Cloud-Based Machine Learning on Google Cloud Platform: Real World Applications](https://www.linkedin.com/learning/leveraging-cloud-based-machine-learning-on-google-cloud-platform-real-world-applications/intro-to-artificial-intelligence-ai-on-google) on LinkedIn Learning.
 - {% cert https://app.dataquest.io/profile/dinhanhthi %} [Data Scientist](https://www.dataquest.io/path/data-scientist){:target="_blank"} path on Dataquest.
 - {% cert https://www.coursera.org/account/accomplishments/specialization/WM6DVE7QFLJ7 %} [IBM Data Professional Certificate](https://www.coursera.org/specializations/ibm-data-science-professional-certificate){:target="_blank"} (*9 courses*) on Coursera. -- [my notes](https://rawnote.dinhanhthi.com/tags#ibm-data).
-- [Data Science path](https://www.codecademy.com/learn/paths/data-science){:target="_blank"} on Codecademy.
 - {% cert https://www.codecademy.com/dinhanhthi %} [Learn Python 3](https://www.codecademy.com/learn/learn-python-3){:target="_blank"} on Codecademy.
 - {% cert https://www.codecademy.com/dinhanhthi %} [Learn SQL](https://www.codecademy.com/learn/learn-sql){:target="_blank"} on Codecademy.
 - {% cert https://www.codecademy.com/dinhanhthi %} [Introduction to Stats with Numpy](https://www.codecademy.com/learn/intro-statistics-numpy) on Codecademy.
-- {% cert https://www.coursera.org/account/accomplishments/verify/WJ9DNBMRQDJ8 %} I've finished the [Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
+- {% cert https://www.coursera.org/account/accomplishments/verify/WJ9DNBMRQDJ8 %} [Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning){:target="_blank"} taught by Andrew Ng.
 
 {% include heading-title.html title="Web Development" icon="fas fa-globe-asia" more="note taking" href="/notes#web_development" %}
 
