@@ -46,6 +46,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [Sarcasm detection dataset.](https://rishabhmisra.github.io/publications/)
 - [Insight - BBC News Datasets](http://mlg.ucd.ie/datasets/bbc.html)
 - [Large Movie Review Dataset (IMDB)](http://ai.stanford.edu/~amaas/data/sentiment/)
+- [COCO Dataset](https://cocodataset.org/#home) -- a large-scale object detection, segmentation, and captioning dataset.
 
 ### Vietnamese
 
