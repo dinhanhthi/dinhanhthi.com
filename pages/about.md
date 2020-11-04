@@ -10,7 +10,9 @@ permalink: /about
 
 I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
-After my Ph.D., I worked at [Dataswati](https://www.dataswati.com/) as a Data Scientist, a company who helps Food&Beverage Industries more efficient today and more resilient to climatic. <mark markdown='span'>I am **currently looking for a job as a Data Scientist**</mark>. I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
+After my Ph.D., I worked at [Dataswati](https://www.dataswati.com/) as a Data Scientist, a company who helps Food&Beverage Industries more efficient today and more resilient to climatic. <mark markdown='span'>I am **currently looking for a job as a Data Scientist**</mark>.
+
+I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 
 My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_blank"}, [reading](https://www.goodreads.com/user/show/19630622-thi-dinh){:target="_blank"} and [cooking](https://goo.gl/photos/yQXdQws1LLS16x5v5){:target="_blank"}.
 
