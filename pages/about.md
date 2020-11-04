@@ -10,7 +10,7 @@ permalink: /about
 
 I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
-After my Ph.D., I worked at [Dataswati](https://www.dataswati.com/) as a Data Scientist, a company who helps Food&Beverage Industries more efficient today and more resilient to climatic. <mark markdown='span'>I am **currently looking for a job as a Data Scientist**</mark>.
+After my Ph.D., I worked at [Dataswati](https://www.dataswati.com/) as a Data Scientist, a company who helps Food&Beverage Industries more efficient today and more resilient to climatic. <mark markdown='span'>**I am currently looking for a job as a Data Scientist**</mark>.
 
 I use [this website]({{site.url}}{{site.baseurl}}/notes) and [this one](https://rawnote.dinhanhthi.com "My personal notes"){:target="_blank"} to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
 
@@ -24,7 +24,6 @@ My hobbies are [drawing](https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3){:target="_
 
 I've started to learn to be a ***data engineer*** / ***data scientist*** from the field of numerical analysis (my [Github repository](https://github.com/dinhanhthi/data-science-learning){:target="_blank"}).
 
-- <mark markdown="span">**Looking for a job as a Data Scientist!**</mark>
 - **1/2020 - 11/2020** &mdash; Data Scientist at [Dataswati](https://www.dataswati.com/) (end probationary period because of economic problem). My role was to ameliorate the library `popai`, a tool Dataswati uses to work on their projects. I worked much on _Time Series_, _Clutering_, _Anomaly Detection_ and _Data Processing_. I also worked on Data Controller (a tool Dataswati built for connecting everything - Dev, Data, Research, Frontend, Backend).
 - {% cert https://www.coursera.org/account/accomplishments/specialization/certificate/42U2KN5BZ8LT %} [DeepLearning.AI TensorFlow Developer Specialization](https://www.coursera.org/specializations/tensorflow-in-practice) (4 courses) aught by Laurence Moroney on Coursera.
 - {% cert https://www.coursera.org/account/accomplishments/specialization/certificate/JCB5JFFM49Q9 %} [Deep Learning specialization](https://www.coursera.org/specializations/deep-learning) (*5 courses*) given by *deeplearning.ai* on Coursera &mdash; [my notes](/tags#deeplearning-ai).
