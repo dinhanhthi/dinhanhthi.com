@@ -133,6 +133,15 @@ dconf load /org/gnome/settings-daemon/plugins/media-keys/ < keybindings.dconf
 
 ## Applications
 
+Completely remove LibreOffice,
+
+``` bash
+# zsh uses \*
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+```
+
 🔅 Remove snap store
 
 ``` bash
@@ -143,6 +152,15 @@ sudo apt autoremove --purge snapd
 
 ``` bash
 sudo snap remove <app_name>
+```
+
+🔅 Convert office's files to pdf
+
+``` bash
+# install first
+sudo apt install libreoffice
+# pptx -> pdf
+soffice --headless --convert-to pdf prezentacja.pptx
 ```
 
 ## Nautilus / Files management
