@@ -16,7 +16,11 @@ This is my note for the course ([Neural Networks and Deep Learning](https://www.
 
 🎯 [Overview of all 5 courses.](/deeplearning-ai)
 
-👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
+👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).<br />
+👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).<br />
+👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3). <br />
+👉 **Course 4** -- [Convolutional Neural Networks](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e). <br />
+👉 **Course 5** -- [Sequence Models](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e).
 
 If you want to break into cutting-edge AI, this course will help you do so.
 
