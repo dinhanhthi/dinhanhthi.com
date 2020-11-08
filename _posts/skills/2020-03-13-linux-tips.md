@@ -133,7 +133,7 @@ dconf load /org/gnome/settings-daemon/plugins/media-keys/ < keybindings.dconf
 
 ## Applications
 
-Completely remove LibreOffice,
+🔅 Completely remove LibreOffice,
 
 ``` bash
 # zsh uses \*
@@ -393,6 +393,8 @@ sudo apt-get install libxt6
 
 ## Network
 
+🔅 Don't show "_Turn on wifi hotspot..._" for clicking => try: click on "Network" and then "Wifi" in Settings.
+
 🔅 Share terminal for other (via SSH): using [Teleconsole](https://www.teleconsole.com/),
 
 ``` bash
@@ -466,6 +468,14 @@ youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <link-playl
 ~~~
 
 ## Media / Photo / Music
+
+🔅 Add shortcut keys for Rhythmbox Music Player -> read [this](https://askubuntu.com/questions/181651/how-to-assign-hot-keys-to-control-rhythmbox).
+
+1. Enable plugin "MPRIS D-Bus interface".
+2. Add custom shortcuts keyboards as
+  - Play/Pause: `rhythmbox-client --play-pause`
+  - Next: `rhythmbox-client --next`
+  - Previous: `rhythmbox-client --previous`
 
 🔅 Convert `.ts` videos to `.mp4`
 

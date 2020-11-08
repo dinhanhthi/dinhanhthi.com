@@ -236,7 +236,7 @@ docker-compose run --rm jupyter
 ## Make NVIDIA work in docker (Linux)
 
 {:.alert.alert-danger}
-This section is still work (on 26-Oct-2020) but old for new methods.
+This section is still working (on 26-Oct-2020) but it's old for newer methods.
 
 **Idea**: Using NVIDIA driver of the base machine, don't install anything in docker!
 
