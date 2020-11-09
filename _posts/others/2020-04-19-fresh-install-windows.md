@@ -11,7 +11,7 @@ keywords: "windows 10 reinstall install reset application softs need to do k380 
 
 This is my personal list of to-do things after reinstall Windows.
 
-👉 [Ubuntu fresh start](/fresh-installation-ubuntu) <br />
+👉 [Ubuntu / Pop!_OS fresh start](/fresh-installation-ubuntu) <br />
 👉 [Mac fresh start](/fresh-install-macos)
 
 1. Update and install drivers.
@@ -19,8 +19,8 @@ This is my personal list of to-do things after reinstall Windows.
 3. [DeepL](https://www.deepl.com/translator): best translator for Windows using AI.
 4. [QTTranslate](https://quest-app.appspot.com): quick and easy translate words and hear the pronunciation.
 5. [Unikey](https://www.unikey.org): Vietnamese Input Method.
-6. Log in to online accounts (Google, Stack Overflow, Github, Dropbox,...)
-7. [cmder](https://cmder.net): drop-down terminal & install personal setting file (can be found in _/config/_).
+6. Log in to online accounts ([Google](https://accounts.google.com/login), [Stack Overflow](https://stackoverflow.com/), [Github](https://github.com/login), [Dropbox](https://www.dropbox.com/login),...)
+7. [cmder](https://cmder.net): drop-down terminal & install personal setting file (can be found in _/config/_) 👉 Check [this note](/docker-wsl2-windows) to set up WSL2 and Bash.
 8. [IObit Uninstaller](https://www.iobit.com/en/advanceduninstaller.php).
 9.  [WinRAR](https://www.win-rar.com/start.html?&L=0).
 10. [Notion](https://www.notion.so).

@@ -57,10 +57,7 @@ sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential li
 
 ### Windows Terminal & Zsh
 
-``` bash
-# (Optional) Install Windows Terminal
-https://docs.microsoft.com/en-us/windows/terminal/get-started
-```
+👉 Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started) + some things with [this note](/terminal#windows).
 
 Change default setting theme to Linux Distro!
 
@@ -79,9 +76,9 @@ echo $SHELL # /usr/bin/zsh  or similar
 
 Continue to [this note](/terminal#zsh-linux) with following remarks:
 
-- Have to install fonts before!
-- Choose _powerlevel10k theme_ instead!
-- Just run `p10k configure` (the icon fonts may be not working but don't worry!)
+- You have to install all the fonts suggested in that note (just for sure).
+- You have to install MS's [cascadia-code font](https://github.com/microsoft/cascadia-code/releases) (download zip and install all files there manually). Then you choose from Windows Terminal or cmder the font face is `Cascadia Code PL`.
+- [This article](https://docs.microsoft.com/en-us/windows/terminal/tutorials/powerline-setup) may be interesting also.
 
 ## Jekyll on WSL2
 
@@ -129,7 +126,7 @@ sudo apt-get install -y nodejs
 
 ## WSL with cmder
 
-Settings > Startup > Tasks > +
+**Settings** > **Startup** > **Tasks** > **+**
 
 ``` bash
 # for debian
