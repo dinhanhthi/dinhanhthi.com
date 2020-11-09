@@ -3,7 +3,7 @@ services:
   jekyll:
     container_name: 'dat_local'
     image: jekyll/jekyll:4.1.0
-    command: jekyll serve --config _config.yml,docker/_config.docker.yml
+    command: jekyll serve --config _config.yml,docker/_config.docker.yml -I
     volumes:
         - ..:/srv/jekyll
     ports:

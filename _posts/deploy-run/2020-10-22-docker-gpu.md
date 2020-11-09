@@ -13,6 +13,10 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 
 👉 [Docker note](/docker).
 
+## WSL + Windows
+
+Make WSL2 recognize GPU on Windows 10 👉 Check [this tut](https://docs.nvidia.com/cuda/wsl-user-guide/index.html).
+
 ## With Tensorflow or PyTorch
 
 👉 [Official doc for TF + docker](https://www.tensorflow.org/install/docker) <br />

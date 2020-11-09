@@ -12,6 +12,9 @@ keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu 
 
 ## Windows
 
+__Update 11/Sep/20__: Install python [on WSL2](/docker-wsl2-windows) using [**Miniconda**](#linux-ubuntu).
+
+{% hsbox Other options (directly install) %}
 Download and install [Anaconda](https://www.anaconda.com/distribution/) or smaller version [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 {:.bg-gray}
@@ -38,6 +41,7 @@ C:\Users\<user>\AppData\Roaming\Python\Python36\Scripts
 (*You can find `C:\...\Roaming` by typing `%appdata%` in the Windows Explorer's navigation bar*)
 
 App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmderSetting.xml) file).
+{% endhsbox %}
 
 ### Jupyer Notebook
 
@@ -79,6 +83,8 @@ python3 --version
 ## Linux (Ubuntu)
 
 Python is already installed on Ubuntu. You would like to install Anaconda, [download and install](https://www.anaconda.com/distribution/) it.
+
+Wanna install __Miniconda__ instead? 👉 Download[ `.sh` file](https://docs.conda.io/en/latest/miniconda.html#linux-installers) and install inside Linux environement (including [WSL2](/docker-wsl2-windows)).
 
 ~~~ bash
 # ADD CONDA TO $PATH
