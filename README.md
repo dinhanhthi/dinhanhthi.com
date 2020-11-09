@@ -8,6 +8,9 @@ Source code of my personal website. If you would like to use this source code, p
 # build (once) the image
 docker build -t jekyll_410 .
 
+# Open Gemfile and comment out "jekyll-feed" and "jeyll-sitemap" and then
+git update-index --assume-unchanged Gemfile
+
 # build container
 docker-compose up -d
 
