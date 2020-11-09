@@ -5,13 +5,11 @@ Source code of my personal website. If you would like to use this source code, p
 ## Using docker?
 
 ``` bash
-# build (once) the image
-docker build -t jekyll_410 .
-
 # Open Gemfile and comment out "jekyll-feed" and "jeyll-sitemap" and then
 git update-index --assume-unchanged Gemfile
 
 # build container
+cd docker
 docker-compose up -d
 
 # whenever working

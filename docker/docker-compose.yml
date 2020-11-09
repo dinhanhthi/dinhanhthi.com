@@ -2,7 +2,8 @@ version: '2.3'
 services:
   jekyll:
     container_name: 'dat_local'
-    image: jekyll_410 # run firstly: docker build -t jekyll_410 .
+    image: jekyll/jekyll:4.1.0
+    command: jekyll serve --config _config.yml,docker/_config.docker.yml
     volumes:
         - ..:/srv/jekyll
     ports:
