@@ -1,0 +1,12 @@
+version: '2.3'
+services:
+  jekyll:
+    container_name: 'dat_local'
+    image: jekyll_410 # run firstly: docker build -t jekyll_410 .
+    volumes:
+        - ..:/srv/jekyll
+    ports:
+        - 4000:4000
+    working_dir: /srv/jekyll
+    environment:
+        - JEKYLL_ENV=docker

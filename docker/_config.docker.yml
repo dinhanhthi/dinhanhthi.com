@@ -1,0 +1,10 @@
+url: "http://localhost:4000"
+
+plugins:
+    - jemoji
+    # - jekyll-sitemap
+    # - jekyll-feed
+    - jekyll-katex
+    - jekyll-admin
+    - jekyll-include-cache
+    - jekyll-last-modified-at
