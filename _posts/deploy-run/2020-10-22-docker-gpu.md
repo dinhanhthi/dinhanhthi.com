@@ -17,6 +17,8 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 
 Make WSL2 recognize GPU on Windows 10 👉 Check [this tut](https://docs.nvidia.com/cuda/wsl-user-guide/index.html).
 
+If you meet error "Your insider preview build settings need attention", restart many times don't solve the problem. 👉 Go to Account setting, then choose "Verify".
+
 ## With Tensorflow or PyTorch
 
 👉 [Official doc for TF + docker](https://www.tensorflow.org/install/docker) <br />
