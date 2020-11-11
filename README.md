@@ -10,7 +10,7 @@ git update-index --assume-unchanged Gemfile
 
 # build container
 cd docker
-docker-compose up -d
+docker-compose -p "dat" up -d
 # wait a little bit for it to build at the 1st time
 
 # whenever working
