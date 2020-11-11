@@ -36,13 +36,25 @@ Read this [readme](https://github.com/dinhanhthi/my-dockerfiles/tree/master/quic
 
 ### Ubuntu
 
-1. Install Ruby Dev (don't use already installed version): `sudo apt-get install ruby-dev`
-2. Install bundler: `sudo gem install bundler`
-3. Clone a jekyll theme.
-4. `cd` to the folder containing that theme.
-5. `bundle install`
-6. `bundle exec jekyll serve`
-   1. Error: ExecJS and could not find a JavaScript runtime: install nodejs fix it. `sudo apt-get install nodejs`
+``` bash
+# install ruby-dev
+sudo apt install ruby-dev
+
+# install bundler
+sudo gem install bundler
+
+# clone a jekyll theme
+# cd to that theme
+
+# install gems in the theme
+bundle install --path vendor/bundle
+
+# serve
+bundle exec jekyll serve
+
+# If error "ExecJS and could not find a JavaScript runtime"
+sudo apt-get install nodejs
+```
 
 ### Windows
 

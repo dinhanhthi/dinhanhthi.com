@@ -11,6 +11,7 @@ git update-index --assume-unchanged Gemfile
 # build container
 cd docker
 docker-compose up -d
+# wait a little bit for it to build at the 1st time
 
 # whenever working
 docker start dat_local

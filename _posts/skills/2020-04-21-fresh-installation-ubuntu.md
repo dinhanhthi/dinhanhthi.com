@@ -229,3 +229,6 @@ sudo apt install touchpad-indicator
 8. **Pop!_OS Tips**:
    1. `Super` + `Y`: toggle tiling mode.
    2. Add a windows/applition exepton of tiling mode (it won't be counted)
+   3. Make clocks + dates 2 lines -> [tutorial](https://askubuntu.com/questions/1081793/how-to-display-date-under-time-in-gnome).
+        - Install [clock override extension](https://extensions.gnome.org/extension/1206/clock-override/).
+        - Using `     %H:%M%n%d/%m/%Y` in _text to display instead of the clock_ (with the spaces so that they are center aligned).

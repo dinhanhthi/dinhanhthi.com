@@ -4,7 +4,7 @@ title: "Linux notes"
 categories: [skills]
 tags: [bash, linux]
 icon-photo: linux.svg
-keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget ppa remove dconf guake"
+keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget ppa remove dconf guake free vpn vpnbook openvpn"
 ---
 
 {% include toc.html %}
@@ -464,8 +464,13 @@ sudo apt-get install curl -y (cài curl nếu chưa cài)
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
+# update 11/11/20: not working with playlist but single song!
 youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <link-playlist>
 ~~~
+
+### Free VPN
+
+Using [vpnbook](https://www.vpnbook.com/) and [its tutorial](https://www.vpnbook.com/howto/setup-openvpn-on-ubuntu). Note that, at the last step, we need to run with `sudo`! __Note__: very low speed!
 
 ## Media / Photo / Music
 
