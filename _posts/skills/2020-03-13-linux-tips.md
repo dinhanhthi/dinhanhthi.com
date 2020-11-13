@@ -87,6 +87,15 @@ sudo add-apt-repository --remove ppa:name
 
 ## Settings
 
+🔅 Make Monday as the start of the week:
+
+``` bash
+sudo -H gedit /usr/share/i18n/locales/en_GB
+# change to 1
+first_weekday 1
+# save and restart the system
+```
+
 🔅 Add / Remove / Manage app icon in launcher: `sudo apt-get install alacarte`.
 
 🔅 Change ubuntu logo in settings: replace
