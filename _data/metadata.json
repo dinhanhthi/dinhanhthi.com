@@ -1,0 +1,20 @@
+{
+  "title": "TeXmath",
+  "url": "",
+  "description": "Latex cho mọi người",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": ""
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "/feed/feed.json"
+  },
+  "author": {
+    "name": "Math2IT",
+    "email": "contact@math2it.com",
+    "url": "/about-me/"
+  }
+}

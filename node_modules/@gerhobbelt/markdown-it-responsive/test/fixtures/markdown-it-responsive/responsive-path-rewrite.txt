@@ -1,0 +1,11 @@
+Responsive images for picturefill:
+.
+![test](dir/test.png "Test Title")
+.
+<p><img src="dir/test.png" alt="test" title="Test Title"></p>
+.
+.
+![test](dir/header-test.png)
+.
+<p><img src="dir/header-test.png" alt="test" srcset="newdir/small/header-test-small.png 320w, newdir/medium/header-test-medium.png 640w" sizes="(min-width: 36em) 33.3vw, 100vw"></p>
+.

@@ -1,0 +1,25 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: Home
+  order: 1
+pagination:
+  data: collections.posts
+  size: 3
+  alias: posts
+---
+
+<h1>10 Latest Posts</h1>
+
+{% set postslist = posts | head(-10) %}
+{% set postslistCounter = posts | length %}
+{% include "postslist.njk" %}
+
+<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+
+Pagination:
+{%- for pageEntry in pagination.pages %}
+    <a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a>,
+{%- endfor %}
+
+<hr>

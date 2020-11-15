@@ -1,0 +1,24 @@
+{
+  "name": "markdown-it-responsive",
+  "version": "0.1.0",
+  "homepage": "https://github.com/tatsy/markdown-it-responsive",
+  "description": "Markdown-it plugin for responsive images",
+  "main": "index.js",
+  "keywords": [
+    "markdown-it",
+    "markdown-it-plugin"
+  ],
+  "authors": [
+    "tatsy"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Makefile",
+    "lib"
+  ]
+}

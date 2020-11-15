@@ -1,0 +1,7 @@
+{% include "shared/header.njk" %}
+
+  <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    {{ content | safe }}
+  </main>
+  Current page: {{ page.url | url }}
+{% include "shared/footer.njk" %}

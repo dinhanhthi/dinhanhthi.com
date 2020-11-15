@@ -1,0 +1,351 @@
+Coverage. Youtube from ID
+.
+@[youtube](dQw4w9WgXcQ)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](x) a
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>a</p>
+.
+.
+@[youtube](x)
+a
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>a</p>
+.
+.
+a @[youtube](x)
+.
+<p>a <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube]( x)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube]( x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](
+x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](
+x
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[]youtube()
+.
+<p>@[]youtube()</p>
+.
+.
+@[youtube]()
+.
+<p></p>
+.
+.
+@[yourtube](x)
+.
+<p>@<a href="x">yourtube</a></p>
+.
+.
+@[(youtube]
+.
+<p>@[(youtube]</p>
+.
+.
+@[toc]()
+.
+<p>@<a href="">toc</a></p>
+.
+
+Coverage. Youtube from URL
+.
+@[youtube]( //www.youtube.com/embed/dQw4w9WgXcQ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube]( //www.youtube.com/watch?v=0zM3nApSvMg&feature=feedrec_grec_index
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](//www.youtube.com/user/IngridMichaelsonVEVO#p/a/u/1/QdK8U-VIH_o)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/QdK8U-VIH_o" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](//www.youtube.com/v/0zM3nApSvMg?fs=1&amp;hl=en_US&amp;rel=0)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](//www.youtube.com/watch?v=0zM3nApSvMg#t=0m10s)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](//www.youtube.com/embed/0zM3nApSvMg?rel=0)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](//www.youtube.com/watch?v=0zM3nApSvMg)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[youtube](http://youtu.be/0zM3nApSvMg)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/0zM3nApSvMg" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+
+Coverage. Vimeo from ID
+.
+@[vimeo](x)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo]( x)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo]( x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](
+x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](
+x
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/x" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[]vimeo()
+.
+<p>@[]vimeo()</p>
+.
+.
+@[vimeo]()
+.
+<p></p>
+.
+.
+@[vimoe](x)
+.
+<p>@<a href="x">vimoe</a></p>
+.
+.
+@[(vimeo]
+.
+<p>@[(vimeo]</p>
+.
+.
+@[toc]()
+.
+<p>@<a href="">toc</a></p>
+.
+
+Coverage. Vimeo from URL
+.
+@[vimeo]( https://vimeo.com/119932781 )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](http://vimeo.com/119932781 )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](https://www.vimeo.com/119932781)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](http://vimeo.com/channels/mychannel/119932781)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](https://vimeo.com/groups/staffpicks/videos/119932781)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](http://vimeo.com/album/2222222/video/119932781)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](https://vimeo.com/119932781?param=test)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vimeo](http://player.vimeo.com/119932781)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vimeo-player" type="text/html" width="500" height="281" src="https://player.vimeo.com/video/119932781" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vine](https://vine.co/v/MhQ2lvg29Un/embed)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vine](https://vine.co/v/MhQ2lvg29Un)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vine](MhQ2lvg29Un)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+Def Leppard ("Lets get rocked")
+@[youtube](https://youtu.be/BO1Nae_EBvQ)
+.
+<p>Def Leppard (&quot;Lets get rocked&quot;)
+<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/BO1Nae_EBvQ" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+
+Coverage. Prezi from ID
+.
+@[prezi](1kkxdtlp4241)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/1kkxdtlp4241/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi](x) a
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>a</p>
+.
+.
+@[prezi](x)
+a
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>a</p>
+.
+.
+a @[prezi](x)
+.
+<p>a <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi]( x)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi]( x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi](
+x )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi](
+x
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/x/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[]prezi()
+.
+<p>@[]prezi()</p>
+.
+.
+@[prezi]()
+.
+<p></p>
+.
+.
+@[prezir](x)
+.
+<p>@<a href="x">prezir</a></p>
+.
+.
+@[(prezi]
+.
+<p>@[(prezi]</p>
+.
+.
+@[toc]()
+.
+<p>@<a href="">toc</a></p>
+.
+
+Coverage. Prezi from URL
+.
+@[prezi](https://prezi.com/1kkxdtlp4241/valentines-day/)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/1kkxdtlp4241/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi]( https://prezi.com/1kkxdtlp4241/valentines-day/
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/1kkxdtlp4241/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[prezi]( https://prezi.com/1kkxdtlp4241
+ )
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item prezi-player" type="text/html" width="550" height="400" src="https://prezi.com/embed/1kkxdtlp4241/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI5N1lQVHkxSHFxazZ0UUNCRHloSXZROHh3PT0&amp;landing_sign=1kD6c0N6aYpMUS0wxnQjxzSqZlEB8qNFdxtdjYhwSuI" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+
+Coverage. Line Breaks
+.
+@[vine](MhQ2lvg29Un) @[vine](MhQ2lvg29Un)
+.
+<p>@<a href="MhQ2lvg29Un">vine</a> <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vine](MhQ2lvg29Un)
+@[vine](00000000000)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/00000000000/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+.
+@[vine](MhQ2lvg29Un)
+
+@[vine](00000000000)
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/MhQ2lvg29Un/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item vine-player" type="text/html" width="600" height="600" src="https://vine.co/v/00000000000/embed/simple" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></p>
+.
+
+Coverage. Bug with formatted markdown after embed
+.
+@[youtube](dQw4w9WgXcQ)
+*foo*
+.
+<p><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item youtube-player" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><em>foo</em></p>
+.

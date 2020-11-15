@@ -1,0 +1,27 @@
+{
+  "name": "@11ty/dependency-tree",
+  "version": "1.0.0",
+  "description": "Finds all JavaScript require dependencies from a filename.",
+  "main": "main.js",
+  "scripts": {
+    "test": "npx ava"
+  },
+  "author": {
+    "name": "Zach Leatherman",
+    "email": "zach@zachleat.com",
+    "url": "https://zachleat.com/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^2.4.0"
+  },
+  "ava": {
+    "files": [
+      "./test/*.js"
+    ],
+    "sources": [
+      "./main.js",
+      "./test/stubs/**"
+    ]
+  }
+}

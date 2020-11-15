@@ -1,0 +1,21 @@
+{
+  "name": "markdown-it-video",
+  "version": "0.4.0",
+  "authors": [
+    "Brian J. Geiger <bgeiger@pobox.com>"
+  ],
+  "description": "Markdown-it plugin to embed a hosted video",
+  "main": "index.js",
+  "kewords": [
+    "markdown-it",
+    "markdown-it-plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

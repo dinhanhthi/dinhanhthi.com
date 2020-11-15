@@ -1,0 +1,30 @@
+*.sh            text eol=lf
+*.bat           text eol=crlf
+*.php           text eol=lf
+*.inc           text eol=lf
+*.ini           text eol=lf
+*.html          text eol=lf
+*.json          text eol=lf
+*.js            text eol=lf
+*.ts            text eol=lf
+*.jsdoc         text eol=lf
+*.css           text eol=lf
+*.less          text eol=lf
+*.sass          text eol=lf
+*.styl          text eol=lf
+*.ini           text eol=lf
+*.txt           text eol=lf
+*.xml           text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.md            text eol=lf
+*.markdown      text eol=lf
+*.json5         text eol=lf
+Makefile        text eol=lf
+
+*.pdf			binary
+*.psd			binary
+*.png			binary
+*.jpg			binary
+*.pptx			binary
+*.xlsx			binary
