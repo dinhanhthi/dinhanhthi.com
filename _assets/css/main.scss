@@ -1,10 +1,143 @@
+// Author: ANH-THI DINH (dinhanhthi@gmail.com)
+// Founder of Math2IT.com
+//==========================================
+// Use Ctrl + F to find and go to the section you want.
+
+
+// FONT
+//==========================================
+$font-main: 'Livvic';                               // website's main font family
+$font-second: 'Comfortaa', cursive;                 // second font for special texts,...
+$font-second-weight: 700;                           // second font's weight
+$font-size: 1.05rem;                                // website's main font size
+$font-size-small: 0.9rem;                           // default small font size
+$font-semi-bold: 500;                               // semi bold font
+$font-bold: 600;                                    // bold font
+$font-extra-bold: 700;                              // extra bold font
+
+
+// TEXT CODE
+//==========================================
+$code-text-color: #333;                         // inline text code color
+$code-inline-background: #1b1f230d;             // inline text code background
+
+
+// TEXT COLOR
+//==========================================
+$text-a: #2f74bd;                               // link's color
+$text-a-hover: #ea256a;                         // link's color when mouse hover
+$text-green: #0e980e;                           // green text
+$text-green-light: #90ee90;                     // light green text
+$text-blue: #4682b4;                            // blue text
+$text-gray: #778899;                            // gray text
+$text-yellow: #ffeead;                          // yellow text
+$text-gray-hover: #555;                         // gray text when mouse hover
+
+
+// HEADER TITLE
+//==========================================
+$header-title: 'Comfortaa', cursive;                // header title's font
+$header-weight: 700;                                 // header title's weight
+
+
+// HEADING
+//==========================================
+$heading-font: $font-main;                           // heading's font
+$heading-weight: 500;                               // heading's font weight
+$heading-color: #333;                             // heading's color
+$heading-h2-size: $font-size*1.4;                  // h2's font size (in comparison with global $font-size)
+$heading-h3-size: $heading-h2-size*0.9;             // h3's font size (in comparison with global h2)
+$heading-h4-size: $heading-h3-size*0.9;             // h3's font size (in comparison with global h3)
+
+
+// BOXES
+//==========================================
+$max-height-code-box: 400px;                        // max height of the code box
+
+
+// SPACING & SIZING
+//==========================================
+$margin-bottom: 1rem;                                                               // bottom spacing between components (paragraph, images, tables, lists,...)
+$imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;         // size (in % of page width) of images
+$image-title-size: 90%;
+
+
+// GRID'S SIZE
+//==========================================
+// SHOULDN'T CHANGE! They're defined by Bootstrap
+// https://getbootstrap.com/docs/4.4/layout/grid/
+$grid-xs: 350px;
+$grid-sm: 576px;
+$grid-md: 768px;
+$grid-lg: 992px;
+$grid-xl: 1200px;
+
+
+// COLORS
+//==========================================
+$color-red: #fc5d76;                            // red color
+$color-blue: #3292f6;                           // blue color
+$color-yellow: #fdb54b;                         // yellow color
+$color-violet: #bd96f6;                         // violet color
+$color-pink: #dd0051;                           // pink color
+$color-pink-light: #ff97a6;                     // light pink color
+
+
+// BACKUP (DON'T REMOVE)
+//==========================================
+$m-b: $margin-bottom;
+$mb: $margin-bottom;
+$a-hover: $text-a-hover;
+$c-green: $text-green;
+$c-green-light: $text-green-light;
+$f-main: $font-main;
+$f-size: $font-size;
+$f-size-small: $font-size-small;
+$f-heading: $heading-font;
+$f-h2-size: $heading-h2-size;
+$f-h3-size: $heading-h3-size;
+$f-heading-weight: $heading-weight;
+$f-heading-color: $heading-color;
+$c-red: $color-red;
+$c-blue: $color-blue;
+$c-yellow: $color-yellow;
+$c-violet: $color-violet;
+$c-pink: $color-pink;
+$c-pink-light: $color-pink-light;
+$c-blue-text: $text-blue;
+$c-gray-text: $text-gray;
+$c-yellow-text: $text-yellow;
+$c-gray-hover: $text-gray-hover;
+$c-t-code: $code-text-color;
+$c-b-code: $code-inline-background;
+$c-a-hover: #0085A1;
+$c-sec-bg: #F4F4F4;
+$c-bold-text: #000;
+$c-t-bold: #a00957;
+$s-xs: $grid-xs;
+$s-sm: $grid-sm;
+$s-md: $grid-md;
+$s-lg: $grid-lg;
+$s-xl: $grid-xl;
+$f-semi-bold: $font-semi-bold;
+$f-bold: $font-bold;
+$f-extra-bold: $font-extra-bold;
+
+
+
 // Bootstrap Overrides
 @import "./base/bootstrap_overrides";
 
 // Bootstrap
 @import "./vender/bootstrap";
 
-@import "./base/index";
+// @import "./base/index";
 @import "./base/prism-base16-monokai.dark";
 @import "./base/code";
 @import "./base/box";
+
+
+// COMPONENTS
+//==========================================
+@import "./base/nav";
+@import "./base/font";

@@ -1,7 +1,22 @@
-{% include "shared/header.njk" %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "shared/head.njk" %}
+
+<body>
+  {# old header #}
+  {# {% include "shared/header.njk" %} #}
+
+  <header>
+    {% include "shared/nav.njk" %}
+  </header>
 
   <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
     {{ content | safe }}
   </main>
+
   Current page: {{ page.url | url }}
-{% include "shared/footer.njk" %}
+
+  {% include "shared/footer.njk" %}
+</body>
+</html>

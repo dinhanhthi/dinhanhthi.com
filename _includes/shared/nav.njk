@@ -1,0 +1,30 @@
+{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+
+<nav class="navbar navbar-dark nav-bg navbar-custom fixed-top">
+  <div class="container">
+    <div class="col-12 col-lg-10 offset-lg-1">
+      <div class="nav-container">
+
+        {%- for entry in collections.all | eleventyNavigation %}
+          <a class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}" href="{{ entry.url | url }}">
+            <i style="color: {{ entry.icon_color }};" class="{{ entry.icon }}" aria-hidden="true"></i>
+            <span>{{ entry.title }}</span>
+          </a>
+        {%- endfor %}
+
+        <div class="nav-search">
+          <form action="/search/" method="get">
+            <button class="nav-search-submit" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input name="q" class="nav-search-input" type="search" placeholder="search notes..." aria-label="search notes...">
+          </form>
+        </div>
+        <a class="nav-item nav-github" href="https://github.com/dinhanhthi" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</nav>

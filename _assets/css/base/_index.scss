@@ -40,14 +40,6 @@ p, .tmpl-post li {
   line-height: 1.45;
 }
 
-a[href] {
-  color: var(--blue);
-
-  &:visited {
-    color: var(--navy);
-  }
-}
-
 main {
   padding: 1rem;
 

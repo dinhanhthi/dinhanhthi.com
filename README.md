@@ -9,6 +9,7 @@ __Demo__ (WIP): https://beta.dinhanhthi.com/
   - [ ] NAV
   - [ ] Note
   - [ ] Index
+- [ ] Code highlight - change template
 
 ## Build
 
