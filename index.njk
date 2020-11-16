@@ -1,27 +1,18 @@
 ---
+title: Anh-Thi DINH
 layout: layouts/home.njk
-eleventyNavigation:
-  key: Home
-  order: 1
-  icon: "fas fa-home"
-  icon_color: "#ffeead"
-pagination:
-  data: collections.posts
-  size: 3
-  alias: posts
+description: I failed my way to success
+image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
+date: Last Modified
 ---
 
-<h1>10 Latest Posts</h1>
+<p>
+  This is a demo website based on
+  <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
+</p>
 
-{% set postslist = posts | head(-10) %}
-{% set postslistCounter = posts | length %}
-{% include "postslist.njk" %}
-
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
-
-Pagination:
-{%- for pageEntry in pagination.pages %}
-    <a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a>,
-{%- endfor %}
-
-<hr>
+<div id="posts">
+  <h2>Posts</h2>
+  {% set postslist = collections.posts %}
+  {% include "postslist.njk" %}
+</div>

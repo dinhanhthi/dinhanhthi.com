@@ -1,20 +1,25 @@
 {
   "title": "Anh-Thi DINH",
-  "url": "",
-  "description": "Latex cho mọi người",
+  "url": "https://new.dinhanhthi.com",
+  "domain": "Update me!",
+  "description": "I failed my way to success!",
+  "genre": "Insert a schema.org genre",
+  "googleAnalyticsId": "GA ID. Update me",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "I failed my way to success!",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": ""
+    "id": "https://new.dinhanhthi.com"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "/feed/feed.json"
+    "url": "https://new.dinhanhthi.com/feed/feed.json"
   },
   "author": {
-    "name": "Math2IT",
-    "email": "contact@math2it.com",
-    "url": "/about-me/"
+    "name": "Anh-Thi DINH",
+    "twitterHandle": "dinhanhthi"
+  },
+  "publisher": {
+    "name": "Publisher name. Update me."
   }
 }
