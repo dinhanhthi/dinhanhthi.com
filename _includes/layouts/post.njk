@@ -4,55 +4,64 @@ templateClass: tmpl-post
 ---
 {% extends "layouts/base.njk" %}
 
-
 {% block extraArticleHeader %}
-   {% set wc = content | striptags | wordcount %}
-   {% set wPerMinute = (wc / 240) + 1 %}
-   <aside>
-     {{ wPerMinute | round }} min read.
+  {% set wc = content | striptags | wordcount %}
+  {% set wPerMinute = (wc / 240) + 1 %}
+  <aside>
+    {{ wPerMinute | round }} min read.
    </aside>
 {% endblock %}
 
 {% set shareUrl = metadata.url + page.url %}
 
 {% block article %}
-{{ content | safe }}
+  <article>
+    {{ content | safe }}
 
-<h1>🙏🙏🙏</h1>
-<p>
-  Since you've made it this far, <a href="{{ shareUrl | safe }}" on-click="share">sharing</a> this article on your favorite social media network 
-  would be highly appreciated 💖! For feedback, please 
+    <h1>🙏🙏🙏</h1>
+    <p>
+  Since you've made it this far, <a href="{{ shareUrl | safe }}" on-click="share">sharing</a> this article on your favorite social media network
+  would be highly appreciated 💖! For feedback, please
   <a href="https://twitter.com/{{ metadata.author.twitterHandle }}" target="_blank" rel="noopener">ping me on Twitter.</a>
-</p>
+    </p>
 
-<share-widget>
-  <button on-click="share" aria-label="Share" href="{{ shareUrl | safe }}">
-    <div></div>
-  </button>
-</share-widget>
+    <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+    </p>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "{{ title }}",
-  "image": [],
-  "author": "{{ metadata.author.name }}", 
-  "genre": "{{ metadata.genre }}", 
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ metadata.publisher.name }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
-    }
-  },
-  "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
-  "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
-  "datePublished": "{{ page.date | htmlDateString }}",
-  "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
-  "description": "{{ content | striptags | truncate(140) }}"
-}
-</script>
+    <share-widget>
+      <button on-click="share" aria-label="Share" href="{{ shareUrl | safe }}">
+        <div></div>
+      </button>
+    </share-widget>
 
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
+        "image": [],
+        "author": "{{ metadata.author.name }}",
+        "genre": "{{ metadata.genre }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "{{ metadata.publisher.name }}",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{{ '/img/favicon/favicon-192x192.png' | addHash }}"
+          }
+        },
+        "url": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+        "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
+        "datePublished": "{{ page.date | htmlDateString }}",
+        "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
+        "description": "{{ content | striptags | truncate(140) }}"
+      }
+    </script>
+    {% if page
+      .url
+      .indexOf("/posts/") > -1 %}
+      <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      </p>
+    {% endif %}
+  </article>
 {% endblock %}

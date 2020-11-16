@@ -1,5 +1,24 @@
 # DEV NOTES
 
+## Template inheritance
+
+Read [this tutorial](https://mozilla.github.io/nunjucks/templating.html#template-inheritance).
+
+``` njk
+{% extends "parent.html" %}
+{% block left%}{% endblock %}
+```
+
+## Auto perform something before `git push`
+
+``` json
+{
+  "pre-push": [
+    "build"
+  ],
+}
+```
+
 ## SCSS using rollup
 
 Using plugin `rollup-plugin-scss`, note that, to use multiple rollup plugins,

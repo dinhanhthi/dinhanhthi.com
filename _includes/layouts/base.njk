@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
     {% if isdevelopment %}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     {% else %}
-    <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
+      <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
     {% endif %}
     <meta name="theme-color" content="#f9c412">
     <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
@@ -46,18 +46,26 @@
     <link rel="preconnect" href="/" crossorigin>
     <script async defer src="{{ "/js/min.js" | addHash }}"></script>
     {% if googleanalytics %}
-    <script async defer src="{{ "/js/cached.js" | addHash }}"></script>
+      <script async defer src="{{ "/js/cached.js" | addHash }}"></script>
     {% endif %}
     <!-- Notably iOS UAs also contain Mac OS X -->
-    <script csp-hash>if (/Mac OS X/.test(navigator.userAgent))document.documentElement.classList.add('apple')
+    <script csp-hash>
+      if (/Mac OS X/.test(navigator.userAgent))
+        document
+          .documentElement
+          .classList
+          .add('apple')
     </script>
     <!-- css is inserted by optimize-html custom plugin -->
   </head>
   <body>
     <header>
+
       <nav>
         <div id="nav">
-          <h1><a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a></h1>
+          <h1>
+            <a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a>
+          </h1>
           {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
           {%- for entry in collections.all | eleventyNavigation %}
             <a href="{{ entry.url | url }}">{{ entry.title }}</a>
@@ -65,33 +73,34 @@
         </div>
         <div id="reading-progress" aria-hidden="true"></div>
       </nav>
-      <h1>{{ title }}</h1>
+
+      {% block headerTitle %}
+        <h1>{{ title }}</h1>
+      {% endblock %}
+
       {% block extraArticleHeader %}{% endblock %}
+
       <dialog id="message"></dialog>
+
       {% if googleanalytics %}
-      <noscript>
-        <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
+        <noscript>
+          <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ metadata.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
         style="display:none" alt="">
-      </noscript>
+        </noscript>
       {% endif %}
+
     </header>
 
     <main>
-      <article>
-        {% block article %}
-          {{ content | safe }}
-        {% endblock %}
-
-        {% if page.url.indexOf("/posts/") > -1 %}
-          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
-        {% endif %}
-      </article>
+      {% block article %}
+        {{ content | safe }}
+      {% endblock %}
     </main>
 
     <footer>
       <a href="/about/">{{ metadata.author.name }}</a>
     </footer>
 
-    <!-- Current page: {{ page.url | url }} -->
+    {# Current page: {{ page.url | url }} #}
   </body>
 </html>

@@ -11,8 +11,14 @@ date: Last Modified
   <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
 </p>
 
-<div id="posts">
-  <h2>Posts</h2>
-  {% set postslist = collections.posts %}
-  {% include "postslist.njk" %}
+<div class="container">
+  {# <div id="posts">
+    <h2>Posts</h2>
+    {% set postslist = collections.posts %}
+    {% include "postslist.njk" %}
+  </div> #}
+  {% for tag in collections.tagList %}
+    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+  {% endfor %}
 </div>

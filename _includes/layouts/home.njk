@@ -1,5 +1,20 @@
 ---
-layout: layouts/base.njk
+#layout: layouts/base.njk
 templateClass: tmpl-home
 ---
-{{ content | safe }}
+{% extends "layouts/base.njk" %}
+
+{% block extraArticleHeader %}
+  <div class="nav-search">
+    <form action="/search" method="get">
+      <input name="q" class="nav-search-input" type="search" placeholder="search notes..." aria-label="search notes...">
+      <button class="nav-search-submit" type="submit">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block article %}
+  {{ content | safe }}
+{% endblock %}

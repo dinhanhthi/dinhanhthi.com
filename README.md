@@ -9,6 +9,12 @@
 ## TODO
 
 - [x] SCSS to CSS using rollup.
+- [x] URL without trailing slashes `/`? -> keep it!
+- [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
+- [ ] Header
+  - [ ] NAV
+  - [ ] Search box like [this page](https://instructor-support.datacamp.com/en/).
+- [ ] Flexbox index!
 - [ ] USing color based on [dracular](https://github.com/dracula/dracula-theme).
 - [ ] Theme based on [notion's style](https://www.notion.so/Help-Support-e040febf70a94950b8620e6f00005004).
 - [ ] Always [check performance](https://developers.google.com/speed/pagespeed/insights/).
