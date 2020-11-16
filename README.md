@@ -9,15 +9,24 @@
 ## TODO
 
 - [x] SCSS to CSS using rollup.
+  - [x] Rollup watch with sass' components.
 - [x] URL without trailing slashes `/`? -> keep it!
 - [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
+- [ ] Chane font!
 - [ ] Header
   - [ ] NAV
+    - [ ] color like old dat.com
+    - [ ] search box inside nav -> bat chuoc dat.com but full width!
+    - [ ] Change reading process fullfill to underline
   - [ ] Search box like [this page](https://instructor-support.datacamp.com/en/).
 - [ ] Flexbox index!
-- [ ] USing color based on [dracular](https://github.com/dracula/dracula-theme).
+  - [x] List of tags
+  - [x] List of posts 
+- [ ] Responsible
+  - [ ] Grid point defined in `main.scss`.
+- [x] USing color based on [dracular](https://github.com/dracula/dracula-theme).
 - [ ] Theme based on [notion's style](https://www.notion.so/Help-Support-e040febf70a94950b8620e6f00005004).
-- [ ] Always [check performance](https://developers.google.com/speed/pagespeed/insights/).
+- [x] Always [check performance](https://developers.google.com/speed/pagespeed/insights/).
 
 ## Build
 

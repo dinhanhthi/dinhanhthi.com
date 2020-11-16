@@ -11,7 +11,7 @@ date: Last Modified
   <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
 </p>
 
-<div class="container">
+<div class="container-flex">
   {# <div id="posts">
     <h2>Posts</h2>
     {% set postslist = collections.posts %}
@@ -19,6 +19,10 @@ date: Last Modified
   </div> #}
   {% for tag in collections.tagList %}
     {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-    <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    <div class="tag-flex">
+      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+      {% set postslist = collections[tag] %}
+      {% include "postslist.njk" %}
+    </div>
   {% endfor %}
 </div>

@@ -1,3 +1,20 @@
-@import "./components/main";
+// https://github.com/dracula/dracula-theme
+$c-background: #282a36;
+$c-current-line: #44475a;
+$c-selection: #44475a;
+$c-foreground: #f8f8f2;
+$c-comment: #6272a4;
+$c-cyan: #8be9fd;
+$c-green: #50fa7b;
+$c-orange: #ffb86c;
+$c-pink: #ff79c6;
+$c-purple: #bd93f9;
+$c-red: #ff5555;
+$c-yellow: #f1fa8c;
+
+@import "./components/main"; // init css
 @import "./components/font";
 @import "./components/grid";
+@import "./components/index"; // for home page
+@import "./components/header";
+@import "./components/footer";

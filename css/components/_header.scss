@@ -1,0 +1,69 @@
+/* "Content-visibility: auto" move the images over the other elements
+   Set z-index to keep the nav over the rasterized images */
+
+header nav {
+  z-index: 1;
+}
+
+#nav {
+  z-index: 2;
+  position: relative;
+}
+
+header {
+  padding: 4.5em 1.5em 3em;
+  width: 37.5em;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    margin-top: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0.375em 1.5em;
+    background: #313131;
+    font-weight: 200;
+    text-align: right;
+
+    h1 {
+      float: left;
+      font-size: inherit;
+      line-height: inherit;
+      margin: 0;
+      text-align: left;
+    }
+
+    a {
+      font-weight: 600;
+      text-decoration: none;
+      font-family: Inter UI, sans-serif;
+      color: #eee;
+      margin-left: 1.5em;
+
+      &:first-of-type {
+        margin-left: auto;
+      }
+
+      &:last-of-type {
+        margin-right: 1.5em;
+      }
+    }
+
+    label {
+      color: #000;
+      cursor: pointer;
+      margin: 0;
+      font-style: normal;
+      text-align: right;
+    }
+  }
+}

@@ -1,5 +1,26 @@
 # DEV NOTES
 
+## Test cases
+
+Test cases are stored in `/test/`.
+
+## Watch SCSS
+
+``` js
+// rollup.config.js
+export default [{
+    input: 'css/main_input.js',
+    output: {
+      file: 'css/main.js',
+      format: 'esm'
+    },
+    plugins: [
+      scss({
+        watch: ['css/components', 'css'], // <-- this one!
+      })]
+}];
+```
+
 ## Template inheritance
 
 Read [this tutorial](https://mozilla.github.io/nunjucks/templating.html#template-inheritance).

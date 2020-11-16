@@ -20,7 +20,9 @@ export default [
       format: 'esm'
     },
     plugins: [
-      scss()
+      scss({
+        watch: ['css/components', 'css'],
+      })
     ]
   }
 ];
