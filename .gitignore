@@ -7,3 +7,4 @@ js/min.js.map
 .netlify/
 .cache/
 package-lock.json
+css/main.js

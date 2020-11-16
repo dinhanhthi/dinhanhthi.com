@@ -1,14 +1,17 @@
-# dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ae2637e4-f348-4ba4-9ed2-eaf31e941aa3/deploy-status)](https://app.netlify.com/sites/relaxed-newton-80720e/deploys)
+# dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/19c8cf98-727e-4c9f-85cc-f8ea98133896/deploy-status)](https://app.netlify.com/sites/nostalgic-williams-c413ff/deploys)
 
-__Source__: https://github.com/google/eleventy-high-performance-blog
-
-__Demo__ (WIP): https://new.dinhanhthi.com/
+📌 __Source__: https://github.com/google/eleventy-high-performance-blog <br />
+⭐ __Demo__: https://new.dinhanhthi.com/ <br />
+🚀 __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fnew.dinhanhthi.com). <br />
+📚 __Dev notes__: [./DEV_NOTE.md](./DEV_NOTE.md)
 
 
 ## TODO
 
-- [ ] Keep basic things.
-- [ ] Change things by searching "update me" across your IDE.
+- [x] SCSS to CSS using rollup.
+- [ ] USing color based on [dracular](https://github.com/dracula/dracula-theme).
+- [ ] Theme based on [notion's style](https://www.notion.so/Help-Support-e040febf70a94950b8620e6f00005004).
+- [ ] Always [check performance](https://developers.google.com/speed/pagespeed/insights/).
 
 ## Build
 
