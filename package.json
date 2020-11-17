@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm run js-build && eleventy && npm run test",
     "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
+    "thi": "concurrently \"eleventy --serve\" \"npm run js-build-watch\"",
     "serve": "eleventy --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",

@@ -4,6 +4,11 @@
 
 Test cases are stored in `/test/`.
 
+## Google fonts
+
+- Put fonts in `fonts/` and use [this tool](http://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin) to generate `.woff`, `woff2` from Google Fonts.
+- If you have a problem with `Content-Security-Policy`, check section [Issuses](#issues).
+
 ## Include
 
 ``` js
@@ -47,7 +52,7 @@ Read [this tutorial](https://mozilla.github.io/nunjucks/templating.html#template
 }
 ```
 
-## SCSS using rollup
+## SCSS using rollupIssuses
 
 Using plugin `rollup-plugin-scss`, note that, to use multiple rollup plugins,
 
