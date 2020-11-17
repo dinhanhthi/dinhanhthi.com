@@ -200,12 +200,17 @@ h6 {
   margin-bottom: 1.5em; }
 
 .container-flex {
+  width: 1600px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap; }
 
-.tag-flex {
+.cat-flex {
   flex-grow: 1;
-  width: 33%; }
+  width: 33%;
+  padding: 2rem; }
+  .cat-flex h2 {
+    font-size: 1.5rem; }
 
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */

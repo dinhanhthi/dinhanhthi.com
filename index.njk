@@ -11,9 +11,8 @@ eleventyNavigation:
 
 <div class="container-flex">
   {% for tag in collections.tagList %}
-    {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-    <div class="tag-flex">
-      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+    <div class="cat-flex">
+      <h2>{{ tag }}</h2>
       {% set postslist = collections[tag] %}
       {% include "postslist.njk" %}
     </div>

@@ -12,18 +12,19 @@
   - [x] Rollup watch with sass' components.
 - [x] URL without trailing slashes `/`? -> keep it!
 - [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
+  - [This post](https://www.pborenstein.com/posts/collections/) is also interesting.
 - [x] Chane font! -> use [this tool](http://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin) to generate woff2/woff fonts. -> use [Poppins font](https://fonts.google.com/specimen/Poppins).
 - [ ] Header
-  - [ ] NAV
-    - [ ] color like old dat.com
-    - [ ] search box inside nav -> bat chuoc dat.com but full width!
-    - [ ] Change reading process fullfill to underline
-  - [ ] Search box like [this page](https://instructor-support.datacamp.com/en/).
+  - [x] NAV
+    - [x] color like old dat.com
+    - [x] search box inside nav -> bat chuoc dat.com but full width!
+    - [x] Change reading process fullfill to underline
+  - [x] ~~Search box like [this page](https://instructor-support.datacamp.com/en/).~~
 - [ ] Flexbox index!
   - [x] List of tags
   - [x] List of posts 
 - [ ] Responsible
-  - [ ] Grid point defined in `main.scss`.
+  - [x] Grid point defined in `main.scss`.
 - [x] USing color based on [dracular](https://github.com/dracula/dracula-theme).
 - [ ] Theme based on [notion's style](https://www.notion.so/Help-Support-e040febf70a94950b8620e6f00005004).
 - [x] Always [check performance](https://developers.google.com/speed/pagespeed/insights/).
