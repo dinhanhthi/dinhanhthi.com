@@ -17,7 +17,9 @@ $c-yellow: #f1fa8c;
 // FONTS
 $font-main: 'Poppins', Arial, Helvetica, sans-serif;
 $font-main-var: 'Poppins' var alt, Arial, Helvetica, sans-serif;
+$font-heading: 'Recoleta';
 $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+$font-bold: 600;
 
 
 // GRIDS
@@ -27,8 +29,9 @@ $grid-md: 768px;
 $grid-lg: 992px;
 $grid-xl: 1200px;
 
-@import "./components/main"; // init css
 @import "./components/font";
+@import "./components/main"; // init css
+@import "./components/heading";
 @import "./components/grid";
 @import "./components/index"; // for home page
 @import "./components/header";

@@ -11,8 +11,8 @@ header nav {
 }
 
 header {
-  padding: 4.5em 1.5em 3em;
-  width: 37.5em;
+  padding: 2em 1.5em 1em;
+  width: 900px;
   margin: 0 auto;
   text-align: center;
   max-width: 100%;
@@ -20,8 +20,13 @@ header {
   align-items: center;
   flex-direction: column;
 
+  h1{
+    margin: 2.5rem 0 1rem;
+  }
+
   p {
     margin-top: 0;
+    font-size: 1.15rem;
   }
 }
 
@@ -130,7 +135,7 @@ nav {
 }
 
 #reading-progress {
-  z-index: 1;
+  z-index: 3;
   border-bottom: 1px solid var(--primary);
   width: 100vw;
   position: absolute;

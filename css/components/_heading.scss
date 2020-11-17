@@ -1,0 +1,34 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+}
+
+h1{
+  font-family: $font-heading;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.6em;
+}
+
+h3 {
+  font-size: 2em;
+  margin-bottom: 0.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+h5 {
+  font-size: 1.25em;
+  margin-bottom: 1.2em;
+}
+
+h6 {
+  font-size: 1em;
+  margin-bottom: 1.5em;
+}

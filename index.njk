@@ -1,5 +1,5 @@
 ---
-title: Anh-Thi DINH
+title: "Hi! I'm Thi :)"
 layout: layouts/home.njk
 description: I failed my way to success
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
@@ -9,17 +9,7 @@ eleventyNavigation:
   order: 1
 ---
 
-<p>
-  This is a demo website based on
-  <a href="https://www.industrialempathy.com/posts/eleventy-high-performance-blog/">eleventy-high-performance-blog</a>.
-</p>
-
 <div class="container-flex">
-  {# <div id="posts">
-    <h2>Posts</h2>
-    {% set postslist = collections.posts %}
-    {% include "postslist.njk" %}
-  </div> #}
   {% for tag in collections.tagList %}
     {% set tagUrl %}/tags/{{ tag }}/{% endset %}
     <div class="tag-flex">
