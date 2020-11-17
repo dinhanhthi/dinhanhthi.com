@@ -12,7 +12,7 @@
   - [x] Rollup watch with sass' components.
 - [x] URL without trailing slashes `/`? -> keep it!
 - [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
-- [x] Chane font! -> use [this tool](http://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin) to generate woff2/woff fonts.
+- [x] Chane font! -> use [this tool](http://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin) to generate woff2/woff fonts. -> use [Poppins font](https://fonts.google.com/specimen/Poppins).
 - [ ] Header
   - [ ] NAV
     - [ ] color like old dat.com
@@ -36,8 +36,11 @@
 
 npm install
 
+# build + watch
+npm run thi
+
 # Build, serve, watch and test
-npm watch
+npm run watch
 
 # build and test
 npm run build

@@ -1,3 +1,4 @@
+// COLORS
 // https://github.com/dracula/dracula-theme
 $c-background: #282a36;
 $c-current-line: #44475a;
@@ -11,6 +12,20 @@ $c-pink: #ff79c6;
 $c-purple: #bd93f9;
 $c-red: #ff5555;
 $c-yellow: #f1fa8c;
+
+
+// FONTS
+$font-main: 'Poppins', Arial, Helvetica, sans-serif;
+$font-main-var: 'Poppins' var alt, Arial, Helvetica, sans-serif;
+$font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+
+
+// GRIDS
+$grid-xs: 350px;
+$grid-sm: 576px;
+$grid-md: 768px;
+$grid-lg: 992px;
+$grid-xl: 1200px;
 
 @import "./components/main"; // init css
 @import "./components/font";

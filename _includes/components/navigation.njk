@@ -1,0 +1,24 @@
+<nav>
+  <div id="nav">
+    <a class="nav-item" href="{{ '/' | url }}">
+      <i style="color: #ffeead;" class="fas fa-home" aria-hidden="true"></i>
+      <span>Thi</span>
+    </a>
+    <a class="nav-item" href="{{ '/about/' | url }}">
+      <i style="color: #e97c8e;" class="fas fa-fire" aria-hidden="true"></i>
+      <span>About</span>
+    </a>
+    <div class="nav-search">
+      <form action="{{ '/search/' | url }}" method="get">
+        <button class="nav-search-submit" type="submit">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+        <input name="q" class="nav-search-input" type="search" placeholder="search notes..." aria-label="search notes...">
+      </form>
+    </div>
+    <a class="nav-item nav-github" href="https://github.com/dinhanhthi" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+  <div id="reading-progress" aria-hidden="true"></div>
+</nav>

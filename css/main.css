@@ -63,18 +63,6 @@ dl {
 header aside {
   font-style: italic; }
 
-#reading-progress {
-  z-index: 1;
-  background-color: var(--primary);
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transform: translate(-100vw, 0);
-  will-change: transform;
-  pointer-events: none; }
-
 #posts li {
   margin-bottom: 0.5em; }
 
@@ -430,7 +418,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
+  font-family: "Poppins", Arial, Helvetica, sans-serif; }
 
 h2,
 h4,
@@ -467,18 +455,11 @@ dt {
     display: table-cell; } }
 
 html {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
+  font-family: "Poppins", Arial, Helvetica, sans-serif; }
 
 @supports (font-variation-settings: normal) {
   html {
-    font-family: 'Open Sans' var alt, Arial, Helvetica, sans-serif; } }
-
-form {
-  padding: 1.5em 1.5em 0;
-  border: 0.2rem solid #202020;
-  margin-bottom: 1.5em; }
-  form small {
-    font-style: italic; }
+    font-family: "Poppins" var alt, Arial, Helvetica, sans-serif; } }
 
 fieldset {
   padding: 0;
@@ -486,137 +467,6 @@ fieldset {
   fieldset legend {
     font-size: 150%;
     margin-bottom: 0.75em; }
-
-button,
-input,
-select,
-textarea {
-  border-radius: 0.3em;
-  display: inline-block;
-  padding: 0.75em;
-  max-width: 100%; }
-
-button + input[type="checkbox"], button + input[type="radio"] {
-  page-break-before: always; }
-
-button + label {
-  page-break-before: always; }
-
-input + input[type="checkbox"], input + input[type="radio"] {
-  page-break-before: always; }
-
-input + label {
-  page-break-before: always; }
-
-select + input[type="checkbox"], select + input[type="radio"] {
-  page-break-before: always; }
-
-select + label {
-  page-break-before: always; }
-
-textarea + input[type="checkbox"], textarea + input[type="radio"] {
-  page-break-before: always; }
-
-textarea + label {
-  page-break-before: always; }
-
-input,
-select {
-  margin-bottom: 1.5em; }
-
-textarea {
-  margin-bottom: 1.5em;
-  min-height: 7.5em;
-  min-width: 15em; }
-
-label {
-  display: inline-block; }
-  label + * {
-    page-break-before: always; }
-
-fieldset > * {
-  display: block; }
-
-input,
-select {
-  display: inline; }
-
-fieldset > *,
-form > :not(fieldset) {
-  margin-right: 0.75em; }
-
-button {
-  background: #f2f2f2;
-  color: #191919;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.75em 1.5em;
-  text-align: center;
-  margin: 0 0.75em 1.5em 0; }
-
-input[type="reset"], input[type="submit"] {
-  background: #f2f2f2;
-  color: #191919;
-  cursor: pointer;
-  display: inline-block;
-  padding: 0.75em 1.5em;
-  text-align: center;
-  margin: 0 0.75em 1.5em 0; }
-
-button:hover {
-  background: #d9d9d9;
-  color: #000; }
-
-input[type="reset"]:hover, input[type="submit"]:hover {
-  background: #d9d9d9;
-  color: #000; }
-
-button[disabled] {
-  background: #e6e6e6;
-  color: #404040;
-  cursor: not-allowed; }
-
-input[type="reset"][disabled], input[type="submit"][disabled] {
-  background: #e6e6e6;
-  color: #404040;
-  cursor: not-allowed; }
-
-button:not([disabled]), button[type="submit"] {
-  background: #f9c412;
-  color: #181818; }
-
-input[type="submit"] {
-  background: #f9c412;
-  color: #181818; }
-
-button:not([disabled]):hover, button[type="submit"]:hover {
-  background: #ba9005;
-  color: #000; }
-
-input[type="submit"]:hover {
-  background: #ba9005;
-  color: #000; }
-
-input[type="color"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="file"], input[type="month"], input[type="number"], input[type="password"], input[type="phone"], input[type="range"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
-  border: 1px solid #595959;
-  padding: 0.75em; }
-
-select,
-textarea {
-  border: 1px solid #595959;
-  padding: 0.75em; }
-
-input[type="checkbox"], input[type="radio"] {
-  flex-grow: 0;
-  margin: 0.75em 0.375em 0.75em 0;
-  vertical-align: middle; }
-
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  page-break-before: avoid; }
-
-select[multiple] {
-  min-width: 15em; }
 
 * {
   border: 0;
@@ -626,7 +476,7 @@ img {
   max-width: 100%; }
 
 body {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   background: #282a36;
   color: #eee; }
 
@@ -826,64 +676,44 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary); }
 
-/* open-sans-regular - latin */
+/* poppins-regular - latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/open-sans-v18-latin-regular.eot");
+  src: url("/fonts/poppins/poppins-v15-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url("/fonts/open-sans-v18-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-regular.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-regular.woff") format("woff"), url("/fonts/open-sans-v18-latin-regular.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-regular.svg#OpenSans") format("svg");
+  src: local("Poppins Regular"), local("Poppins-Regular"), url("/fonts/poppins/poppins-v15-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/poppins/poppins-v15-latin-regular.woff2") format("woff2"), url("/fonts/poppins/poppins-v15-latin-regular.woff") format("woff"), url("/fonts/poppins/poppins-v15-latin-regular.ttf") format("truetype"), url("/fonts/poppins/poppins-v15-latin-regular.svg#Poppins") format("svg");
   /* Legacy iOS */ }
 
-/* open-sans-italic - latin */
+/* poppins-italic - latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
-  src: url("/fonts/open-sans-v18-latin-italic.eot");
+  src: url("/fonts/poppins/poppins-v15-latin-italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Italic"), local("OpenSans-Italic"), url("/fonts/open-sans-v18-latin-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-italic.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-italic.woff") format("woff"), url("/fonts/open-sans-v18-latin-italic.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-italic.svg#OpenSans") format("svg");
+  src: local("Poppins Italic"), local("Poppins-Italic"), url("/fonts/poppins/poppins-v15-latin-italic.eot?#iefix") format("embedded-opentype"), url("/fonts/poppins/poppins-v15-latin-italic.woff2") format("woff2"), url("/fonts/poppins/poppins-v15-latin-italic.woff") format("woff"), url("/fonts/poppins/poppins-v15-latin-italic.ttf") format("truetype"), url("/fonts/poppins/poppins-v15-latin-italic.svg#Poppins") format("svg");
   /* Legacy iOS */ }
 
-/* open-sans-600 - latin */
+/* poppins-700 - latin */
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/open-sans-v18-latin-600.eot");
-  /* IE9 Compat Modes */
-  src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"), url("/fonts/open-sans-v18-latin-600.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-600.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-600.woff") format("woff"), url("/fonts/open-sans-v18-latin-600.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-600.svg#OpenSans") format("svg");
-  /* Legacy iOS */ }
-
-/* open-sans-600italic - latin */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 600;
-  src: url("/fonts/open-sans-v18-latin-600italic.eot");
-  /* IE9 Compat Modes */
-  src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic"), url("/fonts/open-sans-v18-latin-600italic.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-600italic.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-600italic.woff") format("woff"), url("/fonts/open-sans-v18-latin-600italic.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-600italic.svg#OpenSans") format("svg");
-  /* Legacy iOS */ }
-
-/* open-sans-700 - latin */
-@font-face {
-  font-family: 'Open Sans';
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  src: url("/fonts/open-sans-v18-latin-700.eot");
+  src: url("/fonts/poppins/poppins-v15-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url("/fonts/open-sans-v18-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-700.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-700.woff") format("woff"), url("/fonts/open-sans-v18-latin-700.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-700.svg#OpenSans") format("svg");
+  src: local("Poppins Bold"), local("Poppins-Bold"), url("/fonts/poppins/poppins-v15-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts/poppins/poppins-v15-latin-700.woff2") format("woff2"), url("/fonts/poppins/poppins-v15-latin-700.woff") format("woff"), url("/fonts/poppins/poppins-v15-latin-700.ttf") format("truetype"), url("/fonts/poppins/poppins-v15-latin-700.svg#Poppins") format("svg");
   /* Legacy iOS */ }
 
-/* open-sans-700italic - latin */
+/* poppins-700italic - latin */
 @font-face {
-  font-family: 'Open Sans';
+  font-family: "Poppins";
   font-style: italic;
   font-weight: 700;
-  src: url("/fonts/open-sans-v18-latin-700italic.eot");
+  src: url("/fonts/poppins/poppins-v15-latin-700italic.eot");
   /* IE9 Compat Modes */
-  src: local("Open Sans Bold Italic"), local("OpenSans-BoldItalic"), url("/fonts/open-sans-v18-latin-700italic.eot?#iefix") format("embedded-opentype"), url("/fonts/open-sans-v18-latin-700italic.woff2") format("woff2"), url("/fonts/open-sans-v18-latin-700italic.woff") format("woff"), url("/fonts/open-sans-v18-latin-700italic.ttf") format("truetype"), url("/fonts/open-sans-v18-latin-700italic.svg#OpenSans") format("svg");
+  src: local("Poppins Bold Italic"), local("Poppins-BoldItalic"), url("/fonts/poppins/poppins-v15-latin-700italic.eot?#iefix") format("embedded-opentype"), url("/fonts/poppins/poppins-v15-latin-700italic.woff2") format("woff2"), url("/fonts/poppins/poppins-v15-latin-700italic.woff") format("woff"), url("/fonts/poppins/poppins-v15-latin-700italic.ttf") format("truetype"), url("/fonts/poppins/poppins-v15-latin-700italic.svg#Poppins") format("svg");
   /* Legacy iOS */ }
 
 .container-flex {
@@ -914,37 +744,99 @@ header {
   flex-direction: column; }
   header p {
     margin-top: 0; }
-  header nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 0.375em 1.5em;
-    background: #313131;
-    font-weight: 200;
-    text-align: right; }
-    header nav h1 {
-      float: left;
-      font-size: inherit;
-      line-height: inherit;
-      margin: 0;
-      text-align: left; }
-    header nav a {
-      font-weight: 600;
-      text-decoration: none;
-      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-      color: #eee;
-      margin-left: 1.5em; }
-      header nav a:first-of-type {
-        margin-left: auto; }
-      header nav a:last-of-type {
-        margin-right: 1.5em; }
-    header nav label {
-      color: #000;
-      cursor: pointer;
-      margin: 0;
-      font-style: normal;
-      text-align: right; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0 1.5em;
+  background: #35373c; }
+  @media (max-width: 992px) {
+    nav {
+      padding: 0 1em; } }
+  @media (max-width: 576px) {
+    nav {
+      padding: 0 0.5em; } }
+  nav #nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center; }
+    nav #nav a {
+      color: #ccc;
+      font-size: 1rem;
+      white-space: nowrap;
+      margin-right: 15px;
+      padding: 0 0.5rem;
+      font-size: 1rem;
+      white-space: nowrap; }
+      nav #nav a i {
+        margin-right: 3px; }
+      nav #nav a:hover {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none; }
+    nav #nav .nav-item {
+      text-align: left;
+      margin-right: 5px; }
+      @media (min-width: 421px) {
+        nav #nav .nav-item {
+          padding-left: 0 !important; } }
+      @media (max-width: 420px) {
+        nav #nav .nav-item {
+          width: unset !important; }
+          nav #nav .nav-item span {
+            display: none; } }
+      @media (min-width: 768px) {
+        nav #nav .nav-item {
+          margin-right: 15px; } }
+    nav #nav .nav-github {
+      text-align: right;
+      padding-right: 0 !important;
+      margin-right: 0 !important; }
+    nav #nav .nav-search {
+      display: block;
+      background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
+      width: 100%; }
+      nav #nav .nav-search form {
+        display: flex; }
+      nav #nav .nav-search .nav-search-submit {
+        background: 0 0;
+        border: 0;
+        padding: .5rem 0.2rem .3rem .6rem;
+        text-align: center;
+        font-size: 1rem;
+        color: #aaa;
+        font-weight: 700;
+        cursor: pointer; }
+        nav #nav .nav-search .nav-search-submit:hover {
+          color: #89e089; }
+        nav #nav .nav-search .nav-search-submit:focus {
+          border: 0;
+          outline: none; }
+      nav #nav .nav-search .nav-search-input {
+        border: 0;
+        background: transparent;
+        color: #ddd;
+        font-size: 1rem;
+        padding: 0.65rem 0.5rem 0.65rem 0.25rem;
+        width: 100%; }
+        nav #nav .nav-search .nav-search-input:focus {
+          outline: none;
+          border: 0; }
+
+#reading-progress {
+  z-index: 1;
+  border-bottom: 1px solid var(--primary);
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translate(-100vw, 0);
+  will-change: transform;
+  pointer-events: none; }
 
 footer {
   background: rgba(0, 0, 0, 0.8);

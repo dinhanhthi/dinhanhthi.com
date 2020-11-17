@@ -23,47 +23,121 @@ header {
   p {
     margin-top: 0;
   }
+}
 
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    padding: 0.375em 1.5em;
-    background: #313131;
-    font-weight: 200;
-    text-align: right;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0 1.5em;
+  background: #35373c;
 
-    h1 {
-      float: left;
-      font-size: inherit;
-      line-height: inherit;
-      margin: 0;
-      text-align: left;
-    }
+  @media (max-width: $grid-lg){
+    padding: 0 1em;
+  }
+
+  @media (max-width: $grid-sm){
+    padding: 0 0.5em;
+  }
+
+  #nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
 
     a {
-      font-weight: 600;
-      text-decoration: none;
-      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-      color: #eee;
-      margin-left: 1.5em;
-
-      &:first-of-type {
-        margin-left: auto;
+      color: #ccc;
+      font-size: 1rem;
+      white-space: nowrap;
+      margin-right: 15px;
+      i {
+        margin-right: 3px;
       }
-
-      &:last-of-type {
-        margin-right: 1.5em;
+      padding: 0 0.5rem;
+      font-size: 1rem;
+      white-space: nowrap;
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
       }
     }
 
-    label {
-      color: #000;
-      cursor: pointer;
-      margin: 0;
-      font-style: normal;
+    .nav-item {
+      text-align: left;
+      margin-right: 5px;
+      @media (min-width: 421px) {
+        padding-left: 0 !important;
+      }
+      @media (max-width: 420px) {
+        span {
+          display: none;
+        }
+        width: unset !important;
+      }
+      @media (min-width: 768px) {
+        margin-right: 15px;
+      }
+    }
+
+    .nav-github {
       text-align: right;
+      padding-right: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .nav-search {
+      display: block;
+      background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
+      width: 100%;
+
+      form {
+        display: flex;
+      }
+      .nav-search-submit {
+        background: 0 0;
+        border: 0;
+        padding: .5rem 0.2rem .3rem .6rem;
+        text-align: center;
+        font-size: 1rem;
+        color: #aaa;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover {
+          color: #89e089;
+        }
+        &:focus {
+          border: 0;
+          outline: none;
+        }
+      }
+      .nav-search-input {
+        border: 0;
+        background: transparent;
+        color: #ddd;
+        font-size: 1rem;
+        padding: 0.65rem 0.5rem 0.65rem 0.25rem;
+        width: 100%;
+        &:focus {
+          outline: none;
+          border: 0;
+        }
+      }
     }
   }
+}
+
+#reading-progress {
+  z-index: 1;
+  border-bottom: 1px solid var(--primary);
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translate(-100vw, 0);
+  will-change: transform;
+  pointer-events: none;
 }

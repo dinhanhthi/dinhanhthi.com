@@ -10,19 +10,7 @@
 
   <body>
     <header>
-
-      <nav>
-        <div id="nav">
-          <h1>
-            <a href="{{ '/' | url }}" title="Homepage">{{ metadata.title }}</a>
-          </h1>
-          {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-          {%- for entry in collections.all | eleventyNavigation %}
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-          {%- endfor %}
-        </div>
-        <div id="reading-progress" aria-hidden="true"></div>
-      </nav>
+      {% include "components/navigation.njk" %}
 
       {% block headerTitle %}
         <h1>{{ title }}</h1>
