@@ -4,6 +4,13 @@
 
 Test cases are stored in `/test/`.
 
+## Include
+
+``` js
+// in _includes/components/head.njk
+{% include "components/head.njk" %}
+```
+
 ## Watch SCSS
 
 ``` js
@@ -63,3 +70,23 @@ export default [
   }
 ];
 ```
+
+## Issues
+
+``` js
+// Problem of "Content-Security-Policy" (CSP)
+// _data/csp.js
+const CSP = {
+  regular: serialize([
+    // Inline CSS is allowed.
+    ["style-src", SELF, "https://fonts.googleapis.com/", quote("unsafe-inline")],
+    ["font-src", SELF, "https://fonts.gstatic.com/"],
+  ]),
+};
+
+// equivalent phrase (put in <head>)
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com/; style-src 'self' https://fonts.googleapis.com/ 'unsafe-inline';">
+// quote() -> for '', e.g. 'self'
+// "abc" -> doesn't mean 'abc' in <meta>
+```
+

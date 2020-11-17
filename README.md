@@ -12,7 +12,7 @@
   - [x] Rollup watch with sass' components.
 - [x] URL without trailing slashes `/`? -> keep it!
 - [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
-- [ ] Chane font!
+- [ ] Chane font! -> read [this](https://www.pagecloud.com/blog/how-to-add-custom-fonts-to-any-website) also
 - [ ] Header
   - [ ] NAV
     - [ ] color like old dat.com

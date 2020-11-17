@@ -548,7 +548,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Inter UI, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 h2,
@@ -600,12 +600,12 @@ dt {
 }
 
 html {
-  font-family: Inter UI, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 @supports (font-variation-settings: normal) {
   html {
-    font-family: Inter UI var alt, sans-serif;
+    font-family: 'Open Sans' var alt, Arial, Helvetica, sans-serif;
   }
 }
 

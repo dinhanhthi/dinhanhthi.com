@@ -5,62 +5,9 @@
     ga-id="{{ googleanalytics }}"
     {% endif %}
   >
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
-    {% if isdevelopment %}
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    {% else %}
-      <link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
-    {% endif %}
-    <meta name="theme-color" content="#f9c412">
-    <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
-    <title>{{ renderData.title or title or metadata.title | escape }}</title>
-    <meta property="og:title" content="{{ renderData.title or title or metadata.title | escape  }}">
-    {% set desc = renderData.description or description %}
-    {% if not desc %}
-      {% set desc = content | striptags | truncate(140) %}
-    {% endif %}
-    {% if desc %}
-      <meta name="description" content="{{ desc | escape  }}">
-      <meta property="og:description" content="{{ desc | escape }}">
-    {% endif %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
-    <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
-    {% if image %}
-      <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
-    {% endif %}
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  {% include "components/head.njk" %}
 
-    <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
-    <!-- This is a blog and so it SHOULD be safe and it is nice for the web
-         to send referrers cross-origin.
-         However, if you use sensitive data in URLs, consider changing this to
-         a value like `origin-when-cross-origin`
-         https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
-          -->
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-
-    <link rel="preconnect" href="/" crossorigin>
-    <script async defer src="{{ "/js/min.js" | addHash }}"></script>
-    {% if googleanalytics %}
-      <script async defer src="{{ "/js/cached.js" | addHash }}"></script>
-    {% endif %}
-    <!-- Notably iOS UAs also contain Mac OS X -->
-    <script csp-hash>
-      if (/Mac OS X/.test(navigator.userAgent))
-        document
-          .documentElement
-          .classList
-          .add('apple')
-    </script>
-    <!-- css is inserted by optimize-html custom plugin -->
-  </head>
   <body>
     <header>
 
