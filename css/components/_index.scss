@@ -8,7 +8,12 @@
 .cat-flex {
 	width: 33%;
 	padding: 2rem;
+
 	border-bottom: 1px solid #444;
+	&:nth-last-child(-n+2){
+		border-bottom: none; // change if the number of categories changes
+	}
+
 	h2 {
 		font-size: 1.55rem;
 		img {

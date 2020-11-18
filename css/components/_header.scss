@@ -68,8 +68,11 @@ nav {
       font-size: 1rem;
       white-space: nowrap;
       margin-right: 15px;
-      i {
-        margin-right: 3px;
+
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 5px;
       }
       padding: 0 0.5rem;
       font-size: 1rem;
