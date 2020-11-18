@@ -1,6 +1,7 @@
 ---
 title: "Hi! I'm Thi :)"
-layout: layouts/home.njk
+layout: layouts/page.njk
+header: homepage
 description: I failed my way to success
 image: https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
 date: Last Modified
@@ -10,10 +11,11 @@ eleventyNavigation:
 ---
 
 <div class="container-flex">
-  {% for tag in collections.tagList %}
+  {% for tag in categories %}
     <div class="cat-flex">
-      <h2>{{ tag }}</h2>
-      {% set postslist = collections[tag] %}
+      <h2>{% if tag.logo %}{{ tag.logo }} {% elif tag.svg %}<img src="{{ tag.svg }}" alt="r-lang" height="30" width="30">{% endif %}{{ tag.name }}</h2>
+      {% set postslist = collections[tag.name] %}
+      {% set customClass = 'list-homepage' %}
       {% include "postslist.njk" %}
     </div>
   {% endfor %}

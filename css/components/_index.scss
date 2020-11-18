@@ -1,15 +1,50 @@
 .container-flex {
-    width: 1600px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+	width: 1600px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .cat-flex {
-    flex-grow: 1;
-    width: 33%;
-    padding: 2rem;
-    h2{
-        font-size: 1.5rem;
-    }
+	width: 33%;
+	padding: 2rem;
+	border-bottom: 1px solid #444;
+	h2 {
+		font-size: 1.55rem;
+		img {
+			float: left;
+			margin-right: 7px;
+		}
+	}
+	.list-homepage {
+		list-style: none;
+		padding-left: 10px;
+		li {
+			padding-left: 15px;
+			margin-bottom: 10px;
+			a {
+				color: #ddd;
+				border-bottom: 2px solid rgba(255, 255, 255, 0.14);
+				border-style: dotted;
+			}
+
+			&::before {
+				content: "📄";
+				margin-right: 5px;
+				margin-left: -25px;
+				opacity: 0.8;
+			}
+
+			&:hover {
+				a {
+					border-color: #949494;
+					color: #eee;
+				}
+				cursor: pointer;
+				&::before{
+					opacity: 1;
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,25 @@
+---
+#layout: layouts/base.njk
+templateClass: tmpl-home
+---
+{% extends "layouts/base.njk" %}
+
+{% block headerLogo%}
+  {% if header == "homepage" %}
+    <div class="avatar">
+      <img alt="Thi's avatar" src="/img/avatar.svg">
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block extraArticleHeader %}
+  {% if header == 'homepage' %}
+    <p>
+      I'm a Vietnamese guy who has a curious mind. I'd like to learn something new everyday. I'm a PhD in Applied Maths and currently a <b>Data Scientist</b>. You find in this site my notes which are taken when I've found something new in <b>Data Science</b> and <b>Web Developement.</b>
+    </p>
+  {% endif %}
+{% endblock %}
+
+{% block article %}
+  {{ content | safe }}
+{% endblock %}

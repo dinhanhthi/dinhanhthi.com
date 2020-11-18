@@ -13,6 +13,10 @@
 - [x] URL without trailing slashes `/`? -> keep it!
 - [x] Categories? -> use tags as cats! -> __each post has only 1 tag__! (in the case changing idea, read [this post](https://www.webstoemp.com/blog/basic-custom-taxonomies-with-eleventy/))
   - [This post](https://www.pborenstein.com/posts/collections/) is also interesting.
+- [x] Custom frontmatter keys
+- [ ] Tags
+  - [ ] List tags in own way
+  - [ ] Tag with custom icon
 - [x] Chane font! -> use [this tool](http://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin) to generate woff2/woff fonts. -> use [Poppins font](https://fonts.google.com/specimen/Poppins).
 - [ ] Header
   - [x] NAV

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* poppins-regular - latin */
 @font-face {
   font-family: "Poppins";
@@ -154,7 +155,7 @@ a {
   color: #f9c412;
   text-decoration: none; }
   a:hover {
-    text-decoration: underline; }
+    text-decoration: none; }
 
 hr {
   border-bottom: 1px solid #eee; }
@@ -206,11 +207,36 @@ h6 {
   flex-wrap: wrap; }
 
 .cat-flex {
-  flex-grow: 1;
   width: 33%;
-  padding: 2rem; }
+  padding: 2rem;
+  border-bottom: 1px solid #444; }
   .cat-flex h2 {
-    font-size: 1.5rem; }
+    font-size: 1.55rem; }
+    .cat-flex h2 img {
+      float: left;
+      margin-right: 7px; }
+  .cat-flex .list-homepage {
+    list-style: none;
+    padding-left: 10px; }
+    .cat-flex .list-homepage li {
+      padding-left: 15px;
+      margin-bottom: 10px; }
+      .cat-flex .list-homepage li a {
+        color: #ddd;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.14);
+        border-style: dotted; }
+      .cat-flex .list-homepage li::before {
+        content: "📄";
+        margin-right: 5px;
+        margin-left: -25px;
+        opacity: 0.8; }
+      .cat-flex .list-homepage li:hover {
+        cursor: pointer; }
+        .cat-flex .list-homepage li:hover a {
+          border-color: #949494;
+          color: #eee; }
+        .cat-flex .list-homepage li:hover::before {
+          opacity: 1; }
 
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
@@ -222,7 +248,7 @@ header nav {
   position: relative; }
 
 header {
-  padding: 2em 1.5em 1em;
+  padding: 4em 1.5em 1em;
   width: 900px;
   margin: 0 auto;
   text-align: center;
@@ -231,10 +257,18 @@ header {
   align-items: center;
   flex-direction: column; }
   header h1 {
-    margin: 2.5rem 0 1rem; }
+    margin-bottom: 1rem;
+    margin-top: 0; }
   header p {
     margin-top: 0;
     font-size: 1.15rem; }
+  header .avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem; }
+    header .avatar img {
+      width: 100%;
+      height: 100%; }
 
 nav {
   position: fixed;

@@ -2,7 +2,7 @@
 title: This is my first post.
 description: This is a post on My Blog about agile frameworks.
 date: 2018-05-01
-tags: [Deep Learning, Machine Learning, MLOps, Skills, MOOC, Data Science, R Lang, Time Series, Python, Prob & Stats, JavaScript, Web Dev, Algorithms, Others]
+tags: [Deep Learning, Project-based Learning, Data Science, Machine Learning, MLOps, Skills, MOOC, Data Science, R Lang, Time Series, Python, Prob & Stats, JavaScript, Web Dev, Algorithms, NLP, Others]
 layout: layouts/post.njk
 image: https://cdn.pixabay.com/photo/2020/08/30/20/54/rice-field-5530707_1280.jpg
 ---

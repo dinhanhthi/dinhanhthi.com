@@ -1,13 +1,13 @@
-<ul>
+<ul{% if customClass %} class="{{ customClass }}"{% endif %}>
   {% for post in postslist | reverse %}
     <li>
-      <a href="{{ post.url | url }}">
+      <a href="{{ post.url | url }}" rel="noopener noreferrer">
         {% if post.data.title %}{{ post.data.title }}
         {% else %}
           <code>{{ post.url }}</code>
         {% endif %}
       </a>
-      {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
     </li>
+    {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
   {% endfor %}
 </ul>

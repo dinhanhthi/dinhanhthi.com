@@ -1,8 +1,81 @@
 # DEV NOTES
 
+## JSON data file
+
+- Using [this tool](https://onlineyamltools.com/convert-yaml-to-json) to convert YML / YAML to JSON.
+- Quite alike to jekyll's.
+- Put `.json` data file to `_data/categories.json`
+
+``` json
+[
+   {
+      "name": "Project-based Learning",
+      "icon": "fas fa-project-diagram",
+      "color": "#e97c8e"
+   },
+   {
+      "name": "MOOC",
+      "icon": "fas fa-laptop-code",
+      "color": "#fdcb6e"
+   },
+   {
+      "name": "Machine Learning",
+      "icon": "fas fa-robot",
+      "color": "#84f9ff"
+   },
+]
+```
+
+Then in any place, use
+
+``` html
+{% for item in categories %}
+	{{ item.name }}
+{% endfor %}
+```
+
+## Filters
+
+List of buit-in filters in Nunjucks: [here](https://mozilla.github.io/nunjucks/templating.html#builtin-filters).
+
+Custom filter in 11ty: [here](https://www.11ty.dev/docs/filters/).
+
+``` bash
+// to lower case
+{{ item | lower }}
+// to upper case
+{{ item | upper }}
+```
+
 ## Test cases
 
 Test cases are stored in `/test/`.
+
+## Frontmatter
+
+``` php+HTML
+# index.html
+​```
+header: homepage
+​```
+
+# used in layout.njk
+{{ header }}
+# not like jekyll ({{ page.header }})
+```
+
+However, below keys are default in 11ty
+
+``` html
+{{ page.url }} {{ page.date }} ...
+```
+
+## Favicon
+
+``` php+HTML
+// png
+<link rel="icon" href="{{ '/img/favicon/favicon-192x192.png' | addHash }}" type="image/png">
+```
 
 ## Google fonts
 
@@ -14,6 +87,11 @@ Test cases are stored in `/test/`.
 ``` js
 // in _includes/components/head.njk
 {% include "components/head.njk" %}
+
+// custom parameter
+{% set customClass = 'list-homepage' %}
+{% include "postslist.njk" %}
+// inside postlist.njk, just use {{ customClass }}
 ```
 
 ## Watch SCSS

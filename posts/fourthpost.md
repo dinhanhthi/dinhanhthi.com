@@ -2,7 +2,7 @@
 title: This is my fourth post Leverage agile frameworks to provide dinh anh thi
 description: This is a post on My Blog.
 date: 2018-09-30
-tags: [Deep Learning, Machine Learning, MLOps, Skills, MOOC, Data Science, R Lang, Time Series, Python, Prob & Stats]
+tags: [Deep Learning, Data Science, Machine Learning, MLOps, Skills, MOOC, Data Science, R Lang, Time Series, Python, Prob & Stats]
 layout: layouts/post.njk
 ---
 

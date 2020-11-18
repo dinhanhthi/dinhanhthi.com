@@ -12,6 +12,8 @@
     <header>
       {% include "components/navigation.njk" %}
 
+      {% block headerLogo %}{% endblock %}
+
       {% block headerTitle %}
         <h1>{{ title }}</h1>
       {% endblock %}
