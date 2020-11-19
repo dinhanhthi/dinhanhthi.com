@@ -11,10 +11,10 @@ eleventyNavigation:
 ---
 
 <div class="container-flex">
-  {% for tag in categories %}
+  {% for item in categories %}
     <div class="cat-flex">
-      <h2>{% if tag.logo %}{{ tag.logo }} {% elif tag.svg %}<img src="{{ tag.svg }}" alt="r-lang" height="30" width="30">{% endif %}{{ tag.name }}</h2>
-      {% set postslist = collections[tag.name] %}
+      <h2>{% if item.logo %}{{ item.logo }} {% elif item.svg %}<img src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}</h2>
+      {% set postslist = collections[item.name] %}
       {% set customClass = 'list-homepage' %}
       {% include "postslist.njk" %}
     </div>

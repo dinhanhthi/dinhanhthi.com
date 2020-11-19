@@ -204,7 +204,8 @@ h6 {
   width: 1600px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding-top: 2rem; }
 
 .cat-flex {
   width: 33%;
@@ -236,7 +237,7 @@ h6 {
         cursor: pointer; }
         .cat-flex .list-homepage li:hover a {
           border-color: #949494;
-          color: #eee; }
+          color: #fff; }
         .cat-flex .list-homepage li:hover::before {
           opacity: 1; }
 
@@ -271,6 +272,10 @@ header {
     header .avatar img {
       width: 100%;
       height: 100%; }
+  header .social a {
+    margin-right: 10px; }
+    header .social a:last-child {
+      margin-right: 0; }
 
 nav {
   position: fixed;
@@ -368,15 +373,10 @@ nav {
   pointer-events: none; }
 
 footer {
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 3em;
+  background: #35373c;
+  padding: 0.5rem 1rem;
   text-align: center; }
-  footer > * {
-    margin: 1.5em; }
-  footer nav {
-    font-size: 90%; }
-    footer nav a img {
-      vertical-align: middle; }
-  footer p {
-    font-size: 90%; }
+  footer a {
+    color: #ccc; }
+    footer a:hover {
+      color: #fff; }

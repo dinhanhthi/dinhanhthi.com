@@ -39,6 +39,15 @@ header {
       height: 100%;
     }
   }
+
+  .social{
+    a{
+      margin-right: 10px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 nav {

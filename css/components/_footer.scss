@@ -1,22 +1,12 @@
 footer {
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 3em;
-    text-align: center;
+	background: #35373c;
+	padding: 0.5rem 1rem;
+	text-align: center;
 
-    >* {
-        margin: 1.5em;
-    }
-
-    nav {
-        a img {
-            vertical-align: middle;
-        }
-
-        font-size: 90%;
-    }
-
-    p {
-        font-size: 90%;
-    }
+	a{
+		color: #ccc;
+		&:hover{
+			color: #fff;
+		}
+	}
 }

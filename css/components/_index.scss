@@ -3,6 +3,7 @@
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
+	padding-top: 2rem;
 }
 
 .cat-flex {
@@ -43,7 +44,7 @@
 			&:hover {
 				a {
 					border-color: #949494;
-					color: #eee;
+					color: #fff;
 				}
 				cursor: pointer;
 				&::before{
