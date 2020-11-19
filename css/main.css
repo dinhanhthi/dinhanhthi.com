@@ -99,7 +99,8 @@ share-widget button {
 
 html {
   -webkit-text-size-adjust: 100%;
-  font-family: "Poppins", Arial, Helvetica, sans-serif; }
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px; }
 
 @supports (font-variation-settings: normal) {
   html {
@@ -109,7 +110,8 @@ body {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   background: #282a36;
   color: #eee;
-  margin: 0; }
+  margin: 0;
+  font-size: 16px; }
 
 b, strong {
   font-weight: 600;
@@ -201,16 +203,25 @@ h6 {
   margin-bottom: 1.5em; }
 
 .container-flex {
-  width: 1600px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   padding-top: 2rem; }
+  @media (min-width: 1600px) {
+    .container-flex {
+      width: 1600px; } }
 
 .cat-flex {
-  width: 33%;
+  width: 100%;
   padding: 2rem;
   border-bottom: 1px solid #444; }
+  @media (min-width: 768px) {
+    .cat-flex {
+      width: 50%; } }
+  @media (min-width: 992px) {
+    .cat-flex {
+      width: calc(100% / 3); } }
   .cat-flex:nth-last-child(-n+2) {
     border-bottom: none; }
   .cat-flex h2 {
@@ -317,12 +328,12 @@ nav {
       @media (min-width: 421px) {
         nav #nav .nav-item {
           padding-left: 0 !important; } }
-      @media (max-width: 420px) {
+      @media (max-width: 575px) {
         nav #nav .nav-item {
           width: unset !important; }
           nav #nav .nav-item span {
             display: none; } }
-      @media (min-width: 768px) {
+      @media (min-width: 576px) {
         nav #nav .nav-item {
           margin-right: 15px; } }
     nav #nav .nav-github {

@@ -99,13 +99,13 @@ nav {
       @media (min-width: 421px) {
         padding-left: 0 !important;
       }
-      @media (max-width: 420px) {
+      @media (max-width: $grid-sm - 1px) {
         span {
           display: none;
         }
         width: unset !important;
       }
-      @media (min-width: 768px) {
+      @media (min-width: $grid-sm) {
         margin-right: 15px;
       }
     }

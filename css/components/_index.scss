@@ -1,14 +1,26 @@
 .container-flex {
-	width: 1600px;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 2rem;
+
+	@media (min-width: 1600px) {
+		width: 1600px;
+	}
 }
 
 .cat-flex {
-	width: 33%;
+	width: 100%;
 	padding: 2rem;
+
+	@media (min-width: $grid-md){
+		width: 50%;
+	}
+
+	@media (min-width: $grid-lg){
+		width: calc(100% / 3);
+	}
 
 	border-bottom: 1px solid #444;
 	&:nth-last-child(-n+2){

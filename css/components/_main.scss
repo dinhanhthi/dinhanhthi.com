@@ -67,6 +67,7 @@ share-widget button {
 html {
   -webkit-text-size-adjust: 100%;
   font-family: $font-main;
+  font-size: $font-size;
 }
 
 @supports (font-variation-settings: normal) {
@@ -80,6 +81,7 @@ body {
   background: $c-background;
   color: #eee;
   margin: 0;
+  font-size: $font-size;
 }
 
 
