@@ -249,6 +249,11 @@ h4 {
         .cat-flex .list-homepage li:hover::before {
           opacity: 1; }
 
+.page-index header {
+  padding-top: 4em; }
+  .page-index header .header-logo {
+    height: 80px; }
+
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
 header nav {
@@ -259,7 +264,7 @@ header nav {
   position: relative; }
 
 header {
-  padding: 4em 1.5em 1em;
+  padding: 5em 1.5em 1em;
   width: 900px;
   margin: 0 auto;
   text-align: center;
@@ -274,11 +279,11 @@ header {
   header p {
     margin-top: 0;
     font-size: 1.15rem; }
-  header .avatar {
-    width: 80px;
-    height: 80px;
+  header .header-logo {
+    width: auto;
+    height: 50px;
     margin-bottom: 1rem; }
-    header .avatar img {
+    header .header-logo img {
       width: 100%;
       height: 100%; }
   header .social {
@@ -287,6 +292,11 @@ header {
       margin-right: 10px; }
       header .social a:last-child {
         margin-right: 0; }
+      @media (min-width: 992px) {
+        header .social a {
+          margin-right: 20px; } }
+      header .social a img {
+        border-radius: 50%; }
 
 nav {
   position: fixed;
@@ -384,6 +394,7 @@ nav {
   pointer-events: none; }
 
 footer {
+  font-size: 1.1rem;
   background: #35373c;
   padding: 0.5rem 1rem;
   text-align: center; }
@@ -391,3 +402,17 @@ footer {
     color: #ccc; }
     footer a:hover {
       color: #fff; }
+
+.page-about .intro {
+  width: 900px;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 2rem; }
+
+.page-about .container-cv {
+  padding: 3rem 0;
+  width: 100%;
+  margin: 0 auto; }
+  @media (min-width: 1600px) {
+    .page-about .container-cv {
+      width: 1200px; } }

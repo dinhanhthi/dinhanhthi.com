@@ -1,5 +1,62 @@
 # DEV NOTES
 
+## Markdown with HTML
+
+HTML tags inside a markdown file,
+
+``` markdown
+// no working
+<div>
+__abc__
+</div>
+
+// working
+<div>
+
+__abc__
+</div>
+```
+
+``` markdown
+// not working
+<div class="list-of">
+    {% for item in cv.education.list %}
+        <div class="where">{{ item.where }}</div>
+        <div class="title">{{ item.title }}</div>
+        <div class="date">{{ item.date }}</div>
+    {% endfor %}
+</div>
+
+// working
+<div class="list-of">
+{% for item in cv.education.list %}
+<div class="where">{{ item.where }}</div>
+<div class="title">{{ item.title }}</div>
+<div class="date">{{ item.date }}</div>
+{% endfor %}
+</div>
+```
+
+
+
+Markdown inside HTML,
+
+``` js
+// .eleventy.js
+eleventyConfig.addPairedShortcode("markdown", (content, inline = null) => {
+    return inline
+        ? markdownIt.renderInline(content)
+    : markdownIt.render(content);
+});
+
+// markdown
+{% markdown %}
+// I can write *markdown* in this paired shortcode…
+{% endmarkdown %}
+```
+
+
+
 ## JSON data file
 
 - Using [this tool](https://onlineyamltools.com/convert-yaml-to-json) to convert YML / YAML to JSON.

@@ -1,0 +1,42 @@
+{
+	"education": {
+		"name": "Education",
+		"list": [
+			{
+				"where": "Université Sorbonne Paris Nord",
+				"title": "Doctor in Apllied Maths",
+				"date": "2013 -- 2018"
+			},
+			{
+				"where": "University of Tours",
+				"title": "Master in Applied Maths",
+				"date": "2012 -- 2013"
+			},
+			{
+				"where": "Ho Chi Minh City Pedagogical University",
+				"title": "Bachelor in Pedagogy & Maths",
+				"date": "2008 -- 2012"
+			}
+		]
+	},
+	"experience": {
+		"name": "Experiences",
+		"list": [
+			{
+				"where": "Dataswati",
+				"title": "Data Scientist",
+				"date": "2020"
+			},
+			{
+				"where": "Math2IT",
+				"title": "Founder & Web Dev & Blogger",
+				"date": "2013 -- current"
+			},
+			{
+				"where": "Université Sorbonne Paris Nord",
+				"title": "Researcher in Applied Maths & Coder",
+				"date": "2013 -- 2018"
+			}
+		]
+	}
+}

@@ -8,7 +8,7 @@
 
   {% include "components/head.njk" %}
 
-  <body>
+  <body{% if customClass %} class="{{ customClass }}"{% endif %}>
     <header>
       {% include "components/navigation.njk" %}
 

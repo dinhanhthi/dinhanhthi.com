@@ -11,7 +11,7 @@ header nav {
 }
 
 header {
-  padding: 4em 1.5em 1em;
+  padding: 5em 1.5em 1em;
   width: 900px;
   margin: 0 auto;
   text-align: center;
@@ -31,9 +31,9 @@ header {
     font-size: 1.15rem;
   }
 
-  .avatar{
-    width: 80px;
-    height: 80px;
+  .header-logo{
+    width: auto;
+    height: 50px;
     margin-bottom: 1rem;
     img{
       width: 100%;
@@ -47,6 +47,14 @@ header {
       margin-right: 10px;
       &:last-child{
         margin-right: 0;
+      }
+
+      @media (min-width: $grid-lg){
+        margin-right: 20px;
+      }
+
+      img{
+        border-radius: 50%;
       }
     }
   }

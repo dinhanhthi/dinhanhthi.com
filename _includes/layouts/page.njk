@@ -1,15 +1,12 @@
 ---
 #layout: layouts/base.njk
-templateClass: tmpl-home
 ---
 {% extends "layouts/base.njk" %}
 
 {% block headerLogo%}
-  {% if header == "homepage" %}
-    <div class="avatar">
-      <img alt="Thi's avatar" src="/img/avatar.svg">
-    </div>
-  {% endif %}
+  <div class="header-logo">
+    <img{% if logo.alt %} alt="{{ logo.alt }}"{% endif %} src="{{ logo.path }}">
+  </div>
 {% endblock %}
 
 {% block extraArticleHeader %}

@@ -1,0 +1,18 @@
+.page-about {
+  .intro {
+    width: 900px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+
+  .container-cv {
+    padding: 3rem 0;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 1600px) {
+      width: 1200px;
+    }
+  }
+}

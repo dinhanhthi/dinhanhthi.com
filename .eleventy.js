@@ -140,15 +140,31 @@ module.exports = function (eleventyConfig) {
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#",
-  });
+      html: true, // html tag inside source
+      breaks: true, // use '\n' as <br>
+      linkify: true, // Autoconvert URL-like text to links
+    })
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#",
+    })
+    .use(require('markdown-it-mark')) // ==mark==
+    .use(require('markdown-it-attrs'), { // use {:} options
+      leftDelimiter: '{:',
+      rightDelimiter: '}'
+    })
+    .use(require("markdown-it-emoji")) // emoji
+    ;
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  // using {% markdown %}{% endmarkdown %} inside .njk
+  eleventyConfig.addPairedShortcode("markdown", (content, inline = null) => {
+    return inline
+      ? markdownIt.renderInline(content)
+      : markdownIt.render(content);
+  });
+
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
