@@ -3,7 +3,10 @@
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
-	padding-top: 2rem;
+
+	@media (min-width: $grid-md){
+		padding-top: 2rem;
+	}
 
 	@media (min-width: 1600px) {
 		width: 1600px;
@@ -23,8 +26,13 @@
 	}
 
 	border-bottom: 1px solid #444;
-	&:nth-last-child(-n+2){
-		border-bottom: none; // change if the number of categories changes
+	&:last-child{
+		border-bottom: none;
+	}
+	@media (min-width: $grid-lg){
+		&:nth-last-child(-n+2){
+			border-bottom: none; // change if the number of categories changes
+		}
 	}
 
 	h2 {

@@ -43,8 +43,8 @@
 @font-face {
   font-family: 'Recoleta';
   src: url("/fonts/recoleta/Recoleta-Bold.woff2") format("woff2"), url("/fonts/recoleta/Recoleta-Bold.woff") format("woff"), url("/fonts/poppins/Recoleta-Bold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
+  font-weight: 700;
+  font-style: bold; }
 
 /* Color customization */
 * {
@@ -179,35 +179,29 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-family: "Recoleta";
-  font-size: 3em;
+  font-size: 28.8px;
   margin-bottom: 0.5em; }
 
 h2 {
-  font-size: 2.5em;
+  font-size: 22.4px;
   margin-bottom: 0.6em; }
 
 h3 {
-  font-size: 2em;
+  font-size: 20.16px;
   margin-bottom: 0.75em; }
 
 h4 {
-  font-size: 1.5em;
+  font-size: 18.144px;
   margin-bottom: 1em; }
-
-h5 {
-  font-size: 1.25em;
-  margin-bottom: 1.2em; }
-
-h6 {
-  font-size: 1em;
-  margin-bottom: 1.5em; }
 
 .container-flex {
   width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  padding-top: 2rem; }
+  flex-wrap: wrap; }
+  @media (min-width: 768px) {
+    .container-flex {
+      padding-top: 2rem; } }
   @media (min-width: 1600px) {
     .container-flex {
       width: 1600px; } }
@@ -222,8 +216,11 @@ h6 {
   @media (min-width: 992px) {
     .cat-flex {
       width: calc(100% / 3); } }
-  .cat-flex:nth-last-child(-n+2) {
+  .cat-flex:last-child {
     border-bottom: none; }
+  @media (min-width: 992px) {
+    .cat-flex:nth-last-child(-n+2) {
+      border-bottom: none; } }
   .cat-flex h2 {
     font-size: 1.55rem; }
     .cat-flex h2 img {
@@ -271,6 +268,7 @@ header {
   align-items: center;
   flex-direction: column; }
   header h1 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     margin-top: 0; }
   header p {
@@ -283,10 +281,12 @@ header {
     header .avatar img {
       width: 100%;
       height: 100%; }
-  header .social a {
-    margin-right: 10px; }
-    header .social a:last-child {
-      margin-right: 0; }
+  header .social {
+    margin-top: 0.5rem; }
+    header .social a {
+      margin-right: 10px; }
+      header .social a:last-child {
+        margin-right: 0; }
 
 nav {
   position: fixed;
@@ -314,7 +314,7 @@ nav {
       display: flex;
       align-items: center;
       padding: 0 0.5rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
       white-space: nowrap; }
       nav #nav a img {
         margin-right: 5px; }
