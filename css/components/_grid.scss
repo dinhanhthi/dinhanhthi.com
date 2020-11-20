@@ -1,0 +1,30 @@
+.d-flex{
+  display: -ms-flexbox;
+	display: flex;
+}
+
+.d-flex-wrap{
+  -ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.align-items-center{
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wide{
+  @media (min-width: 1600px){
+    width: 1600px;
+  }
+}
+
+.normal{
+  @media (min-width: 1200px){
+    width: 900px;
+  }
+}

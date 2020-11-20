@@ -161,8 +161,8 @@ module.exports = function (eleventyConfig) {
   // using {% markdown %}{% endmarkdown %} inside .njk
   eleventyConfig.addPairedShortcode("markdown", (content, inline = null) => {
     return inline
-      ? markdownIt.renderInline(content)
-      : markdownIt.render(content);
+      ? markdownLibrary.renderInline(content)
+      : markdownLibrary.render(content);
   });
 
 

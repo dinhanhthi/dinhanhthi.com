@@ -1,0 +1,42 @@
+---
+layout: layouts/page.njk
+title: About me
+customClass: page-about
+logo:
+  path: '/img/nav/about.svg'
+permalink: /about/
+---
+
+<div class="container normal">
+  {% markdown %}
+  I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
+
+  I use this website to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
+  {% endmarkdown %}
+</div>
+
+<div class="container normal">
+{% for sec in cv %}
+  <div class="section">
+    <div>
+      <h2 class="d-flex align-items-center"><img src="{{ sec.icon }}" alt="{{ sec.name }}" height="35" width="35"> {{ sec.name }}</h2>
+    </div>
+    <div class="list-of">
+      {% for item in sec.list %}
+        <div class="item">
+          <div class="d-flex d-flex-wrap align-items-center">
+            <div class="where">{{ item.where }}</div>
+            <div class="title">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.activity }}</p>
+            </div>
+            <div class="date">
+              <span class="badge">{{ item.date }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</div>

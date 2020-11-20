@@ -194,59 +194,74 @@ h4 {
   font-size: 18.144px;
   margin-bottom: 1em; }
 
-.container-flex {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap; }
-  @media (min-width: 768px) {
-    .container-flex {
-      padding-top: 2rem; } }
-  @media (min-width: 1600px) {
-    .container-flex {
-      width: 1600px; } }
+.d-flex {
+  display: -ms-flexbox;
+  display: flex; }
 
-.cat-flex {
+.d-flex-wrap {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.align-items-center {
+  align-items: center; }
+
+.container {
+  width: 100%;
+  margin: 0 auto; }
+
+@media (min-width: 1600px) {
+  .wide {
+    width: 1600px; } }
+
+@media (min-width: 1200px) {
+  .normal {
+    width: 900px; } }
+
+@media (min-width: 768px) {
+  .page-index .container {
+    padding-top: 2rem; } }
+
+.category {
   width: 100%;
   padding: 2rem;
   border-bottom: 1px solid #444; }
   @media (min-width: 768px) {
-    .cat-flex {
+    .category {
       width: 50%; } }
   @media (min-width: 992px) {
-    .cat-flex {
+    .category {
       width: calc(100% / 3); } }
-  .cat-flex:last-child {
+  .category:last-child {
     border-bottom: none; }
   @media (min-width: 992px) {
-    .cat-flex:nth-last-child(-n+2) {
+    .category:nth-last-child(-n + 2) {
       border-bottom: none; } }
-  .cat-flex h2 {
+  .category h2 {
     font-size: 1.55rem; }
-    .cat-flex h2 img {
+    .category h2 img {
       float: left;
       margin-right: 7px; }
-  .cat-flex .list-homepage {
+  .category .list-homepage {
     list-style: none;
     padding-left: 10px; }
-    .cat-flex .list-homepage li {
+    .category .list-homepage li {
       padding-left: 15px;
       margin-bottom: 10px; }
-      .cat-flex .list-homepage li a {
+      .category .list-homepage li a {
         color: #ddd;
         border-bottom: 2px solid rgba(255, 255, 255, 0.14);
         border-style: dotted; }
-      .cat-flex .list-homepage li::before {
+      .category .list-homepage li::before {
         content: "📄";
         margin-right: 5px;
         margin-left: -25px;
         opacity: 0.8; }
-      .cat-flex .list-homepage li:hover {
+      .category .list-homepage li:hover {
         cursor: pointer; }
-        .cat-flex .list-homepage li:hover a {
+        .category .list-homepage li:hover a {
           border-color: #949494;
           color: #fff; }
-        .cat-flex .list-homepage li:hover::before {
+        .category .list-homepage li:hover::before {
           opacity: 1; }
 
 .page-index header {
@@ -404,15 +419,65 @@ footer {
       color: #fff; }
 
 .page-about .intro {
-  width: 900px;
-  margin: 0 auto;
-  max-width: 100%;
   padding: 0 2rem; }
 
-.page-about .container-cv {
-  padding: 3rem 0;
-  width: 100%;
-  margin: 0 auto; }
-  @media (min-width: 1600px) {
-    .page-about .container-cv {
-      width: 1200px; } }
+.page-about .container {
+  padding: 2rem 0; }
+  .page-about .container .section {
+    margin-bottom: 3rem; }
+    .page-about .container .section > div:first-child {
+      padding: 0 1rem;
+      margin-top: 0;
+      float: left;
+      margin-left: -270px; }
+    .page-about .container .section h2 {
+      font-size: 1.8rem;
+      line-height: 1;
+      margin: 0;
+      margin-top: -5px; }
+      .page-about .container .section h2 img {
+        margin-right: 8px; }
+    .page-about .container .section .list-of {
+      border: 1px solid #555; }
+      .page-about .container .section .list-of .item {
+        padding: 0 1rem; }
+        .page-about .container .section .list-of .item > div {
+          padding: 1rem 0;
+          border-bottom: 1px solid #555; }
+        .page-about .container .section .list-of .item .where {
+          padding: 1rem;
+          flex: 0 0 30%;
+          max-width: 30%; }
+        .page-about .container .section .list-of .item .title {
+          padding: 1rem;
+          flex: 0 0 50%;
+          max-width: 50%; }
+          .page-about .container .section .list-of .item .title h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem; }
+          .page-about .container .section .list-of .item .title p {
+            margin: 0;
+            color: #bbb;
+            line-height: 1.5; }
+        .page-about .container .section .list-of .item .date {
+          padding: 1rem;
+          flex: 0 0 20%;
+          max-width: 20%;
+          text-align: right; }
+          .page-about .container .section .list-of .item .date .badge {
+            background-color: rgba(157, 204, 255, 0.1);
+            color: #a0c8f3; }
+        .page-about .container .section .list-of .item:last-child > div {
+          border-bottom: none; }
+
+.badge {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px; }

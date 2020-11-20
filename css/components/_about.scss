@@ -1,18 +1,83 @@
 .page-about {
   .intro {
-    width: 900px;
-    margin: 0 auto;
-    max-width: 100%;
     padding: 0 2rem;
   }
 
-  .container-cv {
-    padding: 3rem 0;
-    width: 100%;
-    margin: 0 auto;
+  .container {
+    padding: 2rem 0;
 
-    @media (min-width: 1600px) {
-      width: 1200px;
+    .section {
+      margin-bottom: 3rem;
+
+      $abt-h2: 23%;
+      & > div:first-child {
+        padding: 0 1rem;
+        margin-top: 0;
+        float: left;
+        margin-left: -270px;
+      }
+      h2 {
+        font-size: 1.8rem;
+        line-height: 1;
+        margin: 0;
+        margin-top: -5px;
+        img {
+          margin-right: 8px;
+        }
+      }
+
+      .list-of {
+        $abt-border-bottom: 1px solid #555;
+        border: $abt-border-bottom;
+        .item {
+          padding: 0 1rem;
+          & > div {
+            padding: 1rem 0;
+            border-bottom: $abt-border-bottom;
+          }
+
+          $abt-where: 30%;
+          $abt-date: 20%;
+          $abt-title: 100% - $abt-where - $abt-date;
+          .where {
+            padding: 1rem;
+            flex: 0 0 $abt-where;
+            max-width: $abt-where;
+          }
+          .title {
+            padding: 1rem;
+            flex: 0 0 $abt-title;
+            max-width: $abt-title;
+            h4 {
+              margin-top: 0;
+              margin-bottom: 0.5rem;
+              font-size: 1.25rem;
+            }
+            p {
+              margin: 0;
+              color: #bbb;
+              line-height: 1.5;
+            }
+          }
+          .date {
+            padding: 1rem;
+            flex: 0 0 $abt-date;
+            max-width: $abt-date;
+            text-align: right;
+
+            .badge {
+              background-color: rgba(157, 204, 255, 0.1);
+              color: #a0c8f3;
+            }
+          }
+
+          &:last-child {
+            & > div {
+              border-bottom: none;
+            }
+          }
+        }
+      }
     }
   }
 }

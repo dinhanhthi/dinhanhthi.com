@@ -8,14 +8,11 @@ logo:
   path: '/img/avatar.svg'
   alt: "Thi's avatar"
 date: Last Modified
-eleventyNavigation:
-  key: "🏠 Home"
-  order: 1
 ---
 
-<div class="container-flex">
+<div class="container wide d-flex d-flex-wrap">
   {% for item in categories %}
-    <div class="cat-flex">
+    <div class="category">
       <h2>{% if item.logo %}{{ item.logo }} {% elif item.svg %}<img src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}</h2>
       {% set postslist = collections[item.name] %}
       {% set customClass = 'list-homepage' %}
