@@ -6,20 +6,162 @@
 			{
 				"where": "Dataswati",
 				"title": "Data Scientist",
-				"date": "2020",
-				"activity": "I am one of the main maintainers of POPAI, Dataswati's main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science."
+				"date": "1/2020 — 11/2020",
+				"activity": "I am one of the main maintainers of POPAI, Dataswati's main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science.",
+				"tech": [
+					{
+						"name": "Python",
+						"icon": "/img/about/python.svg"
+					},
+					{
+						"name": "R Lang",
+						"icon": "/img/about/r.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img/about/tf.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img/about/scikit-learn.svg"
+					},
+					{
+						"name": "PyTorch",
+						"icon": "/img/about/pytorch.svg"
+					},
+					{
+						"name": "Juyter Notebook",
+						"icon": "/img/about/jupyter.svg"
+					},
+					{
+						"name": "Airflow",
+						"icon": "/img/about/airflow.svg"
+					},
+					{
+						"name": "Docker",
+						"icon": "/img/about/docker.svg"
+					},
+					{
+						"name": "MongoDB",
+						"icon": "/img/about/mongodb.svg"
+					},
+					{
+						"name": "MySQL",
+						"icon": "/img/about/mysql.svg"
+					},
+					{
+						"name": "gRPC",
+						"icon": "/img/about/grpc.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img/about/git.svg"
+					},
+					{
+						"name": "Sphinx Doc Generator",
+						"icon": "/img/about/sphinx.svg"
+					},
+					{
+						"name": "GNU Bash",
+						"icon": "/img/about/bash_.svg"
+					}
+				]
 			},
 			{
 				"where": "Math2IT",
 				"title": "Founder & Web Dev & Blogger",
 				"date": "2013 — current",
-				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology. I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook."
+				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology. I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook.",
+				"tech": [
+					{
+						"name": "JavaScript",
+						"icon": "/img/about/js.svg"
+					},
+					{
+						"name": "PHP",
+						"icon": "/img/about/php.svg"
+					},
+					{
+						"name": "Ruby",
+						"icon": "/img/about/ruby.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img/about/git.svg"
+					},
+					{
+						"name": "GraphQL",
+						"icon": "/img/about/graphql.svg"
+					},
+					{
+						"name": "MySQL",
+						"icon": "/img/about/mysql.svg"
+					},
+					{
+						"name": "Docker",
+						"icon": "/img/about/docker.svg"
+					},
+					{
+						"name": "HTML5",
+						"icon": "/img/about/html.svg"
+					},
+					{
+						"name": "SCSS",
+						"icon": "/img/about/sass.svg"
+					},
+					{
+						"name": "React",
+						"icon": "/img/about/react.svg"
+					},
+					{
+						"name": "GatsbyJS",
+						"icon": "/img/about/gatsby.svg"
+					},
+					{
+						"name": "Jekyll",
+						"icon": "/img/about/jekyll.svg"
+					},
+					{
+						"name": "Bootstrap",
+						"icon": "/img/about/bootstrap.svg"
+					},
+					{
+						"name": "Eleventy",
+						"icon": "/img/about/11ty.svg"
+					},
+					{
+						"name": "Wordpress",
+						"icon": "/img/about/wordpress.svg"
+					}
+				]
 			},
 			{
 				"where": "Université Sorbonne Paris Nord",
 				"title": "Researcher in Applied Maths & Coder",
 				"date": "2013 — 2018",
-				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox."
+				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox.",
+				"tech": [
+					{
+						"name": "Python",
+						"icon": "/img/about/python.svg"
+					},
+					{
+						"name": "Matlab",
+						"icon": "/img/about/matlab.svg"
+					},
+					{
+						"name": "FreeFEM++",
+						"icon": "/img/about/ff.svg"
+					},
+					{
+						"name": "GNU Bash",
+						"icon": "/img/about/bash_.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img/about/git.svg"
+					}
+				]
 			}
 		]
 	},
@@ -28,10 +170,10 @@
 		"icon": "/img/about/education.svg",
 		"list": [
 			{
-				"where": "MOOC",
+				"where": "Online courses",
 				"title": "Data Scientist",
 				"date": "2019 — current",
-				"activity": "I've learned by myself Data Science from the online courses."
+				"activity": "I've learned by myself Data Science from the online courses: Coursera, deeplearning.ai, Dataquest, Fastai, Oxford."
 			},
 			{
 				"where": "U. Sorbonne Paris Nord",

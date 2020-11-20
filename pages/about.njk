@@ -7,31 +7,61 @@ logo:
 permalink: /about/
 ---
 
-<div class="container normal">
+<div class="container normal intro">
   {% markdown %}
   I'm **Thi**, a Vietnamese guy who has a curious mind. As an never-stop-learning mathematician, I am interested in researching and sharing contents about *applied maths* with its applications, *computer science* and *software tools* which are helpful to human life. I have a **Ph.D. degree in Applied Mathematics** at [Université Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France.
 
   I use this website to document everything I learned while going through the process of learning and working in this field. I also like to write about intuitive maths. I'm an admin of **[Math2IT](https://math2it.com){:target="_blank"}**, a Vietnamese community about maths, education, and technology.
   {% endmarkdown %}
+
+  <p class="contact">
+    <a class="button blue" href="#contact">Hire me</a>
+    <a class="button black" href="{{ '/' | url }}">My notes</a>
+  </p>
 </div>
 
-<div class="container normal">
+<div class="container d-flex d-wrap wide part">
+{% for group in skills %}
+  <div class="section skills">
+    <div class="div-h2">
+      <h2>{{ group.name }}</h2>
+    </div>
+    <div class="list-of">
+      {% for item in group.list %}
+        <div class="badge black">
+          <img src="{{ item.icon }}" alt="{{ item.name }}" height="20" width="20">
+          <span>{{ item.name }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+<div class="container d-flex d-wrap wide part">
 {% for sec in cv %}
-  <div class="section">
-    <div>
-      <h2 class="d-flex align-items-center"><img src="{{ sec.icon }}" alt="{{ sec.name }}" height="35" width="35"> {{ sec.name }}</h2>
+  <div class="section exp-edu">
+    <div class="div-h2">
+      <h2 class="d-flex align-items-center"><img src="{{ sec.icon }}" alt="{{ sec.name }}" height="30" width="30"> {{ sec.name }}</h2>
     </div>
     <div class="list-of">
       {% for item in sec.list %}
         <div class="item">
           <div class="d-flex d-flex-wrap align-items-center">
-            <div class="where">{{ item.where }}</div>
+            <div class="where">
+              <div>{{ item.where }}</div>
+              <div>{{ item.date }}</div>
+            </div>
             <div class="title">
               <h4>{{ item.title }}</h4>
               <p>{{ item.activity }}</p>
-            </div>
-            <div class="date">
-              <span class="badge">{{ item.date }}</span>
+              <div class="tech">
+                {% for item2 in item.tech %}
+                  <div title="{{ item2.name }}" class="skill-small">
+                    <img src="{{ item2.icon }}" alt="{{ item2.name }}" height="20" width="20">
+                  </div>
+                {% endfor %}
+              </div>
             </div>
           </div>
         </div>

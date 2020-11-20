@@ -1,31 +1,106 @@
 .page-about {
+  .part {
+    margin-bottom: 4rem;
+  }
+
   .intro {
-    padding: 0 2rem;
+    padding: 0 2rem 2rem 2rem;
+    margin-bottom: 2rem;
+
+    p.contact {
+      margin-top: 2rem;
+      text-align: center;
+      a {
+        margin-right: 10px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .container {
-    padding: 2rem 0;
-
     .section {
-      margin-bottom: 3rem;
+      padding: 0 1rem;
+      flex: 1;
 
-      $abt-h2: 23%;
-      & > div:first-child {
-        padding: 0 1rem;
-        margin-top: 0;
-        float: left;
-        margin-left: -270px;
-      }
-      h2 {
-        font-size: 1.8rem;
-        line-height: 1;
-        margin: 0;
-        margin-top: -5px;
-        img {
-          margin-right: 8px;
+      .div-h2 {
+        position: relative;
+        display: inline-block;
+        &::after {
+          position: absolute;
+          opacity: 0.45;
+          top: 35px;
+          right: -15px;
+          content: "";
+          height: 20px;
+          width: 30px;
+          background-image: -webkit-repeating-radial-gradient(
+            center center,
+            #04b4e0,
+            #04b4e0 1px,
+            transparent 0px,
+            transparent 100%
+          );
+          background-image: -moz-repeating-radial-gradient(
+            center center,
+            #04b4e0,
+            #04b4e0 1px,
+            transparent 0px,
+            transparent 100%
+          );
+          background-image: -ms-repeating-radial-gradient(
+            center center,
+            #04b4e0,
+            #04b4e0 1px,
+            transparent 0px,
+            transparent 100%
+          );
+          -webkit-background-size: 6px 6px;
+          -moz-background-size: 6px 6px;
+          background-size: 6px 6px;
+          z-index: 0;
         }
       }
 
+      $abt-h2: 23%;
+      h2 {
+        font-size: 1.7rem;
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        img {
+          margin-right: 8px;
+          display: none;
+        }
+      }
+
+      .list-of {
+        $abt-border-bottom: 1px solid #3e3e3e;
+        border: $abt-border-bottom;
+        border-radius: 4px;
+      }
+    }
+
+    .skills {
+      &.section {
+        padding: 0.5rem;
+
+        .div-h2 {
+          zoom: 0.9;
+        }
+
+        h2 {
+          margin-bottom: 1rem;
+        }
+
+        .list-of {
+          padding: 0.5rem;
+        }
+      }
+    }
+
+    .exp-edu {
+      width: 50%;
       .list-of {
         $abt-border-bottom: 1px solid #555;
         border: $abt-border-bottom;
@@ -38,11 +113,19 @@
 
           $abt-where: 30%;
           $abt-date: 20%;
-          $abt-title: 100% - $abt-where - $abt-date;
+          $abt-title: 100% - $abt-where;
           .where {
-            padding: 1rem;
+            padding: 1rem 0.5rem;
             flex: 0 0 $abt-where;
             max-width: $abt-where;
+            font-size: calc(1rem + 1px);
+            div {
+              padding: 2px;
+              &:last-child {
+                font-size: 0.95rem;
+                color: #babaff;
+              }
+            }
           }
           .title {
             padding: 1rem;
@@ -58,16 +141,20 @@
               color: #bbb;
               line-height: 1.5;
             }
-          }
-          .date {
-            padding: 1rem;
-            flex: 0 0 $abt-date;
-            max-width: $abt-date;
-            text-align: right;
+            .tech {
+              margin-top: 1rem;
+              .skill-small {
+                display: inline-flex;
+                margin: 3px;
+                border: 1px solid #444;
+                background: #343642;
+                padding: 3px;
+                border-radius: 3px;
 
-            .badge {
-              background-color: rgba(157, 204, 255, 0.1);
-              color: #a0c8f3;
+                picture{
+                  display: inline-flex;
+                }
+              }
             }
           }
 

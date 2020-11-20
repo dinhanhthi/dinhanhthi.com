@@ -1,0 +1,163 @@
+[
+    {
+        "name": "Languages",
+        "list": [
+            {
+                "name": "Python",
+                "icon": "/img/about/python.svg"
+            },
+            {
+                "name": "R Lang",
+                "icon": "/img/about/r.svg"
+            },
+            {
+                "name": "JavaScript",
+                "icon": "/img/about/js.svg"
+            },
+            {
+                "name": "Matlab",
+                "icon": "/img/about/matlab.svg"
+            },
+            {
+                "name": "PHP",
+                "icon": "/img/about/php.svg"
+            },
+            {
+                "name": "FreeFEM++",
+                "icon": "/img/about/ff.svg"
+            },
+            {
+                "name": "Ruby",
+                "icon": "/img/about/ruby.svg"
+            }
+        ]
+    },
+    {
+        "name": "ML & DL",
+        "list": [
+            {
+                "name": "TensorFlow",
+                "icon": "/img/about/tf.svg"
+            },
+            {
+                "name": "Scikit-learn",
+                "icon": "/img/about/scikit-learn.svg"
+            },
+            {
+                "name": "PyTorch",
+                "icon": "/img/about/pytorch.svg"
+            },
+            {
+                "name": "Juyter Notebook",
+                "icon": "/img/about/jupyter.svg"
+            }
+        ]
+    },
+    {
+        "name": "Frontend",
+        "list": [
+            {
+                "name": "HTML5",
+                "icon": "/img/about/html.svg"
+            },
+            {
+                "name": "SCSS",
+                "icon": "/img/about/sass.svg"
+            },
+            {
+                "name": "React",
+                "icon": "/img/about/react.svg"
+            },
+            {
+                "name": "GatsbyJS",
+                "icon": "/img/about/gatsby.svg"
+            },
+            {
+                "name": "Jekyll",
+                "icon": "/img/about/jekyll.svg"
+            },
+            {
+                "name": "Bootstrap",
+                "icon": "/img/about/bootstrap.svg"
+            },
+            {
+                "name": "Eleventy",
+                "icon": "/img/about/11ty.svg"
+            },
+            {
+                "name": "Wordpress",
+                "icon": "/img/about/wordpress.svg"
+            }
+        ]
+    },
+    {
+        "name": "Backend",
+        "list": [
+            {
+                "name": "Airflow",
+                "icon": "/img/about/airflow.svg"
+            },
+            {
+                "name": "Docker",
+                "icon": "/img/about/docker.svg"
+            },
+            {
+                "name": "MongoDB",
+                "icon": "/img/about/mongodb.svg"
+            },
+            {
+                "name": "PostgreSQL",
+                "icon": "/img/about/postgresql.svg"
+            },
+            {
+                "name": "MySQL",
+                "icon": "/img/about/mysql.svg"
+            },
+            {
+                "name": "gRPC",
+                "icon": "/img/about/grpc.svg"
+            },
+            {
+                "name": "NodeJS",
+                "icon": "/img/about/node.svg"
+            },
+            {
+                "name": "Flask",
+                "icon": "/img/about/flask.svg"
+            },
+            {
+                "name": "GraphQL",
+                "icon": "/img/about/graphql.svg"
+            },
+            {
+                "name": "Heroku",
+                "icon": "/img/about/heroku.svg"
+            }
+        ]
+    },
+    {
+        "name": "Tools",
+        "list": [
+            {
+                "name": "VS Code",
+                "icon": "/img/about/vscode.svg"
+            },
+            {
+                "name": "Linux",
+                "icon": "/img/about/linux_.svg"
+            },
+            {
+                "name": "GNU Bash",
+                "icon": "/img/about/bash_.svg"
+            },
+            {
+                "name": "Git",
+                "icon": "/img/about/git.svg"
+            },
+            {
+                "name": "Sphinx Doc Generator",
+                "icon": "/img/about/sphinx.svg"
+            }
+        ]
+    }
+]

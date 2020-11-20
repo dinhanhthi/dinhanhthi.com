@@ -1,6 +1,6 @@
 // badges
 .badge {
-  display: inline-block;
+  display: inline-flex;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -9,4 +9,54 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+
+  &.black{
+    margin: 5px;
+    border: 1px solid #444;
+    background: #343642;
+  }
+
+  img{
+    margin-right: 5px;
+  }
+
+  picture{
+    display: inline-flex;
+  }
+}
+
+.button {
+  padding: 12px 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  letter-spacing: 2px;
+  color: #fff;
+  box-shadow: none;
+  text-transform: capitalize;
+  outline: none !important;
+  border-radius: 0px;
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+  text-transform: uppercase;
+
+  &.blue {
+    background-color: #2387e2;
+    &:hover {
+      background: #1274ce;
+    }
+  }
+
+  &.red {
+    background-color: #e45353;
+  }
+
+  &.black {
+    border: 1px solid #555;
+    &:hover {
+      background: #333;
+    }
+  }
 }
