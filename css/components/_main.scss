@@ -5,11 +5,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60;
-}
-
 .test-dead-code-elimination-sentinel {
   color: red;
 }
@@ -154,7 +149,6 @@ a {
   }
 
   &.no-effect{
-    color: $font-color;
     &:hover{
       border-bottom: none;
     }

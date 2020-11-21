@@ -48,7 +48,7 @@
                 "icon": "/img/about/pytorch.svg"
             },
             {
-                "name": "Juyter Notebook",
+                "name": "Jupyter",
                 "icon": "/img/about/jupyter.svg"
             }
         ]
@@ -155,7 +155,7 @@
                 "icon": "/img/about/git.svg"
             },
             {
-                "name": "Sphinx Doc Generator",
+                "name": "Sphinx Doc",
                 "icon": "/img/about/sphinx.svg"
             }
         ]

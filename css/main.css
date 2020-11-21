@@ -51,10 +51,6 @@
   border: 0;
   box-sizing: border-box; }
 
-:root {
-  --primary: #f9c412;
-  --primary-dark: #e7bf60; }
-
 .test-dead-code-elimination-sentinel {
   color: red; }
 
@@ -155,16 +151,14 @@ mark {
   padding: 0 0.3em; }
 
 a {
-  color: #f9c412;
+  color: #ffd479;
   text-decoration: none; }
   a:hover {
     text-decoration: none;
-    border-bottom: 2px solid #f9c412;
+    border-bottom: 2px solid #ffd479;
     color: #fff; }
-  a.no-effect {
-    color: #eee; }
-    a.no-effect:hover {
-      border-bottom: none; }
+  a.no-effect:hover {
+    border-bottom: none; }
 
 hr {
   border-bottom: 1px solid #eee; }
@@ -274,7 +268,7 @@ h4 {
       .category .list-homepage li:hover {
         cursor: pointer; }
         .category .list-homepage li:hover a {
-          border-color: #f9c412;
+          border-color: #ffd479;
           color: #fff; }
         .category .list-homepage li:hover::before {
           opacity: 1; }
@@ -307,7 +301,7 @@ header {
     margin-bottom: 0;
     margin-top: 0; }
   header p {
-    margin-top: 0;
+    margin-top: 1rem;
     font-size: 1.15rem; }
   header .header-logo {
     width: auto;
@@ -426,8 +420,9 @@ nav {
 footer {
   font-size: 1.1rem;
   background: #35373c;
-  padding: 0.5rem 1rem;
-  text-align: center; }
+  padding: 0.75rem 1rem;
+  text-align: center;
+  margin-top: 3rem; }
   footer a {
     color: #ccc; }
     footer a:hover {
@@ -437,16 +432,18 @@ footer {
   margin-bottom: 4rem; }
 
 .page-about .intro {
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 1rem 2rem 2rem;
   width: 70%; }
-  .page-about .intro b, .page-about .intro strong {
-    color: #f9c412;
+  .page-about .intro b,
+  .page-about .intro strong {
+    color: #ffd479;
     font-weight: normal; }
   .page-about .intro a {
     color: #fff; }
 
 .page-about .coordinate {
-  width: 30%; }
+  width: 30%;
+  padding: 0 1rem; }
   .page-about .coordinate ul {
     padding-left: 0;
     list-style: none; }
@@ -456,19 +453,36 @@ footer {
     .page-about .coordinate ul a {
       color: #eee; }
     .page-about .coordinate ul span.job {
-      color: #f9c412; }
+      color: #ffd479; }
 
 .page-about p.contact {
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 4rem; }
   .page-about p.contact a {
     margin-right: 10px; }
     .page-about p.contact a:last-child {
       margin-right: 0; }
 
+@media (max-width: 991px) {
+  .page-about .intro {
+    width: 60%; }
+  .page-about .coordinate {
+    width: 40%; } }
+
+@media (max-width: 767px) {
+  .page-about .intro {
+    width: 100%;
+    padding: 0 2rem;
+    border-bottom: 1px solid #444; }
+  .page-about .coordinate {
+    width: 100%;
+    padding: 0 2rem 1.5rem 2rem; } }
+
 .page-about .container .section {
   padding: 0 1rem;
-  flex: 1; }
+  flex: 1;
+  margin: 1rem 0; }
   .page-about .container .section .div-h2 {
     position: relative;
     display: inline-block; }
@@ -518,8 +532,8 @@ footer {
         border-bottom: 1px solid #555; }
       .page-about .container .exp-edu .list-of .item .where {
         padding: 1rem 0.5rem;
-        flex: 0 0 30%;
-        max-width: 30%;
+        flex: 0 0 25%;
+        max-width: 25%;
         font-size: calc(1rem + 1px); }
         .page-about .container .exp-edu .list-of .item .where div {
           padding: 2px; }
@@ -528,12 +542,14 @@ footer {
             color: #8cc8ff; }
       .page-about .container .exp-edu .list-of .item .title {
         padding: 1rem;
-        flex: 0 0 70%;
-        max-width: 70%; }
+        flex: 0 0 75%;
+        max-width: 75%; }
         .page-about .container .exp-edu .list-of .item .title h4 {
           margin-top: 0;
           margin-bottom: 0.5rem;
           font-size: 1.25rem; }
+        .page-about .container .exp-edu .list-of .item .title .where-2 {
+          display: none; }
         .page-about .container .exp-edu .list-of .item .title p {
           margin: 0;
           color: #bbb;
@@ -551,19 +567,39 @@ footer {
               display: inline-flex; }
       .page-about .container .exp-edu .list-of .item:last-child > div {
         border-bottom: none; }
+    @media (max-width: 991px) {
+      .page-about .container .exp-edu .list-of .item {
+        padding: 0 0.5rem; }
+        .page-about .container .exp-edu .list-of .item .where {
+          display: none; }
+        .page-about .container .exp-edu .list-of .item .title {
+          flex: 1;
+          max-width: 100%; }
+          .page-about .container .exp-edu .list-of .item .title .where-2 {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-style: italic; }
+            .page-about .container .exp-edu .list-of .item .title .where-2 span.date-2 {
+              color: #8cc8ff; } }
+  @media (max-width: 767px) {
+    .page-about .container .exp-edu {
+      width: 100%;
+      flex: none; } }
 
 .page-about .container .projects .list-wrapper {
   width: 25%;
-  max-width: 25%;
-  padding: 1rem 1rem 0 0;
+  padding: 0 1rem 1rem 0;
   display: flex; }
-  .page-about .container .projects .list-wrapper:nth-child(4n) {
-    padding-right: 0; }
 
 .page-about .container .projects .list-of {
   width: 100%; }
   .page-about .container .projects .list-of .title {
     padding: 1rem; }
+    .page-about .container .projects .list-of .title a {
+      color: #fff; }
+      .page-about .container .projects .list-of .title a:hover span {
+        border-bottom: 2px solid #ffd479; }
     .page-about .container .projects .list-of .title h4 {
       margin-top: 0;
       margin-bottom: 0.5rem;
@@ -583,6 +619,27 @@ footer {
         border-radius: 3px; }
         .page-about .container .projects .list-of .title .tech .skill-small picture {
           display: inline-flex; }
+
+@media (min-width: 1200px) {
+  .page-about .container .projects .list-wrapper:nth-child(4n) {
+    padding-right: 0; } }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .page-about .container .projects .list-wrapper {
+    width: calc(100% / 3); }
+    .page-about .container .projects .list-wrapper:nth-child(3n) {
+      padding-right: 0; } }
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .page-about .container .projects .list-wrapper {
+    width: 50%; }
+    .page-about .container .projects .list-wrapper:nth-child(2n) {
+      padding-right: 0; } }
+
+@media (max-width: 575px) {
+  .page-about .container .projects .list-wrapper {
+    width: 100%;
+    padding-right: 0; } }
 
 .badge {
   display: inline-flex;

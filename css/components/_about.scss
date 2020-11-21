@@ -4,19 +4,21 @@
   }
 
   .intro {
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 1rem 2rem 2rem;
     width: 70%;
-    b, strong{
+    b,
+    strong {
       color: $c-yellow;
       font-weight: normal;
     }
-    a{
+    a {
       color: #fff;
     }
   }
 
   .coordinate {
     width: 30%;
+    padding: 0 1rem;
     ul {
       padding-left: 0;
       list-style: none;
@@ -36,6 +38,7 @@
   p.contact {
     width: 100%;
     text-align: center;
+    margin-bottom: 4rem;
     a {
       margin-right: 10px;
       &:last-child {
@@ -44,10 +47,32 @@
     }
   }
 
+  @media (max-width: $grid-lg - 1px) {
+    .intro {
+      width: 60%;
+    }
+    .coordinate {
+      width: 40%;
+    }
+  }
+
+  @media (max-width: $grid-md - 1px) {
+    .intro {
+      width: 100%;
+      padding: 0 2rem;
+      border-bottom: 1px solid #444;
+    }
+    .coordinate {
+      width: 100%;
+      padding: 0 2rem 1.5rem 2rem;
+    }
+  }
+
   .container {
     .section {
       padding: 0 1rem;
       flex: 1;
+      margin: 1rem 0;
 
       .div-h2 {
         position: relative;
@@ -136,8 +161,7 @@
             border-bottom: $abt-border-bottom;
           }
 
-          $abt-where: 30%;
-          $abt-date: 20%;
+          $abt-where: 25%;
           $abt-title: 100% - $abt-where;
           .where {
             padding: 1rem 0.5rem;
@@ -160,6 +184,9 @@
               margin-top: 0;
               margin-bottom: 0.5rem;
               font-size: 1.25rem;
+            }
+            .where-2 {
+              display: none;
             }
             p {
               margin: 0;
@@ -189,25 +216,55 @@
             }
           }
         }
+
+        @media (max-width: $grid-lg - 1px) {
+          .item {
+            padding: 0 0.5rem;
+            .where {
+              display: none;
+            }
+            .title {
+              flex: 1;
+              max-width: 100%;
+              .where-2 {
+                display: block;
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+                font-style: italic;
+                span.date-2 {
+                  color: $c-blue;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: $grid-md - 1px) {
+        width: 100%;
+        flex: none;
       }
     }
 
     .projects {
-      .list-wrapper{
+      .list-wrapper {
         width: 25%;
-        max-width: 25%;
-        padding: 1rem 1rem 0 0;
+        padding: 0 1rem 1rem 0;
         display: flex;
-
-        &:nth-child(4n){
-          padding-right: 0;
-        }
       }
 
       .list-of {
         width: 100%;
         .title {
           padding: 1rem;
+          a {
+            color: #fff;
+            &:hover {
+              span {
+                border-bottom: 2px solid $c-yellow;
+              }
+            }
+          }
           h4 {
             margin-top: 0;
             margin-bottom: 0.5rem;
@@ -233,6 +290,39 @@
               }
             }
           }
+        }
+      }
+
+      @media (min-width: $grid-xl){
+        .list-wrapper {
+          &:nth-child(4n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $grid-md) and (max-width: $grid-xl - 1px){
+        .list-wrapper {
+          width: calc(100% / 3);
+          &:nth-child(3n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $grid-sm) and (max-width: $grid-md - 1px){
+        .list-wrapper {
+          width: 50%;
+          &:nth-child(2n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @media (max-width: $grid-sm - 1px){
+        .list-wrapper {
+          width: 100%;
+          padding-right: 0;
         }
       }
     }
