@@ -18,6 +18,7 @@
 }
 
 .wide{
+  padding: 0 20px;
   @media (min-width: 1600px){
     width: 1600px;
   }
@@ -26,5 +27,11 @@
 .normal{
   @media (min-width: 1200px){
     width: 900px;
+  }
+}
+
+.ex-normal{
+  @media (min-width: 1200px){
+    width: 1000px;
   }
 }

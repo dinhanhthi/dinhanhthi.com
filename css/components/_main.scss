@@ -79,7 +79,7 @@ html {
 body {
   font-family: $font-main;
   background: $c-background;
-  color: #eee;
+  color: $font-color;
   margin: 0;
   font-size: $font-size;
 }
@@ -88,6 +88,7 @@ body {
 b, strong {
   font-weight: $font-bold;
   color: #fff;
+  text-shadow: 1px 1px 0px #000;
 }
 
 dialog {
@@ -143,11 +144,20 @@ mark {
 }
 
 a {
-  color: #f9c412;
+  color: $c-yellow;
   text-decoration: none;
 
   &:hover {
     text-decoration: none;
+    border-bottom: 2px solid $c-yellow;
+    color: #fff;
+  }
+
+  &.no-effect{
+    color: $font-color;
+    &:hover{
+      border-bottom: none;
+    }
   }
 }
 

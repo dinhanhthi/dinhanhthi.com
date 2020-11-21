@@ -115,7 +115,8 @@ body {
 
 b, strong {
   font-weight: 600;
-  color: #fff; }
+  color: #fff;
+  text-shadow: 1px 1px 0px #000; }
 
 dialog {
   background-color: #8dff80;
@@ -157,7 +158,13 @@ a {
   color: #f9c412;
   text-decoration: none; }
   a:hover {
-    text-decoration: none; }
+    text-decoration: none;
+    border-bottom: 2px solid #f9c412;
+    color: #fff; }
+  a.no-effect {
+    color: #eee; }
+    a.no-effect:hover {
+      border-bottom: none; }
 
 hr {
   border-bottom: 1px solid #eee; }
@@ -209,13 +216,19 @@ h4 {
   width: 100%;
   margin: 0 auto; }
 
-@media (min-width: 1600px) {
-  .wide {
-    width: 1600px; } }
+.wide {
+  padding: 0 20px; }
+  @media (min-width: 1600px) {
+    .wide {
+      width: 1600px; } }
 
 @media (min-width: 1200px) {
   .normal {
     width: 900px; } }
+
+@media (min-width: 1200px) {
+  .ex-normal {
+    width: 1000px; } }
 
 @media (min-width: 768px) {
   .page-index .container {
@@ -223,14 +236,16 @@ h4 {
 
 .category {
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 0;
   border-bottom: 1px solid #444; }
   @media (min-width: 768px) {
     .category {
-      width: 50%; } }
+      width: 50%;
+      padding: 2rem; } }
   @media (min-width: 992px) {
     .category {
-      width: calc(100% / 3); } }
+      width: calc(100% / 3);
+      padding: 2rem; } }
   .category:last-child {
     border-bottom: none; }
   @media (min-width: 992px) {
@@ -259,7 +274,7 @@ h4 {
       .category .list-homepage li:hover {
         cursor: pointer; }
         .category .list-homepage li:hover a {
-          border-color: #949494;
+          border-color: #f9c412;
           color: #fff; }
         .category .list-homepage li:hover::before {
           opacity: 1; }
@@ -423,14 +438,33 @@ footer {
 
 .page-about .intro {
   padding: 0 2rem 2rem 2rem;
-  margin-bottom: 2rem; }
-  .page-about .intro p.contact {
-    margin-top: 2rem;
-    text-align: center; }
-    .page-about .intro p.contact a {
+  width: 70%; }
+  .page-about .intro b, .page-about .intro strong {
+    color: #f9c412;
+    font-weight: normal; }
+  .page-about .intro a {
+    color: #fff; }
+
+.page-about .coordinate {
+  width: 30%; }
+  .page-about .coordinate ul {
+    padding-left: 0;
+    list-style: none; }
+    .page-about .coordinate ul span {
+      color: #8cc8ff;
       margin-right: 10px; }
-      .page-about .intro p.contact a:last-child {
-        margin-right: 0; }
+    .page-about .coordinate ul a {
+      color: #eee; }
+    .page-about .coordinate ul span.job {
+      color: #f9c412; }
+
+.page-about p.contact {
+  width: 100%;
+  text-align: center; }
+  .page-about p.contact a {
+    margin-right: 10px; }
+    .page-about p.contact a:last-child {
+      margin-right: 0; }
 
 .page-about .container .section {
   padding: 0 1rem;
@@ -491,7 +525,7 @@ footer {
           padding: 2px; }
           .page-about .container .exp-edu .list-of .item .where div:last-child {
             font-size: 0.95rem;
-            color: #babaff; }
+            color: #8cc8ff; }
       .page-about .container .exp-edu .list-of .item .title {
         padding: 1rem;
         flex: 0 0 70%;
@@ -517,6 +551,38 @@ footer {
               display: inline-flex; }
       .page-about .container .exp-edu .list-of .item:last-child > div {
         border-bottom: none; }
+
+.page-about .container .projects .list-wrapper {
+  width: 25%;
+  max-width: 25%;
+  padding: 1rem 1rem 0 0;
+  display: flex; }
+  .page-about .container .projects .list-wrapper:nth-child(4n) {
+    padding-right: 0; }
+
+.page-about .container .projects .list-of {
+  width: 100%; }
+  .page-about .container .projects .list-of .title {
+    padding: 1rem; }
+    .page-about .container .projects .list-of .title h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem; }
+    .page-about .container .projects .list-of .title p {
+      margin: 0;
+      color: #bbb;
+      line-height: 1.5; }
+    .page-about .container .projects .list-of .title .tech {
+      margin-top: 1rem; }
+      .page-about .container .projects .list-of .title .tech .skill-small {
+        display: inline-flex;
+        margin: 3px;
+        border: 1px solid #444;
+        background: #343642;
+        padding: 3px;
+        border-radius: 3px; }
+        .page-about .container .projects .list-of .title .tech .skill-small picture {
+          display: inline-flex; }
 
 .badge {
   display: inline-flex;
@@ -556,7 +622,7 @@ footer {
   .button.blue {
     background-color: #2387e2; }
     .button.blue:hover {
-      background: #1274ce; }
+      background: #0c60ad; }
   .button.red {
     background-color: #e45353; }
   .button.black {

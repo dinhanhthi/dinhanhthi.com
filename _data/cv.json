@@ -136,7 +136,7 @@
 				]
 			},
 			{
-				"where": "Université Sorbonne Paris Nord",
+				"where": "u. Sorbonne Paris Nord",
 				"title": "Researcher in Applied Maths & Coder",
 				"date": "2013 — 2018",
 				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox.",

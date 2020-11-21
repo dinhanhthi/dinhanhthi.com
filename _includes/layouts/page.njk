@@ -16,7 +16,7 @@
     </p>
     <div class="social">
       {% for item in social %}
-        <a title="{{ item.name }}" href="{{ item.url }}">
+        <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}">
           <img src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
         </a>
       {% endfor %}

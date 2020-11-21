@@ -6,12 +6,14 @@ $c-selection: #44475a;
 $c-foreground: #f8f8f2;
 $c-comment: #6272a4;
 $c-cyan: #8be9fd;
+$c-blue: #8cc8ff; // mine
 $c-green: #50fa7b;
 $c-orange: #ffb86c;
 $c-pink: #ff79c6;
-$c-purple: #bd93f9;
+// $c-purple: #bd93f9;
+$c-purple: #babaff; // mine
 $c-red: #ff5555;
-$c-yellow: #f1fa8c;
+$c-yellow: #f9c412; // mine
 
 // FONTS
 $font-main: "Poppins", Arial, Helvetica, sans-serif;
@@ -20,6 +22,7 @@ $font-heading: "Recoleta";
 $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $font-bold: 600;
 $font-size: 16px;
+$font-color: #eee;
 
 // HEADINGs
 $heading-font: $font-heading;
