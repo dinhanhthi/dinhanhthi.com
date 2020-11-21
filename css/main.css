@@ -433,7 +433,7 @@ footer {
 
 .page-about .intro {
   padding: 0 1rem 2rem 2rem;
-  width: 70%; }
+  width: 65%; }
   .page-about .intro b,
   .page-about .intro strong {
     color: #ffd479;
@@ -442,7 +442,7 @@ footer {
     color: #fff; }
 
 .page-about .coordinate {
-  width: 30%;
+  width: 35%;
   padding: 0 1rem; }
   .page-about .coordinate ul {
     padding-left: 0;

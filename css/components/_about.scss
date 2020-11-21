@@ -3,9 +3,10 @@
     margin-bottom: 4rem;
   }
 
+  $abt-intro: 65%;
   .intro {
     padding: 0 1rem 2rem 2rem;
-    width: 70%;
+    width: $abt-intro;
     b,
     strong {
       color: $c-yellow;
@@ -17,7 +18,7 @@
   }
 
   .coordinate {
-    width: 30%;
+    width: 100% - $abt-intro;
     padding: 0 1rem;
     ul {
       padding-left: 0;
