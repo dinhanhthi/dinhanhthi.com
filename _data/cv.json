@@ -5,6 +5,7 @@
 		"list": [
 			{
 				"where": "Dataswati",
+				"url": "https://www.dataswati.com/",
 				"title": "Data Scientist",
 				"date": "1/2020 — 11/2020",
 				"activity": "I am one of the main maintainers of POPAI, Dataswati's main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science.",
@@ -69,6 +70,7 @@
 			},
 			{
 				"where": "Math2IT",
+				"url": "https://math2it.com",
 				"title": "Founder & Web Dev & Blogger",
 				"date": "2013 — current",
 				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology. I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook.",
@@ -136,7 +138,8 @@
 				]
 			},
 			{
-				"where": "u. Sorbonne Paris Nord",
+				"where": "U. Sorbonne Paris Nord",
+				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
 				"title": "Researcher in Applied Maths & Coder",
 				"date": "2013 — 2018",
 				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox.",
@@ -177,18 +180,21 @@
 			},
 			{
 				"where": "U. Sorbonne Paris Nord",
+				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
 				"title": "Doctor in Applied Maths",
 				"date": "2013 — 2018",
 				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox."
 			},
 			{
 				"where": "U. of Tours",
+				"url": "https://www.univ-tours.fr/",
 				"title": "Master in Applied Maths",
 				"date": "2012 — 2013",
 				"activity": "My master degree was registered in this University but I studied most of time in Vietnam and took an internship at University Paris 13."
 			},
 			{
 				"where": "Ho Chi Minh City Pedagogical U.",
+				"url": "https://hcmue.edu.vn/en/",
 				"title": "Bachelor in Pedagogy & Maths",
 				"date": "2008 — 2012",
 				"activity": "I was teached how to become a Mathematics teacher. I studied a lots in Mathematics and teaching method."

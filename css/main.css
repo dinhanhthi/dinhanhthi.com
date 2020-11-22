@@ -554,6 +554,8 @@ footer {
           .page-about .container .exp-edu .list-of .item .where div:last-child {
             font-size: 0.95rem;
             color: #8cc8ff; }
+          .page-about .container .exp-edu .list-of .item .where div a {
+            color: #fff; }
       .page-about .container .exp-edu .list-of .item .title {
         padding: 1rem;
         flex: 0 0 75%;
@@ -595,6 +597,8 @@ footer {
             font-size: 0.95rem;
             margin-bottom: 1rem;
             font-style: italic; }
+            .page-about .container .exp-edu .list-of .item .title .where-2 a {
+              color: #fff; }
             .page-about .container .exp-edu .list-of .item .title .where-2 span.date-2 {
               color: #8cc8ff; } }
   @media (max-width: 767px) {

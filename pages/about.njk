@@ -52,6 +52,7 @@ permalink: /about/
   {% endfor %}
 </div>
 
+{# Education & Experiences #}
 <div class="container d-flex d-flex-wrap wide">
   {% for sec in cv %}
     <div id="{{ sec.name | lower }}" class="section exp-edu">
@@ -64,13 +65,19 @@ permalink: /about/
           <div class="item">
             <div class="d-flex d-flex-wrap align-items-center">
               <div class="where">
-                <div>{{ item.where }}</div>
+                <div>
+                  {% if item.url %}
+                    <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.where }}</a>
+                  {% else %}
+                    {{ item.where }}
+                  {% endif %}
+                </div>
                 <div>{{ item.date }}</div>
               </div>
               <div class="title">
                 <h4>{{ item.title }}</h4>
                 <div class="where-2">
-                  <span>{{ item.where }}</span>,
+                  <span>{% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.where }}</a>{% else %}{{ item.where }}{% endif %}</span>,
                   <span class="date-2">{{ item.date }}</span>
                 </div>
                 <p>{{ item.activity }}</p>
@@ -90,6 +97,7 @@ permalink: /about/
   {% endfor %}
 </div>
 
+{# Projects #}
 <div class="container wide">
   <div id="projects" class="section projects">
     <div class="div-h2">
@@ -123,13 +131,3 @@ permalink: /about/
     </div>
   </div>
 </div>
-
-{# <div class="container d-flex d-flex-wrap wide">
-  <div class="section projects">
-    <div class="div-h2">
-      <h2 class="d-flex align-items-center">
-        Contact
-      </h2>
-    </div>
-  </div>
-</div> #}

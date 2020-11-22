@@ -197,6 +197,9 @@
                 font-size: 0.95rem;
                 color: $c-blue;
               }
+              a{
+                color: #fff;
+              }
             }
           }
           .title {
@@ -255,6 +258,9 @@
                 font-size: 0.95rem;
                 margin-bottom: 1rem;
                 font-style: italic;
+                a{
+                  color: #fff;
+                }
                 span.date-2 {
                   color: $c-blue;
                 }
