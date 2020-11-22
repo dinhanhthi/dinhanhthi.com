@@ -39,6 +39,10 @@ $grid-sm: 576px;
 $grid-md: 768px;
 $grid-lg: 992px;
 $grid-xl: 1200px;
+$grid-xxl: 1600px;
+$grid-w-normal: 900px;
+$grid-w-ex-normal: 1000px;
+$padding-lr: $font-size;
 
 @import "./components/font";
 @import "./components/main"; // init css
@@ -47,5 +51,6 @@ $grid-xl: 1200px;
 @import "./components/index"; // for home page
 @import "./components/header";
 @import "./components/footer";
-@import "./components/about";
+@import "./components/about"; // for about page
 @import "./components/component"; // all small components
+@import "./components/post"; // for posts

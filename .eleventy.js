@@ -32,7 +32,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
   eleventyConfig.setDataDeepMerge(true);
+
+  // layout alias
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
+  eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
+
   eleventyConfig.addNunjucksAsyncFilter("addHash", function (
     absolutePath,
     callback
@@ -155,6 +160,7 @@ module.exports = function (eleventyConfig) {
       rightDelimiter: '}'
     })
     .use(require("markdown-it-emoji")) // emoji
+    .use(require("markdown-it-table-of-contents")) // [[toc]]
     ;
   eleventyConfig.setLibrary("md", markdownLibrary);
 
