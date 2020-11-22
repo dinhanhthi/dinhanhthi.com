@@ -9,5 +9,6 @@ services:
     ports:
         - 4000:4000
     working_dir: /srv/jekyll
+    restart: always # start with log in
     environment:
         - JEKYLL_ENV=docker

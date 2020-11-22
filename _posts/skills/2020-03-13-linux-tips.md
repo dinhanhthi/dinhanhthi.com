@@ -246,14 +246,18 @@ nautilus -q # restart nautilus
 
 ~~~ bash
 sudo mount -o loop <image>.iso /mnt/<folder>
+
+# unmount
+sudo umount /mnt/<folder> # umount, not "unmount"!!!
 ~~~
 
 If you mount another iso file to the same <folder>, it will replace the current one.
 
-🔅 Extract a iso file: first, mount it like in 37 to folder named `iso` then copy all the contents in `iso` to some folder you want.
+🔅 Extract a iso file: first, mount it like in previous tut to a folder named `iso` then copy all the contents in `iso` to some folder you want.
 
 ~~~ bash
-cp -r /mnt/iso <directory>
+# copy all files in /iso/ to <directory>/
+cp -r /mnt/iso/* <directory>/
 ~~~
 
 🔅 Sync files with mega right on terminal
@@ -375,7 +379,7 @@ from this, you can `sudo matlab`
 1. For the activation, you have `libmwservices.so` and `license_standalone.lic`
 1. First, you need to extract 2 dvd iso files to a common folder named `install_matlab` in `/home/thi/`
 1. Create a new folder to install matlab called `matlabR` in `/home/thi/`
-1. Extract all files in 2 iso files to folder `install_matlab` like the instruction 38
+1. Extract all files in 2 iso files to folder `install_matlab` like the other tut (search for "mount").
 1. Run below command line
     ~~~ bash
 sudo /home/thi/matlab_install/install -agreeToLicense yes -mode silent -destinationFolder /home/thi/matlabR -fileInstallationKey xxxxx-xxxxx-xxxxx  -outputFile /home/matlab_install.log
