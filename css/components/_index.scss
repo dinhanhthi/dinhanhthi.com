@@ -8,16 +8,16 @@
 
 .category {
 	width: 100%;
-	padding: 2rem 0;
+	padding: 2rem 1rem;
 
 	@media (min-width: $grid-md) {
 		width: 50%;
-		padding: 2rem;
+		padding: 1.5rem;
 	}
 
 	@media (min-width: $grid-lg) {
 		width: calc(100% / 3);
-		padding: 2rem;
+		padding: 1.5rem;
 	}
 
 	border-bottom: 1px solid #444;

@@ -5,7 +5,7 @@
 
   $abt-intro: 65%;
   .intro {
-    padding: 0 1rem 2rem 2rem;
+    padding: 0 1rem 2rem 1rem;
     width: $abt-intro;
     b,
     strong {
@@ -40,6 +40,7 @@
     width: 100%;
     text-align: center;
     margin-bottom: 4rem;
+    padding: 0 1rem;
     a {
       margin-right: 10px;
       &:last-child {
@@ -60,12 +61,12 @@
   @media (max-width: $grid-md - 1px) {
     .intro {
       width: 100%;
-      padding: 0 2rem;
+      padding: 0 1rem 1rem;
       border-bottom: 1px solid #444;
     }
     .coordinate {
       width: 100%;
-      padding: 0 2rem 1.5rem 2rem;
+      padding: 1rem 1rem 1.5rem;
     }
   }
 
@@ -81,7 +82,7 @@
         &::after {
           position: absolute;
           opacity: 0.45;
-          top: 35px;
+          top: 28px;
           right: -15px;
           content: "";
           height: 20px;
@@ -119,6 +120,7 @@
         font-size: 1.7rem;
         line-height: 1;
         margin-bottom: 1.5rem;
+        margin-top: 1rem;
         img {
           margin-right: 8px;
           display: none;
@@ -134,18 +136,38 @@
 
     .skills {
       &.section {
-        padding: 0.5rem;
-
         .div-h2 {
           zoom: 0.9;
         }
-
         h2 {
           margin-bottom: 1rem;
         }
-
         .list-of {
           padding: 0.5rem;
+        }
+
+        @media (max-width: $grid-lg - 1px){
+          width: calc(100% / 3);
+          flex: none;
+          &:nth-last-child(-n + 2){
+            width: 50%;
+          }
+        }
+
+        @media (max-width: $grid-md - 1px){
+          width: 50%;
+          flex: none;
+          &:last-child{
+            width: 100%;
+          }
+        }
+
+        @media (max-width: $grid-sm - 1px){
+          width: 100%;
+          flex: none;
+          &:nth-last-child(-n + 2){
+            width: 100%;
+          }
         }
       }
     }
@@ -206,6 +228,7 @@
 
                 picture {
                   display: inline-flex;
+                  background: transparent;
                 }
               }
             }

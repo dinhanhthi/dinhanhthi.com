@@ -10,7 +10,7 @@ permalink: /about/
 <div class="container ex-normal d-flex d-flex-wrap">
   <div class="intro">
     {% markdown %}
-  I'm **Thi**, a Vietnamese __Data Scientist__ who has a curious mind. As an never-stop-learning worm, I am interested in researching and sharing contents about applied maths and data science. I have a Ph.D. degree in Applied Maths at [U. Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France and a very well-done self-learner in Data Science.
+  I'm **Thi**, a Vietnamese __Data Scientist__ who has a curious mind. As an never-stop-learning worm, I am interested in researching and sharing contents about applied maths and data science. I have a Ph.D. degree in Applied Maths at [U. Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"}, France and a very enthusiastic self-learner in Data Science.
 
   I use this website to document everything I learned while going through the process of learning and working in this field.
   {% endmarkdown %}
@@ -40,10 +40,12 @@ permalink: /about/
       </div>
       <div class="list-of">
         {% for item in group.list %}
-          <div class="badge black">
-            <img src="{{ item.icon }}" alt="{{ item.name }}" height="20" width="20">
-            <span>{{ item.name }}</span>
-          </div>
+          {% if not item.later %}
+            <div class="badge black">
+              <img src="{{ item.icon }}" alt="{{ item.name }}" height="20" width="20">
+              <span>{{ item.name }}</span>
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>

@@ -14,14 +14,6 @@
 						"icon": "/img/about/python.svg"
 					},
 					{
-						"name": "R Lang",
-						"icon": "/img/about/r.svg"
-					},
-					{
-						"name": "TensorFlow",
-						"icon": "/img/about/tf.svg"
-					},
-					{
 						"name": "Scikit-learn",
 						"icon": "/img/about/scikit-learn.svg"
 					},
@@ -40,6 +32,14 @@
 					{
 						"name": "Docker",
 						"icon": "/img/about/docker.svg"
+					},
+					{
+						"name": "R Lang",
+						"icon": "/img/about/r.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img/about/tf.svg"
 					},
 					{
 						"name": "MongoDB",

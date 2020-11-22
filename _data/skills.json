@@ -28,12 +28,13 @@
             },
             {
                 "name": "Ruby",
-                "icon": "/img/about/ruby.svg"
+                "icon": "/img/about/ruby.svg",
+                "later": true
             }
         ]
     },
     {
-        "name": "ML & DL",
+        "name": "AI & Data",
         "list": [
             {
                 "name": "TensorFlow",
@@ -50,6 +51,11 @@
             {
                 "name": "Jupyter",
                 "icon": "/img/about/jupyter.svg"
+            },
+            {
+                "name": "Foursquare API",
+                "icon": "/img/about/foursquare.svg",
+                "later": true
             }
         ]
     },
@@ -65,8 +71,16 @@
                 "icon": "/img/about/sass.svg"
             },
             {
+                "name": "Wordpress",
+                "icon": "/img/about/wordpress.svg"
+            },
+            {
                 "name": "React",
                 "icon": "/img/about/react.svg"
+            },
+            {
+                "name": "Eleventy",
+                "icon": "/img/about/11ty.svg"
             },
             {
                 "name": "GatsbyJS",
@@ -81,12 +95,12 @@
                 "icon": "/img/about/bootstrap.svg"
             },
             {
-                "name": "Eleventy",
-                "icon": "/img/about/11ty.svg"
+                "name": "Liquid",
+                "icon": "/img/about/liquid.svg"
             },
             {
-                "name": "Wordpress",
-                "icon": "/img/about/wordpress.svg"
+                "name": "Nunjucks",
+                "icon": "/img/about/nunjucks.svg"
             }
         ]
     },
@@ -94,12 +108,12 @@
         "name": "Backend",
         "list": [
             {
-                "name": "Airflow",
-                "icon": "/img/about/airflow.svg"
-            },
-            {
                 "name": "Docker",
                 "icon": "/img/about/docker.svg"
+            },
+            {
+                "name": "Airflow",
+                "icon": "/img/about/airflow.svg"
             },
             {
                 "name": "MongoDB",
@@ -107,7 +121,8 @@
             },
             {
                 "name": "PostgreSQL",
-                "icon": "/img/about/postgresql2.svg"
+                "icon": "/img/about/postgresql2.svg",
+                "later": true
             },
             {
                 "name": "MySQL",
@@ -123,15 +138,18 @@
             },
             {
                 "name": "Flask",
-                "icon": "/img/about/flask.svg"
+                "icon": "/img/about/flask.svg",
+                "later": true
             },
             {
                 "name": "GraphQL",
-                "icon": "/img/about/graphql.svg"
+                "icon": "/img/about/graphql.svg",
+                "later": true
             },
             {
                 "name": "Heroku",
-                "icon": "/img/about/heroku.svg"
+                "icon": "/img/about/heroku.svg",
+                "later": true
             }
         ]
     },
