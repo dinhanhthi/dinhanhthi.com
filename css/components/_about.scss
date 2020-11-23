@@ -7,14 +7,6 @@
   .intro {
     padding: 0 $padding-lr 2rem $padding-lr;
     width: $abt-intro;
-    b,
-    strong {
-      color: $c-yellow;
-      font-weight: normal;
-    }
-    a {
-      color: #fff;
-    }
   }
 
   .coordinate {
@@ -30,13 +22,10 @@
       a {
         color: $font-color;
       }
-      .job {
-        margin-top: 10px;
-        span {
-          background: $c-yellow;
-          color: #000;
-          padding: 3px 10px;
-          border-radius: 15px;
+      .job{
+        margin-top: 1rem;
+        span{
+          color: #333;
         }
       }
     }

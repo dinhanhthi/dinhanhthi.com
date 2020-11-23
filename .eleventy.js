@@ -160,7 +160,7 @@ module.exports = function (eleventyConfig) {
       rightDelimiter: '}'
     })
     .use(require("markdown-it-emoji")) // emoji
-    .use(require("markdown-it-table-of-contents")) // [[toc]]
+    .use(require("markdown-it-table-of-contents")) // [[toc]] (no spaces)
     ;
   eleventyConfig.setLibrary("md", markdownLibrary);
 

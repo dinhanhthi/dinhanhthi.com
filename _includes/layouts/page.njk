@@ -9,21 +9,6 @@
   </div>
 {% endblock %}
 
-{% block extraArticleHeader %}
-  {% if header == 'homepage' %}
-    <p>
-      I'm a Vietnamese guy who has a curious mind. I'd like to learn something new everyday. I'm a PhD in Applied Maths and currently a <b>Data Scientist</b>. You find in this site my notes which are taken when I've found something new in <b>Data Science</b> and <b>Web Developement.</b>
-    </p>
-    <div class="social">
-      {% for item in social %}
-        <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}">
-          <img src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
-        </a>
-      {% endfor %}
-    </div>
-  {% endif %}
-{% endblock %}
-
 {% block article %}
   {{ content | safe }}
 {% endblock %}

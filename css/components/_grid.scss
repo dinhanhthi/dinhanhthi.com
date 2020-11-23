@@ -37,10 +37,10 @@
   }
 }
 
-$spacing-sizes: 1, 2, 3, 4, 5;
+$spacing-sizes: 0, 1, 2, 3, 4, 5;
 @each $s in $spacing-sizes{
   .pt-#{$s}{
-    padding-top: ($s * 1rem);
+    padding-top: ($s * 1rem)!important;
   }
   .pt-#{$s}p5{
     padding-top: ($s * 1rem + 0.5rem);

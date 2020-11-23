@@ -216,8 +216,56 @@ h4 {
   .ex-normal {
     width: 1000px; } }
 
+.pt-0 {
+  padding-top: 0rem !important; }
+
+.pt-0p5 {
+  padding-top: 0.5rem; }
+
+.pr-0 {
+  padding-right: 0rem; }
+
+.pr-0p5 {
+  padding-right: 0.5rem; }
+
+.pb-0 {
+  padding-bottom: 0rem; }
+
+.pb-0p5 {
+  padding-bottom: 0.5rem; }
+
+.pl-0 {
+  padding-left: 0rem; }
+
+.pl-0p5 {
+  padding-left: 0.5rem; }
+
+.mt-0 {
+  margin-top: 0rem; }
+
+.mt-0p5 {
+  margin-top: 0.5rem; }
+
+.mr-0 {
+  margin-right: 0rem; }
+
+.mr-0p5 {
+  margin-right: 0.5rem; }
+
+.mb-0 {
+  margin-bottom: 0rem; }
+
+.mb-0p5 {
+  margin-bottom: 0.5rem; }
+
+.ml-0 {
+  margin-left: 0rem; }
+
+.ml-0p5 {
+  margin-left: 0.5rem; }
+
 .pt-1 {
-  padding-top: 1rem; }
+  padding-top: 1rem !important; }
 
 .pt-1p5 {
   padding-top: 1.5rem; }
@@ -265,7 +313,7 @@ h4 {
   margin-left: 1.5rem; }
 
 .pt-2 {
-  padding-top: 2rem; }
+  padding-top: 2rem !important; }
 
 .pt-2p5 {
   padding-top: 2.5rem; }
@@ -313,7 +361,7 @@ h4 {
   margin-left: 2.5rem; }
 
 .pt-3 {
-  padding-top: 3rem; }
+  padding-top: 3rem !important; }
 
 .pt-3p5 {
   padding-top: 3.5rem; }
@@ -361,7 +409,7 @@ h4 {
   margin-left: 3.5rem; }
 
 .pt-4 {
-  padding-top: 4rem; }
+  padding-top: 4rem !important; }
 
 .pt-4p5 {
   padding-top: 4.5rem; }
@@ -409,7 +457,7 @@ h4 {
   margin-left: 4.5rem; }
 
 .pt-5 {
-  padding-top: 5rem; }
+  padding-top: 5rem !important; }
 
 .pt-5p5 {
   padding-top: 5.5rem; }
@@ -650,6 +698,19 @@ nav {
   will-change: transform;
   pointer-events: none; }
 
+.intro b, .intro strong {
+  color: #ffd479;
+  font-weight: normal; }
+
+.intro a {
+  color: #fff; }
+
+.job span {
+  background: #ffd479;
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 15px; }
+
 footer {
   font-size: 1.1rem;
   background: #35373c;
@@ -667,12 +728,6 @@ footer {
 .page-about .intro {
   padding: 0 16px 2rem 16px;
   width: 65%; }
-  .page-about .intro b,
-  .page-about .intro strong {
-    color: #ffd479;
-    font-weight: normal; }
-  .page-about .intro a {
-    color: #fff; }
 
 .page-about .coordinate {
   width: 35%;
@@ -686,12 +741,9 @@ footer {
     .page-about .coordinate ul a {
       color: #eee; }
     .page-about .coordinate ul .job {
-      margin-top: 10px; }
+      margin-top: 1rem; }
       .page-about .coordinate ul .job span {
-        background: #ffd479;
-        color: #000;
-        padding: 3px 10px;
-        border-radius: 15px; }
+        color: #333; }
 
 .page-about p.contact {
   width: 100%;

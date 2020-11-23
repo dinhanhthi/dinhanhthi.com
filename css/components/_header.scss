@@ -60,6 +60,7 @@ header {
   }
 }
 
+// navigation
 nav {
   position: fixed;
   top: 0;
@@ -178,4 +179,23 @@ nav {
   transform: translate(-100vw, 0);
   will-change: transform;
   pointer-events: none;
+}
+
+.intro{
+  b, strong {
+    color: $c-yellow;
+    font-weight: normal;
+  }
+  a {
+    color: #fff;
+  }
+}
+
+.job {
+  span {
+    background: $c-yellow;
+    color: #000;
+    padding: 3px 10px;
+    border-radius: 15px;
+  }
 }
