@@ -1,24 +1,86 @@
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-heading;
 }
 
-h1{
+h1 {
   font-family: $font-heading;
   font-size: $heading-h1-size;
-  margin-bottom: 0.5em;
 }
 
 h2 {
   font-size: $heading-h2-size;
-  margin-bottom: 0.6em;
 }
 
 h3 {
   font-size: $heading-h3-size;
-  margin-bottom: 0.75em;
 }
 
 h4 {
   font-size: $heading-h4-size;
-  margin-bottom: 1em;
+}
+
+.page-note {
+  & > h2,
+  h3,
+  h4 {
+    font-family: $heading-font;
+    color: $heading-color;
+  }
+
+  h2 {
+    font-size: $heading-h2-size;
+    margin: 2rem 0 $mb 0;
+    &:before {
+      content: "# ";
+      color: $c-blue;
+    }
+  }
+
+  & > h3 {
+    font-size: $heading-h3-size;
+    margin-bottom: $mb;
+    margin-top: 1.2rem;
+    &:before {
+      content: "● ";
+      color: #8ed08e;
+      font-size: 1.45rem;
+      vertical-align: unset;
+      line-height: 1;
+    }
+  }
+
+  & > h4 {
+    font-size: $heading-h4-size;
+    margin-bottom: $mb;
+    margin-top: 1.2rem;
+    &:before {
+      content: "∴ ";
+      color: #ffa871;
+      font-size: 1.48;
+      line-height: 1;
+    }
+  }
+
+  .direct-link{
+    display: none;
+    color: #777;
+    border-bottom: none;
+    margin-left: 3px;
+  }
+
+  h2, h3, h4{
+    &:hover{
+      .direct-link{
+        display: inline-block;
+      }
+      a:hover{
+        color: #ccc;
+      }
+    }
+  }
 }

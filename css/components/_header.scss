@@ -28,7 +28,6 @@ header {
 
   p {
     margin-top: 1rem;
-    font-size: 1.15rem;
   }
 
   .header-logo {
@@ -182,6 +181,7 @@ nav {
 }
 
 .intro{
+  font-size: 1.1rem;
   b, strong {
     color: $c-yellow;
     font-weight: normal;

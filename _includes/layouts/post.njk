@@ -15,15 +15,11 @@
   </div>
 {% endblock %}
 
-{% block extraArticleHeader %}
-
-{% endblock %}
-
 {% set shareUrl = metadata.url + page.url %}
 
 {% block article %}
   <article>
-    <div class="container normal mt-2">
+    <div class="container normal mt-2 page-note">
       {{ content | safe }}
     </div>
     <script type="application/ld+json">

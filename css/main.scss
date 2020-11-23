@@ -15,6 +15,7 @@ $c-purple: #babaff; // mine
 $c-red: #ff5555;
 // $c-yellow: #f9c412; // mine (old)
 $c-yellow: #ffd479;
+$c-gray: #888;
 
 // FONTS
 $font-main: "Poppins", Arial, Helvetica, sans-serif;
@@ -22,15 +23,16 @@ $font-main-var: "Poppins" var alt, Arial, Helvetica, sans-serif;
 $font-heading: "Recoleta";
 $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $font-bold: 600;
-$font-size: 16px;
+$font-size: 16.5px;
 $font-color: #eee;
 
 // HEADINGs
 $heading-font: $font-heading;
-$heading-color: #333; // heading's color
-$heading-h1-size: $font-size * 1.8;
-$heading-h2-size: $font-size * 1.4; // h2's font size (in comparison with global $font-size)
-$heading-h3-size: $heading-h2-size * 0.9; // h3's font size (in comparison with global h2)
+$heading-weight: 600;
+$heading-color: $font-color; // heading's color
+$heading-h1-size: $font-size * 1.85;
+$heading-h2-size: $font-size * 1.55; // h2's font size (in comparison with global $font-size)
+$heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
 
 // GRIDS
@@ -44,6 +46,12 @@ $grid-w-normal: 900px;
 $grid-w-ex-normal: 1000px;
 $padding-lr: $font-size;
 
+// CODE
+$pre-padding: 1rem;
+$code-bg: #2f3240;
+
+$mb: 1rem; // margin-bottom
+
 @import "./components/font";
 @import "./components/main"; // init css
 @import "./components/heading";
@@ -53,4 +61,6 @@ $padding-lr: $font-size;
 @import "./components/footer";
 @import "./components/about"; // for about page
 @import "./components/component"; // all small components
-@import "./components/post"; // for posts
+@import "./components/post"; // for
+@import "./components/prism-vscode"; // with my custom
+@import "./components/code";

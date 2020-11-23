@@ -1,83 +1,69 @@
-
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier,
+    monospace;
+  line-height: 1.5;
 }
 
-code,
-pre{
-  overflow-x: auto;
-}
-
-pre {
-  font-family: $font-code;
-  code:not([class]) {
-    padding: 1.5em;
-    overflow-x: scroll;
+p, li, em, strong, b, i, a, dt, button{
+  &>code{
+    border: 1px solid #444;
+    background: $code-bg;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: .9rem;
+    color: #bbb;
+    font-family: monospace;
   }
 }
 
-code {
-  border-radius: 0.3em;
-  color: #e2777a;
-  padding: 0 0.3em;
-  font-family: $font-code;
-  font-size: 90%;
-}
-
-code {
-  background: #2d2d2d;
-}
-
-
-code[class*="language-"] {
-  color: #ccc;
-  background: none;
-  font-family: $font-code;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-}
-
 pre[class*="language-"] {
-  color: #ccc;
-  background: none;
-  font-family: $font-code;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
+  padding: $pre-padding;
+  margin-bottom: 1.1rem;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: #2d2d2d;
+.highlight-line {
+  display: block;
+  text-decoration: none;
+
+  /* override del, ins, mark defaults */
+  color: inherit;
+
+  /* override del, ins, mark defaults */
+
+  &:empty:before {
+    content: " ";
+  }
+
+  + br {
+    display: none;
+  }
 }
 
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
+/* allow highlighting empty lines */
+
+/* avoid double line breaks when using display: block; */
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+
+.highlight-line-active {
+  background-color: #444;
+  background-color: hsla(0, 0%, 27%, 0.8);
+}
+
+.highlight-line-add {
+  background-color: #45844b; // backup
+}
+
+.highlight-line-remove {
+  background-color: #902f2f; // backup
+}
+
+.highlight-line-active, .highlight-line-add, .highlight-line-remove{
+  margin-left: -$pre-padding;
+  margin-right: -$pre-padding;
 }

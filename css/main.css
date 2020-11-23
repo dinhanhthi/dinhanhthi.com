@@ -52,7 +52,7 @@
   box-sizing: border-box; }
 
 :root {
-  font-size: 16px; }
+  font-size: 16.5px; }
 
 .test-dead-code-elimination-sentinel {
   color: red; }
@@ -92,7 +92,7 @@ share-widget button {
 html {
   -webkit-text-size-adjust: 100%;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 16px; }
+  font-size: 16.5px; }
 
 @supports (font-variation-settings: normal) {
   html {
@@ -103,13 +103,12 @@ body {
   background: #282a36;
   color: #eee;
   margin: 0;
-  font-size: 16px; }
+  font-size: 16.5px; }
 
 b,
 strong {
   font-weight: 600;
-  color: #fff;
-  text-shadow: 1px 1px 0px #000; }
+  color: #8cc8ff; }
 
 dialog {
   background-color: #8dff80;
@@ -166,25 +165,72 @@ img {
 main {
   margin: 0 auto; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Recoleta"; }
 
 h1 {
   font-family: "Recoleta";
-  font-size: 28.8px;
-  margin-bottom: 0.5em; }
+  font-size: 30.525px; }
 
 h2 {
-  font-size: 22.4px;
-  margin-bottom: 0.6em; }
+  font-size: 25.575px; }
 
 h3 {
-  font-size: 20.16px;
-  margin-bottom: 0.75em; }
+  font-size: 22.25025px; }
 
 h4 {
-  font-size: 18.144px;
-  margin-bottom: 1em; }
+  font-size: 20.02522px; }
+
+.page-note > h2,
+.page-note h3,
+.page-note h4 {
+  font-family: "Recoleta";
+  color: #eee; }
+
+.page-note h2 {
+  font-size: 25.575px;
+  margin: 2rem 0 1rem 0; }
+  .page-note h2:before {
+    content: "# ";
+    color: #8cc8ff; }
+
+.page-note > h3 {
+  font-size: 22.25025px;
+  margin-bottom: 1rem;
+  margin-top: 1.2rem; }
+  .page-note > h3:before {
+    content: "● ";
+    color: #8ed08e;
+    font-size: 1.45rem;
+    vertical-align: unset;
+    line-height: 1; }
+
+.page-note > h4 {
+  font-size: 20.02522px;
+  margin-bottom: 1rem;
+  margin-top: 1.2rem; }
+  .page-note > h4:before {
+    content: "∴ ";
+    color: #ffa871;
+    font-size: 1.48;
+    line-height: 1; }
+
+.page-note .direct-link {
+  display: none;
+  color: #777;
+  border-bottom: none;
+  margin-left: 3px; }
+
+.page-note h2:hover .direct-link, .page-note h3:hover .direct-link, .page-note h4:hover .direct-link {
+  display: inline-block; }
+
+.page-note h2:hover a:hover, .page-note h3:hover a:hover, .page-note h4:hover a:hover {
+  color: #ccc; }
 
 .d-flex {
   display: -ms-flexbox;
@@ -206,9 +252,9 @@ h4 {
     width: 1600px; } }
 
 .normal {
-  padding: 0 16px;
+  padding: 0 16.5px;
   width: 100%; }
-  @media (min-width: 916px) {
+  @media (min-width: 916.5px) {
     .normal {
       width: 900px; } }
 
@@ -582,8 +628,7 @@ header {
     margin-bottom: 0;
     margin-top: 0; }
   header p {
-    margin-top: 1rem;
-    font-size: 1.15rem; }
+    margin-top: 1rem; }
   header .header-logo {
     width: 50px;
     height: 50px;
@@ -698,12 +743,13 @@ nav {
   will-change: transform;
   pointer-events: none; }
 
-.intro b, .intro strong {
-  color: #ffd479;
-  font-weight: normal; }
-
-.intro a {
-  color: #fff; }
+.intro {
+  font-size: 1.1rem; }
+  .intro b, .intro strong {
+    color: #ffd479;
+    font-weight: normal; }
+  .intro a {
+    color: #fff; }
 
 .job span {
   background: #ffd479;
@@ -726,12 +772,13 @@ footer {
   margin-bottom: 4rem; }
 
 .page-about .intro {
-  padding: 0 16px 2rem 16px;
+  padding: 0 16.5px 2rem 16.5px;
   width: 65%; }
 
 .page-about .coordinate {
   width: 35%;
-  padding: 0 16px; }
+  padding: 0 16.5px;
+  font-size: 1.05rem; }
   .page-about .coordinate ul {
     padding-left: 0;
     list-style: none; }
@@ -749,7 +796,7 @@ footer {
   width: 100%;
   text-align: center;
   margin-bottom: 4rem;
-  padding: 0 16px; }
+  padding: 0 16.5px; }
   .page-about p.contact a {
     margin-right: 10px; }
     .page-about p.contact a:last-child {
@@ -764,14 +811,14 @@ footer {
 @media (max-width: 767px) {
   .page-about .intro {
     width: 100%;
-    padding: 0 16px 1rem;
+    padding: 0 16.5px 1rem;
     border-bottom: 1px solid #444; }
   .page-about .coordinate {
     width: 100%;
-    padding: 1rem 16px 1.5rem; } }
+    padding: 1rem 16.5px 1.5rem; } }
 
 .page-about .container .section {
-  padding: 0 16px;
+  padding: 0 16.5px;
   flex: 1;
   margin: 1rem 0; }
   .page-about .container .section .div-h2 {
@@ -1017,3 +1064,291 @@ footer {
     border: 1px solid #555; }
     .button.black:hover {
       background: #333; }
+
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #eee;
+  font-size: 16px;
+  text-shadow: none;
+  font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] *::selection,
+code[class*="language-"] *::selection {
+  text-shadow: none;
+  background: #75a7ca; }
+
+@media print {
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none; } }
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #2f3240;
+  border: .5px solid #3b3e54;
+  border-radius: 3px; }
+
+:not(pre) > code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #f9f2f4; }
+
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7; }
+
+.token.doctype .token.doctype-tag {
+  color: #90cdff; }
+
+.token.doctype .token.name {
+  color: #9cdcfe; }
+
+.token.comment,
+.token.prolog {
+  color: #6a9955; }
+
+.token.punctuation,
+.language-html .language-css .token.punctuation,
+.language-html .language-javascript .token.punctuation {
+  color: #eee; }
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.inserted,
+.token.unit {
+  color: #b5cea8; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.deleted {
+  color: #ce9178; }
+
+.language-css .token.string.url {
+  text-decoration: underline; }
+
+.token.operator,
+.token.entity {
+  color: #eee; }
+
+.token.operator.arrow {
+  color: #90cdff; }
+
+.token.atrule {
+  color: #ce9178; }
+
+.token.atrule .token.rule {
+  color: #c586c0; }
+
+.token.atrule .token.url {
+  color: #9cdcfe; }
+
+.token.atrule .token.url .token.function {
+  color: #efefac; }
+
+.token.atrule .token.url .token.punctuation {
+  color: #eee; }
+
+.token.keyword {
+  color: #90cdff; }
+
+.token.keyword.module,
+.token.keyword.control-flow {
+  color: #c586c0; }
+
+.token.function,
+.token.function .token.maybe-class-name {
+  color: #efefac; }
+
+.token.regex {
+  color: #d16969; }
+
+.token.important {
+  color: #90cdff; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.constant {
+  color: #9cdcfe; }
+
+.token.class-name,
+.token.maybe-class-name {
+  color: #4ec9b0; }
+
+.token.console {
+  color: #9cdcfe; }
+
+.token.parameter {
+  color: #9cdcfe; }
+
+.token.interpolation {
+  color: #9cdcfe; }
+
+.token.punctuation.interpolation-punctuation {
+  color: #90cdff; }
+
+.token.boolean {
+  color: #90cdff; }
+
+.token.property,
+.token.variable,
+.token.imports .token.maybe-class-name,
+.token.exports .token.maybe-class-name {
+  color: #9cdcfe; }
+
+.token.selector {
+  color: #d7ba7d; }
+
+.token.escape {
+  color: #d7ba7d; }
+
+.token.tag {
+  color: #90cdff; }
+
+.token.tag .token.punctuation {
+  color: #808080; }
+
+.token.cdata {
+  color: #808080; }
+
+.token.attr-name {
+  color: #9cdcfe; }
+
+.token.attr-value,
+.token.attr-value .token.punctuation {
+  color: #ce9178; }
+
+.token.attr-value .token.punctuation.attr-equals {
+  color: #eee; }
+
+.token.entity {
+  color: #90cdff; }
+
+.token.namespace {
+  color: #4ec9b0; }
+
+/*********************************************************
+* Language Specific
+*/
+pre[class*="language-javascript"],
+code[class*="language-javascript"],
+pre[class*="language-jsx"],
+code[class*="language-jsx"],
+pre[class*="language-typescript"],
+code[class*="language-typescript"],
+pre[class*="language-tsx"],
+code[class*="language-tsx"] {
+  color: #9cdcfe; }
+
+pre[class*="language-css"],
+code[class*="language-css"] {
+  color: #ce9178; }
+
+pre[class*="language-html"],
+code[class*="language-html"] {
+  color: #eee; }
+
+.language-regex .token.anchor {
+  color: #efefac; }
+
+.language-html .token.punctuation {
+  color: #808080; }
+
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative; }
+
+pre[class*="language-"] > code[class*="language-"] {
+  position: relative;
+  z-index: 1; }
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #f7ebc6;
+  box-shadow: inset 5px 0 0 #f7d87c;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre; }
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  line-height: 1.5; }
+
+p > code, li > code, em > code, strong > code, b > code, i > code, a > code, dt > code, button > code {
+  border: 1px solid #444;
+  background: #2f3240;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: .9rem;
+  color: #bbb;
+  font-family: monospace; }
+
+pre[class*="language-"] {
+  padding: 1rem;
+  margin-bottom: 1.1rem; }
+
+.highlight-line {
+  display: block;
+  text-decoration: none;
+  /* override del, ins, mark defaults */
+  color: inherit;
+  /* override del, ins, mark defaults */ }
+  .highlight-line:empty:before {
+    content: " "; }
+  .highlight-line + br {
+    display: none; }
+
+/* allow highlighting empty lines */
+/* avoid double line breaks when using display: block; */
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222; }
+
+.highlight-line-active {
+  background-color: #444;
+  background-color: rgba(69, 69, 69, 0.8); }
+
+.highlight-line-add {
+  background-color: #45844b; }
+
+.highlight-line-remove {
+  background-color: #902f2f; }
+
+.highlight-line-active, .highlight-line-add, .highlight-line-remove {
+  margin-left: -1rem;
+  margin-right: -1rem; }
