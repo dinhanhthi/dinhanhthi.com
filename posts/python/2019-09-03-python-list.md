@@ -14,9 +14,10 @@ This is a very **long sentence just** for testing the length of the width of the
 
 ::: code-output-flex
 ~~~ python
-x = [1, 2]
-y = [1, 2]
-z = [2, 1]
+def nameOffunction(x, y, parameter, param2, param3, param4):
+	x = [1, 2]
+	y = [1, 2]
+	z = [2, 1]
 
 x == y
 x == z
@@ -26,6 +27,55 @@ x == z
 True
 False
 ~~~
+:::
+
+::: code-output-equal
+~~~ python
+def nameOffunction(x, y, parameter, param2, param3, param4):
+	x = [1, 2]
+	y = [1, 2]
+	z = [2, 1]
+
+x == y
+x == z
+~~~
+
+~~~
+True
+False
+~~~
+:::
+
+## Equal width
+
+::: code-2cols
+``` latex
+\begin{document}
+# testing
+\end{document}
+```
+
+``` python
+def abc(x, y):
+	pass
+```
+
+``` python
+def abc(x, y):
+	pass
+```
+
+``` latex
+\begin{document}
+# testing
+\end{document}
+```
+
+``` latex
+\begin{document}
+# testing
+\end{document}
+```
 :::
 
 ### Header h3 `function`
@@ -62,7 +112,7 @@ This is a **info message**. Thu nghiem _xem the nao_. Coi `11px` thu co duoc kho
 - `x[:3] + x[3:]` gives exactly `x`.
 
 
-``` js/2-3
+``` js/2-4
 // this is a command
 function myCommand() {
 	let counter = 0;
@@ -73,7 +123,7 @@ function myCommand() {
 console.log('Test');
 ```
 
-``` js/2/4
+``` js/4/2
 // this is a command
 function myCommand() {
 	let counter = 0;

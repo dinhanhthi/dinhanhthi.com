@@ -50,11 +50,11 @@ a{
 
 pre[class*="language-"], pre {
   padding: ($inside-padding - 2px) $inside-padding $inside-padding;
-  margin-bottom: 1.1 * $mb;
+  margin: 0 0 $mb-code 0;
   background: $code-bg;
   border: .5px solid #3b3e54;
   overflow: auto;
-	border-radius: 3px;
+  border-radius: 3px;
 }
 
 .highlight-line {

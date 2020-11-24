@@ -10,9 +10,74 @@ This post is for me only. It contains shortcodes to create this website.
 
 [[toc]]
 
+## Inser codes
+
+<div class="code-2cols">
+
+~~~ markdown
+# Highlight line 2 to 4
+``` js/2-4
+// lines of codes
+```
+~~~
+
+~~~ markdown
+# Highlight line 2, 4
+``` js/2,4
+// lines of codes
+```
+~~~
+</div>
+
+~~~ markdown
+# Delete line 2 (red highlight) and add line 4 (green highlight)
+``` js/4/2
+// lines of codes
+```
+~~~
+
+## Columns
+
+### Code & output
+
+<div class="code-2cols">
+
+``` js
+// equal width
+::: code-output-equal
+// block of code
+
+// block of output (also a block of code)
+:::
+```
+
+``` js
+// flexible width
+::: code-output-flex
+// block of code
+
+// block of output (also a block of code)
+:::
+```
+</div>
+
+### 2 equal columns of code boxes
+
+``` js
+::: code-2cols
+// code block 1
+
+// code block 2
+
+// code block 3
+:::
+```
+
 ## Boxes
 
 ### Alert boxes
+
+<div class="code-2cols">
 
 ``` js
 // info
@@ -41,4 +106,4 @@ Content
 Content
 :::
 ```
-
+</div>

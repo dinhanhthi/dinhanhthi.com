@@ -1,3 +1,21 @@
+// scroll bar
+.page-note{
+  ::-webkit-scrollbar {
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #363948;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #21232d;
+    border-radius: 6px;
+    &:hover{
+      background: #21232db8;
+      cursor: pointer;
+    }
+  }
+}
+
 // badges
 .badge {
   display: inline-flex;
@@ -112,7 +130,7 @@ kbd {
 }
 
 // code output
-.code-output-flex {
+@mixin code-output($flex) {
   pre {
     &:first-child {
       border-bottom-right-radius: 0%;
@@ -122,9 +140,9 @@ kbd {
       }
     }
     &:last-child {
-      background: #232020;
-      border-color: #333333;
-      margin-top: -$mb * 1.1;
+      background: #272424;
+      border-color: #353535;
+      margin-top: -$mb-code;
       @media (max-width: $grid-md){
         border-top: none;
         border-top-right-radius: 0%;
@@ -137,17 +155,40 @@ kbd {
     display: -ms-flexbox;
     margin-bottom: $mb;
     pre {
-      flex: 1 1 auto;
+      flex: $flex;
       margin: 0 !important;
       &:first-child {
         border-top-right-radius: 0%;
         border-bottom-right-radius: 0%;
-        border-left: none;
+        border-right: none;
       }
       &:last-child {
         border-top-left-radius: 0%;
         border-bottom-left-radius: 0%;
         border-left: none;
+      }
+    }
+  }
+}
+.code-output-flex {
+  @include code-output(1 1 auto);
+}
+.code-output-equal{
+  @include code-output(1);
+}
+
+// 2 cols
+$gap: 5px;
+@media (min-width: $grid-md){
+  .code-2cols{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding-right: $gap;
+    &>pre{
+      flex: 0 0 calc(50% - #{$gap});
+      &:nth-child(even){
+        margin-left: 2*$gap;
       }
     }
   }
