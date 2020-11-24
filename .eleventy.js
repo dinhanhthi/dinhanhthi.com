@@ -8,7 +8,10 @@ const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+
 const markdownIt = require("markdown-it");
+const mdItContainer = require('markdown-it-container');
+
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
@@ -160,6 +163,17 @@ module.exports = function (eleventyConfig) {
     })
     .use(require("markdown-it-emoji")) // emoji
     .use(require("markdown-it-table-of-contents")) // [[toc]] (no spaces)
+    .use(require('@iktakahiro/markdown-it-katex')) // katex
+    .use(require("markdown-it-task-lists")) // tasks [x]
+    .use(mdItContainer, 'success')
+    .use(mdItContainer, 'info')
+    .use(mdItContainer, 'warning')
+    .use(mdItContainer, 'danger')
+    .use(mdItContainer, 'code-output-equal')
+    .use(mdItContainer, 'code-output-flex')
+    .use(mdItContainer, 'code-2cols')
+    .use(require('markdown-it-kbd')) // [[Ctrl]]
+    .use(require('markdown-it-footnote'))
     ;
   eleventyConfig.setLibrary("md", markdownLibrary);
 

@@ -1,7 +1,6 @@
 ---
-layout: layouts/post.njk
+layout: post
 title: "Python List"
-categories: [python]
 tags: [Python]
 icon: "/img/about/python.svg"
 keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list random number int intersection"
@@ -11,13 +10,47 @@ This is a very **long sentence just** for testing the length of the width of the
 
 [[toc]]
 
-## General h2
+## General `function` h2
 
-### Header h3
+::: code-output-flex
+~~~ python
+x = [1, 2]
+y = [1, 2]
+z = [2, 1]
 
-#### Header h4
+x == y
+x == z
+~~~
 
-- Index starts with `0`.
+~~~
+True
+False
+~~~
+:::
+
+### Header h3 `function`
+
+Thu nghiem [[Ctrl]] + [[A]] xem the nao!
+
+::: info
+This is a **info message**. Thu nghiem _xem the nao_. Coi `11px` thu co duoc khong $\frac{1}{2}$ voi `\begin{document}`.
+:::
+
+::: warning
+This is a **info message**. Thu nghiem _xem the nao_. Coi `11px` thu co duoc khong $\frac{1}{2}$ voi `\begin{document}`.
+:::
+
+::: success
+This is a **info message**. Thu nghiem _xem the nao_. Coi `11px` thu co duoc khong $\frac{1}{2}$ voi `\begin{document}`.
+:::
+
+::: danger
+This is a **info message**. Thu nghiem _xem the nao_. Coi `11px` thu co duoc khong $\frac{1}{2}$ voi `\begin{document}`.
+:::
+
+#### Header h4 `function`
+
+- Index starts with `0`, `function`.
 - Slice: `x[1:4]` gives elements from `x[1]` to `x[3]` inclusive (takes `1`, not `4`).
 
 ### Header h3

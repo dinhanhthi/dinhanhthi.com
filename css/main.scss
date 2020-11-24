@@ -45,12 +45,12 @@ $grid-xxl: 1600px;
 $grid-w-normal: 900px;
 $grid-w-ex-normal: 1000px;
 $padding-lr: $font-size;
+$mb: 1.5 * $font-size; // margin-bottom
 
 // CODE
-$pre-padding: 1rem;
+$inside-padding: $font-size;
+$pre-padding: $inside-padding;
 $code-bg: #2f3240;
-
-$mb: 1rem; // margin-bottom
 
 @import "./components/font";
 @import "./components/main"; // init css
@@ -61,6 +61,7 @@ $mb: 1rem; // margin-bottom
 @import "./components/footer";
 @import "./components/about"; // for about page
 @import "./components/component"; // all small components
+@import "./components/katex.min_0_11_1";
 @import "./components/post"; // for
 @import "./components/prism-vscode"; // with my custom
 @import "./components/code";

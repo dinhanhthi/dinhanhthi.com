@@ -6,21 +6,55 @@ code {
   line-height: 1.5;
 }
 
-p, li, em, strong, b, i, a, dt, button{
+h2>code{
+  font-size: 0.88*$heading-h2-size!important;
+}
+
+h3>code{
+  font-size: 0.88*$heading-h3-size!important;
+}
+
+h4>code{
+  font-size: 0.88*$heading-h4-size!important;
+}
+
+p, li, em, strong, b, i, a, dt, button, h2, h3, h4, h1{
   &>code{
     border: 1px solid #444;
     background: $code-bg;
-    padding: 2px 6px;
+    padding: 2px 4px;
+    margin: 0 1px;
     border-radius: 3px;
     font-size: .9rem;
-    color: #bbb;
-    font-family: monospace;
+    color: #ccc;
   }
 }
 
-pre[class*="language-"] {
-  padding: $pre-padding;
-  margin-bottom: 1.1rem;
+h2, h3, h4{
+  &>code{
+    color: #ddd;
+    padding-right: 6px;
+  }
+}
+
+a{
+  &>code {
+    color: $c-yellow;
+  }
+  &:hover{
+    &>code{
+      color: #ccc;
+    }
+  }
+}
+
+pre[class*="language-"], pre {
+  padding: ($inside-padding - 2px) $inside-padding $inside-padding;
+  margin-bottom: 1.1 * $mb;
+  background: $code-bg;
+  border: .5px solid #3b3e54;
+  overflow: auto;
+	border-radius: 3px;
 }
 
 .highlight-line {
@@ -64,6 +98,6 @@ pre[class*="language-"] {
 }
 
 .highlight-line-active, .highlight-line-add, .highlight-line-remove{
-  margin-left: -$pre-padding;
-  margin-right: -$pre-padding;
+  margin-left: -$inside-padding;
+  margin-right: -$inside-padding;
 }
