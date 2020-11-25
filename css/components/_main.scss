@@ -26,7 +26,24 @@ main img {
 
 /*! purgecss start ignore */
 
+// scroll bar
+::-webkit-scrollbar {
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e466b;
+  border-radius: 6px;
+  &:hover{
+    background: #aaa;
+    cursor: pointer;
+  }
+}
+::-webkit-scrollbar-track {
+  background: #363948;
+}
+
 /*! purgecss end ignore */
+
 
 share-widget {
   position: fixed;

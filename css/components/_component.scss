@@ -1,21 +1,3 @@
-// scroll bar
-.page-note{
-  ::-webkit-scrollbar {
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #363948;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #21232d;
-    border-radius: 6px;
-    &:hover{
-      background: #21232db8;
-      cursor: pointer;
-    }
-  }
-}
-
 // badges
 .badge {
   display: inline-flex;

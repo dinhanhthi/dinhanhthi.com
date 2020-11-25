@@ -256,8 +256,7 @@ function offsetAnchor() {
 addEventListener('click', function (e) {
   // Click events are captured before hashchanges. Timeout
   // causes offsetAnchor to be called after the page jump.
-  console.log(e);
-  if (e.target.hash.startsWith("#")) {
+  if (e.target.tagName == "A" && e.target.hash.startsWith("#")) {
     window.setTimeout(function () {
       offsetAnchor();
     }, 0);

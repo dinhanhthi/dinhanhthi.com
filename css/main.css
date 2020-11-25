@@ -68,6 +68,19 @@ main img {
   content-visibility: auto; }
 
 /*! purgecss start ignore */
+::-webkit-scrollbar {
+  height: 8px; }
+
+::-webkit-scrollbar-thumb {
+  background: #3e466b;
+  border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+    cursor: pointer; }
+
+::-webkit-scrollbar-track {
+  background: #363948; }
+
 /*! purgecss end ignore */
 share-widget {
   position: fixed;
@@ -171,10 +184,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Recoleta"; }
+  font-family: "Recoleta", Arial, Helvetica, sans-serif; }
 
 h1 {
-  font-family: "Recoleta";
+  font-family: "Recoleta", Arial, Helvetica, sans-serif;
   font-size: 30.525px; }
 
 h2 {
@@ -192,7 +205,7 @@ body {
 .page-note > h2,
 .page-note h3,
 .page-note h4 {
-  font-family: "Recoleta";
+  font-family: "Recoleta", Arial, Helvetica, sans-serif;
   color: #eee; }
   .page-note > h2:hover .direct-link,
   .page-note h3:hover .direct-link,
@@ -640,7 +653,7 @@ body {
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
 header nav {
-  z-index: 1; }
+  z-index: 10; }
 
 #nav {
   z-index: 2;
@@ -1052,19 +1065,6 @@ footer {
   .page-about .container .projects .list-wrapper {
     width: 100%;
     padding-right: 0; } }
-
-.page-note ::-webkit-scrollbar {
-  height: 8px; }
-
-.page-note ::-webkit-scrollbar-track {
-  background: #363948; }
-
-.page-note ::-webkit-scrollbar-thumb {
-  background: #21232d;
-  border-radius: 6px; }
-  .page-note ::-webkit-scrollbar-thumb:hover {
-    background: #21232db8;
-    cursor: pointer; }
 
 .badge {
   display: inline-flex;
@@ -2442,7 +2442,7 @@ div.toc {
       float: right;
       margin-right: -280px;
       border-left: 1px solid #6b6b6b;
-      width: auto;
+      width: 250px;
       position: -webkit-sticky;
       position: sticky;
       top: 60px;
