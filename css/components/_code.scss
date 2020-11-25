@@ -74,6 +74,8 @@ pre {
   border: 0.5px solid #3b3e54;
   overflow: auto;
   border-radius: 3px;
+  max-height: 400px;
+  overflow: auto;
 }
 
 .highlight-line {
