@@ -169,7 +169,7 @@ nav {
 
 #reading-progress {
   z-index: 3;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 1px solid $c-yellow;
   width: 100vw;
   position: absolute;
   left: 0;
@@ -181,7 +181,7 @@ nav {
 }
 
 .intro{
-  font-size: 1.1rem;
+  font-size: 1.02rem;
   b, strong {
     color: $c-yellow;
     font-weight: normal;
@@ -197,6 +197,6 @@ nav {
     color: #000;
     padding: 3px 10px;
     border-radius: 15px;
-    font-size: 1.1rem;
+    font-size: 1.02rem;
   }
 }

@@ -1,0 +1,5 @@
+{
+    "layout": "post",
+    "tag": "Python",
+    "permalink": "{{ title | slug }}/"
+}

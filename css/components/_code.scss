@@ -6,53 +6,72 @@ code {
   line-height: 1.5;
 }
 
-h2>code{
-  font-size: 0.88*$heading-h2-size!important;
+h2 > code {
+  font-size: 0.88 * $heading-h2-size !important;
 }
 
-h3>code{
-  font-size: 0.88*$heading-h3-size!important;
+h3 > code {
+  font-size: 0.88 * $heading-h3-size !important;
 }
 
-h4>code{
-  font-size: 0.88*$heading-h4-size!important;
+h4 > code {
+  font-size: 0.88 * $heading-h4-size !important;
 }
 
-p, li, em, strong, b, i, a, dt, button, h2, h3, h4, h1{
-  &>code{
-    border: 1px solid #444;
-    background: $code-bg;
-    padding: 2px 4px;
-    margin: 0 1px;
-    border-radius: 3px;
-    font-size: .9rem;
-    color: #ccc;
+@mixin code-inline() {
+  border: 1px solid #444;
+  background: $code-bg;
+  padding: 2px 4px;
+  margin: 0 1px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+p,
+li,
+em,
+strong,
+b,
+i,
+a,
+dt,
+button,
+h2,
+h3,
+h4,
+h1 {
+  & > code {
+    @include code-inline();
   }
 }
 
-h2, h3, h4{
-  &>code{
+h2,
+h3,
+h4 {
+  & > code {
     color: #ddd;
     padding-right: 6px;
   }
 }
 
-a{
-  &>code {
+a {
+  & > code {
     color: $c-yellow;
   }
-  &:hover{
-    &>code{
+  &:hover {
+    & > code {
       color: #ccc;
     }
   }
 }
 
-pre[class*="language-"], pre {
+pre[class*="language-"],
+pre {
   padding: ($inside-padding - 2px) $inside-padding $inside-padding;
   margin: 0 0 $mb-code 0;
   background: $code-bg;
-  border: .5px solid #3b3e54;
+  border: 0.5px solid #3b3e54;
   overflow: auto;
   border-radius: 3px;
 }
@@ -97,7 +116,9 @@ pre[class*="language-"], pre {
   background-color: #902f2f; // backup
 }
 
-.highlight-line-active, .highlight-line-add, .highlight-line-remove{
+.highlight-line-active,
+.highlight-line-add,
+.highlight-line-remove {
   margin-left: -$inside-padding;
   margin-right: -$inside-padding;
 }

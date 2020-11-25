@@ -12,7 +12,7 @@
   .coordinate {
     width: 100% - $abt-intro;
     padding: 0 $padding-lr;
-    font-size: 1.05rem;
+    font-size: 1rem;
     ul {
       padding-left: 0;
       list-style: none;
@@ -83,27 +83,22 @@
           content: "";
           height: 20px;
           width: 30px;
-          background-image: -webkit-repeating-radial-gradient(
-            center center,
-            #04b4e0,
-            #04b4e0 1px,
-            transparent 0px,
-            transparent 100%
-          );
-          background-image: -moz-repeating-radial-gradient(
-            center center,
-            #04b4e0,
-            #04b4e0 1px,
-            transparent 0px,
-            transparent 100%
-          );
-          background-image: -ms-repeating-radial-gradient(
-            center center,
-            #04b4e0,
-            #04b4e0 1px,
-            transparent 0px,
-            transparent 100%
-          );
+
+          @mixin bg-heading() {
+            background-image: -webkit-repeating-radial-gradient(
+              center center,
+              #04b4e0,
+              #04b4e0 1px,
+              transparent 0px,
+              transparent 100%
+            );
+          }
+
+          @include bg-heading();
+          @include bg-heading();
+          @include bg-heading();
+          @include bg-heading();
+
           -webkit-background-size: 6px 6px;
           -moz-background-size: 6px 6px;
           background-size: 6px 6px;
@@ -287,7 +282,7 @@
             color: #fff;
             &:hover {
               span {
-                border-bottom: 2px solid $c-yellow;
+                border-bottom: 2px solid $a-hover;
               }
             }
           }
