@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Python List"
 tags: [Python]
 icon: "/img/about/python.svg"

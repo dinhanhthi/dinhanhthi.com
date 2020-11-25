@@ -15,6 +15,13 @@ This post is for me only. It contains shortcodes to create this website.
 <div class="code-2cols">
 
 ~~~ markdown
+# Highlight line 2
+``` js/2
+// lines of codes
+```
+~~~
+
+~~~ markdown
 # Highlight line 2 to 4
 ``` js/2-4
 // lines of codes

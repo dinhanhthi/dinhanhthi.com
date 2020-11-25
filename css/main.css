@@ -764,7 +764,8 @@ nav {
   background: #ffd479;
   color: #000;
   padding: 3px 10px;
-  border-radius: 15px; }
+  border-radius: 15px;
+  font-size: 1.1rem; }
 
 footer {
   font-size: 1.1rem;
@@ -1137,8 +1138,8 @@ kbd {
       border-bottom: none; } }
 
 .code-output-flex pre:last-child {
-  background: #272424;
-  border-color: #353535;
+  background: #252731;
+  border-color: #3a3a3a80;
   margin-top: -27.225px; }
   @media (max-width: 768px) {
     .code-output-flex pre:last-child {
@@ -1171,8 +1172,8 @@ kbd {
       border-bottom: none; } }
 
 .code-output-equal pre:last-child {
-  background: #272424;
-  border-color: #353535;
+  background: #252731;
+  border-color: #3a3a3a80;
   margin-top: -27.225px; }
   @media (max-width: 768px) {
     .code-output-equal pre:last-child {
