@@ -186,6 +186,9 @@ h3 {
 h4 {
   font-size: 20.02522px; }
 
+body {
+  counter-reset: h2counter; }
+
 .page-note > h2,
 .page-note h3,
 .page-note h4 {
@@ -203,9 +206,6 @@ h4 {
 .page-note > h2 {
   font-size: 25.575px;
   margin: 37.125px 0 24.75px 0; }
-  .page-note > h2:before {
-    content: "# ";
-    color: #8cc8ff; }
   .page-note > h2 + h3 {
     margin-top: -0.5rem; }
 
@@ -213,12 +213,6 @@ h4 {
   font-size: 22.25025px;
   margin-bottom: 24.75px;
   margin-top: 37.125px; }
-  .page-note > h3:before {
-    content: "● ";
-    color: #8ed08e;
-    font-size: 1.45rem;
-    vertical-align: unset;
-    line-height: 1; }
   .page-note > h3 + h4 {
     margin-top: -0.5rem; }
 
@@ -226,11 +220,6 @@ h4 {
   font-size: 20.02522px;
   margin-bottom: 24.75px;
   margin-top: 37.125px; }
-  .page-note > h4:before {
-    content: "∴ ";
-    color: #ffa871;
-    font-size: 1.48;
-    line-height: 1; }
 
 .page-note .direct-link {
   display: none;
@@ -238,8 +227,42 @@ h4 {
   border-bottom: none;
   margin-left: 3px; }
 
-.page-note pre + h2, .page-note pre + h3, .page-note pre + h4, .page-note .code-output-equal + h2, .page-note .code-output-equal + h3, .page-note .code-output-equal + h4, .page-note .code-2cols + h2, .page-note .code-2cols + h3, .page-note .code-2cols + h4 {
+.page-note pre + h2,
+.page-note pre + h3,
+.page-note pre + h4,
+.page-note .code-output-equal + h2,
+.page-note .code-output-equal + h3,
+.page-note .code-output-equal + h4,
+.page-note .code-2cols + h2,
+.page-note .code-2cols + h3,
+.page-note .code-2cols + h4 {
   margin-top: 9.9px; }
+
+.page-note h1 {
+  counter-reset: h2counter; }
+
+.page-note h2 {
+  counter-reset: h3counter; }
+
+.page-note h3 {
+  counter-reset: h4counter; }
+
+.page-note h2:before,
+.page-note h3:before,
+.page-note h4:before {
+  opacity: 0.4; }
+
+.page-note h2:before {
+  content: counter(h2counter) ".  ";
+  counter-increment: h2counter; }
+
+.page-note h3:before {
+  content: counter(h2counter) "." counter(h3counter) ".  ";
+  counter-increment: h3counter; }
+
+.page-note h4:before {
+  content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".  ";
+  counter-increment: h4counter; }
 
 .d-flex {
   display: -ms-flexbox;
@@ -742,7 +765,7 @@ nav {
 
 #reading-progress {
   z-index: 3;
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 1px solid #ffd479;
   width: 100vw;
   position: absolute;
   left: 0;
@@ -753,7 +776,7 @@ nav {
   pointer-events: none; }
 
 .intro {
-  font-size: 1.1rem; }
+  font-size: 1.02rem; }
   .intro b, .intro strong {
     color: #ffd479;
     font-weight: normal; }
@@ -765,7 +788,7 @@ nav {
   color: #000;
   padding: 3px 10px;
   border-radius: 15px;
-  font-size: 1.1rem; }
+  font-size: 1.02rem; }
 
 footer {
   font-size: 1.1rem;
@@ -788,7 +811,7 @@ footer {
 .page-about .coordinate {
   width: 35%;
   padding: 0 16.5px;
-  font-size: 1.05rem; }
+  font-size: 1rem; }
   .page-about .coordinate ul {
     padding-left: 0;
     list-style: none; }
@@ -843,8 +866,9 @@ footer {
       height: 20px;
       width: 30px;
       background-image: -webkit-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
-      background-image: -moz-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
-      background-image: -ms-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(center center, #04b4e0, #04b4e0 1px, transparent 0px, transparent 100%);
       -webkit-background-size: 6px 6px;
       -moz-background-size: 6px 6px;
       background-size: 6px 6px;
@@ -2313,16 +2337,30 @@ h3 > code {
 h4 > code {
   font-size: 17.6222px !important; }
 
-p > code, li > code, em > code, strong > code, b > code, i > code, a > code, dt > code, button > code, h2 > code, h3 > code, h4 > code, h1 > code {
+p > code,
+li > code,
+em > code,
+strong > code,
+b > code,
+i > code,
+a > code,
+dt > code,
+button > code,
+h2 > code,
+h3 > code,
+h4 > code,
+h1 > code {
   border: 1px solid #444;
   background: #2f3240;
   padding: 2px 4px;
   margin: 0 1px;
   border-radius: 3px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #ccc; }
 
-h2 > code, h3 > code, h4 > code {
+h2 > code,
+h3 > code,
+h4 > code {
   color: #ddd;
   padding-right: 6px; }
 
@@ -2332,11 +2370,12 @@ a > code {
 a:hover > code {
   color: #ccc; }
 
-pre[class*="language-"], pre {
+pre[class*="language-"],
+pre {
   padding: 14.5px 16.5px 16.5px;
   margin: 0 0 27.225px 0;
   background: #2f3240;
-  border: .5px solid #3b3e54;
+  border: 0.5px solid #3b3e54;
   overflow: auto;
   border-radius: 3px; }
 
@@ -2367,6 +2406,57 @@ pre[class*="language-"], pre {
 .highlight-line-remove {
   background-color: #902f2f; }
 
-.highlight-line-active, .highlight-line-add, .highlight-line-remove {
+.highlight-line-active,
+.highlight-line-add,
+.highlight-line-remove {
   margin-left: -16.5px;
   margin-right: -16.5px; }
+
+div.toc {
+  margin-bottom: 24.75px;
+  border-left: 5px solid #aaa; }
+  div.toc ol {
+    padding-left: 20px;
+    font-size: 14.85px;
+    counter-reset: item;
+    list-style-type: none; }
+    div.toc ol li {
+      margin-bottom: 5px;
+      padding-left: 0; }
+      div.toc ol li code {
+        font-size: 0.85rem;
+        background: #ececec;
+        padding: 0 4px 2px 4px; }
+      div.toc ol li ol {
+        padding-left: 15px;
+        margin-top: 7px; }
+    div.toc ol ol {
+      counter-reset: item;
+      list-style-type: none; }
+    div.toc ol li::before {
+      content: counters(item, ".") ". ";
+      counter-increment: item;
+      opacity: 0.7; }
+  @media (min-width: 1300px) {
+    div.toc {
+      float: right;
+      margin-right: -280px;
+      border-left: 1px solid #6b6b6b;
+      width: auto;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 60px;
+      margin-bottom: 0;
+      max-height: 85vh;
+      overflow: auto;
+      padding-top: 0;
+      padding-right: 15px; }
+      div.toc ol {
+        margin-top: 0;
+        margin-bottom: 0; } }
+
+/*! purgecss start ignore */
+.toc-active > a {
+  color: #fff !important; }
+
+/*! purgecss end ignore */

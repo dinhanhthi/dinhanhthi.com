@@ -36,6 +36,7 @@ const CSP = {
     // No plugins
     ["object-src", quote("none")],
     // Script from same-origin and inline-hashes.
+    // ["script-src", SELF, quote("unsafe-inline")],
     ["script-src", SELF, /* Replaced by csp.js plugin */ "HASHES"],
     // Inline CSS is allowed.
     ["style-src", SELF, "https://fonts.googleapis.com/", "https://use.fontawesome.com/", quote("unsafe-inline")],

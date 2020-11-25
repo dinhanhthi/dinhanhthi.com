@@ -227,3 +227,41 @@ document.body.addEventListener(
   },
   /* capture */ "true"
 );
+
+// scrolling toc
+// -----------------------------------------
+function headingTOC() {
+  document.querySelectorAll("h2, h3, h4").forEach((heading) => {
+    if (document.getElementsByTagName("html")[0].scrollTop >= heading.offsetTop - 100) {
+      var id = heading.getAttribute("id"); // id of headings
+      var toc = document.getElementsByClassName("toc")[0];
+      toc.querySelectorAll("a").forEach((item) => {
+        item.parentElement.classList.remove("toc-active");
+      });
+      document.querySelector(`.toc li a[href="#${id}"]`).parentElement.classList.add('toc-active');
+    }
+  });
+}
+addEventListener("scroll", headingTOC);
+
+
+// anchor link fixed navigation from top
+// -----------------------------------------
+function offsetAnchor() {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - 60);
+  }
+}
+// Captures click events of all <a> elements with href starting with #
+addEventListener('click', function (e) {
+  // Click events are captured before hashchanges. Timeout
+  // causes offsetAnchor to be called after the page jump.
+  console.log(e);
+  if (e.target.hash.startsWith("#")) {
+    window.setTimeout(function () {
+      offsetAnchor();
+    }, 0);
+  }
+});
+// Set the offset when entering page with hash present in the url
+window.setTimeout(offsetAnchor, 0);

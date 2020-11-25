@@ -21,7 +21,12 @@ permalink: "{{ title | slug }}/"
 {% block article %}
   <article>
     <div class="container normal mt-2 page-note">
-      {{ content | safe }}
+      {% if toc %}
+        {{ content | toc | safe }}
+        {{ content | safe }}
+      {% else %}
+        {{ content | safe }}
+      {% endif %}
     </div>
     <script type="application/ld+json">
       {

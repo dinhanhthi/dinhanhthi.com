@@ -1,0 +1,64 @@
+div.toc {
+  margin-bottom: $mb;
+  border-left: 5px solid #aaa;
+  ol {
+    padding-left: 20px;
+    font-size: 0.9 * $font-size;
+    li {
+      margin-bottom: 5px;
+      padding-left: 0;
+      code {
+        font-size: 0.85rem;
+        background: #ececec;
+        padding: 0 4px 2px 4px;
+      }
+      ol {
+        padding-left: 15px;
+        margin-top: 7px;
+      }
+    }
+
+    @if $heading-numbering {
+      counter-reset: item;
+      list-style-type: none;
+      ol {
+        counter-reset: item;
+        list-style-type: none;
+      }
+      li {
+        &::before {
+          content: counters(item, ".") ". ";
+          counter-increment: item;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1300px) {
+    float: right;
+    margin-right: -280px;
+    border-left: 1px solid #6b6b6b;
+    width: auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    margin-bottom: 0;
+    max-height: 85vh;
+    overflow: auto;
+    padding-top: 0;
+    padding-right: 15px;
+    ol {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*! purgecss start ignore */
+.toc-active {
+  & > a {
+    color: #fff !important;
+  }
+}
+/*! purgecss end ignore */

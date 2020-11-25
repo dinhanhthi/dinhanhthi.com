@@ -2,12 +2,11 @@
 title: "Python List"
 tags: [Python]
 icon: "/img/about/python.svg"
+toc: true
 keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list random number int intersection"
 ---
 
 This is a very **long sentence just** for testing the length of the width of the container to be modified in CSS later by Dinh Anh Thi, it should be broken to another line. This is a very long sentence just for testing the length of the width of the container to be modified in CSS later by Dinh Anh Thi, it should be broken to another line.
-
-[[toc]]
 
 ## General `function` h2
 

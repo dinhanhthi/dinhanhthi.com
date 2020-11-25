@@ -24,6 +24,12 @@ h4 {
   font-size: $heading-h4-size;
 }
 
+@if $heading-numbering {
+  body {
+    counter-reset: h2counter;
+  }
+}
+
 .page-note {
   & > h2,
   h3,
@@ -35,18 +41,20 @@ h4 {
         display: inline-block;
       }
       a:hover {
-        color: $c-yellow;
+        color: $a-hover;
       }
     }
   }
 
-  $mt-heading: $mb*1.5;
+  $mt-heading: $mb * 1.5;
   & > h2 {
     font-size: $heading-h2-size;
     margin: $mt-heading 0 $mb 0;
-    &:before {
-      content: "# ";
-      color: $c-blue;
+    @if not $heading-numbering{
+      &:before {
+        content: "# ";
+        color: $c-blue;
+      }
     }
 
     & + h3 {
@@ -58,12 +66,14 @@ h4 {
     font-size: $heading-h3-size;
     margin-bottom: $mb;
     margin-top: $mt-heading;
-    &:before {
-      content: "● ";
-      color: #8ed08e;
-      font-size: 1.45rem;
-      vertical-align: unset;
-      line-height: 1;
+    @if not $heading-numbering{
+      &:before {
+        content: "● ";
+        color: #8ed08e;
+        font-size: 1.45rem;
+        vertical-align: unset;
+        line-height: 1;
+      }
     }
 
     & + h4 {
@@ -75,11 +85,13 @@ h4 {
     font-size: $heading-h4-size;
     margin-bottom: $mb;
     margin-top: $mt-heading;
-    &:before {
-      content: "∴ ";
-      color: #ffa871;
-      font-size: 1.48;
-      line-height: 1;
+    @if not $heading-numbering{
+      &:before {
+        content: "∴ ";
+        color: #ffa871;
+        font-size: 1.48;
+        line-height: 1;
+      }
     }
   }
 
@@ -90,10 +102,48 @@ h4 {
     margin-left: 3px;
   }
 
-  pre, .code-output-equal, .code-2cols{
-    &+ h2, &+ h3, &+ h4{
+  pre,
+  .code-output-equal,
+  .code-2cols {
+    & + h2,
+    & + h3,
+    & + h4 {
       margin-top: $mt-heading - $mb-code;
     }
   }
 
-}
+  @if $heading-numbering {
+    h1 {
+      counter-reset: h2counter;
+    }
+    h2 {
+      counter-reset: h3counter;
+    }
+    h3 {
+      counter-reset: h4counter;
+    }
+
+    h2,
+    h3,
+    h4 {
+      &:before {
+        opacity: 0.4;
+      }
+    }
+
+    h2:before {
+      content: counter(h2counter) ".\0000a0\0000a0";
+      counter-increment: h2counter;
+    }
+
+    h3:before {
+      content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+      counter-increment: h3counter;
+    }
+
+    h4:before {
+      content: counter(h2counter) "." counter(h3counter) "." counter(h4counter) ".\0000a0\0000a0";
+      counter-increment: h4counter;
+    }
+  }
+} // end page-note

@@ -25,6 +25,7 @@ $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $font-bold: 600;
 $font-size: 16.5px;
 $font-color: #eee;
+$a-hover: $c-yellow;
 
 // HEADINGs
 $heading-font: $font-heading;
@@ -34,6 +35,7 @@ $heading-h1-size: $font-size * 1.85;
 $heading-h2-size: $font-size * 1.55; // h2's font size (in comparison with global $font-size)
 $heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
+$heading-numbering: true;
 
 // GRIDS
 $grid-xs: 350px;
@@ -66,3 +68,4 @@ $code-bg: #2f3240;
 @import "./components/post"; // for
 @import "./components/prism-vscode"; // with my custom
 @import "./components/code";
+@import "./components/toc";

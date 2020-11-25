@@ -4,11 +4,26 @@ title: "For me only"
 tags: [Others]
 icon: "/img/header/customize.svg"
 keywords: "for me only customize edit this site box font blocks"
+toc: true
 ---
 
 This post is for me only. It contains shortcodes to create this website.
 
-[[toc]]
+## Frontmatter
+
+``` yaml
+layout: post # or `page` or `base`
+title: "For me only"
+tags: [Others] # base: Project-based Learning, MOOC, Machine Learning,
+               #       Data Science, Deep Learning, Time Series,
+               #       NLP, MLOps, Python, R Lang, Linear Algebra,
+               #       Prob & Stats, JavaScript, Web Dev, Algorithms
+               #       Skills, Others
+icon: "/img/header/customize.svg" # can be "customize.svg"
+                                  # if it's in /img/header/
+keywords: "for me only customize edit this site box font blocks" # used for searching
+toc: true # `false` to hide toc
+```
 
 ## Inser codes
 
@@ -114,3 +129,13 @@ Content
 :::
 ```
 </div>
+
+## Dev
+
+Becare full on [PurgeCSS](https://purgecss.com/),
+
+``` css
+/*! purgecss start ignore */
+// css classes
+/*! purgecss end ignore */
+```

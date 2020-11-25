@@ -29,6 +29,14 @@ module.exports = function (eleventyConfig) {
     verbose: false,
   });
 
+  eleventyConfig.addPlugin(require('eleventy-plugin-toc'), {
+    tags: ['h2', 'h3', 'h4'], // which heading tags are selected headings must each have an ID attribute
+    wrapper: 'div',           // element to put around the root `ol`/`ul`
+    wrapperClass: 'toc',      // class for the element around the root `ol`/`ul`
+    ul: false,                // if to use `ul` instead of `ol`
+    flat: false,              // if subheadings should appear as child of parent or as a sibling
+  });
+
   eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
@@ -147,10 +155,10 @@ module.exports = function (eleventyConfig) {
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
-      html: true, // html tag inside source
-      breaks: true, // use '\n' as <br>
-      linkify: true, // Autoconvert URL-like text to links
-    })
+    html: true, // html tag inside source
+    breaks: true, // use '\n' as <br>
+    linkify: true, // Autoconvert URL-like text to links
+  })
     .use(require("markdown-it-anchor"), {
       permalink: true,
       permalinkClass: "direct-link",
