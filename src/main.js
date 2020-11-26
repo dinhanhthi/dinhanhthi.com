@@ -264,3 +264,15 @@ addEventListener('click', function (e) {
 });
 // Set the offset when entering page with hash present in the url
 window.setTimeout(offsetAnchor, 0);
+
+
+// Hide / Show
+// -----------------------------------------
+// Handler that uses various data-* attributes to trigger
+// specific actions, mimicing bootstraps attributes
+var triggers = Array.from(document.querySelectorAll('[class="hs__title"]'));
+window.addEventListener('click', (ev) => {
+  if (ev.target.classList.contains("hs__title")){
+    ev.target.nextSibling.classList.toggle("show");
+  }
+}, false);

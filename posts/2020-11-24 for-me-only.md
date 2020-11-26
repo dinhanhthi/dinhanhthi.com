@@ -97,6 +97,15 @@ toc: true # `false` to hide toc
 
 ## Boxes
 
+### Hide / Show box
+
+``` js
+// The box must have a title
+::: hsbox Title Name
+Content
+:::
+```
+
 ### Alert boxes
 
 <div class="code-2cols">

@@ -37,7 +37,8 @@ div.toc {
   @media (min-width: 1300px) {
     float: right;
     margin-right: -280px;
-    border-left: 1px solid #6b6b6b;
+    // border-left: 1px solid #6b6b6b;
+    border-left: none;
     width: 250px;
     position: -webkit-sticky;
     position: sticky;

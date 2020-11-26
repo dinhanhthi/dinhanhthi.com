@@ -175,3 +175,20 @@ $gap: 5px;
     }
   }
 }
+
+// hide / show
+.hs__title{
+  border: 1px solid #666;
+  padding: 5px 10px;
+}
+.hs__content {
+  height: 0;
+  overflow: hidden;
+  transition: height 1s cubic-bezier(0, 1, 0, 1);
+
+  &.show {
+    display: show;
+    height: auto;
+    transition: height 1s ease-in-out;
+  }
+}

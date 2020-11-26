@@ -218,20 +218,20 @@ body {
 
 .page-note > h2 {
   font-size: 25.575px;
-  margin: 37.125px 0 24.75px 0; }
+  margin: 37.125px 0 19.8px 0; }
   .page-note > h2 + h3 {
     margin-top: -0.5rem; }
 
 .page-note > h3 {
   font-size: 22.25025px;
-  margin-bottom: 24.75px;
+  margin-bottom: 19.8px;
   margin-top: 37.125px; }
   .page-note > h3 + h4 {
     margin-top: -0.5rem; }
 
 .page-note > h4 {
   font-size: 20.02522px;
-  margin-bottom: 24.75px;
+  margin-bottom: 19.8px;
   margin-top: 37.125px; }
 
 .page-note .direct-link {
@@ -1233,6 +1233,19 @@ kbd {
       .code-2cols > pre:nth-child(even) {
         margin-left: 10px; } }
 
+.hs__title {
+  border: 1px solid #666;
+  padding: 5px 10px; }
+
+.hs__content {
+  height: 0;
+  overflow: hidden;
+  transition: height 1s cubic-bezier(0, 1, 0, 1); }
+  .hs__content.show {
+    display: show;
+    height: auto;
+    transition: height 1s ease-in-out; }
+
 @font-face {
   font-family: KaTeX_AMS;
   src: url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"), url(fonts/KaTeX_AMS-Regular.woff) format("woff"), url(fonts/KaTeX_AMS-Regular.ttf) format("truetype");
@@ -2088,6 +2101,18 @@ kbd {
 .katex-display.fleqn > .katex {
   text-align: left; }
 
+.page-note p {
+  margin-top: 0;
+  margin-bottom: 24.75px; }
+
+.page-note ul, .page-note ol {
+  margin-top: 0;
+  margin-bottom: 24.75px; }
+  .page-note ul li, .page-note ol li {
+    margin-bottom: 5px; }
+    .page-note ul li > p, .page-note ol li > p {
+      margin: 0 0 5px 0; }
+
 pre[class*="language-"],
 code[class*="language-"] {
   color: #eee;
@@ -2442,7 +2467,7 @@ div.toc {
     div.toc {
       float: right;
       margin-right: -280px;
-      border-left: 1px solid #6b6b6b;
+      border-left: none;
       width: 250px;
       position: -webkit-sticky;
       position: sticky;

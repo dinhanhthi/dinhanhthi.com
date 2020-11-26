@@ -10,6 +10,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
 const markdownIt = require("markdown-it");
+var markdownItp = require('markdown-it')();
 const mdItContainer = require('markdown-it-container');
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
@@ -182,6 +183,21 @@ module.exports = function (eleventyConfig) {
     .use(mdItContainer, 'code-2cols')
     .use(require('markdown-it-kbd')) // [[Ctrl]]
     .use(require('markdown-it-footnote'))
+    .use(mdItContainer, 'hsbox', {
+      validate: function (params) {
+        return params.trim().match(/^hsbox\s+(.*)$/);
+      },
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          // opening tag
+          return '<div class="hs__title">' + markdownItp.utils.escapeHtml(m[1]) + '</div>\n<div class="hs__content">';
+        } else {
+          // closing tag
+          return '</div>\n';
+        }
+      }
+    })
     ;
   eleventyConfig.setLibrary("md", markdownLibrary);
 

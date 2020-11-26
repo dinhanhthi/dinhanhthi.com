@@ -2,9 +2,9 @@
 layout: post
 title: "Python List"
 tags: [Python]
+toc: true
 icon: "/img/about/python.svg"
 keywords: "python list Mutable Create a list copy Access elements Nested list get length add more slices remove element pop clear coupling 2 lists sort arrange reverse map a function to each element index count len repeat a list random number int intersection"
-toc: true
 ---
 
 ## General
