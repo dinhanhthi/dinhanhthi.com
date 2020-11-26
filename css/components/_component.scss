@@ -117,7 +117,7 @@ kbd {
     &:first-child {
       border-bottom-right-radius: 0%;
       border-bottom-left-radius: 0%;
-      @media (max-width: $grid-md){
+      @media (max-width: $grid-md) {
         border-bottom: none;
       }
     }
@@ -125,7 +125,7 @@ kbd {
       background: #252731;
       border-color: #3a3a3a80;
       margin-top: -$mb-code;
-      @media (max-width: $grid-md){
+      @media (max-width: $grid-md) {
         border-top: none;
         border-top-right-radius: 0%;
         border-top-left-radius: 0%;
@@ -155,40 +155,82 @@ kbd {
 .code-output-flex {
   @include code-output(1 1 auto);
 }
-.code-output-equal{
+.code-output-equal {
   @include code-output(1);
 }
 
 // 2 cols
 $gap: 5px;
-@media (min-width: $grid-md){
-  .code-2cols{
+@media (min-width: $grid-md) {
+  .code-2cols {
     display: flex;
     align-items: stretch;
     flex-wrap: wrap;
     padding-right: $gap;
-    &>pre{
+    & > pre {
       flex: 0 0 calc(50% - #{$gap});
-      &:nth-child(even){
-        margin-left: 2*$gap;
+      &:nth-child(even) {
+        margin-left: 2 * $gap;
       }
     }
   }
 }
 
 // hide / show
-.hs__title{
-  border: 1px solid #666;
-  padding: 5px 10px;
-}
-.hs__content {
-  height: 0;
-  overflow: hidden;
-  transition: height 1s cubic-bezier(0, 1, 0, 1);
+.hsbox {
+  display: block;
+  margin-bottom: 1rem;
+  border: 1px solid #969696;
+  padding: 1rem;
+  border-radius: 3px;
 
-  &.show {
-    display: show;
-    height: auto;
-    transition: height 1s ease-in-out;
+  input {
+    position: absolute;
+    left: -9999px;
+    &:focus ~ .hs__title {
+      border-color: grey;
+    }
+  }
+
+  .hs__title {
+    cursor: pointer;
+  }
+
+  .arrow {
+    margin-left: 0.5em;
+    transform: rotate(90deg);
+    transition: transform 0.25s ease-out;
+    float: right;
+  }
+
+  .hs__content {
+    font-size: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.5s 0s ease;
+    *:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  input:checked {
+    & ~ .hs__title {
+      padding-bottom: 15px;
+      border-bottom: 0.5px solid #666;
+      margin-bottom: 1rem;
+    }
+
+    & ~ .arrow{
+      transform: rotate(270deg);
+    }
+
+    & ~ .hs__content {
+      font-size: $font-size;
+      opacity: 1;
+      height: auto;
+      padding: 5px 0;
+      transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 }

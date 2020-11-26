@@ -191,10 +191,10 @@ module.exports = function (eleventyConfig) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
           // opening tag
-          return '<div class="hs__title">' + markdownItp.utils.escapeHtml(m[1]) + '</div>\n<div class="hs__content">';
+          return '<div class="hsbox"><label><input type="checkbox" /><span class="arrow"></span><div class="hs__title">' + markdownItp.utils.escapeHtml(m[1]) + '</div><div class="hs__content">';
         } else {
           // closing tag
-          return '</div>\n';
+          return '</div></label></div>';
         }
       }
     })

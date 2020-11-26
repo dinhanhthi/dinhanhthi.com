@@ -9,6 +9,21 @@ keywords: "classes vs objects methods instances blueprint attributes import loca
 
 ## Test hide/show box
 
+<div class="hsbox">
+  <label>
+    <input type="checkbox" />
+    <span class="arrow"></span>
+    <div class="hs__title">
+      How about Corporate Ipsum?</div>
+    <div class="hs__content">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.</div>
+  </label>
+</div>
+
+<div class="hsbox"><label><input type="checkbox" /><span class="arrow"></span><div class="hs__title">How about Corporate Ipsum?</div>
+<div class="hs__content">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.</div>
+  </label>
+</div>
+
 ::: hsbox More details
 Thu nghiem xem the nao!
 :::

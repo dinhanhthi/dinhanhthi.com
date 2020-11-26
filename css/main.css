@@ -1233,18 +1233,44 @@ kbd {
       .code-2cols > pre:nth-child(even) {
         margin-left: 10px; } }
 
-.hs__title {
-  border: 1px solid #666;
-  padding: 5px 10px; }
-
-.hs__content {
-  height: 0;
-  overflow: hidden;
-  transition: height 1s cubic-bezier(0, 1, 0, 1); }
-  .hs__content.show {
-    display: show;
+.hsbox {
+  display: block;
+  margin-bottom: 1rem;
+  border: 1px solid #969696;
+  padding: 1rem;
+  border-radius: 3px; }
+  .hsbox input {
+    position: absolute;
+    left: -9999px; }
+    .hsbox input:focus ~ .hs__title {
+      border-color: grey; }
+  .hsbox .hs__title {
+    cursor: pointer; }
+  .hsbox .arrow {
+    margin-left: 0.5em;
+    transform: rotate(90deg);
+    transition: transform 0.25s ease-out;
+    float: right; }
+  .hsbox .hs__content {
+    font-size: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.5s 0s ease; }
+    .hsbox .hs__content *:last-child {
+      margin-bottom: 0; }
+  .hsbox input:checked ~ .hs__title {
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #666;
+    margin-bottom: 1rem; }
+  .hsbox input:checked ~ .arrow {
+    transform: rotate(270deg); }
+  .hsbox input:checked ~ .hs__content {
+    font-size: 16.5px;
+    opacity: 1;
     height: auto;
-    transition: height 1s ease-in-out; }
+    padding: 5px 0;
+    transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1); }
 
 @font-face {
   font-family: KaTeX_AMS;
