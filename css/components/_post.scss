@@ -2,6 +2,9 @@
   p{
     margin-top: 0;
     margin-bottom: $mb;
+    & + ul, & + ol{
+      margin-top: -0.5rem;
+    }
   }
   ul, ol{
     margin-top: 0;
@@ -10,6 +13,10 @@
       margin-bottom: 5px;
       & > p{
         margin: 0 0 5px 0;
+      }
+      ul{
+        margin-bottom: 5px;
+        padding-left: 20px;
       }
     }
   }

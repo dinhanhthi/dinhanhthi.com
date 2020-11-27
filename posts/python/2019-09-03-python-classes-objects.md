@@ -7,27 +7,6 @@ toc: true
 keywords: "classes vs objects methods instances blueprint attributes import local class empty file __init__.py ValueError: attempted relative import beyond top-level package same folder subfolder another folder from incldue get and access attributes of a class abstract class method super father child son Syntactic sugar easier to read why self Syntactic sugar"
 ---
 
-## Test hide/show box
-
-<div class="hsbox">
-  <label>
-    <input type="checkbox" />
-    <span class="arrow"></span>
-    <div class="hs__title">
-      How about Corporate Ipsum?</div>
-    <div class="hs__content">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.</div>
-  </label>
-</div>
-
-<div class="hsbox"><label><input type="checkbox" /><span class="arrow"></span><div class="hs__title">How about Corporate Ipsum?</div>
-<div class="hs__content">Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.</div>
-  </label>
-</div>
-
-::: hsbox More details
-Thu nghiem xem the nao!
-:::
-
 ## Classes vs Objects vs Instances vs Methods
 
 - **Class** is a blueprint/template of an object.
@@ -36,11 +15,7 @@ Thu nghiem xem the nao!
 - **Instance** is a single and unique unit of a class.
   - Many instances may have the same class. They have attributes and methods defined in the class.
 
-<div class="hide-show-box">
-<button type="button" markdown="1" class="btn collapsed box-button" data-toggle="collapse" data-target="#box1ct">
-An example
-</button>
-<div id="box1ct" markdown="1" class="collapse multi-collapse box-content">
+::: hsbox An example
 A **class** `student` represents (a template of) an **object** student with:
 
 - Attributes: `name`, `marks` and
@@ -51,8 +26,7 @@ A **class** `student` represents (a template of) an **object** student with:
 - Their names: `john_doe.name` and `jane_doe.name`.
 - Their marks: `john_doe.marks` and `jane_doe.marks`.
 - Their behaviors: `john_doe.take_exams()` and `jane_doe.graduate()`, ...
-</div>
-</div>
+:::
 
 ## Syntactic sugar & `self`
 
@@ -70,7 +44,7 @@ my_object.method('foo')
 
 `my_object.method('foo')` means `MyClass.method(my_object, 'foo')`. That's why we need `self` or a [decorator](https://docs.python.org/3/glossary.html#term-decorator),
 
-<div class="flex-50" markdown="1">
+::: code-2cols
 ~~~ python
 class MyClass():
     def method(self, arg):
@@ -84,7 +58,7 @@ class MyClass():
     def method(self, arg):
         print(arg)
 ~~~
-</div>
+:::
 
 ## Get all attributes of a class
 
@@ -114,8 +88,7 @@ MyClass.__dict__
 
 Suppose that we have a folders/files structure like below,
 
-<div class="d-md-flex" markdown="1">
-{:.flex-even.overflow-auto.pr-md-1}
+::: code-2cols
 ~~~ bash
 # ORIGINAL STRUCTURE
 popai/
@@ -127,7 +100,6 @@ popai/
     c.py # contains class XYZ
 ~~~
 
-{:.flex-even.overflow-auto.pl-md-1}
 ~~~ bash
 # UPDATED STRUCTURE
 popai/
@@ -141,11 +113,11 @@ popai/
   lib/
     c.py # contains class XYZ
 ~~~
-</div>
+:::
 
 We want import both classes `ABC` and `XYZ`,
 
-<div class="flex-50" markdown="1">
+::: code-2cols
 ~~~ python
 # b.py
 from popai.processings.a import ABC
@@ -155,7 +127,7 @@ from popai.processings.a import ABC
 # a.py
 from popai.lib.c import XYZ
 ~~~
-</div>
+:::
 
 Just add `__init__.py` like in the right box above.
 
@@ -167,7 +139,7 @@ ValueError: attempted relative import beyond top-level package
 
 ## Father and Son
 
-<div class="flex-50" markdown="1">
+::: code-2cols
 ~~~ python
 # FATHER
 class father_class():
@@ -183,7 +155,7 @@ class son_class(father_class):
     super().__init__()
     self.xyz = 2
 ~~~
-</div>
+:::
 
 If you want son takes all parameters of father and use additional parameters,
 
@@ -206,7 +178,7 @@ cs = ColoredShape(color='red', shapename='circle')
 from abc import ABC, abstractmethod
 ~~~
 
-<div class="flex-50" markdown="1">
+::: code-2cols
 ~~~ python
 # FATHER CLASS
 class BaseModel(ABC):
@@ -246,7 +218,7 @@ class LinearModel(BaseModel)
   # this call can use .fix_predict()
   #   from its father!
 ~~~
-</div>
+:::
 
 
 

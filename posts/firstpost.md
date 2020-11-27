@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: This is my first post.
+title: "This is my first post"
 description: This is a post on My Blog about agile frameworks.
 date: 2018-05-01
 tags: [Deep Learning, Project-based Learning, Data Science, Machine Learning, MLOps, Skills, MOOC, Data Science, R Lang, Time Series, Prob & Stats, JavaScript, Web Dev, Algorithms, NLP, Others]

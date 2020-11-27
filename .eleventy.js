@@ -128,12 +128,11 @@ module.exports = function (eleventyConfig) {
     return dt.toISO();
   });
 
-  // Get the first `n` elements of a collection.
+  // Get the first `n` elements of a collection
   eleventyConfig.addFilter("head", (array, n) => {
     if (n < 0) {
       return array.slice(n);
     }
-
     return array.slice(0, n);
   });
 
@@ -191,7 +190,7 @@ module.exports = function (eleventyConfig) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
           // opening tag
-          return '<div class="hsbox"><label><input type="checkbox" /><span class="arrow"></span><div class="hs__title">' + markdownItp.utils.escapeHtml(m[1]) + '</div><div class="hs__content">';
+          return '<div class="hsbox"><label><input type="checkbox" /><div class="hs__title">' + markdownItp.renderInline(m[1]) + '</div><div class="hs__content">';
         } else {
           // closing tag
           return '</div></label></div>';
@@ -208,6 +207,10 @@ module.exports = function (eleventyConfig) {
       : markdownLibrary.render(content);
   });
 
+  // using {% ref url %}
+  eleventyConfig.addShortcode("ref", function(url) {
+    return '<sup><a href="' + url + '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>';
+  });
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({

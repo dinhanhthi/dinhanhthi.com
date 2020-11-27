@@ -4,6 +4,7 @@ div.toc {
   ol {
     padding-left: 20px;
     font-size: 0.9 * $font-size;
+    margin-bottom: 0;
     li {
       margin-bottom: 5px;
       code {
@@ -28,8 +29,18 @@ div.toc {
         &::before {
           content: counters(item, ".") ". ";
           counter-increment: item;
-          opacity: 0.7;
         }
+      }
+    }
+  }
+
+  & > ol{
+    & > li{
+      & ol > li::before{
+        opacity: 0.7;
+      }
+      &::before{
+        color: $c-blue;
       }
     }
   }
@@ -43,7 +54,6 @@ div.toc {
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
-    margin-bottom: 0;
     max-height: 85vh;
     overflow: auto;
     padding-top: 0;
@@ -69,6 +79,10 @@ div.toc {
 .toc-active {
   & > a {
     color: #fff !important;
+  }
+
+  &::before{
+    opacity: 1!important;
   }
 }
 /*! purgecss end ignore */

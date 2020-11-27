@@ -105,11 +105,19 @@ h4 {
 
   pre,
   .code-output-equal,
-  .code-2cols {
+  .code-output-flex {
     & + h2,
     & + h3,
     & + h4 {
-      margin-top: $mt-heading - $mb-code;
+      margin-top: $mt-heading;
+    }
+  }
+
+  .code-2cols{
+    & + {
+      h2, h3, h4{
+        margin-top: $mt-heading - $mb;
+      }
     }
   }
 
@@ -124,17 +132,17 @@ h4 {
       counter-reset: h4counter;
     }
 
-    h2,
     h3,
     h4 {
       &:before {
-        opacity: 0.4;
+        opacity: 0.5;
       }
     }
 
     h2:before {
       content: counter(h2counter) ".\0000a0\0000a0";
       counter-increment: h2counter;
+      color: $c-blue;
     }
 
     h3:before {

@@ -68,11 +68,15 @@
 .danger,
 .warning {
   position: relative;
-  padding: 0 $inside-padding;
+  padding: $inside-padding;
   margin-bottom: $mb;
   border: 1px solid transparent;
   border-radius: 0.25rem;
   color: #eee;
+
+  *:last-child{
+    margin-bottom: 0;
+  }
 }
 .info {
   background-color: #00d0ff08;
@@ -113,7 +117,7 @@ kbd {
 
 // code output
 @mixin code-output($flex) {
-  pre {
+  & > * {
     &:first-child {
       border-bottom-right-radius: 0%;
       border-bottom-left-radius: 0%;
@@ -136,7 +140,7 @@ kbd {
     display: flex;
     display: -ms-flexbox;
     margin-bottom: $mb;
-    pre {
+    & > * {
       flex: $flex;
       margin: 0 !important;
       &:first-child {
@@ -179,11 +183,10 @@ $gap: 5px;
 // hide / show
 .hsbox {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: $mb;
   border: 1px solid #969696;
   padding: 1rem;
   border-radius: 3px;
-
   input {
     position: absolute;
     left: -9999px;
@@ -191,42 +194,46 @@ $gap: 5px;
       border-color: grey;
     }
   }
-
   .hs__title {
     cursor: pointer;
+    &::before {
+      content: " ";
+      display: inline-block;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-left: 7px solid currentColor;
+      vertical-align: middle;
+      margin-right: 0.7rem;
+      transform: translateY(-2px);
+      transition: transform 0.2s ease-out;
+    }
   }
-
-  .arrow {
-    margin-left: 0.5em;
-    transform: rotate(90deg);
-    transition: transform 0.25s ease-out;
-    float: right;
-  }
-
   .hs__content {
-    font-size: 0;
+    // font-size: 0;
     margin: 0;
     opacity: 0;
     padding: 0;
-    transition: all 0.5s 0s ease;
-    *:last-child{
+    transition: all 0.2s 0s ease;
+    *:last-child {
       margin-bottom: 0;
     }
+    height: 0;
   }
-
   input:checked {
     & ~ .hs__title {
       padding-bottom: 15px;
       border-bottom: 0.5px solid #666;
       margin-bottom: 1rem;
+      &::before{
+        transform: rotate(90deg) translateX(-3px);
+      }
     }
-
-    & ~ .arrow{
+    & ~ .arrow {
       transform: rotate(270deg);
     }
 
     & ~ .hs__content {
-      font-size: $font-size;
+      // font-size: $font-size;
       opacity: 1;
       height: auto;
       padding: 5px 0;

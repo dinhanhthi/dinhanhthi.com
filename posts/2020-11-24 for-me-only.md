@@ -25,10 +25,25 @@ keywords: "for me only customize edit this site box font blocks" # used for sear
 toc: true # `false` to hide toc
 ```
 
+## Custom liquid
+
+### Ref
+
+``` bash {% raw %}
+{% ref "url" %} # should use with ""
+{% endraw %}
+```
+
+### Default img path
+
+``` bash {% raw %}
+{% assign img-url = '/img/post/python' %}
+{% endraw %}
+```
+
 ## Inser codes
 
-<div class="code-2cols">
-
+::: code-2cols
 ~~~ markdown
 # Highlight line 2
 ``` js/2
@@ -49,7 +64,7 @@ toc: true # `false` to hide toc
 // lines of codes
 ```
 ~~~
-</div>
+:::
 
 ~~~ markdown
 # Delete line 2 (red highlight) and add line 4 (green highlight)
@@ -57,6 +72,16 @@ toc: true # `false` to hide toc
 // lines of codes
 ```
 ~~~
+
+### Raw code
+
+
+``` bash
+~~~ js {{ "{% raw " }}%}
+# line of codes
+{{ "{% endraw " }}%}
+~~~
+```
 
 ## Columns
 
@@ -141,10 +166,32 @@ Content
 
 ## Dev
 
+### PurgeCSS
+
 Becare full on [PurgeCSS](https://purgecss.com/),
 
 ``` css
 /*! purgecss start ignore */
 // css classes
 /*! purgecss end ignore */
+```
+
+### Custom template tags / shortcodes
+
+The main guide is [here](https://www.11ty.dev/docs/shortcodes/).
+
+``` js
+// In .eleventy.js
+module.exports = function(eleventyConfig) {
+	eleventyConfig.addShortcode("ref", function(url) {
+    return '<a href="' + url + '">[ref]</a';
+  });
+}
+```
+
+Usage,
+
+``` js {% raw %}
+{% ref https://dinhanhthi.com %}
+{% endraw %}
 ```
