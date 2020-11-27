@@ -38,7 +38,7 @@ module.exports = function (eleventyConfig) {
     flat: false,              // if subheadings should appear as child of parent or as a sibling
   });
 
-  eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+  // eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
   eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
   eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
   eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
@@ -180,6 +180,8 @@ module.exports = function (eleventyConfig) {
     .use(mdItContainer, 'code-output-equal')
     .use(mdItContainer, 'code-output-flex')
     .use(mdItContainer, 'code-2cols')
+    .use(mdItContainer, 'col-2-equal')
+    .use(mdItContainer, 'col-2-flex')
     .use(require('markdown-it-kbd')) // [[Ctrl]]
     .use(require('markdown-it-footnote'))
     .use(mdItContainer, 'hsbox', {
@@ -197,6 +199,7 @@ module.exports = function (eleventyConfig) {
         }
       }
     })
+    .use(require('@gerhobbelt/markdown-it-inline-text-color'))
     ;
   eleventyConfig.setLibrary("md", markdownLibrary);
 
