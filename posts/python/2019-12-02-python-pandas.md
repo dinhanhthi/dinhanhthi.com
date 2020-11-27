@@ -46,8 +46,7 @@ df.to_csv(path, index=False) # don't incldue index
 pd.DataFrame(a_list, colummns=['col_name'])
 ~~~
 
-<div class="d-md-flex" markdown="1">
-{:.overflow-auto.pr-md-1}
+::: col-2-flex
 ~~~ python
 # FROM A DICTIONARY
 names = ['John', 'Thi', 'Bi', 'Beo', 'Chang']
@@ -59,10 +58,6 @@ my_dict = {'Name':names, 'Ages':ages, 'Marks':marks, 'Place': city}
 students = pd.DataFrame(my_dict)
 ~~~
 
-{:.overflow-auto.pl-md-1}
-<div markdown="1">
-
-{:.dataframe}
 |  | Name | Ages | Marks | Place |
 |---|-------|------|-------|-------------------|
 | 0 | John | 10 | 8 | Ben Tre |
@@ -70,13 +65,11 @@ students = pd.DataFrame(my_dict)
 | 2 | Bi | 21 | 10 | Ho Chi Minh Ville |
 | 3 | Beo | 18 | 6 | New York |
 | 4 | Chang | 11 | 8 | DC |
-
-</div>
-</div>
+:::
 
 ## Adding
 
-<div class="flex-50" markdown="1">
+::: col-2-equal
 ~~~ python
 # a column
 df['new_col] = [new_values]
@@ -86,7 +79,7 @@ df['new_col] = [new_values]
 # a row
 df.loc['new_index'] = [new_value]
 ~~~
-</div>
+:::
 
 ``` python
 # add a new col based on another's values
@@ -146,7 +139,7 @@ df.loc[1:5, 'col']
 
 **Select a column** (returns a `Series`)
 
-<div class="flex-auto-equal-2" markdown="1">
+::: col-2-equal
 ~~~ python
 # with column's name
 df['Name']
@@ -157,11 +150,11 @@ df.loc[:, 'Name']
 # with an index
 df.iloc[:,0]
 ~~~
-</div>
+:::
 
 Returns a `pd.DataFrame`,
 
-<div class="flex-auto-equal-2" markdown="1">
+::: col-2-equal
 ~~~ python
 df[['Name']]
 df.loc[:, ['Name']]
@@ -171,11 +164,11 @@ df.loc[:, ['Name']]
 # with an index
 df.iloc[:,[0]]
 ~~~
-</div>
+:::
 
 **Select multi-columns** (type `DataFrame`): Get columns `Name` & `Place`:
 
-<div class="flex-auto-equal-2" markdown="1">
+::: col-2-equal
 ~~~ python
 # using columns's names
 df[['Name', 'Place']]
@@ -186,13 +179,13 @@ df.loc[:, ['Name', 'Place']]
 # using indexes
 df.iloc[:, [0,-1]]
 ~~~
-</div>
+:::
 
 ### Select rows
 
 **Select a row** (returns a `Series`)
 
-<div class="flex-50" markdown="1">
+::: col-2-equal
 ``` python
 # with an index
 df.iloc[1]
@@ -209,11 +202,11 @@ df[df.Name=='Thi'] # DataFrame
 df[df.Name=='Thi'].iloc[0] # Series
 df[df.Name=='Thi'].values[0] # ndarray
 ```
-</div>
+:::
 
 **Select multi-rows** (type `DataFrame`)
 
-<div class="flex-50" markdown="1">
+::: col-2-equal
 ~~~ python
 # using indexes
 df.iloc[:3]
@@ -224,11 +217,7 @@ df.loc[:2]
 # with conditions
 df[df['A'].isin([3, 6])]
 ```
-</div>
-
-<div class="flex-50" markdown="1">
-
-</div>
+:::
 
 ## MultiIndex
 
@@ -242,7 +231,7 @@ index = pd.MultiIndex.from_arrays(arrays)
 df = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
 ~~~
 
-<table class="dataframe">
+<table>
   <thead>
     <tr>
       <th></th>
@@ -293,32 +282,28 @@ df = pd.DataFrame(np.random.randn(3, 6), index=['A', 'B', 'C'], columns=index)
 
 Selection,
 
-<div class="d-md-flex" markdown="1">
-{:.flex-even.d-flex.overflow-auto}
+::: code-output-equal
 ~~~ python
 df.loc['A', ('baz', 'two')]
 ~~~
 
-{:.output.flex-even.d-flex}
 ~~~
 0.487185
 ~~~
-</div>
+:::
 
-<div class="d-md-flex" markdown="1">
-{:.flex-even.d-flex.overflow-auto}
+::: code-output-equal
 ~~~ python
 df.loc[:,('baz', 'two')]
 ~~~
 
-{:.output.flex-even.d-flex}
 ~~~
 A    0.487185
 B   -0.563732
 C    0.755455
 Name: (baz, two), dtype: float64
 ~~~
-</div>
+:::
 
 ### With a single name column
 
@@ -394,7 +379,7 @@ df_rs2 = df1
 
 Selection,
 
-<div class="d-md-flex" markdown="1">
+::: code-output-equal
 {:.flex-fill.d-flex.overflow-auto}
 ~~~ python
 # FOR GOOD PRACTICE
@@ -402,13 +387,12 @@ df_rs2.loc['A', ('baz', 1)]
 df_rs2.loc['A', 'baz']
 ~~~
 
-{:.output.flex-fill.d-flex}
 ~~~ bash
 0.943795
 0    1.482855
 1    0.943795
 ~~~
-</div>
+:::
 
 #### Bad practice
 
@@ -467,21 +451,19 @@ df_rs1 = pd.concat([df1, df2], axis=1)
 
 Selection,
 
-<div class="d-md-flex" markdown="1">
-{:.flex-fill.d-flex.overflow-auto}
+::: code-output-equal
 ~~~ python
 # FOR BAD PRACTICE
 df.loc['A', [('baz', 0)]]
 df_rs1.loc['A', [('baz', i) for i in [0,1]]]
 ~~~
 
-{:.output.flex-fill.d-flex}
 ~~~ bash
 (baz, 0)    0.729023
 (baz, 0)    1.482855
 (baz, 1)    0.943795
 ~~~
-</div>
+:::
 
 ### Rename multiindex
 
@@ -492,20 +474,18 @@ df.columns.set_levels(['b1','c1','f1'], level=1, inplace=True)
 
 ### Drop multiindex
 
-<div class="d-md-flex" markdown="1">
-{:.flex-even.d-flex.overflow-auto}
+::: code-output-equal
 ``` python
 df.columns = df.columns.droplevel()
 ```
 
-{:.output.flex-even.d-flex}
 ``` python
    a
    b  c         b c
 0  1  2   ->  0 1 2
 1  3  4       1 3 4
 ```
-</div>
+:::
 
 ## Compare 2 dataframes
 
@@ -515,7 +495,7 @@ df1.equals(df2)
 
 ## True / False
 
-<div class="flex-50" markdown="1">
+::: col-2-equal
 ~~~ python
 # Invert True/False value in Series
 s = pd.Series([True, True, False, True])
@@ -527,6 +507,6 @@ s = pd.Series([True, True, False, True])
 df['col'] = df['col'].astype(int)
 # int or float
 ~~~
-</div>
+:::
 
 

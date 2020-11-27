@@ -157,7 +157,7 @@ logger.critical('something')
 # thus: debug and info aren't show by default
 ~~~
 
-If the `log.info()` doesn't work, set below ([\[ref\]](https://stackoverflow.com/questions/11548674/logging-info-doesnt-show-up-on-console-but-warn-and-error-do/11548754)),
+If the `log.info()` doesn't work, set below{% ref "https://stackoverflow.com/questions/11548674/logging-info-doesnt-show-up-on-console-but-warn-and-error-do/11548754" %},
 
 ~~~ python
 logging.getLogger().setLevel(logging.INFO) # show all except "debug"
@@ -165,7 +165,6 @@ logging.getLogger().setLevel(logging.INFO) # show all except "debug"
 logging.basicConfig(level=logging.DEBUG) # show all
 ~~~
 
-::: code-2cols
 ``` python
 # in the class
 import logging
@@ -184,4 +183,3 @@ import logging
 log = logging.getLogger(__name__)
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
 ```
-:::

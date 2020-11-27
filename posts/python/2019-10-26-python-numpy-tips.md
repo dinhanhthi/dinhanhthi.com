@@ -19,9 +19,8 @@ import numpy as np
 
 ### Isinstance
 
-Check if an object is an instance numpy array?
-
 ~~~ python
+# Check if an object is an instance numpy array?
 type(MyObect).__module__ == np.__name__
 ~~~
 

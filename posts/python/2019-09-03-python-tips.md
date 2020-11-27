@@ -24,7 +24,6 @@ keywords: "python tips swap 2 variables huyen chip clear variable __name__ __mai
     print("Thi")
   ~~~
 
-  {:.output.flex-fill.d-flex}
   ~~~
   Thi
   Thi

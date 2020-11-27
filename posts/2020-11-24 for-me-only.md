@@ -25,13 +25,32 @@ keywords: "for me only customize edit this site box font blocks" # used for sear
 toc: true # `false` to hide toc
 ```
 
-## Custom liquid
+## Other components
 
 ### Ref
 
 ``` bash {% raw %}
 {% ref "url" %} # should use with ""
 {% endraw %}
+```
+
+```
+Testing
+```
+
+### Color inline text
+
+``` bash
+{color:red}text{color} # without space
+```
+
+## Insert figures
+
+``` markdown
+# With custom class
+![description](/path/to/figure){:.img-full-100}
+# There are class .img-full-{number}
+# where, {number} are 30 to 100, step 5.
 ```
 
 ### Default img path
@@ -87,38 +106,13 @@ toc: true # `false` to hide toc
 
 ### Code & output
 
-<div class="code-2cols">
+- Equal widths: `::: code-output-equal`.
+- Flexible widths: `::: code-output-flex`.
 
-``` js
-// equal width
-::: code-output-equal
-// block of code
+### Two columns
 
-// block of output (also a block of code)
-:::
-```
-
-``` js
-// flexible width
-::: code-output-flex
-// block of code
-
-// block of output (also a block of code)
-:::
-```
-</div>
-
-### 2 equal columns of code boxes
-
-``` js
-::: code-2cols
-// code block 1
-
-// code block 2
-
-// code block 3
-:::
-```
+- Equal widths: `::: col-2-equal`.
+- Flexible widths: `::: col-2-flex`.
 
 ## Boxes
 
@@ -166,6 +160,16 @@ Content
 
 ## Dev
 
+### Locally developing mode
+
+We can use a different config file (instead of `.eleventy.js`).
+
+``` js
+npm run eleventy --config=.eleventy.dev.js
+```
+
+Other command lines can be found [here](https://www.11ty.dev/docs/usage/#command-line-usage) or using `npx @11ty/eleventy --help`.
+
 ### PurgeCSS
 
 Becare full on [PurgeCSS](https://purgecss.com/),
@@ -176,7 +180,7 @@ Becare full on [PurgeCSS](https://purgecss.com/),
 /*! purgecss end ignore */
 ```
 
-### Custom template tags / shortcodes
+### Custom tags / shortcodes
 
 The main guide is [here](https://www.11ty.dev/docs/shortcodes/).
 
@@ -194,4 +198,23 @@ Usage,
 ``` js {% raw %}
 {% ref https://dinhanhthi.com %}
 {% endraw %}
+```
+
+### Custom classes
+
+Example with tables,
+
+``` markdown
+{:.custom-class}
+# table
+```
+
+We define CSS like that,
+
+``` scss
+p.custom-class + table{}
+// and
+p.custom-class{display: none;}
+// instead of
+table.custom-class{}
 ```

@@ -87,7 +87,7 @@ matplotlib.rcParams['figure.figsize'] = (20,5)
 plt.plot(X, y, 'ro') # red and 'o' points
 ~~~
 
-::: code-2cols
+::: col-2-flex
 ~~~ python
 # set figure size
 plt.figure(figsize=(20, 5))

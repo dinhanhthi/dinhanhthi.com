@@ -13,7 +13,7 @@ keywords: "function def Unpacking a function Functions with stars kwargs args ra
 - Function can be used as a return value.
   - `return func1`: reference to `func1`.
   - `return func1()`: results of evaluating `func()`.
-- **Should we check the argument/input?**: **No!** The responsibility is on the caller! Your function should be well-documented, that's it! ([ [ref] ](https://stackoverflow.com/questions/19684434/best-way-to-check-function-arguments-in-python))
+- **Should we check the argument/input?**: **No!** The responsibility is on the caller! Your function should be well-documented, that's it!{% ref "https://stackoverflow.com/questions/19684434/best-way-to-check-function-arguments-in-python" %}
 
 ## Create a normal function
 
@@ -57,7 +57,6 @@ sum, div = sum_and_div(18, 9)
 print(sum, div)
 ~~~
 
-{:.output.flex-fill.d-flex}
 ~~~
 27 2.0
 ~~~
@@ -65,7 +64,7 @@ print(sum, div)
 
 ## Functions with stars (`*args` and `**kwargs`)
 
-[ [ref] ](https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters) The `*args` will give you all function parameters as **a tuple**:
+{% ref "https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters" %}The `*args` will give you all function parameters as **a tuple**:
 
 ::: code-output-equal
 ~~~ python

@@ -56,7 +56,7 @@ jupyter notebook
 ~~~
 :::
 
-The `-m` option allows you to execute a module or package as a script ([\[ref\]](https://www.quora.com/What-does-m-mean-in-the-terminal-command-Python-m-pip-install-openpyxl)).
+The `-m` option allows you to execute a module or package as a script{% ref "https://www.quora.com/What-does-m-mean-in-the-terminal-command-Python-m-pip-install-openpyxl" %}.
 
 ~~~ bash
 # If `import _ssl`, `ImportError`
@@ -159,7 +159,7 @@ python -m pip install --upgrade pip # need to run cmder as administrator
 First, `activate <env>` and then using `easy_install -U pip`. You can check the version of pip by `pip -V`.
 :::
 
-::: code-2cols
+::: col-2-flex
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 pip freeze
@@ -235,12 +235,12 @@ pip3 install -U "pillow<7"
 
 ## `pip` vs `conda`?
 
-Differences: ([\[ref\]](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter))
+Differences:{% ref "https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter" %}
 
 - `pip` installs **python packages** in **any environment**.
 - `conda` installs **any package** in **conda environments**.
 
-Which one to be used? ([\[ref\]](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter))
+Which one to be used?{% ref "https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter" %}
 
 - If you installed Python using Anaconda or Miniconda, then use `conda` to install Python packages. If `conda` tells you the package you want doesn't exist, then use `pip` (or try `conda-forge`, which has more packages available than the default conda channel).
 - If you installed Python any other way (from source, using `pyenv`, `virtualenv`, etc.), then use `pip` to install Python packages
@@ -376,7 +376,7 @@ conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the defau
 ~~~
 :::
 
-::: code-2cols
+::: col-2-flex
 ``` bash
 # Activate an env
 activate <env> # windows
