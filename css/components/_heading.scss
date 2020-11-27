@@ -46,8 +46,6 @@ h4 {
     }
   }
 
-  $mt-heading: $mb * 1.5;
-  $mb-heading: $mb * 0.8;
   & > h2 {
     font-size: $heading-h2-size;
     margin: $mt-heading 0 $mb-heading 0;
@@ -110,14 +108,6 @@ h4 {
     & + h3,
     & + h4 {
       margin-top: $mt-heading;
-    }
-  }
-
-  .code-2cols{
-    & + {
-      h2, h3, h4{
-        margin-top: $mt-heading - $mb;
-      }
     }
   }
 

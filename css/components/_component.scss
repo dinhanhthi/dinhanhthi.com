@@ -1,4 +1,5 @@
 // badges
+// ----------------------------------------------------------------
 .badge {
   display: inline-flex;
   text-align: center;
@@ -26,6 +27,7 @@
 }
 
 // buttons
+// ----------------------------------------------------------------
 .button {
   padding: 12px 40px;
   font-size: 0.85rem;
@@ -42,18 +44,15 @@
   overflow: hidden;
   border-radius: 40px;
   text-transform: uppercase;
-
   &.blue {
     background-color: #2387e2;
     &:hover {
       background: #0c60ad;
     }
   }
-
   &.red {
     background-color: #e45353;
   }
-
   &.black {
     border: 1px solid #555;
     &:hover {
@@ -63,6 +62,7 @@
 }
 
 // warning boxes
+// ----------------------------------------------------------------
 .info,
 .success,
 .danger,
@@ -74,7 +74,7 @@
   border-radius: 0.25rem;
   color: #eee;
 
-  *:last-child{
+  *:last-child {
     margin-bottom: 0;
   }
 }
@@ -82,18 +82,15 @@
   background-color: #00d0ff08;
   border-color: #334556;
 }
-
 .success {
   background-color: #62ff000d;
   border-color: #354a33;
 }
-
 .danger {
   color: #fff;
   background-color: #ff0c000d;
   border-color: #4a3a33;
 }
-
 .warning {
   color: #fff;
   background-color: #ffc8000d;
@@ -101,6 +98,7 @@
 }
 
 // keyboard
+// ----------------------------------------------------------------
 kbd {
   background-color: transparent;
   border: 1px solid #444;
@@ -115,20 +113,26 @@ kbd {
   box-shadow: 1px 0 0 0 #8c8c8c, 1px 1px 0 0 #8c8c8c, 1px 1px 0 0 #000;
 }
 
-// code output
+// code & output
+// ----------------------------------------------------------------
 @mixin code-output($flex) {
+  margin-bottom: $mb;
   & > * {
-    &:first-child {
+    margin-bottom: 0 !important;
+    overflow: auto;
+    &:first-child > code {
       border-bottom-right-radius: 0%;
       border-bottom-left-radius: 0%;
+      height: 100%;
       @media (max-width: $grid-md) {
         border-bottom: none;
       }
     }
-    &:last-child {
+    &:last-child > code {
       background: #252731;
       border-color: #3a3a3a80;
-      margin-top: -$mb-code;
+      height: 100%;
+      white-space: pre-wrap;
       @media (max-width: $grid-md) {
         border-top: none;
         border-top-right-radius: 0%;
@@ -143,12 +147,12 @@ kbd {
     & > * {
       flex: $flex;
       margin: 0 !important;
-      &:first-child {
+      &:first-child > code {
         border-top-right-radius: 0%;
         border-bottom-right-radius: 0%;
         border-right: none;
       }
-      &:last-child {
+      &:last-child > code {
         border-top-left-radius: 0%;
         border-bottom-left-radius: 0%;
         border-left: none;
@@ -163,24 +167,50 @@ kbd {
   @include code-output(1);
 }
 
+// code & others
+// ----------------------------------------------------------------
+
 // 2 cols
+// ----------------------------------------------------------------
 $gap: 5px;
-@media (min-width: $grid-md) {
-  .code-2cols {
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
-    padding-right: $gap;
-    & > pre {
-      flex: 0 0 calc(50% - #{$gap});
-      &:nth-child(even) {
-        margin-left: 2 * $gap;
-      }
+@mixin col-2($flex-grow, $flex-shrink, $flex-basis) {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  & > * {
+    flex: $flex-grow $flex-shrink $flex-basis;
+    max-width: $flex-basis;
+    overflow: auto;
+    &:nth-child(even) {
+      padding-left: $gap;
     }
+    &:nth-child(odd) {
+      padding-right: $gap;
+    }
+    & > code {
+      height: 100%;
+    }
+  }
+  & + {
+    h2,
+    h3,
+    h4 {
+      margin-top: $mt-heading - $mb;
+    }
+  }
+}
+@media (min-width: $grid-md) {
+  .code-2cols,
+  .col-2-equal {
+    @include col-2(0, 0, 50%);
+  }
+  .col-2-flex {
+    @include col-2(1, 1, auto);
   }
 }
 
 // hide / show
+// ----------------------------------------------------------------
 .hsbox {
   display: block;
   margin-bottom: $mb;
@@ -224,20 +254,73 @@ $gap: 5px;
       padding-bottom: 15px;
       border-bottom: 0.5px solid #666;
       margin-bottom: 1rem;
-      &::before{
+      &::before {
         transform: rotate(90deg) translateX(-3px);
       }
     }
     & ~ .arrow {
       transform: rotate(270deg);
     }
-
     & ~ .hs__content {
       // font-size: $font-size;
       opacity: 1;
       height: auto;
       padding: 5px 0;
       transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+}
+
+// table
+// ----------------------------------------------------------------
+// table copied from jupyter notebooks
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $mb;
+  background-color: transparent;
+  border-spacing: 0;
+  border-radius: 5px;
+  border: 1px solid $table-color;
+  padding: 0!important;
+  th{
+    font-weight: normal;
+  }
+  thead{
+    & > tr {
+      &:first-child > th:first-child{
+        border-top-left-radius: 5px;
+      }
+      &:first-child > th:last-child{
+        border-top-right-radius: 5px;
+      }
+      th{
+        border-bottom: 0.5px solid #a2a2a2;
+      }
+      &:last-child > th{
+        border-bottom: none;
+      }
+    }
+    th{
+      background: $table-color;
+    }
+  }
+  th,
+  td {
+    padding: 5px 7px;
+  }
+  tbody{
+    th{
+      background: $table-color-2;
+      border: none;
+    }
+    td{
+      border-bottom: 1px solid $table-color;
+    }
+    & > tr:last-child{
+      td{
+        border-bottom: none;
+      }
     }
   }
 }

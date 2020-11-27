@@ -1,6 +1,11 @@
-$imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
+
 
 .page-note{
+  img{
+    height: auto;
+  }
+
+  $imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
   @media (min-width:768px) {
     @each $size in $imgage-sizes{
       .img-full-#{$size}, .img-#{$size}{
