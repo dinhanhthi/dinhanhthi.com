@@ -28,23 +28,8 @@ h4 > code {
   color: #ccc;
 }
 
-p,
-li,
-em,
-strong,
-b,
-i,
-a,
-dt,
-button,
-h2,
-h3,
-h4,
-h1,
-.hs__title {
-  & > code {
-    @include code-inline();
-  }
+*:not(pre) > code {
+  @include code-inline();
 }
 
 h2,
@@ -69,14 +54,17 @@ a {
 
 pre[class*="language-"],
 pre {
-  padding: ($inside-padding - 2px) $inside-padding $inside-padding;
   margin: 0 0 $mb-code 0;
-  background: $code-bg;
-  border: 0.5px solid #3b3e54;
-  overflow: auto;
-  border-radius: 3px;
-  max-height: 400px;
-  overflow: auto;
+  & > code {
+    display: block;
+    padding: ($inside-padding - 2px) $inside-padding $inside-padding;
+    background: $code-bg;
+    border: 0.5px solid #3b3e54;
+    overflow: auto;
+    border-radius: 3px;
+    max-height: 400px;
+    overflow: auto;
+  }
 }
 
 .highlight-line {

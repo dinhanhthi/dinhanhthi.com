@@ -34,10 +34,10 @@ code[class*="language-"] *::selection {
 	}
 }
 
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-}
+// pre[class*="language-"] {
+// 	padding: 1em;
+// 	margin: .5em 0;
+// }
 
 :not(pre) > code[class*="language-"] {
 	padding: .1em .3em;
