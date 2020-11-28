@@ -16,7 +16,7 @@ permalink: "{{ title | slug }}/"
   </div>
 {% endblock %}
 
-{% set shareUrl = metadata.url + page.url %}
+
 
 {% block article %}
   <article>
@@ -27,7 +27,13 @@ permalink: "{{ title | slug }}/"
       {% else %}
         {{ content | safe }}
       {% endif %}
+      {% if notfull %}
+        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 0;">
+          <sup style="color: #bbb">•</sup>{{ other_data.notfull }}
+        </p>
+      {% endif %}
     </div>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -43,6 +49,5 @@ permalink: "{{ title | slug }}/"
         "description": "{{ content | striptags | truncate(140) }}"
       }
     </script>
-
   </article>
 {% endblock %}

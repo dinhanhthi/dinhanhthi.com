@@ -23,6 +23,7 @@ icon: "/img/header/customize.svg" # can be "customize.svg"
                                   # if it's in /img/header/
 keywords: "for me only customize edit this site box font blocks" # used for searching
 toc: true # `false` to hide toc
+notfull: true # if the post is not good enough
 ```
 
 ## Other components
