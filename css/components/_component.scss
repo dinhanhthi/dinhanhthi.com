@@ -173,10 +173,10 @@ kbd {
 // 2 cols
 // ----------------------------------------------------------------
 $gap: 5px;
-@mixin col-2($flex-grow, $flex-shrink, $flex-basis) {
+@mixin col-2($flex-grow, $flex-shrink, $flex-basis, $flex-wrap) {
   display: flex;
   align-items: stretch;
-  flex-wrap: wrap;
+  flex-wrap: $flex-wrap;
   & > * {
     flex: $flex-grow $flex-shrink $flex-basis;
     max-width: $flex-basis;
@@ -202,10 +202,16 @@ $gap: 5px;
 @media (min-width: $grid-md) {
   .code-2cols,
   .col-2-equal {
-    @include col-2(0, 0, 50%);
+    @include col-2(0, 0, 50%, wrap);
   }
   .col-2-flex {
-    @include col-2(1, 1, auto);
+    @include col-2(1, 1, auto, nowrap);
+    & > *{
+      margin-right: 10px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -280,11 +286,16 @@ table {
   margin-bottom: $mb;
   background-color: transparent;
   border-spacing: 0;
-  border-radius: 5px;
-  // border: 1px solid $table-color;
+  border-radius: 3px;
   padding: 0!important;
+  table-layout: fixed;
+  overflow: hidden;
+  font-size: 0.95rem;
+  border: 1px solid #888;
   th{
     font-weight: normal;
+    color: $c-blue;
+    text-align: left;
   }
   thead{
     & > tr {
@@ -294,28 +305,19 @@ table {
       &:first-child > th:last-child{
         border-top-right-radius: 5px;
       }
-      th{
-        border-bottom: 0.5px solid #616161;
-      }
-      &:last-child > th{
-        border-bottom: none;
-      }
-    }
-    th{
-      background: $table-color;
     }
   }
   th,
   td {
+    border-bottom: 1px solid #444;
     padding: 5px 7px;
   }
-  tbody{
-    th{
-      background: $table-color-2;
-      border: none;
+  tbody > tr {
+    &:nth-child(odd){
+      background: $code-bg;
     }
-    td{
-      border-bottom: 1px solid #4a4a4a;
+    &:last-child{
+      border-bottom: none;
     }
   }
 }

@@ -82,6 +82,9 @@ main img {
 ::-webkit-scrollbar-track {
   background: #363948; }
 
+::-webkit-scrollbar-corner {
+  background: #282a36; }
+
 /*! purgecss end ignore */
 share-widget {
   position: fixed;
@@ -1332,7 +1335,7 @@ kbd {
   .col-2-flex {
     display: flex;
     align-items: stretch;
-    flex-wrap: wrap; }
+    flex-wrap: nowrap; }
     .col-2-flex > * {
       flex: 1 1 auto;
       max-width: auto;
@@ -1346,7 +1349,11 @@ kbd {
     .col-2-flex + h2,
     .col-2-flex + h3,
     .col-2-flex + h4 {
-      margin-top: 12.375px; } }
+      margin-top: 12.375px; }
+    .col-2-flex > * {
+      margin-right: 10px; }
+      .col-2-flex > *:last-child {
+        margin-right: 0; } }
 
 .hsbox {
   display: block;
@@ -1399,28 +1406,28 @@ table {
   margin-bottom: 24.75px;
   background-color: transparent;
   border-spacing: 0;
-  border-radius: 5px;
-  padding: 0 !important; }
+  border-radius: 3px;
+  padding: 0 !important;
+  table-layout: fixed;
+  overflow: hidden;
+  font-size: 0.95rem;
+  border: 1px solid #888; }
   table th {
-    font-weight: normal; }
+    font-weight: normal;
+    color: #8cc8ff;
+    text-align: left; }
   table thead > tr:first-child > th:first-child {
     border-top-left-radius: 5px; }
   table thead > tr:first-child > th:last-child {
     border-top-right-radius: 5px; }
-  table thead > tr th {
-    border-bottom: 0.5px solid #616161; }
-  table thead > tr:last-child > th {
-    border-bottom: none; }
-  table thead th {
-    background: #2b4663; }
   table th,
   table td {
+    border-bottom: 1px solid #444;
     padding: 5px 7px; }
-  table tbody th {
-    background: #2d3640;
-    border: none; }
-  table tbody td {
-    border-bottom: 1px solid #4a4a4a; }
+  table tbody > tr:nth-child(odd) {
+    background: #2f3240; }
+  table tbody > tr:last-child {
+    border-bottom: none; }
 
 @font-face {
   font-family: KaTeX_AMS;
@@ -2680,60 +2687,80 @@ div.toc {
   .page-note .img-full-30, .page-note .img-30 {
     width: 30%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-35, .page-note .img-35 {
     width: 35%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-40, .page-note .img-40 {
     width: 40%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-45, .page-note .img-45 {
     width: 45%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-50, .page-note .img-50 {
     width: 50%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-55, .page-note .img-55 {
     width: 55%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-60, .page-note .img-60 {
     width: 60%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-65, .page-note .img-65 {
     width: 65%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-70, .page-note .img-70 {
     width: 70%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-75, .page-note .img-75 {
     width: 75%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-80, .page-note .img-80 {
     width: 80%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-85, .page-note .img-85 {
     width: 85%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-90, .page-note .img-90 {
     width: 90%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-95, .page-note .img-95 {
     width: 95%;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    display: block; }
   .page-note .img-full-100, .page-note .img-100 {
     width: 100%;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto;
+    display: block; } }
+
+.page-note p > img + br + em {
+  display: block;
+  text-align: center;
+  margin-top: -5px; }

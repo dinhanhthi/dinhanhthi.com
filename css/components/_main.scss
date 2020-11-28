@@ -42,6 +42,9 @@ main img {
 ::-webkit-scrollbar-track {
   background: #363948;
 }
+::-webkit-scrollbar-corner {
+  background: $c-background;
+}
 
 /*! purgecss end ignore */
 

@@ -1,5 +1,3 @@
-
-
 .page-note{
   img{
     height: auto;
@@ -12,7 +10,16 @@
         width: $size/100*100%;
         margin-left: auto;
         margin-right: auto;
+        display: block;
       }
+    }
+  }
+
+  p > img{
+    & + br + em{
+      display: block;
+      text-align: center;
+      margin-top: -5px;
     }
   }
 }
