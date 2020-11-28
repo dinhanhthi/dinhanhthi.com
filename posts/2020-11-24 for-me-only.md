@@ -3,8 +3,8 @@ layout: post
 title: "For me only"
 tags: [Others]
 icon: "/img/header/customize.svg"
-keywords: "for me only customize edit this site box font blocks"
 toc: true
+keywords: "for me only customize edit this site box font blocks"
 ---
 
 This post is for me only. It contains shortcodes to create this website.
@@ -48,10 +48,16 @@ Testing
 ## Insert figures
 
 ``` markdown
-# With custom class
+# NORMAL WITH CUSTOM CLASS
 ![description](/path/to/figure){:.img-full-100}
 # There are class .img-full-{number}
 # where, {number} are 30 to 100, step 5.
+```
+
+``` markdown
+# WITH DESCRIPTION
+![description](/path/){:.custom-class}
+__Description texts__
 ```
 
 ### Default img path

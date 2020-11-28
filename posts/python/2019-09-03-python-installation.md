@@ -159,7 +159,7 @@ python -m pip install --upgrade pip # need to run cmder as administrator
 First, `activate <env>` and then using `easy_install -U pip`. You can check the version of pip by `pip -V`.
 :::
 
-::: col-2-flex
+::: col-2-equal
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 pip freeze
@@ -376,7 +376,7 @@ conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the defau
 ~~~
 :::
 
-::: col-2-flex
+::: col-2-equal
 ``` bash
 # Activate an env
 activate <env> # windows

@@ -356,7 +356,7 @@ Reverse a text.
 
 ### Numpy Style
 
-👉 [Official docs](https://numpydoc.readthedocs.io/en/latest/). <br />
+👉 [Official docs](https://numpydoc.readthedocs.io/en/latest/).
 👉 [Example of numpy docstring with sphinx](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
 
 An overview example,
@@ -551,7 +551,7 @@ info: dict
 
 ### Google Style Python Docstring
 
-👉 [Example Google Style Python Docstrings — napoleon 0.7 documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)<br />
+👉 [Example Google Style Python Docstrings — napoleon 0.7 documentation](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
 👉 [styleguide | Style guides for Google-originated open-source projects](https://google.github.io/styleguide/pyguide.html)
 
 ``` python

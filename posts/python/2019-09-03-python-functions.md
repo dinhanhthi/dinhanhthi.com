@@ -64,7 +64,7 @@ print(sum, div)
 
 ## Functions with stars (`*args` and `**kwargs`)
 
-{% ref "https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters" %}The `*args` will give you all function parameters as **a tuple**:
+The `*args` will give you all function parameters as **a tuple**:{% ref "https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters" %}
 
 ::: code-output-equal
 ~~~ python
