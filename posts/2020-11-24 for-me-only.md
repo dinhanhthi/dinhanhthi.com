@@ -202,6 +202,16 @@ Usage,
 
 ### Custom classes
 
+Usage,
+
+``` markdown
+# paragraph
+A pragraph{:.custom-class}
+
+# image
+![](){:.custom-class}
+```
+
 Example with tables,
 
 ``` markdown

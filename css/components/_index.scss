@@ -1,37 +1,79 @@
-.page-index{
-	.container{
-		@media (min-width: $grid-md) {
-			padding-top: 2rem;
+.page-index {
+	.container {
+		padding: 2rem 1rem 0 1rem;
+	}
+
+	.main-cats{
+		flex: 0 1 calc(100% - 280px);
+    padding-right: 1rem;
+		& > .category-wrapper{
+			padding-bottom: 1.5rem;
+			& > .category{
+				@include box-bg(transparent, #3b3e54);
+				padding: 2rem 1.5rem 1.5rem 1.5rem;
+			}
+		}
+	}
+
+	.toc-index {
+		h3{
+			margin: 0;
+			padding-bottom: 5px;
+			border-bottom: 1px solid #555;
+			margin-bottom: 10px;
+			font-size: 1.3rem;
+		}
+		@include box-bg(#2f3240, #3b3e54);
+		flex: 0 1 280px;
+    position: sticky;
+		top: 60px;
+		padding: 1rem 1.1rem;
+		ul {
+			padding-left: 20px;
+			margin: 0;
+		}
+	}
+
+	@media (max-width: $grid-lg - 1px){
+		.main-cats{
+			flex: 1 1 100%;
+			order: 2;
+			padding-right: 0;
+		}
+		.toc-index{
+			flex: 1 1 100%;
+			order: 1;
+			position: inherit;
+			margin-bottom: 1.5rem;
+			ul{
+				@include column-count(3);
+			}
+		}
+	}
+
+	@media (max-width: $grid-md - 1px){
+		.toc-index{
+			ul{
+				@include column-count(2);
+			}
+		}
+	}
+
+	@media (max-width: $grid-sm - 1px){
+		.toc-index{
+			ul{
+				@include column-count(1);
+			}
 		}
 	}
 }
 
 .category {
 	width: 100%;
-	padding: 2rem 1rem;
-
-	@media (min-width: $grid-md) {
-		width: 50%;
-		padding: 1.5rem;
-	}
-
-	@media (min-width: $grid-lg) {
-		width: calc(100% / 3);
-		padding: 1.5rem;
-	}
-
-	border-bottom: 1px solid #444;
-	&:last-child {
-		border-bottom: none;
-	}
-	@media (min-width: $grid-lg) {
-		&:nth-last-child(-n + 2) {
-			border-bottom: none; // change if the number of categories changes
-		}
-	}
 
 	h2 {
 		font-size: 1.55rem;
+		margin-top: 0;
 		img {
 			float: left;
 			margin-right: 7px;
@@ -40,9 +82,21 @@
 	.list-homepage {
 		list-style: none;
 		padding-left: 10px;
+		margin-bottom: 0;
+
+		@include column-count(1);
+		@media (min-width: $grid-md){
+			@include column-count(2);
+		}
+		@media (min-width: $grid-lg){
+			@include column-count(3);
+		}
+
 		li {
 			padding-left: 15px;
 			margin-bottom: 10px;
+			display: inline-block;
+			width: 100%;
 			a {
 				color: #ddd;
 				border-bottom: 2px solid rgba(255, 255, 255, 0.14);

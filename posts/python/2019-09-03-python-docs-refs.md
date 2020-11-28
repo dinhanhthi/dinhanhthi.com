@@ -2,7 +2,7 @@
 layout: post
 title: "Python references"
 tags: [Python]
-toc: false
+toc: true
 icon: "/img/about/python.svg"
 keywords: "references documentation material courses practice python newsletter platform"
 ---

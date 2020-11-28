@@ -1,0 +1,13 @@
+@mixin column-count($ncol) {
+	column-count: $ncol;
+	-webkit-column-count: $ncol;
+	-moz-column-count: $ncol;
+	-moz-column-count: $ncol;
+}
+
+@mixin box-bg($bgColor, $bdColor) {
+	border: 1px solid $bdColor;
+	border-radius: 10px;
+	height: fit-content;
+	background: $bgColor;
+}

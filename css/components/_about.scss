@@ -164,6 +164,26 @@
       }
     }
 
+    @mixin skill-small() {
+      display: inline-flex;
+      margin: 3px 6px 3px 0;
+      border: 1px solid #444;
+      background: #343642;
+      padding: 3px;
+      border-radius: 3px;
+      picture {
+        display: inline-flex;
+      }
+      // img{
+      //   filter: opacity(75%) grayscale(100%);
+      // }
+      // &:hover{
+      //   img{
+      //     filter: none;
+      //   }
+      // }
+    }
+
     .exp-edu {
       width: 50%;
       .list-of {
@@ -214,16 +234,7 @@
             .tech {
               margin-top: 1rem;
               .skill-small {
-                display: inline-flex;
-                margin: 3px 6px 3px 0;
-                border: 1px solid #444;
-                background: #343642;
-                padding: 3px;
-                border-radius: 3px;
-                picture {
-                  display: inline-flex;
-                  background: transparent;
-                }
+                @include skill-small();
               }
             }
           }
@@ -301,15 +312,7 @@
             display: flex;
             align-items: center;
             .skill-small {
-              display: inline-flex;
-              margin: 3px 6px 3px 0;
-              border: 1px solid #444;
-              background: #343642;
-              padding: 3px;
-              border-radius: 3px;
-              picture {
-                display: inline-flex;
-              }
+              @include skill-small();
             }
             .tech-text {
               margin: 3px 6px 3px 0;
