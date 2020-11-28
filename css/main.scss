@@ -44,13 +44,13 @@ $mb-code: 1.1 * $mb; // for code blocks
 $heading-font: $font-heading;
 $heading-weight: 600;
 $heading-color: $font-color; // heading's color
-$heading-h1-size: $font-size * 1.85;
-$heading-h2-size: $font-size * 1.55; // h2's font size (in comparison with global $font-size)
+$heading-h1-size: $font-size * 1.8;
+$heading-h2-size: $font-size * 1.5; // h2's font size (in comparison with global $font-size)
 $heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
 @media (max-width: $grid-md - 1px){
   $heading-h1-size: $font-size * 1.75;
-  $heading-h2-size: $font-size * 1.45;
+  $heading-h2-size: $font-size * 1.43;
   $heading-h3-size: $heading-h2-size * 0.87;
   $heading-h4-size: $heading-h3-size * 0.9;
 }
@@ -64,8 +64,8 @@ $pre-padding: $inside-padding;
 $code-bg: #2f3240;
 
 // TABLE
-$table-color: #33596b;
-$table-color-2: #2b4663;
+$table-color: #2b4663;
+$table-color-2: #2d3640;
 
 @import "./components/font";
 @import "./components/main"; // init css

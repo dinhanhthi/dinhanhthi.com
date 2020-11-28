@@ -189,16 +189,16 @@ h6 {
 
 h1 {
   font-family: "Recoleta", Arial, Helvetica, sans-serif;
-  font-size: 30.525px; }
+  font-size: 29.7px; }
 
 h2 {
-  font-size: 25.575px; }
+  font-size: 24.75px; }
 
 h3 {
-  font-size: 22.25025px; }
+  font-size: 21.5325px; }
 
 h4 {
-  font-size: 20.02522px; }
+  font-size: 19.37925px; }
 
 body {
   counter-reset: h2counter; }
@@ -218,20 +218,20 @@ body {
     color: #ffd479; }
 
 .page-note > h2 {
-  font-size: 25.575px;
+  font-size: 24.75px;
   margin: 37.125px 0 19.8px 0; }
   .page-note > h2 + h3 {
     margin-top: -0.5rem; }
 
 .page-note > h3 {
-  font-size: 22.25025px;
+  font-size: 21.5325px;
   margin-bottom: 19.8px;
   margin-top: 37.125px; }
   .page-note > h3 + h4 {
     margin-top: -0.5rem; }
 
 .page-note > h4 {
-  font-size: 20.02522px;
+  font-size: 19.37925px;
   margin-bottom: 19.8px;
   margin-top: 37.125px; }
 
@@ -670,7 +670,7 @@ header {
   align-items: center;
   flex-direction: column; }
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 0;
     margin-top: 0; }
   header p {
@@ -1336,7 +1336,6 @@ table {
   background-color: transparent;
   border-spacing: 0;
   border-radius: 5px;
-  border: 1px solid #33596b;
   padding: 0 !important; }
   table th {
     font-weight: normal; }
@@ -1345,21 +1344,19 @@ table {
   table thead > tr:first-child > th:last-child {
     border-top-right-radius: 5px; }
   table thead > tr th {
-    border-bottom: 0.5px solid #a2a2a2; }
+    border-bottom: 0.5px solid #616161; }
   table thead > tr:last-child > th {
     border-bottom: none; }
   table thead th {
-    background: #33596b; }
+    background: #2b4663; }
   table th,
   table td {
     padding: 5px 7px; }
   table tbody th {
-    background: #2b4663;
+    background: #2d3640;
     border: none; }
   table tbody td {
-    border-bottom: 1px solid #33596b; }
-  table tbody > tr:last-child td {
-    border-bottom: none; }
+    border-bottom: 1px solid #4a4a4a; }
 
 @font-face {
   font-family: KaTeX_AMS;
@@ -2233,6 +2230,11 @@ table {
       margin-bottom: 5px;
       padding-left: 20px; }
 
+.page-note p.noindent {
+  display: none; }
+  .page-note p.noindent + ul {
+    padding-left: 20px; }
+
 pre[class*="language-"],
 code[class*="language-"] {
   color: #eee;
@@ -2470,13 +2472,13 @@ code {
   line-height: 1.5; }
 
 h2 > code {
-  font-size: 22.506px !important; }
+  font-size: 21.78px !important; }
 
 h3 > code {
-  font-size: 19.58022px !important; }
+  font-size: 18.9486px !important; }
 
 h4 > code {
-  font-size: 17.6222px !important; }
+  font-size: 17.05374px !important; }
 
 *:not(pre) > code {
   border: 1px solid #444;

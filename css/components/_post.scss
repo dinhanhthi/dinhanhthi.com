@@ -20,4 +20,11 @@
       }
     }
   }
+
+  p.noindent{
+    display: none;
+    & + ul{
+      padding-left: 20px;
+    }
+  }
 }
