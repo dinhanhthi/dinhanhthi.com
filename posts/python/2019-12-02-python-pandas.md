@@ -380,7 +380,6 @@ df_rs2 = df1
 Selection,
 
 ::: code-output-equal
-{:.flex-fill.d-flex.overflow-auto}
 ~~~ python
 # FOR GOOD PRACTICE
 df_rs2.loc['A', ('baz', 1)]
@@ -451,7 +450,7 @@ df_rs1 = pd.concat([df1, df2], axis=1)
 
 Selection,
 
-::: code-output-equal
+::: code-output-flex
 ~~~ python
 # FOR BAD PRACTICE
 df.loc['A', [('baz', 0)]]
