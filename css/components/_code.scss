@@ -55,6 +55,7 @@ a {
 pre[class*="language-"],
 pre {
   margin: 0 0 $mb-code 0;
+  overflow: auto;
   & > code {
     display: block;
     padding: ($inside-padding - 2px) $inside-padding $inside-padding;
@@ -63,7 +64,7 @@ pre {
     overflow: auto;
     border-radius: 3px;
     max-height: $code-max-height;
-    overflow: auto;
+    // overflow: auto;
   }
 }
 

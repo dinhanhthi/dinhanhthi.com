@@ -2,6 +2,9 @@
   img{
     height: auto;
     width: 100%;
+    &.bg-white{
+      background: #fff;
+    }
   }
 
   $imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
@@ -17,10 +20,13 @@
   }
 
   p > img{
-    & + br + em{
-      display: block;
-      text-align: center;
-      margin-top: -15px;
+    & + br{
+      display: none;
+      &+ em{
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
     }
   }
 }
