@@ -192,10 +192,12 @@ module.exports = function (eleventyConfig) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
           // opening tag
-          return '<div class="hsbox"><label><input type="checkbox" /><div class="hs__title">' + markdownItp.renderInline(m[1]) + '</div><div class="hs__content">';
+          return '<div class="hsbox"><div class="hs__title">'
+            + markdownItp.renderInline(m[1])
+            + '</div><div class="hs__content">';
         } else {
           // closing tag
-          return '</div></label></div>';
+          return '</div></div>';
         }
       }
     })
@@ -210,9 +212,17 @@ module.exports = function (eleventyConfig) {
       : markdownLibrary.render(content);
   });
 
+  eleventyConfig.addPairedShortcode("hsbox", (content, title) => {
+    return '<div class="hsbox"><div class="hs__title">'
+      + markdownLibrary.renderInline(title) + '</div><div class="hs__content">'
+      + markdownLibrary.render(content) + '</div></div>';
+  });
+
   // using {% ref url %}
   eleventyConfig.addShortcode("ref", function(url) {
-    return '<sup><a href="' + url + '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>';
+    return '<sup><a href="'
+      + url
+      + '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>';
   });
 
   // Browsersync Overrides

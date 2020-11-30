@@ -150,6 +150,17 @@ sup {
 mark {
   background: $c-yellow;
   padding: 0 0.3em;
+  strong, b{
+    color: #000;
+  }
+  code {
+    background: transparent!important;
+    color: #a02c2c!important;
+    font-size: inherit!important;
+    border: none!important;
+    padding: 0!important;
+    margin: 0!important;
+  }
 }
 
 a {

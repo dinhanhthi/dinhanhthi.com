@@ -11,20 +11,25 @@
     margin-bottom: $mb;
     li{
       margin-bottom: 5px;
-      & > p{
-        margin: 0 0 5px 0;
-      }
-      ul{
+      ul, ol{
         margin-bottom: 5px;
         padding-left: 20px;
+      }
+      & > *{
+        margin-bottom: 10px;
       }
     }
   }
 
   p.noindent{
     display: none;
-    & + ul{
+    & + ul, & + ol{
       padding-left: 20px;
     }
+  }
+
+  hr{
+    border-bottom: 1px solid #676767;
+    margin-bottom: $mb;
   }
 }

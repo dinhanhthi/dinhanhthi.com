@@ -31,8 +31,8 @@ header {
   }
 
   .header-logo {
-    width: 50px;
-    height: 50px;
+    width: $header-logo;
+    height: $header-logo;
     margin-bottom: 1rem;
     img {
       width: 100%;

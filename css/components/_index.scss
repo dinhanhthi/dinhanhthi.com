@@ -9,7 +9,7 @@
 		& > .category-wrapper{
 			padding-bottom: 1.5rem;
 			& > .category{
-				@include box-bg(transparent, #3b3e54);
+				@include box-bg($code-bg, #3b3e54);
 				padding: 2rem 1.5rem 1.5rem 1.5rem;
 			}
 		}
@@ -23,7 +23,7 @@
 			margin-bottom: 10px;
 			font-size: 1.3rem;
 		}
-		@include box-bg(#2f3240, #3b3e54);
+		@include box-bg(#27314487, #33364c);
 		flex: 0 1 280px;
     position: sticky;
 		top: 60px;

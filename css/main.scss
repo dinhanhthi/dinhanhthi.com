@@ -58,10 +58,15 @@ $heading-numbering: true;
 $mt-heading: $mb * 1.5; // margin-top heading
 $mb-heading: $mb * 0.8; // margin-bottom heading
 
+// HEADER
+$header-logo: 55px;
+
 // CODE
 $inside-padding: $font-size;
 $pre-padding: $inside-padding;
 $code-bg: #2f3240;
+$code-bd: #3b3e54;
+$code-max-height: 450px;
 
 // TABLE
 

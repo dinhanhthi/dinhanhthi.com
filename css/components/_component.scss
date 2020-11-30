@@ -206,10 +206,58 @@ $gap: 5px;
   }
   .col-2-flex {
     @include col-2(1, 1, auto, nowrap);
-    & > *{
+    & > * {
       margin-right: 10px;
-      &:last-child{
+      &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+}
+
+// columns-2
+// side by side photo/content OR 2 columns
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media (min-width: $grid-sm) and (max-width: $grid-md - 1px) {
+    grid-template-columns: 2fr 1fr;
+    &.size-1-1 {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (max-width: $grid-sm - 1px) {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: $grid-md) {
+    &.size-2-1 {
+      grid-template-columns: 2fr 1fr;
+    }
+    &.size-1-2 {
+      grid-template-columns: 1fr 2fr;
+    }
+    &.size-3-2 {
+      grid-template-columns: 3fr 2fr;
+    }
+    &.size-2-3 {
+      grid-template-columns: 2fr 3fr;
+    }
+    &.size-1-1 {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  .columns-2 .img-full-normal {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  & > p {
+    @media (min-width: $grid-md) {
+      &:nth-child(1) {
+        padding-right: 5px;
+      }
+      &:nth-child(2) {
+        padding-left: 5px;
       }
     }
   }
@@ -217,19 +265,12 @@ $gap: 5px;
 
 // hide / show
 // ----------------------------------------------------------------
+/*! purgecss start ignore */
 .hsbox {
-  display: block;
   margin-bottom: $mb;
   border: 1px solid #969696;
   padding: 1rem;
   border-radius: 3px;
-  input {
-    position: absolute;
-    left: -9999px;
-    &:focus ~ .hs__title {
-      border-color: grey;
-    }
-  }
   .hs__title {
     cursor: pointer;
     &::before {
@@ -243,39 +284,31 @@ $gap: 5px;
       transform: translateY(-2px);
       transition: transform 0.2s ease-out;
     }
-  }
-  .hs__content {
-    // font-size: 0;
-    margin: 0;
-    opacity: 0;
-    padding: 0;
-    transition: all 0.2s 0s ease;
-    *:last-child {
-      margin-bottom: 0;
-    }
-    height: 0;
-  }
-  input:checked {
-    & ~ .hs__title {
+    &.show {
       padding-bottom: 15px;
       border-bottom: 0.5px solid #666;
       margin-bottom: 1rem;
+      & + .hs__content {
+        height: auto;
+        opacity: 1;
+        padding: 5px 0;
+        transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
+      }
       &::before {
         transform: rotate(90deg) translateX(-3px);
       }
     }
-    & ~ .arrow {
-      transform: rotate(270deg);
-    }
-    & ~ .hs__content {
-      // font-size: $font-size;
-      opacity: 1;
-      height: auto;
-      padding: 5px 0;
-      transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hs__content {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s 0s ease;
+    *:last-child {
+      margin-bottom: 0;
     }
   }
 }
+/*! purgecss end ignore */
 
 // table
 // ----------------------------------------------------------------
@@ -287,22 +320,22 @@ table {
   background-color: transparent;
   border-spacing: 0;
   border-radius: 3px;
-  padding: 0!important;
+  padding: 0 !important;
   table-layout: fixed;
   overflow: hidden;
   font-size: 0.95rem;
   border: 1px solid #888;
-  th{
+  th {
     font-weight: normal;
     color: $c-blue;
     text-align: left;
   }
-  thead{
+  thead {
     & > tr {
-      &:first-child > th:first-child{
+      &:first-child > th:first-child {
         border-top-left-radius: 5px;
       }
-      &:first-child > th:last-child{
+      &:first-child > th:last-child {
         border-top-right-radius: 5px;
       }
     }
@@ -313,11 +346,27 @@ table {
     padding: 5px 7px;
   }
   tbody > tr {
-    &:nth-child(odd){
+    &:nth-child(odd) {
       background: $code-bg;
     }
-    &:last-child{
+    &:last-child {
       border-bottom: none;
     }
   }
+}
+
+// 2 columns list
+.col-2-list,
+.two-columns-list {
+  @media (min-width: $grid-md) {
+    @include column-count(2);
+  }
+}
+
+// blockquote
+blockquote {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 5px solid #aaa;
 }

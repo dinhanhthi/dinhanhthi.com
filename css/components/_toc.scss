@@ -1,6 +1,8 @@
 div.toc {
   margin-bottom: $mb;
   border-left: 5px solid #aaa;
+  @include box-bg($code-bg, $code-bd);
+  padding: 15px 15px 10px 0;
   ol {
     padding-left: 20px;
     font-size: 0.9 * $font-size;
@@ -56,8 +58,6 @@ div.toc {
     top: 60px;
     max-height: 85vh;
     overflow: auto;
-    padding-top: 0;
-    padding-right: 15px;
     ol {
       margin-top: 0;
       margin-bottom: 0;

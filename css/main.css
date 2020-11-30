@@ -162,6 +162,15 @@ sup {
 mark {
   background: #ffd479;
   padding: 0 0.3em; }
+  mark strong, mark b {
+    color: #000; }
+  mark code {
+    background: transparent !important;
+    color: #a02c2c !important;
+    font-size: inherit !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important; }
 
 a {
   color: #ffd479;
@@ -609,16 +618,16 @@ body {
     padding-bottom: 1.5rem; }
     .page-index .main-cats > .category-wrapper > .category {
       border: 1px solid #3b3e54;
-      border-radius: 10px;
+      border-radius: 7px;
       height: fit-content;
-      background: transparent;
+      background: #2f3240;
       padding: 2rem 1.5rem 1.5rem 1.5rem; }
 
 .page-index .toc-index {
-  border: 1px solid #3b3e54;
-  border-radius: 10px;
+  border: 1px solid #33364c;
+  border-radius: 7px;
   height: fit-content;
-  background: #2f3240;
+  background: #27314487;
   flex: 0 1 280px;
   position: sticky;
   top: 60px;
@@ -744,8 +753,8 @@ header {
   header p {
     margin-top: 1rem; }
   header .header-logo {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     margin-bottom: 1rem; }
     header .header-logo img {
       width: 100%;
@@ -1355,17 +1364,44 @@ kbd {
       .col-2-flex > *:last-child {
         margin-right: 0; } }
 
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center; }
+  @media (min-width: 576px) and (max-width: 767px) {
+    .columns-2 {
+      grid-template-columns: 2fr 1fr; }
+      .columns-2.size-1-1 {
+        grid-template-columns: 1fr 1fr !important; } }
+  @media (max-width: 575px) {
+    .columns-2 {
+      grid-template-columns: 1fr; } }
+  @media (min-width: 768px) {
+    .columns-2.size-2-1 {
+      grid-template-columns: 2fr 1fr; }
+    .columns-2.size-1-2 {
+      grid-template-columns: 1fr 2fr; }
+    .columns-2.size-3-2 {
+      grid-template-columns: 3fr 2fr; }
+    .columns-2.size-2-3 {
+      grid-template-columns: 2fr 3fr; }
+    .columns-2.size-1-1 {
+      grid-template-columns: 1fr 1fr !important; } }
+  .columns-2 .columns-2 .img-full-normal {
+    padding-left: 10px;
+    padding-right: 10px; }
+  @media (min-width: 768px) {
+    .columns-2 > p:nth-child(1) {
+      padding-right: 5px; }
+    .columns-2 > p:nth-child(2) {
+      padding-left: 5px; } }
+
+/*! purgecss start ignore */
 .hsbox {
-  display: block;
   margin-bottom: 24.75px;
   border: 1px solid #969696;
   padding: 1rem;
   border-radius: 3px; }
-  .hsbox input {
-    position: absolute;
-    left: -9999px; }
-    .hsbox input:focus ~ .hs__title {
-      border-color: grey; }
   .hsbox .hs__title {
     cursor: pointer; }
     .hsbox .hs__title::before {
@@ -1378,28 +1414,25 @@ kbd {
       margin-right: 0.7rem;
       transform: translateY(-2px);
       transition: transform 0.2s ease-out; }
+    .hsbox .hs__title.show {
+      padding-bottom: 15px;
+      border-bottom: 0.5px solid #666;
+      margin-bottom: 1rem; }
+      .hsbox .hs__title.show + .hs__content {
+        height: auto;
+        opacity: 1;
+        padding: 5px 0;
+        transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1); }
+      .hsbox .hs__title.show::before {
+        transform: rotate(90deg) translateX(-3px); }
   .hsbox .hs__content {
-    margin: 0;
-    opacity: 0;
-    padding: 0;
-    transition: all 0.2s 0s ease;
-    height: 0; }
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s 0s ease; }
     .hsbox .hs__content *:last-child {
       margin-bottom: 0; }
-  .hsbox input:checked ~ .hs__title {
-    padding-bottom: 15px;
-    border-bottom: 0.5px solid #666;
-    margin-bottom: 1rem; }
-    .hsbox input:checked ~ .hs__title::before {
-      transform: rotate(90deg) translateX(-3px); }
-  .hsbox input:checked ~ .arrow {
-    transform: rotate(270deg); }
-  .hsbox input:checked ~ .hs__content {
-    opacity: 1;
-    height: auto;
-    padding: 5px 0;
-    transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1); }
 
+/*! purgecss end ignore */
 table {
   width: 100%;
   max-width: 100%;
@@ -1428,6 +1461,20 @@ table {
     background: #2f3240; }
   table tbody > tr:last-child {
     border-bottom: none; }
+
+@media (min-width: 768px) {
+  .col-2-list,
+  .two-columns-list {
+    column-count: 2;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -moz-column-count: 2; } }
+
+blockquote {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 5px solid #aaa; }
 
 @font-face {
   font-family: KaTeX_AMS;
@@ -2295,16 +2342,20 @@ table {
   margin-bottom: 24.75px; }
   .page-note ul li, .page-note ol li {
     margin-bottom: 5px; }
-    .page-note ul li > p, .page-note ol li > p {
-      margin: 0 0 5px 0; }
-    .page-note ul li ul, .page-note ol li ul {
+    .page-note ul li ul, .page-note ul li ol, .page-note ol li ul, .page-note ol li ol {
       margin-bottom: 5px;
       padding-left: 20px; }
+    .page-note ul li > *, .page-note ol li > * {
+      margin-bottom: 10px; }
 
 .page-note p.noindent {
   display: none; }
-  .page-note p.noindent + ul {
+  .page-note p.noindent + ul, .page-note p.noindent + ol {
     padding-left: 20px; }
+
+.page-note hr {
+  border-bottom: 1px solid #676767;
+  margin-bottom: 24.75px; }
 
 pre[class*="language-"],
 code[class*="language-"] {
@@ -2583,7 +2634,7 @@ pre {
     border: 0.5px solid #3b3e54;
     overflow: auto;
     border-radius: 3px;
-    max-height: 400px;
+    max-height: 450px;
     overflow: auto; }
 
 .highlight-line {
@@ -2621,7 +2672,12 @@ pre {
 
 div.toc {
   margin-bottom: 24.75px;
-  border-left: 5px solid #aaa; }
+  border-left: 5px solid #aaa;
+  border: 1px solid #3b3e54;
+  border-radius: 7px;
+  height: fit-content;
+  background: #2f3240;
+  padding: 15px 15px 10px 0; }
   div.toc ol {
     padding-left: 20px;
     font-size: 14.85px;
@@ -2657,9 +2713,7 @@ div.toc {
       position: sticky;
       top: 60px;
       max-height: 85vh;
-      overflow: auto;
-      padding-top: 0;
-      padding-right: 15px; }
+      overflow: auto; }
       div.toc ol {
         margin-top: 0;
         margin-bottom: 0; } }
@@ -2763,4 +2817,4 @@ div.toc {
 .page-note p > img + br + em {
   display: block;
   text-align: center;
-  margin-top: -5px; }
+  margin-top: -15px; }

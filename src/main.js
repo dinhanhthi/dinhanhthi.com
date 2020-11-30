@@ -248,3 +248,12 @@ addEventListener('click', function (e) {
 });
 // Set the offset when entering page with hash present in the url
 window.setTimeout(offsetAnchor, 0);
+
+// hide/show box
+// -----------------------------------------
+var triggers = Array.from(document.querySelectorAll('[class="hs__title"]'));
+window.addEventListener('click', (ev) => {
+  if (ev.target.classList.contains("hs__title")){
+    ev.target.classList.toggle("show");
+  }
+}, false);
