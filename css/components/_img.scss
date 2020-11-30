@@ -1,10 +1,11 @@
 .page-note{
   img{
     height: auto;
+    width: 100%;
   }
 
   $imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
-  @media (min-width:768px) {
+  @media (min-width: $grid-md) {
     @each $size in $imgage-sizes{
       .img-full-#{$size}, .img-#{$size}{
         width: $size/100*100%;

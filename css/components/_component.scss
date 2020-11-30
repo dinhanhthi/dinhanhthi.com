@@ -221,6 +221,7 @@ $gap: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  margin-bottom: $mb;
   @media (min-width: $grid-sm) and (max-width: $grid-md - 1px) {
     grid-template-columns: 2fr 1fr;
     &.size-1-1 {
@@ -247,17 +248,23 @@ $gap: 5px;
       grid-template-columns: 1fr 1fr !important;
     }
   }
-  .columns-2 .img-full-normal {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  & > p {
-    @media (min-width: $grid-md) {
+  & > * {
+    @media (min-width: $grid-sm) {
       &:nth-child(1) {
         padding-right: 5px;
       }
       &:nth-child(2) {
         padding-left: 5px;
+      }
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  @media (max-width: $grid-md - 1px){
+    p > img{
+      & + br + em{
+        margin-top: 0!important;
       }
     }
   }

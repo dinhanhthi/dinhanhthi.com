@@ -26,7 +26,7 @@ keywords: "true false negative positive type i type ii error precision recall f1
 - **False Positive** (**FP**{:.tpink}): what we predict Positive is actually Negative.
 </div>
 
-![This guy is pregnant?]({{img-url}}/cm_ex.png){:.img-full-100.pop}
+![This guy is pregnant?]({{img-url}}/cm_ex.png){:.img-full-100 .pop}
 *This guy is pregnant?*
 </div>
 
@@ -104,7 +104,7 @@ $f_1$ is a special case of $f_{\beta}$ when $\beta=1$:
 - **Accuracy**: How accurate our predictions to the whole predictions?
 
 	$$\mathrm{accuracy} = \dfrac{TP + TN}{TP + TN + FP + FN}$$
-	- **Specificity**: How many negative results belong to our predictions?
+- **Specificity**: How many negative results belong to our predictions?
 
 	$$\mathrm{specificity} = \dfrac{TN}{FP + TN}$$
 

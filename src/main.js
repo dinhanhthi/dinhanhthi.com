@@ -233,7 +233,7 @@ if (document.querySelectorAll("h2, h3, h4") != null) {
 // -----------------------------------------
 function offsetAnchor() {
   if (location.hash.length !== 0) {
-    window.scrollTo(window.scrollX, window.scrollY - 60);
+    window.scrollTo({left: window.scrollX, top: window.scrollY - 60});
   }
 }
 // Captures click events of all <a> elements with href starting with #

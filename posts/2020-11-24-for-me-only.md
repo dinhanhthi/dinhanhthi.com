@@ -48,6 +48,7 @@ Testing
 ### Custom classes
 
 - `{:.noindent}` before a list, not indent a list.
+- `{:target="_blank"}` after an url.
 
 ## Insert figures
 
@@ -131,6 +132,23 @@ For problems with tab/spaces in markdown rendering.
 ~~~
 
 ## Columns
+
+### Content - figure / table
+
+Using class `columns-2`,
+
+``` html
+<div class="columns-2" markdown="1">
+<div>
+
+Content containing markdown blocks
+</div>
+
+![Description](/path/to/figure){:.custom-class}
+</div>
+```
+
+There are also others: `.columns-2.size-2-1` (`1-2`, `3-2`, `2-3`, `1-1`).
 
 ### Two cols list
 
@@ -303,14 +321,13 @@ A pragraph{:.custom-class}
 
 # image
 ![](){:.custom-class}
-```
 
-Example with tables,
-
-``` markdown
-{:.custom-class}
 # table
+{:.custom-class}
+table
 ```
+
+__Multi-classes__: `{:.custom-1 .custom-2}` (with spaces)!
 
 We define CSS like that,
 
