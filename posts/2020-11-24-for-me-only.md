@@ -2,8 +2,8 @@
 layout: post
 title: "For me only"
 tags: [Others]
-icon: "/img/header/customize.svg"
 toc: true
+icon: "/img/header/customize.svg"
 keywords: "for me only customize edit this site box font blocks"
 ---
 
@@ -28,6 +28,20 @@ notfull: true # if the post is not good enough
 
 ## Other components
 
+### Mark & Keyboard
+
+::: col-2-equal
+``` bash
+# mark
+==Text==
+```
+
+``` bash
+# keyboard
+[[Ctrl]]
+```
+:::
+
 ### Ref
 
 ``` bash {% raw %}
@@ -48,6 +62,7 @@ Testing
 ### Custom classes
 
 - `{:.noindent}` before a list, not indent a list.
+- `{:.indent}` before a list, indent a list.
 - `{:target="_blank"}` after an url.
 
 ## Insert figures
@@ -63,6 +78,14 @@ Testing
 # WITH DESCRIPTION
 ![description](/path/){:.custom-class}
 __Description texts__
+```
+
+### Background white
+
+``` bash
+![Description](/path/to){:.bg-white}
+# with other classes?
+{:.bg-white .custom-class}
 ```
 
 ### Default img path
@@ -337,4 +360,20 @@ p.custom-class + table{}
 p.custom-class{display: none;}
 // instead of
 table.custom-class{}
+```
+
+### Replace ref
+
+``` bash {% raw %}
+# in VSCode
+# Find: \{% ref (.*) %\}
+# Replace with: {% ref "$1" %}
+{% endraw %}
+```
+
+### Errors?
+
+``` bash
+# TypeError: Cannot read property 'type' of undefined
+# => Class comes before ![]() of an image!
 ```
