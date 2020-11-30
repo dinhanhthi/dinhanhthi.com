@@ -45,6 +45,10 @@ Testing
 {color:red}text{color} # without space
 ```
 
+### Custom classes
+
+- `{:.noindent}` before a list, not indent a list.
+
 ## Insert figures
 
 ``` markdown
@@ -101,7 +105,6 @@ __Description texts__
 
 ### Raw code
 
-
 ``` bash
 ~~~ js {{ "{% raw " }}%}
 # line of codes
@@ -109,7 +112,34 @@ __Description texts__
 ~~~
 ```
 
+### Code inside a list
+
+For problems with tab/spaces in markdown rendering.
+
+~~~ bash {% raw %}
+1. Item # below is a blank line
+
+  ``` bash
+  # codes with 2 spaces (as tab indented)
+  ```
+2. Another item.
+
+  ``` bash
+  # code
+  ```
+{% endraw %}
+~~~
+
 ## Columns
+
+### Two cols list
+
+``` html
+<div class="col-2-list">
+
+<!-- list (a line break above is required!) -->
+</div>
+```
 
 ### Code & output
 
@@ -130,6 +160,38 @@ __Description texts__
 ::: hsbox Title Name
 Content
 :::
+```
+
+Or using liquid tag,
+
+``` bash {% raw %}
+{% hsbox "Long title" %}
+# content
+{% endhsbox %}
+{% endraw %}
+```
+
+#### HSBox with indent
+
+``` html {% raw %}
+{% hsbox %}
+- Item 1
+- Item 2
+
+  <div ><div class="hsbox">
+	<div class="hs__title">
+		More detail
+	</div>
+	<div class="hs__content">
+
+  //code
+  </div>
+  </div>
+
+  - Sub item.
+- Item
+{% endhsbox %}
+{% endraw %}
 ```
 
 ### Alert boxes
@@ -164,6 +226,30 @@ Content
 :::
 ```
 </div>
+
+## Math
+
+If using with list and indent -> DON'T break line in math formulas,
+
+::: col-2-equal
+``` bash
+# instead of
+- Item
+
+  $$
+  \dfrac{1}{2}
+  $$
+- Item
+```
+
+``` bash
+# use
+- Item
+
+  $$\dfrac{1}{2}$$
+- Item
+```
+:::
 
 ## Dev
 

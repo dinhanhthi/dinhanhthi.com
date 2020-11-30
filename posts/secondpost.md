@@ -2,7 +2,7 @@
 title: This is my second post.
 description: This is a post on My Blog about leveraging agile frameworks.
 date: 2018-07-04
-tags: [Deep Learning, Machine Learning, MLOps, R Lang, Time Series, Prob & Stats, JavaScript, Web Dev, NLP, Linear Algebra, Others]
+tags: [R Lang, Time Series, Prob & Stats, Web Dev, NLP, Linear Algebra, Others]
 layout: layouts/post.njk
 ---
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
