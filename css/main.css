@@ -160,17 +160,10 @@ sup {
   font: inherit; }
 
 mark {
-  background: #ffd479;
-  padding: 0 0.3em; }
-  mark strong, mark b {
-    color: #000; }
-  mark code {
-    background: transparent !important;
-    color: #a02c2c !important;
-    font-size: inherit !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important; }
+  color: inherit;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: inset 0 -4px 0px 0px #ffd479; }
 
 a {
   color: #ffd479;

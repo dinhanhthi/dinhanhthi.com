@@ -148,19 +148,10 @@ sup {
 }
 
 mark {
-  background: $c-yellow;
-  padding: 0 0.3em;
-  strong, b{
-    color: #000;
-  }
-  code {
-    background: transparent!important;
-    color: #a02c2c!important;
-    font-size: inherit!important;
-    border: none!important;
-    padding: 0!important;
-    margin: 0!important;
-  }
+  color: inherit;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: inset 0 -4px 0px 0px $c-yellow;
 }
 
 a {
