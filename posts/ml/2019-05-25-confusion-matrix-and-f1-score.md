@@ -69,11 +69,9 @@ Give a general view about our model, "is it really good?" thanks to precision an
 
 High precision and low recall or vice versa? F1-Score gives us a balance between precision and recall.
 
-<p class="p-mark">
 $$
 f_1 = \left({\frac {\mathrm {recall} ^{-1}+\mathrm {precision} ^{-1}}{2}}\right)^{-1}=2\times {\frac {\mathrm {precision} \cdot \mathrm {recall} }{\mathrm {precision} +\mathrm {recall} }}.
 $$
-</p>
 
 F1-score depends on how we label the class "positive". *This email is spam?* is **very different** from *This email is not spam?*
 
@@ -90,13 +88,11 @@ Normally, $f_1\in (0,1]$ and it gets the higher values, the better our model is.
 - The best one ($f_1=1$), both precision and recall get $100\%$.
 - One of precision and recall gets very small value (close to 0), $f_1$ is very small, our model is not good!
 
-What if we prefer one of precision and recall than the other? We consider $f_{\beta}$<sup>[[ref]](https://pdfs.semanticscholar.org/3dcd/a1bec36586b46b1dc67a477beca2c5a105be.pdf)</sup>
+What if we prefer one of precision and recall than the other? We consider $f_{\beta}${% ref "https://pdfs.semanticscholar.org/3dcd/a1bec36586b46b1dc67a477beca2c5a105be.pdf" %}
 
-<p class="p-mark">
 $$
 f_{\beta} = ( 1 + \beta^2)\frac{\text{precision}\cdot\text{recall}}{\beta^2\cdot\text{precision} + \text{recall}}
 $$
-</p>
 
 $f_1$ is a special case of $f_{\beta}$ when $\beta=1$:
 
@@ -107,18 +103,10 @@ $f_1$ is a special case of $f_{\beta}$ when $\beta=1$:
 
 - **Accuracy**: How accurate our predictions to the whole predictions?
 
-	<p class="p-mark">
-	$$
-	\mathrm{accuracy} = \dfrac{TP + TN}{TP + TN + FP + FN}
-	$$
-	</p>
-- **Specificity**: How many negative results belong to our predictions?
+	$$\mathrm{accuracy} = \dfrac{TP + TN}{TP + TN + FP + FN}$$
+	- **Specificity**: How many negative results belong to our predictions?
 
-	<p class="p-mark">
-	$$
-	\mathrm{specificity} = \dfrac{TN}{FP + TN}
-	$$
-	</p>
+	$$\mathrm{specificity} = \dfrac{TN}{FP + TN}$$
 
 ### When to use?
 
@@ -167,5 +155,3 @@ _ = plt.legend(loc="lower right")
 4. [Accuracy, Precision, Recall or F1?](https://towardsdatascience.com/accuracy-precision-recall-or-f1-331fb37c5cb9){:target="_blank"} - **Koo Ping Shung**, *Towards Data Science*.
 5. [Dealing with Imbalanced data: undersampling, oversampling and proper cross-validation](https://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation#){:target="_blank"} - **Marco Altini**.
 6. [Accuracy, Recall, Precision, F-Score & Specificity, which to optimize on?](https://towardsdatascience.com/accuracy-recall-precision-f-score-specificity-which-to-optimize-on-867d3f11124){:target="_blank"} - **Salma Ghoneim**, *Towards Data Science*.
-
-

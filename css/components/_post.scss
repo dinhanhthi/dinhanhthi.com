@@ -9,6 +9,7 @@
   ul, ol{
     margin-top: 0;
     margin-bottom: $mb;
+    padding-left: 20px;
     li{
       margin-bottom: 5px;
       ul, ol{
@@ -25,6 +26,13 @@
     display: none;
     & + ul, & + ol{
       padding-left: 20px;
+    }
+  }
+
+  p.indent{
+    display: none;
+    & + ul, & + ol{
+      padding-left: 40px;
     }
   }
 

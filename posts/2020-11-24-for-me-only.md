@@ -246,7 +246,7 @@ If using with list and indent -> DON'T break line in math formulas,
 # use
 - Item
 
-  $$\dfrac{1}{2}$$
+  $$\dfrac{1}{2}$$ # ALl in 1 line
 - Item
 ```
 :::
