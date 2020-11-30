@@ -363,13 +363,13 @@ p.custom-class{display: none;}
 table.custom-class{}
 ```
 
-### Replace ref
+### `.eleventy.dev.js` vs `.main.js`
 
-``` bash {% raw %}
-# in VSCode
-# Find: \{% ref (.*) %\}
-# Replace with: {% ref "$1" %}
-{% endraw %}
+The only difference is the line
+
+``` js
+// comment out in .dev.js
+eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
 ```
 
 ### Errors?

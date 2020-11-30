@@ -2470,6 +2470,9 @@ blockquote {
 .katex-display.fleqn > .katex {
   text-align: left; }
 
+.page-note .text-center {
+  text-align: center; }
+
 .page-note p {
   margin-top: 0;
   margin-bottom: 24.75px; }

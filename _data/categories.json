@@ -60,12 +60,6 @@
       "svg": "/img/cats/r.svg"
    },
    {
-      "name": "Linear Algebra",
-      "icon": "fas fa-square-root-alt",
-      "color": "#ffb2b2",
-      "svg": "/img/cats/linear-algebra.svg"
-   },
-   {
       "name": "Prob & Stats",
       "icon": "far fa-chart-bar",
       "color": "#daff9f",
