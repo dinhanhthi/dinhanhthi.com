@@ -19,8 +19,8 @@
     }
   }
 
-  p > img{
-    & + br{
+  p {
+    & > br{
       display: none;
       &+ em{
         display: block;

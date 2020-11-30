@@ -8,6 +8,7 @@
     "build-old": "npm run js-build && eleventy --config=.eleventy.dev.js && npm run test",
     "watch": "concurrently \"eleventy --config=.eleventy.dev.js --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
     "thi": "concurrently \"eleventy --config=.eleventy.dev.js --serve\" \"npm run js-build-watch\"",
+    "thi-full": "concurrently \"eleventy --config=.eleventy.main.js --serve\" \"npm run js-build-watch\"",
     "serve": "eleventy --config=.eleventy.dev.js --serve",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",

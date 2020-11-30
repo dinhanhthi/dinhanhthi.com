@@ -2965,9 +2965,9 @@ div.toc {
     margin-right: auto;
     display: block; } }
 
-.page-note p > img + br {
+.page-note p > br {
   display: none; }
-  .page-note p > img + br + em {
+  .page-note p > br + em {
     display: block;
     text-align: center;
     margin-top: 10px; }
