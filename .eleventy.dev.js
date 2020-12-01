@@ -8,6 +8,7 @@ const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const elasticlunr = require("elasticlunr");
 
 const markdownIt = require("markdown-it");
 var markdownItp = require('markdown-it')();
@@ -126,6 +127,24 @@ module.exports = function (eleventyConfig) {
       return "";
     }
     return dt.toISO();
+  });
+
+  eleventyConfig.addFilter("search", (collection) => {
+    var index = elasticlunr(function () {
+      this.addField("title");
+      this.addField("keywords");
+      this.addField("tags");
+      this.setRef("id");
+    });
+    collection.forEach((page) => {
+      index.addDoc({
+        "id": page.url,
+        "title": page.data.title,
+        "keywords": page.data.keywords,
+        "tags": page.data.tags,
+      });
+    });
+    return index.toJSON();
   });
 
   // Get the first `n` elements of a collection

@@ -33,6 +33,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
     "@iktakahiro/markdown-it-katex": "^4.0.1",
+    "elasticlunr": "^0.9.5",
     "eleventy-plugin-local-images": "^0.4.0",
     "eleventy-plugin-toc": "^1.1.0",
     "file-type": "^12.0.1",

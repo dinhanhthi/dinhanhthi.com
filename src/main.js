@@ -233,7 +233,7 @@ if (document.querySelectorAll("h2, h3, h4") != null) {
 // -----------------------------------------
 function offsetAnchor() {
   if (location.hash.length !== 0) {
-    window.scrollTo({left: window.scrollX, top: window.scrollY - 60});
+    window.scrollTo({ left: window.scrollX, top: window.scrollY - 60 });
   }
 }
 // Captures click events of all <a> elements with href starting with #
@@ -253,7 +253,60 @@ window.setTimeout(offsetAnchor, 0);
 // -----------------------------------------
 var triggers = Array.from(document.querySelectorAll('[class="hs__title"]'));
 window.addEventListener('click', (ev) => {
-  if (ev.target.classList.contains("hs__title")){
+  if (ev.target.classList.contains("hs__title")) {
     ev.target.classList.toggle("show");
   }
 }, false);
+
+// elasticlunr
+
+(function (window, document) {
+  "use strict";
+
+  const search = (e) => {
+    const results = window.searchIndex.search(e.target.value, {
+      bool: "OR",
+      expand: true,
+    });
+
+    const divRes = document.getElementById("search-result");
+    const resEl = document.getElementById("searchResults");
+    const noResultsEl = document.getElementById("noResultsFound");
+
+    resEl.innerHTML = "";
+    if (e.target.value != "") {
+      divRes.style.display = "block";
+      if (results != "") {
+        noResultsEl.style.display = "none";
+        results.map((r) => {
+          const { id, title, keywords } = r.doc;
+          const el = document.createElement("li");
+          resEl.appendChild(el);
+
+          const h3 = document.createElement("h3");
+          el.appendChild(h3);
+
+          const a = document.createElement("a");
+          a.setAttribute("href", id);
+          a.textContent = title;
+          h3.appendChild(a);
+
+          const p = document.createElement("p");
+          p.textContent = keywords;
+          el.appendChild(p);
+        });
+      } else {
+        noResultsEl.style.display = "block";
+      }
+    } else {
+      divRes.style.display = "none";
+    }
+  };
+
+  fetch("/pages/search-index.json").then((response) =>
+    response.json().then((rawIndex) => {
+      window.searchIndex = elasticlunr.Index.load(rawIndex);
+      document.getElementById("searchField").addEventListener("input", search);
+    })
+  );
+})(window, document);

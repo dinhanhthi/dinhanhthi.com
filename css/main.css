@@ -819,33 +819,53 @@ nav {
     nav #nav .nav-search {
       display: block;
       background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
-      width: 100%; }
+      width: 100%;
+      position: relative; }
       nav #nav .nav-search form {
         display: flex; }
-      nav #nav .nav-search .nav-search-submit {
-        background: 0 0;
-        border: 0;
-        padding: 0.5rem 0.2rem 0.3rem 0.6rem;
-        text-align: center;
-        font-size: 1rem;
-        color: #aaa;
-        font-weight: 700;
-        cursor: pointer; }
-        nav #nav .nav-search .nav-search-submit:hover {
-          color: #89e089; }
-        nav #nav .nav-search .nav-search-submit:focus {
-          border: 0;
-          outline: none; }
       nav #nav .nav-search .nav-search-input {
         border: 0;
         background: transparent;
         color: #ddd;
         font-size: 1.05rem;
-        padding: 0.65rem 0.5rem 0.65rem 0.25rem;
+        padding: 0.65rem 0.5rem;
         width: 100%; }
         nav #nav .nav-search .nav-search-input:focus {
           outline: none;
           border: 0; }
+      nav #nav .nav-search #search-result {
+        position: absolute;
+        max-height: 80vh;
+        overflow: auto;
+        width: 100%;
+        background: #444;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 0 1rem; }
+        nav #nav .nav-search #search-result ul#searchResults {
+          padding: 0 0 0 20px; }
+          nav #nav .nav-search #search-result ul#searchResults li {
+            padding-right: 10px; }
+            nav #nav .nav-search #search-result ul#searchResults li h3 {
+              margin-bottom: 5px; }
+              nav #nav .nav-search #search-result ul#searchResults li h3 a {
+                color: #efb232;
+                white-space: inherit;
+                padding: 0;
+                text-align: left;
+                font-weight: normal;
+                font-size: 16.5px;
+                font-family: "Poppins", Arial, Helvetica, sans-serif;
+                line-height: 1.4; }
+                nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
+                  border-bottom: none;
+                  color: #8cc8ff; }
+            nav #nav .nav-search #search-result ul#searchResults li p {
+              text-align: left;
+              margin-top: 0;
+              line-height: 1.4; }
+        nav #nav .nav-search #search-result #noResultsFound p {
+          text-align: left; }
 
 #reading-progress {
   z-index: 3;
@@ -861,7 +881,8 @@ nav {
 
 .intro {
   font-size: 1.02rem; }
-  .intro b, .intro strong {
+  .intro b,
+  .intro strong {
     color: #ffd479;
     font-weight: normal; }
   .intro a {

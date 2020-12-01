@@ -368,3 +368,9 @@ There is no `--incremental` feature in 11ty like Jekyll, we can add some folder 
 # TypeError: Cannot read property 'type' of undefined
 # => Class comes before ![]() of an image!
 ```
+
+``` bash
+# EISDIR: illegal operation on a directory
+# Solution:
+# Delete _site/ and rebuild!
+```

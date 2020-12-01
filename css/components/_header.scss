@@ -130,37 +130,65 @@ nav {
       display: block;
       background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
       width: 100%;
-
+      position: relative;
       form {
         display: flex;
-      }
-      .nav-search-submit {
-        background: 0 0;
-        border: 0;
-        padding: 0.5rem 0.2rem 0.3rem 0.6rem;
-        text-align: center;
-        font-size: 1rem;
-        color: #aaa;
-        font-weight: 700;
-        cursor: pointer;
-        &:hover {
-          color: #89e089;
-        }
-        &:focus {
-          border: 0;
-          outline: none;
-        }
       }
       .nav-search-input {
         border: 0;
         background: transparent;
         color: #ddd;
         font-size: 1.05rem;
-        padding: 0.65rem 0.5rem 0.65rem 0.25rem;
+        padding: 0.65rem 0.5rem;
         width: 100%;
         &:focus {
           outline: none;
           border: 0;
+        }
+      }
+
+      #search-result {
+        position: absolute;
+        max-height: 80vh;
+        overflow: auto;
+        width: 100%;
+        background: #444;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        padding: 0 1rem;
+
+        ul#searchResults {
+          padding: 0 0 0 20px;
+          li {
+            padding-right: 10px;
+            h3 {
+              margin-bottom: 5px;
+              a {
+                color: #efb232;
+                white-space: inherit;
+                padding: 0;
+                text-align: left;
+                font-weight: normal;
+                font-size: $font-size;
+                font-family: $font-main;
+                line-height: 1.4;
+                &:hover {
+                  border-bottom: none;
+                  color: $c-blue;
+                }
+              }
+            }
+            p {
+              text-align: left;
+              margin-top: 0;
+              line-height: 1.4;
+            }
+          }
+        }
+        #noResultsFound {
+          p {
+            text-align: left;
+          }
         }
       }
     }
@@ -180,9 +208,10 @@ nav {
   pointer-events: none;
 }
 
-.intro{
+.intro {
   font-size: 1.02rem;
-  b, strong {
+  b,
+  strong {
     color: $c-yellow;
     font-weight: normal;
   }
