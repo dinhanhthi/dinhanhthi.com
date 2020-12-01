@@ -2889,85 +2889,100 @@ div.toc {
     background: #fff; }
 
 @media (min-width: 768px) {
-  .page-note .img-full-30, .page-note .img-30 {
+  .page-note .img-full-30,
+  .page-note .img-30 {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-35, .page-note .img-35 {
+  .page-note .img-full-35,
+  .page-note .img-35 {
     width: 35%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-40, .page-note .img-40 {
+  .page-note .img-full-40,
+  .page-note .img-40 {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-45, .page-note .img-45 {
+  .page-note .img-full-45,
+  .page-note .img-45 {
     width: 45%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-50, .page-note .img-50 {
+  .page-note .img-full-50,
+  .page-note .img-50 {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-55, .page-note .img-55 {
+  .page-note .img-full-55,
+  .page-note .img-55 {
     width: 55%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-60, .page-note .img-60 {
+  .page-note .img-full-60,
+  .page-note .img-60 {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-65, .page-note .img-65 {
+  .page-note .img-full-65,
+  .page-note .img-65 {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-70, .page-note .img-70 {
+  .page-note .img-full-70,
+  .page-note .img-70 {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-75, .page-note .img-75 {
+  .page-note .img-full-75,
+  .page-note .img-75 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-80, .page-note .img-80 {
+  .page-note .img-full-80,
+  .page-note .img-80 {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-85, .page-note .img-85 {
+  .page-note .img-full-85,
+  .page-note .img-85 {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-90, .page-note .img-90 {
+  .page-note .img-full-90,
+  .page-note .img-90 {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-95, .page-note .img-95 {
+  .page-note .img-full-95,
+  .page-note .img-95 {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  .page-note .img-full-100, .page-note .img-100 {
+  .page-note .img-full-100,
+  .page-note .img-100 {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: block; } }
 
-.page-note p > br {
+.page-note p > img + br {
   display: none; }
-  .page-note p > br + em {
+  .page-note p > img + br + em {
     display: block;
     text-align: center;
     margin-top: 10px; }

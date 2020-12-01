@@ -1,17 +1,18 @@
-.page-note{
-  img{
+.page-note {
+  img {
     height: auto;
     width: 100%;
-    &.bg-white{
+    &.bg-white {
       background: #fff;
     }
   }
 
   $imgage-sizes: 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
   @media (min-width: $grid-md) {
-    @each $size in $imgage-sizes{
-      .img-full-#{$size}, .img-#{$size}{
-        width: $size/100*100%;
+    @each $size in $imgage-sizes {
+      .img-full-#{$size},
+      .img-#{$size} {
+        width: $size/100 * 100%;
         margin-left: auto;
         margin-right: auto;
         display: block;
@@ -20,9 +21,9 @@
   }
 
   p {
-    & > br{
+    & > img + br {
       display: none;
-      &+ em{
+      & + em {
         display: block;
         text-align: center;
         margin-top: 10px;
