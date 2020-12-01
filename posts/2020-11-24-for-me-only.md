@@ -362,6 +362,10 @@ eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
 
 There is no `--incremental` feature in 11ty like Jekyll, we can add some folder of posts in `.eleventyignore` to not render these folders while writing other posts.
 
+## Building index for search
+
+If there is new post / keywords in some old posts -> remove line of `pages/search-index.json.njk` in `.eleventyignore`.
+
 ### Errors?
 
 ``` bash
