@@ -27,7 +27,8 @@ This is my note for the [2nd course](https://www.coursera.org/learn/convolutiona
 
 ### Extract zip file + view image
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # extract zip file
 import zipfile
@@ -47,7 +48,7 @@ img = mpimg.imread(img_path)
 plt.imshow(img)
 plt.show()
 ```
-:::
+</div>
 
 ### image to np array
 
@@ -73,7 +74,8 @@ loss     = history.history[    'loss' ]
 val_loss = history.history['val_loss' ]
 ```
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # plot accuracy
 plt.plot  ( epochs,     acc )
@@ -88,7 +90,7 @@ plt.plot  ( epochs,     loss )
 plt.plot  ( epochs, val_loss )
 plt.title ('Training and validation loss')
 ```
-:::
+</div>
 
 ## Cats vs dogs
 

@@ -78,7 +78,8 @@ html_theme_options = {
             |-- conf.py
 ```
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # build
 sphinx-build source build
@@ -89,7 +90,7 @@ sphinx-build source build
 sphinx-autobuild source _local -p 8555
 # http://127.0.0.1:8555/
 ```
-:::
+</div>
 
 ## Format
 
@@ -113,7 +114,8 @@ H4 heading
 
 Cross url (in the same document){% ref "https://sublime-and-sphinx-guide.readthedocs.io/en/latest/references.html#links-to-sections-in-the-same-document" %}
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # place to ref
 :ref:`custum text<CSVLoader>`.
@@ -129,7 +131,7 @@ Cross url (in the same document){% ref "https://sublime-and-sphinx-guide.readthe
 CSV
 ===
 ```
-:::
+</div>
 
 ``` bash
 # if heading inside the same file as the caller
@@ -141,7 +143,8 @@ Name of heading
 
 External urls:
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 External hyperlinks, like Python_.
 
@@ -156,7 +159,7 @@ External hyperlinks, like `About Python`_.
 
 .. _About Python: http://www.python.org/
 ```
-:::
+</div>
 
 To a class, method,... in the python library ([this question](https://stackoverflow.com/questions/22700606/how-would-i-cross-reference-a-function-generated-by-autodoc-in-sphinx/22714510) -> [ref](https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-python-objects)),
 
@@ -175,7 +178,8 @@ To a class, method,... in the python library ([this question](https://stackoverf
 
 ### Alert boxes
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # note
 .. note:: First paragraph.
@@ -187,11 +191,12 @@ To a class, method,... in the python library ([this question](https://stackoverf
 # warning
 .. warning:: Content of the warning.
 ```
-:::
+</div>
 
 ### Insert images
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # block
 .. image:: images/ball1.gif
@@ -203,11 +208,12 @@ The |biohazard| symbol.
 
 .. |biohazard| image:: biohazard.png
 ```
-:::
+</div>
 
 ### Insrt code
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # without syntax highlight
 ::
@@ -223,13 +229,14 @@ The |biohazard| symbol.
     def abc():
         pass
 ```
-:::
+</div>
 
 ## Autodoc from python library
 
 👉 [Main ref](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # folder structure
 |-- project
@@ -264,7 +271,7 @@ sys.path.append(path_custom_lib)
 .. autoclass:: custom_lib.folder.classes.ClassA
    :members:
 ```
-:::
+</div>
 
 ### Problem of "Attributes"
 
@@ -276,7 +283,8 @@ sys.path.append(path_custom_lib)
 
 Sphinx doesn't render docstring for classes coming with decorator, i.e. `@something` (before `def`). We can't use only `:members:`.
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 from functools import wraps
 def my_decorator(f):
@@ -294,7 +302,7 @@ def example():
     """Docstring"""
     print('Called example function')
 ```
-:::
+</div>
 
 ::: code-output-equal
 ``` python
@@ -441,7 +449,8 @@ Description for this example.
 
 Math equations,
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # inline equation
 """
@@ -480,7 +489,7 @@ Math equations,
     }
 """
 ```
-:::
+</div>
 
 ``` python
 # Methof, url.
@@ -511,7 +520,8 @@ generated/scipy.stats.pearsonr.html>`_.
 """
 ```
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # single returns
 """
@@ -547,7 +557,7 @@ info: dict
       can be broken here.
 """
 ```
-:::
+</div>
 
 ### Google Style Python Docstring
 

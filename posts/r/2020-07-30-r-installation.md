@@ -16,7 +16,8 @@ keywords: "r jupyter notebook programming language install 101 windows linux ubu
 
 ## Install a package in R
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` r
 # directly
 install.packages("slidify")
@@ -28,7 +29,7 @@ install.packages("devtools")
 devtools::install_github("twitter/AnomalyDetection")
 library(AnomalyDetection)
 ```
-:::
+</div>
 
 ## R with jupyter notebook
 

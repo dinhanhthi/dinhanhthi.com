@@ -59,7 +59,8 @@ Follow [this guide](/docker-wsl2-windows#jekyll-on-wsl2) using WSL2 on Windows.
 
 ## Make jekyll build faster
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # BENCHMARKING your site
 bundle exec jekyll build --profile
@@ -69,7 +70,7 @@ bundle exec jekyll build --profile
 # clean cache
 bundle exec jekyll clean
 ~~~
-:::
+</div>
 
 1. Disable `jekyll-feed`
 2. Run `bundle exec jekyll serve -I` (wuth `-I`) to generate the changed file only. If you create a new file, open a new terminal tab and run `bundle exec jekyll build`.
@@ -223,7 +224,8 @@ where there is a data file located in `_data/proudof-notes.yml`.
 
 ### Tag with single parameter
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~
 {% raw %}{% render_time page rendered at: %}{% endraw %}
 ~~~
@@ -231,7 +233,7 @@ where there is a data file located in `_data/proudof-notes.yml`.
 ~~~ html
 page rendered at: Tue June 22 23:38:47 –0500 2010
 ~~~
-:::
+</div>
 
 Inside folder `_plugins`, create a file `thi_single_tag.rb` whose content is,
 
@@ -255,7 +257,8 @@ Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 
 ### Tag with two parameters
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~
 {% raw %}{% badge update | green %}{% endraw %}
 ~~~
@@ -263,7 +266,7 @@ Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 ~~~ html
 <span class="tbadge badge-green">update</span>
 ~~~
-:::
+</div>
 
 Inside folder `_plugins`, create a file `thi_badge.rb` whose content is,
 
@@ -300,7 +303,8 @@ Liquid::Template.register_tag('badge', Badge)
 
 For example, we wanna create a custom block `alertbox` using [class from Bootstrap](https://getbootstrap.com/docs/4.1/components/alerts/).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~
 {% raw %}{% alertbox warning %}
 Content
@@ -312,7 +316,7 @@ Content
 Content
 </div>
 ~~~
-:::
+</div>
 
 Inside folder `_plugins`, create a file `thi_alert.rb` whose content is,
 
@@ -362,7 +366,8 @@ Liquid::Template.register_tag('alertbox', Jekyll::AlertBox)
 
 A more complicated example, suppose that you wanna create a **hide/show box**{:.tbrown} using [Bootstrap's Collapse](https://getbootstrap.com/docs/4.1/components/collapse/), you can use below shortcode. Its advantage is that you don't have to put manually the `id` for each box! Wonderful!
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~
 {% raw %}{% hsbox %}
 
@@ -387,7 +392,7 @@ Box's content.
 </div>
 </div>
 ~~~
-:::
+</div>
 
 Inside folder `_plugins`, create a file `thi_hideshowbox.rb` whose content is,
 
@@ -459,7 +464,8 @@ Liquid::Template.register_tag('hscontent', Jekyll::HSBcontent)
 
 :bulb: Actually, there is a **simpler solution**{:.tbrown} for this task. We can get
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~
 {% raw %}{% hsbox **Box's title** | show %}
 Box's content.
@@ -476,7 +482,7 @@ Box's content.
 </div>
 </div>
 ~~~
-:::
+</div>
 
 by using
 
@@ -580,7 +586,8 @@ bundle exec jekyll serve -I
 
 ## Serve in background
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # start
 bundle exec jekyll serve 2>&1 &
@@ -594,7 +601,7 @@ ps -ef | grep jekyll
 # substitute pid# with process id
 kill -9 pid#
 ```
-:::
+</div>
 
 ## Using markdown syntax inside a HTML tag/block
 

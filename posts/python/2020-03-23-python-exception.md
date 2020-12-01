@@ -17,7 +17,8 @@ except:
   # codes run if there is an exception
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 try:
   # codes
@@ -35,7 +36,7 @@ except FileNotFoundError as fnf_error:
 except AssertionError as error:
     print(error)
 ~~~
-:::
+</div>
 
 Other Errors, check [this list](https://docs.python.org/3/library/exceptions.html).
 

@@ -26,7 +26,8 @@ Just add `autofocus` into the `<input>` tag.
 
 And make it into 1 if the screen is small.
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ html
 <div class="two-columns-list">
   <ul>
@@ -42,7 +43,7 @@ And make it into 1 if the screen is small.
   columns: 350px 2;
 }
 ~~~
-:::
+</div>
 
 ## Other useful Tools
 

@@ -59,7 +59,8 @@ $$
 _Signmoid function graph on Wikipedia._
 </div>
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 import numpy as np
 import numpy as np
@@ -72,7 +73,7 @@ def sigmoid(z):
 def sigmoid_derivative(z):
     return sigmoid(z)*(1-sigmoid(z))
 ~~~
-:::
+</div>
 
 ### Softmax function
 

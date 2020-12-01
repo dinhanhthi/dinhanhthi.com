@@ -69,7 +69,8 @@ students = pd.DataFrame(my_dict)
 
 ## Adding
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # a column
 df['new_col] = [new_values]
@@ -79,7 +80,7 @@ df['new_col] = [new_values]
 # a row
 df.loc['new_index'] = [new_value]
 ~~~
-:::
+</div>
 
 ``` python
 # add a new col based on another's values
@@ -139,7 +140,8 @@ df.loc[1:5, 'col']
 
 **Select a column** (returns a `Series`)
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # with column's name
 df['Name']
@@ -150,11 +152,12 @@ df.loc[:, 'Name']
 # with an index
 df.iloc[:,0]
 ~~~
-:::
+</div>
 
 Returns a `pd.DataFrame`,
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 df[['Name']]
 df.loc[:, ['Name']]
@@ -164,11 +167,12 @@ df.loc[:, ['Name']]
 # with an index
 df.iloc[:,[0]]
 ~~~
-:::
+</div>
 
 **Select multi-columns** (type `DataFrame`): Get columns `Name` & `Place`:
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # using columns's names
 df[['Name', 'Place']]
@@ -179,13 +183,14 @@ df.loc[:, ['Name', 'Place']]
 # using indexes
 df.iloc[:, [0,-1]]
 ~~~
-:::
+</div>
 
 ### Select rows
 
 **Select a row** (returns a `Series`)
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # with an index
 df.iloc[1]
@@ -202,11 +207,12 @@ df[df.Name=='Thi'] # DataFrame
 df[df.Name=='Thi'].iloc[0] # Series
 df[df.Name=='Thi'].values[0] # ndarray
 ```
-:::
+</div>
 
 **Select multi-rows** (type `DataFrame`)
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # using indexes
 df.iloc[:3]
@@ -217,7 +223,7 @@ df.loc[:2]
 # with conditions
 df[df['A'].isin([3, 6])]
 ```
-:::
+</div>
 
 ## MultiIndex
 
@@ -494,7 +500,8 @@ df1.equals(df2)
 
 ## True / False
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # Invert True/False value in Series
 s = pd.Series([True, True, False, True])
@@ -506,6 +513,6 @@ s = pd.Series([True, True, False, True])
 df['col'] = df['col'].astype(int)
 # int or float
 ~~~
-:::
+</div>
 
 

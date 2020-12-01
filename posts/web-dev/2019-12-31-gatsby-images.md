@@ -372,7 +372,8 @@ export default ListShortcut
 
 Suppose that you wanna show all images in `/sketches/`.{% ref "https://stackoverflow.com/questions/57515558/how-should-i-import-all-the-images-under-a-folder-in-gatsby" %}
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ js
 // In /gatsby-config.js
 {
@@ -405,13 +406,14 @@ export const pageQuery = graphql`
   }
 `
 ~~~
-:::
+</div>
 
 💢 Above method is **only works** with `/sketches` (folder locates at the root of site). It doesn't work with `/src/images/sketches`, for example. I don't know why!
 
 👉 If you want to get all images from a folder (without using `sourceInstanceName`) you can use `relativeDirectory` in the `query`. Suppose that we have 2 folders with the same name `sketches`, one is in `/content/sketches`, one is in `/src/images/sketches`. The following code will **load all images in these two folders**!
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ js
 // In /gatsby-config.js
 {
@@ -451,7 +453,7 @@ export const pageQuery = graphql`
   }
 `
 ~~~
-:::
+</div>
 
 💢 Make sure the name of your folder is **unique** if you don't want to load images from a wrong location.
 

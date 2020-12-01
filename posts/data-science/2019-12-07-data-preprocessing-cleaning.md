@@ -53,7 +53,8 @@ df.drop('New', axis=1, inplace=True) # drop column 'New'
 df.drop(['col1', 'col2'], axis=1, inplace=True)
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # ONLY KEEP SOME
 kept_cols = ['col1', 'col2', ...]
@@ -64,7 +65,7 @@ df = df[kept_cols]
 # ALL EXCEPT SOME
 df[df.columns.difference(['b'])]
 ~~~
-:::
+</div>
 
 ### Rename columns
 
@@ -91,7 +92,8 @@ df.index.name = 'new_name'
 
 ### Make index
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # COLUMN HAS UNIQUE VALUES?
 df['col'].is_unique # True if yes
@@ -107,7 +109,7 @@ df.reset_index(inplace=True)
 df.set_index('column')
 df.set_index(['col1', 'col2'])
 ~~~
-:::
+</div>
 
 ### Drop duplicates
 
@@ -142,7 +144,8 @@ df['timestamp'] = df['Date'] + ' ' + df['Heure']
 
 Full reference of `dropna` is [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # Drop any rows which have any nans
 df.dropna()
@@ -172,7 +175,7 @@ df.dropna(thresh=2)
 # Only consider some cols
 df.dropna(subset=['col1', 'col2'])
 ~~~
-:::
+</div>
 
 ~~~ python
 # multi-index
@@ -186,7 +189,8 @@ df.dropna(subset=df.loc[[], [1,2]].columns)
 
 Check other methods of `fillna` [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # Fill NaN with ' '
 df['col'] = df['col'].fillna(' ')
@@ -213,7 +217,7 @@ m = df.mean(axis=1)
 for col in df.columns:
     df.loc[:, col] = df.loc[:, col].fillna(m)
 ~~~
-:::
+</div>
 
 ## Do with conditions
 

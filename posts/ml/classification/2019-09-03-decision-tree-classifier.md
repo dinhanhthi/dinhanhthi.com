@@ -16,13 +16,14 @@ The basic intuition behind a decision tree is to map out all possible decision p
 
 Suppose that we have a dataset $S$ like in the figure below<sup>[\[ref, *Table 1.2*\]](https://books.google.fr/books/about/Data_Mining_Practical_Machine_Learning_T.html?id=bDtLM8CODsQC){:target="_blank"}</sup>,
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ![Example of dataset]({{img-url}}/dt-1-1.jpg){:.img-100 .pop}
 *An example of dataset $S$.*
 
 ![Example of dataset]({{img-url}}/dt-1-2.jpg){:.img-100 .pop}
 *A decision tree we want.*
-:::
+</div>
 
 There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning#Decision_tree_types) which can help us make a tree like above, in Machine Learning, we usually use:
 

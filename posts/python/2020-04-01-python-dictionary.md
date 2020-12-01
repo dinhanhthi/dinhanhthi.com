@@ -19,7 +19,8 @@ bool(my_dict) # False if empty
 
 ## Creating
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # empty dict
 my_dict = {}
@@ -29,7 +30,7 @@ my_dict = {}
 # integer keys
 my_dict = {1: "a", 2: 3}
 ~~~
-:::
+</div>
 
 ~~~ python
 # contains complicated types

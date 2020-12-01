@@ -17,7 +17,8 @@ JSON (JavaScript Object Notation) is a format that encodes objects in a string.
 - **Serialization** : convert an object → string.
 - **Deserialization** : convert string → object.
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # object
 {foo: [1, 4, 7, 10], bar: "baz"}
@@ -27,7 +28,7 @@ JSON (JavaScript Object Notation) is a format that encodes objects in a string.
 # string
 '{"foo":[1,4,7,10],"bar":"baz"}'
 ~~~
-:::
+</div>
 
 ## JSON with python{% ref "https://docs.python.org/3/library/json.html" %}
 
@@ -37,7 +38,8 @@ JSON (JavaScript Object Notation) is a format that encodes objects in a string.
 import json
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # DECODING
 json.load()
@@ -48,7 +50,7 @@ json.load()
 json.dumps()
 json.dump()
 ~~~
-:::
+</div>
 
 ### Dict to JSON
 

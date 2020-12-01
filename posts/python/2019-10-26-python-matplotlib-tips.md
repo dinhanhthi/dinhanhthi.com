@@ -87,7 +87,8 @@ matplotlib.rcParams['figure.figsize'] = (20,5)
 plt.plot(X, y, 'ro') # red and 'o' points
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # set figure size
 plt.figure(figsize=(20, 5))
@@ -104,7 +105,7 @@ plt.xticks(rotation=90, fontsize=10)
 plt.plot(marker='.', ls='') # scatter plot
 plt.plot(X, '.', markersize=15, linewidth=2)
 ~~~
-:::
+</div>
 
 ### Plot directly with dataframe,
 

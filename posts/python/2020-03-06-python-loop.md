@@ -40,7 +40,8 @@ no left
 
 ### Skip some step
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # don't contain 5 (way 1)
 for i in [x for x in range(10) if x != 5]:
@@ -67,7 +68,7 @@ for i in range(10):
     if i == 5: continue
     print(i)
 ```
-:::
+</div>
 
 ## `while`
 

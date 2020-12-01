@@ -538,7 +538,8 @@ dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPl
 3. Remove all shortcut keyboards that look like the ones you wanna set in the app in Ubuntu system (__Keyboard shortcuts__).
 4. On taskbar, right click on the You Tube Music app > Desktop settings > Hotkeys > Set your keyboards (eg. `Ctrl+Shift+>` for next track, `Ctrl+Shift+<` for previous track, `Ctrl+Shift+Space` for play/pause track).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # install
 sudo apt-get install imagemagick
@@ -568,7 +569,7 @@ mogrify -resize 800x -format jpg *
 # only resize images bigger than 1000px width
 mogrify -resize 1000x\> *
 ~~~
-:::
+</div>
 
 ## Game
 

@@ -41,7 +41,8 @@ from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=10, random_state=0) # default k=8
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 kmeans.fit(X)
 kmeans.predict(X)
@@ -51,7 +52,7 @@ kmeans.predict(X)
 # or
 kmeans.fit_predict(X)
 ~~~
-:::
+</div>
 
 Some notable parameters (see [full](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)):
 

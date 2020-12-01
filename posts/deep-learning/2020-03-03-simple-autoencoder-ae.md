@@ -71,7 +71,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 ~~~
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 class Autoencoder(nn.Module):
 
@@ -134,4 +135,4 @@ class Autoencoder(nn.Module):
         x = self.decoder(x)
         return x
 ~~~
-:::
+</div>

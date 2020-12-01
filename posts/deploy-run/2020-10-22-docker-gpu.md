@@ -141,7 +141,8 @@ nvidia-docker version
 
 Purpose?
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # instead of using
 docker run \
@@ -156,7 +157,7 @@ docker run \
 # we use this with docker-compose.yml
 docker-compose up
 ```
-:::
+</div>
 
 ``` bash
 # check version of docker-compose

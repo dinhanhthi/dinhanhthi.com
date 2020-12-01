@@ -159,7 +159,8 @@ python -m pip install --upgrade pip # need to run cmder as administrator
 First, `activate <env>` and then using `easy_install -U pip`. You can check the version of pip by `pip -V`.
 :::
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 pip freeze
@@ -181,7 +182,7 @@ pip uninstall --user <package>
 # CHECK VERSION OF A PACKAGE
 pip show <package>
 ~~~
-:::
+</div>
 
 If install packages with `pip`, they are installed in which environment of conda? Where `pip` is executed from.
 
@@ -376,7 +377,8 @@ conda update -p /path/to/<env> -f /path/to/<file>.yml # <env> isn't in the defau
 ~~~
 :::
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # Activate an env
 activate <env> # windows
@@ -406,7 +408,7 @@ conda env list
 # EXPORT TO A ENV FILE
 conda env export -f <file>.yml
 ~~~
-:::
+</div>
 
 ~~~ bash
 # Update packages listed in an env file to current env,

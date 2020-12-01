@@ -13,7 +13,8 @@ keywords: "pip conda hotkey magic function display side by side dataframes previ
 
 ### Jupyter notebook
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # BY PIP
 pip install --upgrade pip
@@ -24,7 +25,7 @@ pip install --upgrade ipython jupyter
 # BY CONDA
 conda install ipython jupyter
 ~~~
-:::
+</div>
 
 Or read more in [this note](/python-installation#jupyer-notebook).
 
@@ -120,7 +121,8 @@ pip install rpy2
 
 ## Check the info
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # function's info
 ?<func-name>
@@ -135,7 +137,7 @@ pip install rpy2
 # get the list of current variables
 whos
 ```
-:::
+</div>
 
 Check where command executed from (in your `$path`)?
 

@@ -22,7 +22,8 @@ sys.path.append('../') # the path of current file's father
 
 ## Get files' info
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # LIST OF ALL FILES
 file_path = '.' # current dir
@@ -33,4 +34,4 @@ os.listdir(file_path)
 # The last modification
 os.path.getmtime(<full-path-to-file-name>)
 ~~~
-:::
+</div>

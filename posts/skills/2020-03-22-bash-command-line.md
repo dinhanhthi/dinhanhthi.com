@@ -27,16 +27,18 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 
 ## Multiple commands
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # run at once
 command_1 && command_2
 ~~~
-:::
+</div>
 
 ## .sh file
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # using script: file.sh
 #!/bin/sh
@@ -75,11 +77,12 @@ wc $FILE
 # how to use?
 sh test.sh -n "ThiD" -f test.md
 ```
-:::
+</div>
 
 ## Search / grep / sed
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # all files / folders containing 'abc'
 ls | grep -i abc
@@ -97,13 +100,14 @@ pip show numpy
 pip show numpy | sed -n 's/Location: //p'
 # /usr/lib/python3/dist-packages
 ```
-:::
+</div>
 
 ## Check info
 
 ### System
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # DISK SPACE
 df -h
@@ -144,11 +148,12 @@ lspci -nn | grep '\[03' # another way
 # list of devices
 lsusb
 ```
-:::
+</div>
 
 ### Folders / Files
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # CHANGE ACTIVE DIR
 cd <dir>
@@ -215,11 +220,12 @@ tree -I 'test_*|__pycache__|__init__.py' # use wildcat
 tree -L 2 # level 2
 tree -P 'test_' # list only files starting with "test_"
 ~~~
-:::
+</div>
 
 ### Permission
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # list of groups
 groups
@@ -257,11 +263,12 @@ sudo usermod -a -G groupName userName
 chown <user>:<group> file
 chown -R thi:root folder # folder & children
 ~~~
-:::
+</div>
 
 ### Network
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # CHECK IP
 ifconfig
@@ -299,7 +306,7 @@ kill <pid> # eg. kill 29231
 sudo apt install vnstat
 vnstat -d
 ```
-:::
+</div>
 
 ~~~ bash
 # INTERNET SPEED (need python)
@@ -308,7 +315,8 @@ curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.p
 
 ### Text file
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # QUICK LOOK CONTENT
 more file.txt
@@ -335,7 +343,7 @@ grep "string" file.txt
 # ADD A LINE TO A FILE WITHOUT OPENNING IT
 echo "hello 'thi' world" >> my_file.txt
 ~~~
-:::
+</div>
 
 ### Images
 
@@ -357,7 +365,8 @@ rm sym_folder
 
 Create your own "alias" command for short,
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # CREATE
 alias yourAlias='cd /usr/'
@@ -379,7 +388,7 @@ alias abc # "abs" stands for what?
 # remove an alias
 unalias abc
 ```
-:::
+</div>
 
 ``` bash
 # group of commands
@@ -404,7 +413,8 @@ my_alias(){
 
 ## Copy / Cut / Paste
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ bash
 # MOVE
 mv <old-dir> <new-dir>
@@ -421,11 +431,12 @@ mv olname.txt newname.txt
 cp file file
 cp -r file&dir file&dir
 ~~~
-:::
+</div>
 
 ## Display
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` bash
 # only display 3 last directory names
 PROMPT_DIRTRIM=3
@@ -435,7 +446,7 @@ PROMPT_DIRTRIM=3
 # display only user:current_folder#
 PS1='\u:\W\$ '
 ```
-:::
+</div>
 
 ## References
 

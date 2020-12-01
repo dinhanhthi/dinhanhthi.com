@@ -50,7 +50,8 @@ df['value'].plot.kde()
 
 ## Get columns' info
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # LIST OF COLUMNS
 df.columns
@@ -63,7 +64,7 @@ df['col'].unique()
 df['col'].unique().size #unique vals
 df['col'].nunique() # number of unique vals
 ~~~
-:::
+</div>
 
 ## Counting
 
@@ -81,7 +82,8 @@ df[col].value_counts()
 
 👉 [Handle missing values](/data-preprocessing-cleaning#deal-with-missing-values-nan).
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ``` python
 # total number of nans in df
 df.isnull().sum().sum()
@@ -122,7 +124,7 @@ df.isna().all(axis=0).sum()
 # find index of rows having ALL nans
 df.index[df.isna().all(axis=1)].to_list()
 ~~~
-:::
+</div>
 
 ~~~ python
 # number of nans in df

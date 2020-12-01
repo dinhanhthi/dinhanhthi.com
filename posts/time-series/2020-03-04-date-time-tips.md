@@ -189,7 +189,8 @@ def get_info_timestamps(df, col_date='index'):
 
 ### Check timestamps are well sorted?
 
-::: col-2-equal
+<div class="col-2-equal">
+
 ~~~ python
 # CHECK
 df.date.is_monotonic # monotonic increasing?
@@ -205,7 +206,7 @@ df.groupby('label').agg({'timestamp': [check_monotonic] })
 # ARRANGE THEM
 df.sort_values(by='date', inplace=True)
 ~~~
-:::
+</div>
 
 ## Detect time series frequency
 
