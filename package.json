@@ -7,7 +7,7 @@
     "build": "npm run js-build && eleventy --config=.eleventy.main.js",
     "build-old": "npm run js-build && eleventy --config=.eleventy.dev.js && npm run test",
     "watch": "concurrently \"eleventy --config=.eleventy.dev.js --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
-    "thi": "concurrently \"eleventy --config=.eleventy.dev.js --serve\" \"npm run js-build-watch\"",
+    "thi": "concurrently \"eleventy --config=.eleventy.dev.js --serve --quiet\" \"npm run js-build-watch\"",
     "thi-full": "concurrently \"eleventy --config=.eleventy.main.js --serve\" \"npm run js-build-watch\"",
     "serve": "eleventy --config=.eleventy.dev.js --serve",
     "js-build": "rollup -c rollup.config.js",
@@ -16,7 +16,7 @@
     "test": "mocha test/test*.js",
     "test-watch": "mocha test/test*.js --watch"
   },
-  "pre-push": ["build"],
+  "pre-push": [],
   "pre-commit": [],
   "repository": {
     "type": "git",

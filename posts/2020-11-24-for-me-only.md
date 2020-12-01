@@ -31,17 +31,7 @@ hide: true # if don't want to show it on index
 
 ### Mark & Keyboard
 
-::: col-2-equal
-``` bash
-# mark
-==Text==
-```
 
-``` bash
-# keyboard
-[[Ctrl]]
-```
-:::
 
 ### Ref
 
