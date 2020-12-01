@@ -29,29 +29,10 @@ hide: true # if don't want to show it on index
 
 ## Other components
 
-### Mark & Keyboard
-
-
-
-### Ref
-
-``` bash {% raw %}
-{% ref "url" %} # should use with ""
-{% endraw %}
-```
-
-```
-Testing
-```
-
-### Color inline text
-
-``` bash
-{color:red}text{color} # without space
-```
-
-### Custom classes
-
+- Mark: `==Text==`.
+- Keyboard: `[[Ctrl]]`.
+- Reference: `{%raw%}{% ref "url" %}` (mush have `""`).
+- Inline text color: `{color:red}text{color}` (without space)
 - `{:.noindent}` before a list, not indent a list.
 - `{:.indent}` before a list, indent a list.
 - `{:target="_blank"}` after an url.
@@ -180,8 +161,23 @@ There are also others: `.columns-2.size-2-1` (`1-2`, `3-2`, `2-3`, `1-1`).
 
 ### Two columns
 
-- Equal widths: `::: col-2-equal`.
-- Flexible widths: `::: col-2-flex`.
+``` html
+<!-- flexible width -->
+::: col-2-flex
+```
+
+``` html
+<!-- 2 equal colmuns -->
+<div class="col-2-equal">
+
+Content
+</div>
+
+<!-- or use (not recommended) -->
+::: col-2-equal
+Content
+:::
+```
 
 ## Boxes
 
@@ -331,7 +327,7 @@ Usage,
 
 ``` markdown
 # paragraph
-A pragraph{:.custom-class}
+A pragraph {:.custom-class}
 
 # image
 ![](){:.custom-class}
@@ -361,6 +357,10 @@ The only difference is the line
 // comment out in .dev.js
 eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
 ```
+
+### Build faster?
+
+There is no `--incremental` feature in 11ty like Jekyll, we can add some folder of posts in `.eleventyignore` to not render these folders while writing other posts.
 
 ### Errors?
 

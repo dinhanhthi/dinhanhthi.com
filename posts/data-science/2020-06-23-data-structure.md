@@ -2,7 +2,7 @@
 layout: post
 title: "Data Structure"
 tags: [Data Science]
-toc: false
+toc: true
 icon: /img/cats/data-science.svg
 notfull: 1
 keywords: "HDF Hierarchical Data Format hdf5 hdf t-digest"
