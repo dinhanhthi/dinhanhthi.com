@@ -5,7 +5,7 @@ node_modules/
 package-lock.json
 README.md
 _11ty/
-third_party
+src/third_party
 functions
 test
 src

@@ -12,9 +12,9 @@
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
     "debug": "DEBUG=* eleventy && npm run test",
-    "test": "mocha test/test*.js",
-    "test-watch": "mocha test/test*.js --watch",
-    "before-push": "cp remote.eleventyignore .eleventyignore && git add \".eleventyignore\" && git commit -m \"ud .eleventyignore\""
+    "test": "mocha src/test/test*.js",
+    "test-watch": "mocha src/test/test*.js --watch",
+    "before-push": "cp src/remote.eleventyignore .eleventyignore && git add \".eleventyignore\" && git commit -m \"ud .eleventyignore\""
   },
   "pre-push": [],
   "pre-commit": [],
