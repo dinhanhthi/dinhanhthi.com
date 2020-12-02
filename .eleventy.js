@@ -18,10 +18,21 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
+module.exports = {
+  environment: process.env.ELEVENTY_ENV
+};
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+
+  eleventyConfig.on('beforeWatch', () => {
+    fs.copyFile('local.eleventyignore', '.eleventyignore', (err) => {
+      if (err) throw err;
+      console.log('local.eleventyignore was copied to .eleventyignore');
+    });
+  });
 
   eleventyConfig.addPlugin(localImages, {
     distPath: "_site",
@@ -39,11 +50,16 @@ module.exports = function (eleventyConfig) {
     flat: false,              // if subheadings should appear as child of parent or as a sibling
   });
 
-  eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
-  eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
-  eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
-  eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
-  eleventyConfig.setDataDeepMerge(true);
+  if (process.env.ELEVENTY_ENV == "local"){
+    eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
+    eleventyConfig.setDataDeepMerge(true);
+  } else {
+    eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+    eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
+    eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
+    eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
+    eleventyConfig.setDataDeepMerge(true);
+  }
 
   // layout alias
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");

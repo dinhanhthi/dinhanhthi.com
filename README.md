@@ -15,10 +15,10 @@
 npm install
 
 # build + watch + test (locally + WITHOUT performing tasks on images)
-npm run thi
+npm run local
 
 # build + watch + test (locally + WITH performing tasks on images)
-npm run thi-full
+npm run watch
 
 # build and test
 npm run build
@@ -28,3 +28,31 @@ npm run build
 # Setting up on Netlify
 npm run build
 ```
+
+## Dev locally
+
+1. Build on local using `.eleventy.dev.js`. The only difference between `.eleventy.dev.js` and `.eleventy.main.js` is the line of
+
+    ``` js
+    eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+    ```
+2. Add theses folder to `.eleventyignore` (not build when composing new notes)
+
+    ``` bash
+    posts/algorithms/
+    posts/data-science/
+    posts/deep-learning/
+    posts/deploy-run/
+    posts/js/
+    posts/ml/
+    posts/mooc/
+    posts/others/
+    #posts/project/     # <- using "#" at folder containing the
+                        #    currently-editing note
+    posts/python/
+    posts/r/
+    posts/skills/
+    posts/stats/
+    posts/time-series/
+    posts/web-dev/
+    ```
