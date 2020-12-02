@@ -59,6 +59,7 @@ header {
   }
 }
 
+/*! purgecss start ignore */
 // navigation
 nav {
   position: fixed;
@@ -160,7 +161,6 @@ nav {
         ul#searchResults {
           padding: 0 0 0 20px;
           li {
-            padding-right: 10px;
             h3 {
               margin-bottom: 5px;
               a {
@@ -229,3 +229,4 @@ nav {
     font-size: 1.02rem;
   }
 }
+/*! purgecss end ignore */

@@ -764,6 +764,7 @@ header {
       header .social a img {
         border-radius: 50%; }
 
+/*! purgecss start ignore */
 nav {
   position: fixed;
   top: 0;
@@ -844,26 +845,24 @@ nav {
         padding: 0 1rem; }
         nav #nav .nav-search #search-result ul#searchResults {
           padding: 0 0 0 20px; }
-          nav #nav .nav-search #search-result ul#searchResults li {
-            padding-right: 10px; }
-            nav #nav .nav-search #search-result ul#searchResults li h3 {
-              margin-bottom: 5px; }
-              nav #nav .nav-search #search-result ul#searchResults li h3 a {
-                color: #efb232;
-                white-space: inherit;
-                padding: 0;
-                text-align: left;
-                font-weight: normal;
-                font-size: 16.5px;
-                font-family: "Poppins", Arial, Helvetica, sans-serif;
-                line-height: 1.4; }
-                nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
-                  border-bottom: none;
-                  color: #8cc8ff; }
-            nav #nav .nav-search #search-result ul#searchResults li p {
+          nav #nav .nav-search #search-result ul#searchResults li h3 {
+            margin-bottom: 5px; }
+            nav #nav .nav-search #search-result ul#searchResults li h3 a {
+              color: #efb232;
+              white-space: inherit;
+              padding: 0;
               text-align: left;
-              margin-top: 0;
+              font-weight: normal;
+              font-size: 16.5px;
+              font-family: "Poppins", Arial, Helvetica, sans-serif;
               line-height: 1.4; }
+              nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
+                border-bottom: none;
+                color: #8cc8ff; }
+          nav #nav .nav-search #search-result ul#searchResults li p {
+            text-align: left;
+            margin-top: 0;
+            line-height: 1.4; }
         nav #nav .nav-search #search-result #noResultsFound p {
           text-align: left; }
 
@@ -895,6 +894,7 @@ nav {
   border-radius: 15px;
   font-size: 1.02rem; }
 
+/*! purgecss end ignore */
 footer {
   font-size: 1.1rem;
   background: #35373c;
