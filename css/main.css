@@ -617,10 +617,10 @@ body {
       padding: 2rem 1.5rem 1.5rem 1.5rem; }
 
 .page-index .toc-index {
-  border: 1px solid #33364c;
+  border: 1px solid #404040;
   border-radius: 7px;
   height: fit-content;
-  background: #27314487;
+  background: #35373c;
   flex: 0 1 280px;
   position: sticky;
   top: 60px;
@@ -839,7 +839,7 @@ nav {
         max-height: 80vh;
         overflow: auto;
         width: 100%;
-        background: #444;
+        background: #35373c;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         padding: 0 1rem; }

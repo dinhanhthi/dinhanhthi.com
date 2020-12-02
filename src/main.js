@@ -269,6 +269,9 @@ window.addEventListener('click', (ev) => {
       expand: true,
     });
 
+    const kw = e.target.value;
+    var regEx = new RegExp(kw, "ig");
+
     const divRes = document.getElementById("search-result");
     const resEl = document.getElementById("searchResults");
     const noResultsEl = document.getElementById("noResultsFound");
@@ -279,7 +282,7 @@ window.addEventListener('click', (ev) => {
       if (results != "") {
         noResultsEl.style.display = "none";
         results.map((r) => {
-          const { id, title, keywords } = r.doc;
+          var { id, title, keywords } = r.doc;
           const el = document.createElement("li");
           resEl.appendChild(el);
 
@@ -288,11 +291,21 @@ window.addEventListener('click', (ev) => {
 
           const a = document.createElement("a");
           a.setAttribute("href", id);
-          a.textContent = title;
+          if (title.toLowerCase().includes(kw.toLowerCase())){
+            title = title.replace(regEx, function (x) {
+              return '<mark>'+x+'</mark>';
+            });
+          }
+          a.innerHTML = title;
           h3.appendChild(a);
 
           const p = document.createElement("p");
-          p.textContent = keywords;
+          if (keywords.toLowerCase().includes(kw.toLowerCase())){
+            keywords = keywords.replace(regEx, function (x) {
+              return '<mark>'+x+'</mark>';
+            });
+          }
+          p.innerHTML = keywords;
           el.appendChild(p);
         });
       } else {
