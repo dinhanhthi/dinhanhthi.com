@@ -764,6 +764,34 @@ header {
       header .social a img {
         border-radius: 50%; }
 
+#reading-progress {
+  z-index: 3;
+  border-bottom: 1px solid #ffd479;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translate(-100vw, 0);
+  will-change: transform;
+  pointer-events: none; }
+
+.intro {
+  font-size: 1.02rem; }
+  .intro b,
+  .intro strong {
+    color: #ffd479;
+    font-weight: normal; }
+  .intro a {
+    color: #fff; }
+
+.job span {
+  background: #ffd479;
+  color: #000;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 1.02rem; }
+
 /*! purgecss start ignore */
 nav {
   position: fixed;
@@ -843,6 +871,12 @@ nav {
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         padding: 0 1rem; }
+        @media (max-width: 767px) {
+          nav #nav .nav-search #search-result {
+            position: fixed;
+            left: 0;
+            right: 0;
+            border-radius: 0; } }
         nav #nav .nav-search #search-result ul#searchResults {
           padding: 0 0 0 20px; }
           nav #nav .nav-search #search-result ul#searchResults li h3 {
@@ -865,34 +899,6 @@ nav {
             line-height: 1.4; }
         nav #nav .nav-search #search-result #noResultsFound p {
           text-align: left; }
-
-#reading-progress {
-  z-index: 3;
-  border-bottom: 1px solid #ffd479;
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transform: translate(-100vw, 0);
-  will-change: transform;
-  pointer-events: none; }
-
-.intro {
-  font-size: 1.02rem; }
-  .intro b,
-  .intro strong {
-    color: #ffd479;
-    font-weight: normal; }
-  .intro a {
-    color: #fff; }
-
-.job span {
-  background: #ffd479;
-  color: #000;
-  padding: 3px 10px;
-  border-radius: 15px;
-  font-size: 1.02rem; }
 
 /*! purgecss end ignore */
 footer {

@@ -291,19 +291,23 @@ window.addEventListener('click', (ev) => {
 
           const a = document.createElement("a");
           a.setAttribute("href", id);
-          if (title.toLowerCase().includes(kw.toLowerCase())){
-            title = title.replace(regEx, function (x) {
-              return '<mark>'+x+'</mark>';
-            });
+          if (title && kw){
+            if (title.toLowerCase().includes(kw.toLowerCase())){
+              title = title.replace(regEx, function (x) {
+                return '<mark>'+x+'</mark>';
+              });
+            }
           }
           a.innerHTML = title;
           h3.appendChild(a);
 
           const p = document.createElement("p");
-          if (keywords.toLowerCase().includes(kw.toLowerCase())){
-            keywords = keywords.replace(regEx, function (x) {
-              return '<mark>'+x+'</mark>';
-            });
+          if (keywords && kw){
+            if (keywords.toLowerCase().includes(kw.toLowerCase())){
+              keywords = keywords.replace(regEx, function (x) {
+                return '<mark>'+x+'</mark>';
+              });
+            }
           }
           p.innerHTML = keywords;
           el.appendChild(p);
