@@ -14,9 +14,9 @@
     "debug": "DEBUG=* eleventy && npm run test",
     "test": "mocha test/test*.js",
     "test-watch": "mocha test/test*.js --watch",
-    "before-push": "cp remote.eleventyignore .eleventyignore && git add . && git commit -m \"ud .eleventyignore\""
+    "before-push": "cp remote.eleventyignore .eleventyignore && git add \".eleventyignore\" && git commit -m \"ud .eleventyignore\""
   },
-  "pre-push": ["before-push"],
+  "pre-push": [],
   "pre-commit": [],
   "repository": {
     "type": "git",

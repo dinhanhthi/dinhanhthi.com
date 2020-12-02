@@ -27,13 +27,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
 
-  eleventyConfig.on('beforeWatch', () => {
-    fs.copyFile('local.eleventyignore', '.eleventyignore', (err) => {
-      if (err) throw err;
-      console.log('local.eleventyignore was copied to .eleventyignore');
-    });
-  });
-
   eleventyConfig.addPlugin(localImages, {
     distPath: "_site",
     assetPath: "/img/remote",
@@ -53,6 +46,13 @@ module.exports = function (eleventyConfig) {
   if (process.env.ELEVENTY_ENV == "local"){
     eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
     eleventyConfig.setDataDeepMerge(true);
+
+    // eleventyConfig.on('beforeWatch', () => {
+    //   fs.copyFile('local.eleventyignore', '.eleventyignore', (err) => {
+    //     if (err) throw err;
+    //     console.log('local.eleventyignore was copied to .eleventyignore');
+    //   });
+    // });
   } else {
     eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
     eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
