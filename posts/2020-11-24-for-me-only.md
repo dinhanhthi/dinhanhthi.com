@@ -370,6 +370,10 @@ If there is new post / keywords in some old posts -> remove line of `pages/searc
 
 Using `{% markdown %}{% endmarkdown %}` (no need spaces between content).
 
+### Other vars of `page`
+
+ Besise `page.url`, there are others at [here](https://www.11ty.dev/docs/data-eleventy-supplied/#page-variable-contents).
+
 ### Errors?
 
 ``` bash

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Wordpress Docker"
-tags: [Web Dev]
+tags: [Web Dev, Wordpress]
 toc: true
 icon: "wordpress.svg"
 notfull: 1

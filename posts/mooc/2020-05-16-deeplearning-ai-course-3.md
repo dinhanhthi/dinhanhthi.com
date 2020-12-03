@@ -11,8 +11,6 @@ keywords: "machine learning strategy ML orthogonalization single number evaluati
 
 This is my note for the course ([Structuring Machine Learning Projects](https://www.coursera.org/learn/machine-learning-projects)). The codes in this note are rewritten to be more clear and concise.
 
-🎯 [Overview of all 5 courses.](/deeplearning-ai)
-
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).

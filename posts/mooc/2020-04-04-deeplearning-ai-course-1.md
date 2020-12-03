@@ -11,8 +11,6 @@ keywords: "logistic regression sigmoid derivative function python tips softmax a
 
 This is my note for the course ([Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning?specialization=deep-learning)). The codes in this note are rewritten to be more clear and concise.
 
-🎯 [Overview of all 5 courses.](/deeplearning-ai)
-
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).

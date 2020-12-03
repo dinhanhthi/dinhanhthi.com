@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jekyll"
-tags: [Web Dev]
+tags: [Web Dev, Jekyll, Static Site Generators]
 notfull: 1
 toc: true
 icon: jekyll.png

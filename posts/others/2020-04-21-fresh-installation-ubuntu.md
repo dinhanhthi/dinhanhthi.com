@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fresh Ubuntu / Pop!_OS Installation"
-tags: [Others]
+tags: [Others, Fresh Installation]
 toc: true
 icon: ubuntu.svg
 keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake xps k380 keyboard logitech pop os popos"

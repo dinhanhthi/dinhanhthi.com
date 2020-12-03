@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Gatsby Images"
-tags: [Web Dev]
+tags: [Web Dev, GatsbyJS, Static Site Generators]
 toc: true
 icon: gatsby.png
 keywords: create a website static web react js inserting images
