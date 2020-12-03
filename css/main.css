@@ -2500,6 +2500,23 @@ blockquote {
 .katex-display.fleqn > .katex {
   text-align: left; }
 
+/*! purgecss start ignore */
+.page-note #note-tag {
+  background: #35373c;
+  margin-bottom: 29.7px;
+  padding: 1rem;
+  display: flex;
+  align-items: center; }
+  .page-note #note-tag > img {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px; }
+  .page-note #note-tag > a {
+    margin-left: 5px; }
+    .page-note #note-tag > a:hover {
+      border: none;
+      color: #8cc8ff; }
+
 .page-note .text-center {
   text-align: center; }
 
@@ -2543,6 +2560,7 @@ blockquote {
   border-bottom: 1px solid #676767;
   margin-bottom: 24.75px; }
 
+/*! purgecss end ignore */
 pre[class*="language-"],
 code[class*="language-"] {
   color: #eee;

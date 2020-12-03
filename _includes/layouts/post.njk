@@ -21,6 +21,17 @@ permalink: "{{ page.fileSlug }}/"
 {% block article %}
   <article>
     <div class="container normal mt-2 page-note">
+      {% if tags %}
+        <div id="note-tag">
+          <img src="/img/header/tag_.svg" alt="tag-icon">
+          <span style="margin-right: 5px;">This note is in topics:</span>
+          {% for tag in tags %}
+            {% if tag != "posts" %}
+              <a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if not loop.last %}, {% else %}.{% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
       {% if toc %}
         {{ content | toc | safe }}
         {{ content | safe }}
