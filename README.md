@@ -14,16 +14,8 @@
 
 npm install
 
-# build + watch + test (locally + WITHOUT performing tasks on images)
-npm run local
-
 # build + watch + test (locally + WITH performing tasks on images)
 npm run watch
-
-# build and test
-npm run build
-
-# localhost:8080/
 
 # Setting up on Netlify
 npm run build
