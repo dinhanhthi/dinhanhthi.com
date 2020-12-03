@@ -1,0 +1,25 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: post
+eleventyComputed:
+  title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag | slug }}/
+icon: tag_.svg
+---
+
+<p>Check <a href="{{ '/tags/' | url }}">all topics</a> on this site.</p>
+
+{% set postslist = collections[ tag ] %}
+{% set customClass = 'indent' %}
+{% include "postslist.njk" %}
+
