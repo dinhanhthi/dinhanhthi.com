@@ -2501,21 +2501,27 @@ blockquote {
   text-align: left; }
 
 /*! purgecss start ignore */
-.page-note #note-tag {
-  background: #35373c;
+.page-note #more-info {
+  border: 1px solid #444;
   margin-bottom: 29.7px;
-  padding: 1rem;
-  display: flex;
-  align-items: center; }
-  .page-note #note-tag > img {
-    height: 20px;
-    width: 20px;
-    margin-right: 5px; }
-  .page-note #note-tag > a {
-    margin-left: 5px; }
-    .page-note #note-tag > a:hover {
-      border: none;
-      color: #8cc8ff; }
+  padding: 1rem; }
+  .page-note #more-info #note-tag {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444; }
+    .page-note #more-info #note-tag > img {
+      height: 20px;
+      width: 20px;
+      margin-right: 5px; }
+    .page-note #more-info #note-tag > a {
+      margin-left: 5px; }
+      .page-note #more-info #note-tag > a:hover {
+        border: none;
+        color: #8cc8ff; }
+  .page-note #more-info #last-modified {
+    padding-top: 10px;
+    font-style: italic; }
 
 .page-note .text-center {
   text-align: center; }

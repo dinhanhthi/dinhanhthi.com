@@ -22,14 +22,17 @@ permalink: "{{ page.fileSlug }}/"
   <article>
     <div class="container normal mt-2 page-note">
       {% if tags %}
-        <div id="note-tag">
-          <img src="/img/header/tag_.svg" alt="tag-icon">
-          <span style="margin-right: 5px;">This note is in topics:</span>
-          {% for tag in tags %}
-            {% if tag != "posts" %}
-              <a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if not loop.last %}, {% else %}.{% endif %}
-            {% endif %}
-          {% endfor %}
+        <div id="more-info">
+          <div id="note-tag">
+            <img src="/img/header/tag_.svg" alt="tag-icon">
+            <span style="margin-right: 5px;">This note is in topics:</span>
+            {% for tag in tags %}
+              {% if tag != "posts" %}
+                <a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if not loop.last %}, {% else %}.{% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div id="last-modified">Last modified: {{ page.inputPath | lastModifiedDate  | htmlDateString }}</div>
         </div>
       {% endif %}
       {% if toc %}
@@ -39,7 +42,7 @@ permalink: "{{ page.fileSlug }}/"
         {{ content | safe }}
       {% endif %}
       {% if notfull %}
-        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 0;">
+        <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 3rem 0 0 0; padding-top: 10px; border-top: 1px solid #555;">
           <sup style="color: #bbb">•</sup>{{ other_data.notfull }}
         </p>
       {% endif %}
