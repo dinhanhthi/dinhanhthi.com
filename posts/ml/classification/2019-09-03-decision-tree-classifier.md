@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Decision Tree Classifier"
-tags: [Machine Learning]
+tags: [Machine Learning, Classification]
 toc: true
 icon: decision-tree.svg
 keywords: classification regression outlook temperature huminity windy play golf Iterative Dichotomiser (ID3) CART (Classification And Regression Tree) information gain entropy Gini impurity root node branch child node internal node splitting pruning parent node sub nodes stopping condition gini gain Highly interpretable irrelevant features Non-parametric tuning unbalanced Graphviz Saed Sayad Tiep Vu Brian Ambielli Aurélien Géron

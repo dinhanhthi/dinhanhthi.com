@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TF 4 - Sequences, Time Series and Prediction"
-tags: [MOOC]
+tags: [MOOC, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality lambda layer sequence to vector sequence to sequence univariate multivariate learning rate LSTM callback recurrent layer moving average differencing metric train test validation set windowed dataset loss function Huber"

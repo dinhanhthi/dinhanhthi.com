@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mean Shift clustering"
-tags: [Machine Learning]
+tags: [Machine Learning, Clustering]
 toc: true
 icon: clustering.png
 keywords: "distance between points Mode-seeking algorithm Non-Parametric Density Estimation PDF Search Results Web results Probability density function Kernel Density Estimation"

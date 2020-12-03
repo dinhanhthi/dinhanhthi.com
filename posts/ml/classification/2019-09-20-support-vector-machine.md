@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Support Vector Machine (SVM)"
-tags: [Machine Learning]
+tags: [Machine Learning, Classification]
 toc: true
 icon: svm.webp
 keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft margin quadratic programming dual form Lagrange multipliers kernal trick Mercer conditions linear kernel gaussian kernel RBF Radial Basic Function Exponential kernel Polynomial kernel Hybrid kernel Sigmoidal Andrew NG Face detection Detecting spam outliers detection Text and hypertext categorization Bioinformatics Regularization parameter parameter C gamma XOR problem Face Recognition Tiep Vu Simplilearn Jeremy Kun Jake VanderPlas Chris Albon

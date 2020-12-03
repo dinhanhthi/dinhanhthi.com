@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TF 1 - Intro to TensorFlow for AI, ML, DL"
-tags: [MOOC]
+tags: [MOOC, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python mnist convolutional neural networks cnn andrew ng cnn convolution neural networks image generator real world images photos minist fashion Laurence Moroney fashion mnist optimizer loss metrics model sequential summary pooling convolution visualization MNIST layers flatten kernel size dense layer classification features extraction mycallback my callback on_epoch_end train test set pooling conv image filtering visualize convolutions and pooling real world images ImageGenerator ConvNet"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deep Learning Coursera - Bird recognition in the city of Peacetopia"
-tags: [MOOC]
+tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png
 hide: true

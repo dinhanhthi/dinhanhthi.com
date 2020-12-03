@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DL 3 - Structuring ML Projects"
-tags: [MOOC]
+tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png
 keywords: "machine learning strategy ML orthogonalization single number evaluation metric Satisficing and Optimizing metric train test dev set human level performance avoidable bias surpassing improve your model performance Andrej Karpathy carrying out error analysis cleaning up incorrectly labeled data build your first system quickly then iterate training and testng on different distributions bias variance with mismatched data distribution addressing data mismatch transfer learning multi task learning end to end deep learning Ruslan Salakhutdinov andrew ng the quick brown fox jumps over the lazy dog A-Z shortest sentence speech recognition"

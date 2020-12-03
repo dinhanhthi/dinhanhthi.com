@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TF 3 - NLP in TensorFlow"
-tags: [MOOC]
+tags: [MOOC, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment RNN LSTM long short term memory Recurrent neural network sarcasm tokenizer imdb movie review embedding word embeddings GRU Gated Recurrent Unit layer conv character-based prediction Shakespeare poem"

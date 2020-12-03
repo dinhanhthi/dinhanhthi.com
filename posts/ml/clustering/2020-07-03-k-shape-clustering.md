@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "K-Shape clustering"
-tags: [Machine Learning]
+tags: [Machine Learning, Clustering]
 toc: true
 icon: clustering.png
 notfull: 1
