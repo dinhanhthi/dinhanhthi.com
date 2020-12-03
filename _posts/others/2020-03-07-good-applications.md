@@ -65,6 +65,7 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 - [OpenComic](https://github.com/ollm/OpenComic) -- read offline comic with many supported files (zip, folder containing images,...)
 - Rhythmbox (Appstore) -- Music player on Linux ([custom hotkeys](/linux-tips#media--photo--music)).
 - [Workrave](http://www.workrave.org/) -- a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
+- exfalso (Appstore) -- edit mp3 tag on linux.
 
 ## MacOS
 

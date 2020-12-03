@@ -1,4 +1,4 @@
-name: Scheduled build
+name: Scheduled build on Netlify
 on:
   schedule:
   - cron: '0 0,12 * * *' # would run at midday and midnight every day
