@@ -7,6 +7,7 @@ permalink: /about-the-notes/
 
 There are some facts:
 
+{:.indent}
 1. The notes **are not** tutorials!
 2. The notes **are not** written by a pro but a bookworm.
 3. The notes **are not** complete!

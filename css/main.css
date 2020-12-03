@@ -934,7 +934,7 @@ footer {
     .page-about .coordinate ul .job {
       margin-top: 1rem; }
       .page-about .coordinate ul .job span {
-        color: #333; }
+        color: #000; }
 
 .page-about p.contact {
   width: 100%;
@@ -1486,7 +1486,10 @@ table {
     column-count: 2;
     -webkit-column-count: 2;
     -moz-column-count: 2;
-    -moz-column-count: 2; } }
+    -moz-column-count: 2; }
+    .col-2-list > li,
+    .two-columns-list > li {
+      padding-right: 10px; } }
 
 blockquote {
   margin: 0;
@@ -2519,14 +2522,22 @@ blockquote {
       margin-bottom: 10px; }
 
 .page-note p.noindent {
-  display: none; }
+  display: none;
+  padding-left: 20px; }
   .page-note p.noindent + ul, .page-note p.noindent + ol {
     padding-left: 20px; }
 
 .page-note p.indent {
-  display: none; }
+  display: none;
+  padding-left: 40px; }
   .page-note p.indent + ul, .page-note p.indent + ol {
     padding-left: 40px; }
+
+.page-note ul.indent, .page-note ol.indent {
+  padding-left: 40px; }
+
+.page-note ul.noindent, .page-note ol.noindent {
+  padding-left: 20px; }
 
 .page-note hr {
   border-bottom: 1px solid #676767;

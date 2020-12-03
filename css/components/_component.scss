@@ -248,14 +248,14 @@ $gap: 5px;
       &:nth-child(1) {
         padding-right: 5px;
         margin-bottom: 0;
-        & > *:last-child{
+        & > *:last-child {
           margin-bottom: 0;
         }
       }
       &:nth-child(2) {
         padding-left: 5px;
         margin-bottom: 0;
-        & > *:last-child{
+        & > *:last-child {
           margin-bottom: 0;
         }
       }
@@ -362,6 +362,9 @@ table {
 .two-columns-list {
   @media (min-width: $grid-md) {
     @include column-count(2);
+    & > li {
+      padding-right: 10px;
+    }
   }
 }
 

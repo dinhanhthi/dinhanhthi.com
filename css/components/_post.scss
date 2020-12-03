@@ -29,6 +29,7 @@
 
   p.noindent{
     display: none;
+    padding-left: 20px;
     & + ul, & + ol{
       padding-left: 20px;
     }
@@ -36,8 +37,18 @@
 
   p.indent{
     display: none;
+    padding-left: 40px;
     & + ul, & + ol{
       padding-left: 40px;
+    }
+  }
+
+  ul, ol {
+    &.indent{
+      padding-left: 40px;
+    }
+    &.noindent{
+      padding-left: 20px;
     }
   }
 
