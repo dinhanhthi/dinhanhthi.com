@@ -6,15 +6,36 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
-  padding: 5px 10px;
-  font-size: 0.85rem;
+  padding: 3px 5px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 0!important;
 
   &.black {
     margin: 5px;
     border: 1px solid #444;
     background: #343642;
+  }
+
+  &.badge-blue{
+    background: #2f55c1;
+    color: #fff;
+  }
+
+  &.badge-green{
+    background: #00c3306b;
+    color: #fff;
+  }
+
+  &.badge-yellow{
+    background: #b57f07;
+    color: #fff;
+  }
+
+  &.badge-pink{
+    background: #c12f79bf;
+    color: #fff;
   }
 
   img {

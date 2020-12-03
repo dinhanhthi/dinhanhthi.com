@@ -1,6 +1,6 @@
 ---
 layout: post
-title: About the note
+title: About the notes
 icon: notes.svg
 permalink: /about-the-notes/
 ---

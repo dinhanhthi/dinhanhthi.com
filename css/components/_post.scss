@@ -58,4 +58,15 @@
     margin-bottom: $mb;
   }
 }
+
+#reading-list{
+  .item{
+    .author{
+      font-style: italic;
+    }
+    .intro{
+      color: #999;
+    }
+  }
+}
 /*! purgecss end ignore */

@@ -1184,14 +1184,27 @@ footer {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
-  padding: 5px 10px;
-  font-size: 0.85rem;
+  padding: 3px 5px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  margin-bottom: 0 !important; }
   .badge.black {
     margin: 5px;
     border: 1px solid #444;
     background: #343642; }
+  .badge.badge-blue {
+    background: #2f55c1;
+    color: #fff; }
+  .badge.badge-green {
+    background: #00c3306b;
+    color: #fff; }
+  .badge.badge-yellow {
+    background: #b57f07;
+    color: #fff; }
+  .badge.badge-pink {
+    background: #c12f79bf;
+    color: #fff; }
   .badge img {
     margin-right: 5px; }
   .badge picture {
@@ -2559,6 +2572,12 @@ blockquote {
   border-bottom: 1px solid #676767;
   margin-bottom: 24.75px; }
 
+#reading-list .item .author {
+  font-style: italic; }
+
+#reading-list .item .intro {
+  color: #999; }
+
 /*! purgecss end ignore */
 pre[class*="language-"],
 code[class*="language-"] {
@@ -2807,7 +2826,7 @@ h4 > code {
 
 *:not(pre) > code {
   border: 1px solid #444;
-  background: #2f3240;
+  background: #6b444245;
   padding: 2px 4px;
   margin: 0 1px;
   border-radius: 3px;

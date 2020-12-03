@@ -20,7 +20,7 @@ h4 > code {
 
 @mixin code-inline() {
   border: 1px solid #444;
-  background: $code-bg;
+  background: $code-bg-inline;
   padding: 2px 4px;
   margin: 0 1px;
   border-radius: 3px;

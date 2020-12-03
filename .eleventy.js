@@ -134,7 +134,7 @@ module.exports = function (eleventyConfig) {
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd-LL-yyyy");
   });
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
@@ -205,7 +205,7 @@ module.exports = function (eleventyConfig) {
       rightDelimiter: '}'
     })
     .use(require("markdown-it-emoji")) // emoji
-    .use(require("markdown-it-table-of-contents")) // [[toc]] (no spaces)
+    // .use(require("markdown-it-table-of-contents")) // [[toc]] (no spaces)
     .use(require('@iktakahiro/markdown-it-katex')) // katex
     .use(require("markdown-it-task-lists")) // tasks [x]
     .use(mdItContainer, 'success')
@@ -253,7 +253,7 @@ module.exports = function (eleventyConfig) {
       + markdownLibrary.render(content) + '</div></div>';
   });
 
-  // using {% ref url %}
+  // using {% ref "url" %}
   eleventyConfig.addShortcode("ref", function(url) {
     return '<sup><a href="'
       + url
