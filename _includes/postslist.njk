@@ -1,19 +1,32 @@
 <ul{% if customClass %} class="{{ customClass }}"{% endif %}>
-  {% for post in postslist | reverse %}
+
+  {% set newPostList = [] %}
+  {% for post in postslist %}
     {% if not post.data.hide %}
+      {% if post.data.notfull %}
+        {% set newPostList = (newPostList.push({url: post.url, title: post.data.title, notfull: post.data.notfull}), newPostList) %}
+      {% else %}
+        {% set newPostList = (newPostList.push({title: post.data.title, url: post.url}), newPostList) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  {% for post in newPostList|sort(attribute='title') %}
       <li>
         <a href="{{ post.url | url }}" rel="noopener noreferrer">
-          {% if post.data.title %}
-            {{ post.data.title }}
-            {% if post.data.notfull %}
+          {% if post.title %}
+            {{ post.title }}
+            {% if post.notfull %}
               <sup>•</sup>
             {% endif %}
           {% else %}
             <code>{{ post.url }}</code>
+            {% if post.notfull %}
+              <sup>•</sup>
+            {% endif %}
           {% endif %}
         </a>
       </li>
-    {% endif %}
     {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
   {% endfor %}
 </ul>
