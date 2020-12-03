@@ -126,13 +126,32 @@ For example, you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
 
 ## Regular Expression
 
--  Using regular expression in Visual Studio (Code) 👉 [ref](https://docs.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2017)
-- Replace current bit.ly text with its same url:
-  - Find: `(http://bit.ly.*)` (Enable `.*`)
-  - Replace: `[$1]($1)`
-- Replace `**Course 1**` by `Course 1`:
-  - Find: `\*\*Course (.*)\*\*`
-  - Replace: `Course $1`
+[Official doc](https://docs.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2017) of using regex in vscode.
+
+::: col-2-equal
+``` bash
+# Replace
+http://bit.ly/abc
+# with
+[http://bit.ly/abc](http://bit.ly/abc)
+
+# find box
+(http://bit.ly.*)
+# replace box
+[$1]($1)
+```
+
+``` bash
+# Replace
+**Course 1**
+# with
+Course 1
+
+# Find box
+\*\*Course (.*)\*\*
+# replace box
+Course $1
+```
 
 ``` bash
 # Replace
@@ -151,6 +170,7 @@ content
 # In replace box
 <div class="col-2-equal">\n$1</div>
 ```
+:::
 
 ## Exlude files/folders in file search Visual Studio Code (VSC)
 

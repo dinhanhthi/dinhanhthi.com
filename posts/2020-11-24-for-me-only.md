@@ -69,7 +69,8 @@ __Description texts__
 
 ## Inser codes
 
-::: code-2cols
+<div class="col-2-equal">
+
 ~~~ markdown
 # Highlight line 2
 ``` js/2
@@ -90,7 +91,7 @@ __Description texts__
 // lines of codes
 ```
 ~~~
-:::
+</div>
 
 ~~~ markdown
 # Delete line 2 (red highlight) and add line 4 (green highlight)
@@ -368,7 +369,7 @@ If there is new post / keywords in some old posts -> remove line of `pages/searc
 
 ### Using markdown inside njk
 
-Using `{% markdown %}{% endmarkdown %}` (no need spaces between content).
+Using `{% raw %}{% markdown %}{% endmarkdown %}{% endraw %}` (no need spaces between content).
 
 ### Other vars of `page`
 
@@ -385,4 +386,21 @@ Using `{% markdown %}{% endmarkdown %}` (no need spaces between content).
 # EISDIR: illegal operation on a directory
 # Solution:
 # Delete _site/ and rebuild!
+```
+
+``` js
+// Problem of "Content-Security-Policy" (CSP)
+// _data/csp.js
+const CSP = {
+  regular: serialize([
+    // Inline CSS is allowed.
+    ["style-src", SELF, "https://fonts.googleapis.com/", quote("unsafe-inline")],
+    ["font-src", SELF, "https://fonts.gstatic.com/"],
+  ]),
+};
+
+// equivalent phrase (put in <head>)
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' https://fonts.gstatic.com/; style-src 'self' https://fonts.googleapis.com/ 'unsafe-inline';">
+// quote() -> for '', e.g. 'self'
+// "abc" -> doesn't mean 'abc' in <meta>
 ```
