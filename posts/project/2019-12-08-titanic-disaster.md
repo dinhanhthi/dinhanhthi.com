@@ -13,10 +13,7 @@ keywords: survive passenger drop features convert to dummy variables impute miss
 
 In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer the question: "*What sorts of people were more likely to survive?*" using passenger data. Datasets to be used: `train.csv` (for training and predicting), `test.csv` (for submitting).
 
-<p class="text-center" markdown="1">
-
-[html file](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/kaggle-titanic-disaster/titanic_kaggle.html)-- [open in colab](https://dinhanhthi.com/github-colab?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/kaggle-titanic-disaster/titanic_kaggle.ipynb)
-</p>
+[html file](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/kaggle-titanic-disaster/titanic_kaggle.html) -- [open in colab](https://dinhanhthi.com/github-colab?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/kaggle-titanic-disaster/titanic_kaggle.ipynb) {:.text-center}
 
 ![First 10 rows of dataset]({{img-url}}/df.jpg){:.img-full-100 .pop}
 *First 10 rows of the dataset.*

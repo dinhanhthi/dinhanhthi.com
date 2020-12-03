@@ -31,28 +31,16 @@ npm run build
 
 ## Dev locally
 
-1. Build on local using `.eleventy.dev.js`. The only difference between `.eleventy.dev.js` and `.eleventy.main.js` is the line of
+Because of the weakness of eleventy, we have to do below things to make the dev locally much faster!
 
-    ``` js
-    eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
-    ```
-2. Add theses folder to `.eleventyignore` (not build when composing new notes)
+``` bash
+# Install http-server to make a separated server
+# (we don't intend to serve our eleventy site, just build it)
+sudo npm install http-server -g
 
-    ``` bash
-    posts/algorithms/
-    posts/data-science/
-    posts/deep-learning/
-    posts/deploy-run/
-    posts/js/
-    posts/ml/
-    posts/mooc/
-    posts/others/
-    #posts/project/     # <- using "#" at folder containing the
-                        #    currently-editing note
-    posts/python/
-    posts/r/
-    posts/skills/
-    posts/stats/
-    posts/time-series/
-    posts/web-dev/
-    ```
+# Run the serve on folder _live
+npm run local-serve
+
+# Each time we want to build, run
+npm run local-build
+```

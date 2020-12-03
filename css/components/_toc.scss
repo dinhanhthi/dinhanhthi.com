@@ -3,10 +3,22 @@ div.toc {
   border-left: 5px solid #aaa;
   @include box-bg($code-bg, $code-bd);
   padding: 15px 15px 10px 0;
+
+  // In this note
+  & > ol::before{
+    content: "In this note";
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #555;
+    margin: 0 0 15px;
+    font-size: 1.18rem;
+    font-family: $font-heading;
+  }
   ol {
     padding-left: 20px;
     font-size: 0.9 * $font-size;
     margin-bottom: 0;
+
     li {
       margin-bottom: 5px;
       code {
