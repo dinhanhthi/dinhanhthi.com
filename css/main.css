@@ -730,6 +730,7 @@ header nav {
   z-index: 2;
   position: relative; }
 
+/*! purgecss start ignore */
 header {
   padding: 5.5rem 1.5rem 1rem;
   width: 900px;
@@ -763,6 +764,19 @@ header {
           margin-right: 20px; } }
       header .social a img {
         border-radius: 50%; }
+  header #more-info {
+    margin-bottom: 29.7px;
+    padding: 1rem; }
+    header #more-info #note-tag {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #444; }
+      header #more-info #note-tag > a {
+        margin-right: 10px; }
+        header #more-info #note-tag > a::before {
+          content: "#"; }
+    header #more-info #last-modified {
+      padding-top: 10px;
+      font-style: italic; }
 
 #reading-progress {
   z-index: 3;
@@ -792,6 +806,7 @@ header {
   border-radius: 15px;
   font-size: 1.02rem; }
 
+/*! purgecss end ignore */
 /*! purgecss start ignore */
 nav {
   position: fixed;
@@ -2501,28 +2516,6 @@ blockquote {
   text-align: left; }
 
 /*! purgecss start ignore */
-.page-note #more-info {
-  border: 1px solid #444;
-  margin-bottom: 29.7px;
-  padding: 1rem; }
-  .page-note #more-info #note-tag {
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #444; }
-    .page-note #more-info #note-tag > img {
-      height: 20px;
-      width: 20px;
-      margin-right: 5px; }
-    .page-note #more-info #note-tag > a {
-      margin-left: 5px; }
-      .page-note #more-info #note-tag > a:hover {
-        border: none;
-        color: #8cc8ff; }
-  .page-note #more-info #last-modified {
-    padding-top: 10px;
-    font-style: italic; }
-
 .page-note .text-center {
   text-align: center; }
 

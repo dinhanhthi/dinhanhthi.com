@@ -16,25 +16,24 @@ permalink: "{{ page.fileSlug }}/"
   </div>
 {% endblock %}
 
-
+{% block extraArticleHeader %}
+  {% if tags %}
+    <div id="more-info">
+      <div id="note-tag">
+        {% for tag in tags %}
+          {% if tag != "posts" %}
+            <a href="/tags/{{ tag | slug }}">{{ tag }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div id="last-modified">{{ page.inputPath | lastModifiedDate  | htmlDateString }}</div>
+    </div>
+  {% endif %}
+{% endblock %}
 
 {% block article %}
   <article>
     <div class="container normal mt-2 page-note">
-      {% if tags %}
-        <div id="more-info">
-          <div id="note-tag">
-            <img src="/img/header/tag_.svg" alt="tag-icon">
-            <span style="margin-right: 5px;">This note is in topics:</span>
-            {% for tag in tags %}
-              {% if tag != "posts" %}
-                <a href="/tags/{{ tag | slug }}">{{ tag }}</a>{% if not loop.last %}, {% else %}.{% endif %}
-              {% endif %}
-            {% endfor %}
-          </div>
-          <div id="last-modified">Last modified: {{ page.inputPath | lastModifiedDate  | htmlDateString }}</div>
-        </div>
-      {% endif %}
       {% if toc %}
         {{ content | toc | safe }}
         {{ content | safe }}

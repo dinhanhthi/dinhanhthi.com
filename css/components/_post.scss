@@ -1,34 +1,6 @@
 /*! purgecss start ignore */
 .page-note {
 
-  #more-info{
-    border: 1px solid #444;
-    margin-bottom: $mb * 1.2;
-    padding: 1rem;
-    #note-tag{
-      display: flex;
-      align-items: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #444;
-      & > img {
-        height: 20px;
-        width: 20px;
-        margin-right: 5px;
-      }
-      & > a{
-        margin-left: 5px;
-        &:hover{
-          border: none;
-          color: $c-blue;
-        }
-      }
-    }
-    #last-modified{
-      padding-top: 10px;
-      font-style: italic;
-    }
-  }
-
   .text-center{
     text-align: center;
   }

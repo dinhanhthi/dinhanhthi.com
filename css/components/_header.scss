@@ -10,6 +10,7 @@ header nav {
   position: relative;
 }
 
+/*! purgecss start ignore */
 header {
   padding: 5.5rem 1.5rem 1rem;
   width: 900px;
@@ -57,6 +58,25 @@ header {
       }
     }
   }
+
+  #more-info{
+    margin-bottom: $mb * 1.2;
+    padding: 1rem;
+    #note-tag{
+      padding-bottom: 10px;
+      border-bottom: 1px solid #444;
+      & > a{
+        margin-right: 10px;
+        &::before{
+          content: "#";
+        }
+      }
+    }
+    #last-modified{
+      padding-top: 10px;
+      font-style: italic;
+    }
+  }
 }
 
 #reading-progress {
@@ -93,3 +113,4 @@ header {
     font-size: 1.02rem;
   }
 }
+/*! purgecss end ignore */
