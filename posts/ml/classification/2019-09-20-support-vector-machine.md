@@ -8,7 +8,6 @@ keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft 
 ---
 
 {% assign img-url = '/img/post/ML/support-vector-machine' %}
-{% assign file-url = '/files/ml/' %}
 
 ## What's the idea of SVM?
 
@@ -120,13 +119,13 @@ $$
 f(\mathbf{x})=\text{sign}(\mathbf{w}^T\mathbf{x} + b).
 $$
 
-The benefits of using dual formulation are:<sup>[\[ref, slide 52\]]({{file-url}}/svm-without-tears.pdf)</sup>
+The benefits of using dual formulation are:<sup>[\[ref, slide 52\]](/files/ml//svm-without-tears.pdf)</sup>
 
 - No need to access original data, need to access only dot products $\mathbf{x}_i^T\mathbf{x}_j$.
 - Number of free parameters is bounded by the number of support vectors and not by the number of variables
 (beneficial for high-dimensional problems).
 
-Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-toan-doi-ngau-cho-svm) (Vietnamese), [this slide]({{file-url}}/svm-without-tears.pdf) or [this post]({{file-url}}/Duality for the SVM.pdf).
+Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-toan-doi-ngau-cho-svm) (Vietnamese), [this slide](/files/ml//svm-without-tears.pdf) or [this post](/files/ml//Duality for the SVM.pdf).
 
 {% endhsbox %}
 
@@ -142,7 +141,7 @@ Most of the time, we cannot separate classes in the current dataset easily (not 
 
 {% hsbox "More mathematical details" %}
 
-Original data $\mathbf{x}$ (in input space),<sup>[\[ref, slide 59\]]({{file-url}}/svm-without-tears.pdf)</sup>
+Original data $\mathbf{x}$ (in input space),<sup>[\[ref, slide 59\]](/files/ml//svm-without-tears.pdf)</sup>
 
 $$
 \begin{aligned}
@@ -387,7 +386,7 @@ Compare to the one used in the scikit-learn, $K(\mathbf{x}_i, \mathbf{x}_j) = \e
 - **Jeremy Kun** -- [Formulating the Support Vector Machine Optimization Problem](https://jeremykun.com/2017/06/05/formulating-the-support-vector-machine-optimization-problem/).
 - **Tiep Vu** -- [Bài 20: Soft Margin Support Vector Machine](https://machinelearningcoban.com/2017/04/13/softmarginsmv/).
 - **Tiep Vu** - [Bài 21: Kernel Support Vector Machine](https://machinelearningcoban.com/2017/04/22/kernelsmv/).
-- **Alexander Statnikov**, **Douglas Hardin**, **Isabelle Guyon**, **Constantin F. Aliferis** -- [A Gentle Introduction to Support Vector Machines in Biomedicine]({{file-url}}/svm-without-tears.pdf).
+- **Alexander Statnikov**, **Douglas Hardin**, **Isabelle Guyon**, **Constantin F. Aliferis** -- [A Gentle Introduction to Support Vector Machines in Biomedicine](/files/ml//svm-without-tears.pdf).
 - **Jake VanderPlas** -- [In-Depth: Support Vector Machines](https://jakevdp.github.io/PythonDataScienceHandbook/05.07-support-vector-machines.html). -- Example: How to code and illustrate hyperplane and support vectors in Python?
 - **Chris Albon** -- [Notes](https://chrisalbon.com/) about Support Vector Machines.
 - **Andrew NG** -- [My raw note](https://mynote.dinhanhthi.com/machine-learning-coursera-7) when I learned [the course Machine Learning](https://www.coursera.org/learn/machine-learning/) on Coursera.

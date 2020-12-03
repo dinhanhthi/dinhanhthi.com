@@ -8,7 +8,6 @@ keywords: classification regression outlook temperature huminity windy play golf
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
-{% assign file-url = '/files/ml' %}
 
 ## What's the idea of Decision Tree Classifier?
 

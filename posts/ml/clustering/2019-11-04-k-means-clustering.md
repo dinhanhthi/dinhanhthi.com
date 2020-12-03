@@ -9,7 +9,6 @@ notfull: 1
 ---
 
 {% assign img-url = '/img/post/ML/clustering' %}
-{% assign file-url = '/files/ml/k-means' %}
 
 K-Means is the most popular clustering method any learner should know. In this note, we will understand the idea of KMeans and how to use it with Scikit-learn. Besides that, we also learn about its variants (K-medois, K-modes, K-medians).
 

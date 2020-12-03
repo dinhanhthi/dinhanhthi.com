@@ -8,7 +8,6 @@ keywords: compress data dimensional reduction speed up algorithms or to visualiz
 ---
 
 {% assign img-url = '/img/post/ML/PCA' %}
-{% assign file-url = '/files/ml/pca' %}
 
 ## What?
 
@@ -139,7 +138,7 @@ If this section doesn't satisfy you, read [this](http://ufldl.stanford.edu/tutor
 - **Scikit-learn** -- [PCA official doc](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html).
 - **Tiep Vu** -- *Principal Component Analysis*: [Bài 27](https://machinelearningcoban.com/2017/06/15/pca/) and [Bài 28](https://machinelearningcoban.com/2017/06/21/pca2/).
 - **Jake VanderPlas** -- [In Depth: Principal Component Analysis](https://jakevdp.github.io/PythonDataScienceHandbook/05.09-principal-component-analysis.html).
-- **Tutorial 4 Yang** -- [Principal Components Analysis]({{file-url}}/tutorial4-yang.pdf).
+- **Tutorial 4 Yang** -- [Principal Components Analysis](/files/ml/pca/tutorial4-yang.pdf).
 - **Andrew NG.** -- [My raw note](https://rawnote.dinhanhthi.com/machine-learning-coursera-8#principal-component-analysis-pca) of the course ["Machine Learning" on Coursera](https://www.coursera.org/learn/machine-learning/).
 - **Shankar Muthuswamy** -- [Facial Image Compression and Reconstruction with PCA](https://shankarmsy.github.io/posts/pca-sklearn.html).
 - **UFLDL - Stanford** -- [PCA Whitening](http://ufldl.stanford.edu/tutorial/unsupervised/PCAWhitening/).

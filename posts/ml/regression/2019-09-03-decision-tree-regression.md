@@ -9,7 +9,6 @@ keywords: classification regression MSE Mean Square Error MAE Mean Absolute Erro
 ---
 
 {% assign img-url = '/img/post/ML/random-forest-decision-tree' %}
-{% assign file-url = '/files/ml' %}
 
 ## What's the idea of Decision Tree Regression?
 
@@ -48,7 +47,7 @@ Other aspects of decision tree algorithm, check [this note](/decision-tree-class
 :::
 
 ::: warning
-Looking for an example like in [the post of decision tree classifier](/decision-tree-classifier)? Check [this]({{ file-url }}/saedsayad.com-Decision Tree - Regression.pdf)! Below are a short algorithm,
+Looking for an example like in [the post of decision tree classifier](/decision-tree-classifier)? Check [this](/files/ml/saedsayad.com-Decision Tree-Regression.pdf)! Below are a short algorithm,
 :::
 
 1. Calculate the **Standard Deviation** ($SD$) of the current node (let's say $S$, parent node) by using MSE or MAE,
