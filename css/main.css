@@ -601,6 +601,7 @@ body {
 .ml-5p5 {
   margin-left: 5.5rem; }
 
+/*! purgecss start ignore */
 .page-index .container {
   padding: 2rem 1rem 0 1rem; }
 
@@ -634,6 +635,18 @@ body {
   .page-index .toc-index ul {
     padding-left: 20px;
     margin: 0; }
+  .page-index .toc-index p {
+    font-style: italic;
+    color: #999;
+    padding-top: 0;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    margin-top: 10px; }
+    .page-index .toc-index p a {
+      color: #999;
+      border-bottom: 2px solid #999; }
+      .page-index .toc-index p a:hover {
+        border-bottom: 2px solid #ffd479; }
 
 @media (max-width: 991px) {
   .page-index .main-cats {
@@ -721,6 +734,7 @@ body {
     height: 80px;
     width: auto; }
 
+/*! purgecss end ignore */
 /* "Content-visibility: auto" move the images over the other elements
    Set z-index to keep the nav over the rasterized images */
 header nav {

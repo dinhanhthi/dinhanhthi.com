@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 .page-index {
 	.container {
 		padding: 2rem 1rem 0 1rem;
@@ -31,6 +32,21 @@
 		ul {
 			padding-left: 20px;
 			margin: 0;
+		}
+		p{
+			font-style: italic;
+			color: #999;
+			padding-top: 0;
+			margin-bottom: 0;
+			font-size: 0.95rem;
+			margin-top: 10px;
+			a{
+				color: #999;
+				border-bottom: 2px solid #999;
+				&:hover{
+					border-bottom: 2px solid $c-yellow;
+				}
+			}
 		}
 	}
 
@@ -133,3 +149,4 @@
 		}
 	}
 }
+/*! purgecss end ignore */
