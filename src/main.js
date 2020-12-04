@@ -312,6 +312,9 @@ window.addEventListener('click', (ev) => {
                 return '<mark>'+x+'</mark>';
               });
             }
+            if (keywords.length > 500){
+              keywords = "..." + keywords.substring(keywords.indexOf("<mark>")-1, keywords.indexOf("<mark>")+kw.length+15) + "..."
+            }
           }
           p.innerHTML = keywords;
           el.appendChild(p);
