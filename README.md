@@ -3,9 +3,20 @@
 ⭐ __Demo__: https://dinhanhthi.com/ <br />
 🚀 __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fnew.dinhanhthi.com). <br />
 
-![./img/frontpage.png]
+![Home page](./img/frontpage.png)
 
-![./img/about-page.png]
+![About page](./img/about-page.png)
+
+![Note page](./img/note-page.png)
+
+## Features
+
+1. High performance (customize from [Google's high performance theme](https://github.com/google/eleventy-high-performance-blog)).
+2. Flexible on all devices.
+3. Support many components for note taking in markdown (my styles ;))
+4. Customize Resume page.
+5. Optimization images, html, css, javascript files.
+6. Support instant search with hightlight (using [elasticlunr](http://elasticlunr.com/))
 
 ## Build
 
