@@ -196,7 +196,7 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 1. Location of `.desktop` files,
 
 	``` bash
-	/home/thi/.local/share/applications/
+	~/.local/share/applications/
 	/usr/share/applications/
 	/var/lib/snapd/desktop/applications/
 	# or
@@ -231,7 +231,8 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 	sudo add-apt-repository ppa:atareao/atareao
 	sudo apt update
 	sudo apt install touchpad-indicator
-	# then open > click on icon > preferences > action tab > "Disable touchpad when mouse plugged"
+	# then open > click on icon > preferences
+	# > action tab > "Disable touchpad when mouse plugged"
 	```
 3.  Other applicatons:
     1.  [Skype](https://www.skype.com/en/get-skype/)
@@ -249,10 +250,10 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
     - settings in `~/.config/` or `~/.<software-name>`
-    - all apps in `/home/thi/apps/` with their desktop files in `/home/thi/.local/share/applications/`
+    - all apps in `~/apps/` with their desktop files in `~/.local/share/applications/`
 8.  **Pop!_OS Tips**:
-   1. `Super` + `Y`: toggle tiling mode.
-   2. Add a windows/applition exepton of tiling mode (it won't be counted)
-   3. Make clocks + dates 2 lines -> [tutorial](https://askubuntu.com/questions/1081793/how-to-display-date-under-time-in-gnome).
+    1. `Super` + `Y`: toggle tiling mode.
+    2.  Add a windows/applition exepton of tiling mode (it won't be counted)
+    3.  Make clocks + dates 2 lines -> [tutorial](https://askubuntu.com/questions/1081793/how-to-display-date-under-time-in-gnome).
        - Install [clock override extension](https://extensions.gnome.org/extension/1206/clock-override/).
        - Using `     %H:%M%n%d/%m/%Y` in _text to display instead of the clock_ (with the spaces so that they are center aligned).

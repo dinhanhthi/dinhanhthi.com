@@ -16,6 +16,7 @@ This post is for me only. It contains shortcodes to create this website.
 ``` yaml
 layout: post # or `page` or `base`
 title: "For me only"
+descriptopm: description of the post
 tags: [Others] # base: Project-based Learning, MOOC, Machine Learning,
                #       Data Science, Deep Learning, Time Series,
                #       NLP, MLOps, Python, R Lang, Linear Algebra,

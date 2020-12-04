@@ -26,6 +26,7 @@ Suppose that we have a dataset $S$ like in the figure below<sup>[\[ref, *Table 1
 
 There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning#Decision_tree_types) which can help us make a tree like above, in Machine Learning, we usually use:
 
+{:.indent}
 - [**ID3**](https://en.wikipedia.org/wiki/ID3_algorithm) (*Iterative Dichotomiser*): uses **information gain** / **entropy**.
 - **[CART](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity)** (*Classification And Regression Tree*): uses **Gini impurity**.
 

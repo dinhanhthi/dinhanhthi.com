@@ -3,7 +3,7 @@ layout: post
 title: "K-Means Clustering"
 tags: [Machine Learning, Clustering]
 toc: true
-icon: clustering.png
+icon: /img/header/clustering.png
 keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans distance between points"
 notfull: 1
 ---
