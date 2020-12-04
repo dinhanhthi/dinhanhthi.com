@@ -1,10 +1,11 @@
 # dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
 
-📌 __Source__: https://github.com/google/eleventy-high-performance-blog <br />
-⭐ __Demo__: https://new.dinhanhthi.com/ <br />
+⭐ __Demo__: https://dinhanhthi.com/ <br />
 🚀 __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fnew.dinhanhthi.com). <br />
-📚 __Dev notes__: [./DEV_NOTE.md](./DEV_NOTE.md)
 
+![./img/frontpage.png]
+
+![./img/about-page.png]
 
 ## Build
 
