@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Small projects for understanding concepts"
-tags: [Project-based Learning]
+tags: [Project-based Learning, Collection]
+notfull: 1
 toc: false
 icon: /img/cats/project.svg
 keywords: "Image compression K-Means PCA google drive github Lossy conversion Clipping input data to the valid range for imshow Face Recognition SVM XOR problem k means principal component analysis supoprt vector machine digit face Lossy conversion pipeline"

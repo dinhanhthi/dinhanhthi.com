@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My reading list"
-tags: [Others]
+tags: [Others, Collection]
 toc: true
 icon: "/img/header/reading.svg"
 keywords: "book reading goodreads"
@@ -13,7 +13,7 @@ date: "2020-12-01"
 I like to read books in **applied maths**, **sciences**, **biography**, **history** and **psychology**. Check [my activities on Goodreads](https://www.goodreads.com/user/show/19630622-thi-dinh) (to-read books, comments, ratings,...) for more information.
 {% endmarkdown %}
 
-<ul id="reading-list" class="indent">
+<ol id="reading-list" class="indent">
   {% for item in books %}
     <li class="item">
       {% if item.reading %}
@@ -29,4 +29,4 @@ I like to read books in **applied maths**, **sciences**, **biography**, **histor
         <span class="intro">{{ item.intro }}</span>{% endif %}
     </li>
   {% endfor %}
-</ul>
+</ol>

@@ -27,15 +27,12 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 
 ## Multiple commands
 
-<div class="col-2-equal">
-
 ~~~ bash
 # run at once
 command_1 && command_2
 ~~~
-</div>
 
-## .sh file
+## `.sh` file
 
 <div class="col-2-equal">
 
@@ -59,6 +56,7 @@ for FILE1 in "$@"; do
     wc $FILE1
 done
 ```
+</div>
 
 ``` bash
 NAME="defaut" # default value! DON'T HAVE SPACE!!!
@@ -77,7 +75,6 @@ wc $FILE
 # how to use?
 sh test.sh -n "ThiD" -f test.md
 ```
-</div>
 
 ## Search / grep / sed
 
@@ -113,13 +110,6 @@ pip show numpy | sed -n 's/Location: //p'
 df -h
 ~~~
 
-~~~ bash
-# CPU
-cat /proc/cpuinfo | grep 'model name' | uniq # model
-cat /proc/cpuinfo | grep 'vendor' | uniq # vendor
-cat /proc/cpuinfo | grep processor | wc -l # number of processes
-~~~
-
 ``` bash
 # like monitor
 top
@@ -149,6 +139,13 @@ lspci -nn | grep '\[03' # another way
 lsusb
 ```
 </div>
+
+~~~ bash
+# CPU
+cat /proc/cpuinfo | grep 'model name' | uniq # model
+cat /proc/cpuinfo | grep 'vendor' | uniq # vendor
+cat /proc/cpuinfo | grep processor | wc -l # number of processes
+~~~
 
 ### Folders / Files
 

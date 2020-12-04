@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "Favorite Github repositories"
-tags: [Others]
+tags: [Others, Collection]
 toc: true
 icon: "/img/social/github.svg"
 keywords: "repository github git"
-notfull: 1
 ---
 
 {% assign img-url = '/img/post/others' %}

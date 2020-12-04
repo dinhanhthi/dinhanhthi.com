@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll"
+title: "Jekyll test"
 tags: [Web Dev, Jekyll, Static Site Generators]
 notfull: 1
 toc: true

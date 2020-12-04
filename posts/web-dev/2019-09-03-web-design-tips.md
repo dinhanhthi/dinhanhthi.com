@@ -5,10 +5,12 @@ tags: [Web Dev]
 toc: true
 icon: "/img/cats/web-dev.svg"
 notfull: 1
-keywords: "autofocus separated columns page load google webfont sass Font ligatures terms"
+keywords: "autofocus separated columns page load google webfont sass Font ligatures terms two 2 columns list Font ligatures auto convert symbol focus on input field google webfont helper regex regular expression font download"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
+
+👉 [Web Dev tools](/web-dev-tools/).
 
 ## Terms
 
@@ -36,18 +38,18 @@ And make it into 1 if the screen is small.
 </div>
 ~~~
 
-~~~ css
-.two-columns-list{
-  -webkit-columns: 384px 2;
-  -moz-columns: 384px 2;
-  columns: 350px 2;
+~~~ scss
+.two-columns-list {
+  @media (min-width: $grid-md) {
+    @include column-count(2);
+    & > li {
+      padding-right: 10px;
+    }
+  }
 }
 ~~~
 </div>
 
-## Other useful Tools
-
-- **Mario Ranftl** -- [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) -- A Hassle-Free Way to Self-Host Google Fonts -- giving us font files and font-face declarations based on the fonts, charsets, styles, and browser support you select.
 
 ## Useful URLs
 
