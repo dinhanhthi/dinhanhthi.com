@@ -11,3 +11,14 @@
 	height: fit-content;
 	background: $bgColor;
 }
+
+@mixin code-inline() {
+  border: 1px solid #444;
+  background: $code-bg-inline;
+  padding: 2px 4px;
+  margin: 0 1px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+	color: #fff;
+	word-break: break-word;
+}

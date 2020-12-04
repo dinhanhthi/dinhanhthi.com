@@ -1266,7 +1266,7 @@ footer {
   border-color: #ffd479; }
 
 kbd {
-  background: #fff;
+  background: #eee;
   color: #111;
   border: 1px solid #444;
   border-radius: 3px;
@@ -2539,8 +2539,7 @@ blockquote {
 
 .page-note ul, .page-note ol {
   margin-top: 0;
-  margin-bottom: 24.75px;
-  padding-left: 20px; }
+  margin-bottom: 24.75px; }
   .page-note ul li, .page-note ol li {
     margin-bottom: 5px; }
     .page-note ul li ul, .page-note ul li ol, .page-note ol li ul, .page-note ol li ol {
@@ -2830,7 +2829,8 @@ h4 > code {
   margin: 0 1px;
   border-radius: 3px;
   font-size: 0.9rem;
-  color: #fff; }
+  color: #fff;
+  word-break: break-word; }
 
 h2 > code,
 h3 > code,
