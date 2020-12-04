@@ -2950,10 +2950,6 @@ div.toc {
     div.toc {
       margin-right: -310px;
       width: 280px; } }
-  @media (max-width: 1299px) {
-    div.toc {
-      max-height: 400px;
-      overflow: auto; } }
 
 /*! purgecss start ignore */
 .toc-active > a {

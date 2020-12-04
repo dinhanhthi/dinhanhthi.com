@@ -261,8 +261,9 @@ window.addEventListener('click', (ev) => {
   }
 }, false);
 
-// elasticlunr
 
+// elasticlunr
+// -----------------------------------------
 (function (window, document) {
   "use strict";
 

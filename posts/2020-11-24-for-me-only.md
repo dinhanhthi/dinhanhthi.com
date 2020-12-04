@@ -9,6 +9,8 @@ keywords: "for me only customize edit this site box font blocks"
 
 This post is for me only. It contains shortcodes to create this website.
 
+👉 [11ty note](/11ty-nunjucks/).
+
 ## Frontmatter
 
 ``` yaml
@@ -359,10 +361,6 @@ The only difference is the line
 eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
 ```
 
-### Build faster?
-
-There is no `--incremental` feature in 11ty like Jekyll, we can add some folder of posts in `.eleventyignore` to not render these folders while writing other posts.
-
 ### Building index for search
 
 If there is new post / keywords in some old posts -> remove line of `pages/search-index.json.njk` in `.eleventyignore`.
@@ -376,17 +374,6 @@ Using `{% raw %}{% markdown %}{% endmarkdown %}{% endraw %}` (no need spaces bet
  Besise `page.url`, there are others at [here](https://www.11ty.dev/docs/data-eleventy-supplied/#page-variable-contents).
 
 ### Errors?
-
-``` bash
-# TypeError: Cannot read property 'type' of undefined
-# => Class comes before ![]() of an image!
-```
-
-``` bash
-# EISDIR: illegal operation on a directory
-# Solution:
-# Delete _site/ and rebuild!
-```
 
 ``` js
 // Problem of "Content-Security-Policy" (CSP)
