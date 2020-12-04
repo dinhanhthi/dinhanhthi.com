@@ -7,7 +7,6 @@ const stat = promisify(fs.stat);
 const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginNavigation = require("@11ty/eleventy-navigation");
 const elasticlunr = require("elasticlunr");
 
 const markdownIt = require("markdown-it");
@@ -25,7 +24,6 @@ module.exports = {
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(pluginNavigation);
 
   eleventyConfig.addPlugin(localImages, {
     distPath: "_site",
@@ -54,7 +52,7 @@ module.exports = function (eleventyConfig) {
     //   });
     // });
   } else {
-    eleventyConfig.addPlugin(require("./_11ty/img-dim.js"));
+    eleventyConfig.addPlugin(require("./_11ty/img-dim.js")); // take too long to build
     eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
     eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
     eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
