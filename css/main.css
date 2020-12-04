@@ -3057,9 +3057,9 @@ div.toc {
     margin-right: auto;
     display: block; } }
 
-.page-note p > img + br {
+.page-note p > img + br, .page-note p > picture + br {
   display: none; }
-  .page-note p > img + br + em {
+  .page-note p > img + br + em, .page-note p > picture + br + em {
     display: block;
     text-align: center;
     margin-top: 10px; }

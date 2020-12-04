@@ -21,7 +21,7 @@
   }
 
   p {
-    & > img + br {
+    & > img + br, & > picture + br {
       display: none;
       & + em {
         display: block;
