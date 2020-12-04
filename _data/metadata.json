@@ -1,6 +1,6 @@
 {
   "title": "🔥 Anh-Thi DINH",
-  "url": "https://new.dinhanhthi.com",
+  "url": "https://dinhanhthi.com",
   "domain": ".com",
   "description": "I failed my way to success!",
   "genre": "Insert a schema.org genre",
@@ -9,11 +9,11 @@
     "subtitle": "I failed my way to success!",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://new.dinhanhthi.com"
+    "id": "https://dinhanhthi.com"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://new.dinhanhthi.com/feed/feed.json"
+    "url": "https://dinhanhthi.com/feed/feed.json"
   },
   "author": {
     "name": "Anh-Thi DINH",

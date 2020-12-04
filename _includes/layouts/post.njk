@@ -12,6 +12,8 @@ permalink: "{{ page.fileSlug }}/"
       {% else %}
         <img alt="{{ title }}" src="/img/header/{{ icon }}">
       {% endif %}
+    {% else %}
+      <img alt="{{ title }}" src="/img/nav/about.svg">
     {% endif %}
   </div>
 {% endblock %}

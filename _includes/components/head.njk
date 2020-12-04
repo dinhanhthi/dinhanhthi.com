@@ -7,8 +7,8 @@
 
   <meta name="theme-color" content="#f9c412">
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
-  <title>{{ renderData.title or title or metadata.title | escape }}</title>
-  <meta property="og:title" content="{{ renderData.title or title or metadata.title | escape  }}">
+  <title>{{ title or renderData.title or metadata.title | escape }}</title>
+  <meta property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
   {% set desc = renderData.description or description %}
   {% if not desc %}
     {% set desc = content | striptags | truncate(140) %}
@@ -20,9 +20,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
   <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
-  {% if image %}
-    <meta property="og:image" content="{{ image | absoluteUrl(metadata.url) }}">
+  {% if icon %}
+    {% if "/" in icon %}
+      <meta property="og:image" content="{{ icon }}">
+    {% else %}
+      <meta property="og:image" content="/img/header/{{ icon }}">
+    {% endif %}
+  {% else %}
+    <img alt="{{ title }}" src="/img/nav/about.svg">
   {% endif %}
+
 
   <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
   <!-- This is a blog and so it SHOULD be safe and it is nice for the web
