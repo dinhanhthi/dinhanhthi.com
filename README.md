@@ -3,6 +3,9 @@
 ⭐ __Demo__: https://dinhanhthi.com/ <br />
 🚀 __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdinhanhthi.com). <br />
 
+⛑ __Dev branch__: [`dev`](https://github.com/dinhanhthi/dinhanhthi.com/tree/dev) (working branch, always up-to-date) <br />
+🌐 __Prod branch__: [`prod`](https://github.com/dinhanhthi/dinhanhthi.com/tree/prod) (what you see on [dinhanhthi.com](https://dinhanhthi.com))
+
 ![Home page](./img/frontpage.png)
 
 ![About page](./img/about-page.png)
