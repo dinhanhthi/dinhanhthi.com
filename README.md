@@ -36,6 +36,8 @@ npm run watch
 npm run build
 ```
 
+__Tips__: For saving build time on netlify (free 300 minutes), check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify) as a tip.
+
 ## Dev locally
 
 Because of the weakness of eleventy, we have to do below things to make the dev locally much faster!
@@ -50,4 +52,14 @@ npm run local-serve
 
 # Each time we want to build, run
 npm run local-build
+```
+
+### Deploy to netlify
+
+Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify) to understand below steps.
+
+``` bash
+# merge changes from branch dev to branch _site
+
+# push branch _site (netlify will auto recognize the change)
 ```

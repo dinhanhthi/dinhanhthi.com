@@ -729,7 +729,8 @@ body {
           opacity: 1; }
 
 .page-index header {
-  padding-top: 4em; }
+  padding-top: 5em;
+  padding-bottom: 0; }
   .page-index header .header-logo {
     height: 80px;
     width: auto; }
