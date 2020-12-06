@@ -1281,8 +1281,8 @@ footer {
   border-color: #ffd479; }
 
 kbd {
-  background: #eee;
-  color: #111;
+  background: #3c3c3c;
+  color: #fff;
   border: 1px solid #444;
   border-radius: 3px;
   display: inline-block;
