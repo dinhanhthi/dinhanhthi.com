@@ -408,9 +408,15 @@ my_alias(){
 - **Windows**: Using [cmder](https://cmder.net/) (its [setting file](/files/cmderSetting.xml)), add more aliases to `<cmder-install>/config/user_aliases.cmd`. You can also add (automatically) on the cmder UI, it adds them for you to the `.cmd` file.
 
 
-## Copy / Cut / Paste
+## Create / Copy / Cut / Paste
 
 <div class="col-2-equal">
+
+``` bash
+# Create a new folder
+mkdir <folder>
+mkdir -p <folder> # already exist accepted
+```
 
 ~~~ bash
 # MOVE
