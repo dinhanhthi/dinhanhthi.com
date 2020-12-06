@@ -59,7 +59,13 @@ npm run local-build
 Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify) to understand below steps.
 
 ``` bash
-# merge changes from branch dev to branch _site
+# Merge changes from branch dev to branch _site
+# Clone this repo to 2 separated folders
+|
+|- dinhanhthi.com # <- branch "dev" for editing notes
+|- dat.com 				# <- branch "_site" for pushing to netlify
+|- _live					# intermediate folder (created when running tasks in dinhanhthi.com/)
 
-# push branch _site (netlify will auto recognize the change)
+#On dat.com/, just run
+sh ud_site.sh
 ```
