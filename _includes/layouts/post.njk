@@ -28,7 +28,11 @@ permalink: "{{ page.fileSlug }}/"
           {% endif %}
         {% endfor %}
       </div>
-      <div id="last-modified">{{ page.inputPath | lastModifiedDate  | htmlDateString }}</div>
+      <div id="last-modified">
+				{{ page.inputPath | lastModifiedDate  | htmlDateString }}
+				/
+				<a href="https://github.com/dinhanhthi/dinhanhthi.com/edit/dev/{{ page.inputPath }}">Edit on Github</a>
+			</div>
     </div>
   {% endif %}
 {% endblock %}
