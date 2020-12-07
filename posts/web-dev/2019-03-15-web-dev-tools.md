@@ -1,15 +1,18 @@
 ---
 layout: post
 title: "Web Dev tools"
-tags: [Web Dev, Collection]
+tags: [Web Dev, Collection, JavaScript]
 icon: "/img/cats/web-dev.svg"
-keywords: "html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application"
+keywords: "html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application framework js java script"
 date: "2020-12-03"
 ---
 
 👉 [Useful tools for Data Science, Machine Learning](/useful-tools-data-science-machine-learning/).
 👉 [Useful tools in other fields](/good-applications/).
 
+::: success
+This note will always be updated.
+:::
 
 ## Tools
 

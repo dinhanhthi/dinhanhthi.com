@@ -10,6 +10,10 @@ keywords: "Image compression K-Means PCA google drive github Lossy conversion Cl
 
 {% assign img-url = '/img/post/project/' %}
 
+::: success
+This note will always be updated.
+:::
+
 - **Image compression using [K-Means]({{site.url}}{{site.baseurl}}/k-means-clustering)** -- [Open in HTML](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/mini-projects/notebook_in_html/K_Means_image_compression.html) -- [Open in Colab](https://colab.research.google.com/github/dinhanhthi/data-science-learning/blob/master/mini-projects/K_Means_image_compression.ipynb).
   - Load and write an image from/to Google Drive.
   - Change the image's size from `(height, weight, channels)` to `(height x weight, channels)`

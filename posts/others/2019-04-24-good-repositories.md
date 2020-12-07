@@ -9,6 +9,10 @@ keywords: "repository github git"
 
 {% assign img-url = '/img/post/others' %}
 
+::: success
+This note will always be updated.
+:::
+
 ## Machine Learning
 
 1. [**homemade-machine-learning**](https://github.com/trekhleb/homemade-machine-learning){:target="_blank"} -- If you don't wanna apply tools and understand nothing, you can write "again" from scratch with this repository.

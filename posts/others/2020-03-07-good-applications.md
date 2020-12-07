@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Useful tools"
+title: "Useful tools for working & studying"
 tags: [Others, Collection]
 toc: true
 icon: apps.svg
@@ -9,6 +9,10 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 
 👉 [Useful tools for Data Science, Machine Learning](/useful-tools-data-science-machine-learning/).
 👉 [Web Dev tools](/web-dev-tools/).
+
+::: success
+This note will always be updated.
+:::
 
 ## Online tools
 

@@ -53,7 +53,7 @@ wc $file1 # word count
 
 # multiple input args
 for FILE1 in "$@"; do
-    wc $FILE1
+	wc $FILE1
 done
 ```
 </div>
@@ -62,11 +62,11 @@ done
 NAME="defaut" # default value! DON'T HAVE SPACE!!!
 # with flags
 while getopts n:f: option; do
-    case "${option}"
-        in
-            n) NAME=${OPTARG};;
-            f) FILE=${OPTARG};;
-    esac
+	case "${option}"
+		in
+			n) NAME=${OPTARG};;
+			f) FILE=${OPTARG};;
+	esac
 done
 
 echo $NAME
@@ -404,6 +404,7 @@ my_alias(){
 }
 ```
 
+{:.noindent}
 - **Linux** / **MacOS**: Add your alias to `.bash_aliases` (in home dir, `printenv HOME`) if you wanna store your alias permanently.
 - **Windows**: Using [cmder](https://cmder.net/) (its [setting file](/files/cmderSetting.xml)), add more aliases to `<cmder-install>/config/user_aliases.cmd`. You can also add (automatically) on the cmder UI, it adds them for you to the `.cmd` file.
 

@@ -26,7 +26,7 @@ This note is used for you who have already had the basic idea about jekyll and h
 
 ## Using docker to run/deploy jekyll
 
-Read this [readme](https://github.com/dinhanhthi/my-dockerfiles/tree/master/quick-jekyll). An example is [repo of this site](https://github.com/dinhanhthi/dinhanhthi.com).
+Read this [readme](https://github.com/dinhanhthi/my-dockerfiles/tree/master/quick-jekyll). An example is [an old version of this site](https://github.com/dinhanhthi/dinhanhthi.com/tree/jekyll).
 
 ## Install and run Jekyll on fresh machine
 

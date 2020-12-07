@@ -14,6 +14,10 @@ date: "2020-12-03"
 👉 [Useful tools in other fields](/good-applications/).
 👉 [Web Dev tools](/web-dev-tools/).
 
+::: success
+This note will always be updated.
+:::
+
 {:.noindent}
 1. Graphviz export
    - Download **Graphviz** [here](https://graphviz.gitlab.io/download/).

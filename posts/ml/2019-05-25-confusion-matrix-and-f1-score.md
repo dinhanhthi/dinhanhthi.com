@@ -4,7 +4,7 @@ title: "Confusion matrix & f1-score"
 tags: [Machine Learning]
 toc: true
 icon: /img/cats/ml.svg
-keywords: "true false negative positive type i type ii error precision recall f1 score email spam bank transaction is fraudulent skewed class accuracy specificity prediction support ROC curve machine learning crash course google developers Koo Ping Shung Marco Altini Salma Ghoneim Towards Data Science NLP blog"
+keywords: "true false negative positive type i type ii error precision recall f1 score email spam bank transaction is fraudulent skewed class accuracy specificity prediction support ROC curve machine learning crash course google developers Koo Ping Shung Marco Altini Salma Ghoneim Towards Data Science NLP blog Sensitivity precision recall curve ROC curve receiver operating characteristic"
 ---
 
 {% assign img-url = '/img/post/ML/confusion-matrix-f1-score' %}
@@ -59,10 +59,31 @@ Give a general view about our model, "is it really good?" thanks to precision an
 
 	$$\mathrm {recall}= \dfrac{\mathrm{true\, positive}}{\mathrm{positively\, actual\, results}}= \dfrac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}.$$
 
+![An example of using confusion matrix]({{ img-url }}/confusion-matrix-example.png){:.img-85}
+_Recognizing number 5. Figure taken from [this book](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)._
+
 ### When to use?
 
 - **Precision** is importantly used when the "wrongly predicted yes" (FP) influences much (e.g. *This email is spam?* -- results yes but actually no and we lost important emails!).
-- **Recall** is importantly used when the "wrongly predicted no" (FN) influences much (e.g. In the banking industry, *this transaction is fraudulent?* -- results no but actually yes and we lost money!).
+- **Recall** (***Sensitivity***) is importantly used when the "wrongly predicted no" (FN) influences much (e.g. In the banking industry, *this transaction is fraudulent?* -- results no but actually yes and we lost money!).
+
+### Precision / Recall curve{:#precision_recall_curve}
+
+With _thresholds_, we can use `precision_recall_curve()` to compute precision and recall for all possible thresholds,
+
+![An example of Precision/Recall curve]({{ img-url }}/precision-reacll-curve.png){:.img-85}
+_An example of Precision/Recall curve with many thresholds. Figure taken from [this book](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)._
+
+__Trace-off__: Higher precision, lower recall and vice versa.
+
+``` python
+from sklearn.metrics import precision_recall_curve
+precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
+
+plt.plot(thresholds, precisions[:-1], "b--", label="Precision")
+plt.plot(thresholds, recalls[:-1], "g-", label="Recall")
+plt.show()
+```
 
 ## F1-Score
 
@@ -112,6 +133,35 @@ $f_1$ is a special case of $f_{\beta}$ when $\beta=1$:
 - **Accuaracy** is used when we have symmetric datasets.
 - **Specificity** is used when we care about TN values and don't want to make false alarms of the FP values (e.g. drug test).
 
+## The ROC Curve
+
+- ROC = _Receiver operating characteristic_.
+- A common tool used with _binary classifier_.
+- Diffrent from [precision/recall curve](#precision_recall_curve), ROC plots the _true positive rate_ (_recall_) against the _false positive rate_ (_1 - specificity_).
+
+![An example of ROC curve]({{ img-url }}/roc-curve.png){:.img-85}
+_This ROC curve plots FPR vs TPR for all possible thresholds. **The dotted line** represents the ROC curve of a purely random classifier; a good classifier stays as far away from that lines as possible (==toward the top-left corner==). Figure taken from [this book](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/)._
+
+__Trade-off__: the higher recall, the more FPR (predict wrong) the classifier produces.
+
+~~~ python
+from sklearn.metrics import roc_curve
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
+# create plot
+plt.plot(fpr, tpr, label='ROC curve')
+plt.plot([0, 1], [0, 1], 'k--') # Dashed diagonal
+plt.show()
+~~~
+
+### The AUC
+
+- AUC = Area under the curve.
+- Perfect classifier will have AUC = 1 (fix the rectangle).
+- The purely random classifier (dotted line) will have AUC = 0.5.
+
 ## Confusion Matrix & F1-Score with Scikit-learn
 
 ~~~ python
@@ -125,25 +175,6 @@ Precision / Reacall / f1-score / support
 ~~~ python
 from sklearn.metrics import classification_report
 classification_report(y_test, y_pred)
-~~~
-
-ROC curve,
-
-~~~ python
-from sklearn.metrics import roc_curve
-import matplotlib.pyplot as plt
-%matplotlib inline
-
-fpr, tpr, thresholds = roc_curve(y_test, y_pred_prob)
-# create plot
-plt.plot(fpr, tpr, label='ROC curve')
-plt.plot([0, 1], [0, 1], 'k--', label='Random guess')
-_ = plt.xlabel('False Positive Rate')
-_ = plt.ylabel('True Positive Rate')
-_ = plt.title('ROC Curve')
-_ = plt.xlim([-0.02, 1])
-_ = plt.ylim([0, 1.02])
-_ = plt.legend(loc="lower right")
 ~~~
 
 ## References

@@ -329,17 +329,28 @@ Usage,
 
 Usage,
 
-``` markdown
+::: col-2-equal
+``` bash
 # paragraph
 A pragraph {:.custom-class}
+```
 
+``` bash
 # image
 ![](){:.custom-class}
+```
 
+``` bash
 # table
 {:.custom-class}
 table
 ```
+
+``` bash
+# heading
+# Heading{:#heading-id}
+```
+:::
 
 __Multi-classes__: `{:.custom-1 .custom-2}` (with spaces)!
 
