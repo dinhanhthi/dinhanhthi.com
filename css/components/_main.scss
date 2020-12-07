@@ -168,7 +168,14 @@ a {
     &:hover {
       border-bottom: none;
     }
-  }
+	}
+
+	strong, b{
+		color: $c-yellow;
+		&:hover{
+			color: #fff;
+		}
+	}
 }
 
 hr {
