@@ -66,6 +66,7 @@ Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify)
 |- dat.com 				# <- branch "_site" for pushing to netlify
 |- _live					# intermediate folder (created when running tasks in dinhanhthi.com/)
 
-#On dat.com/, just run
+# On dat.com/, just run
+# (It takes time to build the whole site in dinhanhthi.com/)
 sh ud_site.sh
 ```
