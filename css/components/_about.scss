@@ -26,7 +26,11 @@
       .job{
         margin-top: 1rem;
         span{
-          color: #000;
+					color: #000;
+					@media (max-width: $grid-md - 1px){
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
         }
       }
     }

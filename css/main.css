@@ -968,6 +968,10 @@ footer {
       margin-top: 1rem; }
       .page-about .coordinate ul .job span {
         color: #000; }
+        @media (max-width: 767px) {
+          .page-about .coordinate ul .job span {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0; } }
 
 .page-about p.contact {
   width: 100%;
