@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux notes"
-tags: [Skills]
+tags: [Skills, Linux]
 toc: true
 icon: linux.svg
 keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget ppa remove dconf guake free vpn vpnbook openvpn"
@@ -94,7 +94,11 @@ first_weekday 1
 # save and restart the system
 ```
 
-🔅 Add / Remove / Manage app icon in launcher: `sudo apt-get install alacarte`.
+🔅 Add / Remove / Manage app icon in launcher:
+
+``` bash
+sudo apt-get install alacarte
+```
 
 🔅 Change ubuntu logo in settings: replace
 
@@ -169,6 +173,8 @@ sudo apt install libreoffice
 # pptx -> pdf
 soffice --headless --convert-to pdf prezentacja.pptx
 ```
+
+🔅 Modify / Add icon in launcher: **alacarte**" (Main Menu, can be found in App Store).
 
 ## Nautilus / Files management
 
@@ -262,7 +268,11 @@ cp -r /mnt/iso/* <directory>/
 
 🔅 Sync files with mega right on terminal
 
-- Install megatools: `sudo apt-get install megatools`
+- Install megatools:
+
+	``` bash
+	sudo apt-get install megatools
+	```
 - Using megatools, cf the [main website](https://megatools.megous.com).
 - Create a condig file which stores your login information (be careful, everyone can see your pass)
 
@@ -343,7 +353,7 @@ ls -l <file>
 ~~~
 
 {% hsbox "Check this photo" %}
-![check ll](/img/post/linux/ll-user.png){:.img-full-80}
+![check ll](/img/post/linux/ll-user.png){:.img-full-100}
 {% endhsbox %}
 
 ## Matlab
@@ -392,12 +402,13 @@ from this, you can `sudo matlab`
 1. After the installation, copy file `license_standalone.lic` to `/home/thi/matlabR/licenses/`
 1. Copy file `libmwservices.so` to `/home/thi/matlabR/bin/glnxa64/`
 1. Try running matlab: `/home/thi/matlabR/bin/matlab`
-1. If you have an error like `libXt.so.6: cannot open shared object file: No such file or directory`, try to install
+2. If you have an error like,
 
     ``` bash
+		# ERR: libXt.so.6: cannot open shared object file: No such file or directory
     sudo apt-get install libxt6
     ```
-1. Make linux recognize your matlab command `matlab` like in the instruction 40.
+3. Make linux recognize your matlab command `matlab` like in the instruction 40.
 
 🔅 Make linux recognize matlab command
 
@@ -409,7 +420,11 @@ from this, you can `sudo matlab`
   ~~~
 - You can use `echo $PATH` to check if the path is located in it or not.
 
-🔅 Remove matlab on linux: simply `rm -rf <matlab-folder>`
+🔅 Remove matlab on linux: simply
+
+``` bash
+rm -rf <matlab-folder>
+```
 
 ## Network
 
@@ -573,17 +588,38 @@ mogrify -resize 1000x\> *
 
 ## Game
 
-🔅 Game platforms: Steam, [Lutris](https://lutris.net/).
+🔅 Game platforms: [Steam](https://store.steampowered.com/linux), [Lutris](https://lutris.net/).
 
 🔅 Xbox Controller on Ubuntu:
 
+::: col-2-equal
 ``` bash
 # for bluetooth recognize
 sudo apt-get install xboxdrv
+```
 
+``` bash
 # for GUI testing app
 sudo apt-get install jstest-gtk
 ```
+:::
+
+### Lutris tips
+
+🔅 Install GOG's games: Open Lutris > _Search Lutris.net_ > Install with option "GOG". Installed from GOG Galaxy may be not working but with this method is working!
+
+🔅 Add icon in the Lutris windows:
+
+1. CLick on "+" (Add Game)
+2. Tab **Game info**: "Name" the game + choose "Runner".
+3. Tab **Game options**: "Excutable" choose
+
+	``` bash
+	# an example
+	~/Games/epic-games-store/drive_c/Program Files/Epic Games/ShadowTactics/Shadow Tactics.exe
+	```
+
+🔅 Add icon on Ubuntu/POP!_OS launcher: on Lutris interface, right click on a game > "Create application menu shortcut", it will appear on the launcher after that. You can use "**alacarte**" (Main Menu, can be found in App Store).
 
 ## System
 

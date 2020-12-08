@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bash"
-tags: [Skills]
+tags: [Skills, Linux]
 toc: true
 icon: terminal.svg
 keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim editor download wget check ip permission administrator block compress file zip rar unzip RAM CPU printenv environmental variables alias quick command quick shortcut multiple commands and script bash print print tree folder files structure windows terminal sh file"

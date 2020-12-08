@@ -5,7 +5,7 @@ tags: [Data Science, Machine Learning, Deep Learning, Collection]
 toc: false
 icon: /img/cats/data-science.svg
 notfull: 1
-keywords: "graphviz data science tools dataframe huge data vaex"
+keywords: "graphviz data science tools dataframe huge data vaex linux app ubuntu pop os mac macos office online tools app applications pdf multi platform unix windows education chrome extension pluugin math"
 date: "2020-12-03"
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fresh Ubuntu / Pop!_OS Installation"
-tags: [Others, Fresh Installation]
+tags: [Others, Fresh Installation, Linux]
 toc: true
 icon: ubuntu.svg
 keywords: "to do list after installing ubuntu debian elementary os linux airpod bluetooth capture screen screen recorder guake xps k380 keyboard logitech pop os popos"
@@ -245,6 +245,7 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
     8.  [Stacer](https://oguzhaninan.github.io/Stacer-Web/) (optimizer system like Advanced System Care)
     9.  [Youtube Music](https://www.googleplaymusicdesktopplayer.com/)
     10. [Authenticator](https://flathub.org/apps/details/com.github.bilelmoussaoui.Authenticator)
+    11.  **alacarte** (Main Menu, can be found in App Store): change/add icon in launcher.
 4.  Swap function keyboards on [Logitech K380](https://www.logitech.com/en-us/product/multi-device-keyboard-k380), using [this tool](https://github.com/jergusg/k380-function-keys-conf) (try all keyboard hidraws if you are not sure!).
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "For me only"
-tags: [Others]
+tags: [Others, Static Site Generators, 11ty]
 toc: true
 icon: "/img/header/customize.svg"
 keywords: "for me only customize edit this site box font blocks"
