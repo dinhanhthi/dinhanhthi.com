@@ -9,7 +9,10 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 
 {% assign img-url = '/img/post/deploy/docker' %}
 
-👉 [Docker note](/docker).
+👉 [Note: Docker 101](/docker)
+👉 [Note: Wordpress Docker](/wordpress-docker)
+👉 [Note: Airflow + Kubernetes 101](/airflow-k8s-101)
+👉 [Note: Tensorflow extra](/tensorflow)
 
 ## WSL + Windows
 
