@@ -4,7 +4,7 @@
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
-    "build": "npm run js-build && eleventy",
+    "build": "npm run js-build && eleventy && echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\"",
     "build-old": "npm run js-build && eleventy && npm run test",
     "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
     "local-watch": "ELEVENTY_ENV=local concurrently \"eleventy --serve --quiet\" \"npm run js-build-watch\"",
