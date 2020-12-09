@@ -125,7 +125,7 @@ The benefits of using dual formulation are:<sup>[\[ref, slide 52\]](/files/ml//s
 - Number of free parameters is bounded by the number of support vectors and not by the number of variables
 (beneficial for high-dimensional problems).
 
-Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-toan-doi-ngau-cho-svm) (Vietnamese), [this slide](/files/ml//svm-without-tears.pdf) or [this post](/files/ml//Duality for the SVM.pdf).
+Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-toan-doi-ngau-cho-svm) (Vietnamese), [this slide](/files/ml//svm-without-tears.pdf) or [this post](/files/ml/Duality_for_the_SVM.pdf).
 
 {% endhsbox %}
 

@@ -31,7 +31,7 @@ So in our random forest, we end up with trees that are not only trained on diffe
 
 ## When we use Random Forest?
 
-- [Decision tree algorithms](/search?q=decision+tree) easily lead to [overfitting problems](/underfitting-overfitting). Random forest algorithm can overcome this.
+- _Decision tree algorithms_ easily lead to _overfitting problems_. Random forest algorithm can overcome this.
 - Capable of both regression and classification problems.
 - Handle a large number of features.
 - Estimating which features are important in the underlying data being modeled{% ref "http://blog.yhat.com/posts/random-forests-in-python.html" %}.
