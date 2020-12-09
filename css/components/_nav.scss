@@ -95,7 +95,8 @@ nav {
         background: $c-bg-nav;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
-        padding: 0 1rem;
+				padding: 0 1rem;
+				filter: drop-shadow(2px 4px 6px black);
 
         @media (max-width: $grid-md - 1px){
           position: fixed;
