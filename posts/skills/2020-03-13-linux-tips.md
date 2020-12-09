@@ -596,6 +596,15 @@ mogrify -resize 1000x\> *
 ``` bash
 # for bluetooth recognize
 sudo apt-get install xboxdrv
+
+# start the service
+sudo systemctl start xboxdrv.service
+
+# if: Failed to start xboxdrv.service: Unit xboxdrv.service not found
+# install
+sudo apt-add-repository -y ppa:rael-gc/ubuntu-xboxdrv
+sudo apt-get update
+sudo apt-get install ubuntu-xboxdrv
 ```
 
 ``` bash
@@ -603,6 +612,20 @@ sudo apt-get install xboxdrv
 sudo apt-get install jstest-gtk
 ```
 :::
+
+If you cannot connect controller to bluetooth,{% ref "https://askubuntu.com/questions/1038001/xbox-one-controller-ubuntu-18-04" %}
+
+``` bash
+sudo apt install sysfsutils
+
+# edit as root
+/etc/sysfs.conf
+
+# add below line to the end of above file
+/module/bluetooth/parameters/disable_ertm=1
+
+# save changes and restart
+```
 
 ### Lutris tips
 

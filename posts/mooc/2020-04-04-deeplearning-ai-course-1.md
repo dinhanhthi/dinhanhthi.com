@@ -21,7 +21,7 @@ If you want to break into cutting-edge AI, this course will help you do so.
 
 ## Activation functions
 
-Check [Comparison of activation functions](https://en.wikipedia.org/wiki/Activation_function#Comparison_of_activation_functions) on wikipedia.
+👉 Check [Comparison of activation functions](https://en.wikipedia.org/wiki/Activation_function#Comparison_of_activation_functions) on wikipedia.
 
 ### Why non-linear activation functions in NN Model?
 
