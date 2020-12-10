@@ -8,9 +8,14 @@
 			<img src="/img/nav/about.svg" alt="about" height="15" width="15">
 			<span>About</span>
 		</a>
-		<div class="nav-search">
+		<div id="navSearch" class="nav-search">
 			<form>
-				<input id="searchField" class="nav-search-input" type="search" onfocusout="outFocus()" onfocusin="inFocus(this)" placeholder="search notes..." aria-label="search notes...">
+				<input id="searchField"
+							 class="nav-search-input"
+							 type="search"
+							 onfocusin="inFocus(this)"
+							 placeholder="search notes..."
+							 aria-label="search notes...">
 			</form>
 			<div id="search-result" style="display: none;">
 				<ul id="searchResults"></ul>
@@ -29,17 +34,23 @@
 </nav>
 
 <script>
-// hide search div if lose focus
-function outFocus() {
-	var divRes = document.getElementById("search-result");
-	divRes.style.display = "none";
-}
+var divRes = document.getElementById("search-result");
 
 // show again if on focus
 function inFocus(x) {
 	if (x.value != ""){
-		var divRes = document.getElementById("search-result");
 		divRes.style.display = "block";
 	}
 }
+
+var isOnDiv = false;
+divRes.addEventListener("mouseover", function(  ) {isOnDiv=true;});
+divRes.addEventListener("mouseout", function(  ) {isOnDiv=false;});
+
+xx = document.getElementById("navSearch");
+xx.addEventListener('focusout', function() {
+  if (!isOnDiv) {
+		divRes.style.display = 'none';
+	}
+});
 </script>

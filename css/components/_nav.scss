@@ -63,7 +63,12 @@ nav {
     .nav-github {
       text-align: right;
       padding-right: 0 !important;
-      margin-right: 0 !important;
+			margin-right: 0 !important;
+			&:hover{
+				img{
+					filter: invert(0.4);
+				}
+			}
     }
 
     .nav-search {

@@ -878,6 +878,8 @@ nav {
       text-align: right;
       padding-right: 0 !important;
       margin-right: 0 !important; }
+      nav #nav .nav-github:hover img {
+        filter: invert(0.4); }
     nav #nav .nav-search {
       display: block;
       background-image: linear-gradient(to right, #3d4251, #3b3f4c, #393d46, #373a41, #35373c);
