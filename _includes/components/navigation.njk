@@ -46,11 +46,23 @@ function inFocus(x) {
 var isOnDiv = false;
 divRes.addEventListener("mouseover", function(  ) {isOnDiv=true;});
 divRes.addEventListener("mouseout", function(  ) {isOnDiv=false;});
+var iput = document.getElementById("searchField");
+var isTab = false;
+iput.addEventListener("keydown", event => {
+	if (event.keyCode === 9) {isTab = true} else {isTab = false};
+});
 
 xx = document.getElementById("navSearch");
 xx.addEventListener('focusout', function() {
-  if (!isOnDiv) {
+  if (!isOnDiv && !isTab) {
 		divRes.style.display = 'none';
 	}
+});
+
+window.addEventListener("click", function() {
+	divRes.style.display = 'none';
+});
+iput.addEventListener("click", e => {
+	e.stopPropagation();
 });
 </script>

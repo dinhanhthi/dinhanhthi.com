@@ -25,6 +25,7 @@ This note will always be updated.
 1. [Fontello](https://fontello.com/) -- make an icon as a font (there are also Awesomefont).
 2. [Wayback mahine](https://web.archive.org/) -- an internet archive (to check old/dead websites).
 3. [Happy Hues - Curated colors in context.](https://www.happyhues.co/palettes/17) -- Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
+4. [JavaScript Event KeyCodes](https://keycode.info/) -- get the keycode of any key when you press.
 
 ## Frameworks
 
