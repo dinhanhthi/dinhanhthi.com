@@ -251,6 +251,9 @@ nautilus -q # restart nautilus
 🔅 Mount iso file on linux
 
 ~~~ bash
+# create a folder
+mkdir /mnt/<folder>
+
 sudo mount -o loop <image>.iso /mnt/<folder>
 
 # unmount
