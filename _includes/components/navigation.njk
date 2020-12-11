@@ -38,31 +38,109 @@ var divRes = document.getElementById("search-result");
 
 // show again if on focus
 function inFocus(x) {
-	if (x.value != ""){
+	if (x.value != "") {
 		divRes.style.display = "block";
 	}
 }
 
 var isOnDiv = false;
-divRes.addEventListener("mouseover", function(  ) {isOnDiv=true;});
-divRes.addEventListener("mouseout", function(  ) {isOnDiv=false;});
+divRes.addEventListener("mouseover", function () {
+	isOnDiv = true;
+});
+divRes.addEventListener("mouseout", function () {
+	isOnDiv = false;
+});
 var iput = document.getElementById("searchField");
 var isTab = false;
 iput.addEventListener("keydown", event => {
-	if (event.keyCode === 9) {isTab = true} else {isTab = false};
+	if (event.keyCode === 9 || event.keyCode === 40 || event.keyCode === 38) {
+		isTab = true
+	} else {
+		isTab = false
+	};
 });
 
 xx = document.getElementById("navSearch");
-xx.addEventListener('focusout', function() {
-  if (!isOnDiv && !isTab) {
+xx.addEventListener('focusout', function () {
+	if (!isOnDiv && !isTab) {
 		divRes.style.display = 'none';
 	}
 });
 
-window.addEventListener("click", function() {
+window.addEventListener("click", function () {
 	divRes.style.display = 'none';
 });
 iput.addEventListener("click", e => {
 	e.stopPropagation();
 });
+
+// arrow trigger
+document.onkeydown = function (e) { // listen to keyboard events
+
+	check = document
+		.getElementById("navSearch")
+		.contains(document.activeElement);
+	if (check) {
+
+		if ([38, 40].indexOf(e.keyCode) > -1) { // prevent normal action of up/down
+			e.preventDefault();
+		}
+
+		var searchResults = document.getElementById('searchResults'); // targets the <ul>
+		var firstLi = searchResults.firstChild; // targets the first <li>
+		var lastLi = searchResults.lastChild; // last li
+
+		const rmSelected = () => { // remove class "selected" from all li
+			searchResults
+				.querySelectorAll("li")
+				.forEach((item) => {
+					item
+						.classList
+						.remove("selected");
+				});
+		}
+
+		const addSelected = (li) => { // add class "selected" to the focused li
+			li
+				.classList
+				.add("selected");
+		}
+
+		if (searchResults) {
+			switch (e.keyCode) {
+				case 38: // UP
+					ae = document.activeElement;
+					if (ae == (iput || firstLi) || ae == firstLi.firstChild.firstChild) {
+						c_li = lastLi;
+					} else {
+						c_li = ae.parentNode.parentNode;
+						c_li = c_li.previousSibling;
+					}
+					rmSelected();
+					addSelected(c_li);
+					c_li
+						.firstChild
+						.firstChild
+						.focus();
+					break;
+				case 40: // DOWN
+					ae = document.activeElement;
+					if (ae == iput || ae == lastLi.firstChild.firstChild) {
+						c_li = firstLi;
+					} else {
+						c_li = ae.parentNode.parentNode;
+						c_li = c_li.nextSibling;
+					}
+					rmSelected();
+					addSelected(c_li);
+					c_li
+						.firstChild
+						.firstChild
+						.focus();
+					break;
+			}
+		}
+
+	} // end if check
+}
 </script>

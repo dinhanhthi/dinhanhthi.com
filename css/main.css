@@ -905,7 +905,7 @@ nav {
         background: #35373c;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
-        padding: 0 1rem;
+        padding: 0;
         filter: drop-shadow(2px 4px 6px black); }
         @media (max-width: 767px) {
           nav #nav .nav-search #search-result {
@@ -914,25 +914,36 @@ nav {
             right: 0;
             border-radius: 0; } }
         nav #nav .nav-search #search-result ul#searchResults {
-          padding: 0 0 0 20px; }
-          nav #nav .nav-search #search-result ul#searchResults li h3 {
-            margin-bottom: 5px; }
-            nav #nav .nav-search #search-result ul#searchResults li h3 a {
-              color: #efb232;
-              white-space: inherit;
-              padding: 0;
+          padding: 0;
+          margin: 0;
+          list-style: none; }
+          nav #nav .nav-search #search-result ul#searchResults li {
+            padding: 10px 10px 10px 25px; }
+            nav #nav .nav-search #search-result ul#searchResults li h3 {
+              margin: 0; }
+              nav #nav .nav-search #search-result ul#searchResults li h3 a {
+                color: #efb232;
+                white-space: inherit;
+                padding: 0;
+                text-align: left;
+                font-weight: normal;
+                font-size: 16.5px;
+                font-family: "Poppins", Arial, Helvetica, sans-serif;
+                line-height: 1.4; }
+                nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
+                  border-bottom: none;
+                  color: #8cc8ff; }
+            nav #nav .nav-search #search-result ul#searchResults li p {
               text-align: left;
-              font-weight: normal;
-              font-size: 16.5px;
-              font-family: "Poppins", Arial, Helvetica, sans-serif;
+              margin: 0;
               line-height: 1.4; }
-              nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
-                border-bottom: none;
-                color: #8cc8ff; }
-          nav #nav .nav-search #search-result ul#searchResults li p {
-            text-align: left;
-            margin-top: 0;
-            line-height: 1.4; }
+            nav #nav .nav-search #search-result ul#searchResults li.selected {
+              background: #282a36; }
+              nav #nav .nav-search #search-result ul#searchResults li.selected::before {
+                content: "⏎";
+                float: left;
+                color: #8cc8ff;
+                margin-left: -20px; }
         nav #nav .nav-search #search-result #noResultsFound p {
           text-align: left; }
 
