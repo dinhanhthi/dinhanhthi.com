@@ -14,8 +14,8 @@
 							 class="nav-search-input"
 							 type="search"
 							 onfocusin="inFocus(this)"
-							 placeholder="search notes..."
-							 aria-label="search notes...">
+							 placeholder='search notes (type "/" to focus)...'
+							 aria-label='search notes (type "/" to focus)...'>
 			</form>
 			<div id="search-result" style="display: none;">
 				<ul id="searchResults"></ul>
@@ -35,6 +35,7 @@
 
 <script>
 var divRes = document.getElementById("search-result");
+var ul_rs = document.getElementById('searchResults'); // targets the <ul>
 
 // show again if on focus
 function inFocus(x) {
@@ -43,6 +44,7 @@ function inFocus(x) {
 	}
 }
 
+// lose focus from input but don't close divRes when mouse hover on it
 var isOnDiv = false;
 divRes.addEventListener("mouseover", function () {
 	isOnDiv = true;
@@ -60,85 +62,91 @@ iput.addEventListener("keydown", event => {
 	};
 });
 
-xx = document.getElementById("navSearch");
-xx.addEventListener('focusout', function () {
-	if (!isOnDiv && !isTab) {
+window.addEventListener("click", function () {
+	// check if there is any result?
+	var has_result = ul_rs.getElementsByTagName('li').length >= 1;
+	// check if this click is inside navSearch?
+	var check = document.getElementById("navSearch").contains(document.activeElement);
+	if (!has_result || !isOnDiv) {
 		divRes.style.display = 'none';
 	}
-});
-
-window.addEventListener("click", function () {
-	divRes.style.display = 'none';
 });
 iput.addEventListener("click", e => {
 	e.stopPropagation();
 });
 
+const addSelected = (ae) => {
+	ul_rs // remove class "selected" from all li
+		.querySelectorAll("li")
+		.forEach((item) => {
+			item
+				.classList
+				.remove("selected");
+		});
+	c_li = ae.parentNode.parentNode; // select the focused li
+	c_li // add class "selected" to the focused li
+		.classList
+		.add("selected");
+}
+
 // arrow trigger
 document.onkeydown = function (e) { // listen to keyboard events
+
+	// press "/" to focus to input
+	check_in_iput = document.activeElement == iput;
+	if (e.keyCode === 191 && !check_in_iput) {
+		e.stopPropagation();
+		e.preventDefault();
+		iput.focus();
+	}
 
 	check = document
 		.getElementById("navSearch")
 		.contains(document.activeElement);
-	if (check) {
+
+	// check if there is any result?
+	has_result = ul_rs.getElementsByTagName('li').length >= 1;
+
+	if (check && has_result) {
 
 		if ([38, 40].indexOf(e.keyCode) > -1) { // prevent normal action of up/down
 			e.preventDefault();
 		}
 
-		var searchResults = document.getElementById('searchResults'); // targets the <ul>
-		var firstLi = searchResults.firstChild; // targets the first <li>
-		var lastLi = searchResults.lastChild; // last li
+		var firstLi = ul_rs.firstChild; // targets the first <li>
+		var lastLi = ul_rs.lastChild; // last li
 
-		const rmSelected = () => { // remove class "selected" from all li
-			searchResults
-				.querySelectorAll("li")
-				.forEach((item) => {
-					item
-						.classList
-						.remove("selected");
-				});
-		}
-
-		const addSelected = (li) => { // add class "selected" to the focused li
-			li
-				.classList
-				.add("selected");
-		}
-
-		if (searchResults) {
-			switch (e.keyCode) {
-				case 38: // UP
-					ae = document.activeElement;
-					if (ae == (iput || firstLi) || ae == firstLi.firstChild.firstChild) {
-						c_li = lastLi;
-					} else {
-						c_li = ae.parentNode.parentNode;
-						c_li = c_li.previousSibling;
-					}
-					rmSelected();
-					addSelected(c_li);
-					c_li
-						.firstChild
-						.firstChild
-						.focus();
-					break;
-				case 40: // DOWN
-					ae = document.activeElement;
-					if (ae == iput || ae == lastLi.firstChild.firstChild) {
-						c_li = firstLi;
-					} else {
-						c_li = ae.parentNode.parentNode;
-						c_li = c_li.nextSibling;
-					}
-					rmSelected();
-					addSelected(c_li);
-					c_li
-						.firstChild
-						.firstChild
-						.focus();
-					break;
-			}
+		switch (e.keyCode) {
+			case 38: // UP
+				ae = document.activeElement;
+				if (ae == (iput || firstLi) || ae == firstLi.firstChild.firstChild) {
+					c_li = lastLi;
+				} else {
+					c_li = ae.parentNode.parentNode;
+					c_li = c_li.previousSibling;
+				}
+				c_li
+					.firstChild
+					.firstChild
+					.focus();
+				ae = document.activeElement;
+				addSelected(ae);
+				break;
+			case 40: // DOWN
+				ae = document.activeElement;
+				if (ae == iput || ae == lastLi.firstChild.firstChild) {
+					c_li = firstLi;
+				} else {
+					c_li = ae.parentNode.parentNode;
+					c_li = c_li.nextSibling;
+				}
+				c_li
+					.firstChild
+					.firstChild
+					.focus();
+				ae = document.activeElement;
+				addSelected(ae);
+				break;
 		}
 
 	} // end if check

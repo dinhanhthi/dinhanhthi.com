@@ -944,8 +944,10 @@ nav {
                 float: left;
                 color: #8cc8ff;
                 margin-left: -20px; }
-        nav #nav .nav-search #search-result #noResultsFound p {
-          text-align: left; }
+        nav #nav .nav-search #search-result #noResultsFound {
+          padding: 0 10px; }
+          nav #nav .nav-search #search-result #noResultsFound p {
+            text-align: left; }
 
 /*! purgecss end ignore */
 footer {
