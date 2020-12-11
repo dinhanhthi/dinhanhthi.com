@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Useful tools for DS & ML"
-tags: [Data Science, Machine Learning, Deep Learning, Collection]
+tags: [Data Science, Machine Learning, Deep Learning, Collection, Linux]
 toc: false
 icon: /img/cats/data-science.svg
 notfull: 1
