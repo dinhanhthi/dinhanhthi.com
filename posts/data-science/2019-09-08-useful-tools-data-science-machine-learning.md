@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Useful tools for DS & ML"
+title: "DS & ML tools & bookmarks"
 tags: [Data Science, Machine Learning, Deep Learning, Collection, Linux]
 toc: false
 icon: /img/cats/data-science.svg

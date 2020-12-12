@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Web Dev tools"
+title: "Web Dev tools & bookmarks"
 tags: [Web Dev, Collection, JavaScript]
 icon: "/img/cats/web-dev.svg"
-keywords: "html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application framework js java script"
+keywords: "html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application framework js java script bookmarks"
 date: "2020-12-03"
 ---
 
@@ -37,3 +37,9 @@ This note will always be updated.
 1. [Stage.js](https://piqnt.com/stage.js/) -- 2D JavaScript library for cross-platform HTML5 game development.
 1. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
 2. [Quill](https://quilljs.com/) -- Your powerful rich text editor.
+
+## Bookmarks
+
+### Learning & Coding platforms
+
+1. [The Odin Project](https://www.theodinproject.com/) -- A full stack curriculum is free and supported by a passionate open source community.
