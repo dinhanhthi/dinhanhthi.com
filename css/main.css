@@ -887,17 +887,17 @@ nav {
       position: relative; }
       nav #nav .nav-search form {
         display: flex; }
-      nav #nav .nav-search .nav-search-input {
+      nav #nav .nav-search .nav-search__input {
         border: 0;
         background: transparent;
         color: #ddd;
         font-size: 1.05rem;
         padding: 0.65rem 0.5rem;
         width: 100%; }
-        nav #nav .nav-search .nav-search-input:focus {
+        nav #nav .nav-search .nav-search__input:focus {
           outline: none;
           border: 0; }
-      nav #nav .nav-search #search-result {
+      nav #nav .nav-search #nav-search__result-container {
         position: absolute;
         max-height: 80vh;
         overflow: auto;
@@ -908,20 +908,20 @@ nav {
         padding: 0;
         filter: drop-shadow(2px 4px 6px black); }
         @media (max-width: 767px) {
-          nav #nav .nav-search #search-result {
+          nav #nav .nav-search #nav-search__result-container {
             position: fixed;
             left: 0;
             right: 0;
             border-radius: 0; } }
-        nav #nav .nav-search #search-result ul#searchResults {
+        nav #nav .nav-search #nav-search__result-container ul#nav-search__ul {
           padding: 0;
           margin: 0;
           list-style: none; }
-          nav #nav .nav-search #search-result ul#searchResults li {
+          nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li {
             padding: 10px 10px 10px 25px; }
-            nav #nav .nav-search #search-result ul#searchResults li h3 {
+            nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li h3 {
               margin: 0; }
-              nav #nav .nav-search #search-result ul#searchResults li h3 a {
+              nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li h3 a {
                 color: #efb232;
                 white-space: inherit;
                 padding: 0;
@@ -930,23 +930,23 @@ nav {
                 font-size: 16.5px;
                 font-family: "Poppins", Arial, Helvetica, sans-serif;
                 line-height: 1.4; }
-                nav #nav .nav-search #search-result ul#searchResults li h3 a:hover {
+                nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li h3 a:hover {
                   border-bottom: none;
                   color: #8cc8ff; }
-            nav #nav .nav-search #search-result ul#searchResults li p {
+            nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li p {
               text-align: left;
               margin: 0;
               line-height: 1.4; }
-            nav #nav .nav-search #search-result ul#searchResults li.selected {
+            nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li.selected {
               background: #282a36; }
-              nav #nav .nav-search #search-result ul#searchResults li.selected::before {
+              nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li.selected::before {
                 content: "⏎";
                 float: left;
                 color: #8cc8ff;
                 margin-left: -20px; }
-        nav #nav .nav-search #search-result #noResultsFound {
+        nav #nav .nav-search #nav-search__result-container #nav-search__no-result {
           padding: 0 10px; }
-          nav #nav .nav-search #search-result #noResultsFound p {
+          nav #nav .nav-search #nav-search__result-container #nav-search__no-result p {
             text-align: left; }
 
 /*! purgecss end ignore */

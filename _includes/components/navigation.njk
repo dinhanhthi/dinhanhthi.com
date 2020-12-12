@@ -8,18 +8,18 @@
 			<img src="/img/nav/about.svg" alt="about" height="15" width="15">
 			<span>About</span>
 		</a>
-		<div id="navSearch" class="nav-search">
+		<div id="nav-search" class="nav-search">
 			<form>
-				<input id="searchField"
-							 class="nav-search-input"
+				<input id="nav-search__input"
+							 class="nav-search__input"
 							 type="search"
 							 onfocusin="inFocus(this)"
 							 placeholder='search notes (type "/" to focus)...'
 							 aria-label='search notes (type "/" to focus)...'>
 			</form>
-			<div id="search-result" style="display: none;">
-				<ul id="searchResults"></ul>
-				<div id="noResultsFound" style="display: none;">
+			<div id="nav-search__result-container" style="display: none;">
+				<ul id="nav-search__ul"></ul>
+				<div id="nav-search__no-result" style="display: none;">
 					<p>No results found.</p>
 				</div>
 			</div>
@@ -34,8 +34,8 @@
 </nav>
 
 <script>
-var divRes = document.getElementById("search-result");
-var ul_rs = document.getElementById('searchResults'); // targets the <ul>
+var divRes = document.getElementById("nav-search__result-container");
+var ul_rs = document.getElementById('nav-search__ul'); // targets the <ul>
 
 // show again if on focus
 function inFocus(x) {
@@ -52,7 +52,7 @@ divRes.addEventListener("mouseover", function () {
 divRes.addEventListener("mouseout", function () {
 	isOnDiv = false;
 });
-var iput = document.getElementById("searchField");
+var iput = document.getElementById("nav-search__input");
 var isTab = false;
 iput.addEventListener("keydown", event => {
 	if (event.keyCode === 9 || event.keyCode === 40 || event.keyCode === 38) {
@@ -65,8 +65,8 @@ iput.addEventListener("keydown", event => {
 window.addEventListener("click", function () {
 	// check if there is any result?
 	var has_result = ul_rs.getElementsByTagName('li').length >= 1;
-	// check if this click is inside navSearch?
-	var check = document.getElementById("navSearch").contains(document.activeElement);
+	// check if this click is inside nav-search?
+	var check = document.getElementById("nav-search").contains(document.activeElement);
 	if (!has_result || !isOnDiv) {
 		divRes.style.display = 'none';
 	}
@@ -101,7 +101,7 @@ document.onkeydown = function (e) { // listen to keyboard events
 	}
 
 	check = document
-		.getElementById("navSearch")
+		.getElementById("nav-search")
 		.contains(document.activeElement);
 
 	// check if there is any result?

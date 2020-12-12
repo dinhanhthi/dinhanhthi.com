@@ -79,7 +79,7 @@ nav {
 			form {
 				display: flex;
 			}
-			.nav-search-input {
+			.nav-search__input {
 				border: 0;
 				background: transparent;
 				color: #ddd;
@@ -92,7 +92,7 @@ nav {
 				}
 			}
 
-			#search-result {
+			#nav-search__result-container {
 				position: absolute;
 				max-height: 80vh;
 				overflow: auto;
@@ -110,7 +110,7 @@ nav {
 					border-radius: 0;
 				}
 
-				ul#searchResults {
+				ul#nav-search__ul {
 					padding: 0;
 					margin: 0;
 					list-style: none;
@@ -149,7 +149,7 @@ nav {
 						}
 					}
 				}
-				#noResultsFound {
+				#nav-search__no-result {
 					padding: 0 10px;
 					p {
 						text-align: left;

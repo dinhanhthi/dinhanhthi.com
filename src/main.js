@@ -292,9 +292,9 @@ const addSelected2 = (ul_rs, ae) => {
 		var regEx = new RegExp(kw, "ig");
 		var ae;
 
-		const divRes = document.getElementById("search-result"); // div (ul's father)
-		const ul_rs = document.getElementById("searchResults"); // ul
-		const noResultsEl = document.getElementById("noResultsFound");
+		const divRes = document.getElementById("nav-search__result-container"); // div (ul's father)
+		const ul_rs = document.getElementById("nav-search__ul"); // ul
+		const noResultsEl = document.getElementById("nav-search__no-result");
 
 		ul_rs.innerHTML = "";
 		if (kw != "") {
@@ -357,7 +357,7 @@ const addSelected2 = (ul_rs, ae) => {
 	fetch("/pages/search-index.json").then((response) =>
 		response.json().then((rawIndex) => {
 			window.searchIndex = elasticlunr.Index.load(rawIndex);
-			document.getElementById("searchField").addEventListener("input", search);
+			document.getElementById("nav-search__input").addEventListener("input", search);
 		})
 	);
 })(window, document);
