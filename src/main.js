@@ -264,9 +264,8 @@ window.addEventListener('click', (ev) => {
 
 // elasticlunr
 // -----------------------------------------
-
-const addSelected2 = (ul_rs, ae) => {
-	ul_rs // remove class "selected" from all li
+const addSelected2 = (ulResult, ae) => {
+	ulResult // remove class "selected" from all li
 		.querySelectorAll("li")
 		.forEach((item) => {
 			item
@@ -293,18 +292,18 @@ const addSelected2 = (ul_rs, ae) => {
 		var ae;
 
 		const divRes = document.getElementById("nav-search__result-container"); // div (ul's father)
-		const ul_rs = document.getElementById("nav-search__ul"); // ul
-		const noResultsEl = document.getElementById("nav-search__no-result");
+		const ulRes = document.getElementById("nav-search__ul"); // ul
+		const noResEl = document.getElementById("nav-search__no-result");
 
-		ul_rs.innerHTML = "";
+		ulRes.innerHTML = "";
 		if (kw != "") {
 			divRes.style.display = "block";
 			if (results != "") { // if there is result
-				noResultsEl.style.display = "none";
+				noResEl.style.display = "none";
 				results.map((r) => {
 					var { id, title, keywords } = r.doc;
 					const el = document.createElement("li");
-					ul_rs.appendChild(el);
+					ulRes.appendChild(el);
 
 					const h3 = document.createElement("h3");
 					el.appendChild(h3);
@@ -337,16 +336,16 @@ const addSelected2 = (ul_rs, ae) => {
 				});
 
 				// mouse hover trigger for li
-				ul_rs.querySelectorAll("li").forEach((item) => {
+				ulRes.querySelectorAll("li").forEach((item) => {
 					item.addEventListener("mouseenter", () => {
 						item.firstChild.firstChild.focus(); // focus on the hovered li
 						ae = document.activeElement;
-						addSelected2(ul_rs, ae);
+						addSelected2(ulRes, ae);
 					}, false);
 				});
 
 			} else {
-				noResultsEl.style.display = "block";
+				noResEl.style.display = "block";
 			}
 		} else {
 			divRes.style.display = "none";
