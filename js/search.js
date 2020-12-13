@@ -44,7 +44,7 @@ const addSelected = (li) => {
 	ulRes.querySelectorAll("li").forEach((item) => {
 			item.classList.remove("selected");
 		});
-	// add class "selected" to the focused li
+	// add class "selected" to the current li
 	li.classList.add("selected");
 }
 
@@ -63,17 +63,14 @@ var isInView = (selectedLi, divRes) => {
 }
 
 const updateScroll = (selectedLi, divRes) => {
-
 	// below
 	if (selectedLi.offsetTop + selectedLi.offsetHeight - divRes.scrollTop > divRes.offsetHeight) {
 		divRes.scrollTop = selectedLi.offsetTop + selectedLi.offsetHeight - divRes.offsetHeight;
 	}
-
 	// above
 	if (selectedLi.offsetTop < divRes.scrollTop) {
 		divRes.scrollTop = selectedLi.offsetTop;
 	}
-
 	return;
 }
 
@@ -88,6 +85,16 @@ document.onkeydown = (e) => {
 		inputSearch.focus();
 	}
 };
+
+// prevent default Enter + go to selected li's a
+inputSearch.onkeydown = (e) => {
+	if (e.key === "Enter") {
+		e.stopPropagation();
+		e.preventDefault();
+		var selectedLi = ulRes.querySelector('li[class*="selected"]');
+		window.location.href = selectedLi.firstChild.firstChild.href;
+	}
+}
 
 divNavSearch.onkeydown = (e) => {
 	// check if there is any result?

@@ -264,18 +264,14 @@ window.addEventListener('click', (ev) => {
 
 // elasticlunr
 // -----------------------------------------
-const addSelected2 = (ulResult, ae) => {
-	ulResult // remove class "selected" from all li
-		.querySelectorAll("li")
-		.forEach((item) => {
-			item
-				.classList
-				.remove("selected");
+// add .selected to current li
+const addSelected2 = (ulRes, li) => {
+	// remove class "selected" from all li
+	ulRes.querySelectorAll("li").forEach((item) => {
+			item.classList.remove("selected");
 		});
-	var c_li = ae.parentNode.parentNode; // select the focused li
-	c_li // add class "selected" to the focused li
-		.classList
-		.add("selected");
+	// add class "selected" to the current li
+	li.classList.add("selected");
 }
 
 (function (window, document) {
@@ -337,10 +333,8 @@ const addSelected2 = (ulResult, ae) => {
 
 				// mouse hover trigger for li
 				ulRes.querySelectorAll("li").forEach((item) => {
-					item.addEventListener("mouseenter", () => {
-						item.firstChild.firstChild.focus(); // focus on the hovered li
-						ae = document.activeElement;
-						addSelected2(ulRes, ae);
+					item.addEventListener("mousemove", () => {
+						addSelected2(ulRes, item);
 					}, false);
 				});
 
