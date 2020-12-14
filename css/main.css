@@ -948,7 +948,8 @@ nav {
                   margin: 0;
                   white-space: nowrap;
                   overflow: hidden;
-                  text-overflow: ellipsis; }
+                  text-overflow: ellipsis;
+                  display: block; }
                   nav #nav .nav-search #nav-search__result-container ul#nav-search__ul li .item__content h3 a:hover {
                     border-bottom: none;
                     color: #8cc8ff; }
@@ -972,7 +973,7 @@ nav {
           nav #nav .nav-search #nav-search__result-container ul#nav-search__ul mark {
             background: none;
             color: inherit;
-            border-bottom: 1px solid #cd8aff !important; }
+            box-shadow: inset 0 -3px 0 0 #cd8aff !important; }
         nav #nav .nav-search #nav-search__result-container #nav-search__no-result {
           padding: 0 10px; }
           nav #nav .nav-search #nav-search__result-container #nav-search__no-result p {
