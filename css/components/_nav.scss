@@ -122,9 +122,6 @@ nav {
 						overflow: hidden;
 						.item__icon{
 							width: 20px;
-							img{
-								filter: grayscale(1);
-							}
 						}
 						.item__content{
 							padding: 0 10px;
@@ -171,9 +168,6 @@ nav {
 						}
 						&.selected {
 							background: $c-background;
-							.item__icon img{
-								filter: grayscale(0);
-							}
 							.enter{
 								display: block;
 							}

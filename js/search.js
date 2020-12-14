@@ -76,11 +76,6 @@ document.onkeydown = (e) => {
 		e.preventDefault();
 		inputSearch.focus();
 	}
-
-	// Tab out of focused on div Search
-	// if (e.key === "Tab" && !(divNavSearch.contains(document.activeElement))){
-	// 	divRes.style.display = 'none';
-	// }
 };
 
 document.addEventListener("focusin", e => {
@@ -95,7 +90,7 @@ inputSearch.onkeydown = (e) => {
 		e.stopPropagation();
 		e.preventDefault();
 		var selectedLi = ulRes.querySelector('li[class*="selected"]');
-		window.location.href = selectedLi.firstChild.firstChild.href;
+		window.location.href = selectedLi.getElementsByClassName("item__content")[0].firstChild.firstChild.href;
 	}
 
 	// release
