@@ -17,6 +17,8 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
+const catIcon = require("./_data/cat_icon.json"); // icon for categoris, used in search bar
+
 module.exports = {
   environment: process.env.ELEVENTY_ENV
 };
@@ -155,7 +157,8 @@ module.exports = function (eleventyConfig) {
         "id": page.url,
         "title": page.data.title,
         "keywords": page.data.keywords,
-        "tags": page.data.tags,
+				"tags": page.data.tags,
+				"cat": catIcon[page.data.tags[1]].svg
       });
     });
     return index.toJSON();

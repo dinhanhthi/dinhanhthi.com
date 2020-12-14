@@ -1,94 +1,78 @@
 [
    {
       "name": "Project-based Learning",
-      "icon": "fas fa-project-diagram",
       "color": "#e97c8e",
       "svg": "/img/cats/project.svg"
    },
    {
       "name": "MOOC",
-      "icon": "fas fa-laptop-code",
       "color": "#fdcb6e",
       "svg": "/img/cats/mooc.svg"
    },
    {
       "name": "Machine Learning",
-      "icon": "fas fa-robot",
       "color": "#84f9ff",
       "svg": "/img/cats/ml.svg"
    },
    {
       "name": "Data Science",
-      "icon": "fas fa-database",
       "color": "#b5ffb5",
       "svg": "/img/cats/data-science.svg"
    },
    {
       "name": "Deep Learning",
-      "icon": "fas fa-brain",
       "color": "#fde193",
       "svg": "/img/cats/dl.svg"
    },
    {
       "name": "Time Series",
-      "icon": "fas fa-hourglass-end",
       "color": "#81ecec",
       "svg": "/img/cats/ts.svg"
    },
    {
       "name": "NLP",
-      "icon": "fas fa-language",
       "color": "#eac1ea",
       "svg": "/img/cats/nlp.svg"
    },
    {
       "name": "MLOps",
-      "icon": "fas fa-rocket",
       "color": "#a0ffa0",
       "svg": "/img/cats/mlops.svg"
    },
    {
       "name": "Python",
-      "icon": "fab fa-python",
       "color": "#a0ffa0",
       "svg": "/img/cats/python.svg"
    },
    {
       "name": "R Lang",
-      "icon": "fab fa-r-project",
       "color": "#80beff",
       "svg": "/img/cats/r.svg"
    },
    {
       "name": "Prob & Stats",
-      "icon": "far fa-chart-bar",
       "color": "#daff9f",
       "svg": "/img/cats/stats.svg"
    },
    {
       "name": "JavaScript",
-      "icon": "fab fa-js-square",
       "svg": "/img/cats/js.svg"
    },
    {
       "name": "Web Dev",
-      "icon": "fab fa-html5",
       "svg": "/img/cats/web-dev.svg"
    },
    {
       "name": "Algorithms",
-      "icon": "fas fa-puzzle-piece",
       "svg": "/img/cats/algo.svg"
    },
    {
       "name": "Skills",
-      "icon": "fas fa-code-branch",
       "color": "#fda798",
       "svg": "/img/cats/skills.svg"
    },
    {
       "name": "Others",
-      "icon": "fas fa-ghost",
       "color": "#00cec9",
       "svg": "/img/cats/others.svg"
    }

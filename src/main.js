@@ -297,13 +297,24 @@ const addSelected2 = (ulRes, li) => {
 			if (results != "") { // if there is result
 				noResEl.style.display = "none";
 				results.map((r) => {
-					var { id, title, keywords } = r.doc;
+					var { id, title, keywords, cat } = r.doc;
+
 					const el = document.createElement("li");
 					ulRes.appendChild(el);
 
-					const h3 = document.createElement("h3");
-					el.appendChild(h3);
+					const divIcon = document.createElement("div");
+					divIcon.setAttribute("class", "item__icon");
+					el.appendChild(divIcon);
+					const divIcon__img = document.createElement("img");
+					divIcon__img.setAttribute("src", cat);
+					divIcon.appendChild(divIcon__img);
 
+					const divContent = document.createElement("div");
+					divContent.setAttribute("class", "item__content");
+					el.appendChild(divContent);
+
+					const h3 = document.createElement("h3");
+					divContent.appendChild(h3);
 					const a = document.createElement("a");
 					a.setAttribute("href", id);
 					if (title && kw) {
@@ -320,15 +331,26 @@ const addSelected2 = (ulRes, li) => {
 					if (keywords && kw) {
 						if (keywords.toLowerCase().includes(kw.toLowerCase())) {
 							keywords = keywords.replace(regEx, function (x) {
-								return '<mark>' + x + '</mark>';
+								return ' <mark>' + x + '</mark>';
 							});
 						}
-						if (keywords.length > 500) {
-							keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 1, keywords.indexOf("<mark>") + kw.length + 15) + "..."
+						if (keywords.indexOf("<mark>") > 10){
+							keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
 						}
+						// if (keywords.length > 500) {
+						// 	keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
+						// }
 					}
 					p.innerHTML = keywords;
-					el.appendChild(p);
+					divContent.appendChild(p);
+
+					const enter = document.createElement("div");
+					enter.setAttribute("class", "enter");
+					el.appendChild(enter);
+					const enter__img = document.createElement("img");
+					enter__img.setAttribute("src", "/img/nav/enter.svg");
+					enter.appendChild(enter__img);
+
 				});
 
 				// mouse hover trigger for li

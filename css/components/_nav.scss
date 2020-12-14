@@ -115,42 +115,73 @@ nav {
 					margin: 0;
 					list-style: none;
 					li {
-						padding: 10px 10px 10px 25px;
-						h3 {
-							margin: 0;
-							a {
-								color: #efb232;
-								white-space: inherit;
-								padding: 0;
-								text-align: left;
-								font-weight: normal;
-								font-size: $font-size;
-								font-family: $font-main;
-								line-height: 1.4;
-								&:hover {
-									border-bottom: none;
-									color: $c-blue;
-								}
+						display: flex;
+						padding: 10px;
+						align-items: center;
+						justify-content: space-between;
+						overflow: hidden;
+						.item__icon{
+							width: 20px;
+							img{
+								filter: grayscale(1);
 							}
 						}
-						p {
-							text-align: left;
-							margin: 0;
-							line-height: 1.4;
+						.item__content{
+							padding: 0 10px;
+							width: 100%;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							h3 {
+								margin: 0;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								a {
+									color: #efb232;
+									white-space: inherit;
+									padding: 0;
+									text-align: left;
+									font-weight: normal;
+									font-size: $font-size;
+									line-height: 1.5;
+									margin: 0;
+									white-space: nowrap;
+									overflow: hidden;
+									text-overflow: ellipsis;
+									&:hover {
+										border-bottom: none;
+										color: $c-blue;
+									}
+								}
+							}
+							p {
+								text-align: left;
+								margin: 0;
+								line-height: 1.5;
+								font-size: 0.95rem;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+						}
+						.enter {
+							width: 20px;
+							display: none;
 						}
 						&.selected {
 							background: $c-background;
-							&::before {
-								content: "⏎";
-								float: left;
-								color: $c-blue;
-								margin-left: -20px;
+							.item__icon img{
+								filter: grayscale(0);
+							}
+							.enter{
+								display: block;
 							}
 						}
 					}
 					mark{
 						background: none;
-						color: #cd8aff;
+						color: inherit;
+						border-bottom: 1px solid #cd8aff!important;
 					}
 				}
 				#nav-search__no-result {

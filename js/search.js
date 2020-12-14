@@ -94,6 +94,12 @@ inputSearch.onkeydown = (e) => {
 		var selectedLi = ulRes.querySelector('li[class*="selected"]');
 		window.location.href = selectedLi.firstChild.firstChild.href;
 	}
+
+	// release
+	if (e.key === "Escape") {
+		divRes.style.display = 'none';
+		inputSearch.blur();
+	}
 }
 
 divNavSearch.onkeydown = (e) => {

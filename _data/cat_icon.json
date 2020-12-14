@@ -1,0 +1,50 @@
+{
+	"Project-based Learning": {
+		"svg": "/img/cats/project.svg"
+	},
+	"MOOC": {
+		"svg": "/img/cats/mooc.svg"
+	},
+	"Machine Learning": {
+		"svg": "/img/cats/ml.svg"
+	},
+	"Data Science": {
+		"svg": "/img/cats/data-science.svg"
+	},
+	"Deep Learning": {
+		"svg": "/img/cats/dl.svg"
+	},
+	"Time Series": {
+		"svg": "/img/cats/ts.svg"
+	},
+	"NLP": {
+		"svg": "/img/cats/nlp.svg"
+	},
+	"MLOps": {
+		"svg": "/img/cats/mlops.svg"
+	},
+	"Python": {
+		"svg": "/img/cats/python.svg"
+	},
+	"R Lang": {
+		"svg": "/img/cats/r.svg"
+	},
+	"Prob & Stats": {
+		"svg": "/img/cats/stats.svg"
+	},
+	"JavaScript": {
+		"svg": "/img/cats/js.svg"
+	},
+	"Web Dev": {
+		"svg": "/img/cats/web-dev.svg"
+	},
+	"Algorithms": {
+		"svg": "/img/cats/algo.svg"
+	},
+	"Skills": {
+		"svg": "/img/cats/skills.svg"
+	},
+	"Others": {
+		"svg": "/img/cats/others.svg"
+	}
+}
