@@ -325,6 +325,22 @@ source ~/.profile
 
 🔅 Check the current path: `pwd`
 
+### Connect to iOS / iPhone / iPad
+
+``` bash
+# Install
+sudo apt install libimobiledevice6 ifuse libimobiledevice-utils ideviceinstaller
+
+# Connect iDevice to computer with usb
+idevicepair pair # Trust on iDevice and then rerun this
+
+sudo mkdir /media/$USER/ipad
+sudo chown -R $USER /media/$USER/ipad
+ifuse /media/$USER/ipad
+
+# Check File Manager and see ipad!
+```
+
 ## Surface
 
 🔅 Tweaks for ubuntu on surface book ⇾ [link](https://medium.com/@viettrungdang/tweaks-for-ubuntu-on-surface-book-cd05cdb8f378)
