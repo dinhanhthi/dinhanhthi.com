@@ -358,6 +358,13 @@ const addSelected2 = (ulRes, li) => {
 					item.addEventListener("mousemove", () => {
 						addSelected2(ulRes, item);
 					}, false);
+
+					// if <a> focused by a Tab key
+					item
+						.getElementsByClassName("item__content")[0]
+						.firstChild.firstChild.addEventListener("focus", () => {
+							addSelected2(ulRes, item);
+						}, false);
 				});
 
 			} else {

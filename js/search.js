@@ -18,14 +18,6 @@ divRes.addEventListener("mouseout", function () {
 	isOnDiv = false;
 });
 var inputSearch = document.getElementById("nav-search__input");
-var isTab = false;
-inputSearch.addEventListener("keydown", event => {
-	if (event.key === "Tab" || event.key === "ArrowUp" || event.key === "ArrowDown") {
-		isTab = true
-	} else {
-		isTab = false
-	};
-});
 
 window.addEventListener("click", function () {
 	// check if there is any result?
@@ -84,7 +76,18 @@ document.onkeydown = (e) => {
 		e.preventDefault();
 		inputSearch.focus();
 	}
+
+	// Tab out of focused on div Search
+	// if (e.key === "Tab" && !(divNavSearch.contains(document.activeElement))){
+	// 	divRes.style.display = 'none';
+	// }
 };
+
+document.addEventListener("focusin", e => {
+	if (!divNavSearch.contains(e.target)) {
+		divRes.style.display = 'none';
+	}
+})
 
 // prevent default Enter + go to selected li's a
 inputSearch.onkeydown = (e) => {
