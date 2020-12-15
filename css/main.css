@@ -831,14 +831,20 @@ nav {
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 0 1.5em;
+  padding: 0 1.5rem;
   background: #35373c; }
+  nav nav #nav .nav-search .nav-search__input {
+    padding-right: 1.5rem; }
   @media (max-width: 992px) {
     nav {
-      padding: 0 1em; } }
+      padding: 0 1rem; }
+      nav nav #nav .nav-search .nav-search__input {
+        padding-right: 1rem; } }
   @media (max-width: 576px) {
     nav {
-      padding: 0 0.5em; } }
+      padding: 0 0.5em; }
+      nav nav #nav .nav-search .nav-search__input {
+        padding-right: 0.5rem; } }
   nav #nav {
     display: -ms-flexbox;
     display: flex;
@@ -1142,7 +1148,8 @@ footer {
           color: #bbb;
           line-height: 1.5; }
         .page-about .container .exp-edu .list-of .item .title .tech {
-          margin-top: 1rem; }
+          margin-top: 1rem;
+          flex-wrap: wrap; }
           .page-about .container .exp-edu .list-of .item .title .tech .skill-small {
             display: inline-flex;
             margin: 3px 6px 3px 0;
@@ -1200,7 +1207,8 @@ footer {
     .page-about .container .projects .list-of .title .tech {
       margin-top: 1rem;
       display: flex;
-      align-items: center; }
+      align-items: center;
+      flex-wrap: wrap; }
       .page-about .container .projects .list-of .title .tech .skill-small {
         display: inline-flex;
         margin: 3px 6px 3px 0;
@@ -2653,7 +2661,8 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-bottom: 24.75px; }
 
 .page-note p.katex-block {
-  overflow: auto; }
+  overflow-x: auto;
+  overflow-y: hidden; }
   .page-note p.katex-block .katex-display {
     margin: 0 !important; }
 

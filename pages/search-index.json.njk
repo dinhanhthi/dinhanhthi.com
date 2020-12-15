@@ -1,4 +1,4 @@
 ---
 permalink: pages/search-index.json
 ---
-{{ collections.posts | search | dump | safe }}
+{{ collections.posts | search | dump | safe | striptags(true) | escape }}

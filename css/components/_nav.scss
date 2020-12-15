@@ -5,15 +5,25 @@ nav {
 	top: 0;
 	left: 0;
 	width: 100vw;
-	padding: 0 1.5em;
+	padding: 0 1.5rem;
 	background: $c-bg-nav;
 
+	nav #nav .nav-search .nav-search__input{
+		padding-right: 1.5rem;
+	}
+
 	@media (max-width: $grid-lg) {
-		padding: 0 1em;
+		padding: 0 1rem;
+		nav #nav .nav-search .nav-search__input{
+			padding-right: 1rem;
+		}
 	}
 
 	@media (max-width: $grid-sm) {
 		padding: 0 0.5em;
+		nav #nav .nav-search .nav-search__input{
+			padding-right: 0.5rem;
+		}
 	}
 
 	#nav {

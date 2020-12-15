@@ -9,7 +9,7 @@
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
   <title>{{ title or renderData.title or metadata.title | escape }}</title>
   <meta property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
-  {% set desc = renderData.description or description %}
+  {% set desc = renderData.description or description or subtitle %}
   {% if not desc %}
     {% set desc = content | striptags | truncate(140) %}
   {% endif %}

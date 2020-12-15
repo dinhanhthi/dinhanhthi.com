@@ -178,14 +178,6 @@
       picture {
         display: inline-flex;
       }
-      // img{
-      //   filter: opacity(75%) grayscale(100%);
-      // }
-      // &:hover{
-      //   img{
-      //     filter: none;
-      //   }
-      // }
     }
 
     .exp-edu {
@@ -236,7 +228,8 @@
               line-height: 1.5;
             }
             .tech {
-              margin-top: 1rem;
+							margin-top: 1rem;
+							flex-wrap: wrap;
               .skill-small {
                 @include skill-small();
               }
@@ -314,7 +307,8 @@
           .tech {
             margin-top: 1rem;
             display: flex;
-            align-items: center;
+						align-items: center;
+						flex-wrap: wrap;
             .skill-small {
               @include skill-small();
             }

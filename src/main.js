@@ -17,22 +17,6 @@ function tweet(anchor) {
 }
 expose("tweet", tweet);
 
-function share(anchor) {
-	var url = anchor.getAttribute("href");
-	event.preventDefault();
-	if (navigator.share) {
-		navigator.share({
-			url: url,
-		});
-	} else if (navigator.clipboard) {
-		navigator.clipboard.writeText(url);
-		message("Article URL copied to clipboard.");
-	} else {
-		tweet_(url);
-	}
-}
-expose("share", share);
-
 function message(msg) {
 	var dialog = document.getElementById("message");
 	dialog.textContent = msg;
@@ -297,7 +281,11 @@ const addSelected2 = (ulRes, li) => {
 			if (results != "") { // if there is result
 				noResEl.style.display = "none";
 				results.map((r) => {
-					var { id, title, keywords, cat } = r.doc;
+					var { id, title, keywords, cat } = r.doc; // use keywords instead
+
+					// use content??? (modify .eleventy.js also!)
+					// var { id, title, keywords, cat, content } = r.doc;
+					// keywords = content;
 
 					const el = document.createElement("li");
 					ulRes.appendChild(el);
@@ -328,6 +316,7 @@ const addSelected2 = (ulRes, li) => {
 					h3.appendChild(a);
 
 					const p = document.createElement("p");
+
 					if (keywords && kw) {
 						if (keywords.toLowerCase().includes(kw.toLowerCase())) {
 							keywords = keywords.replace(regEx, function (x) {
@@ -337,9 +326,10 @@ const addSelected2 = (ulRes, li) => {
 						if (keywords.indexOf("<mark>") > 10){
 							keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
 						}
-						// if (keywords.length > 500) {
-						// 	keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
-						// }
+						// too long keywords or content
+						if (keywords.length > 500) {
+							keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
+						}
 					}
 					p.innerHTML = keywords;
 					divContent.appendChild(p);

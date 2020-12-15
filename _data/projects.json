@@ -4,21 +4,21 @@
         "description": "All of courses, assignments, exercises, mini-projects and books that I've done so far in the process of learning by myself Machine Learning and Data Science.",
         "source": "https://github.com/dinhanhthi/data-science-learning",
         "icon": "📊",
-        "tech_text": ["many technologies"]
+        "tech_text": ["many techs"]
     },
     {
         "title": "Web Dev Learning",
         "description": "All of things I've done so far in the process of learning by myself Web Development.",
         "source": "https://github.com/dinhanhthi/web-dev-learning",
         "icon": "🌐",
-        "tech_text": ["many technologies"]
+        "tech_text": ["many techs"]
     },
     {
         "title": "P13 Discussion Group",
         "description": "Private group for sharing ideas in IT between Vietnamese friends at University Sorbonne Paris Nord",
         "source": "https://github.com/dinhanhthi/P13-discuss-group",
         "icon": "💡",
-        "tech_text": ["many technologies"]
+        "tech_text": ["many techs"]
     },
     {
         "title": "Simple Perso",

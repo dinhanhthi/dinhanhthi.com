@@ -60,7 +60,8 @@
 
 	// katex
 	p.katex-block{
-		overflow: auto;
+		overflow-x: auto;
+		overflow-y: hidden;
 		.katex-display{
 			margin: 0!important;
 		}
