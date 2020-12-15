@@ -969,7 +969,7 @@ nav {
           nav #nav .nav-search #nav-search__result-container ul#nav-search__ul mark {
             background: none;
             color: inherit;
-            box-shadow: inset 0 -3px 0 0 #cd8aff !important; }
+            box-shadow: inset 0 -3px 0 0 #fff; }
         nav #nav .nav-search #nav-search__result-container #nav-search__no-result {
           padding: 0 10px; }
           nav #nav .nav-search #nav-search__result-container #nav-search__no-result p {
@@ -1484,7 +1484,7 @@ kbd {
         grid-template-columns: 1fr 1fr !important; } }
   @media (max-width: 575px) {
     .columns-2 {
-      grid-template-columns: 1fr; } }
+      display: block; } }
   @media (min-width: 768px) {
     .columns-2.size-2-1 {
       grid-template-columns: 2fr 1fr; }
@@ -2651,6 +2651,11 @@ input[type="search"]::-webkit-search-results-decoration {
 .page-note hr {
   border-bottom: 1px solid #676767;
   margin-bottom: 24.75px; }
+
+.page-note p.katex-block {
+  overflow: auto; }
+  .page-note p.katex-block .katex-display {
+    margin: 0 !important; }
 
 #reading-list .item .author {
   font-style: italic; }

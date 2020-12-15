@@ -56,7 +56,16 @@
   hr{
     border-bottom: 1px solid #676767;
     margin-bottom: $mb;
-  }
+	}
+
+	// katex
+	p.katex-block{
+		overflow: auto;
+		.katex-display{
+			margin: 0!important;
+		}
+	}
+
 }
 
 #reading-list{

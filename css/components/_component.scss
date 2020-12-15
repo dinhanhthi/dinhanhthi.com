@@ -246,7 +246,8 @@ $gap: 5px;
     }
   }
   @media (max-width: $grid-sm - 1px) {
-    grid-template-columns: 1fr;
+		display: block;
+    // grid-template-columns: 1fr;
   }
   @media (min-width: $grid-md) {
     &.size-2-1 {
