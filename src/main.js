@@ -327,9 +327,10 @@ const addSelected2 = (ulRes, li) => {
 							keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
 						}
 						// too long keywords or content
-						if (keywords.length > 500) {
-							keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
-						}
+						// -- uncomment below if search on full content
+						// if (keywords.length > 500) {
+						// 	keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
+						// }
 					}
 					p.innerHTML = keywords;
 					divContent.appendChild(p);

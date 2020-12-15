@@ -165,7 +165,7 @@ def windowed_dataset(series, window_size, batch_size, shuffle_buffer):
     return dataset
 ```
 
-{% hsbox "Explaine the codes" %}
+{% hsbox "Explain the codes" %}
 
 ``` python
 # create a very simple dataset

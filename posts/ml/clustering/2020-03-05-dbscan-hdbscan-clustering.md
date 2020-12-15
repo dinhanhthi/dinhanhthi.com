@@ -56,7 +56,7 @@ from sklearn.cluster import DBSCAN
 clr = DBSCAN(eps=3, min_samples=2)
 ~~~
 
-::: code-2-equal
+::: col-2-equal
 ~~~ python
 clr.fit(X)
 clr.predict(X)

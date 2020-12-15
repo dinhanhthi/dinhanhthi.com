@@ -403,3 +403,8 @@ const CSP = {
 // quote() -> for '', e.g. 'self'
 // "abc" -> doesn't mean 'abc' in <meta>
 ```
+
+### Search full content
+
+1. `.eleventy.js`: uncomment line `//"content": page.templateContent,`.
+2. `src/main.js`: uncomment lines below `// use content??? ` & below `-- uncomment below if ...`

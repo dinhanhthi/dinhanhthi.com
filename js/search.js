@@ -128,7 +128,6 @@ divNavSearch.onkeydown = (e) => {
 				updateScroll(selectedLi, divRes);
 				break;
 			case "ArrowDown":
-				// ae = document.activeElement;
 				if ( !selectedLi || selectedLi == lastLi) {
 					nextLi = firstLi;
 				} else {
