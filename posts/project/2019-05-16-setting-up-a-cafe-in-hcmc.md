@@ -11,7 +11,7 @@ keywords: IBM applied data science capstone Coursera List of Ho Chi Minh City ad
 
 This is the final project for the course "[Applied Data Science Capstone](https://www.coursera.org/learn/applied-data-science-capstone)" given by IBM on Coursera. We will explore the venues in Pdifferent districts of Ho Chi Minh City to find the best place to set up our business.
 
-[html file](https://dinhanhthi.com/files/capstone_project.html) -- [open in colab](https://dinhanhthi.com/github-colab?https://github.com/dinhanhthi/cafe-in-hcm/blob/master/battle_of_neighborhood_project.ipynb) -- [full report](https://github.com/dinhanhthi/cafe-in-hcm/blob/master/final_project_report.pdf) {:.text-center}
+[html file](https://dinhanhthi.com/files/capstone_project.html) -- [open in colab](https://dinhanhthi.github.io/tools/github-colab?https://github.com/dinhanhthi/cafe-in-hcm/blob/master/battle_of_neighborhood_project.ipynb) -- [full report](https://github.com/dinhanhthi/cafe-in-hcm/blob/master/final_project_report.pdf) {:.text-center}
 
 {:#data-presentation}
 ## Data presentation
