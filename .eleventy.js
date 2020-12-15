@@ -25,7 +25,15 @@ module.exports = {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
-	eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+  eleventyConfig.addPlugin(localImages, {
+    distPath: "_site",
+    assetPath: "/img/remote",
+    selector:
+      "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+    verbose: false,
+  });
 
   eleventyConfig.addPlugin(require('eleventy-plugin-toc'), {
     tags: ['h2', 'h3', 'h4'], // which heading tags are selected headings must each have an ID attribute
@@ -38,21 +46,19 @@ module.exports = function (eleventyConfig) {
   if (process.env.ELEVENTY_ENV == "local"){
     eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
     eleventyConfig.setDataDeepMerge(true);
+
+    // eleventyConfig.on('beforeWatch', () => {
+    //   fs.copyFile('local.eleventyignore', '.eleventyignore', (err) => {
+    //     if (err) throw err;
+    //     console.log('local.eleventyignore was copied to .eleventyignore');
+    //   });
+    // });
   } else {
     eleventyConfig.addPlugin(require("./_11ty/img-dim.js")); // take too long to build
     eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
     eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
     eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
-		eleventyConfig.setDataDeepMerge(true);
-
-		// eleventy-plugin-local-images
-		eleventyConfig.addPlugin(localImages, {
-			distPath: "_site",
-			assetPath: "/img/remote",
-			selector:
-				"img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-			verbose: false,
-		});
+    eleventyConfig.setDataDeepMerge(true);
   }
 
   // layout alias
@@ -150,10 +156,9 @@ module.exports = function (eleventyConfig) {
       index.addDoc({
         "id": page.url,
         "title": page.data.title,
-				"keywords": page.data.keywords,
+        "keywords": page.data.keywords,
 				"tags": page.data.tags,
-				"cat": catIcon[page.data.tags[1]].svg,
-				"content": page.templateContent,
+				"cat": catIcon[page.data.tags[1]].svg
       });
     });
     return index.toJSON();
