@@ -13,6 +13,7 @@ date: "2020-12-03"
 
 👉 [Useful tools in other fields](/good-applications/).
 👉 [Web Dev tools](/web-dev-tools/).
+👉 [My personal site of tools](https://dinhanhthi.github.io/tools/).
 
 ::: success
 This note will always be updated.

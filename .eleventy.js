@@ -153,7 +153,7 @@ module.exports = function (eleventyConfig) {
 				"keywords": page.data.keywords,
 				"tags": page.data.tags,
 				"cat": catIcon[page.data.tags[1]].svg,
-				"content": page.templateContent,
+				//"content": page.templateContent,
       });
     });
     return index.toJSON();

@@ -14,20 +14,22 @@ date: "2020-12-03"
 This note will always be updated.
 :::
 
+👉 [My personal site of tools](https://dinhanhthi.github.io/tools/).
+
 ## Tools
 
 1. [**HTML characters**](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows): copy & paste HTML characters.
-1. [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) -- A Hassle-Free Way to Self-Host Google Fonts -- giving us font files and font-face declarations based on the fonts, charsets, styles, and browser support you select.
-1. [Regular Expression 101](https://regex101.com/) -- rules and transform directly.
-1. [Download font pro](https://en.bestfonts.pro/).
-1. [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator)
-1. [appium](http://appium.io/) -- Automation for Apps (used to testing UX on different devices, more exact than Browser Inspector)
-1. [Fontello](https://fontello.com/) -- make an icon as a font (there are also Awesomefont).
-2. [Wayback mahine](https://web.archive.org/) -- an internet archive (to check old/dead websites).
-3. [Happy Hues - Curated colors in context.](https://www.happyhues.co/palettes/17) -- Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
-4. [JavaScript Event KeyCodes](https://keycode.info/) -- get the keycode of any key when you press.
-5. [Facebook Sharing Debugger tool](https://developers.facebook.com/tools/debug/) -- check if your urls display correctly or not on facebook.
-6. **Tiny helpers** ([github](https://github.com/stefanjudis/tiny-helpers)) -- A collection of free single-purpose online tools for web developers.
+2. [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) -- A Hassle-Free Way to Self-Host Google Fonts -- giving us font files and font-face declarations based on the fonts, charsets, styles, and browser support you select.
+3. [Regular Expression 101](https://regex101.com/) -- rules and transform directly.
+4. [Download font pro](https://en.bestfonts.pro/).
+5. [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator)
+6. [appium](http://appium.io/) -- Automation for Apps (used to testing UX on different devices, more exact than Browser Inspector)
+7. [Fontello](https://fontello.com/) -- make an icon as a font (there are also Awesomefont).
+8. [Wayback mahine](https://web.archive.org/) -- an internet archive (to check old/dead websites).
+9. [Happy Hues - Curated colors in context.](https://www.happyhues.co/palettes/17) -- Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
+10. [JavaScript Event KeyCodes](https://keycode.info/) -- get the keycode of any key when you press.
+11. [Facebook Sharing Debugger tool](https://developers.facebook.com/tools/debug/) -- check if your urls display correctly or not on facebook.
+12. **Tiny helpers** ([github](https://github.com/stefanjudis/tiny-helpers)) -- A collection of free single-purpose online tools for web developers.
 
 ## Frameworks
 
