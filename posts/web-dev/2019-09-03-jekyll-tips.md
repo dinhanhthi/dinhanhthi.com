@@ -97,6 +97,28 @@ If in [sitemap](https://github.com/jekyll/jekyll-sitemap), there is error like `
 {% endfor %}
 {%endraw%}~~~
 
+::: warning
+
+If you using `baseurl`,
+
+``` yml
+# in _config.yml
+url: ""
+baseurl: "/tools"
+```
+``` liquid {% raw %}
+<ol>
+	{% for post in site.posts %}
+	<li>
+		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	</li>
+	{% endfor %}
+</ol>
+{% endraw %}
+```
+
+:::
+
 List all posts in each category,
 
 ~~~ liquid

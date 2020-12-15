@@ -21,8 +21,8 @@ This is my note for the [3rd course](https://www.coursera.org/learn/natural-lang
 
 ## Tokernizing + padding
 
-👉 Notebook: [Tokenizer basic examples.](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_tokenizer_basic_examples.html)
-👉 Notebook: [Sarcasm detection](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_2_sarcasm_detection.html).
+👉 Notebook: [Tokenizer basic examples.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_tokenizer_basic_examples.html)
+👉 Notebook: [Sarcasm detection](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_2_sarcasm_detection.html).
 
 {:.noindent}
 - A common simple character encoding is ASCII,
@@ -106,7 +106,7 @@ for item in datastore:
 
 ### IMDB review dataset
 
-👉 Notebook: [Train IMDB review dataset](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_1_IMDB_reviews.html).
+👉 Notebook: [Train IMDB review dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_1_IMDB_reviews.html).
 👉 [Video explain the code](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-1-Q1Ln5).
 
 {:.noindent}
@@ -219,7 +219,7 @@ else:
 
 ### Sarcasm dataset
 
-👉 Notebook: [Train Sacarsm dataset](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_2_sacarsm.html).
+👉 Notebook: [Train Sacarsm dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_2_sacarsm.html).
 
 - In text data, it usually happens that the accuracy increase over the number of training but the loss increase sharply also. We can "play" with hyperparameter to see the effect.
 
@@ -236,7 +236,7 @@ except Exception:
 
 👉 [datasets/imdb_reviews.md at master · tensorflow/datasets](https://github.com/tensorflow/datasets/blob/master/docs/catalog/imdb_reviews.md)
 👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)
-👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html).
+👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html).
 👉 [Video exaplain the codes](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-3-piQXt).
 
 - There are someones who did the work (tokenization) for you.
@@ -327,7 +327,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM.html)
+👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM.html)
 
 ``` python
 # MULTI PLAYER LSTM
@@ -342,7 +342,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM.html)
+👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM.html)
 
 ![1layer vs 2 later LSTM acc]({{img_url}}/1layer-vs-2layer-lstm.png){:.img-90 .pop}
 _1 layer vs 2 layer LSTM accuracy after 50 epochs (image from the course). 2 layer is better (smoother) which makes us more confident about the model. The validation acc is sticked to 80% because we used 8000 sub-words taken from training set, so there may be many tokens from the test set that would be out of vocabulary._
@@ -382,7 +382,7 @@ _With vs without LSTM (image from the course). With LSTM is really better but th
 ### Using a ConvNet
 
 👉 [Video explains the dimension](https://www.coursera.org/lecture/natural-language-processing-tensorflow/using-a-convolutional-network-fSE8o).
-👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_3_IMDB_subwords_8K_with_Conv.html).
+👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_3_IMDB_subwords_8K_with_Conv.html).
 
 ``` python
 model = tf.keras.Sequential([
@@ -401,7 +401,7 @@ _Using Convolution network. (image from the course). It's really better but ther
 
 ### IMDB dataset
 
-👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_4_IMDB_review_with_GRU.html).
+👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_4_IMDB_review_with_GRU.html).
 👉 [Video compares the results](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/NFvFd/going-back-to-the-imdb-dataset).
 
 Try with 3 different choices:
@@ -418,7 +418,7 @@ __Remark__: <mark>With the texts, you'll probably get a bit more overfitting tha
 
 One application of sequence models: read text then **generate another look-alike text**.
 
-👉 [Notebook 1](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html) & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
+👉 [Notebook 1](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html) & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
 
 - How they predict a new word in the notebook? -> Check [this video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/LGBS2/predicting-a-word).
 
@@ -483,7 +483,7 @@ print(seed_text)
 
 - Using more words will help.
 
-👉 [Notebook 3 (more data)](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_3_more_data_on_train.html)
+👉 [Notebook 3 (more data)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_3_more_data_on_train.html)
 
 ``` python
 # read from a file
@@ -508,4 +508,4 @@ history = model.fit(xs, ys, epochs=100, verbose=1)
 - Different convernges can create different poetry.
 - If we use one-hot for a very big corpus -> take a lot of RAM -> use **character-based prediction** -> #unique characters is far less than #unique words. -> [notebook "Text generation with RNN"](https://www.tensorflow.org/tutorials/text/text_generation)
 
-👉 Notebook [Using LSTMs, see if you can write Shakespeare!](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_4_using_lstm_write_shakespeare.html)
+👉 Notebook [Using LSTMs, see if you can write Shakespeare!](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_4_using_lstm_write_shakespeare.html)

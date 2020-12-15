@@ -722,7 +722,7 @@ display_side_by_side(df, df1, df2)
 ## References
 
 - [Data Cleaning and Analysis](https://github.com/dinhanhthi/dataquest-aio/tree/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis) on Dataquest.
-- [Transforming data with pandas](https://dinhanhthi.com/github-html?https://github.com/dinhanhthi/dataquest-aio/blob/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis/notebooks_in_html/task-3-transforming-data-with-pandas.html) on Dataquest.
+- [Transforming data with pandas](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/dataquest-aio/blob/master/step-2-data-analysis-and-visualization/course-4-data-cleaning-and-analysis/notebooks_in_html/task-3-transforming-data-with-pandas.html) on Dataquest.
 - **pandas official** -- [Group By: split-apply-combine](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html)
 
 
