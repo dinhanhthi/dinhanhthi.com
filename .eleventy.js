@@ -15,7 +15,7 @@ const mdItContainer = require('markdown-it-container');
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
-const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
+// const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
 const catIcon = require("./_data/cat_icon.json"); // icon for categoris, used in search bar
 
@@ -172,7 +172,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
   // We need to copy cached.js only if GA is used
-  eleventyConfig.addPassthroughCopy(GA_ID ? "js" : "js/*[!cached].*");
+  // eleventyConfig.addPassthroughCopy(GA_ID ? "js" : "js/*[!cached].*");
   eleventyConfig.addPassthroughCopy("fonts");
   // eleventyConfig.addPassthroughCopy("src/_headers");
 

@@ -41,7 +41,14 @@ const CSP = {
 			SELF,
 			quote("unsafe-inline"),
 			"https://cdnjs.cloudflare.com/",
-			"https://gist.github.com/"
+			"https://gist.github.com/",
+			"https://www.googletagmanager.com/",
+			"https://www.google-analytics.com"
+		],
+		[
+			"connect-src",
+			SELF,
+			"https://www.google-analytics.com"
 		],
     // Inline CSS is allowed.
     [
