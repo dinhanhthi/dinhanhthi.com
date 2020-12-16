@@ -2642,7 +2642,8 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
   padding-left: 20px; }
   .page-note p.noindent + ul, .page-note p.noindent + ol {
-    padding-left: 20px; }
+    padding-left: 20px;
+    margin-top: 0; }
 
 .page-note p.indent {
   display: none;
