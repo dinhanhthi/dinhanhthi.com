@@ -4,11 +4,9 @@ title: "Useful tools for working & studying"
 tags: [Others, Collection, Windows, Linux]
 toc: true
 icon: apps.svg
-keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif screen recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google translate deep learning machine learning collection reminder stretch RSI download manager IDM XDM Repetitive Strain Injury iterm2 guake terminal cmder drop-down commander cmd quick open terminal commanline workrave time out screentogif lock hunter everything spotlight goldendict deepl lingoes Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet tools image photo compression jpeg png remove background transparent photo luna lunapic resize images iloveimg side by side images learning movie relax"
+keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google deep learning machine collection reminder stretch RSI manager IDM XDM Repetitive Strain Injury iterm2 guake drop-down quick open commanline workrave time out screentogif everything spotlight Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet image photo compression jpeg png remove background transparent luna lunapic resize images iloveimg side by movie relax drawing graphviz data science dataframe huge vaex linux app ubuntu pop os mac macos office online multi platform unix windows education chrome extension plugin math html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application framework js java script bookmarks drawing font"
 ---
 
-👉 [Useful tools for Data Science, Machine Learning](/useful-tools-data-science-machine-learning/).
-👉 [Web Dev tools](/web-dev-tools/).
 👉 [My personal site of tools](https://dinhanhthi.github.io/tools/).
 
 ::: success
@@ -16,6 +14,8 @@ This note will always be updated.
 :::
 
 ## Online tools
+
+1. [AutoDraw](https://www.autodraw.com/) -- an drawing platform using AI to guess what you draw. Try it!
 
 ### Images
 
@@ -126,6 +126,49 @@ a local folder of plain text Markdown files.
 1. [Mate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke) -- Quick translater.
 1. [Print Friendly & PDF](https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj?hl=en) -- print any web page into pdf.
 1. [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof) -- save current tab list
+
+
+## Data Science / Machine Learning
+
+1. Graphviz export
+   - Download **Graphviz** [here](https://graphviz.gitlab.io/download/).
+   - Its [online version](http://webgraphviz.com/).
+2. [Vaex](https://github.com/vaexio/vaex) -- Handle huge dataframe.
+3. [Replicate](https://replicate.ai/) -- Version control for machine learning.
+4. [Observable](https://observablehq.com/) -- Explore and visualize data with advanced notebooks.
+5. [nbdev](https://github.com/fastai/nbdev) -- Create delightful python projects using Jupyter Notebooks.
+6. [Mapbox](https://www.mapbox.com/) -- Maps and location for developers.
+7. [Foursquare](https://foursquare.com/) -- Put the most trusted, independent location data and technology platform to work for your business.
+8. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
+9. [Chart.js | Open source HTML5 Charts for your website](https://www.chartjs.org/)
+
+## Web Dev
+
+### Tools for Web Dev
+
+1. [**HTML characters**](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows): copy & paste HTML characters.
+2. [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) -- A Hassle-Free Way to Self-Host Google Fonts -- giving us font files and font-face declarations based on the fonts, charsets, styles, and browser support you select.
+3. [Regular Expression 101](https://regex101.com/) -- rules and transform directly.
+4. [Free fonts for WEB and Photoshop — BestFonts.pro](https://en.bestfonts.pro/) -- may be illegal.
+5. [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator)
+6. [appium](http://appium.io/) -- Automation for Apps (used to testing UX on different devices, more exact than Browser Inspector)
+7. [Fontello](https://fontello.com/) -- make an icon as a font (there are also Awesomefont).
+8. [Wayback mahine](https://web.archive.org/) -- an internet archive (to check old/dead websites).
+9.  [Happy Hues - Curated colors in context.](https://www.happyhues.co/palettes/17) -- Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
+10. [JavaScript Event KeyCodes](https://keycode.info/) -- get the keycode of any key when you press.
+11. [Facebook Sharing Debugger tool](https://developers.facebook.com/tools/debug/) -- check if your urls display correctly or not on facebook.
+12. **Tiny helpers** ([github](https://github.com/stefanjudis/tiny-helpers)) -- A collection of free single-purpose online tools for web developers.
+
+### Frameworks
+
+1. [Matter.js](https://brm.io/matter-js/) -- a 2D physics engine for the web.
+1. [Plotly](https://plotly.com/javascript/) -- JavaScript Open Source Graphing Library
+1. [D3.js](https://d3js.org/) -- a JavaScript library for manipulating documents based on data.
+1. [JSXGraph](http://jsxgraph.uni-bayreuth.de/wp/) -- JSXGraph is a cross-browser JavaScript library for interactive geometry, function plotting, charting, and data visualization in the web browser.
+1. [Stage.js](https://piqnt.com/stage.js/) -- 2D JavaScript library for cross-platform HTML5 game development.
+1. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
+2. [Quill](https://quilljs.com/) -- Your powerful rich text editor.
+3. [Chart.js | Open source HTML5 Charts for your website](https://www.chartjs.org/)
 
 
 ## Others

@@ -250,8 +250,8 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 5.  Force Unity Dash to index all files on Home: `sudo updatedb` (install by `sudo apt-get install mlocate`)
 6.  [__Only Ubuntu__] There are 2 ubuntu softwares in dash? (ref [this question](https://askubuntu.com/questions/1235835/ubuntu-software-doesnt-work-and-why-are-there-two-software-center-in-ubuntu-20)). "Ubuntu software" is pre-installed snap store (run by `snap-store`), the other is `gnome-software`.
 7.  <mark>Backup before installing a new system.</mark>
-    - settings in `~/.config/` or `~/.<software-name>`
-    - all apps in `~/apps/` with their desktop files in `~/.local/share/applications/`
+    - Settings in `~/.config/` or `~/.<software-name>`
+    - All apps in `~/apps/` with their desktop files in `~/.local/share/applications/`
 8.  **Pop!_OS Tips**:
     1. `Super` + `Y`: toggle tiling mode.
     2.  Add a windows/applition exepton of tiling mode (it won't be counted)

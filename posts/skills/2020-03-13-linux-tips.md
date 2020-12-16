@@ -673,6 +673,11 @@ sudo apt install npm
 sudo npm install -g vtop
 ```
 
+### Font
+
+1. **Method 1** -- To install font, copy all font file (eg. `.ttf`) to `~/.local/share/font/`. For **global**, it's `/usr/share/fonts`.
+2. **Method 2** -- Open with Font Viewer and then click on Install.
+
 ## Errors
 
 🔅 Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
