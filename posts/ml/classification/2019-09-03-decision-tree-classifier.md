@@ -40,11 +40,15 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 
 ### ID3 algorithm
 
+Thu nghiem $x$ xem the nao.
+
 {% hsbox "**ID3 algorithm (TL;DR;)**" %}
 
 1. To check the disorder at current node (let's say $S$, parent node), we calculate its **entropy** with,
 
-    $$H(S) = -\sum_{i=1}^{2} p_{S,i} \log_2 p_{S,i},$$
+    $$
+	H(S) = -\sum_{i=1}^{2} p_{S,i} \log_2 p_{S,i},
+	$$
 
     where $i \in$ the number of classes and $p_{S,i}$ is the probability of class $i$ in $S$.
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
