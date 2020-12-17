@@ -141,10 +141,3 @@ divNavSearch.onkeydown = (e) => {
 
 	} // end if hasResult
 }
-
-// first li always selected
-inputSearch.addEventListener("input", e => {
-	if (ulRes.hasChildNodes()) {
-		ulRes.firstChild.classList.add("selected");
-	}
-});

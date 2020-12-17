@@ -344,6 +344,8 @@ const addSelected2 = (ulRes, li) => {
 
 				});
 
+				ulRes.firstChild.classList.add("selected");
+
 				// mouse hover trigger for li
 				ulRes.querySelectorAll("li").forEach((item) => {
 					item.addEventListener("mousemove", () => {
