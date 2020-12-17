@@ -84,7 +84,7 @@ $code-max-height: 450px;
 @import "./components/footer";
 @import "./components/about"; // for about page
 @import "./components/component"; // all small components
-@import "./components/katex.min_0_11_1";
+@import "./components/texmath"; // markdown-it-texmath
 @import "./components/post";
 @import "./components/prism-vscode"; // with my custom
 @import "./components/code";

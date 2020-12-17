@@ -30,13 +30,13 @@
 const SELF = quote("self");
 
 const CSP = {
-  regular: serialize([
-    // By default only talk to same-origin
-    ["default-src", SELF],
-    // No plugins
-    ["object-src", quote("none")],
-    // Script from same-origin and inline-hashes.
-    [
+	regular: serialize([
+		// By default only talk to same-origin
+		["default-src", SELF],
+		// No plugins
+		["object-src", quote("none")],
+		// Script from same-origin and inline-hashes.
+		[
 			"script-src",
 			SELF,
 			quote("unsafe-inline"),
@@ -50,34 +50,41 @@ const CSP = {
 			SELF,
 			"https://www.google-analytics.com"
 		],
-    // Inline CSS is allowed.
-    [
+		// Inline CSS is allowed.
+		[
 			"style-src",
 			SELF,
 			"https://fonts.googleapis.com/",
 			"https://use.fontawesome.com/",
 			quote("unsafe-inline"),
-			"https://github.githubassets.com/"
+			"https://github.githubassets.com/", // gist
+			"https://cdn.jsdelivr.net" // katex
 		],
-    // Images may also come from data-URIs.
-    ["img-src", SELF, "data:"],
-    ["font-src", SELF, "https://fonts.gstatic.com/", "https://use.fontawesome.com/"],
+		// Images may also come from data-URIs.
+		["img-src", SELF, "data:"],
+		[
+			"font-src",
+			SELF,
+			"https://fonts.gstatic.com/",
+			"https://use.fontawesome.com/",
+			"https://cdn.jsdelivr.net" // katex
+		],
 
-    // To add new rules, add new array literals here or extend those above with
-    // additional allowed elements.
-    // Example for allowing YouTube iframe embeds
-    // ['frame-src', 'https://www.youtube.com/embed/']
-  ]),
+		// To add new rules, add new array literals here or extend those above with
+		// additional allowed elements.
+		// Example for allowing YouTube iframe embeds
+		// ['frame-src', 'https://www.youtube.com/embed/']
+	]),
 };
 
 // Quotes CSP "keywords" like `none` or `self`. This function does very little
 // but reads better than the inlined contents because of the nested quotes.
 function quote(str) {
-  return `'${str}'`;
+	return `'${str}'`;
 }
 
 function serialize(csp) {
-  return csp.map((src) => src.join(" ")).join(";");
+	return csp.map((src) => src.join(" ")).join(";");
 }
 
 module.exports = () => CSP;

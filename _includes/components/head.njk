@@ -1,78 +1,83 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="{{ csp.regular | safe }}">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-  <meta name="theme-color" content="#f9c412">
-  <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
-  <title>{{ title or renderData.title or metadata.title | escape }}</title>
-  <meta property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
-  {% set desc = renderData.description or description or subtitle %}
-  {% if not desc %}
-    {% set desc = content | striptags | truncate(140) %}
-  {% endif %}
-  {% if desc %}
-    <meta name="description" content="{{ desc | escape  }}">
-    <meta property="og:description" content="{{ desc | escape }}">
-  {% endif %}
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
-  <meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
+	<meta name="theme-color" content="#f9c412">
+	<meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
+	<title>{{ title or renderData.title or metadata.title | escape }}</title>
+	<meta property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
+	{% set desc = renderData.description or description or subtitle %}
+	{% if not desc %}
+		{% set desc = content | striptags | truncate(140) %}
+	{% endif %}
+	{% if desc %}
+		<meta name="description" content="{{ desc | escape  }}">
+		<meta property="og:description" content="{{ desc | escape }}">
+	{% endif %}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
+	<meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
 
 	{# facebook #}
-  {% if icon %}
-    {% if "/" in icon %}
-      <meta property="og:image" content="{{ metadata.url }}{{ icon }}">
-    {% else %}
-      <meta property="og:image" content="{{ metadata.url }}/img/header/{{ icon }}">
-    {% endif %}
-  {% else %}
-    <img alt="{{ title }}" src="{{ metadata.url }}/img/nav/about.svg">
-  {% endif %}
+	{% if icon %}
+		{% if "/" in icon %}
+			<meta property="og:image" content="{{ metadata.url }}{{ icon }}">
+		{% else %}
+			<meta property="og:image" content="{{ metadata.url }}/img/header/{{ icon }}">
+		{% endif %}
+	{% else %}
+		<img alt="{{ title }}" src="{{ metadata.url }}/img/nav/about.svg">
+	{% endif %}
 
-	<meta property="og:type" content="article" />
+	<meta property="og:type" content="article"/>
 
-  <link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
+	<link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
 	<meta property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
-  <!-- This is a blog and so it SHOULD be safe and it is nice for the web
+	<!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
          However, if you use sensitive data in URLs, consider changing this to
          a value like `origin-when-cross-origin`
          https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
           -->
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+	<meta name="referrer" content="no-referrer-when-downgrade">
+	<link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 
-  <link rel="preconnect" href="/" crossorigin>
+	<link rel="preconnect" href="/" crossorigin>
 
 	{# elasticlunr #}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
 
-  <script async defer src="{{ "/js/min.js" | addHash }}"></script>
-  {# {% if googleanalytics %}
+	<script async defer src="{{ "/js/min.js" | addHash }}"></script>
+	{# {% if googleanalytics %}
     <script async defer src="{{ "/js/cached.js" | addHash }}"></script>
   {% endif %} #}
 
 	{% if env.environment != "local" %}
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-K3YRSB918B');
-	</script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-K3YRSB918B');
+		</script>
 	{% endif %}
 
-  <!-- Notably iOS UAs also contain Mac OS X -->
-  <script csp-hash>
-    if (/Mac OS X/.test(navigator.userAgent))
-      document
-        .documentElement
-        .classList
-        .add('apple')
-  </script>
-  <!-- css is inserted by optimize-html custom plugin -->
+	{# katex #}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+	<!-- Notably iOS UAs also contain Mac OS X -->
+	<script csp-hash>
+		if (/Mac OS X/.test(navigator.userAgent))
+			document
+				.documentElement
+				.classList
+				.add('apple')
+	</script>
+	<!-- css is inserted by optimize-html custom plugin -->
 </head>
