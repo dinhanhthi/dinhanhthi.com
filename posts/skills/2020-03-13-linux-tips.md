@@ -523,6 +523,21 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 youtube-dl --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" <link-playlist>
 ~~~
 
+🔅 Install [TOR Browser](https://www.torproject.org/download/)
+
+``` bash
+sudo add-apt-repository ppa:micahflee/ppa
+sudo apt update
+sudo apt install torbrowser-launcher
+
+# Open "Tor Browser" and install for the 1st time
+
+# Click "Connect" to connect to Tor Network
+
+# Uninstall
+sudo apt remove torbrowser-launcher
+```
+
 ### Free VPN
 
 Using [vpnbook](https://www.vpnbook.com/) and [its tutorial](https://www.vpnbook.com/howto/setup-openvpn-on-ubuntu). Note that, at the last step, we need to run with `sudo`! __Note__: very low speed!

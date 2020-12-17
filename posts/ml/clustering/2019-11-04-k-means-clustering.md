@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "K-Means Clustering"
+title: "K-Means & K-Medois Clustering"
 tags: [Machine Learning, Clustering]
 toc: true
 icon: /img/header/clustering.png
-keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM oartitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans distance between points"
+keywords: "k means k-means clustering method sensitive to outliers partitioning clustering cluster k-medoids k medoids PAM partitioning around medoids handwritten digits data Luis Serrano Andrew NG elbow method number of clusters k-medoids k modes k-modes k-medians k median kmean kmeans distance between points Silhouette"
 notfull: 1
 ---
 
@@ -12,28 +12,34 @@ notfull: 1
 
 K-Means is ==the most popular clustering method== any learner should know. In this note, we will understand the idea of KMeans and how to use it with Scikit-learn. Besides that, we also learn about its variants (K-medois, K-modes, K-medians).
 
-## What's the idea of K-Means?
+## K-Means
+
+### Idea?
 
 1. Randomly choose centroids ($k$).
 2. Go through each example and assign them to the nearest centroid (assign class of that centroid).
 3. Move each centroid (of each class) to the average of data points having the same class with the centroid.
 4. Repeat 2 and 3 until convergence.
 
-![KMeans idea]({{img-url}}/kmeans-idea.png){:.img-full-80 .bg-white .pop}
+![KMeans idea]({{img-url}}/kmeans-idea.png){:.img-100}
+_A simply basic steps of K-Means._
 
-## How to choose number of clusters?
+![KMeans idea]({{img-url}}/K-means_convergence.gif){:.img-50}
+_A gif illustrating the idea of K-Means algorithm. [Source](https://en.wikipedia.org/wiki/K-means_clustering#/media/File:K-means_convergence.gif)._
 
-Using "Elbow" method.
+### How to choose k?
 
-![KMeans idea]({{img-url}}/kmeans-elbow.png){:.img-full-50 .bg-white .pop}
+Using "Elbow" method to choose the number of clusters $k$.
 
-## Discussion
+![KMeans idea]({{img-url}}/kmeans-elbow.png){:.img-full-50}
+
+### Discussion
 
 - A type of **Partitioning clustering**.
 - Not good if there are outliers, noise.
 - The K-means method is sensitive to outliers ⇒ **K-medoids** clustering or **PAM** (Partitioning Around Medoids) is less sensitive to outliers{% ref "https://www.datanovia.com/en/blog/types-of-clustering-methods-overview-and-quick-start-r-code" %}
 
-## Using K-Means with Scikit-learn
+### K-Means in code
 
 ~~~ python
 from sklearn.cluster import KMeans
@@ -61,7 +67,7 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
 - `kmeans.cluster_centers_ `{:.tpink}: cluster centroids.
 
 
-## K-Means in action
+### K-Means in action
 
 - K-Means clustering on the handwritten digits data.
 - Image compression using [K-Means]({{site.url}}{{site.baseurl}}/k-means-clustering) -- [Open in HTML](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/mini-projects/notebook_in_html/K_Means_image_compression.html) -- [Open in Colab](https://colab.research.google.com/github/dinhanhthi/data-science-learning/blob/master/projects/mini-projects/K_Means_image_compression.ipynb).
@@ -69,7 +75,16 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
 
 ## K-medois clustering
 
+Different from K-Means:
 
+- **K-Means**:
+  - Centers no need to be points in data.
+  - Measure generally requires Euclidean distance.
+- **K-Medois**:
+  - Centers is actual points in data. They're called _medois_ or _exemplars_.
+  - Measures can be arbitrarily dissimilar.
+
+### Choose k by Silhouette
 
 ## References
 

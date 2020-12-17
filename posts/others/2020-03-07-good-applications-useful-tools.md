@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Useful tools for working & studying"
-tags: [Others, Collection, Windows, Linux]
+tags: [Skills, Collection, Windows, Linux]
 toc: true
 icon: apps.svg
 keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google deep learning machine collection reminder stretch RSI manager IDM XDM Repetitive Strain Injury iterm2 guake drop-down quick open commanline workrave time out screentogif everything spotlight Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet image photo compression jpeg png remove background transparent luna lunapic resize images iloveimg side by movie relax drawing graphviz data science dataframe huge vaex linux app ubuntu pop os mac macos office online multi platform unix windows education chrome extension plugin math html character terms font ligatures useful tools frameworks javascript frameworks library plugins extensions dev tools application framework js java script bookmarks drawing font"
 ---
 
-👉 [My personal site of tools](https://dinhanhthi.github.io/tools/).
+👉 [My personal site of tools](https://dinhanhthi.github.io/tools/){:target="_blank"}.
 
 ::: success
 This note will always be updated.
@@ -168,7 +168,8 @@ a local folder of plain text Markdown files.
 1. [Stage.js](https://piqnt.com/stage.js/) -- 2D JavaScript library for cross-platform HTML5 game development.
 1. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
 2. [Quill](https://quilljs.com/) -- Your powerful rich text editor.
-3. [Chart.js | Open source HTML5 Charts for your website](https://www.chartjs.org/)
+3. [Chart.js](https://www.chartjs.org/) -- Open source HTML5 Charts for your website.
+4. [Two.js](https://two.js.org/) -- a two-dimensional drawing api geared towards modern web browsers. It is renderer agnostic enabling the same api to draw in multiple contexts: svg, canvas, and webgl.
 
 ## Illustration tools
 
