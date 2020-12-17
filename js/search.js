@@ -82,7 +82,7 @@ document.addEventListener("focusin", e => {
 	if (!divNavSearch.contains(e.target)) {
 		divRes.style.display = 'none';
 	}
-})
+});
 
 // prevent default Enter + go to selected li's a
 inputSearch.onkeydown = (e) => {
@@ -141,3 +141,10 @@ divNavSearch.onkeydown = (e) => {
 
 	} // end if hasResult
 }
+
+// first li always selected
+inputSearch.addEventListener("input", e => {
+	if (ulRes.hasChildNodes()) {
+		ulRes.firstChild.classList.add("selected");
+	}
+});
