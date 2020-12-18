@@ -13,7 +13,7 @@ const elasticlunr = require("elasticlunr");
 const markdownIt = require("markdown-it");
 var markdownItp = require('markdown-it')();
 const mdItContainer = require('markdown-it-container');
-const tm = require('markdown-it-texmath'); // markdown-it-texmath
+const tm = require('markdown-it-texmath'); // github:dinhanhthi/markdown-it-texmath
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
