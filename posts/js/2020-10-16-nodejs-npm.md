@@ -80,6 +80,18 @@ npm install express@4.16.1
 ```
 
 ``` bash
+# install a local package
+npm install /path/to/package
+```
+
+``` bash
+# from github repository
+npm i git+https://github.com/abc/xyz.git # https
+# or
+npm i git+ssh://git@github.com/abc/xyz.git # ssh
+```
+
+``` bash
 # list all installed packages (current project only)
 ls node_modules
 ```

@@ -4,7 +4,7 @@ title: "For me only"
 tags: [Others, Static Site Generators, 11ty]
 toc: true
 icon: "/img/header/customize.svg"
-keywords: "for me only customize edit this site box font blocks"
+keywords: "me for me only customize edit this site box font blocks"
 ---
 
 This post is for me only. It contains shortcodes to create this website.

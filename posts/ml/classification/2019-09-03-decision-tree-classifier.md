@@ -40,8 +40,6 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
 
 ### ID3 algorithm
 
-Thu nghiem $x$ xem the nao.
-
 {% hsbox "**ID3 algorithm (TL;DR;)**" %}
 
 1. To check the disorder at current node (let's say $S$, parent node), we calculate its **entropy** with,

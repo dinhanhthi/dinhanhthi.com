@@ -71,17 +71,17 @@ print (pca.explained_variance_) # eigenvalues
 
 Some notable components (see [full](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)):
 
-- `pca.fit(X)`{:.tpink}: only fit `X` (and then we can use `pca` for other operations).
-- `pca.fit_transform(X)`{:.tpink}: Fit the model with `X` and apply the dimensionality reduction on `X` (from `(n_samples, n_features)` to `(n_samples, n_components)`).
-- `pca.inverse_transform(s1)`{:.tpink}: transform `s1` back to original data space (2D) - not back to `s`!!!
-- `pca1.mean_`{:.tpink}: mean point of the data.
-- `pca.components_`{:.tpink}: eigenvectors (`n_components` vectors).
-- `pca.explained_variance_`{:.tpink}: eigenvalues. It's also the amount of retained variance which is corresponding to **each** components.
-- `pca.explained_variance_ratio_`{:.tpink}: the **percentage** in that variance is retained if we consider on **each** component.
+- `pca.fit(X)`: only fit `X` (and then we can use `pca` for other operations).
+- `pca.fit_transform(X)`: Fit the model with `X` and apply the dimensionality reduction on `X` (from `(n_samples, n_features)` to `(n_samples, n_components)`).
+- `pca.inverse_transform(s1)`: transform `s1` back to original data space (2D) - not back to `s`!!!
+- `pca1.mean_`: mean point of the data.
+- `pca.components_`: eigenvectors (`n_components` vectors).
+- `pca.explained_variance_`: eigenvalues. It's also the amount of retained variance which is corresponding to **each** components.
+- `pca.explained_variance_ratio_`: the **percentage** in that variance is retained if we consider on **each** component.
 
 Some notable parameters:
 
-- `n_components=0.80`{:.tpink}: means it will return the Eigenvectors that have the 80% of the variation in the dataset.
+- `n_components=0.80`: means it will return the Eigenvectors that have the 80% of the variation in the dataset.
 
 ::: warning
 When choosing the number of principal components ($K$), we choose $K$ to be the smallest value so that for example, $99\%$ of variance, is retained.{% ref "https://stackoverflow.com/questions/32857029/python-scikit-learn-pca-explained-variance-ratio-cutoff" %}

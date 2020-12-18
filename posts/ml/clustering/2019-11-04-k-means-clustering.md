@@ -62,9 +62,9 @@ kmeans.fit_predict(X)
 Some notable parameters (see [full](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)):
 
 {:.indent}
-- `max_iter`{:.tpink}: Maximum number of iterations of the k-means algorithm for a single run.
-- `kmeans.labels_`{:.tpink}: show labels of each point.
-- `kmeans.cluster_centers_ `{:.tpink}: cluster centroids.
+- `max_iter`: Maximum number of iterations of the k-means algorithm for a single run.
+- `kmeans.labels_`: show labels of each point.
+- `kmeans.cluster_centers_ `: cluster centroids.
 
 
 ### K-Means in action

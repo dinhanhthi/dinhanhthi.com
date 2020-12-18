@@ -325,6 +325,23 @@ source ~/.profile
 
 🔅 Check the current path: `pwd`
 
+### Rename with some RegEx
+
+``` bash
+sudo apt install rename
+```
+
+::: code-output-equal
+``` bash
+rename 's/.+/our $i; sprintf("chap%d", 46+$i++)/e' *
+```
+
+``` bash
+abc xyz 123	# from
+chap46 chap47 chap48 # to
+```
+:::
+
 ### Connect to iOS / iPhone / iPad
 
 ``` bash

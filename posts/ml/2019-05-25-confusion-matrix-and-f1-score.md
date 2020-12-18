@@ -21,8 +21,8 @@ keywords: "true false negative positive type i type ii error precision recall f1
 
 - **True Positive** (**TP**{:.tgreen}): what we predict Positive is really Positive.
 - **True Negative** (**FN**{:.tgreen}): what we predict Negative is really Negative.
-- **False Negative** (**FN**{:.tpink}): what we predict Negative is actually Positive.
-- **False Positive** (**FP**{:.tpink}): what we predict Positive is actually Negative.
+- **False Negative** (**FN**): what we predict Negative is actually Positive.
+- **False Positive** (**FP**): what we predict Positive is actually Negative.
 </div>
 
 ![This guy is pregnant?]({{img-url}}/cm_ex.png){:.img-full-100 .pop}
