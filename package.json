@@ -44,7 +44,6 @@
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-kbd": "^2.2.0",
     "markdown-it-task-lists": "^2.1.1",
-    "markdown-it-texmath": "github:dinhanhthi/markdown-it-texmath",
     "node-fetch": "^2.6.1",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",

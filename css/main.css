@@ -1614,19 +1614,14 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none; }
 
-/**
- * Minified by jsDelivr using clean-css v4.2.1.
- * Original file: /npm/markdown-it-texmath@0.8.0/css/texmath.css
- *
- * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
- */
-eq {
-  display: inline-block;
-  margin: 0 5px;
-  white-space: pre; }
+.eq {
+  display: inline-block; }
 
-eqn {
+.eqn {
   display: block; }
+
+section.eqn {
+  margin-bottom: 24.75px; }
 
 section.eqno {
   display: flex;
@@ -1642,7 +1637,6 @@ section.eqno > span {
   width: 3em;
   text-align: right; }
 
-/*# sourceMappingURL=/sm/9503fb8dfa654325127d4d8ecbbb2217531d6100158fd2f53e9f6cb506d1d56f.map */
 /*! purgecss start ignore */
 .page-note .text-center {
   text-align: center; }
