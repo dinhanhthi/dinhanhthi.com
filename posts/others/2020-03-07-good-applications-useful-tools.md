@@ -19,10 +19,10 @@ This note will always be updated.
 
 ### Images
 
-1. Compress images: [PNG](https://compresspng.com/), [JPG](https://compressjpeg.com/).
-1. Remove background / Transparent photos: [online png tools](https://onlinepngtools.com/create-transparent-png), [lunapic](https://www5.lunapic.com/editor/).
+1. **Compress images**: [PNG](https://compresspng.com/), [JPG](https://compressjpeg.com/).
+1. **Remove background** / Transparent photos: [online png tools](https://onlinepngtools.com/create-transparent-png), [lunapic](https://www5.lunapic.com/editor/).
 1. **iloveimg**: [resize](https://www.iloveimg.com/resize-image), [crop](https://www.iloveimg.com/crop-image), [compress](https://www.iloveimg.com/compress-image), [rotate](https://www.iloveimg.com/rotate-image).
-1. Side by side images: [this tool](https://www.imgonline.com.ua/eng/combine-two-images-into-one.php).
+1. **Side by side images**: [this tool](https://www.imgonline.com.ua/eng/combine-two-images-into-one.php).
 1. **Change color**:
    - of a single color: [onlinepngtools](https://onlinepngtools.com/change-png-color)
    - all colors to a single different one: [manytools](https://manytools.org/image/colorize-filter/)
@@ -30,7 +30,7 @@ This note will always be updated.
    - Icon / Logo: [vectorlogo](https://www.vectorlogo.zone/) (only marques), [flaticon](https://www.flaticon.com) (a lot, be able to custom color)
    - Stocks: [unsplash](https://unsplash.com/) & [pexels](https://www.pexels.com/) & [pixabay](https://pixabay.com/) (taken by photographers), [freepik](https://www.freepik.com/) (with vector sources).
 1. [Get link Google Photos](https://www.publicalbum.org/blog/embed-google-photos-video)
-1. Add border to png -> [onlinephototools](https://onlinepngtools.com/add-png-border)
+1. **Add border** to png -> [onlinephototools](https://onlinepngtools.com/add-png-border)
 1. [Convert to SVG](https://www.pngtosvg.com/)
 
 ### Office
@@ -42,7 +42,7 @@ This note will always be updated.
      - Change metadata: [bluepdf](http://bluepdf.com/)
      - View pdf's metadata: [pdfyeah](https://www.pdfyeah.com/view-pdf-metadata/)
 1. [Etherpad](https://etherpad.org/) -- a highly customizable Open Source online editor providing collaborative editing in really real-time.
-1. Text recognition (OCR): [newocr](https://www.newocr.com/)
+1. **Text recognition** (OCR): [newocr](https://www.newocr.com/)
 1. **LaTeX tools**
    - [Overleaf](https://www.overleaf.com/) -- online LaTeX editor.
    - [IguanaTex](http://www.jonathanleroux.org/software/iguanatex/) -- A Free LaTeX Add-In for PowerPoint on Windows
@@ -77,18 +77,18 @@ a local folder of plain text Markdown files.
 
 ## Linux
 
-1. Cheese (Appstore) -- webcam for linux.
-1. Foliate (Appstore) -- Book reader.
-1. gThumb (Appstore) -- photo viewer + quick editing tools.
-1. [Guake Terminal](http://guake-project.org/) -- drop-down terminal ([more settings](terminal#guake-terminal))
-1. Kazam (Appstore) -- Screen Recorder.
-1. [Lotion](https://github.com/puneetsl/lotion) -- Unofficial Notion client for linux (online only)
-1. [Lutris](https://lutris.net/) -- playing games on linux.
-1. Notejot (Appstore) -- sticky note.
-1. [OpenComic](https://github.com/ollm/OpenComic) -- read offline comic with many supported files (zip, folder containing images,...)
-1. Rhythmbox (Appstore) -- Music player on Linux ([custom hotkeys](/linux-tips#media--photo--music)).
-1. [Workrave](http://www.workrave.org/) -- a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
-1. exfalso (Appstore) -- edit mp3 tag on linux.
+1. **Cheese** (Appstore) -- webcam for linux.
+1. **Foliate** (Appstore) -- Book reader.
+1. **gThumb** (Appstore) -- photo viewer + quick editing tools.
+1. [**Guake Terminal**](http://guake-project.org/) -- drop-down terminal ([more settings](terminal#guake-terminal))
+1. **Kazam** (Appstore) -- Screen Recorder.
+1. [**Lotion**](https://github.com/puneetsl/lotion) -- Unofficial Notion client for linux (online only)
+1. [**Lutris**](https://lutris.net/) -- playing games on linux.
+1. **Notejot** (Appstore) -- sticky note.
+1. [**OpenComic**](https://github.com/ollm/OpenComic) -- read offline comic with many supported files (zip, folder containing images,...)
+1. **Rhythmbox** (Appstore) -- Music player on Linux ([custom hotkeys](/linux-tips#media--photo--music)).
+1. [**Workrave**](http://www.workrave.org/) -- a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
+1. **exfalso** (Appstore) -- edit mp3 tag on linux.
 
 ## MacOS
 
@@ -162,14 +162,21 @@ a local folder of plain text Markdown files.
 ### Frameworks
 
 1. [Matter.js](https://brm.io/matter-js/) -- a 2D physics engine for the web.
-1. [Plotly](https://plotly.com/javascript/) -- JavaScript Open Source Graphing Library
-1. [D3.js](https://d3js.org/) -- a JavaScript library for manipulating documents based on data.
-1. [JSXGraph](http://jsxgraph.uni-bayreuth.de/wp/) -- JSXGraph is a cross-browser JavaScript library for interactive geometry, function plotting, charting, and data visualization in the web browser.
 1. [Stage.js](https://piqnt.com/stage.js/) -- 2D JavaScript library for cross-platform HTML5 game development.
-1. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
-2. [Quill](https://quilljs.com/) -- Your powerful rich text editor.
-3. [Chart.js](https://www.chartjs.org/) -- Open source HTML5 Charts for your website.
-4. [Two.js](https://two.js.org/) -- a two-dimensional drawing api geared towards modern web browsers. It is renderer agnostic enabling the same api to draw in multiple contexts: svg, canvas, and webgl.
+2. **Text & Editor**:
+   1. [Quill](https://quilljs.com/) -- Your powerful rich text editor.
+   2. [markdown-it](https://github.com/markdown-it/markdown-it) -- Markdown parser, done right. 100% CommonMark support, extensions, syntax plugins & high speed
+3. **For drawing / illustrating**:
+   1. [Chart.js](https://www.chartjs.org/) -- Open source HTML5 Charts for your website.
+   2. [Two.js](https://two.js.org/) -- a two-dimensional drawing api geared towards modern web browsers. It is renderer agnostic enabling the same api to draw in multiple contexts: svg, canvas, and webgl.
+   3. [Three.js](https://threejs.org/) – JavaScript 3D library
+   4. [Rough.js](https://roughjs.com/)
+   5. [JSXGraph](http://jsxgraph.uni-bayreuth.de/wp/) -- JSXGraph is a cross-browser JavaScript library for interactive geometry, function plotting, charting, and data visualization in the web browser.
+   6. [Vector.js](https://vectorjs.org/examples/) -- Vector is an open source javascript library for creating interactive graphics.
+4. **For visualizing data**:
+   1. [Plotly](https://plotly.com/javascript/) -- JavaScript Open Source Graphing Library
+   2. [D3.js](https://d3js.org/) -- a JavaScript library for manipulating documents based on data.
+   3. [idyll](https://idyll-lang.org/) -- A toolkit for creating data-driven stories and explorable explanations.
 
 ## Illustration tools
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "K-Means & K-Medois Clustering"
+title: "K-Means & K-Medoids Clustering"
 tags: [Machine Learning, Clustering]
 toc: true
 icon: /img/header/clustering.png
@@ -11,6 +11,8 @@ notfull: 1
 {% assign img-url = '/img/post/ML/clustering' %}
 
 K-Means is ==the most popular clustering method== any learner should know. In this note, we will understand the idea of KMeans and how to use it with Scikit-learn. Besides that, we also learn about its variants (K-medois, K-modes, K-medians).
+
+👉 [Metrics for clustering methods](/metrics-for-clustering/).
 
 ## K-Means
 
@@ -73,16 +75,22 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
 - Image compression using [K-Means]({{site.url}}{{site.baseurl}}/k-means-clustering) -- [Open in HTML](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/projects/mini-projects/notebook_in_html/K_Means_image_compression.html) -- [Open in Colab](https://colab.research.google.com/github/dinhanhthi/data-science-learning/blob/master/projects/mini-projects/K_Means_image_compression.ipynb).
 
 
-## K-medois clustering
+## K-medoids clustering
 
-Different from K-Means:
-
-- **K-Means**:
-  - Centers no need to be points in data.
-  - Measure generally requires Euclidean distance.
-- **K-Medois**:
-  - Centers is actual points in data. They're called _medois_ or _exemplars_.
-  - Measures can be arbitrarily dissimilar.
+- **Advantages**:{% ref "https://www.geeksforgeeks.org/ml-k-medoids-clustering-with-example/" %}
+  - It is simple to understand and easy to implement.
+  - K-Medoid Algorithm is fast and converges in a fixed number of steps.
+  - PAM is less sensitive to outliers than other partitioning algorithms.
+- **Disavdvantages**:{% ref "https://www.geeksforgeeks.org/ml-k-medoids-clustering-with-example/" %}
+  - The main disadvantage of K-Medoid algorithms is that it is not suitable for clustering non-spherical (arbitrary shaped) groups of objects. This is because it relies on minimizing the distances between the non-medoid objects and the medoid (the cluster centre) – briefly, it uses compactness as clustering criteria instead of connectivity.
+  - It may obtain different results for different runs on the same dataset because the first k medoids are chosen randomly.
+- **Different from K-Means**:
+  - *K-Means*:
+    - Centers no need to be points in data.
+    - Measure generally requires Euclidean distance.
+  - *K-Medoids*:
+    - Centers is actual points in data. They're called _medois_ or _exemplars_.
+    - Measures can be arbitrarily dissimilar.
 
 ### Choose k by Silhouette
 
