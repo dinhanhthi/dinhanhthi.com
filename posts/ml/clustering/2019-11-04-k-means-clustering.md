@@ -94,6 +94,10 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
 
 ### Choose k by Silhouette
 
+It's [better than Elbow method](https://towardsdatascience.com/silhouette-method-better-than-elbow-method-to-find-optimal-clusters-378d62ff6891) to choose the number of clusters $k$.
+
+👉 Check [this note](/metrics-for-clustering/#silhouette-analysis).
+
 ## References
 
 - **Luis Serrano** -- [Video] [Clustering: K-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU).

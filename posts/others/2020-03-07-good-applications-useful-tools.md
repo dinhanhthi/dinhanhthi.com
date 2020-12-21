@@ -120,12 +120,19 @@ a local folder of plain text Markdown files.
 
 ## Chrome extension
 
-1. [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh?hl=en) -- Vietnamese input method
-1. [Flash Video Downloader](https://chrome.google.com/webstore/detail/flash-video-downloader/aiimdkdngfcipjohbjenkahhlhccpdbc) -- get any video download link.
-1. [Hush](https://chrome.google.com/webstore/detail/hush-private-bookmarking/hjmoaenjknbdehbiaeeijcppnljflkff?hl=en) -- private bookmarking
-1. [Mate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke) -- Quick translater.
-1. [Print Friendly & PDF](https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj?hl=en) -- print any web page into pdf.
-1. [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof) -- save current tab list
+1. [Adblock Plus](https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb) - free ad blocker
+2. [AutoTube](https://chrome.google.com/webstore/detail/autotube-youtube-nonstop/egobelhdffdoidcnhpgkngoghpiebial) -- YouTube nonstop (for ones who wanna listen to a video music which has more than 1 hour length)
+3. [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh?hl=en) -- Vietnamese input method
+4. [Copy URL with title](https://chrome.google.com/webstore/detail/copy-url-with-title/bpcogbhmkdjaohcmlghhkiohmldpnkoh) -- copy title and URL using [[Ctrl]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac). Use [[Alt]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac) to get them in markdown link format.
+5. [Google Dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja) (by Google)
+6. [Hush](https://chrome.google.com/webstore/detail/hush-private-bookmarking/hjmoaenjknbdehbiaeeijcppnljflkff?hl=en) -- private bookmarking
+7. [LastPass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd) -- Free Password Manager
+8. [Mate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke) -- Quick translater.
+9. [Microsoft Editor](https://chrome.google.com/webstore/detail/microsoft-editor-spelling/gpaiobkfhnonedkhhfjpmhdalgeoebfa) -- Spelling & Grammar Checker
+10. [Picture-in-Picture Extension](https://chrome.google.com/webstore/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg) (by Google) -- Picture-in-Picture (PiP) allows you to watch videos in a floating window (always on top of other windows) so you can keep an eye on what you’re watching while interacting with other sites, or applications.
+11. [Print Friendly & PDF](https://chrome.google.com/webstore/detail/print-friendly-pdf/ohlencieiipommannpdfcmfdpjjmeolj?hl=en) -- print any web page into pdf.
+12. [Raindrop.io](https://chrome.google.com/webstore/detail/raindropio/ldgfbffkinooeloadekpmfoklnobpien) -- All-in-one bookmark manager (better than Pocket)
+13. [TabCloud](https://chrome.google.com/webstore/detail/tabcloud/npecfdijgoblfcgagoijgmgejmcpnhof) -- save current tab list
 
 
 ## Data Science / Machine Learning
