@@ -24,32 +24,40 @@ date: Last Modified
   <p class="contact mt-0p5">
     <a class="button blue no-effect" href="mailto:dinhanhthi@gmail.com">Hire me</a>
     <a class="button black" href="{{ '/about/' | url }}">My CV</a>
+		<a class="button black" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3">🎨 My drawing</a>
   </p>
 </header>
 
 <div class="container wide d-flex d-flex-wrap">
   <div class="main-cats">
     {% for item in categories %}
+			{% set postslist = collections[item.name] %}
+			{% set lenlist = postslist | length %}
+			{% if lenlist > 0 %}
       <div class="category-wrapper">
         <div class="category">
           <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
             {% if item.logo %}{{ item.logo }}
             {% elif item.svg %}<img src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}
           </h2>
-          {% set postslist = collections[item.name] %}
           {% set customClass = 'list-homepage' %}
-          {% include "postslist.njk" %}
+					{% include "postslist.njk" %}
         </div>
       </div>
+			{% endif %}
     {% endfor %}
   </div>
   <div class="toc-index">
     <h3>Notes by subjects</h3>
     <ul class="toc">
       {% for item in categories %}
-        <li>
-          <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
-        </li>
+				{% set postslist = collections[item.name] %}
+				{% set lenlist = postslist | length %}
+				{% if lenlist > 0 %}
+				<li>
+					<a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
+				</li>
+				{% endif %}
       {% endfor %}
     </ul>
 		<p>There are <a href="/tags/">more topics</a>.</p>
