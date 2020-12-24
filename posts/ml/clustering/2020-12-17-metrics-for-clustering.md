@@ -174,8 +174,13 @@ where $c_S, c_T$ are centers of $S, T$ and $\vert S\vert, \vert T\vert$ is the n
 
 #### Code
 
-Linkages can be called via `linkage` parameter from [sklearn.cluster.AgglomerativeClustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering..html#sklearn.cluster.AgglomerativeClustering)
+Linkages can be called via `linkage` parameter from sklearn's [AgglomerativeClustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering)
 
+``` python
+from sklearn.cluster import AgglomerativeClustering
+clustering = AgglomerativeClustering(linkage="ward").fit(X)
+# There are others: "ward" (default), "complete", "average", "single"
+```
 
 ## Silhouette analysis
 

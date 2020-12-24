@@ -4,6 +4,7 @@ title: "NodeJS & NPM"
 tags: [JavaScript]
 toc: true
 icon: /img/header/nodejs.png
+notefull: 1
 keywords: js javascript package management Node Package Manager
 ---
 
@@ -128,3 +129,33 @@ npm update package_name # -g for global
 ``` bash
 npm uninstall package
 ```
+
+## Run scritps
+
+``` bash
+# Install first
+npm i --save npm-run-all
+```
+
+::: col-2-equal
+
+``` json
+// Run sequentially,
+// package.json
+"scripts": {
+	"build": "run-s prod:*", // "run-s" = "npm-run-all -s"
+	"prod:eleventy": "eleventy",
+	"prod:parcel": "parcel build ./ -o ./",
+}
+```
+
+``` json
+// Run parallely,
+// package.json
+"scripts": {
+	"start": "npm-run-all --parallel dev:*",
+	"dev:eleventy": "eleventy --serve",
+	"dev:parcel": "parcel watch ./ -o ./",
+}
+```
+:::
