@@ -38,8 +38,7 @@ Using "Elbow" method to choose the number of clusters $k$.
 ### Discussion
 
 - A type of **Partitioning clustering**.
-- Not good if there are outliers, noise.
-- The K-means method is sensitive to outliers ⇒ **K-medoids** clustering or **PAM** (Partitioning Around Medoids) is less sensitive to outliers{% ref "https://www.datanovia.com/en/blog/types-of-clustering-methods-overview-and-quick-start-r-code" %}
+- ==K-means is sensitive to outliers== ⇒ **K-medoids** clustering or **PAM** (Partitioning Around Medoids) is less sensitive to outliers{% ref "https://www.datanovia.com/en/blog/types-of-clustering-methods-overview-and-quick-start-r-code" %}
 
 ### K-Means in code
 
@@ -79,20 +78,29 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
 
 - **Advantages**:{% ref "https://www.geeksforgeeks.org/ml-k-medoids-clustering-with-example/" %}
   - It is simple to understand and easy to implement.
-  - K-Medoid Algorithm is fast and converges in a fixed number of steps.
-  - PAM is less sensitive to outliers than other partitioning algorithms.
+  - K-Medoid Algorithm is ==fast== and converges in a fixed number of steps.
+  - PAM is ==less sensitive to outliers== than other partitioning algorithms.
 - **Disavdvantages**:{% ref "https://www.geeksforgeeks.org/ml-k-medoids-clustering-with-example/" %}
-  - The main disadvantage of K-Medoid algorithms is that it is not suitable for clustering non-spherical (arbitrary shaped) groups of objects. This is because it relies on minimizing the distances between the non-medoid objects and the medoid (the cluster centre) – briefly, it uses compactness as clustering criteria instead of connectivity.
+  - The main disadvantage of K-Medoid algorithms is that it is ==not suitable for clustering non-spherical== (arbitrary shaped) groups of objects. This is because it relies on minimizing the distances between the non-medoid objects and the medoid (the cluster centre) – briefly, it uses compactness as clustering criteria instead of connectivity.
   - It may obtain different results for different runs on the same dataset because the first k medoids are chosen randomly.
 - **Different from K-Means**:
   - *K-Means*:
-    - Centers no need to be points in data.
+    - Final Centers no need to be points in data.
     - Measure generally requires Euclidean distance.
+    - Sensitive to outliers.
   - *K-Medoids*:
-    - Centers is actual points in data. They're called _medois_ or _exemplars_.
+    - Final Centers is actual points in data. They're called _medois_ or _exemplars_.
     - Measures can be arbitrarily dissimilar.
+    - ==Robust to outliers.==
 
-### Choose k by Silhouette
+**The idea**:
+
+1. (Like KMeans'): choose randomly points (no need to be a point in data)
+2. (Like KMeans'): assign labels to points based on chosen points in step 1.
+3. (Different from KMeans):
+4. (Like KMeans'): repeat the steps.
+
+## Choose k by Silhouette
 
 It's [better than Elbow method](https://towardsdatascience.com/silhouette-method-better-than-elbow-method-to-find-optimal-clusters-378d62ff6891) to choose the number of clusters $k$.
 
