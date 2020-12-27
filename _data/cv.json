@@ -142,7 +142,7 @@
 				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
 				"title": "Researcher in Applied Maths & Coder",
 				"date": "2013 — 2018",
-				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox.",
+				"activity": "I researched into the growth of biofilm by using the Finite Element Method, a numerical analysis method. The thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and a self-built NXFEM toolbox.",
 				"tech": [
 					{
 						"name": "Python",
@@ -183,21 +183,21 @@
 				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
 				"title": "Doctor in Applied Maths",
 				"date": "2013 — 2018",
-				"activity": "I researched on the growth of biofilm by using Finite Element Method, a numerical analysis method. Thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and self-built NXFEM toolbox."
+				"activity": "I researched into the growth of biofilm by using the Finite Element Method, a numerical analysis method. The thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and a self-built NXFEM toolbox."
 			},
 			{
 				"where": "U. of Tours",
 				"url": "https://www.univ-tours.fr/",
 				"title": "Master in Applied Maths",
 				"date": "2012 — 2013",
-				"activity": "My master degree was registered in this University but I studied most of time in Vietnam and took an internship at University Paris 13."
+				"activity": "My master's degree was awarded by the University of Tours. I took an internship at University Paris 13 under a project of the growth of biofilm."
 			},
 			{
 				"where": "Ho Chi Minh City Pedagogical U.",
 				"url": "https://hcmue.edu.vn/en/",
 				"title": "Bachelor in Pedagogy & Maths",
 				"date": "2008 — 2012",
-				"activity": "I was teached how to become a Mathematics teacher. I studied a lots in Mathematics and teaching method."
+				"activity": "I was taught how to become a Mathematics teacher. I studied a lot in Mathematics and teaching methods."
 			}
 		]
 	}
