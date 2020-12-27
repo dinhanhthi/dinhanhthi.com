@@ -720,6 +720,7 @@ body {
         border-style: dotted; }
       .category .list-homepage li img {
         width: 20px;
+        height: auto;
         margin-bottom: -5px;
         margin-left: -25px; }
       .category .list-homepage li:hover {
