@@ -692,7 +692,7 @@ body {
       margin-right: 7px; }
   .category .list-homepage {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0;
     margin-bottom: 0;
     column-count: 1;
     -webkit-column-count: 1;
@@ -711,19 +711,17 @@ body {
         -moz-column-count: 3;
         -moz-column-count: 3; } }
     .category .list-homepage li {
-      padding-left: 15px;
+      padding-left: 25px;
       margin-bottom: 10px;
-      display: inline-block;
       width: 100%; }
       .category .list-homepage li a {
         color: #ddd;
         border-bottom: 2px solid rgba(255, 255, 255, 0.14);
         border-style: dotted; }
-      .category .list-homepage li::before {
-        content: "📄";
-        margin-right: 5px;
-        margin-left: -25px;
-        opacity: 0.8; }
+      .category .list-homepage li img {
+        width: 20px;
+        margin-bottom: -5px;
+        margin-left: -25px; }
       .category .list-homepage li:hover {
         cursor: pointer; }
         .category .list-homepage li:hover a {

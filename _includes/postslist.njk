@@ -13,6 +13,9 @@
 
   {% for post in newPostList|sort(attribute='title') %}
       <li>
+				{% if customIcon %}
+					<img src="/img/cats/doc.svg">
+				{% endif %}
         <a href="{{ post.url | url }}" rel="noopener noreferrer">
           {% if post.title %}
             {{ post.title }}

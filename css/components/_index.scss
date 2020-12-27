@@ -97,7 +97,8 @@
 	}
 	.list-homepage {
 		list-style: none;
-		padding-left: 10px;
+		// padding-left: 10px;
+		padding-left: 0;
 		margin-bottom: 0;
 
 		@include column-count(1);
@@ -109,9 +110,10 @@
 		}
 
 		li {
-			padding-left: 15px;
+			// padding-left: 15px;
+			padding-left: 25px;
 			margin-bottom: 10px;
-			display: inline-block;
+			// display: inline-block;
 			width: 100%;
 			a {
 				color: #ddd;
@@ -119,11 +121,17 @@
 				border-style: dotted;
 			}
 
-			&::before {
-				content: "📄";
-				margin-right: 5px;
+			// &::before {
+			// 	// content: "📄";
+			// 	margin-right: 5px;
+			// 	margin-left: -25px;
+			// 	opacity: 0.8;
+			// }
+
+			img {
+				width: 20px;
+				margin-bottom: -5px;
 				margin-left: -25px;
-				opacity: 0.8;
 			}
 
 			&:hover {

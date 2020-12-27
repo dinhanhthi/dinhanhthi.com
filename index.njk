@@ -41,6 +41,7 @@ date: Last Modified
             {% elif item.svg %}<img src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}
           </h2>
           {% set customClass = 'list-homepage' %}
+					{% set customIcon = true %}
 					{% include "postslist.njk" %}
         </div>
       </div>
