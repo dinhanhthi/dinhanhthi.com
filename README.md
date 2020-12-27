@@ -63,8 +63,8 @@ Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify)
 # Clone this repo to 2 separated folders
 |
 |- dinhanhthi.com	# <- branch "dev" for editing notes
-|- dat.com			# <- branch "_site" for pushing to netlify
-|- _live			# intermediate folder (created when running tasks in dinhanhthi.com/)
+|- dat.com		# <- branch "_site" for pushing to netlify
+|- _live		# intermediate folder (created when running tasks in dinhanhthi.com/)
 
 # On dat.com/, just run
 # (It takes time to build the whole site in dinhanhthi.com/)
