@@ -182,17 +182,17 @@ addEventListener("click", (e) => {
 // - it only means potentially more costly layouts for that image.
 // - And so it isn't worth the querySelectorAll it would cost to synchronously check
 //   load state.
-document.body.addEventListener(
-	"load",
-	(e) => {
-		if (e.target.tagName != "IMG") {
-			return;
-		}
-		// Ensure the browser doesn't try to draw the placeholder when the real image is present.
-		e.target.style.backgroundImage = "none";
-	},
-  /* capture */ "true"
-);
+// document.body.addEventListener(
+// 	"load",
+// 	(e) => {
+// 		if (e.target.tagName != "IMG") {
+// 			return;
+// 		}
+// 		// Ensure the browser doesn't try to draw the placeholder when the real image is present.
+// 		e.target.style.backgroundImage = "none";
+// 	},
+//   /* capture */ "true"
+// );
 
 // scrolling toc
 // -----------------------------------------

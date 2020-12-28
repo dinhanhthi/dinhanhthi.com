@@ -722,7 +722,8 @@ body {
         width: 20px;
         height: auto;
         margin-bottom: -5px;
-        margin-left: -25px; }
+        margin-left: -25px;
+        opacity: 0.9; }
       .category .list-homepage li:hover {
         cursor: pointer; }
         .category .list-homepage li:hover a {
@@ -819,7 +820,7 @@ header {
 .job span {
   background: #ffd479;
   color: #000;
-  padding: 3px 10px;
+  padding: 3px 20px;
   border-radius: 15px;
   font-size: 1.02rem; }
 
@@ -1026,7 +1027,8 @@ footer {
   margin-bottom: 4rem;
   padding: 0 16.5px; }
   .page-about p.contact a {
-    margin-right: 10px; }
+    margin-right: 10px;
+    margin-bottom: 10px; }
     .page-about p.contact a:last-child {
       margin-right: 0; }
 
@@ -1282,7 +1284,7 @@ footer {
     display: inline-flex; }
 
 .button {
-  padding: 12px 40px;
+  padding: 12px 20px;
   font-size: 0.85rem;
   font-weight: 500;
   transition: all 0.5s;
@@ -1296,7 +1298,8 @@ footer {
   position: relative;
   overflow: hidden;
   border-radius: 40px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  display: inline-table; }
   .button.blue {
     background-color: #2387e2; }
     .button.blue:hover {

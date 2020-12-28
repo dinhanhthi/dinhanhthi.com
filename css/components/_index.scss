@@ -110,10 +110,8 @@
 		}
 
 		li {
-			// padding-left: 15px;
 			padding-left: 25px;
 			margin-bottom: 10px;
-			// display: inline-block;
 			width: 100%;
 			a {
 				color: #ddd;
@@ -121,18 +119,12 @@
 				border-style: dotted;
 			}
 
-			// &::before {
-			// 	// content: "📄";
-			// 	margin-right: 5px;
-			// 	margin-left: -25px;
-			// 	opacity: 0.8;
-			// }
-
 			img {
 				width: 20px;
 				height: auto;
 				margin-bottom: -5px;
 				margin-left: -25px;
+				opacity: 0.9;
 			}
 
 			&:hover {
