@@ -22,9 +22,9 @@
         margin-bottom: 5px;
         padding-left: 20px;
       }
-      & > *{
+      & > *:not(span){
         margin-bottom: 10px;
-      }
+			}
     }
   }
 

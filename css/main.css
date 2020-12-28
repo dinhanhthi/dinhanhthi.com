@@ -1657,7 +1657,7 @@ section.eqno > span {
     .page-note ul li ul, .page-note ul li ol, .page-note ol li ul, .page-note ol li ol {
       margin-bottom: 5px;
       padding-left: 20px; }
-    .page-note ul li > *, .page-note ol li > * {
+    .page-note ul li > *:not(span), .page-note ol li > *:not(span) {
       margin-bottom: 10px; }
 
 .page-note p.noindent {
