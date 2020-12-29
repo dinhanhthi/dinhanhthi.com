@@ -43,8 +43,8 @@ module.exports = function (eleventyConfig) {
 	} else {
 		eleventyConfig.addPlugin(require("./_11ty/img-dim.js")); // take too long to build
 		eleventyConfig.addPlugin(require("./_11ty/json-ld.js"));
-		eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
 		eleventyConfig.addPlugin(require("./_11ty/apply-csp.js"));
+		eleventyConfig.addPlugin(require("./_11ty/optimize-html.js"));
 		eleventyConfig.setDataDeepMerge(true);
 
 		// eleventy-plugin-local-images
