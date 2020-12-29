@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TF 3 - NLP in TensorFlow"
-tags: [MOOC, deeplearning.ai, Deep Learning, TensorFlow]
+tags: [MOOC, NLP, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python natural language processing NLP letters sequences text sentiment RNN LSTM long short term memory Recurrent neural network sarcasm tokenizer imdb movie review embedding word embeddings GRU Gated Recurrent Unit layer conv character-based prediction Shakespeare poem"
@@ -18,11 +18,11 @@ This is my note for the [3rd course](https://www.coursera.org/learn/natural-lang
 👉 Go to [course 2 - CNN in TensorFlow](/deeplearning-ai-tensorflow-course-2).
 👉 Go to [course 4 - Sequences, Time Series and Prediction](/deeplearning-ai-tensorflow-course-4).
 
+`
+## Tokenizing + padding
 
-## Tokernizing + padding
-
-👉 Notebook: [Tokenizer basic examples.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_tokenizer_basic_examples.html)
-👉 Notebook: [Sarcasm detection](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_2_sarcasm_detection.html).
+📙 Notebook: [Tokenizer basic examples.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_tokenizer_basic_examples.html)
+📙 Notebook: [Sarcasm detection](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_2_sarcasm_detection.html).
 
 {:.noindent}
 - A common simple character encoding is ASCII,
@@ -60,7 +60,9 @@ print(word_index)
 # encode sentences
 sequences = tokenizer.texts_to_sequences(sentences)
 print(sequences)
-# [[4, 2, 3, 5], [4, 2, 3, 6], [7, 2, 3, 5, 8, 9]]
+# [[4, 2, 3, 5],
+#  [4, 2, 3, 6],
+#  [7, 2, 3, 5, 8, 9]]
 # if a word is not in the word index, it will be lost in the text_to_sequences()
 ```
 
@@ -106,13 +108,13 @@ for item in datastore:
 
 ### IMDB review dataset
 
-👉 Notebook: [Train IMDB review dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_1_IMDB_reviews.html).
+📙 Notebook: [Train IMDB review dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_1_IMDB_reviews.html).
 👉 [Video explain the code](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-1-Q1Ln5).
 
 {:.noindent}
 - **Word embeddings** = the idea in which words and associated words are _clustered as vectors_ in a multi-dimensional space. That allows words with similar meaning to have a similar representation.
 - The meaning of the words can come from labeling of the dataset.
-  - _Example_: "dull" and "boring" show up a lot in negative reviews => they have similar sentiments => they are close to each other in the sentence => thus their vector will be similar => NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
+  - _Example_: "dull" and "boring" show up a lot in negative reviews $\Rightarrow$ they have similar sentiments $\Rightarrow$ they are close to each other in the sentence $\Rightarrow$ thus their vectors will be similar $\Rightarrow$ NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
 - The purpose of _embedding dimension_ is the number of dimensions for the vector representing the word encoding.
 
 ``` python
@@ -219,7 +221,7 @@ else:
 
 ### Sarcasm dataset
 
-👉 Notebook: [Train Sacarsm dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_2_sacarsm.html).
+📙 Notebook: [Train Sacarsm dataset](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_2_sacarsm.html).
 
 - In text data, it usually happens that the accuracy increase over the number of training but the loss increase sharply also. We can "play" with hyperparameter to see the effect.
 
@@ -236,7 +238,7 @@ except Exception:
 
 👉 [datasets/imdb_reviews.md at master · tensorflow/datasets](https://github.com/tensorflow/datasets/blob/master/docs/catalog/imdb_reviews.md)
 👉 [tfds.features.text.SubwordTextEncoder  |  TensorFlow Datasets](https://www.tensorflow.org/datasets/api_docs/python/tfds/features/text/SubwordTextEncoder)
-👉 Notebook: [Pre-tokenizer example](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html).
+📙 Notebook: [Pre-tokenizer example](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-2/notebook_3_pre-tokenizer.html).
 👉 [Video exaplain the codes](https://www.coursera.org/lecture/natural-language-processing-tensorflow/notebook-for-lesson-3-piQXt).
 
 - There are someones who did the work (tokenization) for you.
@@ -291,8 +293,8 @@ for ts in tokenized_string:
 
 - The relative ordering, the sequence of words, matters for the meaning of the sentence .
 - For NN to take into account for the __ordering of the words__: **RNN** (Recurrent Neural Networks), **LSTM** (Long short-term memory).
-- __Why not RNN but LSTM ?__ With RNN, the context is preserved from timstamp to timestamp BUT that may get lost in longer sentences => LSTM gets better because it has cell state.
-- __Example of using LSTM__: "_I grew up in Ireland, I went to school and at school, they made me learn how to speak..._" => "speak" is the context and we go back to the beginning to catch "Ireland", then the next word could be "leanr how to speak __Gaelic__"!
+- __Why not RNN but LSTM ?__ With RNN, the context is preserved from timstamp to timestamp BUT that may get lost in longer sentences $\Rightarrow$ LSTM gets better because it has cell state.
+- __Example of using LSTM__: "_I grew up in Ireland, I went to school and at school, they made me learn how to speak..._" $\Rightarrow$ "speak" is the context and we go back to the beginning to catch "Ireland", then the next word could be "leanr how to speak __Gaelic__"!
 
 ### RNN idea
 
@@ -300,7 +302,7 @@ for ts in tokenized_string:
 
 {:.noindent}
 - The usual NN, something like "f(data, labels)=rules" cannot take into account of sequences.
-- **An example of using sequences**: Fibonacci sequence => the result of current function is the input of next function itself,...
+- **An example of using sequences**: Fibonacci sequence $\Rightarrow$ the result of current function is the input of next function itself,...
 
 ![RNN basic idea]({{img_url}}/rnn-basic-idea.png){:.img-70 .pop}
 _RNN basic idea ([source](https://medium.com/@kangeugine/long-short-term-memory-lstm-concept-cb3283934359))._
@@ -327,7 +329,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM.html)
+📙 Notebook: [IMDB Subwords 8K with Single Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_1_IMDB_subwords_8K_with_single_layer_LSTM.html)
 
 ``` python
 # MULTI PLAYER LSTM
@@ -342,7 +344,7 @@ model = tf.keras.Sequential([
 ])
 ```
 
-👉 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM.html)
+📙 Notebook: [IMDB Subwords 8K with Multi Layer LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_2_IMDB_subwords_8K_with_multi_layer_LSTM.html)
 
 ![1layer vs 2 later LSTM acc]({{img_url}}/1layer-vs-2layer-lstm.png){:.img-90 .pop}
 _1 layer vs 2 layer LSTM accuracy after 50 epochs (image from the course). 2 layer is better (smoother) which makes us more confident about the model. The validation acc is sticked to 80% because we used 8000 sub-words taken from training set, so there may be many tokens from the test set that would be out of vocabulary._
@@ -382,7 +384,7 @@ _With vs without LSTM (image from the course). With LSTM is really better but th
 ### Using a ConvNet
 
 👉 [Video explains the dimension](https://www.coursera.org/lecture/natural-language-processing-tensorflow/using-a-convolutional-network-fSE8o).
-👉 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_3_IMDB_subwords_8K_with_Conv.html).
+📙 Notebook: [IMDB Subwords 8K with 1D Convolutional Layer](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_3_IMDB_subwords_8K_with_Conv.html).
 
 ``` python
 model = tf.keras.Sequential([
@@ -401,7 +403,7 @@ _Using Convolution network. (image from the course). It's really better but ther
 
 ### IMDB dataset
 
-👉 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_4_IMDB_review_with_GRU.html).
+📙 Notebook: [IMDB Reviews with GRU (and optional LSTM and Conv1D)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-3/notebook_4_IMDB_review_with_GRU.html).
 👉 [Video compares the results](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/NFvFd/going-back-to-the-imdb-dataset).
 
 Try with 3 different choices:
@@ -508,4 +510,4 @@ history = model.fit(xs, ys, epochs=100, verbose=1)
 - Different convernges can create different poetry.
 - If we use one-hot for a very big corpus -> take a lot of RAM -> use **character-based prediction** -> #unique characters is far less than #unique words. -> [notebook "Text generation with RNN"](https://www.tensorflow.org/tutorials/text/text_generation)
 
-👉 Notebook [Using LSTMs, see if you can write Shakespeare!](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_4_using_lstm_write_shakespeare.html)
+📙 Notebook [Using LSTMs, see if you can write Shakespeare!](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_4_using_lstm_write_shakespeare.html)

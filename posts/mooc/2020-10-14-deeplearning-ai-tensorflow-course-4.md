@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TF 4 - Sequences, Time Series and Prediction"
-tags: [MOOC, deeplearning.ai, Deep Learning, TensorFlow]
+tags: [MOOC, Time Series, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg
 keywords: "deep learning ai coursera tensorflow google project python sequences time series sunspot activities circle NASA RNN Autocorrelation autocorrelated time series trend seasonality lambda layer sequence to vector sequence to sequence univariate multivariate learning rate LSTM callback recurrent layer moving average differencing metric train test validation set windowed dataset loss function Huber"
@@ -34,7 +34,7 @@ This is my note for the [4th course](https://www.coursera.org/learn/tensorflow-s
 - **Univariate** TS and **Miltivariate** TS.
 - Type of things can we do with ML over TS:
   - Any thing has a time factor can be analysed using TS.
-  - Predicting a focasting (eg. birth & death in Japan -> predict future for retirement, immigration, impacts...).
+  - Predicting a forecasting (eg. birth & death in Japan -> predict future for retirement, immigration, impacts...).
   - __Imputation__: project back into the past.
   - Fill holes in the data.
   - Nomalies detecction (website attacks).
