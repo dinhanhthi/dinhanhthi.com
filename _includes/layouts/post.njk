@@ -65,7 +65,7 @@ permalink: "{{ page.fileSlug }}/"
         "mainEntityOfPage": "{{ metadata.url }}{{ canonicalUrl or page.url }}",
         "datePublished": "{{ page.date | htmlDateString }}",
         "dateModified": "{{ page.inputPath | lastModifiedDate  | htmlDateString }}",
-        "description": "{{ content | striptags | truncate(140) }}"
+        "description": "{% if description %}{{ description }}{% else %}{{ content | striptags | truncate(140) }}{% endif %}"
       }
     </script>
   </article>
