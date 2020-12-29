@@ -6,7 +6,7 @@ tags: [NLP]
 toc: true
 icon: "/img/cats/nlp.svg"
 notfull: 1
-keywords: "word2vec tool framework tensorflow"
+keywords: "word2vec tool framework tensorflow One-hot encodings vectorize text vectorization dense sparse matrix"
 ---
 
 {% assign img-url = '/img/post/nlp' %}
@@ -19,7 +19,7 @@ keywords: "word2vec tool framework tensorflow"
   - $\Rightarrow$ That's why we think of _Word embedding_ which helps:
     - Dense representation.
     - There are relationships between similar words.
-- **Word embedding**:
+- **Word embedding** = the idea in which words and associated words are _clustered as vectors in a multi-dimensional space_. That allows words with similar meaning to have a similar representation.
   - a dense vector of floating point values.
   - similar words have a similar encoding.
   - like a "lookup table"
@@ -27,11 +27,12 @@ keywords: "word2vec tool framework tensorflow"
 - Dimensional?
   - Small dataset: commonly 8.
   - Big dataset: commonly up to 1024.
+- The meaning of the words can come from labeling of the dataset.
+  - _Example_: "dull" and "boring" show up a lot in negative reviews $\Rightarrow$ they have similar sentiments $\Rightarrow$ they are close to each other in the sentence $\Rightarrow$ thus their vectors will be similar $\Rightarrow$ NN train + learn these vectors + associating them with the labels to come up with what's called in embedding.
+- The purpose of _embedding dimension_ is the number of dimensions for the vector representing the word encoding.
 
 ![Word embedding examples]({{img-url}}/word-embedding-example.png){:.img-40}
 _An example of 4-dimensional embedding. [Source](https://www.tensorflow.org/tutorials/text/word_embeddings) of the idea._
-
-## When?
 
 ## How?
 
@@ -42,10 +43,6 @@ _An example of 4-dimensional embedding. [Source](https://www.tensorflow.org/tuto
 👉 [Embedding projector](http://projector.tensorflow.org/) -- visualization of high-dimensional data
 
 ``` python
-model = tf.keras.Sequential([
-	tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
-														# The result of embedding will be a 2D array:
-														# length of sentence x embedding_dim
-	# ...
-])
+# Embed a 1,000 word vocabulary into 5 dimensions.
+embedding_layer = tf.keras.layers.Embedding(1000, 5)
 ```

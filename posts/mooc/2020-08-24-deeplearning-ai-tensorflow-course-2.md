@@ -185,8 +185,8 @@ history = model.fit_generator(train_generator,
 
 ## Image Augmentation
 
-👉 Notebook: [Cats v Dogs using augmentation](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_1_Cats_v_Dogs_Augmentation.html) & [the final exercise](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_3_Cats_vs_Dogs_using_augmentation_Question-FINAL.html) (more data).
-👉 Notebook: [Human vs Horse using augmentation](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_2_horse_human.html).
+📙 Notebook: [Cats v Dogs using augmentation](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_1_Cats_v_Dogs_Augmentation.html) & [the final exercise](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_3_Cats_vs_Dogs_using_augmentation_Question-FINAL.html) (more data).
+📙 Notebook: [Human vs Horse using augmentation](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-2/notebook_2_horse_human.html).
 
 {:.noindent}
 - Create multiple "other" images from original images without saving them to the memory + quickly.
@@ -217,8 +217,8 @@ _An illustration of image augmentation [from apple](https://developer.apple.com/
 
 ## Transfer learning
 
-👉 Notebook: [Coding transfer learning from the inception mode](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_1_Coding%20transfer%20learning%20from%20the%20inception%20mode.html). ➪ [Video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/exploring-transfer-learning-with-inception-ZQ6dw) explains this notebook.
-👉 Notebook: [Horses v Humans using callBack, Augmentation, transfer learning](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_2_Horses_vs_humans_using_Transfer_Learning_Question-FINAL.html) (final exercise).
+📙 Notebook: [Coding transfer learning from the inception mode](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_1_Coding%20transfer%20learning%20from%20the%20inception%20mode.html). ➪ [Video](https://www.coursera.org/lecture/convolutional-neural-networks-tensorflow/exploring-transfer-learning-with-inception-ZQ6dw) explains this notebook.
+📙 Notebook: [Horses v Humans using callBack, Augmentation, transfer learning](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-3/notebook_2_Horses_vs_humans_using_Transfer_Learning_Question-FINAL.html) (final exercise).
 
 {:.noindent}
 - __Transfer learning__ = Taking existing model that's trained on far more data + use the features that model learned.
@@ -284,8 +284,8 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 
 ## Multi-class classification
 
-👉 Notebook: Rock Paper Scissors.
-👉 Notebook: MNIST.
+📙 Notebook: Rock Paper Scissors.
+📙 Notebook: MNIST.
 
 {:.noindent}
 - [Rock-Paper-Scissors dataset](http://www.laurencemoroney.com/rock-paper-scissors-dataset/) (generated using CGI techniques)

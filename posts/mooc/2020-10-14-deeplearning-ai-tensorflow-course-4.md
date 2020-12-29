@@ -27,7 +27,7 @@ This is my note for the [4th course](https://www.coursera.org/learn/tensorflow-s
 
 ### Time Series
 
-👉 Notebook: [introduction to time series](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-1/notebook_1_introduction_to_time_series.html). + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/Pzp5K/introduction-to-time-series). => How to create synthetic time series data + plot them.
+📙 Notebook: [introduction to time series](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-1/notebook_1_introduction_to_time_series.html). + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/Pzp5K/introduction-to-time-series). => How to create synthetic time series data + plot them.
 
 {:.noindent}
 - Time series is everywhere: stock prices, weather focasts, historical trends (Moore's law),...
@@ -110,7 +110,7 @@ keras.metrics.mean_absolute_error(x_valid, naive_forecast).numpy()
 
 ### Moving average and differencing
 
-👉 Notebook: [Forecasting](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-1/notebook_2_forecasting.html). + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/KVWrR/forecasting).
+📙 Notebook: [Forecasting](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-1/notebook_2_forecasting.html). + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/KVWrR/forecasting).
 
 **Moving average**: a simple forecasting method. Calculate the average of blue lines within a fixed "averaging windows".
 
@@ -152,7 +152,7 @@ Keep in mind before using Deep Learning, <mark>sometimes simple approaches just 
   - Ex: 30 days of values as features and next value as label.
   - Overtime, train ML to match 30 features to match a single label.
 
-👉 Notebook: [Preparing features and labels](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_1_preparing_features_and_labels.html).
+📙 Notebook: [Preparing features and labels](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_1_preparing_features_and_labels.html).
 👉 [Video explains how to split to features and labels from dataset](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/TYErD/preparing-features-and-labels).
 
 ``` python
@@ -209,7 +209,7 @@ Sequence bias is when the order of things can impact the selection of things. <m
 
 ## Feeding windowed datasets into NN
 
-👉 Notebook: [Single layer NN](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_2_1layer_NN_linear_reg.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/YERBd/more-on-single-layer-neural-network).
+📙 Notebook: [Single layer NN](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_2_1layer_NN_linear_reg.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/YERBd/more-on-single-layer-neural-network).
 
 ``` python
 # Simple linear regression (1 layer NN)
@@ -230,7 +230,7 @@ forecast = forecast[split_time-window_size:]
 results = np.array(forecast)[:, 0, 0]
 ```
 
-👉 Notebook: [DNN with TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_3_DNN_TS.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/HecKT/deep-neural-network-training-tuning-and-prediction).
+📙 Notebook: [DNN with TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_3_DNN_TS.html) + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/HecKT/deep-neural-network-training-tuning-and-prediction).
 
 ``` python
 # A way to choose an optimal learning rate
@@ -253,7 +253,7 @@ plt.axis([1e-8, 1e-3, 0, 300])
 _Loss w.r.t different learning rates. We choose the lowest one, around 8e-6._
 </div>
 
-👉 Notebook: [DNN with synthetic TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_4_DNN_synthetic_data.html).
+📙 Notebook: [DNN with synthetic TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-2/notebook_4_DNN_synthetic_data.html).
 
 ## RNN for TS
 
@@ -324,11 +324,11 @@ model = tf.keras.models.Sequential([
 {:.noindent}
 - Loss function __Huber__ ([wiki](https://en.wikipedia.org/wiki/Huber_loss)): less sensitive to outliers. => we use this because our data in this case get a little bit noisy!
 
-👉 Notebook: [Simple RNN with a TS data](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_1_simple_RNN_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/5W1Rw/rnn).
+📙 Notebook: [Simple RNN with a TS data](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_1_simple_RNN_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/5W1Rw/rnn).
 
 ### LSTM
 
-👉 Notebook: [LSTM with a TS data](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_2_LSTM_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/IqcpX/more-on-lstm).
+📙 Notebook: [LSTM with a TS data](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_2_LSTM_with_TS.html) + [videos explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/IqcpX/more-on-lstm).
 
 ``` python
 # clear internal variables
@@ -348,7 +348,7 @@ model = tf.keras.models.Sequential([
 ])
 ```
 
-👉 Notebook: [LSTM with synthetic TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_3_LSTM_synthetic_data.html).
+📙 Notebook: [LSTM with synthetic TS](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-3/notebook_3_LSTM_synthetic_data.html).
 
 ## Real-world time series data
 
@@ -357,6 +357,6 @@ model = tf.keras.models.Sequential([
 - Combine CNN + LSTM.
 
 👉 Andrew's [video on Optimization Algo: Mini-batch gradient descent](https://www.youtube.com/watch?v=4qJaSmvhxi8).
-👉 Notebook: [Sunspot dataset with CNN+LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_1_sunspot_cnn_lstm.html). + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/zAaeD/combining-our-tools-for-analysis).
-👉 Notebook: [Sunspot dataset with DNN only](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_2_sunspot_DNN_only.html) + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/EPaeW/sunspots).
+📙 Notebook: [Sunspot dataset with CNN+LSTM](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_1_sunspot_cnn_lstm.html). + [video explains it](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/zAaeD/combining-our-tools-for-analysis).
+📙 Notebook: [Sunspot dataset with DNN only](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-4/week-4/notebook_2_sunspot_DNN_only.html) + [explaining video](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/EPaeW/sunspots).
 👉 [Video explains train & tune the model](https://www.coursera.org/learn/tensorflow-sequences-time-series-and-prediction/lecture/LYbcx/train-and-tune-the-model) (how to choose suitable values for sizes)

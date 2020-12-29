@@ -18,7 +18,6 @@ This is my note for the [3rd course](https://www.coursera.org/learn/natural-lang
 👉 Go to [course 2 - CNN in TensorFlow](/deeplearning-ai-tensorflow-course-2).
 👉 Go to [course 4 - Sequences, Time Series and Prediction](/deeplearning-ai-tensorflow-course-4).
 
-`
 ## Tokenizing + padding
 
 📙 Notebook: [Tokenizer basic examples.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-1/notebook_1_tokenizer_basic_examples.html)
@@ -420,7 +419,7 @@ __Remark__: <mark>With the texts, you'll probably get a bit more overfitting tha
 
 One application of sequence models: read text then **generate another look-alike text**.
 
-👉 [Notebook 1](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html) & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
+📙 [Notebook 1](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_1_find_the_next_word_trained_from_a_song.html) & [explaining video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/B80b0/notebook-for-lesson-1).
 
 - How they predict a new word in the notebook? -> Check [this video](https://www.coursera.org/learn/natural-language-processing-tensorflow/lecture/LGBS2/predicting-a-word).
 
@@ -485,7 +484,7 @@ print(seed_text)
 
 - Using more words will help.
 
-👉 [Notebook 3 (more data)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_3_more_data_on_train.html)
+📙 [Notebook 3 (more data)](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-3/week-4/notebook_3_more_data_on_train.html)
 
 ``` python
 # read from a file
