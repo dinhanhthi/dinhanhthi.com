@@ -404,6 +404,18 @@ const CSP = {
 // "abc" -> doesn't mean 'abc' in <meta>
 ```
 
+---
+
+``` js
+// json-ld problem with latex code (math equations)
+```
+
+**Reason**: `json-ld.js` takes some beginning words to convert to json formats! If there are equation (latex likes `$\Rightarrow$`) at the very beginning of the notes, there will be error like this!
+
+The err comes from `src/json-ld.js` and the codes at the bottom of file `_includes/layouts/post.njk` $\Rightarrow$ `truncate(140)` $\Rightarrow$ If math equations start at character 141, it will be fine!
+
+**Solution**: Add `| dump` to the `description` tag!
+
 ### Search full content
 
 1. `.eleventy.js`: uncomment line `//"content": page.templateContent,`.

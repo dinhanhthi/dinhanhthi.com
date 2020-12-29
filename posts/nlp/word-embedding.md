@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Word Embedding"
-date: "2020-01-01"
+description: Note of word embedding in NLP
 tags: [NLP]
 toc: true
 icon: "/img/cats/nlp.svg"
