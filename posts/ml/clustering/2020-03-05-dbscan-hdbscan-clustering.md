@@ -8,21 +8,23 @@ keywords: "cluster clustering dbscan hdbscan density based spatial clustering of
 notfull: 1
 ---
 
+{% assign img-url = '/img/post/ML/clustering' %}
+
 ## What?
 
 The key idea is that for each point of a cluster, the neighborhood of a given radius has to contain at least a minimum number of points.
 
 ### DBSCAN
 
-- "DBSCAN" = Density-based-spatial clustering of application with noise.
+- "DBSCAN" = **D**ensity-**b**ased-**s**patial **c**lustering of **a**pplication with **n**oise.
 - Separate clusters of <mark>high density from ones of low density</mark>.
 - Can sort data into clusters of varying shapes.
 - **Input**: set of points & neighborhood N & minpts (density)
 - **Output**: clusters with density (+ noises)
 - Each point is either:
-  - core point: has at least minpts points in its neighborhood.
-  - border point: not a core but has at least 1 core point in its neighborhoods.
-  - noise point: not a core or border point.
+  - _Core point_: has at least minpts points in its neighborhood.
+  - _Border point_: not a core but has at least 1 core point in its neighborhoods.
+  - _Noise point_: not a core or border point.
 - **Phase**:
   1. Choose a point → it's a core point?
      1. If yes → expand → check core / check border
@@ -39,7 +41,19 @@ The key idea is that for each point of a cluster, the neighborhood of a given ra
 
 ### HDBSCAN
 
-High DBSCAN.
+- **H**igh DBSCAN.
+- Difference between DBSCAN and HDBSCAN:
+  - HDBSCAN: focus much on ==high density==.
+  - DBSCAN: create right clusters but also create clusters with ==very low density== of examples (Figure 1).
+  - Check more [in this note](https://towardsdatascience.com/lightning-talk-clustering-with-hdbscan-d47b83d1b03a).
+- Reduce the speed of clustering in comparision with other methods (Figure 2).
+- HDBScan has the parameter minimum cluster size (`min_cluster_size`), which is how big a cluster needs to be in order to form.
+
+![Difference between DBSCAN and HDBSCAN]({{img-url}}/dbscan-vs-hdbscan.jpg){:.img-90}
+_**Figure 1**. Difference between DBSCAN (left) and HDBSCAN (right). [Source of figure](https://towardsdatascience.com/lightning-talk-clustering-with-hdbscan-d47b83d1b03a)._
+
+![Performance comparison of difference clustering methods.]({{img-url}}/performance_clustering_method.png){:.img-60}
+_**Figure 2**.Performance comparison of difference clustering methods. HDBSCAN is much faster than DBSCAN with more data points. [Source of figure](http://hdbscan.readthedocs.io/)._
 
 ## When?
 

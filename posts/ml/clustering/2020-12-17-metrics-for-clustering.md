@@ -81,8 +81,6 @@ where $c_S$ (can be calculated as $\frac{\Sigma_{x\in S}x}{\vert S\vert}), \vert
 
 **Intercluster** -- Measuring distance between 2 clusters. They can be used in [Agglomerative clustering](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering).
 
-👉 [Different linkage type: Ward, complete, average, and single linkage](https://scikit-learn.org/stable/modules/clustering.html#different-linkage-type-ward-complete-average-and-single-linkage)
-
 <div class="columns-2" markdown="1">
 <div>
 
@@ -171,6 +169,13 @@ where $c_S, c_T$ are centers of $S, T$ and $\vert S\vert, \vert T\vert$ is the n
 
 ![Ward's method]({{ img-url }}/distance-ward.png){:.img-100}
 </div>
+
+#### Difference
+
+👉 [Different linkage type: Ward, complete, average, and single linkage](https://scikit-learn.org/stable/modules/clustering.html#different-linkage-type-ward-complete-average-and-single-linkage)
+
+![]({{img-url}}/sphx_glr_plot_linkage_comparison_0011.png){:.img-100}
+_Different clustering results using different linkages on some special datasets. [Source of image](https://scikit-learn.org/stable/modules/clustering.html#different-linkage-type-ward-complete-average-and-single-linkage)._
 
 #### Code
 
