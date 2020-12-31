@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "Principal Component Analysis (PCA)"
-tags: [Machine Learning]
+tags: [Machine Learning, Dimensionality Reduction]
 toc: true
 icon: /img/cats/ml.svg
-keywords: compress data dimensional reduction speed up algorithms or to visualize data feature selection Feature projection mean variance covariance eigenvalues covariance matrix eigenvectors explained_variance_ratio_ Whitening Image compression Luis Serrano Tiep Vu Jake VanderPlas UFLDL - Stanford Shankar Muthuswamy
+keywords: pca Dimensionality Reduction compress data dimensional reduction speed up algorithms or to visualize data feature selection Feature projection mean variance covariance eigenvalues covariance matrix eigenvectors explained_variance_ratio_ Whitening Image compression Luis Serrano Tiep Vu Jake VanderPlas UFLDL - Stanford Shankar Muthuswamy
 ---
 
-{% assign img-url = '/img/post/ML/PCA' %}
+{% assign img-url = '/img/post/ML/dim_redu' %}
 
 ## What?
 
-Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use **dimensionality reduction** which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:
+Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use [**dimensionality reduction**](/tags/dimensionality-reduction/) which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:
 
 - **Feature selection**: find a subset of the input variables.
 - **Feature projection** (also *Feature extraction*): transforms the data in the high-dimensional space to a space of fewer dimensions. **PCA** is one of the methods following this approach.
@@ -31,16 +31,16 @@ From a data points, there are many ways of projections, for examples,
 ![An example of different projections.]({{img-url}}/pca-4.jpg){:.img-full-75 .pop}
 ***Figure 3.** We will project the points to the green line or the violet line? Which one is the best choice?*
 
-Intuitively, the green line is better with more separated points. But how can we choose it "mathematically" (precisely)? We need to know about:
+Intuitively, the green line is ==better with more separated points==. But how can we choose it "mathematically" (precisely)? We need to know about:
 
-- **[Mean](/mean-median-mode)**: find the most balanced point in the data.
-- **[Variance](/variance-covariance-correlation)**: measure the spread of data from the mean. However, variance is not enough. There are many different ways in that we get the same variance.
-- **[Covariance](/variance-covariance-correlation)**: indicate the direction in that data are spreading.
+- **[Mean](/mean-median-mode)**: finds the most balanced point in the data.
+- **[Variance](/variance-covariance-correlation)**: measures the spread of data from the mean. However, variance is not enough. There are many different ways in that we get the same variance.
+- **[Covariance](/variance-covariance-correlation)**: indicates the direction in that data are spreading.
 
-An example of the same mean and variance but different covariance.
-
+{% hsbox "An example of the same mean and variance but different covariance." %}
 ![Different data but the same mean and variance.]({{img-url}}/pca-5.jpg){:.img-full-100 .pop}
 ***Figure 4.** Different data but the same mean and variance. That's why we need covariance!*
+{% endhsbox %}
 
 ### Algorithm
 
@@ -53,7 +53,7 @@ An example of the same mean and variance but different covariance.
 4. Now, instead of solving the original problem ($N$ features), we only need to solve a new problem with $K$ features ($K<N$).
 
 ![A big picture of the idea of PCA algorithm.]({{img-url}}/pca-3.jpg){:.img-full-100 .pop}
-***Figure 5.** A big picture of the idea of PCA algorithm.<sup>[\[ref\]](https://www.youtube.com/watch?v=g-Hb26agBFg)</sup>*
+_**Figure 5.** A big picture of the idea of PCA algorithm. "Eigenstuffs" are eigenvalues and eigenvectors. [Source](https://www.youtube.com/watch?v=g-Hb26agBFg)._
 
 ## Code
 

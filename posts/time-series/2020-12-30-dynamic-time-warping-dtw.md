@@ -31,6 +31,9 @@ _Difference between DTW and Euclidian distance. [Source](https://www.researchgat
 ![An example of 2 time series to be compared using DTW]({{img-url}}/dtw-example-how.jpg){:.img-80}
 _By using a **distance matrix**, we can find a good distance between 2 timeseries using DTW. Here, $8=3^2-1^2$ and we choose the smallest distance in the nearest position. [Source](https://www.youtube.com/watch?v=v_WLX0fu_UE)._
 
+![More detailed of calculating the distance matrix using DTW]({{img-url}}/dtw-example-distance-matrix.png){:.img-60}
+_More detailed of calculating the distance matrix using DTW. `Ai`: element `i`th of `A`; `D[i-1, j-1]`: The DTW between element `i-1`th and `j-1`th. [Source](https://www.youtube.com/watch?v=_K1OsqCicBY)._
+
 ## When to use?
 
 1. **An example**: Voice of a man. He can speak fast. He can speak slowly. However, the both voices are his. If we don't use DTW but Euclidian distance, the distance is very large $\Rightarrow$ there are 2 voices $\Rightarrow$ wrong prediction!
