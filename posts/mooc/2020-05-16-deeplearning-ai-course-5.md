@@ -5,6 +5,7 @@ tags: [MOOC, deeplearning.ai, Deep Learning, RNN, NLP]
 toc: true
 icon: deeplearning-ai.png
 keywords: ""
+notfull: 1
 ---
 
 {% assign img-url = '/img/post/mooc/dl/cnn' %}
