@@ -14,8 +14,8 @@ This is my note for the course ([Structuring Machine Learning Projects](https://
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).
-👉 **Course 4** -- [Convolutional Neural Networks](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e).
-👉 **Course 5** -- [Sequence Models](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e).
+👉 **Course 4** -- [Convolutional Neural Networks](/deeplearning-ai-course-4).
+👉 **Course 5** -- [Sequence Models](/deeplearning-ai-course-5).
 
 ⭐ **Case study** (should read): [Bird recognition in the city of Peacetopia](/deeplearning-ai-course-3-bird-recognition-peacetopia).
 ⭐ **Case study** (should read): [Autonomous driving](/deeplearning-ai-course-3-autonomous-driving) (I copied it from [this](https://github.com/Kulbear/deep-learning-coursera/blob/master/Structuring%20Machine%20Learning%20Projects/Week%202%20Quiz%20-%20Autonomous%20driving%20(case%20study).md)).
@@ -325,5 +325,3 @@ This course will give you some strategies to help analyze your problem to go in 
     - Excludes potentially useful hand-designing components.
 - If having enough data $\Rightarrow$ can think of using end-to-end!
 - <mark markdown='span'>**Advice**</mark>: carefully choose what type of $X \to Y$ mapping $\Leftarrow$ depends on what tasks you can get data for!
-
-👉 **Course 4** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-4).

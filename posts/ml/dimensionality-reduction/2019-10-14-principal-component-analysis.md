@@ -9,6 +9,8 @@ keywords: pca Dimensionality Reduction compress data dimensional reduction speed
 
 {% assign img-url = '/img/post/ML/dim_redu' %}
 
+👉 Note: [UMAP & t-SNE](/umap-t-SNE/).
+
 ## What?
 
 Sometimes we need to "compress" our data to speed up algorithms or to visualize data. One way is to use [**dimensionality reduction**](/tags/dimensionality-reduction/) which is the process of reducing the number of random variables under consideration by obtaining a set of principal variables. We can think of 2 approaches:

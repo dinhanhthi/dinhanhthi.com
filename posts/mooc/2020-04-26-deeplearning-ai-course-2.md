@@ -14,8 +14,8 @@ This is my note for the course ([Improving Deep Neural Networks: Hyperparameter 
 👉 **Course 1** -- [Neural Networks and Deep Learning](/deeplearning-ai-course-1).
 👉 **Course 2** -- [Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization](/deeplearning-ai-course-2).
 👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).
-👉 **Course 4** -- [Convolutional Neural Networks](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e).
-👉 **Course 5** -- [Sequence Models](https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e).
+👉 **Course 4** -- [Convolutional Neural Networks](/deeplearning-ai-course-4).
+👉 **Course 5** -- [Sequence Models](/deeplearning-ai-course-5).
 
 This course will teach you the "magic" of getting deep learning to work well. Rather than the deep learning process being a black box, you will understand what drives performance, and be able to more systematically get good results. You will also learn TensorFlow.
 
@@ -459,4 +459,3 @@ There are two typical ways to create and use sessions in tensorflow:
 - The backpropagation and optimization is automatically done when running the session on the "optimizer" object.
 
 👉 Check more details about the codes in [the notebook](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/data-science-learning/blob/master/coursera-deep-learning-deeplearning.ai/course-2/week-3/TensorFlow_Tutorial_v3b.html).
-👉 **Course 3** -- [Structuring Machine Learning Projects](/deeplearning-ai-course-3).

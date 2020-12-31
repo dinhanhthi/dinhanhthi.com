@@ -3,7 +3,7 @@ layout: post
 title: "Dynamic Time Warping (DTW)"
 tags: [Time Series]
 toc: true
-icon: datetime.svg
+icon: ts.png
 notfull: 1
 keywords: "dtw analysis multiple time series distance compare two ts"
 ---
