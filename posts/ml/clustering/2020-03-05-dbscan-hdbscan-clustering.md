@@ -107,7 +107,7 @@ clr = HDBSCAN(eps=3, min_cluster_size=3, metric='euclidean')
 {:.indent}
 - `min_cluster_size`: {% ref "https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-cluster-size" %} the smallest size grouping that you wish to consider a cluster.
 - `min_samples`: {% ref "https://hdbscan.readthedocs.io/en/latest/parameter_selection.html#selecting-min-samples" %} The number of samples in a neighbourhood for a point to be considered a core point. The larger value $\to$ the more points will be declared as noise & clusters will be restricted to progressively more dense areas.
-- Working with DTW (Dynamic Time Warping) ([more](https://dtaidistance.readthedocs.io/en/latest/usage/dtw.html#dtw-between-set-of-series)): `metric='precomputed'` {% ref "https://hdbscan.readthedocs.io/en/latest/basic_hdbscan.html?highlight=precomputed" %}
+- Working with [DTW (Dynamic Time Warping)](/dynamic-time-warping-dtw/) ([more](https://dtaidistance.readthedocs.io/en/latest/usage/dtw.html#dtw-between-set-of-series)): `metric='precomputed'` {% ref "https://hdbscan.readthedocs.io/en/latest/basic_hdbscan.html?highlight=precomputed" %}
 
   ``` python
   from dtaidistance import dtw
