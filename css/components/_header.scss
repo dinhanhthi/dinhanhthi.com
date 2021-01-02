@@ -112,4 +112,17 @@ header {
     font-size: 1.02rem;
   }
 }
+
+p.contact {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 4rem;
+	a {
+		margin-right: 10px;
+		margin-bottom: 10px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
 /*! purgecss end ignore */

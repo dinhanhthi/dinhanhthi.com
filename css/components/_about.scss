@@ -36,20 +36,6 @@
     }
   }
 
-  p.contact {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 4rem;
-    padding: 0 $padding-lr;
-    a {
-			margin-right: 10px;
-			margin-bottom: 10px;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-
   @media (max-width: $grid-lg - 1px) {
     .intro {
       width: 60%;
