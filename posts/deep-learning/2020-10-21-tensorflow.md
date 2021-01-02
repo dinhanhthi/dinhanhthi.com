@@ -59,7 +59,7 @@ tf.config.list_physical_devices('GPU')
 
 ### With docker-compose?
 
-👉 Read [this note](/docker-gpu#using-docker-compose) instead.
+👉 Read [this note](/docker-gpu#using-docker-compose%3F) instead.
 
 ### On Windows WSL2
 
