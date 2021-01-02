@@ -13,7 +13,7 @@
 		"description": "A demo of search function in eleventy website using Elasticlunr.js.",
 		"source": "https://github.com/dinhanhthi/eleventy-elasticlunr-js",
 		"icon": "🔎",
-		"tech_text": [
+		"tech": [
 			{
 				"name": "Eleventy",
 				"icon": "/img/about/11ty.svg"
@@ -33,7 +33,7 @@
 		"description": "An 11ty theme for my personal website. Totally in dark mode.",
 		"source": "https://github.com/dinhanhthi/dinhanhthi.com/releases/tag/v3",
 		"icon": "⛑",
-		"tech_text": [
+		"tech": [
 			{
 				"name": "Nunjucks",
 				"icon": "/img/about/nunjucks.svg"
