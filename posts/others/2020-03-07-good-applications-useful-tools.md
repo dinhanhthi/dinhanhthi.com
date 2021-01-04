@@ -204,3 +204,4 @@ a local folder of plain text Markdown files.
 ## Others
 
 1. [talentoday](https://www.talentoday.com/en/) -- Empowering Growth for Individuals and Teams
+2. [SocialBlade](https://socialblade.com/) -- YouTube, Twitch, Twitter, & Instagram Statistics

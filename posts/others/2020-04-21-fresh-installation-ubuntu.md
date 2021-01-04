@@ -53,7 +53,7 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 	sudo apt update
 	sudo apt install git
 	~~~
-7. [**Pop!_OS**] Dual boot with Windows and others Linux distro: different from Ubuntu (using **groub**), Pop!_OS uses **systemd-boot** -> follow [this guide](https://pop-planet.info/forums/threads/copy-the-microsoft-bootloader-into-pops-efi-beginners-guide.357/).
+7. [**Pop!_OS**] **Dual boot with Windows** and others Linux distro: different from Ubuntu (using **grub**), Pop!_OS uses **systemd-boot** -> follow [this guide](https://pop-planet.info/forums/threads/copy-the-microsoft-bootloader-into-pops-efi-beginners-guide.357/).
 
 	``` bash
 	# 1. Open Disks
@@ -75,6 +75,8 @@ __For Pop!\_OS__: You don't need to do everything in below steps.
 	# add below others
 	timeout 15
 	```
+
+	👉 If above doesn't work, try using [this tool (rEFInd)](https://www.rodsbooks.com/refind/).
 2. Make emojis showing up
 
 	~~~ bash

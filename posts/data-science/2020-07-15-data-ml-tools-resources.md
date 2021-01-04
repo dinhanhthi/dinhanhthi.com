@@ -17,7 +17,7 @@ keywords: "data science deep learing tools resources application good choice col
 ## Frameworks
 
 1. [Caffe](https://caffe.berkeleyvision.org/) -- deep learning framework.
-1. [D3js](https://d3js.org/) (Data-Driven Documents)
+1. [D3js](https://d3js.org/) -- Data-Driven Documents
 
 
 ## Python libs
@@ -41,6 +41,7 @@ keywords: "data science deep learing tools resources application good choice col
 ## Tools
 
 1. [Embedding Projector tool](http://projector.tensorflow.org/) from tensorflow.
-1. [Observale](https://observablehq.com/) -- Observable is the magic notebook for exploring data and thinking with code.
-1. [TensorFlow Playground](http://playground.tensorflow.org/)
-1. [Travis-CI](https://travis-ci.org/) -- a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
+1. [Flourish](https://flourish.studio/) -- Data Visualization & Storytelling
+2. [Observale](https://observablehq.com/) -- Observable is the magic notebook for exploring data and thinking with code.
+3. [TensorFlow Playground](http://playground.tensorflow.org/)
+4. [Travis-CI](https://travis-ci.org/) -- a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
