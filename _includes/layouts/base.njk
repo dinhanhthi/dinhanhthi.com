@@ -15,7 +15,7 @@
       {% block headerLogo %}{% endblock %}
 
       {% block headerTitle %}
-        <h1>{{ title }}{% if notfull %}<sup>•</sup>{% endif %}</h1>
+        <h1>{{ title }}{% if notfull %}<sup title="{{ other_data.notfull }}">•</sup>{% endif %}</h1>
       {% endblock %}
 
       {% block extraArticleHeader %}{% endblock %}

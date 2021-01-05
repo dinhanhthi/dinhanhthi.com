@@ -20,12 +20,12 @@
           {% if post.title %}
             {{ post.title }}
             {% if post.notfull %}
-              <sup>•</sup>
+              <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}
           {% else %}
             <code>{{ post.url }}</code>
             {% if post.notfull %}
-              <sup>•</sup>
+              <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}
           {% endif %}
         </a>
