@@ -48,7 +48,8 @@ const CSP = {
 		[
 			"connect-src",
 			SELF,
-			"https://www.google-analytics.com"
+			"https://www.google-analytics.com",
+			"https://api.github.com"
 		],
 		// Inline CSS is allowed.
 		[

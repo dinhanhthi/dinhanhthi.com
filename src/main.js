@@ -269,7 +269,6 @@ const addSelected2 = (ulRes, li) => {
 
 		const kw = e.target.value;
 		var regEx = new RegExp(kw, "ig");
-		var ae;
 
 		const divRes = document.getElementById("nav-search__result-container"); // div (ul's father)
 		const ulRes = document.getElementById("nav-search__ul"); // ul

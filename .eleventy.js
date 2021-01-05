@@ -8,6 +8,7 @@ const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const elasticlunr = require("elasticlunr");
+const fetch = require("node-fetch");
 
 // markdown-it
 const markdownIt = require("markdown-it");
@@ -261,6 +262,26 @@ module.exports = function (eleventyConfig) {
 			+ url
 			+ '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>';
 	});
+
+	// used in note: /good-github-repositories
+	eleventyConfig.addShortcode("list_repos", getLiList);
+
+	async function getRepoData(_url) {
+		const response = await fetch(_url);
+		return await response.json();
+	}
+
+	async function getLiList(){
+		var repos = "";
+		const data = await getRepoData("https://api.github.com/users/dinhanhthi/starred");
+		data.forEach(obj => {
+			repos += '<li>'
+				+ '<a href="' + obj.html_url + '">'+ obj.full_name +'</a>'
+				+ ' — ' + obj.description
+				+ '</li>';
+		});
+		return '<ol>' + repos + '</ol>';
+	}
 
 	// Browsersync Overrides
 	eleventyConfig.setBrowserSyncConfig({
