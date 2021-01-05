@@ -265,19 +265,26 @@ module.exports = function (eleventyConfig) {
 
 	// used in note: /good-github-repositories
 	eleventyConfig.addShortcode("list_repos", getLiList);
-
 	async function getRepoData(_url) {
 		const response = await fetch(_url);
 		return await response.json();
 	}
-
 	async function getLiList(){
+		function compare( a, b ) {
+			if ( a.name.toLowerCase() < b.name.toLowerCase() ){
+				return -1;
+			}
+			if ( a.name.toLowerCase() > b.name.toLowerCase() ){
+				return 1;
+			}
+			return 0;
+		}
 		var repos = "";
 		const data = await getRepoData("https://api.github.com/users/dinhanhthi/starred");
-		data.forEach(obj => {
+		data.sort(compare).forEach(obj => {
 			repos += '<li>'
-				+ '<a href="' + obj.html_url + '">'+ obj.full_name +'</a>'
-				+ ' — ' + obj.description
+				+ '<a href="' + obj.html_url + '" target="_blank">'+ obj.name +'</a>'
+				+ ' by <i>' + obj.owner.login + '</i> — ' + obj.description
 				+ '</li>';
 		});
 		return '<ol>' + repos + '</ol>';
