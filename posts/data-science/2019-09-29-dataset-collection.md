@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Datasets Collection"
-tags: [Data Science]
+tags: [Data Science, Machine Learning, Deep Learning, NLP, Resources, Collection]
 toc: true
 icon: /img/cats/data-science.svg
 keywords: dataset collection google dataset google AI kaggle dataset data hub stanford large network dataset FiveThirtyEight data.world quandl r/datasets scikit-learn dataset fruit images labeled faces Wild Home Iris flower digits dataset module generator fake data vietnam vietnam

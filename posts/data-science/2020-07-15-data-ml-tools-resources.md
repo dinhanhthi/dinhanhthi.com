@@ -13,17 +13,17 @@ keywords: "data science deep learing tools resources application good choice col
 
 ## Blogs & Tuts
 
-- [Airbnb](https://medium.com/airbnb-engineering) -- Engineering & Data Science – Medium
+- [Airbnb](https://medium.com/airbnb-engineering) -- Engineering & Data Science – Medium.
+- [AI Curious](https://aicurious.io/) -- Viet Anh's personal blog, in Vietnamese.
+- [Colah's blog](https://colah.github.io/) -- personal blog.
+- [Math ∩ Programming](https://jeremykun.com/) -- personal blog.
 - [Netflix TechBlog](https://netflixtechblog.com/)
 - [Ong Xuan Hong](https://ongxuanhong.wordpress.com/) -- personal blog.
-- [AI Curious](https://aicurious.io/) -- Viet Anh's personal blog, in Vietnamese.
 - [Sebastian Ruder](https://ruder.io/) -- personal blog.
-- [Colah's blog](https://colah.github.io/)
-- [Math ∩ Programming](https://jeremykun.com/)
 
 ## Books
 
-- [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python) -- François Chollet
+- [Deep Learning with Python](https://www.manning.com/books/deep-learning-with-python) -- François Chollet.
 - [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/) -- Aurélien Géron.
 
 ## Services & API
@@ -35,7 +35,8 @@ keywords: "data science deep learing tools resources application good choice col
 ## Frameworks
 
 - [Caffe](https://caffe.berkeleyvision.org/) -- deep learning framework.
-- [D3js](https://d3js.org/) -- Data-Driven Documents
+- [D3js](https://d3js.org/) -- Data-Driven Documents.
+- [Hydra](https://hydra.cc/) -- A framework for elegantly configuring complex applications. It's Facebook's.
 
 
 ## Python libs

@@ -7,7 +7,7 @@ icon: apps.svg
 keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google deep learning machine collection reminder stretch RSI manager IDM XDM Repetitive Strain Injury iterm2 guake drop-down quick open commanline workrave time out screentogif everything spotlight Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet image photo compression jpeg png remove background transparent luna lunapic resize images iloveimg side by movie relax drawing graphviz data science dataframe huge vaex linux app ubuntu pop os mac macos office online multi platform unix windows education chrome extension plugin math html character terms application framework js java script bookmarks drawing font Illustration tools"
 ---
 
-👉 Site: [Collection of quick js/html tools.](https://dinhanhthi.github.io/tools/){:target="_blank"}.
+👉 Site: [Collection of quick js/html tools.](https://dinhanhthi.github.io/tools/){:target="_blank"}
 👉 Note: [Web Dev tools & resources.](/web-dev-tools-resources/)
 👉 Note: [Resources for DS & ML & DL.](/data-ml-tools-resources/)
 
@@ -147,19 +147,20 @@ This note will always be updated.
 
 ## Illustration tools
 
-- **[Microsoft Office Powerpoint](https://www.office.com/)** (paid, Windows), **[OnlyOffice Presentation](https://www.onlyoffice.com/en/download-desktop.aspx)** (free, multiplatform), **[Google Drawing](https://docs.google.com/drawings)** (free, online) -- quickly illustate ideas.
+- [GeoGebra](https://www.geogebra.org/) -- Free Math Apps - used by over 100 Million Students & Teachers Worldwide.
+- [Microsoft Office Powerpoint](https://www.office.com/) (paid, Windows), [OnlyOffice Presentation](https://www.onlyoffice.com/en/download-desktop.aspx) (free, multiplatform), [Google Drawing](https://docs.google.com/drawings) (free, online) -- quickly illustate ideas.
    - Make featured image for posts.
    - Draw simple geometrical shapes / graph / flow charts or even mathematical function graphs.
    - Make charts to illustrate data points (have a link to MS Excel or OnlyOffice SpreadSheet).
    - Support inserting math equations.
    - __Save figure__ by capturing screen, `.png` format.
-- **[Desmos](https://www.desmos.com/)** -- make interative graphs / charts.
+- [Desmos](https://www.desmos.com/) -- make interative graphs / charts.
    - Exact function graph with formulas from input ([desmos/calculator](https://www.desmos.com/calculator))
    - Interative graphs ([examples](https://www.desmos.com/math))
    - Basic geometrical shapes ([desmos/geometry](https://www.desmos.com/geometry))
    - __Save figure__ under `.png` files or embed desmos code in your website.
-- **[Matcha](https://www.mathcha.io/)** -- Draw beautiful figures/graphs like LaTeX.
-- **[JSXGraph](https://jsxgraph.org/wp/index.html)** -- Make interactive graph inside posts.
+- [Matcha](https://www.mathcha.io/) -- Draw beautiful figures/graphs like LaTeX.
+- [JSXGraph](https://jsxgraph.org/wp/index.html) -- Make interactive graph inside posts.
 
 ## Others
 
