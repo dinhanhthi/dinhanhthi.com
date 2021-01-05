@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Favorite Github repositories"
-tags: [Others, Collection]
+tags: [Others, Collection, Resources]
 toc: true
 icon: "/img/social/github.svg"
 keywords: "repository github git"

@@ -10,8 +10,6 @@ keywords: "autofocus separated columns page load google webfont sass Font ligatu
 
 {% assign img-url = '/img/post/web-dev' %}
 
-👉 [Web Dev tools](/web-dev-tools/).
-
 ## Terms
 
 - **Font ligatures**: When you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
