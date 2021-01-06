@@ -279,12 +279,15 @@ module.exports = function (eleventyConfig) {
 			}
 			return 0;
 		}
+		function htmlEntities(str) {
+				return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+		}
 		var repos = "";
-		const data = await getRepoData("https://api.github.com/users/dinhanhthi/starred");
+		const data = await getRepoData("https://api.github.com/users/dinhanhthi/starred?page=1&per_page=10000");
 		data.sort(compare).forEach(obj => {
 			repos += '<li>'
 				+ '<a href="' + obj.html_url + '" target="_blank">'+ obj.name +'</a>'
-				+ ' by <i>' + obj.owner.login + '</i> — ' + obj.description
+				+ ' by <i>' + obj.owner.login + '</i> — ' + htmlEntities(obj.description)
 				+ '</li>';
 		});
 		return '<ol>' + repos + '</ol>';
