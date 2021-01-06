@@ -40,6 +40,10 @@ hide: true # if don't want to show it on index
 - `{:.indent}` before a list, indent a list.
 - `{:target="_blank"}` after an url.
 
+## External post
+
+In case you wanna add external posts to an existing category (e.g. post from Notion), just modify file `_data/cat_external_post.json`.
+
 ## Insert figures
 
 ``` markdown

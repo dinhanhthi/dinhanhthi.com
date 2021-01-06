@@ -11,12 +11,29 @@
     {% endif %}
   {% endfor %}
 
+	{% if more_post %}
+		{% for post in more_post %}
+			{% if not post.hide %}
+				{% if post.notfull %}
+					{% set newPostList = (newPostList.push({url: post.url, title: post.title, notfull: post.notfull, target: "_blank"}), newPostList) %}
+				{% else %}
+					{% set newPostList = (newPostList.push({title: post.title, url: post.url, target: "_blank"}), newPostList) %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
   {% for post in newPostList|sort(attribute='title') %}
       <li>
 				{% if customIcon %}
 					<img src="/img/cats/doc.svg">
 				{% endif %}
-        <a href="{{ post.url | url }}" rel="noopener noreferrer">
+				{% if post.target %}
+					{% set target = post.target %}
+				{% else %}
+					{% set target = "_self" %}
+				{% endif%}
+        <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
           {% if post.title %}
             {{ post.title }}
             {% if post.notfull %}
