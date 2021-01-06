@@ -3,30 +3,35 @@
 		{
 			"title": "Machine Learning by Andrew",
 			"url": "https://rawnote.dinhanhthi.com/tags#ml-coursera",
-			"tags": ["Deep Learning", "Machine Learning"]
+			"tags": ["Deep Learning", "Machine Learning"],
+			"keywords": "coursera online course machine learning deep learning basic"
 		},
 		{
 			"title": "IBM Data Science Professional Certificate (9 courses)",
 			"url": "https://rawnote.dinhanhthi.com/ibm-data-professional-certificate-1",
-			"tags": ["Deep Learning", "Machine Learning", "Data Science", "Project-based Learning"]
+			"tags": ["Deep Learning", "Machine Learning", "Data Science", "Project-based Learning"],
+			"keywords": "data science course online coursera"
 		},
 		{
-			"title": "DL 4 by Andrew - Convolutional Neural Network (CNN)",
+			"title": "DL 4 by Andrew - CNN",
 			"url": "https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e",
 			"notfull": false,
 			"hide": false,
-			"tags": ["CNN", "Deep Learning", "deeplearning.ai"]
+			"tags": ["CNN", "Deep Learning", "deeplearning.ai"],
+			"keywords": "Convolutional Neural Network andrew ng deeplearning.ai coursera"
 		},
 		{
 			"title": "DL 5 by Andrew - Sequence models",
 			"url": "https://www.notion.so/dinhanhthi/CNN-by-deeplearning-ai-a081d253fc2c4c0b99edd2757c759b9e",
-			"tags": ["Deep Learning", "deeplearning.ai", "RNN", "NLP"]
+			"tags": ["Deep Learning", "deeplearning.ai", "RNN", "NLP"],
+			"keywords": "natural language processing coursera"
 		},
 		{
-			"title": "NLP by HSE",
+			"title": "NLP by HSE University",
 			"url": "https://www.notion.so/dinhanhthi/NLP-by-HSE-20cec3e92201475eb4d48787954f3aa4",
 			"tags": ["NLP", "Deep Learning"],
-			"notfull": true
+			"notfull": true,
+			"keywords": "coursera natural language processing"
 		}
 	]
 }

@@ -1,4 +1,25 @@
 ---
 permalink: pages/search-index.json
 ---
-{{ collections.posts | search | dump | safe | striptags(true) | escape }}
+
+{# use with external posts #}
+{% set newPostList = [] %}
+{% for post in collections.posts %}
+	{% if not post.data.hide %}
+		{% set newPostList = (
+			newPostList.push({url: post.url, title: post.data.title, keywords: post.data.keywords, cat: post.data.tags[1], target: "_self"}), newPostList) %}
+	{% endif %}
+{% endfor %}
+
+{% for item in categories %}
+	{% if cat_external_post[item.name] %}
+		{% for post in cat_external_post[item.name] %}
+			{% if not post.hide %}
+				{% set newPostList = (
+					newPostList.push({url: post.url, title: post.title, keywords: post.keywords, cat: item.name, target: "_blank"}), newPostList) %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+
+{{ newPostList | search | dump | safe | striptags(true) | escape }}

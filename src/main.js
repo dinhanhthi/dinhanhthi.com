@@ -280,7 +280,7 @@ const addSelected2 = (ulRes, li) => {
 			if (results != "") { // if there is result
 				noResEl.style.display = "none";
 				results.map((r) => {
-					var { id, title, keywords, cat } = r.doc; // use keywords instead
+					var { id, title, keywords, cat, target } = r.doc; // use keywords instead
 
 					// use content??? (modify .eleventy.js also!)
 					// var { id, title, keywords, cat, content } = r.doc;
@@ -304,6 +304,7 @@ const addSelected2 = (ulRes, li) => {
 					divContent.appendChild(h3);
 					const a = document.createElement("a");
 					a.setAttribute("href", id);
+					a.setAttribute("target", target);
 					if (title && kw) {
 						if (title.toLowerCase().includes(kw.toLowerCase())) {
 							title = title.replace(regEx, function (x) {

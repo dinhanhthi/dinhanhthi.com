@@ -142,6 +142,7 @@ module.exports = function (eleventyConfig) {
 		return dt.toISO();
 	});
 
+	// used in /pages/search-index.json
 	eleventyConfig.addFilter("search", (collection) => {
 		var index = elasticlunr(function () {
 			this.addField("title");
@@ -152,10 +153,11 @@ module.exports = function (eleventyConfig) {
 		collection.forEach((page) => {
 			index.addDoc({
 				"id": page.url,
-				"title": page.data.title,
-				"keywords": page.data.keywords,
-				"tags": page.data.tags,
-				"cat": catIcon[page.data.tags[1]].svg,
+				"title": page.title,
+				"keywords": page.keywords,
+				"tags": page.tags,
+				"cat": catIcon[page.cat].svg,
+				"target": page.target
 				//"content": page.templateContent,
 			});
 		});
