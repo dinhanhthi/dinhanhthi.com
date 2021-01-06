@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 3 - Structuring ML Projects"
+title: "DL 3 by Andrew - Structuring ML Projects"
 tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png
