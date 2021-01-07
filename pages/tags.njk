@@ -21,25 +21,19 @@ icon: tag_.svg
 
 {% set more_post = false %}
 {# post outside 11ty .md files #}
-{# {% if cat_external_post[tag] %}
-	{% set more_post = cat_external_post[tag] %}
-{% endif %} #}
 
 {% set newPostListTag = [] %}
-{% for item in categories %}
-	{% if cat_external_post[item.name] %}
-		{% for post in cat_external_post[item.name] %}
-			{% if post.tags %}
-				{% for tg in post.tags %}
-					{% if tg == tag %}
-						{% set more_post = true %}
-						{% if post.notfull %}
-							{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title, notfull: post.notfull}), newPostListTag) %}
-						{% else %}
-							{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title}), newPostListTag) %}
-						{% endif %}
-					{% endif %}
-				{% endfor %}
+
+{% for post in cat_ex_posts %}
+	{% if not post.hide %}
+		{% for tg in post.tags %}
+			{% if tg == tag %}
+				{% set more_post = true %}
+				{% if post.notfull %}
+					{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title, notfull: post.notfull}), newPostListTag) %}
+				{% else %}
+					{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title}), newPostListTag) %}
+				{% endif %}
 			{% endif %}
 		{% endfor %}
 	{% endif %}

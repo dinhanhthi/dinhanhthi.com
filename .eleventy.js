@@ -148,6 +148,7 @@ module.exports = function (eleventyConfig) {
 			this.addField("title");
 			this.addField("keywords");
 			this.addField("tags");
+			this.addField("cat");
 			this.setRef("id");
 		});
 		collection.forEach((page) => {
@@ -173,6 +174,7 @@ module.exports = function (eleventyConfig) {
 	});
 
 	eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
+	// Filter source file names using a glob
 
 	eleventyConfig.addPassthroughCopy("img");
 	eleventyConfig.addPassthroughCopy("css");

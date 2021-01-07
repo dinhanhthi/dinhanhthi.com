@@ -32,11 +32,30 @@ date: Last Modified
 <div class="container wide d-flex d-flex-wrap">
   <div class="main-cats">
     {% for item in categories %}
-			{% set more_post = false %}
+
 			{# post outside 11ty .md files #}
-			{% if cat_external_post[item.name] %}
-				{% set more_post = cat_external_post[item.name] %}
+			{% set more_post = false %}
+
+			{% set newPostListCat = [] %}
+			{% for post in cat_ex_posts %}
+				{% if not post.hide %}
+					{% for tg in post.tags %}
+						{% if tg == item.name %}
+							{% set more_post = true %}
+							{% if post.notfull %}
+								{% set newPostListCat = (newPostListCat.push({url: post.url, title: post.title, notfull: post.notfull}), newPostListCat) %}
+							{% else %}
+								{% set newPostListCat = (newPostListCat.push({url: post.url, title: post.title}), newPostListCat) %}
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+
+			{% if more_post %}
+				{% set more_post = newPostListCat %}
 			{% endif %}
+
 			{% set postslist = collections[item.name] %}
 			{% set lenlist = postslist | length %}
 			{% if lenlist > 0 %}
