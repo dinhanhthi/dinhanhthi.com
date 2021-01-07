@@ -154,6 +154,7 @@ This note will always be updated.
    - Make charts to illustrate data points (have a link to MS Excel or OnlyOffice SpreadSheet).
    - Support inserting math equations.
    - __Save figure__ by capturing screen, `.png` format.
+- [Excalidraw](https://excalidraw.com/) -- Virtual whiteboard for sketching hand-drawn like diagrams.
 - [Desmos](https://www.desmos.com/) -- make interative graphs / charts.
    - Exact function graph with formulas from input ([desmos/calculator](https://www.desmos.com/calculator))
    - Interative graphs ([examples](https://www.desmos.com/math))
