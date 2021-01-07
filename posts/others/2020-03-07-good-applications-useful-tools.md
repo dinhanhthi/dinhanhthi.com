@@ -159,6 +159,7 @@ This note will always be updated.
    - Interative graphs ([examples](https://www.desmos.com/math))
    - Basic geometrical shapes ([desmos/geometry](https://www.desmos.com/geometry))
    - __Save figure__ under `.png` files or embed desmos code in your website.
+- [Excalidraw](https://excalidraw.com/) -- Virtual whiteboard for sketching hand-drawn like diagrams.
 - [Matcha](https://www.mathcha.io/) -- Draw beautiful figures/graphs like LaTeX.
 - [JSXGraph](https://jsxgraph.org/wp/index.html) -- Make interactive graph inside posts.
 

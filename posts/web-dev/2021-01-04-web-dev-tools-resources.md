@@ -35,6 +35,7 @@ keywords: "tool resources learning application framework repository gihub packag
 
 - **For drawing / illustrating**:
   - [Chart.js](https://www.chartjs.org/) -- Open source HTML5 Charts for your website.
+  - [Excalidraw](https://github.com/excalidraw/excalidraw) -- Virtual whiteboard for sketching hand-drawn like diagrams.
   - [JSXGraph](http://jsxgraph.uni-bayreuth.de/wp/) -- JSXGraph is a cross-browser JavaScript library for interactive geometry, function plotting, charting, and data visualization in the web browser.
   - [Rough.js](https://roughjs.com/)
   - [Three.js](https://threejs.org/) – JavaScript 3D library

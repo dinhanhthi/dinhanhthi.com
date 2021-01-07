@@ -32,11 +32,14 @@ date: Last Modified
 <div class="container wide d-flex d-flex-wrap">
   <div class="main-cats">
     {% for item in categories %}
-			{% set more_post = false %}
+
 			{# post outside 11ty .md files #}
+			{% set more_post = false %}
+
 			{% if cat_external_post[item.name] %}
 				{% set more_post = cat_external_post[item.name] %}
 			{% endif %}
+
 			{% set postslist = collections[item.name] %}
 			{% set lenlist = postslist | length %}
 			{% if lenlist > 0 %}
