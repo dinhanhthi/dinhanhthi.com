@@ -153,15 +153,11 @@ module.exports = function (eleventyConfig) {
 		collection.forEach((page) => {
 			index.addDoc({
 				"id": page.url,
-				// "title": page.title,
-				// "keywords": page.keywords,
-				// "tags": page.tags,
-				// "cat": catIcon[page.cat].svg,
-				// "target": page.target
-				"title": page.data.title,
-				"keywords": page.data.keywords,
-				"tags": page.data.tags,
-				"cat": catIcon[page.data.tags[1]].svg,
+				"title": page.title,
+				"keywords": page.keywords,
+				"tags": page.tags,
+				"cat": catIcon[page.cat].svg,
+				"target": page.target
 				//"content": page.templateContent,
 			});
 		});
