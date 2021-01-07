@@ -42,7 +42,17 @@ hide: true # if don't want to show it on index
 
 ## External post
 
-In case you wanna add external posts to an existing category (e.g. post from Notion), just modify file `_data/cat_external_post.json`.
+In case you wanna add external posts to an existing category (e.g. post from Notion), just modify file `_data/cat_ex_posts.json`.
+
+Files need to be changed for this sections:
+
+``` bash
+_data/cat_ex_position.json # posts (must have enough tags for each post)
+index.njk # links to below file
+_includes/postslist.njk
+pages/tags.njk # tag page, also link to above file
+pages/search-index.json # search-index.json, may change also .eleventy.js
+```
 
 ## Insert figures
 
@@ -412,6 +422,21 @@ const CSP = {
 
 ``` js
 // json-ld problem with latex code (math equations)
+```
+
+---
+
+``` js {% raw %}
+// ./pages/search-index.json.njk
+// TypeError: Cannot read property 'svg' of undefined
+// Idea: actually, there are some posts which don't have the right front matter
+// Solution: try with below in .eleventy.js
+eleventyConfig.addCollection("onlyMarkdown", function(collectionApi) {
+	return collectionApi.getFilteredByGlob(["posts/*.*", "posts/others/*.md"]);
+});
+// and change in ./pages/search-index.json.njk
+{{ collections.onlyMarkdown | search | dump | safe | striptags(true) | escape }}
+{% endraw %}
 ```
 
 **Reason**: `json-ld.js` takes some beginning words to convert to json formats! If there are equation (latex likes `$\Rightarrow$`) at the very beginning of the notes, there will be error like this!
