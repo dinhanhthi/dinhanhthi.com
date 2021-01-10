@@ -8,7 +8,7 @@
 	{
 		"title": "IBM Data Science Professional Certificate (9 courses)",
 		"url": "https://rawnote.dinhanhthi.com/ibm-data-professional-certificate-1",
-		"tags": ["MOOC", "Deep Learning", "Machine Learning", "Data Science", "Project-based Learning"],
+		"tags": ["MOOC", "Deep Learning", "Machine Learning", "Data Science"],
 		"keywords": "data science course online coursera"
 	},
 	{
@@ -30,6 +30,6 @@
 		"url": "https://www.notion.so/dinhanhthi/NLP-by-HSE-20cec3e92201475eb4d48787954f3aa4",
 		"tags": ["MOOC", "NLP", "Deep Learning"],
 		"notfull": true,
-		"keywords": "coursera natural language processing"
+		"keywords": "coursera natural language processing text classification approaches in NLP linguistic knowledge feature extraction hashing linear model logistic regression sentiment analysis spam filtering docker setting up BOW bag of words language modeling predict tags sequence tagging part of speech named entities semantic slots learning emotion labels word embedding vector vectorize vectorization topic model rule based methods context free grammars CFG Probabilistic modeling and machine learning likelihood maximization, linear classifiers Conditional Random Field (CRF) Deep learning: RNN, CNN,... LSTM traditional NLP state-of-the-art SOTA NLP pyramid Morphology Syntax dependency trees constituency trees Semantics Pragmatics NLTK Stanford parser spaCy Gensim MALLET WordNet hyponym hypernym meronyms BabelNet multilingual DAG-LSTM Text processing Andrey Zimovnov text corpus documents word paragraph Tokenization Tokens WhitespaceTokenizer WordPunctTokenizer TreebankWordTokenizer Token normalization Lemmatization heuristic rules Stemming Porter's stemmer Lemmatization dictionary WordNet lemmatizer Capital letters Acronyms sparse storage TF-IDF Term frequency Inverse document frequency IMDB reviews dataset Linear models Logistic Regression Weights Naive Bayes SVM accuracy recall f1 score hash map n-grams vowpal wabbit personalized tokens"
 	}
 ]
