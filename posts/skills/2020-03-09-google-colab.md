@@ -273,7 +273,7 @@ for fn in uploaded.keys():
       name=fn, length=len(uploaded[fn])))
 ~~~
 
-Run {% mark 2 times %} this cell, at the 2nd time, you can choose your file.
+Run ==2 times== this cell, at the 2nd time, you can choose your file.
 
 ### Using Google Drive
 
