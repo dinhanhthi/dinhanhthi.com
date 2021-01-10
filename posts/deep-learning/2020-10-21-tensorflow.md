@@ -112,3 +112,29 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib\
 # quickly test cuda version
 nvcc --version
 ```
+
+---
+
+``` bash
+# WARNING:tensorflow:Your input ran out of data; interrupting training. Make sure that your dataset or generator can generate at least `steps_per_epoch * epochs` batches (in this case, 2000 batches). You may need to use the repeat() function when building your dataset.
+```
+
+Problem come from you don't have enough images!
+
+``` python
+batch_size = 20
+train_generator = train_datagen.flow_from_directory(batch_size = 20)
+validation_generator =  test_datagen.flow_from_directory(batch_size  = 20)
+
+# Found 1027 images belonging to 2 classes.
+# Found 256 images belonging to 2 classes.
+
+model.fit(
+    validation_data = validation_generator,
+    steps_per_epoch = 100,
+    epochs = 20,
+    validation_steps = 50,
+    verbose = 2,)
+```
+
+We must have `steps_per_epoch * batch_size <= #of images`, in this case `100*20 = 2000 > 1027`. Check [this answer](https://github.com/fizyr/keras-retinanet/issues/1449#issuecomment-691867911) for more information.

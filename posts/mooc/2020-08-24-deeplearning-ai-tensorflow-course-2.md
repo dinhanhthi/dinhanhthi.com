@@ -206,7 +206,7 @@ train_datagen = ImageDataGenerator(
     shear_range=0.2,
     zoom_range=0.2,
     horizontal_flip=True,
-    fill_mode='nearest'         # fill any pixel may been lost by the "nearest" ones
+    fill_mode='nearest'         # fill any pixel may be lost by the "nearest" ones
 )
 
 validation_datagen = ImageDataGenerator(rescale=1/255)

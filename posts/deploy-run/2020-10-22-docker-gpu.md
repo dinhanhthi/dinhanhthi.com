@@ -305,6 +305,8 @@ sudo nvidia-smi --gpu-reset -i 0
 # train_function
 ```
 
+Check [this answer](https://stackoverflow.com/a/56511889/1323473) as a reference!
+
 ## Make NVIDIA work in docker (Linux)
 
 ::: danger

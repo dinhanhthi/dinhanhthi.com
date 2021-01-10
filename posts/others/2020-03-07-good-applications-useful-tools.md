@@ -74,6 +74,7 @@ This note will always be updated.
 - [Everything](https://www.voidtools.com/) — an alternative to Spotlight in Mac. You can search any thing (app, docs, files,...) in your computer with hotkeys.
 - [FastStone Capture](https://www.faststone.org/index.htm) — screen recorder.
 - [Lingoes](http://www.lingoes.net/) — dictionary (used alongside with GoldenDict) — [its dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
+- [Linux Reader](https://www.diskinternals.com/linux-reader/) -- read Linux's partition from Windows.
 - [LockHunter](https://lockhunter.com/) — find what application/process is preventing us from deleting some folder/file.
 - [ScreenToGif](https://www.screentogif.com/) — screen recorder and auto convert to gif file.
 - [Unikey](https://www.unikey.org/) — Vietnamese input method on Windows.
