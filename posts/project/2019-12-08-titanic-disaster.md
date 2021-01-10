@@ -45,7 +45,7 @@ In [this challenge](https://www.kaggle.com/c/titanic), we are going to answer th
   - Convert categorical variables to dummy ones using `pd.get_dummies()`.
   - Impute missing continuous values using `sklearn.impute.SimpleImputer`.
   - Take an idea to change `Age` to a categorical feature and then also convert to dummy.
-- Using `GridSearchCV` to find the optimal hyper parameters and apply some algorithms, e.g. Random Forest.
+- Using `GridSearchCV` to find the optimal hyper parameters and apply some algorithms, e.g. ==Random Forest==.
 - Export the result to an output file.
 
 

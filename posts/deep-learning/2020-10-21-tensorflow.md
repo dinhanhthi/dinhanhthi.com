@@ -82,9 +82,9 @@ pip show tensorflow-gpu # 2.3.1
 nvidia-smi # NVIDIA-SMI 450.80.02 Driver Version: 450.80.02 CUDA Version: 11.0
 ```
 
-👉 [PyTorch note](/pytorch#installation).
-👉 [Ubuntu note](/fresh-installation-ubuntu).
-👉 [Linux note](/linux-tips#gpu-nvdia-problems).
+👉 Note: [PyTorch](/pytorch#installation).
+👉 Note: [Ubuntu](/fresh-installation-ubuntu).
+👉 Note: [Linux](/linux-tips#gpu-nvdia-problems).
 
 _CUDA Toolkit_:
 

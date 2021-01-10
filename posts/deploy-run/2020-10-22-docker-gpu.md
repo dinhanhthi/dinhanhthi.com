@@ -9,10 +9,10 @@ keywords: "pybash tania rascia CI CD continuous integration deployment pipeline 
 
 {% assign img-url = '/img/post/deploy/docker' %}
 
-👉 [Note: Docker 101](/docker)
-👉 [Note: Wordpress Docker](/wordpress-docker)
-👉 [Note: Airflow + Kubernetes 101](/airflow-k8s-101)
-👉 [Note: Tensorflow extra](/tensorflow)
+👉 Note: [Docker 101](/docker)
+👉 Note: [Wordpress Docker](/wordpress-docker)
+👉 Note: [Airflow + Kubernetes 101](/airflow-k8s-101)
+👉 Note: [Tensorflow extra](/tensorflow)
 
 ## WSL + Windows
 
@@ -23,10 +23,14 @@ If you meet error "Your insider preview build settings need attention", restart 
 ## With Tensorflow or PyTorch
 
 👉 [Official doc for TF + docker](https://www.tensorflow.org/install/docker)
-👉 My [note for docker + TF](/tensorflow#installation-with-docker).
+👉 Note: [Docker + TF](/tensorflow#installation-with-docker).
 👉 [An example of docker pytorch with gpu support](https://github.com/dinhanhthi/git_dataswati/tree/master/docker-thi).
 
 ## Basic installation
+
+::: warning
+You have to install (successfully) GPU driver on your (linux) machine before continuing the steps in this note. Go to "[Check info](#check-info)" section to check the availability of your drivers.
+:::
 
 It works perfectly on Pop!_OS 20.04,
 
@@ -241,6 +245,64 @@ Then run,
 
 ``` bash
 docker-compose run --rm jupyter
+```
+
+## Check usage of GPU
+
+``` bash
+# Linux only
+nvidia-smi
+
+# |===============================+======================+======================|
+# |   0  GeForce GTX 1650    Off  | 00000000:01:00.0 Off |                  N/A |
+# | N/A   53C    P8     2W /  N/A |   3861MiB /  3914MiB |      2%      Default |
+# |                               |                      |                  N/A |
+# +-------------------------------+----------------------+----------------------+
+
+# => 3861MB / 3914MB is used!
+
+# +-----------------------------------------------------------------------------+
+# | Processes:                                                       GPU Memory |
+# |  GPU       PID   Type   Process name                             Usage      |
+# |=============================================================================|
+# |    0      3019      C   ...e/scarter/anaconda3/envs/tf1/bin/python  3812MiB |
+# +-----------------------------------------------------------------------------+
+
+# => Process 3019 is using the GPU
+```
+
+``` bash
+# All processes that use GPU
+sudo fuser -v /dev/nvidia*
+```
+
+### Kill process
+
+``` bash
+# Kill a single process
+sudo kill -9 3019
+```
+
+## Reset GPU
+
+::: col-2-equal
+``` bash
+# all
+sudo nvidia-smi --gpu-reset
+```
+
+``` bash
+# single
+sudo nvidia-smi --gpu-reset -i 0
+```
+:::
+
+## Errors with GPU
+
+``` bash
+# Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+# Function call stack:
+# train_function
 ```
 
 ## Make NVIDIA work in docker (Linux)

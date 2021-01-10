@@ -4,6 +4,7 @@ title: "Python references"
 tags: [Python]
 toc: true
 icon: "/img/about/python.svg"
+notfull: 1
 keywords: "references documentation material courses practice python newsletter platform"
 ---
 

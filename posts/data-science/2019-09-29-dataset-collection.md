@@ -20,24 +20,28 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets) — A topic-centric list of HQ open datasets.
 - [Built-in datasets in Scikit-Learn](https://scikit-learn.org/stable/datasets/).
 - [BuzzFeedNews/everything](https://github.com/BuzzFeedNews/everything) — data from BuzzFeed.
+- [COCO](https://cocodataset.org/#download) -- Common Objects in Context.
 - [Data Hub Datasets collection](https://datahub.io/collections) — high quality data and datasets organized by topic.
 - [data.gov](https://www.data.gov/) — a large dataset aggregator and the home of the US Government’s open data.
-- [data.world](https://data.world/).
+- [data.world](https://data.world/) -- The Cloud-Native Data Catalog.
 - [FiveThirtyEight](https://fivethirtyeight.com/) — hard data and statistical analysis to tell stories about politics, sports, societal matters and more.
 - [Google Dataset Search](https://toolbox.google.com/datasetsearch).
 - [Google Trends Datastore](https://googletrends.github.io/data/)
 - [Google AI Datasets](https://ai.google/tools/datasets/) — In order to contribute to the broader research community, Google periodically releases data of interest to researchers in a wide range of computer science disciplines.
 - [Kaggle Datasets](https://www.kaggle.com/datasets).
 - [NLP-progress](http://nlpprogress.com/).
+- [Open Images V6](https://storage.googleapis.com/openimages/web/index.html)
 - [Quandl](https://www.quandl.com/) — your perfect choice for testing your machine learning algorithms and don’t waste your time on cleaning data.
 - [r/datasets](https://www.reddit.com/r/datasets/).
 - [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/).
 - [UCI](https://archive.ics.uci.edu/ml/index.html)
 - [TensorFlow Datasets](https://www.tensorflow.org/datasets/catalog/overview)
 - [The Yahoo Webscope Program](https://webscope.sandbox.yahoo.com/)
+- [torchvision.datasets](https://pytorch.org/docs/stable/torchvision/datasets.html)
+- [WHU-RS Datasets](http://gpcv.whu.edu.cn/data/) -- Dataset Collection by Group of Photogrammetry and Computer Vision (GPCV) at Wuhan University.
 
 
-## Datasets
+## Specific Datasets
 
 - [COCO Dataset](https://cocodataset.org/#home) -- a large-scale object detection, segmentation, and captioning dataset.
 - [Dataset samples from Machine Learning Mastery](https://github.com/jbrownlee/Datasets).
@@ -45,6 +49,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [ImageNet](http://www.image-net.org/) -- ImageNet is an image database organized according to the WordNet hierarchy.
 - [Insight - BBC News Datasets](http://mlg.ucd.ie/datasets/bbc.html)
 - [Large Movie Review Dataset (IMDB)](http://ai.stanford.edu/~amaas/data/sentiment/)
+- [MIT Places Database for Scene Recognition](http://places.csail.mit.edu/).
 - [Sarcasm detection dataset.](https://rishabhmisra.github.io/publications/)
 - [UEA & UCR Time Series Classification Repository](https://timeseriesclassification.com/)
 - [WordNet](https://wordnet.princeton.edu/) -- A Lexical Database for English.

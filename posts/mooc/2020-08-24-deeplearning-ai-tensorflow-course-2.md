@@ -223,7 +223,7 @@ _An illustration of image augmentation [from apple](https://developer.apple.com/
 {:.noindent}
 - __Transfer learning__ = Taking existing model that's trained on far more data + use the features that model learned.
 - (Tensorflow tutorial) [Transfer learning and fine-tuning](https://www.tensorflow.org/tutorials/images/transfer_learning)
-- [__Inception/GoogLeNet network__](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf): Inception Modules are used in CNN to allow for more efficient computation and deeper Networks through a dimensionality reduction with stacked 1x1 convolutions. The modules were designed to solve the problem of computational expense, as well as overfitting, among other issues. The solution, in short, is to _take multiple kernel filter sizes within the CNN, and rather than stacking them sequentially, ordering them to operate on the same level._ {% ref "https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch" %} Check more in [Refereces](#references) 1, 2, 3.
+- [__Inception/GoogLeNet network__](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf): Inception Modules are used in CNN to allow for more efficient computation and deeper Networks through a dimensionality reduction with stacked 1x1 convolutions. The modules were designed to ==solve the problem of computational expense, as well as overfitting==, among other issues. The solution, in short, is to _take multiple kernel filter sizes within the CNN, and rather than stacking them sequentially, ordering them to operate on the same level._ {% ref "https://www.analyticsvidhya.com/blog/2018/10/understanding-inception-network-from-scratch" %} Check more in [Refereces](#references) 1, 2, 3.
 - __Dropout__: remove a random number of neurons in your NN. It works well because:
   - neighboring neurons often end up with similar weights, which can lead to overfitting.
   - a neuron can over-weigh the input from a neuron in the previous layer
@@ -235,7 +235,7 @@ from tensorflow.keras import Model
 # download snapshot of weights
 
 from tensorflow.keras.applications.inception_v3 import InceptionV3
-local_weights_file = '/tmp/inception_v3_weights.h5'
+local_weights_file = '/tmp/inception_v3_weights_notop.h5'
 
 pre_trained_model = InceptionV3(
     input_shape = (150, 150, 3),
@@ -257,11 +257,13 @@ for layer in pre_trained_model.layers:
 
 ``` python
 # By default, the output of the last layer will be 3x3 but we wanna
-# get more info, so we grap layer "mixed7" from inception and take its output
-# mixed7: output of a lot of conv that are 7x7
+# get more info, so we move up over the model and grap layer "mixed7" from
+# inception and take its output mixed7: output of a lot of conv that are 7x7
 last_layer = pre_trained_model.get_layer('mixed7')
 last_output = last_layer.output
 ```
+
+👉 [Why do we need to `include_top=False` if we need to change the input_shape?](https://stackoverflow.com/questions/50054938/why-do-we-need-to-include-top-false-if-we-need-to-change-the-input-shape)
 
 ``` python
 from tensorflow.keras.optimizers import RMSprop
@@ -284,11 +286,10 @@ model.compile(optimizer = RMSprop(lr=0.0001),
 
 ## Multi-class classification
 
-📙 Notebook: Rock Paper Scissors.
-📙 Notebook: MNIST.
+📙 Notebook: [Rock Paper Scissors](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-4/notebook_1_(RockPaperScissors).html).
+📙 Notebook: [MNIST Final Question](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-4/notebook_2_Multi_class_classifier_MNIST_Question-FINAL.html).
 
-{:.noindent}
-- [Rock-Paper-Scissors dataset](http://www.laurencemoroney.com/rock-paper-scissors-dataset/) (generated using CGI techniques)
+👉 [Rock-Paper-Scissors dataset](http://www.laurencemoroney.com/rock-paper-scissors-dataset/) (generated using CGI techniques)
 
 The codes are quite the same as in the case of binary classification, the differences are
 

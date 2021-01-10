@@ -37,33 +37,6 @@ C:\Users\<user>\AppData\Roaming\Python\Python36\Scripts
 App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.baseurl}}/files/cmderSetting.xml) file).
 :::
 
-### Jupyer Notebook
-
-👉 [Jupyter notebook note](/jupyter-notebook).
-
-Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
-
-::: code-2cols
-~~~ bash
-# RUN (after installing Anaconda)
-python -m notebook
-~~~
-
-~~~ bash
-# If `ImportError: DLL load failed`
-active base # active env "base" in anaconda
-jupyter notebook
-~~~
-:::
-
-The `-m` option allows you to execute a module or package as a script{% ref "https://www.quora.com/What-does-m-mean-in-the-terminal-command-Python-m-pip-install-openpyxl" %}.
-
-~~~ bash
-# If `import _ssl`, `ImportError`
-set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
-python -m notebook
-~~~
-
 ## MacOS
 
 By default, Python 2 is already installed on MacOS, you can check this by
@@ -107,6 +80,33 @@ sudo apt install python-is-python3
 sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
 ```
 
+## Jupyer Notebook
+
+👉 [Jupyter notebook note](/jupyter-notebook).
+
+Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
+
+::: code-2cols
+~~~ bash
+# RUN (after installing Anaconda)
+python -m notebook
+~~~
+
+~~~ bash
+# If `ImportError: DLL load failed`
+active base # active env "base" in anaconda
+jupyter notebook
+~~~
+:::
+
+The `-m` option allows you to execute a module or package as a script{% ref "https://www.quora.com/What-does-m-mean-in-the-terminal-command-Python-m-pip-install-openpyxl" %}.
+
+~~~ bash
+# If `import _ssl`, `ImportError`
+set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
+python -m notebook
+~~~
+
 ## Check GPU
 
 👉 Read more on [note of pytorch](/pytorch#problem-with-cuda-version).
@@ -143,8 +143,10 @@ easy_install -U pip
 ~~~
 :::
 
+{% hsbox "Problem?" %}
 - If you meet `AttributeError: 'NoneType' object has no attribute 'bytes'` when updating `pip`, check the version and make sure that there is only 1 pip on your computer and then use `easy_install -U pip` (don't forget to `activate `)
 - If there is a problem with `python -m pip install --upgrade pip`, use `easy_install`!
+{% endhsbox %}
 
 ### Install packages with pip
 
@@ -182,7 +184,17 @@ pip uninstall --user <package>
 # CHECK VERSION OF A PACKAGE
 pip show <package>
 ~~~
+
+``` bash
+# version <=
+pip3 install -U "pillow<7"
+```
 </div>
+
+``` bash
+# Install a package from a git repository
+pip install git+https://github.com/TimeSynth/TimeSynth.git
+```
 
 If install packages with `pip`, they are installed in which environment of conda? Where `pip` is executed from.
 
@@ -223,16 +235,6 @@ isodate==0.6.0
 PyYAML==5.3.1
 ~~~
 
-Install a package from a git repository,
-
-``` bash
-pip install git+https://github.com/TimeSynth/TimeSynth.git
-```
-
-``` bash
-# version <=
-pip3 install -U "pillow<7"
-```
 
 ## `pip` vs `conda`?
 

@@ -124,7 +124,7 @@ _Graph of tanh from analyticsindiamag._
 - ReLU (**R**ectified **L**inear **U**nit).
 - Its derivative is much different from 0 than sigmoid/tanh $\to$ learn faster!
 - <mark>If you aren't sure which one to use in the activation, use ReLU!</mark>
-- Weakness: derivative ~ 0 in the negative side, we use **Leaky ReLU** instead! However, Leaky ReLU aren't used much in practice!
+- Weakness: derivative ~ 0 in the negative side, we use **Leaky ReLU** instead! However, ==Leaky ReLU aren't used much in practice==!
 
 <div class="columns-2" markdown="1">
 <div markdown="1">
@@ -145,7 +145,7 @@ _ReLU (left) and Leaky ReLU (right)_
 
 ## Logistic Regression
 
-- Usually used for binary classification (there are only 2 only 2 outputs). In the case of multiclass classification, we can use _one vs all_ (couple multiple logistic regression steps).
+- Usually used for binary classification (there are only ==2 outputs==). In the case of multiclass classification, we can use _one vs all_ (couple multiple logistic regression steps).
 
 ### Gradient Descent
 
@@ -249,7 +249,7 @@ _L-layer deep neural network. Image from the course._
 
 ### Initialize parameters
 
-- In the Logistic Regression, we use $0$ for $w, b$ (it's OK because LR doesn't have hidden layers) but we can't in the NN model!
+- In the ==Logistic Regression, we use $0$ for $w, b$== (it's OK because LogR doesn't have hidden layers) but ==we can't in the NN model==!
 - If we use $0$, we'll meet the **completely symmetric problem**. No matter how long you train your NN, hidden units compute exactly the same function $\Rightarrow$ No point to having more than 1 hidden unit!
 - We <mark>add a little bit in $W$</mark> and <mark>keep $0$ in $b$</mark>.
 
@@ -360,14 +360,14 @@ def L_Layer_NN(X, Y, layers_dims, learning_rate=0.0075,
 - **Parameters**: $W, b$.
 - **Hyperparameters**:
   - Learning rate ($\alpha$).
-  - Number of iterations (in gradient descent algorithm) ($num_iterations$).
+  - Number of iterations (in gradient descent algorithm) (`num_iterations`).
   - Number of layers ($L$).
   - Number of nodes in each layer ($n^{[i]}$).
   - Choice of activation functions (their form, not their values).
 
 ## Comments
 
-- Always use vectorized if possible! Especially for number of examples!
+- ==Always use vectorized== if possible! Especially for number of examples!
 - We can't use vectorized for number of layers, we need `for`.
 - Sometimes, functions computed with **Deep NN** (more layers, fewer nodes in each layer) is better than **Shallow** (fewer layers, more nodes). E.g. function `XOR`.
 - Deeper layer in the network, more complex features to be determined!

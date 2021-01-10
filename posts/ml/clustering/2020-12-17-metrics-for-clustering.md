@@ -196,7 +196,7 @@ SA_i = \dfrac{b_i-a_i}{\max (a_i, b_i)}
 $$
 
 ![Illustration of $a$ and $b$]({{img-url}}/silhouette-score.png){:.img-50}
-_Illustration of mean intra-cluster distance $a$ (average distance between considered sample to all its neighboring in the same cluster) and nearest-cluster distance $b$ (average distance between considered sample to all samples in the closest cluster of its cluster)._
+_Illustration of mean ==intra-cluster distance== $a$ (average distance between considered sample to all its neighboring in the same cluster) and ==nearest-cluster distance== $b$ (average distance between considered sample to all samples in the closest cluster of its cluster)._
 
 - SA = **+1** : a sample is far away from its neighboring clusters. (For clustering algorithm) Clusters are **dense & well-separated**.
 - SA = **0** : a sample is near decision boundary. (For clustering algorithm) There are **overlapped clusters**.
@@ -215,7 +215,7 @@ _Illustration of mean intra-cluster distance $a$ (average distance between consi
 ![Silhouette plot with `n_clusters=2`]({{img-url}}/sphx_glr_plot_kmeans_silhouette_analysis_001.png){:.img-100}
 _Silhouette plot with `n_clusters=2`. $Oy$: all samples in the dataset sorted in a given cluster. $Ox$: The Silhouette scores w.r.t. these samples. The red dotted line is the mean $SA$._
 
-What we wanna see for a good number of clusters?
+==What we wanna== see for a good number of clusters?
 
 1. Red dotted lines **approaches 1**.
 2. Plot of each cluster should be **above red dotted** line as much as possible.

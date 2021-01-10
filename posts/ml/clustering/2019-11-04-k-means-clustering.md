@@ -81,15 +81,15 @@ Some notable parameters (see [full](https://scikit-learn.org/stable/modules/gene
   - K-Medoid Algorithm is ==fast== and converges in a fixed number of steps.
   - PAM is ==less sensitive to outliers== than other partitioning algorithms.
 - **Disavdvantages**:{% ref "https://www.geeksforgeeks.org/ml-k-medoids-clustering-with-example/" %}
-  - The main disadvantage of K-Medoid algorithms is that it is ==not suitable for clustering non-spherical== (arbitrary shaped) groups of objects. This is because it relies on minimizing the distances between the non-medoid objects and the medoid (the cluster centre) – briefly, it uses compactness as clustering criteria instead of connectivity.
+  - The main disadvantage of K-Medoid algorithms is that it is ==not suitable for clustering non-spherical== (arbitrary shaped) groups of objects. This is because it relies on minimizing the distances between the non-medoid objects and the medoid (the cluster centre) – briefly, ==it uses compactness as clustering criteria instead of connectivity==.
   - It may obtain different results for different runs on the same dataset because the first k medoids are chosen randomly.
 - **Different from K-Means**:
   - *K-Means*:
-    - Final Centers no need to be points in data.
+    - Final centers no need to be points in data.
     - Measure generally requires Euclidean distance.
     - Sensitive to outliers.
   - *K-Medoids*:
-    - Final Centers is actual points in data. They're called _medois_ or _exemplars_.
+    - Final Centers is actual points in data. They're called _medoids_ or _exemplars_.
     - Measures can be arbitrarily dissimilar.
     - ==Robust to outliers.==
 

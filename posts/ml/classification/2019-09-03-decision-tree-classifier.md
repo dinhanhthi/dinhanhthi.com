@@ -51,7 +51,7 @@ There are [many algorithms](https://en.wikipedia.org/wiki/Decision_tree_learning
     where $i \in$ the number of classes and $p_{S,i}$ is the probability of class $i$ in $S$.
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
 
-3. Calculate the **information gain** (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest IG will be chosen!
+3. Calculate the **information gain** (IG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the ==biggest IG== will be chosen!
 
     $$\underbrace{IG(S,O)}_{\text{information gain}} = \underbrace{H(S)}_{\text{entropy before split}} - \underbrace{\sum_j P(O_j | S) \times H(S,O_j)}_{\text{weighted entropy after split}}$$
 
@@ -208,7 +208,7 @@ The difference between two algorithms is the difference between $H(S)$ and $I_G(
 
     where $i \in$ the number of classes in $S$ and $p_{S,i}$ is the probability of class $i$ in $S$.
 2. If entropy at this node is **pure** (there is only 1 class or the majority is 1 class) or it meets [the stopping conditions](#when-to-stop), we stop splitting at this node. Otherwise, go to the next step.
-3. Calculate the **Gini Gain** (GG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest GG will be chosen!
+3. Calculate the **Gini Gain** (GG) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the ==biggest GG== will be chosen!
 
     $$\underbrace{GG(S,O)}_{\text{gini gain}} = \underbrace{I_G(S)}_{\text{gini impurity before split}} - \underbrace{\sum_j P(O_j | S) \times I_G(S,O_j)}_{\text{weighted gini impurity after split}}$$
 
@@ -305,11 +305,10 @@ Its **disadvantages**:
 
 {:.indent}
 1. Performance is (generally) not competitive with the best supervised learning methods.
-2. Can easily overfit the training data ([tuning](https://stackoverflow.com/questions/22903267/what-is-tuning-in-machine-learning) is required).
+2. Can easily ==overfit== the training data ([tuning](https://stackoverflow.com/questions/22903267/what-is-tuning-in-machine-learning) is required).
 3. Small variations in the data can result in a completely different tree (high variance).
 4. Recursive binary splitting makes "locally optimal" decisions that may not result in a globally optimal tree.
-5. Doesn't tend to work well if the classes are highly unbalanced.
-6. Doesn't tend to work well with very small datasets.
+5. ==Doesn't== work well with ==unbalanced== or ==small== datasets.
 
 ## When to stop?
 

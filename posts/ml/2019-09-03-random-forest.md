@@ -11,7 +11,7 @@ keywords: "decision tree ensemble learning votes from the trees relatively uncor
 
 ## What's the idea of Random Forest?
 
-Random forest consists a (large) number of [decision trees](/search?q=decision+tree) operating together ([ensemble learning](https://en.wikipedia.org/wiki/Ensemble_learning)). The class with the most votes from the trees will be chosen as the final result of the RF's prediction. These decision tree models are relatively uncorrelated so that they can protect each other from their individual errors.
+Random forest consists a (large) number of [decision trees](/search?q=decision+tree) operating together ([ensemble learning](https://en.wikipedia.org/wiki/Ensemble_learning)). ==The class with the most votes== from the trees will be chosen as the final result of the RF's prediction. These decision tree models are relatively uncorrelated so that they can protect each other from their individual errors.
 
 ![An illustration of the random forest's idea.]({{img-url}}/rf1.jpg){:.img-full-85}
 *An illustration of the random forest's idea.*
@@ -31,12 +31,12 @@ So in our random forest, we end up with trees that are not only trained on diffe
 
 ## When we use Random Forest?
 
-- _Decision tree algorithms_ easily lead to _overfitting problems_. Random forest algorithm can overcome this.
+- _Decision tree algorithms_ easily lead to ==_overfitting problems_==. Random forest algorithm can ==overcome== this.
 - Capable of both regression and classification problems.
 - Handle a large number of features.
 - Estimating which features are important in the underlying data being modeled{% ref "http://blog.yhat.com/posts/random-forests-in-python.html" %}.
 - Random forest is capable of learning without carefully crafted data transformations{% ref "http://blog.yhat.com/posts/random-forests-in-python.html" %}.
-- Output probabilities for classification problems.
+- ==Output probabilities== for classification problems.
 
 ## Using RF with Scikit-learn
 

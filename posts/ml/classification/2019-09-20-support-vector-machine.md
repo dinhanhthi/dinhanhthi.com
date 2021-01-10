@@ -13,7 +13,7 @@ keywords: Maximum Margin Classifier hyperplane geometry margin hard margin soft 
 
 SVM (also called *Maximum Margin Classifier*) is an algorithm that takes the data as an input and outputs a line/hyperplane that separates those classes if possible.
 
-Suppose that we need to separate two classes of a dataset. The task is to find a line to separate them. However, there are many lines which can do that (countless number of lines). How can we choose the best one?
+Suppose that we need to separate two classes of a dataset. The task is to ==find a line to separate them==. However, there are many lines which can do that (countless number of lines). How can we choose the best one?
 
 ![An idea of support vectors and SVM.]({{img-url}}/svm-1.jpg){:.img-full-90 .pop}
 *An idea of support vectors (samples on the margin) and SVM (find the optimal hyperplane).*
@@ -131,7 +131,7 @@ Read more in [this post](https://machinelearningcoban.com/2017/04/09/smv/#-bai-t
 
 ## Using SVM with kernel trick
 
-Most of the time, we cannot separate classes in the current dataset easily (not linearly separable data). We need to use **kernel trick** first (transform from the current dimension to a higher dimension) and then we use SVM. These classes are not linearly separable.
+Most of the time, we cannot separate classes in the current dataset easily (not linearly separable data). We need to use **kernel trick** first (==transform from the current dimension to a higher dimension==) and then we use SVM. These classes are not linearly separable.
 
 ![An idea of kernel and SVM (1D to 2D).]({{img-url}}/svm-2.jpg){:.img-full-85 .pop}
 *An idea of kernel and SVM. Transform from 1D to 2D. Data is not linearly separable in the **input space** but it is linearly separable in the **feature space** obtained by a kernel.*
@@ -178,7 +178,7 @@ Therefore, we do not need to know $\Phi$ explicitly, we just need to define a *k
 
 {% endhsbox %}
 
-A **kernel** is a dot product in some feature space:
+==A **kernel** is a dot product== in some feature space:
 
 $$
 K(\mathbf{x}_i, \mathbf{x}_j) = \Phi(\mathbf{x}_i, \mathbf{x}_j).
@@ -213,20 +213,20 @@ Choose whatever kernel performs best on cross-validation data. Andrew NG said in
 
 ## Good or Bad?
 
-Advantages:
+**Advantages**:
 
 {:.indent}
-- Compared to both logistic regression and NN, a SVM sometimes gives a cleaner way of learning non-linear functions.
+- Compared to both logistic regression and NN, a SVM sometimes gives a cleaner way of learning ==non-linear functions==.
 - SVM is better than NN with 1 layer (Perceptron Learning Algorithm) thanks to the largest margin between 2 classes.
-- Accurate in high-dimensional spaces + memory effecient.
-- Good accuracy and perform faster prediction compared to Naïve Bayes algorithm.<sup>[\[ref\]](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python#advantages)</sup>
+- Accurate in ==high-dimensional spaces== + ==memory effecient==.
+- Good accuracy and perform ==faster== prediction compared to ==Naïve Bayes algorithm==.<sup>[\[ref\]](https://www.datacamp.com/community/tutorials/svm-classification-scikit-learn-python#advantages)</sup>
 
-Disadvantages:
+**Disadvantages**:
 
 {:.indent}
-- Prone to overfitting: if number of features are larger than number of samples.
+- Prone to ==overfitting==: if number of features are larger than number of samples.
 - Don't provide probability estimation.
-- Not efficient if your data is very big!
+- ==Not efficient== if your ==data is very big==!
 - It works poorly with overlapping classes
 - Sensitive to the type of kernel used.
 
@@ -269,8 +269,8 @@ In the case of **linear SVM**, we can also use `sklearn.svm.LinearSVC`. It's sim
 **The Regularization parameter** (`C`, default `C=1.0`): if `C` is larger, hyperplane has smaller margin but do a better job of classification and otherwise. This is how you can control the trade-off between decision boundary and misclassification term.
 
 {:.indent}
-- **Higher values** of `C` $\Rightarrow$ a higher possibility of overfitting, the softmargin SVM is equivalent to the hard-margin SVM.
-- **Lower values** of `C` $\Rightarrow$ a higher possibility of underfitting. We admit misclassifications in the training data
+- **Higher values** of `C` $\Rightarrow$ a higher possibility of ==overfitting==, the softmargin SVM is equivalent to the hard-margin SVM.
+- **Lower values** of `C` $\Rightarrow$ a higher possibility of ==underfitting==. We admit misclassifications in the training data
 
 We use this in the case of *not linearly separable data*; It's also called **soft-margin linear SVM**.
 
@@ -336,10 +336,10 @@ Note that, $(6)$ looks like $(5)$ (duality of hard-margin problem) but condition
 **Gamma** (`gamma`, default `gamma='auto'` which uses `1/n_features`): determine the number of points to construct the hyperplane.
 
 ![The parameter gamma.]({{img-url}}/svm-5.jpg){:.img-full-90 .pop}
-*An illustration of using `gamma`. In **low-gamma** case, we only consider points nearby the hyperplane, it may cause an overfitting.*
+*An illustration of using `gamma`. In **high-gamma** case, we only consider points nearby the hyperplane, it may cause an ==overfitting==.*
 
 ![gamma parameter.]({{img-url}}/svm-10.jpg){:.img-full-90 .pop}
-*Bigger gamma, more change to get overfitting (in a XOR problem).*
+*==Bigger gamma==, more change to get ==overfitting== (in a XOR problem).*
 
 {% hsbox "Understanding the idea of `gamma` in the Gaussian kernel" %}
 

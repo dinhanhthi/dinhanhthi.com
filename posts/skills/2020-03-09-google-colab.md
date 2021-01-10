@@ -168,7 +168,7 @@ By default, the working directory is `/content/`. One can use below command to c
 
 From that point, we are working on `/content/data-science-learning`.
 
-## Upload a file to Colab{% ref https://colab.research.google.com/notebooks/io.ipynb#scrollTo=hauvGV4hV-Mh %}
+## Upload a file to Colab{% ref "https://colab.research.google.com/notebooks/io.ipynb#scrollTo=hauvGV4hV-Mh" %}
 
 Each user has a "machine" in `/content/`.
 
@@ -306,7 +306,7 @@ The cloned folder are stored in `/content/`. If you wanna `pull` requests, use,
 
 ## PyTorch with GPU
 
-To enable GPU backend for your notebook, go to **Edit** → **Notebook Settings** and set **Hardware accelerator** to **GPU**.{% ref https://jovianlin.io/pytorch-with-gpu-in-google-colab/ %}
+To enable GPU backend for your notebook, go to **Edit** → **Notebook Settings** and set **Hardware accelerator** to **GPU**.{% ref "https://jovianlin.io/pytorch-with-gpu-in-google-colab/" %}
 
 
 ## Install 7zip reader, GraphViz, PyDot, cartopy
@@ -336,11 +336,10 @@ Jupyter Notebook has an option to 'Download as' HTML (or other) format. Google C
 2. Save your Colab notebook.
 4. In your terminal:
 
-    ~~~ bash
-jupyter nbconvert --to <output format> <filename.ipynb>
-# jupyter nbconvert --to html mynotebook.ipynb
-    ~~~
-
+	~~~ bash
+	jupyter nbconvert --to <output format> <filename.ipynb>
+	# jupyter nbconvert --to html mynotebook.ipynb
+	~~~
 
 ## Other functions
 

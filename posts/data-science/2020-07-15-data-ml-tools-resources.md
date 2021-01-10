@@ -16,6 +16,7 @@ keywords: "data science deep learing tools resources application good choice col
 - [Airbnb](https://medium.com/airbnb-engineering) — Engineering & Data Science – Medium.
 - [AI Curious](https://aicurious.io/) — Viet Anh's personal blog, in Vietnamese.
 - [Colah's blog](https://colah.github.io/) — personal blog.
+- [Google Codelabs](https://codelabs.developers.google.com/) -- Google Developers Codelabs provide a guided, tutorial, hands-on coding experience. Most codelabs will step you through the process of building a small application, or adding a new feature to an existing application. They cover a wide range of topics such as Android Wear, Google Compute Engine, Project Tango, and Google APIs on iOS.
 - [Math ∩ Programming](https://jeremykun.com/) — personal blog.
 - [Netflix TechBlog](https://netflixtechblog.com/)
 - [Ong Xuan Hong](https://ongxuanhong.wordpress.com/) — personal blog.
@@ -59,6 +60,7 @@ keywords: "data science deep learing tools resources application good choice col
 
 ## Tools
 
+- [Caffe Model Zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo) -- reasearcher share their _Caffe_ models.
 - [Chart.js | Open source HTML5 Charts for your website](https://www.chartjs.org/)
 - [Embedding Projector tool](http://projector.tensorflow.org/) from tensorflow.
 - [Flourish](https://flourish.studio/) — Data Visualization & Storytelling.
@@ -67,10 +69,12 @@ keywords: "data science deep learing tools resources application good choice col
 - Graphviz export
   - Download **Graphviz** [here](https://graphviz.gitlab.io/download/).
   - Its [online version](http://webgraphviz.com/).
+- [Teachable Machine](https://teachablemachine.withgoogle.com/) -- Train a computer to recognize your own images, sounds, & poses.
 - [idyll](https://idyll-lang.org/) — A toolkit for creating data-driven stories and explorable explanations.
 - [Mapbox](https://www.mapbox.com/) — Maps and location for developers.
 - [nbdev](https://github.com/fastai/nbdev) — Create delightful python projects using Jupyter Notebooks.
 - [Observale](https://observablehq.com/) — Observable is the magic notebook for exploring data and thinking with code.
+- [Streamlit](https://github.com/streamlit/streamlit) — The fastest way to build data apps in Python.
 - [Replicate](https://replicate.ai/) — Version control for machine learning.
 - [TensorFlow Playground](http://playground.tensorflow.org/)
 - [Travis-CI](https://travis-ci.org/) — a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.

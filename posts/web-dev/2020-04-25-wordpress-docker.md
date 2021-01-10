@@ -4,16 +4,15 @@ title: "Wordpress Docker"
 tags: [Web Dev, Wordpress, Docker]
 toc: true
 icon: "wordpress.svg"
-notfull: 1
 keywords: "docker wordpress install a-z a to z automatically docker image docker container wamp lamp mamp all in one wordpress migration cli wp-cli backup migration locally docker"
 ---
 
 {% assign img-url = '/img/post/web-dev' %}
 
-👉 [Note: Docker 101](/docker)
-👉 [Note: Docker + GPUs](/docker-gpu)
-👉 [Note: Airflow + Kubernetes 101](/airflow-k8s-101)
-👉 [Note: Tensorflow extra](/tensorflow)
+👉 Note: [Docker 101](/docker)
+👉 Note: [Docker + GPUs](/docker-gpu)
+👉 Note: [Airflow + Kubernetes 101](/airflow-k8s-101)
+👉 Note: [Tensorflow extra](/tensorflow)
 
 In this note, I wanna an automatical setting up of basic things.
 

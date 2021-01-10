@@ -267,9 +267,9 @@ say_whee()
 ~~~~
 
 ~~~
-Something is happening before the function is called.
+Before func called.
 Whee!
-Something is happening after the function is called.
+After func called.
 ~~~
 :::
 
@@ -281,9 +281,9 @@ class test_class():
 
     def _deco(func):
         def wrapper(self, name):
-            print('before func called')
+            print('Before func called')
             func(self, name)
-            print('after func called')
+            print('After func called.')
         return wrapper
 
     @_deco
@@ -295,8 +295,8 @@ a.fit('thi')
 ~~~
 
 ~~~
-before func called
+Before func called
 Hello,  thi
-after func called
+After func called
 ~~~
 :::
