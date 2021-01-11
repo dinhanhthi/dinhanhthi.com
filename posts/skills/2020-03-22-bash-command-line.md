@@ -9,8 +9,8 @@ keywords: "cmder cmd terminal powershell macos mac linux ubuntu windows vim edit
 
 Bash commands are mainly supported in MacOS, Linux but also support in Windows. You can use integrated tools for using bash on these platforms.
 
-👉 [Note about terminals](/terminal).
-👉 [Note about Screen](/screen).
+👉 Note: [Terminals](/terminal).
+👉 Note: [Bash screen](/screen).
 
 ## Tools
 
@@ -24,6 +24,7 @@ Bash commands are mainly supported in MacOS, Linux but also support in Windows. 
 - <kbd>Tab</kbd> : autocomplete the commands / directories / file names / ....
 - <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>V</kbd> : paste from clipboard.
 - For a long list: <kbd>Enter</kbd> to continue to read, <kbd>q</kbd> to quit.
+- [[Ctrl]] + [[A]]: move cursor to the beginning of the line.
 
 ## Multiple commands
 

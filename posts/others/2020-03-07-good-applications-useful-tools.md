@@ -126,7 +126,8 @@ This note will always be updated.
 
 - [Adblock Plus](https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb) - free ad blocker
 - [AutoTube](https://chrome.google.com/webstore/detail/autotube-youtube-nonstop/egobelhdffdoidcnhpgkngoghpiebial) — YouTube nonstop (for ones who wanna listen to a video music which has more than 1 hour length)
-- [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh?hl=en) — Vietnamese input method
+- [AVIM](https://chrome.google.com/webstore/detail/avim-vietnamese-input-met/opgbbffpdglhkpglnlkiclakjlpiedoh?hl=en) — Vietnamese input method.
+- [Bit.ly](https://chrome.google.com/webstore/detail/bitly-powerful-short-link/iabeihobmhlgpkcgjiloemdbofjbdcic) -- shorten long url for sharing.
 - [Copy URL with title](https://chrome.google.com/webstore/detail/copy-url-with-title/bpcogbhmkdjaohcmlghhkiohmldpnkoh) — copy title and URL using [[Ctrl]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac). Use [[Alt]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac) to get them in markdown link format.
 - [Google Dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja) (by Google)
 - [Hush](https://chrome.google.com/webstore/detail/hush-private-bookmarking/hjmoaenjknbdehbiaeeijcppnljflkff?hl=en) — private bookmarking

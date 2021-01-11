@@ -48,6 +48,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
 - [ImageNet](http://www.image-net.org/) -- ImageNet is an image database organized according to the WordNet hierarchy.
 - [Insight - BBC News Datasets](http://mlg.ucd.ie/datasets/bbc.html)
+- [Large-scale CelebFaces Attributes (CelebA) Dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
 - [Large Movie Review Dataset (IMDB)](http://ai.stanford.edu/~amaas/data/sentiment/)
 - [MIT Places Database for Scene Recognition](http://places.csail.mit.edu/).
 - [Sarcasm detection dataset.](https://rishabhmisra.github.io/publications/)

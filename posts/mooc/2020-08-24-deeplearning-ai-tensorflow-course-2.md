@@ -25,6 +25,8 @@ This is my note for the [2nd course](https://www.coursera.org/learn/convolutiona
 - Crop an image make the predict better!
 - Make a larger dataset by rotating, scaling, cropping,...
 
+📙 Notebook: [Using more sophisticated images with CNN.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-1/notebook_1%20-%20Using%20more%20sophisticated%20images%20with%20CNN.html)
+
 ### Extract zip file + view image
 
 <div class="col-2-equal">
@@ -93,6 +95,8 @@ plt.title ('Training and validation loss')
 </div>
 
 ## Cats vs dogs
+
+📙 Notebook: [Cat vs Dog simple DNN.](https://dinhanhthi.github.io/tools/github-html?https://github.com/dinhanhthi/deeplearning.ai-courses/blob/master/TensorFlow%20in%20Practice/course-2/week-1/notebook_2-cats-vs-dogs-question-final.html)
 
 ### os
 
@@ -171,16 +175,20 @@ train_generator = train_datagen.flow_from_directory(TRAINING_DIR,
                                                     target_size=(150, 150))
 
 # the same for validation
-# output: Found 2700 images belonging to 2 classes.
+# output:
+# Found 2700 images belonging to 2 classes (training).
+# Found 500 images beloging to 2 classes (validation).
 ```
 
 ### Train
 
 ``` python
-history = model.fit_generator(train_generator,
-                              epochs=2,
-                              verbose=1,
-                              validation_data=validation_generator)
+history = model.fit(train_generator,
+					epochs=2,
+					steps_per_epoch=27, # 2700 / 10 (batch_size)
+					verbose=1,
+					validation_steps=50, # 500 / 10 (batch_size)
+					validation_data=validation_generator)
 ```
 
 ## Image Augmentation

@@ -16,6 +16,7 @@ keywords: "data science deep learing tools resources application good choice col
 - [Airbnb](https://medium.com/airbnb-engineering) — Engineering & Data Science – Medium.
 - [AI Curious](https://aicurious.io/) — Viet Anh's personal blog, in Vietnamese.
 - [Colah's blog](https://colah.github.io/) — personal blog.
+- [Google's AI Hub](https://aihub.cloud.google.com/) -- a platform that lets us centralize our code and knowledge in a way that can step up the pace of deployment and learnings globally, giving us the scale to deliver data-driven marketing excellence.
 - [Google Codelabs](https://codelabs.developers.google.com/) -- Google Developers Codelabs provide a guided, tutorial, hands-on coding experience. Most codelabs will step you through the process of building a small application, or adding a new feature to an existing application. They cover a wide range of topics such as Android Wear, Google Compute Engine, Project Tango, and Google APIs on iOS.
 - [Math ∩ Programming](https://jeremykun.com/) — personal blog.
 - [Netflix TechBlog](https://netflixtechblog.com/)

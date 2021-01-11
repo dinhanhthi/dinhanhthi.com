@@ -172,8 +172,6 @@ From that point, we are working on `/content/data-science-learning`.
 
 Each user has a "machine" in `/content/`.
 
-### Directly uploadKeep the running tasks on the remote host continue after turning off the local caller.
-
 ## Install
 
 ~~~ bash

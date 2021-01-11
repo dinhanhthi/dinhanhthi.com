@@ -5,16 +5,25 @@ tags: [Deep Learning]
 toc: true
 icon: /img/header/tensorflow.svg
 notfull: 1
-keywords: device gpu cuda nvidia graphical device torch deep learning neural network dell xps 7590 gpu install nvidia installation torch docker nvidia-docker nvidia-container-runtime packages
+keywords: "device gpu cuda nvidia graphical device torch deep learning neural network dell xps 7590 gpu install nvidia installation torch docker nvidia-docker nvidia-container-runtime packages batch size problem"
 ---
 
-## Check if GPU available?
+## GPU?
 
+::: col-2-equal
 ``` python
 # check if GPU available?
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
+
+``` python
+# prevent tf uses gpu
+# add below before any tf import
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+```
+:::
 
 ## Installation with docker
 
@@ -67,8 +76,9 @@ tf.config.list_physical_devices('GPU')
 
 On my computer, [Dell XPS 15 7590](https://www.dell.com/fr-fr/work/shop/laptops/15-7590/spd/xps-15-7590-laptop) - NVIDIA® GeForce® GTX 1650 Mobile.
 
-{:.alert.alert-danger}
+::: danger
 This section is not complete, the guide is still not working!
+:::
 
 ### Installation
 
@@ -122,7 +132,6 @@ nvcc --version
 Problem come from you don't have enough images!
 
 ``` python
-batch_size = 20
 train_generator = train_datagen.flow_from_directory(batch_size = 20)
 validation_generator =  test_datagen.flow_from_directory(batch_size  = 20)
 
@@ -134,7 +143,42 @@ model.fit(
     steps_per_epoch = 100,
     epochs = 20,
     validation_steps = 50,
-    verbose = 2,)
+    verbose = 2)
 ```
 
 We must have `steps_per_epoch * batch_size <= #of images`, in this case `100*20 = 2000 > 1027`. Check [this answer](https://github.com/fizyr/keras-retinanet/issues/1449#issuecomment-691867911) for more information.
+
+``` python
+# correct
+model.fit(
+    ...
+    steps_per_epoch = 50, # batches in the generator are 20, so it takes 1027//20 batches to get to 1027 images
+    ...
+    validation_steps = 12, # batches in the generator are 20, so it takes 256//20 batches to get to 256 images
+    ...)
+```
+
+---
+
+``` bash
+# Not found: No algorithm worked!
+
+# OR
+# This is probably because cuDNN failed to initialize
+```
+
+``` bash
+nvidia-smi
+# check and kill the process that uses GPU much
+# restart the task
+```
+
+``` python
+# OR: add the following to your code
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+```
