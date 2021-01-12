@@ -53,6 +53,25 @@ Python is already installed on Ubuntu. You would like to install Anaconda, [down
 
 Wanna install __Miniconda__ instead? 👉 Download[ `.sh` file](https://docs.conda.io/en/latest/miniconda.html#linux-installers) and install inside Linux environement (including [WSL2](/docker-wsl2-windows)).
 
+{% hsbox "Miniconda or Conda? ([ref](https://stackoverflow.com/questions/45421163/anaconda-vs-miniconda#:~:text=Note%20that%20Conda%20is%20the,Anaconda%20and%20Miniconda%20are%20distributions.&text=Miniconda%20is%20essentially%20an%20installer,Source.))" %}
+Note that [Conda](https://conda.io/projects/conda/en/latest/) is the _package manager_ (e.g. `conda list` displays all installed packages in the environment), whereas Anaconda and Miniconda are distributions.
+
+Choose Anaconda if you:
+
+- Are new to conda or Python
+- Like the convenience of having Python and over 1500 scientific packages automatically installed at once
+- Have the time and disk space (a few minutes and 3 GB), and/or
+- Don’t want to install each of the packages you want to use individually.
+
+Choose Miniconda if you:
+
+- Do not mind installing each of the packages you want to use individually.
+- Do not have time or disk space to install over 1500 packages at once, and/or
+- Just want fast access to Python and the conda commands, and wish to sort out the other programs later.
+
+{% endhsbox %}
+
+{% hsbox "Add conda to `$PATH`" %}
 ~~~ bash
 # ADD CONDA TO $PATH
 
@@ -68,9 +87,9 @@ which python
 # check version
 conda --version
 ~~~
+{% endhsbox %}
 
-### Make right version
-
+{% hsbox "Make a right version" %}
 ``` bash
 alias python=python3
 alias pip=pip3
@@ -79,10 +98,11 @@ sudo apt install python-is-python3
 # prevent Python 2 from being installed as a dependency of something
 sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib
 ```
+{% endhsbox %}
 
 ## Jupyer Notebook
 
-👉 [Jupyter notebook note](/jupyter-notebook).
+👉 Note: [Jupyter notebook](/jupyter-notebook).
 
 Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
 
@@ -272,6 +292,8 @@ To detele, just remove the corresponding folder, i.e., `<DIR>`.
 
 ### Install / Update conda
 
+👉 Read more on [this section](#linux-(ubuntu)).
+
 ~~~ bash
 # INSTALL CONDA BY PIP (without Anaconda)
 pip install conda
@@ -279,6 +301,7 @@ pip install conda
 
 ~~~ bash
 # UPDATE CONDA
+conda --version # check version
 conda update -n base -c defaults conda
 ~~~
 
@@ -328,12 +351,14 @@ conda install --file requirements.txt
 
 ### Environment
 
-Check an official doc [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) or [this useful post](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533).
+👉 Check an [official doc](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) or [this useful post](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533).
 
 Create a new environment with python version 3.7:
 
 ~~~ bash
 conda create -n <env-name> python=3.7 anaconda
+# created in /home/thi/miniconda3/envs/<env-name>/
+source activate <env-name> # activate this env
 ~~~
 
 ~~~ bash
@@ -362,6 +387,8 @@ conda env create -n <env> -f /path/to/<file>.yml
 # Clone from another env
 conda create --name <cloned-env> --clone <env>
 ~~~
+
+
 
 ::: warning
 Most of below commands are assumed to be run in an environment named `env` which is already activated. If you don't activate any environment before, use an alternative instead. For example,
@@ -416,6 +443,15 @@ conda env export -f <file>.yml
 # Update packages listed in an env file to current env,
 conda env update -n <env> -f /path/to/<file>.yml --prune
 ~~~
+
+{% hsbox "Show activated env in [zsh](/terminal/#zsh-(linux))" %}
+``` bash
+# run this first in your current shell
+conda init zsh
+# other options than zsh: bash, powershell, ...
+source ~/.zshrc
+```
+{% endhsbox %}
 
 ### Kernel 2 & 3 for Jupyter Notebook
 

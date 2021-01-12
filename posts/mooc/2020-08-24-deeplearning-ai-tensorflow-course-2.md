@@ -122,6 +122,9 @@ random.sample(list, len(list)) # shuffles a list
 Shuffle images and split/copy images to training/testing folder for each cat and dog.
 
 ``` python
+import os
+import random
+from shutil import copyfile
 def split_data(SOURCE, TRAINING, TESTING, SPLIT_SIZE):
     lst_cat_imgs = os.listdir(SOURCE)
     lst_cat_imgs = random.sample(lst_cat_imgs, len(lst_cat_imgs))
