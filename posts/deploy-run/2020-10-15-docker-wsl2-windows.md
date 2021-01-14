@@ -11,7 +11,7 @@ keywords: "wsl wsl2 windows subsystem linux windows terminal zsh oh my szh jekyl
 
 ## WSL on Windows
 
-👉 [Main tutorial](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+👉 Ref: [Main tutorial from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ``` bash
 # Eanble Windows Subsystem for Linux

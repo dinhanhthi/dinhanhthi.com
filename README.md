@@ -21,24 +21,16 @@
 5. Optimization images, html, css, javascript files.
 6. Support instant search with hightlight (using [elasticlunr](http://elasticlunr.com/))
 
-## Build
+## Build & dev locally
+
+At the first time after cloning,
 
 ``` bash
 # install nodejs
 # https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
 
-npm install
-
-# build + watch + test (locally + WITH performing tasks on images)
-npm run watch
-
-# Setting up on Netlify
-npm run build
+npm install # run once
 ```
-
-__Tips__: For saving build time on netlify (free 300 minutes), check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify) as a tip.
-
-## Dev locally
 
 Because of the weakness of eleventy, we have to do below things to make the dev locally much faster!
 
@@ -47,14 +39,20 @@ Because of the weakness of eleventy, we have to do below things to make the dev 
 # (we don't intend to serve our eleventy site, just build it)
 sudo npm install http-server -g
 
+# Go to the main folder and then
+mkdir _live
+
+npm run local-build # a folder _site will be created
+
 # Run the serve on folder _live
+# (You need to do this everytime you restart the computer)
 npm run local-serve
 
 # Each time we want to build, run
 npm run local-build
 ```
 
-### Deploy to netlify
+### Deploy to Netlify
 
 Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify) to understand below steps.
 
