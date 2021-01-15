@@ -38,7 +38,21 @@ wsl --set-default-version 2
 ``` bash
 # Go to Windows Store
 # Choose a Linux Distro and install it
+
+# After installing, run Ubuntu app from Start menu
+# Follow the instruction on screen
+
+# Update system
+sudo apt update
+sudo apt upgrade # be careful, it takes time!
+
+# Install dependencies (it takes time)
+sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 ```
+
+👉 Note: [Linux](/linux-tips/)
+👉 Note: [Fresh Ubuntu / Pop!_OS Installation](/fresh-installation-ubuntu/)
+👉 Note: [Bash](/bash-command-line/)
 
 ## Location
 
@@ -46,14 +60,7 @@ wsl --set-default-version 2
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
 
-### Dependencies
-
-``` bash
-sudo apt-get update
-sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
-```
-
-### Windows Terminal & Zsh
+## Windows Terminal & Zsh
 
 👉 Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started) + some things with [this note](/terminal#windows).
 
