@@ -30,6 +30,10 @@ At the first time after cloning,
 # https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
 
 npm install # run once
+
+# If you have any problem with the installation sharp
+# Try to change the python path to python2
+# Best practice: create a python env containing python just for this task!
 ```
 
 Because of the weakness of eleventy, we have to do below things to make the dev locally much faster!
@@ -62,7 +66,6 @@ Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify)
 |
 |- dinhanhthi.com	# <- branch "dev" for editing notes
 |- dat.com		# <- branch "_site" for pushing to netlify
-|- _live		# intermediate folder (created when running tasks in dinhanhthi.com/)
 
 # On dat.com/, just run
 # (It takes time to build the whole site in dinhanhthi.com/)
