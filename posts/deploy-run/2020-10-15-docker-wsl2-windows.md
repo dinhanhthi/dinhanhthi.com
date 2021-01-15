@@ -59,6 +59,7 @@ sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential li
 - The `C` drive is located in `/mnt/c/`.
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
+- If you wanna create a drive (eg. `Z`): click on Linux icon in Explorer > Right click on Ubuntu folder > "Map network drive.."
 
 ## Windows Terminal & Zsh
 
