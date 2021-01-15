@@ -60,30 +60,9 @@ sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential li
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
 
-## Windows Terminal & Zsh
+## Terminal?
 
-👉 Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started) + some things with [this note](/terminal#windows).
-
-Change default setting theme to Linux Distro!
-
-``` bash
-# Install Zsh
-sudo apt-get install zsh
-zsh --version
-
-# make default
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# exit all windows and reopen
-
-# check version
-echo $SHELL # /usr/bin/zsh  or similar
-```
-
-Continue to [this note](/terminal#zsh-linux) with following remarks:
-
-- You have to install all the fonts suggested in that note (just for sure).
-- You have to install MS's [cascadia-code font](https://github.com/microsoft/cascadia-code/releases) (download zip and install all files there manually). Then you choose from Windows Terminal or cmder the font face is `Cascadia Code PL`.
-- [This article](https://docs.microsoft.com/en-us/windows/terminal/tutorials/powerline-setup) may be interesting also.
+I use [cmder](https://cmder.net). Read more in [this note](/terminal#windows).
 
 ## Jekyll on WSL2
 
