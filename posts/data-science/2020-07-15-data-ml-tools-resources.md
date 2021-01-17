@@ -73,10 +73,12 @@ keywords: "data science deep learing tools resources application good choice col
 - [Teachable Machine](https://teachablemachine.withgoogle.com/) -- Train a computer to recognize your own images, sounds, & poses.
 - [idyll](https://idyll-lang.org/) — A toolkit for creating data-driven stories and explorable explanations.
 - [Mapbox](https://www.mapbox.com/) — Maps and location for developers.
+- [ml5js](https://ml5js.org/) -- Friendly Machine Learning For The Web.
 - [nbdev](https://github.com/fastai/nbdev) — Create delightful python projects using Jupyter Notebooks.
 - [Observale](https://observablehq.com/) — Observable is the magic notebook for exploring data and thinking with code.
 - [Streamlit](https://github.com/streamlit/streamlit) — The fastest way to build data apps in Python.
 - [Replicate](https://replicate.ai/) — Version control for machine learning.
+- [TensorBoard](https://www.tensorflow.org/tensorboard) -- TensorFlow's visualization toolkit.
 - [TensorFlow Playground](http://playground.tensorflow.org/)
 - [Travis-CI](https://travis-ci.org/) — a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.
 - [Vaex](https://github.com/vaexio/vaex) — Handle huge dataframe.

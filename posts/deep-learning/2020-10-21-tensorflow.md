@@ -28,7 +28,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 ## Installation with docker
 
 👉 [Official guide](https://www.tensorflow.org/install/docker).
-👉 [Docker & GPU note](/docker-gpu).
+👉 Note: [Docker & GPU](/docker-gpu).
 
 The advantage of this method is that you <mark>only have to install GPU driver on the host machine</mark>.
 

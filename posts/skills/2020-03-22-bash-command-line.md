@@ -139,6 +139,11 @@ lspci -nn | grep '\[03' # another way
 # list of devices
 lsusb
 ```
+
+``` bash
+# list display screen
+xrandr --listactivemonitors
+```
 </div>
 
 ~~~ bash
