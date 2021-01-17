@@ -5,16 +5,12 @@
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
     "build": "rm -rf _site && npm run js-build && eleventy && echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\"",
-    "build-old": "npm run js-build && eleventy && npm run test",
-    "watch": "concurrently \"eleventy --serve\" \"npm run js-build-watch\" \"npm run test-watch\"",
     "local-watch": "ELEVENTY_ENV=local concurrently \"eleventy --serve\" \"npm run js-build-watch\"",
-    "local-build": "rm -rf _site _live && npm run js-build && ELEVENTY_ENV=local eleventy --quiet && echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\"",
-    "local-serve": "echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\" && http-server _live",
+    "local-build": "rm -rf _site && npm run js-build && ELEVENTY_ENV=local eleventy --quiet && echo \"Starting copy...\" && cp -Rf _site/* _live/ && echo \"End copy.\"",
+    "local-serve": "echo \"Starting copy...\" && cp -Rf _site/* _live/ && echo \"End copy.\" && http-server _live",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
-    "debug": "DEBUG=* eleventy",
-    "test": "mocha src/test/test*.js",
-    "test-watch": "mocha src/test/test*.js --watch"
+    "debug": "DEBUG=* eleventy"
   },
   "pre-push": [],
   "pre-commit": [],
@@ -70,7 +66,6 @@
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-table-of-contents": "^0.5.0",
-    "mocha": "^8.1.3",
     "phin": "^3.5.0",
     "purge-from-html": "^1.0.3",
     "purgecss": "^2.3.0",

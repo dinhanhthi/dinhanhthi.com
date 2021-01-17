@@ -106,6 +106,11 @@ pip show numpy | sed -n 's/Location: //p'
 
 <div class="col-2-equal">
 
+``` bash
+# Change password
+passwd
+```
+
 ~~~ bash
 # DISK SPACE
 df -h

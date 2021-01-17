@@ -9,9 +9,9 @@ keywords: "wsl wsl2 windows subsystem linux windows terminal zsh oh my szh jekyl
 
 {% assign img-url = '/img/post/deploy/docker' %}
 
-## WSL on Windows
+## Installation
 
-👉 [Main tutorial](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+👉 Ref: [Main tutorial from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 ``` bash
 # Eanble Windows Subsystem for Linux
@@ -38,45 +38,61 @@ wsl --set-default-version 2
 ``` bash
 # Go to Windows Store
 # Choose a Linux Distro and install it
+
+# After installing, run Ubuntu app from Start menu
+# Follow the instruction on screen
+
+# Update system
+sudo apt update
+sudo apt upgrade # be careful, it takes time!
+
+# Install dependencies (it takes time)
+sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 ```
+
+👉 Note: [Linux](/linux-tips/)
+👉 Note: [Fresh Ubuntu / Pop!_OS Installation](/fresh-installation-ubuntu/)
+👉 Note: [Bash](/bash-command-line/)
 
 ## Location
 
 - The `C` drive is located in `/mnt/c/`.
 - The Download folder is located in `/mnt/c/Users/dinha/Downloads/`.
 - Open current folder (in WSL2) with Windows Explorer: `explorer.exe .`.
+- If you wanna create a drive (eg. `Z`): click on Linux icon in Explorer > Right click on Ubuntu folder > "Map network drive.."
 
-### Dependencies
+## Terminal?
 
-``` bash
-sudo apt-get update
-sudo apt-get install git-core curl wget fontconfig zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
-```
+I use [cmder](https://cmder.net). Read more in [this note](/terminal#windows).
 
-### Windows Terminal & Zsh
+## Docker + GPU + WSL
 
-👉 Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/get-started) + some things with [this note](/terminal#windows).
-
-Change default setting theme to Linux Distro!
+1. Make WSL2 recognize GPU on Windows 10 👉 Check [this tut](https://docs.nvidia.com/cuda/wsl-user-guide/index.html) with some remarks:
+2. Microsoft's: [Enable TensorFlow with DirectML in WSL 2](https://docs.microsoft.com/en-us/windows/win32/direct3d12/gpu-tensorflow-wsl). __Note that__, you have to use the version of python look like exactly in the guide (mine, it's 3.6), otherwise, it won't work!
 
 ``` bash
-# Install Zsh
-sudo apt-get install zsh
-zsh --version
+# check if gpu available with docker on wsl2
+docker run --rm -it --gpus=all nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -gpu -benchmark
 
-# make default
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# exit all windows and reopen
+# should see something like this
+> Windowed mode
+> Simulation data stored in video memory
+> Single precision floating point simulation
+> 1 Devices used for simulation
+GPU Device 0: "GeForce GTX 1070" with compute capability 6.1
 
-# check version
-echo $SHELL # /usr/bin/zsh  or similar
+> Compute 6.1 CUDA device: [GeForce GTX 1070]
+15360 bodies, total time for 10 iterations: 11.949 ms
+= 197.446 billion interactions per second
+= 3948.925 single-precision GFLOP/s at 20 flops per interaction
 ```
 
-Continue to [this note](/terminal#zsh-linux) with following remarks:
+👉 Check some tests in [this section](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-containers).
 
-- You have to install all the fonts suggested in that note (just for sure).
-- You have to install MS's [cascadia-code font](https://github.com/microsoft/cascadia-code/releases) (download zip and install all files there manually). Then you choose from Windows Terminal or cmder the font face is `Cascadia Code PL`.
-- [This article](https://docs.microsoft.com/en-us/windows/terminal/tutorials/powerline-setup) may be interesting also.
+{% hsbox "Problems with Windows 10 Insider Preview" %}
+- If you meet error "_Your insider preview build settings need attention_", restart many times don't solve the problem. 👉 Go to Account setting, then choose "Verify".
+- If you cannot install Windows 10 Insider Preview in any case, just abandon, wait for some next regular update and try again. It work for me with no reason!
+{% endhsbox %}
 
 ## Jekyll on WSL2
 
