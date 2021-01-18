@@ -7,6 +7,10 @@
 				"icon": "/img/about/python.svg"
 			},
 			{
+				"name": "R Lang",
+				"icon": "/img/about/r.svg"
+			},
+			{
 				"name": "JavaScript",
 				"icon": "/img/about/js.svg"
 			},
@@ -21,6 +25,11 @@
 			{
 				"name": "FreeFEM++",
 				"icon": "/img/about/ff.svg"
+			},
+			{
+				"name": "Ruby",
+				"icon": "/img/about/ruby.svg",
+				"later": true
 			}
 		]
 	},
@@ -42,6 +51,11 @@
 			{
 				"name": "Jupyter",
 				"icon": "/img/about/jupyter.svg"
+			},
+			{
+				"name": "Foursquare API",
+				"icon": "/img/about/foursquare.svg",
+				"later": true
 			}
 		]
 	},
@@ -106,6 +120,11 @@
 				"icon": "/img/about/mongodb.svg"
 			},
 			{
+				"name": "PostgreSQL",
+				"icon": "/img/about/postgresql2.svg",
+				"later": true
+			},
+			{
 				"name": "MySQL",
 				"icon": "/img/about/mysql.svg"
 			},
@@ -116,6 +135,11 @@
 			{
 				"name": "NodeJS",
 				"icon": "/img/about/node.svg"
+			},
+			{
+				"name": "Flask",
+				"icon": "/img/about/flask.svg",
+				"later": true
 			},
 			{
 				"name": "GraphQL",
