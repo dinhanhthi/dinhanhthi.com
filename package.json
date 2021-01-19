@@ -4,9 +4,9 @@
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
-    "build": "rm -rf _site && npm run js-build && eleventy && echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\"",
+    "build": "npx rimraf -rf _site && npm run js-build && eleventy && echo \"Starting copy...\" && mkdir -p _live && cp -Rf _site/* _live/ && echo \"End copy.\"",
     "local-watch": "ELEVENTY_ENV=local concurrently \"eleventy --serve\" \"npm run js-build-watch\"",
-    "local-build": "rm -rf _site && npm run js-build && ELEVENTY_ENV=local eleventy --quiet && echo \"Starting copy...\" && cp -Rf _site/* _live/ && echo \"End copy.\"",
+    "local-build": "npx rimraf -rf _site && npm run js-build && cross-env ELEVENTY_ENV=local eleventy --quiet && echo \"Starting copy...\" && cp -Rf _site/* _live/ && echo \"End copy.\"",
     "local-serve": "echo \"Starting copy...\" && cp -Rf _site/* _live/ && echo \"End copy.\" && http-server _live",
     "js-build": "rollup -c rollup.config.js",
     "js-build-watch": "rollup -c rollup.config.js -w",
@@ -27,6 +27,7 @@
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
+    "cross-env": "^7.0.3",
     "elasticlunr": "^0.9.5",
     "eleventy-plugin-local-images": "^0.4.0",
     "eleventy-plugin-toc": "^1.1.0",
@@ -43,6 +44,7 @@
     "node-fetch": "^2.6.1",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",
+    "rimraf": "^2.7.1",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^6.1.0",
     "shorthash": "0.0.2"
