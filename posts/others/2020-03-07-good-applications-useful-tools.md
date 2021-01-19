@@ -38,6 +38,7 @@ This note will always be updated.
 ### Office
 
 - **PDF tools**:
+  - AIO PDF tools (free!!!): [PDF24 Tools](https://tools.pdf24.org/en/).
    - Convert PDF to Word (conserve format): [freepdfconverter](https://www.freepdfconvert.com/).
    - PDF Editor online free: [pdfescape](https://www.pdfescape.com/)
      - Edit text: [sejda](https://www.sejda.com/)
