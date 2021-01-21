@@ -9,6 +9,34 @@
 		]
 	},
 	{
+		"title": "Mountain vs Beach Classifier",
+		"description": "A small project to build a classifier: moutain vs beach.",
+		"source": "https://github.com/dinhanhthi/eleventy-elasticlunr-js",
+		"icon": "🏖",
+		"tech": [
+			{
+				"name": "TensorFlow",
+				"icon": "/img/about/tf.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img/about/js.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img/about/html.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img/about/sass.svg"
+			},
+			{
+				"name": "Bootstrap",
+				"icon": "/img/about/bootstrap.svg"
+			}
+		]
+	},
+	{
 		"title": "11ty + ElasticlunrJS",
 		"description": "A demo of search function in eleventy website using Elasticlunr.js.",
 		"source": "https://github.com/dinhanhthi/eleventy-elasticlunr-js",
