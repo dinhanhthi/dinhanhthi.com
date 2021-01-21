@@ -22,5 +22,6 @@
   },
   "publisher": {
     "name": "Publisher name. Update me."
-	}
+	},
+	"look4job": false
 }

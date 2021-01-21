@@ -42,7 +42,8 @@ header {
   }
 
   .social {
-    margin-top: 0.5rem;
+		margin-top: 0.5rem;
+		margin-bottom: 1.5rem;
     a {
       margin-right: 10px;
       &:last-child {
@@ -56,7 +57,7 @@ header {
       img {
         border-radius: 50%;
       }
-    }
+		}
   }
 
   #more-info{

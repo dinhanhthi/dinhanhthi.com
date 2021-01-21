@@ -18,9 +18,11 @@ date: Last Modified
       </a>
     {% endfor %}
   </div>
-  <p class="job mt-1p5 mb-1p5">
-    <span>Available for a full-time job!</span>
-  </p>
+  {% if metadata.look4job %}
+		<div class="job mb-1p5">
+			<span>Available for a full-time job!</span>
+		</div>
+	{% endif %}
   <p class="contact mt-0p5">
     <a class="button blue no-effect" href="mailto:dinhanhthi@gmail.com">Hire me</a>
     <a class="button black" href="{{ '/about/' | url }}">📋 My CV</a>

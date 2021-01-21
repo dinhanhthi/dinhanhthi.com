@@ -23,8 +23,12 @@ permalink: /about/
   - <span>Github</span> github.com/dinhanhthi
   - <span>LinkedIn</span> linkedin.com/in/dinhanhthi
   - <span>Email</span> dinhanhthi@gmail.com
-  - <span>Available for a full-time job!</span>{:.job}
     {% endmarkdown %}
+		{% if metadata.look4job %}
+			<div class="job">
+				<span>Available for a full-time job!</span>
+			</div>
+		{% endif %}
   </div>
   <p class="contact">
     <a class="button blue no-effect" href="mailto:dinhanhthi@gmail.com">Hire me</a>

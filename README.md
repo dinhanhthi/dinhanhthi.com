@@ -14,10 +14,10 @@
 
 ## Features
 
-1. High performance (customize from [Google's high performance theme](https://github.com/google/eleventy-high-performance-blog)).
+1. High performance (customized from [Google's high performance theme](https://github.com/google/eleventy-high-performance-blog)).
 2. Flexible on all devices.
-3. Support many components for note taking in markdown (my styles ;))
-4. Customize Resume page.
+3. Support many components for note taking in markdown (my styles 😉)
+4. A ustomizable resume page.
 5. Optimization images, html, css, javascript files.
 6. Support instant search with hightlight (using [elasticlunr](http://elasticlunr.com/))
 
