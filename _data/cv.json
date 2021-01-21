@@ -4,6 +4,14 @@
 		"icon": "/img/about/exp.svg",
 		"list": [
 			{
+				"where": "Ideta",
+				"url": "https://www.ideta.io",
+				"title": "Data Scientist",
+				"date": "2/2021 — ongoing",
+				"activity": "To be continued...",
+				"tech": []
+			},
+			{
 				"where": "Dataswati",
 				"url": "https://www.dataswati.com/",
 				"title": "Data Scientist",
