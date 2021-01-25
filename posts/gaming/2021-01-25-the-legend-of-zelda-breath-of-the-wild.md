@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Lengend of Zelda: Breath of the wild"
-tags: [Gaming]
+tags: [Gaming & Puzzles]
 toc: true
 icon: zelda.png
 notfull: 1
