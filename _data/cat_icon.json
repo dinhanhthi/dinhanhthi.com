@@ -44,6 +44,9 @@
 	"Skills": {
 		"svg": "/img/cats/skills.svg"
 	},
+	"Gaming": {
+		"svg": "/img/cats/games.svg"
+	},
 	"Others": {
 		"svg": "/img/cats/others.svg"
 	}
