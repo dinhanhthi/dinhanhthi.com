@@ -267,40 +267,6 @@ module.exports = function (eleventyConfig) {
 			+ '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>';
 	});
 
-	// used in note: /good-github-repositories
-	eleventyConfig.addShortcode("list_repos", getLiList);
-	async function getRepoData(_url) {
-		const response = await fetch(_url);
-		return await response.json();
-	}
-	async function getLiList(){
-		function compare( a, b ) {
-			if ( a.name.toLowerCase() < b.name.toLowerCase() ){
-				return -1;
-			}
-			if ( a.name.toLowerCase() > b.name.toLowerCase() ){
-				return 1;
-			}
-			return 0;
-		}
-		function htmlEntities(str) {
-			new_str = String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-			if (new_str.slice(-1) != '.'){
-				new_str += '.';
-			}
-			return new_str;
-		}
-		var repos = "";
-		const data = await getRepoData("https://api.github.com/users/dinhanhthi/starred?page=1&per_page=10000");
-		data.sort(compare).forEach(obj => {
-			repos += '<li>'
-				+ '<a href="' + obj.html_url + '" target="_blank">'+ obj.name +'</a>'
-				+ ' by <i>' + obj.owner.login + '</i> — ' + htmlEntities(obj.description)
-				+ '</li>';
-		});
-		return '<ol>' + repos + '</ol>';
-	}
-
 	// Browsersync Overrides
 	eleventyConfig.setBrowserSyncConfig({
 		callbacks: {

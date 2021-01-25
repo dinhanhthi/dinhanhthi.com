@@ -38,5 +38,13 @@
 		"tags": ["Project-based Learning"],
 		"notfull": false,
 		"keywords": "interview classifier binary classification machine learning deep learning CNN image classification web dev places dataset 365 MIT deploy netlify Ideta tensorflow tensorflow.js inception v3 pretrained model transfer learning tfjs converter CORS error"
+	},
+	{
+		"title": "Favorite Github repositories",
+		"url": "https://github.com/dinhanhthi?tab=repositories",
+		"tags": ["Others", "Collection", "Resources"],
+		"notfull": false,
+		"keywords": "repository github git collection awesome list data science web dev resources machine learning deep learning tensorflow open source"
+
 	}
 ]
