@@ -1,79 +1,84 @@
 [
-   {
-      "name": "Project-based Learning",
-      "color": "#e97c8e",
-      "svg": "/img/cats/project.svg"
-   },
-   {
-      "name": "MOOC",
-      "color": "#fdcb6e",
-      "svg": "/img/cats/mooc.svg"
-   },
-   {
-      "name": "Machine Learning",
-      "color": "#84f9ff",
-      "svg": "/img/cats/ml.svg"
-   },
-   {
-      "name": "Data Science",
-      "color": "#b5ffb5",
-      "svg": "/img/cats/data-science.svg"
-   },
-   {
-      "name": "Deep Learning",
-      "color": "#fde193",
-      "svg": "/img/cats/dl.svg"
-   },
-   {
-      "name": "Time Series",
-      "color": "#81ecec",
-      "svg": "/img/cats/ts.svg"
-   },
-   {
-      "name": "NLP",
-      "color": "#eac1ea",
-      "svg": "/img/cats/nlp.svg"
-   },
-   {
-      "name": "MLOps",
-      "color": "#a0ffa0",
-      "svg": "/img/cats/mlops.svg"
-   },
-   {
-      "name": "Python",
-      "color": "#a0ffa0",
-      "svg": "/img/cats/python.svg"
-   },
-   {
-      "name": "R Lang",
-      "color": "#80beff",
-      "svg": "/img/cats/r.svg"
-   },
-   {
-      "name": "Prob & Stats",
-      "color": "#daff9f",
-      "svg": "/img/cats/stats.svg"
-   },
-   {
-      "name": "JavaScript",
-      "svg": "/img/cats/js.svg"
-   },
-   {
-      "name": "Web Dev",
-      "svg": "/img/cats/web-dev.svg"
-   },
-   {
-      "name": "Algorithms",
-      "svg": "/img/cats/algo.svg"
-   },
-   {
-      "name": "Skills",
-      "color": "#fda798",
-      "svg": "/img/cats/skills.svg"
-   },
-   {
-      "name": "Others",
-      "color": "#00cec9",
-      "svg": "/img/cats/others.svg"
-   }
+	{
+		"name": "Project-based Learning",
+		"color": "#e97c8e",
+		"svg": "/img/cats/project.svg"
+	},
+	{
+		"name": "MOOC",
+		"color": "#fdcb6e",
+		"svg": "/img/cats/mooc.svg"
+	},
+	{
+		"name": "Machine Learning",
+		"color": "#84f9ff",
+		"svg": "/img/cats/ml.svg"
+	},
+	{
+		"name": "Data Science",
+		"color": "#b5ffb5",
+		"svg": "/img/cats/data-science.svg"
+	},
+	{
+		"name": "Deep Learning",
+		"color": "#fde193",
+		"svg": "/img/cats/dl.svg"
+	},
+	{
+		"name": "Time Series",
+		"color": "#81ecec",
+		"svg": "/img/cats/ts.svg"
+	},
+	{
+		"name": "NLP",
+		"color": "#eac1ea",
+		"svg": "/img/cats/nlp.svg"
+	},
+	{
+		"name": "MLOps",
+		"color": "#a0ffa0",
+		"svg": "/img/cats/mlops.svg"
+	},
+	{
+		"name": "Python",
+		"color": "#a0ffa0",
+		"svg": "/img/cats/python.svg"
+	},
+	{
+		"name": "R Lang",
+		"color": "#80beff",
+		"svg": "/img/cats/r.svg"
+	},
+	{
+		"name": "Prob & Stats",
+		"color": "#daff9f",
+		"svg": "/img/cats/stats.svg"
+	},
+	{
+		"name": "JavaScript",
+		"svg": "/img/cats/js.svg"
+	},
+	{
+		"name": "Web Dev",
+		"svg": "/img/cats/web-dev.svg"
+	},
+	{
+		"name": "Algorithms",
+		"svg": "/img/cats/algo.svg"
+	},
+	{
+		"name": "Skills",
+		"color": "#fda798",
+		"svg": "/img/cats/skills.svg"
+	},
+	{
+		"name": "Gaming",
+		"color": "#fda798",
+		"svg": "/img/cats/games.svg"
+	},
+	{
+		"name": "Others",
+		"color": "#00cec9",
+		"svg": "/img/cats/others.svg"
+	}
 ]

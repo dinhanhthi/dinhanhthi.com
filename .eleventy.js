@@ -20,7 +20,7 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 
-const catIcon = require("./_data/cat_icon.json"); // icon for categoris, used in search bar
+const catIcon = require("./_data/cat_icon.json"); // icon for categories, used in search bar
 
 module.exports = {
 	environment: process.env.ELEVENTY_ENV
