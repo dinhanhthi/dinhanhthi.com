@@ -18,13 +18,9 @@ keywords: "gaming puzzle relax others"
 2. Treasure chest shrine indicator on the map (right on the right of a shrine's name) where you forgot to collect all of them.
 3. **Grab fairies** (used to revive): find them near any of the **Great Fairy Fountain** or hiding in tall grass.
 	1. **Find Great Fairy Fountain**: using [this interactive map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/).
-4. **Expand inventory space**: talk to **Hestu** and pay him **korok**.
-	1.  **Find korok seeds**: using [this interactive map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/))
-	2.  **Find Hestu**: first time in the south of Kakariko village (solve _The Priceless Maracas quest_.), check more [in this guide](https://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Hestu#Where_Can_You_Find_Hestu.3F)).
-	3.  **Cost**: 1 for the first upgrade, 2 for 2nd, 3 for 3rd, 5 for 4th and so on.
-5. **Change the element of Chuchu Jelly**: _hitting a chuchu by a fire arrow_ / _drop them on fire_ makes a red chuchu, for example! + **Use chuhu** to trap enemies.
-6. Fight **silver enemies** to get more valuable items.
-7. Using wood shield to **collect arrows** from enemies (when they shoot you).
+4. **Change the element of Chuchu Jelly**: _hitting a chuchu by a fire arrow_ / _drop them on fire_ makes a red chuchu, for example! + **Use chuhu** to trap enemies.
+5. Fight **silver enemies** to get more valuable items.
+6. Using wood shield to **collect arrows** from enemies (when they shoot you).
 
 
 ### Moving
@@ -39,7 +35,10 @@ keywords: "gaming puzzle relax others"
 
 ### Upgrading
 
-1. Go up the hill from the shrine in Kakariko village $\Rightarrow$ find **a plant pod**.
+1. **Expand inventory space**: talk to **Hestu** and pay him **korok**.
+	1.  **Find korok seeds**: using [this interactive map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/)
+	2.  **Find Hestu**: first time in the south of Kakariko village (solve _The Priceless Maracas quest_.), check more [in this guide](https://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Hestu#Where_Can_You_Find_Hestu.3F)).
+	3.  **Cost** (for each stash, it'll be reset for each of stash): 1 for the first upgrade, 2 for 2nd, 3 for 3rd, 5 for 4th and so on.
 2. Reassign heat container and stamina vessels: in **Hatano village**, status at the bottom of the hill on the other side of the village entrance.
 
 ### Battling
