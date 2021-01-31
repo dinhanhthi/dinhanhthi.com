@@ -74,6 +74,22 @@ keywords: "gaming puzzle relax others"
 
 ![Dragon Parts]({{img-url}}/dragon_parts.png){:.img-100}
 
+## Location
+
+::: info
+Use below info with [this interactive map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/).
+:::
+
+### Weapons
+
+- **Fire Rod** (to make fire): Dropped by a Fire Wizzrobe. There is one near Woodland Tower.
+
+
+## Status
+
+- Status to change heart and stamina containers: south west of Hateno village.
+- Status to get more heart / stamina container: use [this interactive map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/).
+
 ## References
 
 1. [Breath of the Wild Interactive Map](https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/).
