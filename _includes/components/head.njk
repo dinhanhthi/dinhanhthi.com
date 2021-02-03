@@ -8,34 +8,26 @@
 	<meta name="theme-color" content="#f9c412">
 	<meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
 	<title>{{ title or renderData.title or metadata.title | escape }}</title>
-	<meta property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
+	<meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ title or renderData.title or metadata.title | escape  }}">
 	{% set desc = renderData.description or description or subtitle %}
 	{% if not desc %}
 		{% set desc = content | striptags | truncate(140) %}
 	{% endif %}
 	{% if desc %}
 		<meta name="description" content="{{ desc | escape  }}">
-		<meta property="og:description" content="{{ desc | escape }}">
+		<meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{ desc | escape }}">
 	{% endif %}
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@{{ metadata.author.twitterHandle }}">
 	<meta name="twitter:creator" content="@{{ metadata.author.twitterHandle }}">
 
 	{# facebook #}
-	{% if icon %}
-		{% if "/" in icon %}
-			<meta property="og:image" content="{{ metadata.url }}{{ icon }}">
-		{% else %}
-			<meta property="og:image" content="{{ metadata.url }}/img/header/{{ icon }}">
-		{% endif %}
-	{% else %}
-		<img alt="{{ title }}" src="{{ metadata.url }}/img/nav/about.svg">
-	{% endif %}
+	<meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{ metadata.url }}/img/frontpage.png">
 
-	<meta property="og:type" content="article"/>
+	<meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
 
 	<link rel="canonical" href="{{ metadata.url }}{{ canonicalUrl or page.url }}">
-	<meta property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
+	<meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{ metadata.url }}{{ canonicalUrl or page.url }}">
 	<!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
          However, if you use sensitive data in URLs, consider changing this to
