@@ -305,6 +305,20 @@ sudo nvidia-smi --gpu-reset -i 0
 
 Check [this answer](https://stackoverflow.com/a/56511889/1323473) as a reference!
 
+---
+
+Problems with pytorch versions: [check this](/pytorch#errors).
+
+---
+
+_RuntimeError: cuda runtime error (804) : forward compatibility was attempted on non supported HW at /pytorch/aten/src/THC/THCGeneral.cpp:47_ (after update system including nvdia-cli, maybe) => The same problem with below, need to restart the computer.
+
+---
+
+`nvidia-smi`: _Failed to initialize NVML: Driver/library version mismatch_.
+
+[This thread](https://stackoverflow.com/questions/43022843/nvidia-nvml-driver-library-version-mismatch): just restart the computer.
+
 ## Make NVIDIA work in docker (Linux)
 
 ::: danger

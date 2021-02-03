@@ -10,6 +10,10 @@ keywords: "gaming puzzle relax others"
 
 {% assign img-url = '/img/post/gaming/zelda' %}
 
+::: warning
+This is a very personal note. It may (or may not) contains the solutions to the trials. I use this note for not diving in an empty space of direction.
+:::
+
 ## Tips
 
 ### Collecting
@@ -83,7 +87,7 @@ Use below info with [this interactive map](https://www.zeldadungeon.net/breath-o
 ### Weapons
 
 - **Fire Rod** (to make fire): Dropped by a Fire Wizzrobe. There is one near Woodland Tower.
-
+nhung game ban phai choi it nhat 1 lan trong doi
 
 ## Status
 
