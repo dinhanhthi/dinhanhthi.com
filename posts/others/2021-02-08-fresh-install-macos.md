@@ -144,6 +144,7 @@ This is not the first things to do!
 	bash <downloaded file>
 	# remember to run conda init after being asked
 	```
+16. [uBar](https://brawersoftware.com/products/ubar) (paid) -- disable default dock and make a windows-like taskbar. **Be careful**, it takes too much RAM!
 
 
 ### Applications
