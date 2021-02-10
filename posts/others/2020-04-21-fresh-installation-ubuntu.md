@@ -9,10 +9,10 @@ keywords: "to do list after installing ubuntu debian elementary os linux airpod 
 
 The basic steps I often do every time I install a new Ubuntu system. The order of things is important.
 
-👉 [Linux note.](/linux-tips)
-👉 [Windows fresh start](/fresh-install-windows)
-👉 [Mac fresh start](/fresh-install-macos)
-👉 [Bash](/bash-command-line)
+👉 Note: [Linux.](/linux-tips)
+👉 Note: [Windows fresh start](/fresh-install-windows)
+👉 Note: [Mac fresh start](/fresh-install-macos)
+👉 Note: [Bash](/bash-command-line)
 
 :::info
 Most of commands are for both Ubuntu and Pop!_OS, there are some which are only for Pop!_OS.

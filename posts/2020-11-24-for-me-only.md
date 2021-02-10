@@ -9,7 +9,7 @@ keywords: "me for me only customize edit this site box font blocks for me only d
 
 This post is for me only. It contains shortcodes to create this website.
 
-👉 [11ty note](/11ty-nunjucks/).
+👉  Note: [11ty](/11ty-nunjucks/).
 
 ## Frontmatter
 

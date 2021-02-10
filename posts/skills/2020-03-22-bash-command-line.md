@@ -321,6 +321,17 @@ vnstat -d
 curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -
 ~~~
 
+``` bash
+# (1st test on mac)
+# Look for which ports are running
+# Find their PID
+# Kill them
+brew install nmap
+nmap localhost
+lsof -i:8080
+kill <PID>
+```
+
 ### Text file
 
 <div class="col-2-equal">
