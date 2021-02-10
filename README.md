@@ -67,6 +67,10 @@ Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify)
 |- dinhanhthi.com	# <- branch "dev" for editing notes
 |- dat.com		# <- branch "_site" for pushing to netlify
 
+# more details
+git clone git@github.com:dinhanhthi/dinhanhthi.com.git # already done in previous section
+git clone git@github.com:dinhanhthi/dinhanhthi.com.git dat.com
+
 # On dat.com/, just run
 # (It takes time to build the whole site in dinhanhthi.com/)
 sh ud_site.sh
