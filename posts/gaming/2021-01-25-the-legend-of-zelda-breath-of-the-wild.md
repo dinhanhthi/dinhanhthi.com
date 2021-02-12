@@ -11,7 +11,7 @@ keywords: "gaming puzzle relax others"
 {% assign img-url = '/img/post/gaming/zelda' %}
 
 ::: warning
-This is a very personal note. It may (or may not) contains the solutions to the trials. I use this note for not diving in an empty space of direction.
+This is a very personal note. It may (or may not) contain solutions to the trials in game. I use this note for not diving in an empty space of direction.
 :::
 
 ## Tips
