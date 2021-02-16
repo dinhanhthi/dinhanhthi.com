@@ -16,73 +16,82 @@ This is my personal list of to-do things for a new Macbook.
 
 This is not the first things to do!
 
-## Keyboards
+### Keyboards
 
-🔅 **Finder**:
-
+{% hsbox "Finder" %}
 1. Delete: [[⌘]] + [[⌫]]
 2. Show hidden files/folders: [[⇧]] + [[⌘]] + [[.]]
 3. Move: [[⌘]] +n [[C]] (Copy) > [[⌘]] + [[⌥]] + [[V]] (Paste as moving).
 4. [[↩]] to rename a folder/file.
+{% endhsbox %}
 
-🔅 **Terminal**:
 
+{% hsbox "Terminal" %}
 1. [[⌃]] + [[L]] : clear screen (use [[⌃]] as [[Ctrl]] key on Windows/Linux system!).
+{% endhsbox %}
 
-🔅 **Chrome**:
 
-1. Switch to adress bar: [[⌘]] + [[L]]
+{% hsbox "Chrome" %}
+1. Focus to the adress bar: [[⌘]] + [[L]]
+2. History: [[⌘]] + [[Y]]
+{% endhsbox %}
 
-🔅 **Capture screen**:
 
+{% hsbox "Capture Screen" %}
 1. All screen + saved to clipboard: [[⌃]] + [[⌘]] + [[⇧]] + [[3]]
 2. All screen + saved to file: [[⌘]] + [[⇧]] + [[3]]
 3. Selected area + saved to clipboard: [[⌘]] + [[⇧]] + [[4]]
 4.  Selected area + saved to file: [[⌃]] + [[⌘]] + [[⇧]] + [[4]]
 5.  Screenshot + recording option: [[⌘]] + [[⇧]] + [[5]]
 6.  Screenshot + recording option: [[⌘]] + [[⇧]] + [[5]]
+{% endhsbox %}
 
-🔅 **Lock screen**: [[⌃]] + [[⌘]] + [[Q]]
 
-🔅 Hide window app on dock: [[⌥]] + click or [[⌘]] + [[H]]
+{% hsbox "Others" %}
+- **Lock screen**: [[⌃]] + [[⌘]] + [[Q]]
+- Hide window app on dock: [[⌥]] + click or [[⌘]] + [[H]]
+- Emoji: [[⌘]] + [[⌃]] + [[␣]]
+- Normal delete key: [[⌃]] + [[D]].
+{% endhsbox %}
 
-🔅 Emoji: [[⌘]] + [[⌃]] + [[␣]]
+### Trackpad
 
-🔅 Normal delete key: [[⌃]] + [[D]].
-
-## Trackpad
-
-🔅 **1 finger**
-
+{% hsbox "1 finger" %}
 1. Tap to click.
+{% endhsbox %}
 
-🔅 **2 fingers**
 
+{% hsbox "2 fingers" %}
 1. Swipe up/down to scroll.
 2. Single tap to right click.
 3. Swipe left/right to switch between pages.
 4. Swipe from right edge to open notification section.
 5. Double tap to smart zoom.
+{% endhsbox %}
 
-🔅 **3 fingers**
 
+{% hsbox "3 fingers" %}
 1. Touch and move left/right to drag the content of texts.
 2. Tap to search for definition of selected text.
+{% endhsbox %}
 
-🔅 **4 finders**
 
+{% hsbox "4 fingers" %}
 1.  Swipe between opening fullscreen apps.
 2.  Swipe up to show all opening windows.
 3.  Swipe down to show all opening windows of current applications (app expose).
+{% endhsbox %}
 
-🔅 **All fingers**
 
+{% hsbox "All fingers" %}
 1.  Pinch to open launchpad.
 2.  Spread to show desktop.
+{% endhsbox %}
+
 
 ## Keyboard & Trackpad settings
 
-Go to Keyboard Settings and then,
+Go to **Keyboard Settings** and then,
 
 🔅 Choosen the language and input source:  **Input Sources**.
 
@@ -123,6 +132,7 @@ Go to Keyboard Settings and then,
 
 🔅 Install [git](/git/) (may be prompted automatically by the system to install it) and **setting up git**. Below are short things,
 
+::: hsbox Codes
 ``` bash
 eval "$(ssh-agent -s)"
 ssh-add -l # list current keys
@@ -139,10 +149,11 @@ ssh-add -l
 
 # Add public keys to Github or something else!
 ```
+:::
 
 🔅 Clone repositories to `/Users/thi/git/`.
 
-🔅 Install NodeJS, consider to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) before.
+🔅 Install NodeJS, consider to install [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) before. **Remark** (2/2021), currently only v15 works native on Apple M1 chip.
 
 🔅 Install [Hombrew](https://brew.sh/) (missing package control for mac).
 
@@ -185,13 +196,20 @@ bash <downloaded file>
 ## Screen recorder
 
 1.  Using **QuickTime** / built-in function. Open QuickTime or [[⌘]] + [[⇧]] + [[5]] to open screenshot/recording options. **Weakness**: big size + impossible (or possible??) to record system sounds.
-2.  (Better choice) Using **Snagit** (paid).
-    1.  Go to references, change frame rate to "Low", tick on "Downsample Retina...", untick "Show video countdown", untick all below section in "General" tab.
-    2.  In case you cannot recorder the system sound, uninstall Component (in "Capture" tab), restart computer and reinstall again. Don't forget to tick on "Automatically start video recording" ("Capture" tab).
+2. Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://github.com/ExistentialAudio/BlackHole) (for bypassing system audio recorder, I chose **2ch** to download).
+   1. Check [this article](https://obsproject.com/forum/resources/os-x-capture-audio-with-ishowu-audio-capture.505/) for setting up with OBS (not that, in this article, they use a different tool than BlackHold)
+   2. Check [this article](https://streamlabs.com/content-hub/post/capturing-desktop-audio-in-streamlabs-obs-for-mac) for using BlackHole to capture system audio on Mac.
+   3. Open **Audio MIDI Setup** > Click on "+" > "Create Multi-Output Device" > Check on (Use side) current using Speaker (ex. External Headphones) + BlackHole 2ch. Check also (Drift Correction) for "External Headphones". Rename to something to remember, e.g. "Screen Recorder". We wanna listen the system audio via 2 output, one is external heaphones, 1 is "virtual" BlackHole (so that it can recorder the sound).
+   4. Open **Sound** setting and choose "Screen Recorder". **Tip**: you should adjust the sound before change to "Screen Recorder" because you will not be able to change sound level in this option.
+   5. In **OBS**, Add screen, add 2 microphones, one for real mic, one for device BlackHole 2ch.
+      1. Open Preferences > Audio: Mic/Aux 1, choose "External microphone", Mic/Aux 2, choose "BlackHole 2ch" > OK.
+   6. Some settings for OBS:
+      1. Turn off preview for screen (for comfortable)
+      2. **Video** > Common FPS Values = 20
 
 ## Dictionary
 
-🔅 **Dictionary**: install Viettien (I use version 5.0b for Mac Big Sur chip M1). Alternative dictionaries can be downloaded from this link (I backed it up for personally using).
+🔅 **Dictionary**: [install Viettien](https://mega.nz/file/x0RgTbhK#1rz1mpsbXXxLmLs1blVk9zLEmI0d5FXk7Bora4Rm9Y0) (I use version 5.0b for Mac Big Sur chip M1). Alternative dictionaries can be downloaded from this link (I backed it up for personally using).
 
 1.  Don't forget to open **Security & Privacy** and click on **Open anyway** many times!
 2.  Another option is to install Tinhte's dictionary from this link, copy extracted folder (`Tinhe_anh-viet.dictionary`) to `/Users/thi/Library/Dictionaries/`.
@@ -231,8 +249,23 @@ bash <downloaded file>
 3.  Skitch -- annotation for photos on Mac.
 4.  Word and Powerpoint (in Office 365 suit). You can buy a lifetime license on ebay (not your own email but you can integrate yours later).
 5.  Magnet -- arrange window workspace (stick to edge like on Windows).
+6.  Amphetamine -- Keep-awake your mac, an alternative to caffein on linux.
 
 ## Terminal
+
+🔅 (For chip M1 only)
+
+``` bash
+# check if running on ARM or Intel
+arch
+# arm64 -> ARM
+# i386 -> Intel (running with Rosetta)
+```
+
+Copy `/Applications/Utilities/Terminal.app` to Download folder, rename it to **Terminal-Rosetta.app**. Move the new to /Applications/Utilities/ again. Right click on Terminal-Rosetta.app > Get Info > Click on "Open using Rosetta".
+
+- If you wanna run commands in Intel environment, use **Terminal-Rosseta**.
+- If you wanna run commands in ARM environment, use **Terminal.app**.
 
 🔅 Dropdown terminal with **iTerm2**.
 
@@ -245,6 +278,7 @@ bash <downloaded file>
 
 👉 Note: [Terminal](/terminal).
 
+::: hsbox Code
 ``` bash
 # By default, iTerm2 comes with pre-installed zsh
 # You can check current shell
@@ -268,6 +302,7 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 # If you wanna see the changes
 source ~/.zshrc
 ```
+:::
 
 ## Macbook keyboard symbols
 

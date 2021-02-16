@@ -55,6 +55,8 @@ nvm ls-remote
 ``` bash
 # switch between versions
 nvm use 12.13.0
+# or (more quickly)
+nvm use v15
 ```
 
 ``` bash
