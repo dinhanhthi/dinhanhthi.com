@@ -14,6 +14,10 @@ keywords: "tool resources learning application framework repository gihub packag
 👉 Note: [Resources for DS & ML & DL.](/data-ml-tools-resources/)
 👉 Note: [Useful tools for working & studying.](/good-applications-useful-tools/)
 
+## URLs
+
+- [CSS Battle](https://cssbattle.dev/) -- take challenge to create CSS objects.
+
 ## Tools for Web Dev
 
 - [appium](http://appium.io/) — Automation for Apps (used to testing UX on different devices, more exact than Browser Inspector).
@@ -25,6 +29,7 @@ keywords: "tool resources learning application framework repository gihub packag
 - [HTML characters](https://www.key-shortcut.com/en/writing-systems/35-symbols/arrows): copy & paste HTML characters.
 - [JavaScript Event KeyCodes](https://keycode.info/) — get the keycode of any key when you press.
 - [Regular Expression 101](https://regex101.com/) — rules and transform directly.
+- [RequestBin](https://requestbin.com/) — A modern request bin to collect, inspect and debug HTTP requests and webhooks.
 - [Tiny helpers](https://github.com/stefanjudis/tiny-helpers) — A collection of free single-purpose online tools for web developers.
 - [Wayback mahine](https://web.archive.org/) — an internet archive (to check old/dead websites).
 - [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator)

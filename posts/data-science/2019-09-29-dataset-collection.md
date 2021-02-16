@@ -46,6 +46,7 @@ keywords: dataset collection google dataset google AI kaggle dataset data hub st
 - [COCO Dataset](https://cocodataset.org/#home) -- a large-scale object detection, segmentation, and captioning dataset.
 - [Dataset samples from Machine Learning Mastery](https://github.com/jbrownlee/Datasets).
 - [Fruit-Images-Dataset](https://github.com/Horea94/Fruit-Images-Dataset) — A dataset of images containing fruits and vegetables.
+- [google-landmark](https://github.com/cvdfoundation/google-landmark) -- Dataset with 5 million images depicting human-made and natural landmarks spanning 200 thousand classes.
 - [ImageNet](http://www.image-net.org/) -- ImageNet is an image database organized according to the WordNet hierarchy.
 - [Insight - BBC News Datasets](http://mlg.ucd.ie/datasets/bbc.html)
 - [Large-scale CelebFaces Attributes (CelebA) Dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
