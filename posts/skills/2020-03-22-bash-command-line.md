@@ -232,6 +232,8 @@ tree -P 'test_' # list only files starting with "test_"
 
 ### Permission
 
+👉 [Chmod code calculator](https://chmodcommand.com/).
+
 <div class="col-2-equal">
 
 ``` bash
