@@ -9,8 +9,8 @@ keywords: "windows 10 reinstall install reset application softs need to do k380 
 
 This is my personal list of to-do things after reinstall Windows.
 
-👉 [Ubuntu / Pop!_OS fresh start](/fresh-installation-ubuntu)
-👉 [Mac fresh start](/fresh-install-macos)
+👉 Note: [Ubuntu / Pop!_OS fresh start](/fresh-installation-ubuntu).
+👉 Note: [Mac fresh installation](/fresh-install-macos).
 
 {:.noindent}
 1. Update and install drivers.

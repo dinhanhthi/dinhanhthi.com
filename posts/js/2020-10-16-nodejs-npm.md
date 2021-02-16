@@ -12,6 +12,63 @@ keywords: js javascript package management Node Package Manager
 
 ## Install NodeJS & NPM
 
+### Install multiple versions
+
+First, need to [install nvm](https://github.com/nvm-sh/nvm).
+
+::: warning
+Below commands are mostly for Linux/MacOS users.
+:::
+
+::: col-2-equal
+``` bash
+# install a specific version
+nvm install 12.13.0
+```
+
+``` bash
+# install latest version
+nvm install node
+```
+
+``` bash
+# install the most recent lts release
+nvm install --lts
+```
+
+``` bash
+# list all installed versions
+nvm ls
+```
+
+``` bash
+# set default version of node
+nvm alias default 12.13.0
+```
+
+``` bash
+# full list of available versions
+# be careful, it's too long!!!
+nvm ls-remote
+```
+
+``` bash
+# switch between versions
+nvm use 12.13.0
+# or (more quickly)
+nvm use v15
+```
+
+``` bash
+# uninstall some version
+nvm uninstall 12.13.0
+```
+:::
+
+
+
+### Single version
+
 Install NodeJS and NPM.
 
 - **Windows** & **MacOS**: download [installer](https://nodejs.org/en/download/).

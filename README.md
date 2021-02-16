@@ -1,10 +1,10 @@
 # dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
 
-⭐ __Demo__: https://dinhanhthi.com/ <br />
-🚀 __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdinhanhthi.com). <br />
+⭐  __Demo__: https://dinhanhthi.com/ <br />
+🚀  __Performance__: [Google Insight](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdinhanhthi.com). <br />
 
-⛑ __Dev branch__: [`dev`](https://github.com/dinhanhthi/dinhanhthi.com/tree/dev) (working branch, always up-to-date) <br />
-🌐 __Prod branch__: [`_site`](https://github.com/dinhanhthi/dinhanhthi.com/tree/_site) (already-built html files, what you see on [dinhanhthi.com](https://dinhanhthi.com))
+⛑  __Dev branch__: [`dev`](https://github.com/dinhanhthi/dinhanhthi.com/tree/dev) (working branch, always up-to-date) <br />
+🌐  __Prod branch__: [`_site`](https://github.com/dinhanhthi/dinhanhthi.com/tree/_site) (already-built html files, what you see on [dinhanhthi.com](https://dinhanhthi.com))
 
 ![Home page](./img/frontpage.png)
 
@@ -66,6 +66,10 @@ Check [this note](https://dinhanhthi.com/11ty-nunjucks/#setting-up-with-netlify)
 |
 |- dinhanhthi.com	# <- branch "dev" for editing notes
 |- dat.com		# <- branch "_site" for pushing to netlify
+
+# more details
+git clone git@github.com:dinhanhthi/dinhanhthi.com.git # already done in previous section
+git clone git@github.com:dinhanhthi/dinhanhthi.com.git dat.com
 
 # On dat.com/, just run
 # (It takes time to build the whole site in dinhanhthi.com/)

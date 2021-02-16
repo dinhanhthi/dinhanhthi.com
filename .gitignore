@@ -7,4 +7,3 @@ js/min.js.map
 .vscode/
 .netlify/
 .cache/
-package-lock.json

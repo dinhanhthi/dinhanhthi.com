@@ -1656,9 +1656,10 @@ section.eqno > span {
     margin-bottom: 5px; }
     .page-note ul li ul, .page-note ul li ol, .page-note ol li ul, .page-note ol li ol {
       margin-bottom: 5px;
+      margin-top: 5px;
       padding-left: 20px; }
     .page-note ul li > *:not(span), .page-note ol li > *:not(span) {
-      margin-bottom: 10px; }
+      margin-bottom: 5px; }
 
 .page-note p.noindent {
   display: none;
@@ -2032,6 +2033,8 @@ div.toc {
     margin-bottom: 0;
     counter-reset: item;
     list-style-type: none; }
+    div.toc ol > li:first-child {
+      margin-top: 0; }
     div.toc ol li {
       margin-bottom: 5px; }
       div.toc ol li code {
@@ -2039,8 +2042,7 @@ div.toc {
         background: #ececec;
         padding: 0 4px 2px 4px; }
       div.toc ol li ol {
-        padding-left: 10px;
-        margin-top: 7px; }
+        padding-left: 10px; }
     div.toc ol ol {
       counter-reset: item;
       list-style-type: none; }
