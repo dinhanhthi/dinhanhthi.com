@@ -1640,6 +1640,9 @@ section.eqno > span {
   text-align: right; }
 
 /*! purgecss start ignore */
+.page-note .p-list > * {
+  margin-bottom: 1rem; }
+
 .page-note .text-center {
   text-align: center; }
 
