@@ -30,12 +30,12 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-	eleventyConfig.addPlugin(require('eleventy-plugin-toc'), {
-		tags: ['h2', 'h3', 'h4'], // which heading tags are selected headings must each have an ID attribute
-		wrapper: 'div',           // element to put around the root `ol`/`ul`
-		wrapperClass: 'toc',      // class for the element around the root `ol`/`ul`
-		ul: false,                // if to use `ul` instead of `ol`
-		flat: false,              // if subheadings should appear as child of parent or as a sibling
+	eleventyConfig.addPlugin(require('eleventy-plugin-nesting-toc'), {
+		tags: ['h2', 'h3', 'h4'], // Which heading tags are selected (headings must each have an ID attribute)
+		wrapper: 'div',       // Element to put around the root `ol`
+		wrapperClass: 'toc',  // Class for the element around the root `ol`
+		headingText: '',      // Optional text to show in heading above the wrapper element
+		headingTag: 'h2'      // Heading tag when showing heading above the wrapper element
 	});
 
 	if (process.env.ELEVENTY_ENV == "local") {

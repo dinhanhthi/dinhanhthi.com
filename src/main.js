@@ -213,6 +213,18 @@ if (document.querySelectorAll("h2, h3, h4") != null) {
 			}
 		});
 	}
+
+	// remove "#" at the end of heading in toc
+	function removeHash() {
+		var toc = document.getElementsByClassName("toc")[0];
+		if (toc != null) {
+			toc.querySelectorAll("a").forEach((item) => {
+				item.innerHTML = item.innerHTML.replace(" #", "");
+			});
+		}
+	}
+
+	addEventListener("load", removeHash);
 	addEventListener("scroll", headingTOC);
 }
 
