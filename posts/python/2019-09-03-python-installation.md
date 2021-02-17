@@ -451,6 +451,14 @@ conda init zsh
 # other options than zsh: bash, powershell, ...
 source ~/.zshrc
 ```
+
+If you wanna hide `(base)` in prompt,
+
+``` bash
+conda config --set changeps1 false
+# don't forget to reset the terminal
+```
+
 {% endhsbox %}
 
 ### Kernel 2 & 3 for Jupyter Notebook

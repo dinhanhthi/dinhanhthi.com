@@ -209,6 +209,13 @@ bash <downloaded file>
 3.  Customize some options in Preferences.
 4.  Show status bar: View > Show status bar.
 
+### Copy files between Linux and MacOS
+
+__Require__: the same wifi network!
+
+1. **On MacOS**: System Preferences > Sharing > Tick on "File Sharing" > choose "Shared Folders" > on "Everyon", change to "Write & Read".
+2. **On Linux**: Nautilus, click on "Other Locations" > "Networks" > choose the Macbook (and type macos profile password) > choose the shared folders in previous step > Exchange files/folders you want.
+
 ## Screen recorder
 
 1.  Using **QuickTime** / built-in function. Open QuickTime or [[⌘]] + [[⇧]] + [[5]] to open screenshot/recording options. **Weakness**: big size + impossible (or possible??) to record system sounds.
