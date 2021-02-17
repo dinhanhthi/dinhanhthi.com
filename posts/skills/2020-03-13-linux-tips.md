@@ -3,7 +3,7 @@ layout: post
 title: "Linux notes"
 tags: [Skills, Linux]
 toc: true
-icon: linux.svg
+icon: linux.png
 keywords: "find with command line in linux ubuntu elementary os distro distribution move files to trash wrong owner gnome screen shot windows shrink partition resize disk drive turn off animation minimize gnome tweak tool vietnam vietnamese input method vn ime F2 kill process .bin .run install bookmark evince pdf reader PPA does not have Release file ip address ipconfig nautilus window explorer file manager shortcut hotkey thumbnail shorten directory terminal open as admin remove delete files folders folder size mount iso virtual disk extract iso file sync files mega megatools vim quit vim download upload $PATH path copy files from ubuntu to iOS check current path rename files folders surface book linux-surface errors problem bluetooth failed to load module user group ownership add user permission matlab graphic ui drive connector install silently remove matlab uninstall matlab download from google drive ssh control access another computer remote control server machine download playlist youtube youtube-dl mp3 tag mogrify wget ppa remove dconf guake free vpn vpnbook openvpn gpu drivers nvidia"
 ---
 
@@ -13,6 +13,8 @@ Quick tips / references for using Linux / **Ubuntu**.
 👉 Note: [Bash](/bash-command-line)
 
 ## General
+
+<div class="p-list">
 
 🔅 Run MacOS apps on Linux, use [Darling](https://darlinghq.org/).
 
@@ -83,7 +85,11 @@ sudo add-apt-repository --remove ppa:name
 
 🔅 Get ip address: `ifconfig`
 
+</div>
+
 ## Settings
+
+<div class="p-list">
 
 🔅 Make Monday as the start of the week:
 
@@ -142,7 +148,11 @@ dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < keybindings.dconf
 ```
 
+</div>
+
 ## Applications
+
+<div class="p-list">
 
 🔅 Completely remove LibreOffice,
 
@@ -176,7 +186,11 @@ soffice --headless --convert-to pdf prezentacja.pptx
 
 🔅 Modify / Add icon in launcher: **alacarte**" (Main Menu, can be found in App Store).
 
+</div>
+
 ## Nautilus / Files management
+
+<div class="p-list">
 
 🔅 Force Unity Dash to index all files on Home
 
@@ -325,6 +339,8 @@ source ~/.profile
 
 🔅 Check the current path: `pwd`
 
+</div>
+
 ### Rename with some RegEx
 
 ``` bash
@@ -360,11 +376,17 @@ ifuse /media/$USER/ipad
 
 ## Surface
 
+<div class="p-list">
+
 🔅 Tweaks for ubuntu on surface book ⇾ [link](https://medium.com/@viettrungdang/tweaks-for-ubuntu-on-surface-book-cd05cdb8f378)
 
 🔅 App [`linux-surface`](https://github.com/jakeday/linux-surface).
 
+</div>
+
 ## User / Group / Ownership
+
+<div class="p-list">
 
 🔅 How to add existing user to an existing group{% ref "https://askubuntu.com/questions/79565/how-to-add-existing-user-to-an-existing-group" %}
 
@@ -392,7 +414,11 @@ ls -l <file>
 ![check ll](/img/post/linux/ll-user.png){:.img-full-100}
 {% endhsbox %}
 
+</div>
+
 ## Matlab
+
+<div class="p-list">
 
 🔅 Scale matlab: need to install matleb version >= R2017b
 
@@ -462,7 +488,11 @@ from this, you can `sudo matlab`
 rm -rf <matlab-folder>
 ```
 
+</div>
+
 ## Network
+
+<div class="p-list">
 
 🔅 Don't show "_Turn on wifi hotspot..._" for clicking => try: click on "Network" and then "Wifi" in Settings.
 
@@ -555,11 +585,15 @@ sudo apt install torbrowser-launcher
 sudo apt remove torbrowser-launcher
 ```
 
+</div>
+
 ### Free VPN
 
 Using [vpnbook](https://www.vpnbook.com/) and [its tutorial](https://www.vpnbook.com/howto/setup-openvpn-on-ubuntu). Note that, at the last step, we need to run with `sudo`! __Note__: very low speed!
 
 ## Media / Photo / Music
+
+<div class="p-list">
 
 🔅 Add shortcut keys for Rhythmbox Music Player -> read [this](https://askubuntu.com/questions/181651/how-to-assign-hot-keys-to-control-rhythmbox).
 
@@ -637,7 +671,11 @@ mogrify -resize 1000x\> *
 ~~~
 </div>
 
+</div>
+
 ## Game
+
+<div class="p-list">
 
 🔅 Game platforms: [Steam](https://store.steampowered.com/linux), [Lutris](https://lutris.net/).
 
@@ -677,8 +715,11 @@ sudo apt install sysfsutils
 
 # save changes and restart
 ```
+</div>
 
 ### Lutris tips
+
+<div class="p-list">
 
 🔅 Install GOG's games: Open Lutris > _Search Lutris.net_ > Install with option "GOG". Installed from GOG Galaxy may be not working but with this method is working!
 
@@ -704,6 +745,7 @@ sudo apt install nodejs
 sudo apt install npm
 sudo npm install -g vtop
 ```
+</div>
 
 ### Font
 
@@ -711,6 +753,8 @@ sudo npm install -g vtop
 2. **Method 2** -- Open with Font Viewer and then click on Install.
 
 ## Errors
+
+<div class="p-list">
 
 🔅 Problem save file as `root` user and cannot open later ⇾ [link](https://askubuntu.com/questions/817902/unable-to-open-any-graphical-app-with-sudo/817906#817906)
 
@@ -749,6 +793,8 @@ sudo mv /var/lib/dpkg/info/install-info.postinst /var/lib/dpkg/info/install-info
 dpkg --configure -a
 apt-get install -f
 ```
+
+</div>
 
 ### GPU-NVDIA problems
 

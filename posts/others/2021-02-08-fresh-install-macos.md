@@ -93,6 +93,8 @@ This is not the first things to do!
 
 Go to **Keyboard Settings** and then,
 
+<div class="p-list">
+
 🔅 Choosen the language and input source:  **Input Sources**.
 
 1. Should choose "U.S." instead of "U.S. International" because with the latter, we have underline score below special symbols like `"`
@@ -122,13 +124,21 @@ Go to **Keyboard Settings** and then,
 
 🔅 Install [alt-tab](https://alt-tab-macos.netlify.app/) (and use [[⌘]] + [[⇥]] which replaces the default method on mac, be careful!!!) to switch between windows (instead of apps) like on Windows/Linux: `brew install --cask alt-tab`
 
+</div>
+
 ## Installation unknown softwares
+
+<div class="p-list">
 
 🔅 Sometimes, you cannot install some app from the internet, just go to **System Preferences** > **Security & Privacy** > There will be some warning line at below of "App Store and identified developers", just click "Open anyway"!
 
 🔅 If you have some issue with `.dmg` file like "resource busy", open **Disk Utility**, then **Images** > **Verify...** > Choose the image file you cannot open then click "Verify"!
 
+</div>
+
 ## Git & Dev
+
+<div class="p-list">
 
 🔅 Install [git](/git/) (may be prompted automatically by the system to install it) and **setting up git**. Below are short things,
 
@@ -176,7 +186,11 @@ bash <downloaded file>
 # remember to run conda init after being asked
 ```
 
+</div>
+
 ## Printers & Scanners
+
+<div class="p-list">
 
 🔅 Setting up **printers** (if available). You may need [Gutenprint](http://gimp-print.sourceforge.net/MacOSX.php) for an alternative driver for printers on chip M1. After installing the drivers, turn on your printer (connect to a common wifi or via an usb cable), then _System Preferences_ > _Printers & Scanners_ > Add printer and choose your own printer, don't forget to choose Gutenprint as driver!
 
@@ -185,6 +199,8 @@ bash <downloaded file>
 🔅 For **Canon MG2900** printer/scanner + apps: you may need to download and install drivers from [this site](https://brothersupportdownloads.blogspot.com/2020/06/canon-pixma-mg2900-scanner-driver.html). A backup files are [here](https://mega.nz/file/U0RwBR6T#qa50uOyhlAEiRtrMm_zBkXPtPufJD2Wa1gtbtkw5W_w). You may find other useful drivers for other types of printers on this site also.
 
 **Scanner app**: use **Image Capture** (built-in app on Mac) or install **Canon IJ Scan Utility2**.
+
+</div>
 
 ## Finder
 
@@ -209,6 +225,8 @@ bash <downloaded file>
 
 ## Dictionary
 
+<div class="p-list">
+
 🔅 **Dictionary**: [install Viettien](https://mega.nz/file/x0RgTbhK#1rz1mpsbXXxLmLs1blVk9zLEmI0d5FXk7Bora4Rm9Y0) (I use version 5.0b for Mac Big Sur chip M1). Alternative dictionaries can be downloaded from this link (I backed it up for personally using).
 
 1.  Don't forget to open **Security & Privacy** and click on **Open anyway** many times!
@@ -218,9 +236,15 @@ bash <downloaded file>
 
 🔅 **Goldendict**: download installation [here](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Mac-OS-X) + dictionaries [here](https://drive.google.com/drive/folders/1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv).
 
+</div>
+
 ## Others
 
+<div class="p-list">
+
 🔅 Log into email accounts on Mail app.
+
+</div>
 
 ## Applications
 
@@ -252,6 +276,8 @@ bash <downloaded file>
 6.  Amphetamine -- Keep-awake your mac, an alternative to caffein on linux.
 
 ## Terminal
+
+<div class="p-list">
 
 🔅 (For chip M1 only)
 
@@ -303,6 +329,8 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 source ~/.zshrc
 ```
 :::
+
+</div>
 
 ## Macbook keyboard symbols
 
