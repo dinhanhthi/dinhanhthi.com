@@ -61,6 +61,10 @@
 				"icon": "/img/about/wordpress.svg"
 			},
 			{
+				"name": "Angular",
+				"icon": "/img/about/angular.svg"
+			},
+			{
 				"name": "React",
 				"icon": "/img/about/react.svg"
 			},
@@ -104,6 +108,10 @@
 			{
 				"name": "MongoDB",
 				"icon": "/img/about/mongodb.svg"
+			},
+			{
+				"name": "Firebase",
+				"icon": "/img/about/firebase.svg"
 			},
 			{
 				"name": "MySQL",

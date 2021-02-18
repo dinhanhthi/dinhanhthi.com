@@ -9,7 +9,48 @@
 				"title": "Web Developer & Data Scientist",
 				"date": "2/2021 — ongoing",
 				"activity": "Ideta is a solution that allows companies to create very easily conversational assistants on many communication channels such as Messenger, SMS, Slack, Wechat, Skype business, ... but also voice like Google Home. The solution makes the creation of chatbots accessible to everyone.",
-				"tech": []
+				"tech": [
+					{
+						"name": "Python",
+						"icon": "/img/about/python.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img/about/scikit-learn.svg"
+					},
+					{
+						"name": "Juyter Notebook",
+						"icon": "/img/about/jupyter.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img/about/tf.svg"
+					},
+					{
+						"name": "MongoDB",
+						"icon": "/img/about/mongodb.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img/about/git.svg"
+					},
+					{
+						"name": "JavaScript",
+						"icon": "/img/about/js.svg"
+					},
+					{
+						"name": "Angular",
+						"icon": "/img/about/angular.svg"
+					},
+					{
+						"name": "Firebase",
+						"icon": "/img/about/firebase.svg"
+					},
+					{
+						"name": "NodeJS",
+						"icon": "/img/about/node.svg"
+					}
+				]
 			},
 			{
 				"where": "Dataswati",
