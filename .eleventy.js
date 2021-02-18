@@ -142,6 +142,13 @@ module.exports = function (eleventyConfig) {
 		return dt.toISO();
 	});
 
+	// for adding new key-value to a dictionary
+	// first used in postslist.njk
+	eleventyConfig.addFilter('setAttribute', function(dictionary, key, value) {
+		dictionary[key] = value;
+		return dictionary;
+	});
+
 	// used in /pages/search-index.json
 	eleventyConfig.addFilter("search", (collection) => {
 		var index = elasticlunr(function () {

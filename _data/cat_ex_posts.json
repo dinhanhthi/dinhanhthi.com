@@ -53,5 +53,13 @@
 		"tags": ["Web Dev", "JavaScript"],
 		"notfull": true,
 		"keywords": "angular ng ngx node js 101 directives modules components view theme frameworks frontend front front end"
+	},
+	{
+		"title": "JS 101 (Notion)",
+		"url": "https://www.notion.so/dinhanhthi/JS-101-986f4079607641d49ca8e149a1d29cec",
+		"tags": ["JavaScript"],
+		"notfull": true,
+		"keywords": "callback javascript js 101 basic fundamental angular sync async",
+		"private": true
 	}
 ]

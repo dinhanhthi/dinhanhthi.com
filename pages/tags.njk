@@ -29,11 +29,14 @@ icon: tag_.svg
 		{% for tg in post.tags %}
 			{% if tg == tag %}
 				{% set more_post = true %}
+				{% set singlePost = { 'title': post.title, 'url': post.url } %}
 				{% if post.notfull %}
-					{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title, notfull: post.notfull}), newPostListTag) %}
-				{% else %}
-					{% set newPostListTag = (newPostListTag.push({url: post.url, title: post.title}), newPostListTag) %}
+					{% set singlePost = singlePost|setAttribute('notfull', post.notfull) %}
 				{% endif %}
+				{% if post.private %}
+					{% set singlePost = singlePost|setAttribute('private', post.private) %}
+				{% endif %}
+				{% set newPostListTag = (newPostListTag.push(singlePost), newPostListTag) %}
 			{% endif %}
 		{% endfor %}
 	{% endif %}
@@ -48,6 +51,7 @@ icon: tag_.svg
 {% include "postslist.njk" %}
 
 <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 0; order: 3;">
-	<sup style="color: #bbb">•</sup>{{ other_data.notfull }}
+	<sup style="color: #bbb">•</sup>{{ other_data.notfull }} <br />
+	<sup style="color: #bbb">†</sup>{{ other_data.private }}
 </p>
 

@@ -45,11 +45,14 @@ date: Last Modified
 					{% for tg in post.tags %}
 						{% if tg == item.name %}
 							{% set more_post = true %}
+							{% set singlePost = { 'title': post.title, 'url': post.url } %}
 							{% if post.notfull %}
-								{% set newPostListCat = (newPostListCat.push({url: post.url, title: post.title, notfull: post.notfull}), newPostListCat) %}
-							{% else %}
-								{% set newPostListCat = (newPostListCat.push({url: post.url, title: post.title}), newPostListCat) %}
+								{% set singlePost = singlePost|setAttribute('notfull', post.notfull) %}
 							{% endif %}
+							{% if post.private %}
+								{% set singlePost = singlePost|setAttribute('private', post.private) %}
+							{% endif %}
+							{% set newPostListCat = (newPostListCat.push(singlePost), newPostListCat) %}
 						{% endif %}
 					{% endfor %}
 				{% endif %}
@@ -93,6 +96,7 @@ date: Last Modified
   </div>
 
   <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 0; order: 3;">
-    <sup style="color: #bbb">•</sup>{{ other_data.notfull }}
+    <sup style="color: #bbb">•</sup>{{ other_data.notfull }} <br />
+		<sup style="color: #bbb">†</sup>{{ other_data.private }}
   </p>
 </div>
