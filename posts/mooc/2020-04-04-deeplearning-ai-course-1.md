@@ -130,7 +130,7 @@ _Graph of tanh from analyticsindiamag._
 <div markdown="1">
 
 $$
-\sigma(z) = max(0,z)
+\sigma(z) = \max(0,z)
 $$
 
 ``` python

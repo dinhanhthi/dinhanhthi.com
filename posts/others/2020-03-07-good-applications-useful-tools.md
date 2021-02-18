@@ -69,6 +69,8 @@ This note will always be updated.
 
 ## Windows
 
+:point_right: Note: [Windows fresh installation](/fresh-install-windows/).
+
 - [Big Stretch Reminder](https://monkeymatt.com/bigstretch/) — free simple reminder tool that prompts a user to take regular breaks and helps prevent the symptoms of Repetitive Strain Injury (RSI).
 - [cmder](https://cmder.net/) (Console Emulator) — (__update 11/20__: should use [Windows Terminal with dropdown support](/terminal#windows)) drop-down terminal for windows. My [setting file](https://github.com/dinhanhthi/scripts/blob/master/settings/windows/user-ConEmu.xml).
 - [DeepL](https://deepl.com/) — Quickly translate app (by using <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd>).
@@ -81,6 +83,9 @@ This note will always be updated.
 - [Unikey](https://www.unikey.org/) — Vietnamese input method on Windows.
 
 ## Linux
+
+:point_right: Note: [Linux](/linux-tips/).
+:point_right: Note: [Ubuntu / Pop!_OS Fresh Installation](/fresh-installation-ubuntu/).
 
 - **Cheese** (Appstore) — webcam for linux.
 - **Foliate** (Appstore) — Book reader.
@@ -97,8 +102,7 @@ This note will always be updated.
 
 ## MacOS
 
-- [iTerm2](https://www.iterm2.com/) — drop-down terminal.
-- [Time Out](https://apps.apple.com/us/app/time-out-free/id402592703?mt=12) — a program that assists in the recovery and prevention of Repetitive Strain Injury (RSI).
+:point_right: Note: [Fresh installation MacOS](/fresh-install-macos/#applications).
 
 ## Education
 

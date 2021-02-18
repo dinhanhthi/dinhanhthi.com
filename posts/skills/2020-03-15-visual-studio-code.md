@@ -102,7 +102,11 @@ Make a good corresponding to [zsh](/terminal#zsh-linux).
 # Open settings JSON
 "terminal.integrated.cursorStyle": "line",
 "terminal.integrated.fontFamily": "Source Code Pro Medium",
-"terminal.integrated.fontSize": 15
+"terminal.integrated.fontSize": 18
+
+# on MacOSX
+"terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+"terminal.integrated.fontSize": 16
 ```
 
 ### Enable font ligatures
