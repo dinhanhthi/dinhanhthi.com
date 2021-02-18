@@ -28,6 +28,7 @@ keywords: "for me only customize edit this site box font blocks" # used for sear
 toc: true # `false` to hide toc
 notfull: true # if the post is not good enough
 hide: true # if don't want to show it on index
+private: true # (if the post comes from external source) a private link
 ```
 
 ## Other components
