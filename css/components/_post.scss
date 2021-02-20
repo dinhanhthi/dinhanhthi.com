@@ -62,8 +62,11 @@
   }
 
   hr{
-    border-bottom: 1px solid #676767;
+    border-bottom: 1px solid #525252;
     margin-bottom: $mb;
+		margin-right: auto;
+		margin-left: 0;
+		width: 200px;
 	}
 
 	// katex

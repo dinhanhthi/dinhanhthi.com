@@ -1684,8 +1684,11 @@ section.eqno > span {
   padding-left: 20px; }
 
 .page-note hr {
-  border-bottom: 1px solid #676767;
-  margin-bottom: 24.75px; }
+  border-bottom: 1px solid #525252;
+  margin-bottom: 24.75px;
+  margin-right: auto;
+  margin-left: 0;
+  width: 200px; }
 
 .page-note p.katex-block {
   overflow-x: auto;
