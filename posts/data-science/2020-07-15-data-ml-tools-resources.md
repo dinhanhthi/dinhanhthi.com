@@ -64,6 +64,7 @@ keywords: "data science deep learing tools resources application good choice col
 
 - [Caffe Model Zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo) -- reasearcher share their _Caffe_ models.
 - [Chart.js | Open source HTML5 Charts for your website](https://www.chartjs.org/)
+- [DeepKit](https://github.com/deepkit/deepkit-ml) -- The collaborative real-time open-source machine learning devtool and training suite: Experiment execution, tracking, and debugging. With server and project management tools.
 - [Embedding Projector tool](http://projector.tensorflow.org/) from tensorflow.
 - [Flourish](https://flourish.studio/) — Data Visualization & Storytelling.
 - [Foursquare](https://foursquare.com/) — Put the most trusted, independent location data and technology platform to work for your business.

@@ -30,6 +30,7 @@ keywords: "tool resources learning application framework repository gihub packag
 - [JavaScript Event KeyCodes](https://keycode.info/) — get the keycode of any key when you press.
 - [Regular Expression 101](https://regex101.com/) — rules and transform directly.
 - [RequestBin](https://requestbin.com/) — A modern request bin to collect, inspect and debug HTTP requests and webhooks.
+- [Responsively](https://github.com/responsively-org/responsively-app) -- A modified web browser that helps in responsive web development. A web developer's must have dev-tool.
 - [Tiny helpers](https://github.com/stefanjudis/tiny-helpers) — A collection of free single-purpose online tools for web developers.
 - [Wayback mahine](https://web.archive.org/) — an internet archive (to check old/dead websites).
 - [Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator)

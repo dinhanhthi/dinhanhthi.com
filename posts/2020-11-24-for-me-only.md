@@ -4,7 +4,7 @@ title: "For me only"
 tags: [Others, Static Site Generators, 11ty]
 toc: true
 icon: "/img/header/customize.svg"
-keywords: "me for me only customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size"
+keywords: "me for me only customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
 ---
 
 This post is for me only. It contains shortcodes to create this website.
@@ -40,6 +40,15 @@ private: true # (if the post comes from external source) a private link
 - `{:.noindent}` before a list, not indent a list.
 - `{:.indent}` before a list, indent a list.
 - `{:target="_blank"}` after an url.
+- Using emoji: use [this site](https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json).
+
+	``` bash
+	👉 :point_right:
+	🔅 :low_brightness:
+	❓ :qusetion:
+	❗ :exclamation:
+	🇻🇳 :vietnam:
+	```
 
 ## External post
 
@@ -377,6 +386,16 @@ p.custom-class + table{}
 p.custom-class{display: none;}
 // instead of
 table.custom-class{}
+```
+
+---
+
+If using list based on "🔅",
+
+``` html
+<div class="p-list">
+
+</div>
 ```
 
 ### `.eleventy.dev.js` vs `.main.js`
