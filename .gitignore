@@ -7,3 +7,6 @@ js/min.js.map
 .vscode/
 .netlify/
 .cache/
+.jekyll-cache
+.jekyll-metadata
+Gemfile.lock
