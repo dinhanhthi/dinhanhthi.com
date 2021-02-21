@@ -7,6 +7,17 @@
 		}
 	}
 
+	.list-item{
+		border: 1px solid #424242;
+    border-radius: 3px;
+    padding: 1rem;
+    margin-bottom: $mb;
+
+		& > *:last-child{
+			margin-bottom: 0;
+		}
+	}
+
   .text-center{
     text-align: center;
   }

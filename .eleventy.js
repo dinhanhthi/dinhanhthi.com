@@ -231,6 +231,7 @@ module.exports = function (eleventyConfig) {
 		.use(mdItContainer, 'code-2cols')
 		.use(mdItContainer, 'col-2-equal')
 		.use(mdItContainer, 'col-2-flex')
+		.use(mdItContainer, 'list-item') // for items like in MacOS fresh start post
 		.use(require('markdown-it-kbd')) // [[Ctrl]]
 		.use(require('markdown-it-footnote'))
 		.use(mdItContainer, 'hsbox', {

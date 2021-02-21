@@ -1643,6 +1643,14 @@ section.eqno > span {
 .page-note .p-list > * {
   margin-bottom: 1rem; }
 
+.page-note .list-item {
+  border: 1px solid #424242;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-bottom: 24.75px; }
+  .page-note .list-item > *:last-child {
+    margin-bottom: 0; }
+
 .page-note .text-center {
   text-align: center; }
 
