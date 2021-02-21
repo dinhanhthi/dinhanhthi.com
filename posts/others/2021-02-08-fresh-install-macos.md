@@ -12,6 +12,28 @@ This is my personal list of to-do things for a new Macbook.
 👉 Note: [Ubuntu / Pop!_OS fresh start](/fresh-installation-ubuntu).
 👉 Note: [Windows fresh start](/fresh-install-windows).
 
+## Check info
+
+::: col-2-equal
+``` bash
+# Current version of MacOSX
+sw_vers -productVersion
+```
+
+``` bash
+# Check if XCode Command Line Tools is installed
+xcode-select --install
+# should return "/usr/bin/xcrun"
+```
+
+``` bash
+# check if running on ARM or Intel
+arch
+# arm64 -> ARM
+# i386 -> Intel (running with Rosetta)
+```
+:::
+
 ## Basic controls
 
 This is not the first things to do!
@@ -136,6 +158,12 @@ Map top-left keyboard to backslash/tilde symbols. Install [Karabiner-Elements](h
 
 ::: list-item
 Install [alt-tab](https://alt-tab-macos.netlify.app/) (and use [[⌘]] + [[⇥]] which replaces the default method on mac, be careful!!!) to switch between windows (instead of apps) like on Windows/Linux: `brew install --cask alt-tab`
+
+Open its preferences:
+
+- General > tick on "Start at login".
+- Controls > Show windows from: "Screen showing AltTab" (on the 3rd option).
+- Appearance > Show on "Screen including mouse".
 :::
 
 ## Installation unknown softwares

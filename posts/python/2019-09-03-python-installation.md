@@ -39,6 +39,44 @@ App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.b
 
 ## MacOS
 
+::: hsbox If you use Apple M1 (updated on 21/02/2021)?
+
+<div class="warning">
+Cannot use docker with AI things! Pytorch is not available for M1!
+</div>
+
+:point_right: [Instructions to install TensorFlow in a Conda Environment](https://github.com/apple/tensorflow_macos/issues/153)
+
+``` bash
+conda init # after install
+# restart terminal after install
+# check if ok
+which python # should return "/Users/thi/miniforge3/bin/python"
+
+# manually install package
+conda install <pkg name>
+conda install -y <pkg> # auto accept
+```
+
+If you use conda (miniforge3), use the instructions in previous link to install tensorflow (not about the link to "newest" version of tensorflow-macos). If you wanna use python on your mac (using `venv`), check below link.
+
+:point_right: [Mac-optimized TensorFlow and TensorFlow Addons](https://github.com/apple/tensorflow_macos)
+
+__Remark__: After install, check the version of `tensorflow-macos` (not `tensorflow`)
+
+``` bash
+pip show tensorflow-macos
+```
+
+__Remark__: If you wanna install some package, use `conda install -y <pkg>`, then check its version by `pip show <pkg>`.
+
+:point_right: Using [my personal requirement file](https://github.com/dinhanhthi/scripts/blob/master/settings/macos/requirement_m1.txt).
+
+``` bash
+conda install --file requirement_m1.txt
+```
+:::
+
 By default, Python 2 is already installed on MacOS, you can check this by
 
 ~~~ bash
@@ -326,10 +364,17 @@ acctivate <env> # choose an env first
 conda update <package> # ud package in that env
 ~~~
 
+::: col-2-equal
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 conda list
 ~~~
+
+``` bash
+# check version of a package
+pip show <pkg>
+```
+:::
 
 ~~~ bash
 # Update packages listed in an env file to current env,
