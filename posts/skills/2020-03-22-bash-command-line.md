@@ -332,6 +332,9 @@ brew install nmap
 nmap localhost
 lsof -i:8080
 kill <PID>
+
+# in case above command cannot solve the problem
+sudo lsof -i -P | grep "8080"
 ```
 
 ### Text file

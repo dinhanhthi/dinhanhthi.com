@@ -398,6 +398,16 @@ If using list based on "🔅",
 </div>
 ```
 
+---
+
+Is using list of things (like in [MacOS fresh installation note](/fresh-install-macos/#applications)), use `.list-item` class or,
+
+``` html
+::: list-item
+Things
+:::
+```
+
 ### `.eleventy.dev.js` vs `.main.js`
 
 The only difference is the line
