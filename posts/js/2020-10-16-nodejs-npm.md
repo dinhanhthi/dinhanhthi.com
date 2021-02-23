@@ -69,21 +69,17 @@ nvm uninstall 12.13.0
 
 ### Single version
 
-Install NodeJS and NPM.
+:point_right: Install NodeJS and NPM: [Windows & MacOS](https://nodejs.org/en/download), [Linux](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions).
 
-- **Windows** & **MacOS**: download [installer](https://nodejs.org/en/download/).
-- **Linux**: [this guide](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions).
-
-Update to latest version?
-
+::: col-2-equal
 ``` bash
-# npm
+# UPDATE npm
 npm cache clean -f # clear the cache first
 sudo npm install -g npm
 ```
 
 ``` bash
-# node
+# UPDATE node
 sudo npm install -g n
 sudo n stable
 # refresh the shell
@@ -91,14 +87,14 @@ source ~/.zshrc # if using zsh
 source ~/.bashrc # is using bash
 ```
 
-Check version?
-
 ``` bash
+# Check version
 npm -v
 node -v
 ```
+:::
 
-### Shorthand
+### Shorthand CLI options
 
 <div class="two-columns-list" markdown="1">
 
@@ -168,6 +164,7 @@ npm view package_name version
 
 ## Update package
 
+::: col-2-equal
 ``` bash
 # which global packages need to be updated?
 npm outdated -g --depth=0
@@ -180,6 +177,7 @@ npm update -g
 # update a package
 npm update package_name # -g for global
 ```
+:::
 
 ## Remove package
 

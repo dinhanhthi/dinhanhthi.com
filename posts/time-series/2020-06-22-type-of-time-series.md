@@ -12,21 +12,22 @@ keywords: "univariate time series multivariate time series"
 
 ## Univariate vs Multivariate TS
 
-- **Univariate time series**: Only one variable is varying over time.
+**Univariate time series**: Only one variable is varying over time.
 
-		``` bash
-		# example of univariate dataset
-		index    Time                   value
-		0        2016-04-01 06:00:10    1
-		1        2016-04-01 06:00:20    2
-		2        2016-04-01 06:00:30    3
-		```
-- **Multivariate time series**: Multiple variables are varying over time.
+``` bash
+# example of univariate dataset
+index    Time                   value
+0        2016-04-01 06:00:10    1
+1        2016-04-01 06:00:20    2
+2        2016-04-01 06:00:30    3
+```
 
-		``` bash
-		# example of multivariate dataset
-		index    Time                   value_1   value_2   value_3
-		0        2016-04-01 06:00:10    1         5         2
-		1        2016-04-01 06:00:20    2         9         8
-		2        2016-04-01 06:00:30    3         5         1
-		```
+**Multivariate time series**: Multiple variables are varying over time.
+
+``` bash
+# example of multivariate dataset
+index    Time                   value_1   value_2   value_3
+0        2016-04-01 06:00:10    1         5         2
+1        2016-04-01 06:00:20    2         9         8
+2        2016-04-01 06:00:30    3         5         1
+```
