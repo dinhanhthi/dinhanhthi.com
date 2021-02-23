@@ -95,7 +95,7 @@ permalink: /about/
 									</span>,
                   <span class="date-2">{{ item.date }}</span>
 								</div>
-								<p>{{ item.activity }}</p>
+								<p>{{ item.activity | safe }}</p>
 								{% if item.tech %}
 									<div class="tech">
 										{% for item2 in item.tech %}

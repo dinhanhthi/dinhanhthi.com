@@ -8,12 +8,12 @@ permalink: "{{ page.fileSlug }}/"
   <div class="header-logo">
     {% if icon %}
       {% if "/" in icon %}
-        <img alt="{{ title }}" src="{{ icon }}">
+        <img class="keep-original" alt="{{ title }}" src="{{ icon }}">
       {% else %}
-        <img alt="{{ title }}" src="/img/header/{{ icon }}">
+        <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}">
       {% endif %}
     {% else %}
-      <img alt="{{ title }}" src="/img/nav/about.svg">
+      <img class="keep-original" alt="{{ title }}" src="/img/nav/about.svg">
     {% endif %}
   </div>
 {% endblock %}

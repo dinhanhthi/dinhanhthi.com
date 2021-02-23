@@ -66,6 +66,8 @@ pages/search-index.json # search-index.json, may change also .eleventy.js
 
 ## Insert figures
 
+:point_right: Exclude from `img-dim` transform (when `update_dat`): add class `.keep-original` to the `img` tag!
+
 ``` markdown
 # NORMAL WITH CUSTOM CLASS
 ![description](/path/to/figure){:.img-full-100}

@@ -8,7 +8,7 @@
 				"url": "https://www.ideta.io",
 				"title": "Web Developer & Data Scientist",
 				"date": "2/2021 — ongoing",
-				"activity": "Ideta is a solution that allows companies to create very easily conversational assistants on many communication channels such as Messenger, SMS, Slack, Wechat, Skype business, ... but also voice like Google Home. The solution makes the creation of chatbots accessible to everyone.",
+				"activity": "Ideta is a solution that allows companies to create very easily conversational assistants on many communication channels such as Messenger, SMS, Slack, Wechat, Skype business, ... but also voice like Google Home. The solution makes the creation of chatbots accessible to everyone.<br />My role is to understand how things work in both backend and frontend, then integrate some self-built Natural Language Processing services to the main platform.",
 				"tech": [
 					{
 						"name": "Python",
@@ -57,7 +57,7 @@
 				"url": "https://www.dataswati.com/",
 				"title": "Data Scientist",
 				"date": "1/2020 — 11/2020",
-				"activity": "Dataswati is a company who uses Artificial Intelligence technologies to optimize the industrial processes. I am one of the main maintainers of POPAI, their main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science.",
+				"activity": "Dataswati is a company who uses Artificial Intelligence technologies to optimize the industrial processes.<br />I am one of the main maintainers of POPAI, their main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science.",
 				"tech": [
 					{
 						"name": "Python",
@@ -122,7 +122,7 @@
 				"url": "https://math2it.com",
 				"title": "Founder & Web Dev & Blogger",
 				"date": "2013 — current",
-				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology. I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook.",
+				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology.<br />I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook.",
 				"tech": [
 					{
 						"name": "JavaScript",
