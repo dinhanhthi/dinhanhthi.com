@@ -63,5 +63,13 @@
 		"notfull": true,
 		"keywords": "callback javascript js 101 basic fundamental angular sync async",
 		"private": true
+	},
+	{
+		"title": "RxJS 101",
+		"url": "https://www.notion.so/dinhanhthi/RxJS-b4bc7e2d1f7d49b79d4cb701785e355f",
+		"tags": ["JavaScript"],
+		"notfull": true,
+		"keywords": "rxjs Reactive Extensions for JavaScript async observable stream",
+		"private": true
 	}
 ]
