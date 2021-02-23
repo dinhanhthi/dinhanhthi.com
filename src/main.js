@@ -306,6 +306,7 @@ const addSelected2 = (ulRes, li) => {
 					el.appendChild(divIcon);
 					const divIcon__img = document.createElement("img");
 					divIcon__img.setAttribute("src", cat);
+					divIcon__img.setAttribute("class", "keep-original");
 					divIcon.appendChild(divIcon__img);
 
 					const divContent = document.createElement("div");
