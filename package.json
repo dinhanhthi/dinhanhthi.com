@@ -1,6 +1,6 @@
 {
   "name": "dinhanhthi.com",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
