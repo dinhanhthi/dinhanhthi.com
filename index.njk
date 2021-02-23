@@ -14,7 +14,7 @@ date: Last Modified
   <div class="social">
     {% for item in social %}
       <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}">
-        <img src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
+        <img class="keep-original" src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
       </a>
     {% endfor %}
   </div>
@@ -69,7 +69,7 @@ date: Last Modified
         <div class="category">
           <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
             {% if item.logo %}{{ item.logo }}
-            {% elif item.svg %}<img src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}
+            {% elif item.svg %}<img class="keep-original" src="{{ item.svg }}" alt="{{ item.name }}" height="30" width="30">{% endif %}{{ item.name }}
           </h2>
           {% set customClass = 'list-homepage' %}
 					{% set customIcon = true %}
