@@ -65,10 +65,9 @@ div.toc {
 
   @media (min-width: 1300px) {
     float: right;
-    margin-right: -280px;
-    // border-left: 1px solid #6b6b6b;
+    margin-right: -210px;
     border-left: none;
-    width: 250px;
+    width: 200px;
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
@@ -80,7 +79,27 @@ div.toc {
     }
   }
 
-  @media (min-width: 1500px){
+	@media (min-width: 1360px){
+    margin-right: -230px;
+    width: 220px;
+  }
+
+	@media (min-width: 1373px){
+    margin-right: -240px;
+    width: 220px;
+  }
+
+	@media (min-width: 1400){
+    margin-right: -250px;
+    width: 230px;
+  }
+
+	@media (min-width: 1450px){
+    margin-right: -280px;
+    width: 250px;
+  }
+
+  @media (min-width: 1550px){
     margin-right: -310px;
     width: 280px;
   }
