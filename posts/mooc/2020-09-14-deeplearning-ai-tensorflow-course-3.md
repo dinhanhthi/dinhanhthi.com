@@ -297,7 +297,7 @@ for ts in tokenized_string:
 
 ### RNN idea
 
-👉 [Note of the course of sequence model](/deeplearning-ai-course-5).
+👉 [Note of the course of sequence model](https://www.notion.so/dinhanhthi/Sequence-models-by-deeplearning-ai-427774f7b31846fdb17ac09cd2353fbe).
 
 {:.noindent}
 - The usual NN, something like "f(data, labels)=rules" cannot take into account of sequences.
