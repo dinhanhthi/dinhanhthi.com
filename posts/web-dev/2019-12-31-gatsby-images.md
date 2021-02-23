@@ -9,7 +9,11 @@ keywords: create a website static web react js inserting images
 
 {% assign img-url = '/img/post/js/gatsby' %}
 
-Because the post [Gatsby 101](  /gatsby-js) is too long, I write a separate post just for images in Gatsby.
+Because the post [Gatsby 101](  /gatsby-js/) is too long, I write a separate post just for images in Gatsby.
+
+::: warning
+After trying Gatsby, I found that [11ty](/11ty-nunjucks/) is more flexible (and easier).
+:::
 
 ## Rule of thumb
 

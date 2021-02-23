@@ -39,7 +39,7 @@ App to run: [cmder](https://cmder.net/) (use [this setting]({{site.url}}{{site.b
 
 ## MacOS
 
-::: hsbox If you use Apple M1 (updated on 21/02/2021)?
+::: hsbox **If you use Apple M1** (updated on 21/02/2021)?
 
 <div class="warning">
 Cannot use docker with AI things! Pytorch is not available for M1!
@@ -48,8 +48,8 @@ Cannot use docker with AI things! Pytorch is not available for M1!
 :point_right: [Instructions to install TensorFlow in a Conda Environment](https://github.com/apple/tensorflow_macos/issues/153)
 
 ``` bash
-conda init # after install
-# restart terminal after install
+conda init # after installing
+# restart terminal after installing
 # check if ok
 which python # should return "/Users/thi/miniforge3/bin/python"
 
@@ -62,7 +62,7 @@ If you use conda (miniforge3), use the instructions in previous link to install 
 
 :point_right: [Mac-optimized TensorFlow and TensorFlow Addons](https://github.com/apple/tensorflow_macos)
 
-__Remark__: After install, check the version of `tensorflow-macos` (not `tensorflow`)
+__Remark__: After installing, check the version of `tensorflow-macos` (not `tensorflow`)
 
 ``` bash
 pip show tensorflow-macos
