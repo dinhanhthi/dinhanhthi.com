@@ -159,7 +159,7 @@ Map top-left keyboard to backslash/tilde symbols. Install [Karabiner-Elements](h
 ::: list-item
 Install [alt-tab](https://alt-tab-macos.netlify.app/) (and use [[⌘]] + [[⇥]] which replaces the default method on mac, be careful!!!) to switch between windows (instead of apps) like on Windows/Linux: `brew install --cask alt-tab`
 
-Open its preferences:
+Open its preferences (We wanna show windows only on the screen containing the cursor):
 
 - General > tick on "Start at login".
 - Controls > Show windows from: "Screen showing AltTab" (on the 3rd option).
@@ -267,11 +267,11 @@ __Require__: the same wifi network!
 
 ## Screen recorder
 
-::: list-item
+::: hsbox Using QuickTime? (heavy output size)
 Using **QuickTime** / built-in function. Open QuickTime or [[⌘]] + [[⇧]] + [[5]] to open screenshot/recording options. **Weakness**: big size + impossible (or possible??) to record system sounds.
 :::
 
-::: list-item
+::: hsbox Using OBS? (Free, suitable for streaming)
 Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://github.com/ExistentialAudio/BlackHole) (for bypassing system audio recorder, I chose **2ch** to download).
 
 1. Check [this article](https://obsproject.com/forum/resources/os-x-capture-audio-with-ishowu-audio-capture.505/) for setting up with OBS (not that, in this article, they use a different tool than BlackHold)
@@ -284,6 +284,8 @@ Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://g
    1. Turn off preview for screen (for comfortable)
    2. **Video** > Common FPS Values = 20
 :::
+
+:point_right: **My best choice**: using [Screenflick](https://www.araelium.com/screenflick-mac-screen-recorder) (paid, 35$).
 
 ## Dictionary
 
@@ -321,6 +323,7 @@ Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://g
 15. ~~[uBar](https://brawersoftware.com/products/ubar) (paid) -- disable default dock and make a windows-like taskbar. **Be careful**, it takes too much RAM!~~
 16. [XDM Download Manager](https://sourceforge.net/projects/xdman/files/XDMSetup.dmg/download).
 17. [Docker](https://docs.docker.com/docker-for-mac/apple-m1/)
+18. [SelfControl](https://selfcontrolapp.com/) -- A free Mac application to help you avoid distracting websites.
 
 ### Appstore
 
@@ -331,6 +334,7 @@ Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://g
 5.  **Magnet** -- arrange window workspace (stick to edge like on Windows).
 6.  **Amphetamine** -- Keep-awake your mac, an alternative to caffein on linux.
 7.  **TaskTab** -- List of tasks right on menu bar.
+8. **Bitwarden** -- need to install desktop application to enable fingerprint unlock for browser extension. Restart both application and follow the instruction on extension to enable this feature.
 
 ## Terminal
 

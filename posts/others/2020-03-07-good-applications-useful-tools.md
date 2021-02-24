@@ -56,6 +56,7 @@ This note will always be updated.
 ## Multi-platforms
 
 - [Astral](https://app.astralapp.com/auth) — Organize Your GitHub Stars With Ease.
+- [Bitwarden](https://bitwarden.com/) -- open source password manager (drop Lastpass because we can only use 1 device and we cannot use fingerprint to unlock).
 - [GitKraken](https://www.gitkraken.com/) — git client for ubuntu (better than [Github Desktop](https://desktop.github.com/) when importing local)
 - [GoldenDict](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Windows?fbclid=IwAR3RVcLdpkpL2B3f1-EAiCzRqjInpy21BltlHs9SwryGuEcQ_VQPB6lftTA) — dictionaries + [its dictionaries](https://drive.google.com/open?id=1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv).
 - [Google Play Music Desktop Player](https://www.googleplaymusicdesktopplayer.com/) (support Youtube Music with custom controllers, online only).
@@ -136,7 +137,7 @@ This note will always be updated.
 - [Copy URL with title](https://chrome.google.com/webstore/detail/copy-url-with-title/bpcogbhmkdjaohcmlghhkiohmldpnkoh) — copy title and URL using [[Ctrl]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac). Use [[Alt]] + [[C]] (Win/Linux) / [[⌥ Option]] + [[C]] (Mac) to get them in markdown link format.
 - [Google Dictionary](https://chrome.google.com/webstore/detail/google-dictionary-by-goog/mgijmajocgfcbeboacabfgobmjgjcoja) (by Google)
 - [Hush](https://chrome.google.com/webstore/detail/hush-private-bookmarking/hjmoaenjknbdehbiaeeijcppnljflkff?hl=en) — private bookmarking
-- [LastPass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd) — Free Password Manager
+- ~~[LastPass](https://chrome.google.com/webstore/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd) — Free Password Manager~~ :point_right: Using [Bitwarden](https://bitwarden.com/) instead.
 - [Mate](https://chrome.google.com/webstore/detail/mate-translate-%E2%80%93-translat/ihmgiclibbndffejedjimfjmfoabpcke) — Quick translater.
 - [Microsoft Editor](https://chrome.google.com/webstore/detail/microsoft-editor-spelling/gpaiobkfhnonedkhhfjpmhdalgeoebfa) — Spelling & Grammar Checker
 - [Picture-in-Picture Extension](https://chrome.google.com/webstore/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg) (by Google) — Picture-in-Picture (PiP) allows you to watch videos in a floating window (always on top of other windows) so you can keep an eye on what you’re watching while interacting with other sites, or applications.
