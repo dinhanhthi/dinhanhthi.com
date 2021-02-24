@@ -3,8 +3,8 @@
 		"name": "Languages",
 		"list": [
 			{
-				"name": "Python",
-				"icon": "/img/about/python.svg"
+				"name": "FreeFEM++",
+				"icon": "/img/about/ff.svg"
 			},
 			{
 				"name": "JavaScript",
@@ -19,8 +19,8 @@
 				"icon": "/img/about/php.svg"
 			},
 			{
-				"name": "FreeFEM++",
-				"icon": "/img/about/ff.svg"
+				"name": "Python",
+				"icon": "/img/about/python.svg"
 			}
 		]
 	},
@@ -28,20 +28,20 @@
 		"name": "AI & Data",
 		"list": [
 			{
-				"name": "TensorFlow",
-				"icon": "/img/about/tf.svg"
-			},
-			{
-				"name": "Scikit-learn",
-				"icon": "/img/about/scikit-learn.svg"
+				"name": "Jupyter",
+				"icon": "/img/about/jupyter.svg"
 			},
 			{
 				"name": "PyTorch",
 				"icon": "/img/about/pytorch.svg"
 			},
 			{
-				"name": "Jupyter",
-				"icon": "/img/about/jupyter.svg"
+				"name": "Scikit-learn",
+				"icon": "/img/about/scikit-learn.svg"
+			},
+			{
+				"name": "TensorFlow",
+				"icon": "/img/about/tf.svg"
 			}
 		]
 	},
@@ -49,24 +49,12 @@
 		"name": "Frontend",
 		"list": [
 			{
-				"name": "HTML5",
-				"icon": "/img/about/html.svg"
-			},
-			{
-				"name": "SCSS",
-				"icon": "/img/about/sass.svg"
-			},
-			{
-				"name": "Wordpress",
-				"icon": "/img/about/wordpress.svg"
-			},
-			{
 				"name": "Angular",
 				"icon": "/img/about/angular.svg"
 			},
 			{
-				"name": "React",
-				"icon": "/img/about/react.svg"
+				"name": "Bootstrap",
+				"icon": "/img/about/bootstrap.svg"
 			},
 			{
 				"name": "Eleventy",
@@ -77,12 +65,12 @@
 				"icon": "/img/about/gatsby.svg"
 			},
 			{
-				"name": "Jekyll",
-				"icon": "/img/about/jekyll.svg"
+				"name": "HTML5",
+				"icon": "/img/about/html.svg"
 			},
 			{
-				"name": "Bootstrap",
-				"icon": "/img/about/bootstrap.svg"
+				"name": "Jekyll",
+				"icon": "/img/about/jekyll.svg"
 			},
 			{
 				"name": "Liquid",
@@ -91,6 +79,22 @@
 			{
 				"name": "Nunjucks",
 				"icon": "/img/about/nunjucks.svg"
+			},
+			{
+				"name": "React",
+				"icon": "/img/about/react.svg"
+			},
+			{
+				"name": "RxJS",
+				"icon": "/img/about/rxjs.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img/about/sass.svg"
+			},
+			{
+				"name": "Wordpress",
+				"icon": "/img/about/wordpress.svg"
 			}
 		]
 	},
@@ -98,32 +102,16 @@
 		"name": "Backend",
 		"list": [
 			{
-				"name": "Docker",
-				"icon": "/img/about/docker.svg"
-			},
-			{
 				"name": "Airflow",
 				"icon": "/img/about/airflow.svg"
 			},
 			{
-				"name": "MongoDB",
-				"icon": "/img/about/mongodb.svg"
+				"name": "Docker",
+				"icon": "/img/about/docker.svg"
 			},
 			{
 				"name": "Firebase",
 				"icon": "/img/about/firebase.svg"
-			},
-			{
-				"name": "MySQL",
-				"icon": "/img/about/mysql.svg"
-			},
-			{
-				"name": "gRPC",
-				"icon": "/img/about/grpc.svg"
-			},
-			{
-				"name": "NodeJS",
-				"icon": "/img/about/node.svg"
 			},
 			{
 				"name": "GraphQL",
@@ -131,9 +119,25 @@
 				"later": true
 			},
 			{
+				"name": "gRPC",
+				"icon": "/img/about/grpc.svg"
+			},
+			{
 				"name": "Heroku",
 				"icon": "/img/about/heroku.svg",
 				"later": true
+			},
+			{
+				"name": "MongoDB",
+				"icon": "/img/about/mongodb.svg"
+			},
+			{
+				"name": "MySQL",
+				"icon": "/img/about/mysql.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img/about/node.svg"
 			}
 		]
 	},
@@ -141,24 +145,24 @@
 		"name": "Tools",
 		"list": [
 			{
-				"name": "VS Code",
-				"icon": "/img/about/vscode.svg"
-			},
-			{
-				"name": "Linux",
-				"icon": "/img/about/linux_.svg"
+				"name": "Git",
+				"icon": "/img/about/git.svg"
 			},
 			{
 				"name": "GNU Bash",
 				"icon": "/img/about/bash_.svg"
 			},
 			{
-				"name": "Git",
-				"icon": "/img/about/git.svg"
+				"name": "Linux",
+				"icon": "/img/about/linux_.svg"
 			},
 			{
 				"name": "Sphinx Doc",
 				"icon": "/img/about/sphinx.svg"
+			},
+			{
+				"name": "VS Code",
+				"icon": "/img/about/vscode.svg"
 			}
 		]
 	}

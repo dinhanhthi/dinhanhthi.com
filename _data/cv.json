@@ -11,24 +11,12 @@
 				"activity": "Ideta is a solution that allows companies to create very easily conversational assistants on many communication channels such as Messenger, SMS, Slack, Wechat, Skype business, ... but also voice like Google Home. The solution makes the creation of chatbots accessible to everyone.<br />My role is to understand how things work in both backend and frontend, then integrate some self-built Natural Language Processing services to the main platform.",
 				"tech": [
 					{
-						"name": "Python",
-						"icon": "/img/about/python.svg"
+						"name": "Angular",
+						"icon": "/img/about/angular.svg"
 					},
 					{
-						"name": "Scikit-learn",
-						"icon": "/img/about/scikit-learn.svg"
-					},
-					{
-						"name": "Juyter Notebook",
-						"icon": "/img/about/jupyter.svg"
-					},
-					{
-						"name": "TensorFlow",
-						"icon": "/img/about/tf.svg"
-					},
-					{
-						"name": "MongoDB",
-						"icon": "/img/about/mongodb.svg"
+						"name": "Firebase",
+						"icon": "/img/about/firebase.svg"
 					},
 					{
 						"name": "Git",
@@ -39,16 +27,32 @@
 						"icon": "/img/about/js.svg"
 					},
 					{
-						"name": "Angular",
-						"icon": "/img/about/angular.svg"
+						"name": "Juyter Notebook",
+						"icon": "/img/about/jupyter.svg"
 					},
 					{
-						"name": "Firebase",
-						"icon": "/img/about/firebase.svg"
+						"name": "MongoDB",
+						"icon": "/img/about/mongodb.svg"
 					},
 					{
 						"name": "NodeJS",
 						"icon": "/img/about/node.svg"
+					},
+					{
+						"name": "Python",
+						"icon": "/img/about/python.svg"
+					},
+					{
+						"name": "RxJS",
+						"icon": "/img/about/rxjs.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img/about/scikit-learn.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img/about/tf.svg"
 					}
 				]
 			},
@@ -60,22 +64,6 @@
 				"activity": "Dataswati is a company who uses Artificial Intelligence technologies to optimize the industrial processes.<br />I am one of the main maintainers of POPAI, their main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science.",
 				"tech": [
 					{
-						"name": "Python",
-						"icon": "/img/about/python.svg"
-					},
-					{
-						"name": "Scikit-learn",
-						"icon": "/img/about/scikit-learn.svg"
-					},
-					{
-						"name": "PyTorch",
-						"icon": "/img/about/pytorch.svg"
-					},
-					{
-						"name": "Juyter Notebook",
-						"icon": "/img/about/jupyter.svg"
-					},
-					{
 						"name": "Airflow",
 						"icon": "/img/about/airflow.svg"
 					},
@@ -84,12 +72,20 @@
 						"icon": "/img/about/docker.svg"
 					},
 					{
-						"name": "R Lang",
-						"icon": "/img/about/r.svg"
+						"name": "GNU Bash",
+						"icon": "/img/about/bash_.svg"
 					},
 					{
-						"name": "TensorFlow",
-						"icon": "/img/about/tf.svg"
+						"name": "Git",
+						"icon": "/img/about/git.svg"
+					},
+					{
+						"name": "gRPC",
+						"icon": "/img/about/grpc.svg"
+					},
+					{
+						"name": "Juyter Notebook",
+						"icon": "/img/about/jupyter.svg"
 					},
 					{
 						"name": "MongoDB",
@@ -100,20 +96,28 @@
 						"icon": "/img/about/mysql.svg"
 					},
 					{
-						"name": "gRPC",
-						"icon": "/img/about/grpc.svg"
+						"name": "PyTorch",
+						"icon": "/img/about/pytorch.svg"
 					},
 					{
-						"name": "Git",
-						"icon": "/img/about/git.svg"
+						"name": "Python",
+						"icon": "/img/about/python.svg"
+					},
+					{
+						"name": "R Lang",
+						"icon": "/img/about/r.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img/about/scikit-learn.svg"
 					},
 					{
 						"name": "Sphinx Doc Generator",
 						"icon": "/img/about/sphinx.svg"
 					},
 					{
-						"name": "GNU Bash",
-						"icon": "/img/about/bash_.svg"
+						"name": "TensorFlow",
+						"icon": "/img/about/tf.svg"
 					}
 				]
 			},
@@ -125,16 +129,20 @@
 				"activity": "Math2IT is a Vietnamese community on mathematics, education and technology.<br />I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook.",
 				"tech": [
 					{
-						"name": "JavaScript",
-						"icon": "/img/about/js.svg"
+						"name": "Bootstrap",
+						"icon": "/img/about/bootstrap.svg"
 					},
 					{
-						"name": "PHP",
-						"icon": "/img/about/php.svg"
+						"name": "Docker",
+						"icon": "/img/about/docker.svg"
 					},
 					{
-						"name": "Ruby",
-						"icon": "/img/about/ruby.svg"
+						"name": "Eleventy",
+						"icon": "/img/about/11ty.svg"
+					},
+					{
+						"name": "GatsbyJS",
+						"icon": "/img/about/gatsby.svg"
 					},
 					{
 						"name": "Git",
@@ -145,40 +153,36 @@
 						"icon": "/img/about/graphql.svg"
 					},
 					{
-						"name": "MySQL",
-						"icon": "/img/about/mysql.svg"
-					},
-					{
-						"name": "Docker",
-						"icon": "/img/about/docker.svg"
-					},
-					{
 						"name": "HTML5",
 						"icon": "/img/about/html.svg"
 					},
 					{
-						"name": "SCSS",
-						"icon": "/img/about/sass.svg"
-					},
-					{
-						"name": "React",
-						"icon": "/img/about/react.svg"
-					},
-					{
-						"name": "GatsbyJS",
-						"icon": "/img/about/gatsby.svg"
+						"name": "JavaScript",
+						"icon": "/img/about/js.svg"
 					},
 					{
 						"name": "Jekyll",
 						"icon": "/img/about/jekyll.svg"
 					},
 					{
-						"name": "Bootstrap",
-						"icon": "/img/about/bootstrap.svg"
+						"name": "MySQL",
+						"icon": "/img/about/mysql.svg"
 					},
 					{
-						"name": "Eleventy",
-						"icon": "/img/about/11ty.svg"
+						"name": "PHP",
+						"icon": "/img/about/php.svg"
+					},
+					{
+						"name": "React",
+						"icon": "/img/about/react.svg"
+					},
+					{
+						"name": "Ruby",
+						"icon": "/img/about/ruby.svg"
+					},
+					{
+						"name": "SCSS",
+						"icon": "/img/about/sass.svg"
 					},
 					{
 						"name": "Wordpress",
@@ -194,14 +198,6 @@
 				"activity": "I researched into the growth of biofilm by using the Finite Element Method, a numerical analysis method. The thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and a self-built NXFEM toolbox.",
 				"tech": [
 					{
-						"name": "Python",
-						"icon": "/img/about/python.svg"
-					},
-					{
-						"name": "Matlab",
-						"icon": "/img/about/matlab.svg"
-					},
-					{
 						"name": "FreeFEM++",
 						"icon": "/img/about/ff.svg"
 					},
@@ -212,6 +208,14 @@
 					{
 						"name": "Git",
 						"icon": "/img/about/git.svg"
+					},
+					{
+						"name": "Matlab",
+						"icon": "/img/about/matlab.svg"
+					},
+					{
+						"name": "Python",
+						"icon": "/img/about/python.svg"
 					}
 				]
 			}
