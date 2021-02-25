@@ -71,5 +71,13 @@
 		"notfull": true,
 		"keywords": "rxjs Reactive Extensions for JavaScript async observable stream",
 		"private": true
+	},
+	{
+		"title": "Angular - The complete course by Maximilian",
+		"url": "https://www.notion.so/dinhanhthi/Angular-Complete-Course-acd0d1c5388f4bf08065b85b28e73415",
+		"tags": ["MOOC", "JavaScript"],
+		"notfull": true,
+		"keywords": "rxjs Reactive Extensions for JavaScript async observable stream mooc angular course udemy",
+		"private": true
 	}
 ]
