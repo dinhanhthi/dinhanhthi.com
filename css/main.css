@@ -621,14 +621,17 @@ body {
       background: #2f3240;
       padding: 2rem 1.5rem 1.5rem 1.5rem; }
 
+.page-index .toc-index-container {
+  flex: 0 1 280px;
+  position: sticky;
+  top: 60px;
+  height: fit-content; }
+
 .page-index .toc-index {
   border: 1px solid #404040;
   border-radius: 7px;
   height: fit-content;
   background: #35373c;
-  flex: 0 1 280px;
-  position: sticky;
-  top: 60px;
   padding: 1rem 1.1rem; }
   .page-index .toc-index h3 {
     margin: 0;
@@ -652,21 +655,33 @@ body {
       .page-index .toc-index p a:hover {
         border-bottom: 2px solid #ffd479; }
 
+.page-index .appendix {
+  font-style: italic;
+  font-size: 0.95rem;
+  opacity: 0.6; }
+
+.page-index .appendix-bottom {
+  display: none; }
+
 @media (max-width: 991px) {
   .page-index .main-cats {
     flex: 1 1 100%;
     order: 2;
     padding-right: 0; }
-  .page-index .toc-index {
+  .page-index .toc-index-container {
     flex: 1 1 100%;
     order: 1;
     position: inherit;
     margin-bottom: 1.5rem; }
-    .page-index .toc-index ul {
+    .page-index .toc-index-container ul {
       column-count: 3;
       -webkit-column-count: 3;
       -moz-column-count: 3;
-      -moz-column-count: 3; } }
+      -moz-column-count: 3; }
+  .page-index .appendix-toc {
+    display: none; }
+  .page-index .appendix-bottom {
+    display: block; } }
 
 @media (max-width: 767px) {
   .page-index .toc-index ul {

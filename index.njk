@@ -79,24 +79,33 @@ date: Last Modified
 			{% endif %}
     {% endfor %}
   </div>
-  <div class="toc-index">
-    <h3>Notes by topics</h3>
-    <ul class="toc">
-      {% for item in categories %}
-				{% set postslist = collections[item.name] %}
-				{% set lenlist = postslist | length %}
-				{% if lenlist > 0 %}
-				<li>
-					<a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
-				</li>
-				{% endif %}
-      {% endfor %}
-    </ul>
-		<p>There are <a href="/tags/">more topics</a>.</p>
-  </div>
+	<div class="toc-index-container">
+		<div class="toc-index">
+			<h3>Notes by topics</h3>
+			<ul class="toc">
+				{% for item in categories %}
+					{% set postslist = collections[item.name] %}
+					{% set lenlist = postslist | length %}
+					{% if lenlist > 0 %}
+					<li>
+						<a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
+					</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+			<p>There are <a href="/tags/">more topics</a>.</p>
+		</div>
 
-  <p style="font-style: italic; color: #777; font-size: 0.95rem; margin: 0; order: 3;">
-    <sup style="color: #bbb">•</sup>{{ other_data.notfull }} <br />
-		<sup style="color: #bbb">†</sup>{{ other_data.private }}
+		<p class="appendix appendix-toc">
+			<sup>•</sup> Draft.<br />
+			<sup>†</sup> Private.<br />
+			<img class="keep-original" width="20px" height="20px" src="/img/cats/doc-ex_.png" style="margin-left: -2px; margin-bottom: -5px; transform: skew(calc(-10deg));"> External sources.
+		</p>
+	</div>
+
+  <p class="appendix appendix-bottom" style="margin: 0; order: 3;">
+    <sup>•</sup> {{ other_data.notfull }}<br />
+		<sup>†</sup> {{ other_data.private }}<br />
+		<img class="keep-original" width="20px" height="20px" src="/img/cats/doc-ex_.png" style="margin-left: -2px; margin-bottom: -5px; transform: skew(calc(-10deg));"> Notes with this icon are from external sources.
   </p>
 </div>

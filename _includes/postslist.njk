@@ -33,9 +33,11 @@
       <li>
 				{% if customIcon %}
 					{% if not post.external %}
-						<img src="/img/cats/doc-in_.png">
+						<img class="keep-original" src="/img/cats/doc-in_.png">
+						{# <img class="keep-original" src="/img/cats/doc-in.svg"> #}
 					{% else %}
-						<img src="/img/cats/doc-ex_.png">
+						<img class="keep-original" src="/img/cats/doc-ex_.png">
+						{# <img class="keep-original" src="/img/cats/doc-ex.svg"> #}
 					{% endif %}
 				{% endif %}
 				{% if post.target %}

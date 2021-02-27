@@ -16,6 +16,13 @@
 		}
 	}
 
+	.toc-index-container{
+		flex: 0 1 280px;
+    position: sticky;
+		top: 60px;
+		height: fit-content;
+	}
+
 	.toc-index {
 		h3{
 			margin: 0;
@@ -25,9 +32,6 @@
 			font-size: 1.3rem;
 		}
 		@include box-bg($c-bg-nav, #404040);
-		flex: 0 1 280px;
-    position: sticky;
-		top: 60px;
 		padding: 1rem 1.1rem;
 		ul {
 			padding-left: 20px;
@@ -50,13 +54,23 @@
 		}
 	}
 
+	.appendix{
+		font-style: italic;
+		font-size: 0.95rem;
+		opacity: 0.6;
+	}
+
+	.appendix-bottom{
+		display: none;
+	}
+
 	@media (max-width: $grid-lg - 1px){
 		.main-cats{
 			flex: 1 1 100%;
 			order: 2;
 			padding-right: 0;
 		}
-		.toc-index{
+		.toc-index-container{
 			flex: 1 1 100%;
 			order: 1;
 			position: inherit;
@@ -64,6 +78,12 @@
 			ul{
 				@include column-count(3);
 			}
+		}
+		.appendix-toc{
+			display: none;
+		}
+		.appendix-bottom{
+			display: block;
 		}
 	}
 
