@@ -16,7 +16,7 @@
 
 	{% if more_post %}
 		{% for post in more_post %}
-			{% set singlePost = { 'title': post.title, 'url': post.url, 'target': "_blank" } %}
+			{% set singlePost = { 'title': post.title, 'url': post.url, 'target': "_blank", 'external': true } %}
 			{% if post.notfull %}
 				{% set singlePost = singlePost|setAttribute('notfull', post.notfull) %}
 			{% endif %}
@@ -32,7 +32,11 @@
   {% for post in newPostList|sort(attribute='title') %}
       <li>
 				{% if customIcon %}
-					<img src="/img/cats/doc.svg">
+					{% if not post.external %}
+						<img src="/img/cats/doc-in_.png">
+					{% else %}
+						<img src="/img/cats/doc-ex_.png">
+					{% endif %}
 				{% endif %}
 				{% if post.target %}
 					{% set target = post.target %}

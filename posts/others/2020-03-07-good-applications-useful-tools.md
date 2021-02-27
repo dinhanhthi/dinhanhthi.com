@@ -174,5 +174,7 @@ This note will always be updated.
 
 ## Others
 
+- [controller.wtf](https://controller.wtf/) -- a directory of all iOS Games with game controller support.
+- [Deku Deals](https://www.dekudeals.com/) -- for Nintendo Switch users. If you wanna be notified whenever your favorite games are on sale. [Another website](https://eshop-prices.com/) for checking eshop-price.
 - [talentoday](https://www.talentoday.com/en/) — Empowering Growth for Individuals and Teams
 - [SocialBlade](https://socialblade.com/) — YouTube, Twitch, Twitter, & Instagram Statistics

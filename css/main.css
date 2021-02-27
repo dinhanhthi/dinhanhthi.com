@@ -722,8 +722,7 @@ body {
         width: 20px;
         height: auto;
         margin-bottom: -5px;
-        margin-left: -25px;
-        opacity: 0.9; }
+        margin-left: -25px; }
       .category .list-homepage li:hover {
         cursor: pointer; }
         .category .list-homepage li:hover a {
