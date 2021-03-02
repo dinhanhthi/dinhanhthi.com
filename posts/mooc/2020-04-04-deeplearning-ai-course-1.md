@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 1 by Andrew - NN and DL"
+title: "DL 1 - NN and DL"
 tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png

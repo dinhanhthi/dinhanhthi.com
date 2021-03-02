@@ -3,7 +3,6 @@ layout: post
 title: "Resources for DS & ML & DL"
 tags: [Data Science, Machine Learning, Deep Learning, NLP, Resources, Collection]
 toc: true
-notfull: 1
 icon: /img/header/framework.svg
 keywords: "data science deep learing tools resources application good choice collection machine learning websites link url video dataset data frameworks vietnam nlp viet nam"
 ---

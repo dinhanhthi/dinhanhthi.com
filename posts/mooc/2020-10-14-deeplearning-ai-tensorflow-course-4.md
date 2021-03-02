@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TF 4 - Sequences, Time Series and Prediction"
+title: "TF 4 - Sequences, TS and Prediction"
 tags: [MOOC, Time Series, deeplearning.ai, Deep Learning, TensorFlow]
 toc: true
 icon: tensorflow.svg

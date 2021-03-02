@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "DL 2 by Andrew - Improving DNN: Hyperparameter tuning, Regularization and Optimization"
+title: "DL 2 - Improving DNN: Tuning, Regularization and Optimization"
 tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png

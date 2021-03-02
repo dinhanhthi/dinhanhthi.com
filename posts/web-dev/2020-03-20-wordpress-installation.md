@@ -11,6 +11,8 @@ keywords: "LAMP create website wordpress wp apache2 mysql php phpmyadmin run loc
 
 I create [Math2ITwp](https://github.com/dinhanhthi/math2itwp) theme for [math2it.com](https://math2it.com) from scratch. This note contains the basic things to create a theme like that.
 
+:point_right: Note: All notes: [Wordpress](/tags/wordpress/).
+
 ## Install Apache + MySQL + PHP.
 
 ### Linux
