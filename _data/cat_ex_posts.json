@@ -2,7 +2,7 @@
 	{
 		"title": "ML by Andrew",
 		"url": "https://rawnote.dinhanhthi.com/tags#ml-coursera",
-		"tags": ["MOOC"],
+		"tags": ["MOOC", "Machine Learning"],
 		"keywords": "coursera online course machine learning deep learning basic"
 	},
 	{
@@ -92,5 +92,23 @@
 		"notfull": true,
 		"keywords": "angular typescript ts javascript type superset microsoft 101 fundamental",
 		"private": true
+	},
+	{
+		"title": "Reading - Hands-On ML with Scikit-learn, Keras & TF",
+		"url": "https://www.notion.so/dinhanhthi/Reading-Hands-On-ML-with-Scikit-learn-Keras-TensorFlow-d6992a026bed4423adae2d1c9ae2733b",
+		"notfull": true,
+		"hide": false,
+		"private": true,
+		"tags": ["Machine Learning", "TensorFlow", "Notes from books"],
+		"keywords": "ML fundamental reading book scikit-learn keras tensorflow"
+	},
+	{
+		"title": "Reading - Deep Learning with Python",
+		"url": "https://www.notion.so/dinhanhthi/Deep-Learning-with-Python-bd9efddc516344f0b5acdaf25c131fd9",
+		"notfull": true,
+		"hide": false,
+		"private": true,
+		"tags": ["Deep Learning", "Notes from books"],
+		"keywords": "deep learning python book reading"
 	}
 ]
