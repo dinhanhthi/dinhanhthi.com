@@ -64,6 +64,10 @@
 		display: none;
 	}
 
+	.appendix-toc{
+		padding: 0 5px;
+	}
+
 	@media (max-width: $grid-lg - 1px){
 		.main-cats{
 			flex: 1 1 100%;

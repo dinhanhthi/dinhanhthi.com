@@ -663,6 +663,9 @@ body {
 .page-index .appendix-bottom {
   display: none; }
 
+.page-index .appendix-toc {
+  padding: 0 5px; }
+
 @media (max-width: 991px) {
   .page-index .main-cats {
     flex: 1 1 100%;
