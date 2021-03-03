@@ -72,7 +72,7 @@ This is not the first things to do!
 {% hsbox "Others" %}
 - **Lock screen**: [[⌃]] + [[⌘]] + [[Q]]
 - Hide window app on dock: [[⌥]] + click or [[⌘]] + [[H]]
-- Emoji: [[⌘]] + [[⌃]] + [[␣]]
+- Emoji: [[⌘]] + [[⌃]] + [[⎵]]
 - Normal delete key: [[⌃]] + [[D]].
 {% endhsbox %}
 
@@ -427,7 +427,7 @@ HTML Entity     GLYPH  NAME
 &#8677;         ⇥      Tab, Tab Right, Horizontal Tab
 &#8676;         ⇤      Shift Tab, Tab Left, Back-tab
 &#9250;         ␢      Space, Blank
-&#9251;         ␣      Space, Blank
+&#9251;         ⎵      Space, Blank
 ```
 :::
 
