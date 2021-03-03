@@ -164,7 +164,7 @@ module.exports = function (eleventyConfig) {
 				"title": page.title,
 				"keywords": page.keywords,
 				"tags": page.tags,
-				"cat": catIcon[page.cat].svg,
+				"cat": page.cat ? catIcon[page.cat].svg : '/img/header/tag_.svg',
 				"target": page.target
 				//"content": page.templateContent,
 			});

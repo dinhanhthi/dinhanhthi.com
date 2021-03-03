@@ -657,14 +657,15 @@ body {
 
 .page-index .appendix {
   font-style: italic;
-  font-size: 0.95rem;
   opacity: 0.6; }
 
 .page-index .appendix-bottom {
-  display: none; }
+  display: none;
+  font-size: 0.95rem; }
 
 .page-index .appendix-toc {
-  padding: 0 5px; }
+  padding: 0 5px;
+  font-size: 0.9rem; }
 
 @media (max-width: 991px) {
   .page-index .main-cats {

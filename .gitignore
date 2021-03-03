@@ -10,3 +10,4 @@ js/min.js.map
 .jekyll-cache
 .jekyll-metadata
 Gemfile.lock
+.idea

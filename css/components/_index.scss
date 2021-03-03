@@ -56,16 +56,17 @@
 
 	.appendix{
 		font-style: italic;
-		font-size: 0.95rem;
 		opacity: 0.6;
 	}
 
 	.appendix-bottom{
 		display: none;
+		font-size: 0.95rem;
 	}
 
 	.appendix-toc{
 		padding: 0 5px;
+		font-size: 0.9rem;
 	}
 
 	@media (max-width: $grid-lg - 1px){

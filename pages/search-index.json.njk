@@ -18,4 +18,12 @@ permalink: pages/search-index.json
 	{% endif %}
 {% endfor %}
 
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+	{% set tagUrl %}{{ tagUrl | url }}{% endset %}
+	{% set tagTitle %}Topic — {{ tag }}{% endset %}
+	{% set newPostListSearch = (
+			newPostListSearch.push({url: tagUrl, title: tagTitle, keywords: '', tags: "", cat: "", target: ""}), newPostListSearch) %}
+{% endfor %}
+
 {{ newPostListSearch | search | dump | safe | striptags(true) | escape }}
