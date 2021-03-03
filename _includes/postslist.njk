@@ -30,7 +30,7 @@
 	{% endif %}
 
   {% for post in newPostList|sort(attribute='title') %}
-      <li>
+      <li{% if post.notfull %} class="post-not-full"{% endif %}>
 				{% if customIcon %}
 					{% if not post.external %}
 						<img class="keep-original" src="/img/cats/doc-in_.png">
