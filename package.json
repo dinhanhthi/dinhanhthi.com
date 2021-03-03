@@ -23,7 +23,8 @@
   },
   "homepage": "https://dinhanhthi.com",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy": "^0.11.1",
+		"pug": ">=3.0.1",
     "@11ty/eleventy-plugin-rss": "^1.0.7",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
