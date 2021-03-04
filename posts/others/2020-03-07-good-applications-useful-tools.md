@@ -107,17 +107,19 @@ This note will always be updated.
 
 ## Education
 
-- **Foreign language learning**:
-   - [DeepL](https://deepl.com/) — "better than google translate" app for Windows. You can use <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd> to quickly translate a word or phrase.
-   - [GoldenDict](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Windows?fbclid=IwAR3RVcLdpkpL2B3f1-EAiCzRqjInpy21BltlHs9SwryGuEcQ_VQPB6lftTA) — global dictionary (multi-platform). Its [dictionaries](https://drive.google.com/open?id=1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv).
-   - [Lingoes](http://www.lingoes.net/) — Global dictionary for Windows. Its [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
-   - [QTranslate](https://quest-app.appspot.com/) — quickly translate any word / phrase and also their pronunciation by using hotkeys (for example, you can use <kbd>Ctrl</kbd> + <kbd>E</kbd> to hear the pronunciation and <kbd>Ctrl</kbd> + <kbd>Q</kbd> to see the translation). The data is obtained from various sources including deepl and google translate.
-   - [LyricsTraining](https://lyricstraining.com/) — a new way to learn English and other languages through music and the lyrics of your favourite songs.
-   - [PhimLearning](http://phimlearning.com/) — watch movie and learning foreign language with bilanguage-subtitles.
-   - **Grammar & Spell check online**: [Scriben](https://www.scribens.com/), [Grammarly](https://www.grammarly.com/), [1checker](http://www.1checker.com/).
-- [Raindrop](raindrop.io) — bookmark to read later the articles (like [Pocket](https://app.getpocket.com/))
 - [arXiv Vanity](https://www.arxiv-vanity.com/) — renders academic papers from arXiv as responsive web pages so you don’t have to squint at a PDF.
-- [b-ok](https://b-ok.cc/) — download books (may be illigal).
+- [Connected Papers](https://www.connectedpapers.com/) -- Find and explore academic papers with graph.
+- [Raindrop](raindrop.io) — bookmark to read later the articles (like [Pocket](https://app.getpocket.com/))
+
+### Foreign language learning
+
+ - [DeepL](https://deepl.com/) — "better than google translate" app for Windows. You can use <kbd>Ctrl</kbd> + <kbd>C</kbd> + <kbd>C</kbd> to quickly translate a word or phrase.
+ - [GoldenDict](https://github.com/goldendict/goldendict/wiki/Early-Access-Builds-for-Windows?fbclid=IwAR3RVcLdpkpL2B3f1-EAiCzRqjInpy21BltlHs9SwryGuEcQ_VQPB6lftTA) — global dictionary (multi-platform). Its [dictionaries](https://drive.google.com/open?id=1jna8_grA-wyhPrq8BiB7ypadvW3tTlIv).
+ - [Lingoes](http://www.lingoes.net/) — Global dictionary for Windows. Its [dictionaries](https://drive.google.com/open?id=1LlCtGewKiLMil-7aQFEy_tu4ir1eC_6l).
+ - [QTranslate](https://quest-app.appspot.com/) — quickly translate any word / phrase and also their pronunciation by using hotkeys (for example, you can use <kbd>Ctrl</kbd> + <kbd>E</kbd> to hear the pronunciation and <kbd>Ctrl</kbd> + <kbd>Q</kbd> to see the translation). The data is obtained from various sources including deepl and google translate.
+ - [LyricsTraining](https://lyricstraining.com/) — a new way to learn English and other languages through music and the lyrics of your favourite songs.
+ - [PhimLearning](http://phimlearning.com/) — watch movie and learning foreign language with bilanguage-subtitles.
+ - **Grammar & Spell check online**: [Scriben](https://www.scribens.com/), [Grammarly](https://www.grammarly.com/), [1checker](http://www.1checker.com/).
 
 ### Math tools
 

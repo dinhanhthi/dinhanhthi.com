@@ -255,7 +255,11 @@ Open jupyter notebook in local browser but the backend-server is on remote.
   # there is nothing but it's running
   ~~~
 
-  Open browser: `http://localhost:9888/?token=717d9d276f0537a9...831793df6319ad389accd`.
+  Open browser:
+
+  ``` bash
+  http://localhost:9888/?token=717d9d276f0537a9...831793df6319ad389accd
+  ```
 
 You can choose any port number you wanna instead of `9888` and `9889` (they can be the same), note that, you need to use a port number GREATER THAN `8000`!
 

@@ -76,7 +76,7 @@
 		"title": "Angular 1 - Basics & Components & Databinding & Directives",
 		"url": "https://www.notion.so/dinhanhthi/Angular-Complete-Course-acd0d1c5388f4bf08065b85b28e73415",
 		"tags": ["MOOC", "JavaScript", "Angular"],
-		"keywords": "mooc course fundamental installation 101 typescript ts strict mode bootstrap dropdown CLI how it works selector constructor data binding databinding property binding event binding model convention template style ng-template string interpolation core two-way 2-way two way ngModel form listener shared folder debugging sourcemap View Encapsulation Local References ViewChild DOM ng-content Component lifecycle onChanges onInit doCheck AfterView AfterContent Structure Directive ngIf ngFor ngSwitch attribute renderer custom unless "
+		"keywords": "dynamic components mooc course fundamental installation 101 typescript ts strict mode bootstrap dropdown CLI how it works selector constructor data binding databinding property binding event binding model convention template style ng-template string interpolation core two-way 2-way two way ngModel form listener shared folder debugging sourcemap View Encapsulation Local References ViewChild DOM ng-content Component lifecycle onChanges onInit doCheck AfterView AfterContent Structure Directive ngIf ngFor ngSwitch attribute renderer custom unless "
 	},
 	{
 		"title": "Angular 2 - Services & DI & Routing",
