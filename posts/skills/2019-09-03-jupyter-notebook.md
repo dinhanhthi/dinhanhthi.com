@@ -261,7 +261,7 @@ You can choose any port number you wanna instead of `9888` and `9889` (they can 
 
 ## Install new python package inside Jupyter Notebook
 
-Using `conda`<sup>[[ref]](https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/)</sup>,
+Using `conda`{% ref "https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/" %},
 
 ~~~ python
 # Install a conda package in the current Jupyter kernel
