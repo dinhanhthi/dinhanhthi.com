@@ -292,7 +292,7 @@ const addSelected2 = (ulRes, li) => {
 			if (results != "") { // if there is result
 				noResEl.style.display = "none";
 				results.map((r) => {
-					var { id, title, keywords, cat, target } = r.doc; // use keywords instead
+					var { id, title, keywords, tags, cat, target } = r.doc; // use keywords instead
 
 					// use content??? (modify .eleventy.js also!)
 					// var { id, title, keywords, cat, content } = r.doc;
@@ -336,7 +336,7 @@ const addSelected2 = (ulRes, li) => {
 								return ' <mark>' + x + '</mark>';
 							});
 						}
-						if (keywords.indexOf("<mark>") > 10){
+						if (keywords.indexOf("<mark>") > 10 && tags != ''){
 							keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
 						}
 						// too long keywords or content
