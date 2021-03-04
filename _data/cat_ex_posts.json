@@ -73,19 +73,6 @@
 		"private": true
 	},
 	{
-		"title": "Angular 1 - Basics & Components & Databinding & Directives",
-		"url": "https://www.notion.so/dinhanhthi/Angular-Complete-Course-acd0d1c5388f4bf08065b85b28e73415",
-		"tags": ["MOOC", "JavaScript", "Angular"],
-		"keywords": "dynamic components mooc course fundamental installation 101 typescript ts strict mode bootstrap dropdown CLI how it works selector constructor data binding databinding property binding event binding model convention template style ng-template string interpolation core two-way 2-way two way ngModel form listener shared folder debugging sourcemap View Encapsulation Local References ViewChild DOM ng-content Component lifecycle onChanges onInit doCheck AfterView AfterContent Structure Directive ngIf ngFor ngSwitch attribute renderer custom unless "
-	},
-	{
-		"title": "Angular 2 - Services & DI & Routing",
-		"url": "https://www.notion.so/dinhanhthi/Angular-Complete-Course-2-Services-Dependency-Injection-Routing-33ea25f32a84436ca5f306b84b615eba",
-		"tags": ["MOOC", "JavaScript", "Angular"],
-		"notfull": false,
-		"keywords": "mooc course fundamental installation 101 typescript ts service logging user inject cross components pushing data routerlink paths active navigate navigation parameters query url redirect wildcat routes login guards authentication privacy security dynamic data static data udemy maximilian injectable"
-	},
-	{
 		"title": "TypeScript 101",
 		"url": "https://www.notion.so/dinhanhthi/TypeScript-101-0de2463def0948bb9dc7485d81b6082c",
 		"tags": ["JavaScript"],
@@ -110,19 +97,5 @@
 		"private": true,
 		"tags": ["Deep Learning", "Notes from books"],
 		"keywords": "deep learning python book reading"
-	},
-	{
-		"title": "Angular 3 - Observable",
-		"url": "https://www.notion.so/dinhanhthi/Angular-3-Observable-bf6adc9a36914954a4d3d0bfbf59fb52",
-		"tags": ["MOOC", "JavaScript", "Angular"],
-		"notfull": false,
-		"keywords": "observable subject eventemitter subscribe rxjs error complete stream subscribe subscription create operations learnrxjs udemy maximilian observer hooks unsubscribe @Output"
-	},
-	{
-		"title": "Angular 4 - Forms",
-		"url": "https://www.notion.so/dinhanhthi/Angular-4-Forms-8ba68599d6564b3dafcf0e9c83ed552e",
-		"tags": ["MOOC", "JavaScript", "Angular"],
-		"notfull": true,
-		"keywords": "mooc course fundamental installation 101 typescript ts service logging user udemy maximilian"
 	}
 ]
