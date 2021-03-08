@@ -46,13 +46,13 @@ export class ... {
 this.ingredients.push(...ingredients);
 ```
 
-```jsx
-// if we just bind a string
+```html
+<!-- if we just bind a string -->
 <div abcXyz="abc">
 <div [abcXyz]="'abc'">
 <div [abcXyz]="['abc']">
 
-// if we bind objects
+<!-- if we bind objects -->
 <div abcXyz="{}">
 ```
 
@@ -96,8 +96,7 @@ export class ... {
 
 ![Angular_2_-_Services_&_Dependency_Injection_&_Rout_fb1390f6e4ee48849ae39feb665bdf1b/Untitled.png]({{ img-url }}/angular-2/Untitled.png)
 
-- Why we need services?
-    - If we don't use, just use what we have (binding, emit,...) → more components and they need to communicate to each other → too complicated!
+Why we need services? If we don't use, just use what we have (binding, emit,...) → more components and they need to communicate to each other → too complicated!
 
 ### DI & Logging service
 
@@ -169,7 +168,7 @@ Inject a service to father → all its child component get the same instance of 
     }
     ```
 
-⇒ **GOOD PRACTICE**: ALWAYS ADD `@Injectable()` for all services!
+**GOOD PRACTICE**: ALWAYS ADD `@Injectable()` for all services!
 
 ### Services with cross-components
 
@@ -209,7 +208,6 @@ export class NewAccountComponent {
 ```
 
 👉 Example: [exchange active / inactive users](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/10-services-assignment-solution/src/app).
-
 👉 [Project with recipes and shopping-list](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/11-prj-services-final/src/app/recipes). (change from using EventEmitter to service) — [videos](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656236#overview)
 
 ### Service - pushing data from A-B
@@ -229,7 +227,9 @@ export class ... {
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 }
+```
 
+``` jsx
 // shopping-list.component.ts
 export class ... implements OnInit {
 	ingredients: Ingredient[];
@@ -288,20 +288,20 @@ const appRoutes: Routes = [
 
 Add some links to app ([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656284#overview))
 
-```jsx
-// if we add links to a normal <a> => it will reload the app!
-// => USE A SPECIAL DIRECTIVE "rounterLink"
-// app.component.html
+``` html
+<!-- if we add links to a normal <a> => it will reload the app! -->
+<!-- => USE A SPECIAL DIRECTIVE "rounterLink" -->
+<!-- app.component.html -->
 <a routerLink="/">
 <a routerLink="/servers">
 <a [routerLink]="['/users']">
-							// ^ we can use "'/users'" <- has to have '' because without it,
-							// |   angular will look for a property "/users" instead of a string
-							// ^ we use [] to add more complicated path here
-							//     for example, ['/users', 'something'] <- /users/something
+			<!-- ^ we can use "'/users'" <- has to have '' because without it, -->
+			<!-- |   angular will look for a property "/users" instead of a string -->
+			<!-- ^ we use [] to add more complicated path here -->
+			<!--   for example, ['/users', 'something'] <- /users/something -->
 
-// routerLink capture the click event + prevent the default behavior (which reloads
-// entire our app)
+<!-- routerLink capture the click event + prevent the default behavior (which reloads -->
+<!-- entire our app) -->
 ```
 
 ### Understand paths
@@ -331,13 +331,13 @@ We use `<a class="active">` for current tab. ← how to use angular to add/remov
 // we add "routerLinkAcitve" inside <a> if we want
 ```
 
-** ([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656288#overview)) `routerLinkActive` will check if the current path contains the path given in `routerLink` ← the empty path, ie. `"/"` is in all paths!!! → this may lead to a problem in which "Home" tab is always "active" ⇒ we need `routerLinkActiveOptions`
+([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656288#overview)) `routerLinkActive` will check if the current path contains the path given in `routerLink` ← the empty path, ie. `"/"` is in all paths!!! → this may lead to a problem in which "Home" tab is always "active" ⇒ we need `routerLinkActiveOptions`
 
 ### Navigating programmatically
 
 Perform navigation after users click on some button, for example.
 
-👉 [Codes for this section](https://github.com/dinhanhthi/learn-angular-complete-guide/tree/master/12-routing-final/src/app)
+👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/12-routing-final/src/app)
 
 ```jsx
 // home.component.html
@@ -385,14 +385,14 @@ export class ... {
 
 ### Add params to Route
 
-([Video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656296#overview)) For example we wanna navigate to users, each user a path → change with ids. ← `id` will be the param of the Route.
+(Videos: [Passing params to Routes](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656296#overview) + [Fetching Route params](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656298#overview) + [fetch reactively](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656302#overview)) For example we wanna navigate to users, each user a path → change with ids. ← `id` will be the param of the Route.
 
-👉 [Codes for this section](https://github.com/dinhanhthi/learn-angular-complete-guide/tree/master/12-routing-final/src/app).
+👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/12-routing-final/src/app).
 
 ```jsx
 // app-routing.module.ts
 const appRoutes: Routes = [
-	{ path: 'users/:id:name', component: UserComponent }
+	{ path: 'users/:id/:name', component: UserComponent }
 					//     ^without this, localhost/users/something will get error!
 ]
 ```
@@ -409,6 +409,7 @@ export class ... {
 	paramsSubscription: Subscription;
 
 	constructor(private route: ActivatedRoute) { }
+					//  ^ gives us access to the id passed in the URL -> selected user
 
 	ngOninit() {
 		// OPTION 1: INITIAL ONLY
@@ -453,7 +454,7 @@ export class ... {
 
 ### Query params (?...)
 
-[Video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656308#overview).
+:point_right: [Video for this section](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656308#overview).
 
 ```jsx
 // inside an a tag in html
@@ -607,19 +608,20 @@ export class AppRoutingModule { }
 
 ### Login & Guards & Authentication
 
-([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656342#overview)) Create `auth-guard.service.ts` ([file](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/12-routing-final/src/app/auth-guard.service.ts)) containing the service to control the authentication. → use `CanActivate` ← angular executes this before router loaded!
+([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656342#overview)) Create `auth-guard.service.ts` ([file](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/12-routing-final/src/app/auth-guard.service.ts)) containing the service to control the authentication. → use `CanActivate` ← ==angular executes this before router loaded!==
 
 ```jsx
 // auth-guard.service.ts
 export class AuthGuard ....{
 	canActivate(
 	  state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+
+	// Obersvable / Promise -> some tasks need auth from server/databse <- async
+	// boolean -> some tasks completely on client <- sync
 }
-// Obersvable / Promise -> some tasks need auth from server/databse <- async
-// boolean -> some tasks completely on client <- sync
 ```
 
-`auth.service.ts` → a fake service for the testing.
+Example: `auth.service.ts` → a fake service for the testing. In real app, we use this file to get the info / confirmation from the server about the authentication!
 
 Apply to routes?
 
@@ -644,9 +646,9 @@ export class AuthGuard ....{
 {path: '...', canActivateChild: [AuthGuard], component: ..., children: ...}
 ```
 
-([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656346#overview) + [file](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/12-routing-final/src/app/servers/edit-server/can-deactivate-guard.service.ts)) Control whether you are allowed to leave a route or not ← Confirm to leave the input/changes!!! solve the problem of user accidentially navigating away!!!
+([video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656346#overview) + [file](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/12-routing-final/src/app/servers/edit-server/can-deactivate-guard.service.ts)) Control whether you are allowed to leave a route or not ← ==Confirm to leave the input/changes==!!! solve the problem of user accidentially navigating away!!!
 
-→ **Idea**: angular router can execute `canDeactivate()` in a service (`can-deactivate-guard.service.ts`) > component we are currently on has `canDeactivate()` ← how guard communicates with our components.
+**Idea**: angular router can execute `canDeactivate()` in a service (`can-deactivate-guard.service.ts`) > component we are currently on has `canDeactivate()` ← how guard communicates with our components.
 
 ```jsx
 // can-deactivate-guard.service.ts

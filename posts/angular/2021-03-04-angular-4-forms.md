@@ -25,7 +25,7 @@ This note contains only the important things which can be look back later, it ca
 ## **TIPS**
 
 👉  [Assignment example of using Forms in Angular](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/12982454#questions)  (video)+ [codes](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/3-forms-reactive-assignment-solution/src/app).
-👉  Project using Form : [codes](https://github.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/4-prj-forms-final/src/app).
+👉  Project using Form : [codes](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/4-prj-forms-final/src/app).
 
 ## Why Forms in Angular?
 
@@ -68,14 +68,14 @@ export ...
 
 Angular doesn't recognize auto elements of `<form>` (label, input,...) because there may be some inputs which aren't served when submitting a form (their functions are different from a function of a form but they're inside `<form>`) → need to tell angular which ones to be extra controlled?
 
-```jsx
-// app.component.ts
+```html
+<!-- app.component.ts -->
 <form>
-	<input type="text">         // normal input (without "ngModel")
-	<input                      // tell angular to control this input
+	<input type="text">        <!-- normal input (without "ngModel") -->
+	<input                     <!-- tell angular to control this input -->
 		type="text"
-		ngModel   // looks like 2-way binding, ie. [(ngModel)]
-		name="username">  // must have <- registered in JS representation of the form
+		ngModel   <!-- looks like 2-way binding, ie. [(ngModel)] -->
+		name="username">  <!-- must have <- registered in JS representation of the form -->
 </form>
 ```
 
@@ -162,7 +162,7 @@ export class ... {
 		ngModel
 		name="username"
 		required>
-//  ^default HTML attribute <- angular see it as a built-in directive
+<!--    ^default HTML attribute <- angular see it as a built-in directive -->
 
 	<input
 		type="email"
@@ -170,7 +170,7 @@ export class ... {
 		required
 		email  // angular's directive, not html attribute -> make sure it's a valid email
 		#email="ngModel">
-				//  ^ expose some additional info abt the controls
+		   <!-- ^ expose some additional info abt the controls -->
 
 	<span *ngIf="!email.valid && email.touched">Please enter valid email!</span>
 
@@ -189,8 +189,10 @@ When it's invalid (after clicking on submit) or valid → angular auto add class
 
 Enable HTML5 validation (by default, Angular disables it)  → `ngNativeValidate`
 
+::: col-2-equal
 ```scss
-// if user touched in input and leave it but it's invalid
+// if user touched in input and leave
+//   it but it's invalid
 input.ng-invalid.ng-touched{
 	...
 }
@@ -205,6 +207,7 @@ input.ng-invalid.ng-touched{
 	pattern="^[1-9]+[0-9]*$"
 >
 ```
+:::
 
 ### Set default values
 
@@ -243,9 +246,9 @@ Before, the check only performed after clicking "Submit" → If you wanna check 
 
 ### Binding with `NgModel`
 
-- 0-way binding, `NgModel` → tell angular that this input is a control
-- 1-way binding, `[NgModel]` → get this control a default value
-- 2-way binding, `[(NgModel)]` → Instantly out / do whatever you want with that value
+- **0-way binding**, `NgModel` → tell angular that this input is a control
+- **1-way binding**, `[NgModel]` → get this control a default value
+- **2-way binding**, `[(NgModel)]` → Instantly out / do whatever you want with that value
 
 ### Grouping Form Controls
 
@@ -266,7 +269,7 @@ After submit: instead of getting `form.value.email`, but getting `form.value.use
 
 👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/1-forms-template-driven-final/src/app).
 
-```html
+``` html
 <div class="radio" *ngFor="let gender of genders">
   <label>
     <input
@@ -279,7 +282,7 @@ After submit: instead of getting `form.value.email`, but getting `form.value.use
   </label>
 </div>
 
-// .component.ts
+<!-- .component.ts -->
 genders = ['male', 'female'];
 ```
 
@@ -447,7 +450,7 @@ this.signupForm = new FormGroup({
 
 Let the user dynamically add their form controls (we don't know yet there are how many controls there) → using an array of form.
 
-Get access to FormArray
+Get access to `FormArray`,
 
 ```jsx
 // .component.ts

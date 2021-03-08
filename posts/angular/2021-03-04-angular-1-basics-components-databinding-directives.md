@@ -13,8 +13,8 @@ This is my note for the course "Angular - The Complete Guide (2021 Edition)" whi
 
 🍄 **PART 1** — [Angular  1 - Basics & Components & Databinding & Directives](/angular-1-basics-components-databinding-directives/)
 🍄 **PART 2** — [Angular 2 - Services & Dependency Injection & Routing](/angular-2-service-dependency-injection-routing/)
-🍄 **PART 3** — [Angular 3 - Observable](https://www.notion.so/Angular-3-Observable-bf6adc9a36914954a4d3d0bfbf59fb52)
-🍄 **PART 4** —  [Angular 4 - Forms](https://www.notion.so/Angular-4-Forms-8ba68599d6564b3dafcf0e9c83ed552e)
+🍄 **PART 3** — [Angular 3 - Observable](/angular-3-observable/)
+🍄 **PART 4** —  [Angular 4 - Forms](/angular-4-forms/)
 👉 [Github repo](https://github.com/dinhanhthi/learn-angular-complete-guide)
 👉 **Other note** (taken before this course): [Angular 101](https://www.notion.so/Angular-101-fcbd5683f8e941f89c709595792b62d2)
 
@@ -49,13 +49,19 @@ https://github.com/nvm-sh/nvm
 
 // Check the corresponding versions between nodejs - npm
 https://nodejs.org/en/download/releases/
+```
 
+::: col-2-equal
+``` jsx
 // install a specific version
 nvm install 14
 // check installed versions
 nvm ls
 // use
 nvm use 14 // node version
+```
+
+``` jsx
 // check version
 npm -v
 // if npm version is greater than usual? -> downgrade it
@@ -63,6 +69,7 @@ npm install -g npm@6 // eg. for node 14
 // check where npm installed
 which npm // should return /Users/thi/.nvm/versions/node/v14.15.5/bin/npm
 ```
+:::
 
 ## CLI
 
@@ -309,7 +316,7 @@ Containing elements can be used across different features in the project!
 - Read and understand the error messgaes.
 - **Sourcemaps ⇒** Open debugger tool in browser (Chrome) > `main.bundle.js` > click some checkpoint > jump/open a new file containing the line of code (eg. `app.component.ts`) ⇒ however, if bundle gets bigger → hard to find
 - Go to **webpack//** > ./ > src > all your files with the same structure on your project!!!
-- Using **[Angular** **Augury](https://augury.rangle.io/)** (browser extension) > Add another tab in Browser Inspect tool.
+- Using **[Angular Augury](https://augury.rangle.io/)** (browser extension) > Add another tab in Browser Inspect tool.
     - Don't forget to click on "refresh" button on the top-right bar!
 
 ## Components & Databinding deep dive
@@ -363,7 +370,9 @@ Something changes in the child, we wanna inform parent to know about them.
 // parent .html
 <app-cockpit
 	(serverCreated)="onServerAdded($event)"></app-cockpit>
+```
 
+```tsx
 // parent .component
 export class ... {
 	serverElements = [...];
@@ -372,9 +381,9 @@ export class ... {
 		...
 	}
 }
+```
 
-// -----------------
-
+```tsx
 // child component -> need to EMIT our event
 export class ... {
 	@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>;
@@ -499,21 +508,26 @@ this.serverContentInput.nativeElement.value = 'something';
 <app-server>Text</app-server>
 ```
 
-```jsx
-// USING MULTIPLE ng-content?
+USING MULTIPLE `ng-content`?
 
+::: col-2-equal
+
+```jsx
 // parent html
 <app-child>
 	<div header>Text for header</div>
 	<div body>Text for body</div>
 </app-child>
+```
 
+``` jsx
 // child html
 <ng-content select="[header]"></ng-content>
 <ng-content select="[body]"></ng-content>
 
 // => Think of using ng-container
 ```
+:::
 
 ### Component lifecycle
 
@@ -603,15 +617,21 @@ onDestroyFirst() {
 
 If you wanna access "local reference" in a content → use `@ContentChild()` (It's not part of the view, it's a part of the content)
 
+::: col-2-equal
 ```jsx
 // parent html
 <app-server-element
 	<p #contentParagraph>Text</p>
 ></app-server-element>
+```
 
+``` jsx
 // child html
 <ng-content></ng-content>
+```
+:::
 
+``` jsx
 // child component.ts
 export class ...{
 	@ContentChild('contentParagraph') paragraph: ElementRef;
@@ -620,8 +640,6 @@ export class ...{
 // In case you wanna call "contentParagraph" in parent component.ts
 // => use @ViewChild() in parent component.ts as usual!
 ```
-
-
 
 ## Directives
 
@@ -634,8 +652,8 @@ export class ...{
 
 ### Structural directives
 
-```html
-// else
+``` html
+<!-- else -->
 <p *ngIf="serverCreated; else noServer">Text</p>
 <ng-template #noServer>
 	<p>Other text</p>
@@ -655,14 +673,18 @@ We cannot have more than 2 structurual directives on the same element!
 <li *ngFor="..." *ngIf="..."></li>
 ```
 
+::: col-2-equal
 ```tsx
 // *ngFor
 <div *ngFor="let logItem of log">{{ logItem }}</div>
 // log has type array, is in .component.ts
+```
 
+``` jsx
 //index of for
 <div *ngFor="let i = index">{{ i }}</div>
 ```
+:::
 
 Behind the scene of `*`? ← let angular know it's a structural directive → it will transform them into something else (different from *property binding, event binding, 2-way binding, string interpolation*) ← without *, it cannot separate!
 
@@ -694,7 +716,7 @@ Unlike structural directives, we can use ngStyle and ngClass in the same element
 
 ### Custom attribute directive
 
-Using [Renderer2](https://angular.io/api/core/Renderer2)
+:point_right: Using [Renderer2](https://angular.io/api/core/Renderer2)
 
 In this section, we learn a way to access/modify DOM element inside a directive (or component, class,...)
 
@@ -723,7 +745,9 @@ export class HighlightDirective implement OnInit {
 		...
 	}
 }
+```
 
+``` jsx
 // then add it in .module.ts
 @NgModule({
 	declarations: [appHighlight]
@@ -731,8 +755,9 @@ export class HighlightDirective implement OnInit {
 export class .... {}
 ```
 
+Don't wanna use Renderer2?
+
 ```jsx
-// Don't wanna use Renderer2?
 @Directive({
 	selector: '[appHighlight]'
 })
@@ -799,34 +824,42 @@ export class UnlessDirective {
 // don't forget to add it to declaration in module.ts
 ```
 
-Use `*appUnless`
+Use `*appUnless`,
 
+::: col-2-equal
 ```jsx
 // if using *ngIf
 <div *ngIf="!onlyOdd"></div>
+```
 
+``` jsx
 // if using *appUnless
 <div *appUnless="onlyOdd"></div>
 ```
+:::
 
 ### `*ngSwitch`
 
+::: col-2-equal
 ```jsx
 <div [ngSwitch]="value">
 	<div *ngSwitchCase="5"></div>
 	<div *ngSwitchCase="10"></div>
 	<div *ngSwitchDefault></div>
 </div>
+```
 
+``` jsx
 // in component.ts
 export class ... {
 	value = 10;
 }
 ```
+:::
 
 ### Project: Dropdown
 
-👉 Check [this](https://github.com/dinhanhthi/learn-angular-complete-guide/tree/master/8-prj-directives-final).
+👉 Check [this](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/8-prj-directives-final).
 
 ```jsx
 @Directive({
@@ -855,14 +888,9 @@ export class DropdownDirective {
 }
 ```
 
-[Angular 2 - Services & Dependency Injection & Routing](https://www.notion.so/Angular-2-Services-Dependency-Injection-Routing-33ea25f32a84436ca5f306b84b615eba)
-
-
 ## Dynamic Components
 
-This part is vert later than above parts. However, it talks about components, I put it here.
-
-Eg: We wanna show error, modal, ....
+This part is vert later than above parts. However, it talks about components, I put it here. For example, we wanna show error, modal, ....
 
 👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/16-dyn-cmp-finished/src/app).
 

@@ -17,6 +17,7 @@ This is my note for the course "[Angular - The Complete Guide (2021 Edition)](ht
 🍄 **PART 4** —  [Angular 4 - Forms](/angular-4-forms/)
 👉 [Github repo](https://github.com/dinhanhthi/learn-angular-complete-guide)
 👉 **Other note** (taken before this course): [Angular 101](https://www.notion.so/Angular-101-fcbd5683f8e941f89c709595792b62d2)
+👉 Other note: [RxJS](https://www.notion.so/RxJS-b4bc7e2d1f7d49b79d4cb701785e355f).
 
 ::: warning
 This note contains only the important things which can be look back later, it cannot replace either [the course](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/13914134#overview) nor [the official document](https://angular.io/start)!
@@ -26,23 +27,16 @@ This note contains only the important things which can be look back later, it ca
 
 - [Learn RxJS](https://www.learnrxjs.io/)
 
-## **TIPS**
-
 ## What's Observable?
 
-👉 Other note: [RxJS](https://www.notion.so/RxJS-b4bc7e2d1f7d49b79d4cb701785e355f)
+👉 Codes: [finish custom observables](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/14-observable/obs-03-complete-custom-observable/src/app).
+
+- An observable = a data source.
+- Observable patterns → *observable* —- stream —- *observer*
+- *Observer* (in previous codes, you subscribe something to the event from observable) → 3 type of data received (3 hooks): Handle data, Handle error, Handle completion.
+- Observables are contracts to which you subscribe to be informed about the changes in data.
 
 ![Angular_3_-_Observable_f0445b12735d4542956fd4f2eefca8e4/Untitled.png]({{ img-url }}/angular-3/Untitled.png)
-
-An observable = a data source.
-
-Observable patterns → *observable* —- stream —- *observer*
-
-*Observer* (in previous codes, you subscribe something to the event from observable) → 3 type of data received (3 hooks): Handle data, Handle error, Handle completion.
-
-Observables are contracts to which you subscribe to be informed about the changes in data.
-
-👉 Codes: [finish custom observables](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/14-observable/obs-03-complete-custom-observable/src/app).
 
 ## Create observable
 
@@ -172,6 +166,7 @@ customObsSub = customIntervalObs.subscribe(data => {
 ## Operators
 
 👉 [Operators - Learn RxJS](https://www.learnrxjs.io/learn-rxjs/operators/)
+👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/14-observable/obs-04-operators/src/app/home/home.component.ts).
 
 ```jsx
 import { map } from 'rxjs/operators';
@@ -181,13 +176,10 @@ Operators are the magic features of the RxJS library turn observables → awesom
 
 ![Angular_3_-_Observable_f0445b12735d4542956fd4f2eefca8e4/Untitled_1.png]({{ img-url }}/angular-3/Untitled_1.png)
 
-👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/blob/master/14-observable/obs-04-operators/src/app/home/home.component.ts).
-
 Example: we wanna add "Round" before the number emiited (Round 1, Round 2,....) → an old option is to add "Round" in the `.subscribe()` function. → We can do that before theh subscription using Operators! ← `.pipe()` comes in!
 
 ```jsx
 this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
-
     return data > 0;
   }), map((data: number) => {
     return 'Round: ' + (data + 1);
