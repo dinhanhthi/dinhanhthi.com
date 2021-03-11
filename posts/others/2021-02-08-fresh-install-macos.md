@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fresh MacOS installation"
-tags: [Others, Fresh Installation, MacOS]
+tags: [Others, Fresh Installation, MacOS, Collection]
 toc: true
 icon: macos.svg
 keywords: "install new macbook setting up applications command line zsh terminal nodejs python brew shortcut cask nodejs node zsh oh-my-zsh"
@@ -53,7 +53,7 @@ This is not the first things to do!
 {% endhsbox %}
 
 
-{% hsbox "Chrome" %}
+{% hsbox "Chrome / Brave" %}
 1. Focus to the adress bar: [[⌘]] + [[L]]
 2. History: [[⌘]] + [[Y]]
 {% endhsbox %}
@@ -305,9 +305,10 @@ Using [OBS](https://obsproject.com/) (for recording app) + [BlackHole](https://g
 ## Applications
 
 1. [VSCode](https://code.visualstudio.com/download) + sign in to sync using Github account.
-2. [Google Chrome](https://www.google.com/chrome/) and sign in to sync.
+2. [Google Chrome](https://www.google.com/chrome/) and sign in to sync. **I'm using [Brave](https://brave.com/)** (chromium-based engine also)
   1. Disable Tab Hover Cards: navigate to `chrome://flags/`, search for "tab hover" and choose "Disable".
   2. Add a site to use cookies (enable third-party cookies for downloading files on Google Drive): Go to `chrome://settings/cookies` and then "Add" `drive.google.com` (tick on third-party...) in "Sites that can always use cookies" section.
+  3. Custom keyboard shortcut: System Preferences > Keyboard > Shortcuts > Application Shortcuts > "+" > Choose Chrome > Type the name EXACTLY THE SAME as the name in menu (for example "Inspect elements") > Add a custom shortcut.
 3. Password manager.
 4. [Dropbox](https://www.dropbox.com/downloading). We can "quit" the app on dock, the icon on menu still there!
 5. [iTerm2](https://iterm2.com/) (check more in other section)
@@ -363,6 +364,7 @@ Dropdown terminal with **iTerm2**.
    1. General > Window: Tick on "Smart...".
    2. Appearance > general > Tab bar location: bottom.
    3. Advanced: search "animation" > Hotkey: 0.05;
+4. Custom name of pane: Right click on the pane > _Edit Session..._ > Tab _General_ > Change the name in _Session Name_ (eg. "WORKING") (also click on the "lock" icon on the right) > _Session Title_ ONLY tick on "Session Name".
 :::
 
 <div class="list-item">
@@ -430,6 +432,38 @@ HTML Entity     GLYPH  NAME
 &#9251;         ⎵      Space, Blank
 ```
 :::
+
+## Error
+
+After updating
+
+``` bash
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+```
+
+Need to update _Xcode Command-line Tools_:
+
+``` bash
+# option 1
+xcode-select --install
+# output:
+xcode-select: note: install requested for command line developer tools
+```
+
+``` bash
+# option 2 (if option 1 doesn't work)
+# Login + download from webpage
+https://developer.apple.com/download/more/
+```
+
+### Sidecar over wifi?
+
+Using Sidecar feature to turn your ipad to an external screen. It works normally with cable (you have to "trust" from both sides each other). In the case you cannot use Sidecar via wireless,
+
+1. Turn on Hardoff on both Mac (in General) and iPad (in General).
+2. Turn on Bluetooth and Wifi (connect to the same network).
+3. Turn off file sharing and VPN.
+4. Reset network setting on your ipad (General > Reset > ...) > restat > connect again to the same network with your Mac > wait 2 minutes > try Sidecar again!
 
 ## Others
 

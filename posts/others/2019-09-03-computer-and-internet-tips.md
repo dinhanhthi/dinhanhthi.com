@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Computer & Internet tips"
-tags: [Others]
+tags: [Others, Collection]
 toc: true
 icon: tips.svg
 notfull: 1
@@ -9,8 +9,6 @@ keywords: "download flash video browser extension video url google video downloa
 ---
 
 {% assign img-url = '/img/post/others' %}
-
-## General
 
 ## Applications
 

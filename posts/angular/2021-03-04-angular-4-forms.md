@@ -66,7 +66,7 @@ import { FormsModule } from '@angular/forms';
 export ...
 ```
 
-Angular doesn't recognize auto elements of `<form>` (label, input,...) because there may be some inputs which aren't served when submitting a form (their functions are different from a function of a form but they're inside `<form>`) → need to tell angular which ones to be extra controlled?
+Angular doesn't recognize auto elements of `<form>` (label, input,...) because there may be some inputs which aren't served when submitting a form (their functions are different from a function of a form but they're inside `<form>`) → ==need to tell angular which ones to be extra controlled?==
 
 ```html
 <!-- app.component.ts -->
@@ -94,7 +94,7 @@ We can actually see what users entered.
 
 ```jsx
 // We use ngSubmit
-<form (ngSubmit)="onSubmit(f)" #f="">
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 														//   ^Hey, get me access to this form you created
 														//        automatically
 	<button type="submit">Submit</button>
@@ -357,7 +357,7 @@ export class AppComponent {
 
 Create the form programmatically (not from scratch).
 
-👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/2-forms-reactive-final/src/app).
+👉 [Codes for this section](https://github1s.com/dinhanhthi/learn-angular-complete-guide/tree/master/15-forms/2-forms-reactive-final/src/app) + [Video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656502#questions/10535928).
 
 ### Setting up
 
@@ -366,8 +366,7 @@ Create the form programmatically (not from scratch).
 - `FormGroup` → a form, in the end, it's just a group of controls.
 - We don't need `FormsModule` in `app.module.ts` (it's for template-driven form) → NEED `ReactiveFormsModule`
 - We don't need local reference anymore.
-- We configure all things in the typescript code (component.ts)
-- [Video](https://www.udemy.com/course/the-complete-guide-to-angular-2/learn/lecture/6656502#questions/10535928)
+- We configure all things in the typescript code (`component.ts`)
 
 ```jsx
 // app.module.ts
@@ -600,7 +599,9 @@ forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
 
 ### Form Status: `statusChanges`, `valueChanges`
 
-`.statusChanges` → change something in the form (eg. typing something).
+`.statusChanges` → gives the status of the form (*INVALID, VALID, PENDING,...*)
+
+`.valueChanges` → change something in the form (eg. typing something).
 
 ```jsx
 ngOnInit() {
@@ -609,8 +610,6 @@ ngOnInit() {
 	);
 }
 ```
-
-`.statusChanges` → gives the status of the form (*INVALID, VALID, PENDING,...*)
 
 ### Set values to input fields
 

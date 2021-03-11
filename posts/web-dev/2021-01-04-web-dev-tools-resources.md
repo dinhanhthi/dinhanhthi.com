@@ -16,6 +16,7 @@ keywords: "tool resources learning application framework repository gihub packag
 ## URLs
 
 - [CSS Battle](https://cssbattle.dev/) -- take challenge to create CSS objects.
+- [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 
 ## Tools for Web Dev
 

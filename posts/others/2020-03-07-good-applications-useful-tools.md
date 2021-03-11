@@ -10,9 +10,10 @@ keywords: "useful applications softwares tools download terminal cmd commander c
 👉 Site: [Collection of quick js/html tools.](https://dinhanhthi.github.io/tools/){:target="_blank"}
 👉 Note: [Web Dev tools & resources.](/web-dev-tools-resources/)
 👉 Note: [Resources for DS & ML & DL.](/data-ml-tools-resources/)
+👉 Note: [My bookmarks.](/my-bookmarks/)
 
-::: success
-This note will always be updated.
+::: info
+This note contains __apps__ and __tools__. For the notes of __bookmarks__ (interesting/useful websites), [check here](/my-bookmarks/).
 :::
 
 ## Online tools

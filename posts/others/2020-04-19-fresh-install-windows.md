@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fresh Windows 10 Installation"
-tags: [Others, Fresh Installation, Windows]
+tags: [Others, Fresh Installation, Windows, Collection]
 toc: true
 icon: windows.svg
 keywords: "windows 10 reinstall install reset application softs need to do k380 keyboard logitech"
