@@ -10,9 +10,9 @@ permalink: /about/
 <div class="container ex-normal d-flex d-flex-wrap">
 	<div class="intro">
 		{% markdown %}
-  I'm __Thi__, a Vietnamese __Data Scientist__ who has a curious mind. As an never-stop-learning worm, I am interested in researching and sharing contents about Applied Mathematics and Data Science. I have a Ph.D. degree in Applied Mathematics at [U. Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"} and a very enthusiastic self-learner in Data Science.
+  I'm __Thi__, a Vietnamese __Data Scientist__ who has a curious mind. As an never-stop-learning worm, I am interested in researching and sharing contents about Applied Mathematics, Web Dev and Data Science. I have a Ph.D. degree in Applied Mathematics at [U. Sorbonne Paris Nord](https://www.math.univ-paris13.fr){:target="_blank"} and a very enthusiastic self-learner in Data Science.
 
-  I use this website to document everything I've learned while going through the process of learning and working in this field.
+  I use this website to document everything I've learned while going through the process of learning and working in these fields.
   {% endmarkdown %}
 	</div>
 	<div class="coordinate">
@@ -94,7 +94,9 @@ permalink: /about/
 									</span>,
                   <span class="date-2">{{ item.date }}</span>
 								</div>
-								<p>{{ item.activity | safe }}</p>
+								{% for p in item.activity %}
+									<p>{{ p | safe }}</p>
+								{% endfor %}
 								{% if item.tech %}
 									<div class="tech">
 										{% for item2 in item.tech %}

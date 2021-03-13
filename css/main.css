@@ -1161,7 +1161,7 @@ footer {
         .page-about .container .exp-edu .list-of .item .title .where-2 {
           display: none; }
         .page-about .container .exp-edu .list-of .item .title p {
-          margin: 0;
+          margin: 0 0 0.5rem 0;
           color: #bbb;
           line-height: 1.5; }
         .page-about .container .exp-edu .list-of .item .title .tech {
