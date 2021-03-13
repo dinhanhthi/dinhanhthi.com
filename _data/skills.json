@@ -93,6 +93,10 @@
 				"icon": "/img/about/sass.svg"
 			},
 			{
+				"name": "TypeScript",
+				"icon": "/img/about/ts.svg"
+			},
+			{
 				"name": "Wordpress",
 				"icon": "/img/about/wordpress.svg"
 			}

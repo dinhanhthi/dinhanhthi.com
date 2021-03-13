@@ -53,6 +53,10 @@
 					{
 						"name": "TensorFlow",
 						"icon": "/img/about/tf.svg"
+					},
+					{
+						"name": "TypeScript",
+						"icon": "/img/about/ts.svg"
 					}
 				]
 			},
