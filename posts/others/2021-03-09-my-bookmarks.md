@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My bookmarks"
-tags: [Skills, Collection, Windows, Linux, Resources]
+tags: [Others, Collection, Windows, Linux, Resources]
 toc: true
 icon: bookmark.svg
 notfull: 1

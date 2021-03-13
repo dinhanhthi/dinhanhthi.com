@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Useful tools for working & studying"
-tags: [Skills, Collection, Windows, Linux, Resources]
+tags: [Others, Collection, Windows, Linux, Resources]
 toc: true
 icon: apps.svg
 keywords: "useful applications softwares tools download terminal cmd commander cmder unikey vietnamese input keyboard screen to gif recorder lock hunter delete apps soft goldendict dictionary lingoes deepl translate qtranslate hotkeys google deep learning machine collection reminder stretch RSI manager IDM XDM Repetitive Strain Injury iterm2 guake drop-down quick open commanline workrave time out screentogif everything spotlight Qtranslate tabcloud avim flash video downloader hush mate pdf printer internet image photo compression jpeg png remove background transparent luna lunapic resize images iloveimg side by movie relax drawing graphviz data science dataframe huge vaex linux app ubuntu pop os mac macos office online multi platform unix windows education chrome extension plugin math html character terms application framework js java script bookmarks drawing font Illustration tools"
