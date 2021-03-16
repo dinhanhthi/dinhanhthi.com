@@ -97,5 +97,13 @@
 		"private": true,
 		"tags": ["Deep Learning", "Notes from books"],
 		"keywords": "deep learning python book reading"
+	},
+	{
+		"title": "Firebase (with Angular)",
+		"ur": "https://www.notion.so/dinhanhthi/Firebase-with-Angular-f83a913079ee4a9bae45d9c8b4e51f4a",
+		"notfull": true,
+		"private": true,
+		"tags": ["JavaScript", "Angular", "Database"],
+		"keywords": "firebase CRUD request angular javascript ovservable"
 	}
 ]
