@@ -456,14 +456,21 @@ xcode-select: note: install requested for command line developer tools
 https://developer.apple.com/download/more/
 ```
 
-### Sidecar over wifi?
+### Sidecar
 
-Using Sidecar feature to turn your ipad to an external screen. It works normally with cable (you have to "trust" from both sides each other). In the case you cannot use Sidecar via wireless,
+Using Sidecar feature to turn your ipad to an external screen. It ==works normally with cable== (you have to "trust" from both sides each other). In the case you **cannot use Sidecar via wireless**,
 
 1. Turn on Hardoff on both Mac (in General) and iPad (in General).
 2. Turn on Bluetooth and Wifi (connect to the same network).
 3. Turn off file sharing and VPN.
 4. Reset network setting on your ipad (General > Reset > ...) > restat > connect again to the same network with your Mac > wait 2 minutes > try Sidecar again!
+
+__Best practice__: Using sidecar via a usb cable! If using wifi, we have latency with mouse cursor!
+
+For ones who using mac's usb-c port. A direct hub (with an lightning output to charge ipad) may not work (not sufficient power to charge ipad). However, usign another usb-dock and connect to the hub is working fine. Other words,
+
+- _Not working_: mac - hub - ipad.
+- _Working_: mac - hub - usb doc - ipad
 
 ## Others
 

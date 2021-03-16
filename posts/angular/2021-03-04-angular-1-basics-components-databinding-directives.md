@@ -643,7 +643,7 @@ export class ...{
 
 ## Directives
 
-- Directives = instructionms in the DOM
+- Directives = instructions in the DOM
 - You could/should create a separated folder containing all your custom directives.
 
 ### Attribute vs Structural
