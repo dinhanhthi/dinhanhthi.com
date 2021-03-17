@@ -477,3 +477,10 @@ For ones who using mac's usb-c port. A direct hub (with an lightning output to c
 ::: list-item
 Log into email accounts on Mail app.
 :::
+
+### External screens
+
+I use 2 external screens. However, chip Apple M1 doesn't support more than 1 external one. That's why we need an adapter (having DisplayLink technology) + to install DisplayLink driver for Mac.
+
+- I use [this adapter](https://www.wavlink.com/en_us/product/WL-UG39DK1_White.html) (Wavlink's USB 3.0 Laptop Docking Station -- WL-UG39DK1) because it's the cheapest one I can find in France.
+- [DisplayLink driver](https://www.displaylink.com/downloads/macos). Not that, with current version (1.3), [it doesn't support rotating screen](https://support.displaylink.com/knowledgebase/articles/1963276).
