@@ -2092,7 +2092,7 @@ div.toc {
       position: -webkit-sticky;
       position: sticky;
       top: 60px;
-      max-height: 70vh;
+      max-height: calc(100vh - 80px);
       overflow: auto; }
       div.toc ol {
         margin-top: 0;
