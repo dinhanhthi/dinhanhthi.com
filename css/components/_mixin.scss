@@ -1,15 +1,15 @@
 @mixin column-count($ncol) {
-	column-count: $ncol;
-	-webkit-column-count: $ncol;
-	-moz-column-count: $ncol;
-	-moz-column-count: $ncol;
+  column-count: $ncol;
+  -webkit-column-count: $ncol;
+  -moz-column-count: $ncol;
+  -moz-column-count: $ncol;
 }
 
 @mixin box-bg($bgColor, $bdColor) {
-	border: 1px solid $bdColor;
-	border-radius: 7px;
-	height: fit-content;
-	background: $bgColor;
+  border: 1px solid $bdColor;
+  border-radius: 7px;
+  height: fit-content;
+  background: $bgColor;
 }
 
 @mixin code-inline() {
@@ -19,6 +19,6 @@
   margin: 0 1px;
   border-radius: 3px;
   font-size: 0.9rem;
-	color: #fff;
-	word-break: break-word;
+  color: #fff;
+  word-break: break-word;
 }

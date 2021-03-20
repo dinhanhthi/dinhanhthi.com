@@ -67,6 +67,7 @@
     "markdown-it": "^11.0.1",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-emoji": "^2.0.0",
+    "markdown-it-heading-wrapper": "github:mozilla/markdown-it-heading-wrapper",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-table-of-contents": "^0.5.0",
     "phin": "^3.5.0",

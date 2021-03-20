@@ -42,8 +42,8 @@ header {
   }
 
   .social {
-		margin-top: 0.5rem;
-		margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
     a {
       margin-right: 10px;
       &:last-child {
@@ -57,22 +57,22 @@ header {
       img {
         border-radius: 50%;
       }
-		}
+    }
   }
 
-  #more-info{
+  #more-info {
     padding: 1rem;
-    #note-tag{
+    #note-tag {
       padding-bottom: 10px;
       border-bottom: 1px solid #444;
-      & > a{
+      & > a {
         margin-right: 10px;
-        &::before{
+        &::before {
           content: "#";
         }
       }
     }
-    #last-modified{
+    #last-modified {
       padding-top: 10px;
       font-style: italic;
     }
@@ -115,15 +115,15 @@ header {
 }
 
 p.contact {
-	width: 100%;
-	text-align: center;
-	margin-bottom: 4rem;
-	a {
-		margin-right: 10px;
-		margin-bottom: 10px;
-		&:last-child {
-			margin-right: 0;
-		}
-	}
+  width: 100%;
+  text-align: center;
+  margin-bottom: 4rem;
+  a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 /*! purgecss end ignore */

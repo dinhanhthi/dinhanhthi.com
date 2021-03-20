@@ -1,37 +1,37 @@
 [
-	{
-		"name": "Github",
-		"icon": "/img/social/github.svg",
-		"url": "https://github.com/dinhanhthi"
-	},
-	{
-		"name": "LinkedIn",
-		"icon": "/img/social/linkedin.svg",
-		"url": "https://www.linkedin.com/in/dinhanhthi/"
-	},
-	{
-		"name": "Twitter",
-		"icon": "/img/social/twitter.svg",
-		"url": "https://twitter.com/dinhanhthi"
-	},
-	{
-		"name": "Goodreads",
-		"icon": "/img/social/goodreads.svg",
-		"url": "https://www.goodreads.com/user/show/19630622-thi-dinh"
-	},
-	{
-		"name": "StackExchange",
-		"icon": "/img/social/so.svg",
-		"url": "https://stackexchange.com/users/1344291/anh-thi-dinh"
-	},
-	{
-		"name": "Coursera",
-		"icon": "/img/social/coursera.png",
-		"url": "https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556"
-	},
-	{
-		"name": "Math2IT",
-		"icon": "/img/social/math2it_.png",
-		"url": "https://math2it.com"
-	}
+  {
+    "name": "Github",
+    "icon": "/img/social/github.svg",
+    "url": "https://github.com/dinhanhthi"
+  },
+  {
+    "name": "LinkedIn",
+    "icon": "/img/social/linkedin.svg",
+    "url": "https://www.linkedin.com/in/dinhanhthi/"
+  },
+  {
+    "name": "Twitter",
+    "icon": "/img/social/twitter.svg",
+    "url": "https://twitter.com/dinhanhthi"
+  },
+  {
+    "name": "Goodreads",
+    "icon": "/img/social/goodreads.svg",
+    "url": "https://www.goodreads.com/user/show/19630622-thi-dinh"
+  },
+  {
+    "name": "StackExchange",
+    "icon": "/img/social/so.svg",
+    "url": "https://stackexchange.com/users/1344291/anh-thi-dinh"
+  },
+  {
+    "name": "Coursera",
+    "icon": "/img/social/coursera.png",
+    "url": "https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556"
+  },
+  {
+    "name": "Math2IT",
+    "icon": "/img/social/math2it_.png",
+    "url": "https://math2it.com"
+  }
 ]

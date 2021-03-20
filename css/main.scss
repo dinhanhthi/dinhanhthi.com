@@ -50,7 +50,7 @@ $heading-h1-size: $font-size * 1.8;
 $heading-h2-size: $font-size * 1.5; // h2's font size (in comparison with global $font-size)
 $heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
-@media (max-width: $grid-md - 1px){
+@media (max-width: $grid-md - 1px) {
   $heading-h1-size: $font-size * 1.75;
   $heading-h2-size: $font-size * 1.43;
   $heading-h3-size: $heading-h2-size * 0.87;

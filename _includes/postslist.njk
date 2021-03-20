@@ -1,27 +1,35 @@
 <ul{% if customClass %} class="{{ customClass }}"{% endif %}>
 
-  {% set newPostList = [] %}
-  {% for post in postslist %}
-		{% set singlePost = { 'title': post.data.title, 'url': post.url } %}
+	{% set newPostList = [] %}
+	{% for post in postslist %}
+		{% set singlePost = {
+			'title': post.data.title,
+			'url': post.url
+		} %}
 		{% if post.data.notfull %}
-			{% set singlePost = singlePost|setAttribute('notfull', post.data.notfull) %}
+			{% set singlePost = singlePost | setAttribute('notfull', post.data.notfull) %}
 		{% endif %}
 		{% if post.data.private %}
-			{% set singlePost = singlePost|setAttribute('private', post.data.private) %}
+			{% set singlePost = singlePost | setAttribute('private', post.data.private) %}
 		{% endif %}
-    {% if not post.data.hide %}
+		{% if not post.data.hide %}
 			{% set newPostList = (newPostList.push(singlePost), newPostList) %}
-    {% endif %}
-  {% endfor %}
+		{% endif %}
+	{% endfor %}
 
 	{% if more_post %}
 		{% for post in more_post %}
-			{% set singlePost = { 'title': post.title, 'url': post.url, 'target': "_blank", 'external': true } %}
+			{% set singlePost = {
+				'title': post.title,
+				'url': post.url,
+				'target': "_blank",
+				'external': true
+			} %}
 			{% if post.notfull %}
-				{% set singlePost = singlePost|setAttribute('notfull', post.notfull) %}
+				{% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
 			{% endif %}
 			{% if post.private %}
-				{% set singlePost = singlePost|setAttribute('private', post.private) %}
+				{% set singlePost = singlePost | setAttribute('private', post.private) %}
 			{% endif %}
 			{% if not post.hide %}
 				{% set newPostList = (newPostList.push(singlePost), newPostList) %}
@@ -29,40 +37,40 @@
 		{% endfor %}
 	{% endif %}
 
-  {% for post in newPostList|sort(attribute='title') %}
-      <li{% if post.notfull %} class="post-not-full"{% endif %}>
-				{% if customIcon %}
-					{% if not post.external %}
-						<img width="20px" height="20px" class="keep-original" src="/img/cats/doc-in_.png">
-					{% else %}
-						<img width="20px" height="20px" class="keep-original" src="/img/cats/doc-ex_.png" style="transform: skew(calc(-10deg));">
-					{% endif %}
-				{% endif %}
-				{% if post.target %}
-					{% set target = post.target %}
+	{% for post in newPostList | sort(attribute = 'title') %}
+		<li{% if post.notfull %} class="post-not-full"{% endif %}>
+			{% if customIcon %}
+				{% if not post.external %}
+					<img width="20px" height="20px" class="keep-original" src="/img/cats/doc-in_.png">
 				{% else %}
-					{% set target = "_self" %}
+					<img width="20px" height="20px" class="keep-original" src="/img/cats/doc-ex_.png" style="transform: skew(calc(-10deg));">
+				{% endif %}
+			{% endif %}
+			{% if post.target %}
+				{% set target = post.target %}
+			{% else %}
+				{% set target = "_self" %}
 				{% endif%}
-        <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
-          {% if post.title %}
-            {{ post.title }}
-            {% if post.notfull %}
-              <sup title="{{ other_data.notfull }}">•</sup>
-            {% endif %}
+				<a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
+					{% if post.title %}
+						{{ post.title }}
+						{% if post.notfull %}
+							<sup title="{{ other_data.notfull }}">•</sup>
+						{% endif %}
 						{% if post.private %}
 							<sup title="{{ other_data.private }}">†</sup>
 						{% endif %}
-          {% else %}
-            <code>{{ post.url }}</code>
-            {% if post.notfull %}
-              <sup title="{{ other_data.notfull }}">•</sup>
-            {% endif %}
+					{% else %}
+						<code>{{ post.url }}</code>
+						{% if post.notfull %}
+							<sup title="{{ other_data.notfull }}">•</sup>
+						{% endif %}
 						{% if post.private %}
 							<sup title="{{ other_data.private }}">†</sup>
 						{% endif %}
-          {% endif %}
-        </a>
-      </li>
-    {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
-  {% endfor %}
-</ul>
+					{% endif %}
+				</a>
+			</li>
+			{# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
+		{% endfor %}
+	</ul>
