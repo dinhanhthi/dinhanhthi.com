@@ -429,16 +429,14 @@ this.signupForm = new FormGroup({
 // need to put 'username' and 'email' inside a div
 <form [formGroup]="signupForm">
 	<div formGroupName="userData">
-		<input
-		formControlName="username">
+		<input formControlName="username">
 
 		<span *ngIf="!signupForm.get('userData.username').valid>
 															//  ^new here
 			Please enter a valid username!
 		</span>
 
-		<input
-		formControlName="email">
+		<input formControlName="email">
 	</div>
 </form>
 ```

@@ -24,41 +24,6 @@ code --list-extensions | % { "code --install-extension $_" }
 # just copy-paste the results and run on terminal
 ```
 
-{% hsbox "My favorite extensios" %}
-
-``` bash
-code --install-extension bierner.markdown-emoji
-code --install-extension bierner.markdown-preview-github-styles
-code --install-extension CoenraadS.bracket-pair-colorizer
-code --install-extension eamodio.gitlens
-code --install-extension formulahendry.auto-close-tag
-code --install-extension himanoa.Python-autopep8
-code --install-extension James-Yu.latex-workshop
-code --install-extension lextudio.restructuredtext
-code --install-extension mdickin.markdown-shortcuts
-code --install-extension mhutchie.git-graph
-code --install-extension mrmlnc.vscode-apache
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension ms-mssql.mssql
-code --install-extension ms-python.python
-code --install-extension ms-vscode-remote.remote-containers
-code --install-extension ms-vscode-remote.remote-ssh
-code --install-extension ms-vscode-remote.remote-ssh-edit
-code --install-extension ms-vscode-remote.remote-wsl
-code --install-extension ms-vscode-remote.vscode-remote-extensionpack
-code --install-extension Perkovec.emoji
-code --install-extension ritwickdey.live-sass
-code --install-extension ritwickdey.LiveServer
-code --install-extension ronnidc.nunjucks
-code --install-extension SolarLiner.linux-themes
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension yzhang.markdown-all-in-one
-code --install-extension zxh404.vscode-proto3
-```
-{% endhsbox %}
-
-
-
 ### reStructuredText
 
 `preview engine sphinx is not installed` => in Ubuntu 20.04+
@@ -113,7 +78,7 @@ Make a good corresponding to [zsh](/terminal#zsh-linux).
 
 👉 [Reference](https://dev.to/macmacky/my-vscode-shortcuts-settings-and-extensions-for-productivity-3chd).
 
-For example, you type <kbd>=</kbd> + <kbd>></kbd>, it becomes `⇒`.
+For example, you type [[=]] + [[>]], it becomes `⇒`.
 
 1. Download [Fira Code Font](https://www.fontsquirrel.com/fonts/fira-code).
 2. Extract and then install the font after that.
@@ -203,7 +168,7 @@ Read [this tutorial](https://code.visualstudio.com/blogs/2019/07/25/remote-ssh).
 
 1. Install extension [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 2. **View** > **Command Palette...** > type "SSH" and choose "_Remote-SSH: Connect to Host..._" > choose "_+ Add New SSH Host..._"
-3. Type `ssh user@host` > <kbd>Enter</kbd> > choose a file to be updated, e.g. `~/.ssh/config`.
+3. Type `ssh user@host` > [[Enter]] > choose a file to be updated, e.g. `~/.ssh/config`.
 4. Click **Connect** if there is any popup in VSC.
 5. Choose platform on the server, usually Linux.
 
@@ -279,9 +244,10 @@ ln -s /home/thi/git/dataswati/python-dataswati/popai /home/thi/miniconda3/envs/p
 One can change the default keyboard shortcut by going to: **File** > **Preferences** > **Keyboard Shortcuts**.
 
 {:.indent}
-- Quick search file: <kbd>Ctrl</kbd> + <kbd>P</kbd>.
-- Get back to previous views: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>-</kbd> (Linux), <kbd>Alt</kbd> + <kbd><</kbd> (Windows), <kbd>Ctrl</kbd> + <kbd>-</kbd> (MacOS).
-- Get forward: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (Linux), <kbd>Alt</kbd> + <kbd>></kbd> (Windows), <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> (MacOS).
-- Open Command Palette: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>.
-- Forat on save: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>.
-- Go to line: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> then _Go to line_.
+- Quick search file: [[Ctrl]] + [[P]].
+- Get back to previous views: [[Ctrl]] + [[Alt]] + [[-]] (Linux), [[Alt]] + [[<]] (Windows), [[Ctrl]] + [[-]] (MacOS).
+- Get forward: [[Ctrl]] + [[Shift]] + [[-]] (Linux), [[Alt]] + [[>]] (Windows), [[Ctrl]] + [[Shift]] + [[-]] (MacOS).
+- Open Command Palette: [[Ctrl]] + [[Shift]] + [[P]].
+- Go to line: [[Ctrl]] + [[Shift]] + [[P]] then _Go to line_.
+- Format entire doc: (Win/Linux) [[Ctrl]] + [[Shift]] + [[I]]; (Mac) [[⇧]] + [[⌥]] + [[F]].
+- Format selected text: (Win/Linux) [[Ctrl]] + [[K]] then [[K]] + [[F]]; (Mac) [[⌘]] + [[K]] then [[⌘]] + [[F]].
