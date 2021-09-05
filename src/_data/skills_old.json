@@ -1,0 +1,181 @@
+[
+	{
+		"name": "Languages",
+		"list": [
+			{
+				"name": "Python",
+				"icon": "/img_src/about/python.svg"
+			},
+			{
+				"name": "R Lang",
+				"icon": "/img_src/about/r.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "Matlab",
+				"icon": "/img_src/about/matlab.svg"
+			},
+			{
+				"name": "PHP",
+				"icon": "/img_src/about/php.svg"
+			},
+			{
+				"name": "FreeFEM++",
+				"icon": "/img_src/about/ff.svg"
+			},
+			{
+				"name": "Ruby",
+				"icon": "/img_src/about/ruby.svg",
+				"later": true
+			}
+		]
+	},
+	{
+		"name": "AI & Data",
+		"list": [
+			{
+				"name": "TensorFlow",
+				"icon": "/img_src/about/tf.svg"
+			},
+			{
+				"name": "Scikit-learn",
+				"icon": "/img_src/about/scikit-learn.svg"
+			},
+			{
+				"name": "PyTorch",
+				"icon": "/img_src/about/pytorch.svg"
+			},
+			{
+				"name": "Jupyter",
+				"icon": "/img_src/about/jupyter.svg"
+			},
+			{
+				"name": "Foursquare API",
+				"icon": "/img_src/about/foursquare.svg",
+				"later": true
+			}
+		]
+	},
+	{
+		"name": "Frontend",
+		"list": [
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			},
+			{
+				"name": "Wordpress",
+				"icon": "/img_src/about/wordpress.svg"
+			},
+			{
+				"name": "React",
+				"icon": "/img_src/about/react.svg"
+			},
+			{
+				"name": "Eleventy",
+				"icon": "/img_src/about/11ty.svg"
+			},
+			{
+				"name": "GatsbyJS",
+				"icon": "/img_src/about/gatsby.svg"
+			},
+			{
+				"name": "Jekyll",
+				"icon": "/img_src/about/jekyll.svg"
+			},
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Liquid",
+				"icon": "/img_src/about/liquid.svg"
+			},
+			{
+				"name": "Nunjucks",
+				"icon": "/img_src/about/nunjucks.svg"
+			}
+		]
+	},
+	{
+		"name": "Backend",
+		"list": [
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "Airflow",
+				"icon": "/img_src/about/airflow.svg"
+			},
+			{
+				"name": "MongoDB",
+				"icon": "/img_src/about/mongodb.svg"
+			},
+			{
+				"name": "PostgreSQL",
+				"icon": "/img_src/about/postgresql2.svg",
+				"later": true
+			},
+			{
+				"name": "MySQL",
+				"icon": "/img_src/about/mysql.svg"
+			},
+			{
+				"name": "gRPC",
+				"icon": "/img_src/about/grpc.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img_src/about/node.svg"
+			},
+			{
+				"name": "Flask",
+				"icon": "/img_src/about/flask.svg",
+				"later": true
+			},
+			{
+				"name": "GraphQL",
+				"icon": "/img_src/about/graphql.svg",
+				"later": true
+			},
+			{
+				"name": "Heroku",
+				"icon": "/img_src/about/heroku.svg",
+				"later": true
+			}
+		]
+	},
+	{
+		"name": "Tools",
+		"list": [
+			{
+				"name": "VS Code",
+				"icon": "/img_src/about/vscode.svg"
+			},
+			{
+				"name": "Linux",
+				"icon": "/img_src/about/linux_.svg"
+			},
+			{
+				"name": "GNU Bash",
+				"icon": "/img_src/about/bash_.svg"
+			},
+			{
+				"name": "Git",
+				"icon": "/img_src/about/git.svg"
+			},
+			{
+				"name": "Sphinx Doc",
+				"icon": "/img_src/about/sphinx.svg"
+			}
+		]
+	}
+]

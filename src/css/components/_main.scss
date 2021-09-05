@@ -1,0 +1,251 @@
+/* Color customization */
+
+* {
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: $font-size;
+}
+
+/*! purgecss start ignore */
+
+.fontello-icon:before {
+  margin-left: 0 !important;
+}
+
+// scroll bar
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  // background: #3e466b;
+  background: #4f5c98;
+  border-radius: 6px;
+  &:hover {
+    background: #aaa;
+    cursor: pointer;
+  }
+}
+::-webkit-scrollbar-track {
+  background: #363948;
+}
+::-webkit-scrollbar-corner {
+  background: $color-background;
+}
+
+/*! purgecss end ignore */
+
+share-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.9;
+
+  div {
+    width: 30px;
+    height: 30px;
+    background-image: url("/img_src/share.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.apple share-widget div {
+  background-image: url("/img_src/share-apple.svg");
+}
+
+share-widget button {
+  margin: 0;
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: $font-main;
+  font-size: $font-size;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: $font-main-var;
+  }
+}
+
+body {
+  font-family: $font-main;
+  background: var(--color-background);
+  color: var(--font-color);
+  margin: 0;
+  font-size: $font-size;
+}
+
+.test-dead-code-elimination-sentinel {
+  color: red;
+}
+
+/*
+  Make image rasterization lazy. This means that e.g. the cost of the
+  blurry placeholder is never paid if images load before entering
+  the viewport.
+  Context
+  - https://web.dev/content-visibility/#skipping-rendering-work-with-content-visibility
+ */
+main img {
+  content-visibility: auto;
+}
+
+b,
+strong {
+  font-weight: var(--font-bold-color-weight);
+  color: var(--font-bold-color);
+}
+
+dialog {
+  background-color: #8dff80;
+  position: fixed;
+  opacity: 0.9;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    height: auto;
+  }
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+mark {
+  color: inherit;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: inset 0 -5px 0 $color-yellow;
+}
+
+a {
+  color: var(--font-a);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: 3px solid var(--font-a);
+    color: var(--a-hover);
+  }
+
+  &.no-effect {
+    &:hover {
+      border-bottom: none;
+    }
+  }
+
+  &.no-color {
+    color: var(--font-color)!important;
+  }
+
+  strong,
+  b {
+    color: var(--font-a);
+    &:hover {
+      color: var(--a-hover);
+    }
+  }
+}
+
+hr {
+  border-bottom: 1px solid #eee;
+}
+
+img {
+  max-width: 100%;
+}
+
+.filter-invert {
+  filter: var(--filter-invert);
+}
+
+main {
+  margin: 0 auto;
+}
+
+.list-of-post {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  .fontello-icon {
+    margin-left: -25px;
+    &::before {
+      opacity: 0.75;
+    }
+  }
+  li {
+    margin-bottom: 10px!important;
+    padding-right: 10px;
+    padding-left: 25px;
+    width: 100%;
+    a {
+      color: var(--a-list-homepage);
+      border-bottom: 2px dotted var(--a-list-homepage-bd);
+    }
+    &:hover {
+      a {
+        border-color: var(--font-a);
+        color: var(--color-invert);
+      }
+      cursor: pointer;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.note-type-indicator {
+  font-size: 0.95rem;
+  color: var(--color-faded);
+  margin: 0;
+  font-style: italic;
+  padding-top: 10px;
+  border-top: 1px solid var(--toc-title-bd);
+  span {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+/*! purgecss start ignore */
+.toc-common {
+  font-size: 90%;
+  li {
+    a {
+      color: var(--color-faded);
+    }
+    &:hover {
+      a {
+        color: var(--color-invert);
+      }
+    }
+    & > ol {
+      margin-bottom: 5px !important;
+    }
+  }
+}
+
+.toc-active {
+  & > a {
+    color: var(--color-invert) !important;
+    font-weight: bold;
+  }
+  &::before {
+    color: var(--color-invert) !important;
+    font-weight: bold;
+  }
+}
+
+.toc {
+  padding: 15px;
+
+  // In this note
+  & > ol::before {
+    content: "In this note";
+    display: block;
+    font-family: $font-heading;
+    @include toc-title();
+    @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
+      margin-top: -3rem;
+    }
+  }
+  & > ol {
+    padding-left: 0;
+    margin-bottom: 0;
+
+    @include column-count(1);
+    @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
+      @include column-count(2);
+    }
+
+    & > li:first-child {
+      margin-top: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+      code {
+        font-size: 0.85rem;
+        background: #ececec;
+        padding: 0 4px 2px 4px;
+      }
+      ol {
+        padding-left: 10px;
+        overflow: hidden;
+        transition: all 300ms ease-in-out;
+        box-shadow: inset 0.5px 0 0 0px var(--color-faded);
+        margin-left: 5px;
+      }
+    }
+
+    @if $heading-numbering {
+      counter-reset: item;
+      list-style-type: none;
+      ol {
+        counter-reset: item;
+        list-style-type: none;
+      }
+      li {
+        &::before {
+          content: counters(item, ".") ". ";
+          counter-increment: item;
+          color: var(--color-faded);
+        }
+      }
+    }
+  }
+
+  @media (max-width: $grid-toc - 1px) {
+    margin-bottom: $margin-bottom;
+    border: 3px double var(--color-faded);
+  }
+
+  @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
+    padding-top: 4rem;
+  }
+
+  @media (min-width: $grid-toc) {
+    float: right;
+    width: calc((100vw - 900px) / 2 - 20px);
+    padding-top: 0;
+    margin-right: calc((900px - 100vw) / 2);
+    border-left: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 60px;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+    ol {
+      margin-top: 0;
+      margin-bottom: 0;
+      li {
+        ol {
+          max-height: 0;
+          margin-bottom: 0;
+        }
+        &.h2-focused > ol {
+          max-height: 1000px;
+        }
+      }
+    }
+  }
+}
+/*! purgecss end ignore */

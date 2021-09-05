@@ -1,0 +1,29 @@
+---
+permalink: pages/search-index.json
+---
+
+{# use with external posts #}
+{% set newPostListSearch = [] %}
+{% for post in collections.posts %}
+	{% if not post.data.hide %}
+		{% set newPostListSearch = (
+			newPostListSearch.push({url: post.url, title: post.data.title, keywords: post.data.keywords, tags: post.data.tags, cat: post.data.tags[1], target: "_self"}), newPostListSearch) %}
+	{% endif %}
+{% endfor %}
+
+{% for post in cat_ex_posts %}
+	{% if not post.hide %}
+		{% set newPostListSearch = (
+			newPostListSearch.push({url: post.url, title: post.title, keywords: post.keywords, tags: post.tags, cat: post.tags[0], target: "_blank"}), newPostListSearch) %}
+	{% endif %}
+{% endfor %}
+
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+	{% set tagUrl %}{{ tagUrl | url }}{% endset %}
+	{% set tagTitle %}Topic — {{ tag }}{% endset %}
+	{% set newPostListSearch = (
+			newPostListSearch.push({url: tagUrl, title: tagTitle, keywords: 'All posts in this topic tag.', tags: "", cat: "", target: ""}), newPostListSearch) %}
+{% endfor %}
+
+{{ newPostListSearch | search | dump | safe | striptags(true) | escape }}

@@ -1,0 +1,107 @@
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier,
+    monospace;
+  line-height: 1.5;
+}
+
+h2 > code {
+  font-size: 0.88 * $heading-h2-size !important;
+}
+
+h3 > code {
+  font-size: 0.88 * $heading-h3-size !important;
+}
+
+h4 > code {
+  font-size: 0.88 * $heading-h4-size !important;
+}
+
+*:not(pre) > code {
+  @include code-inline();
+}
+
+h2,
+h3,
+h4 {
+  & > code {
+    color: var(--code-inline-text);
+    padding-right: 6px;
+  }
+}
+
+a {
+  & > code {
+    color: var(--font-a);
+  }
+  &:hover {
+    & > code {
+      color: var(--code-inline-text);
+    }
+  }
+}
+
+pre[class*="language-"],
+pre {
+  margin: 0 0 $margin-bottom-code 0;
+  overflow: auto;
+  & > code {
+    display: block;
+    padding: ($inside-padding - 2px) $inside-padding $inside-padding;
+    background: $code-bg;
+    border: 0.5px solid $code-bd;
+    overflow: auto;
+    border-radius: 3px;
+    max-height: $code-max-height;
+    color: #eee;
+    // overflow: auto;
+  }
+}
+
+.highlight-line {
+  display: block;
+  text-decoration: none;
+
+  /* override del, ins, mark defaults */
+  color: inherit;
+
+  /* override del, ins, mark defaults */
+
+  &:empty:before {
+    content: " ";
+  }
+
+  + br {
+    display: none;
+  }
+}
+
+/* allow highlighting empty lines */
+
+/* avoid double line breaks when using display: block; */
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+
+.highlight-line-active {
+  background-color: #444;
+  background-color: hsla(0, 0%, 27%, 0.8);
+}
+
+.highlight-line-add {
+  background-color: #45844b; // backup
+}
+
+.highlight-line-remove {
+  background-color: #902f2f; // backup
+}
+
+.highlight-line-active,
+.highlight-line-add,
+.highlight-line-remove {
+  margin-left: -$inside-padding;
+  margin-right: -$inside-padding;
+}

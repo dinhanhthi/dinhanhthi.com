@@ -1,0 +1,138 @@
+// COLORS
+$color-background: #282a36;
+$color-background-light: #f6f6f6;
+$color-background-post: $color-background;
+$color-background-post-light: #fff;
+$color-current-line: #44475a;
+$color-selection: #44475a;
+$color-foreground: #f8f8f2;
+$color-blue: #8cc8ff;
+$color-blue-light: #4386c3;
+$color-green: #86f7a2;
+$color-green-light: #0ab534;
+$color-pink: #ff79c6;
+$color-red: #ff5555;
+$color-yellow: #ffd479;
+$color-yellow-light: #ffc342;
+$color-bg-nav: #35373c;
+$color-invert: #fff;
+$color-invert-light: #000;
+$color-faded: #bbb;
+$color-faded-light: #555;
+$color-faded-invert: $color-faded-light;
+$color-faded-invert-light: $color-faded;
+
+
+// FONTS
+$font-main: "Poppins", Arial, Helvetica, sans-serif;
+$font-main-var: "Poppins" var alt, Arial, Helvetica, sans-serif;
+$font-heading: "Recoleta", Arial, Helvetica, sans-serif;
+$font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+$font-size: 16.5px;
+$font-color: #eee;
+$font-color-light: #222;
+$font-bold-color: #8cc8ff;
+$font-bold-color-light: $font-color-light;
+$font-bold-weight: 600;
+$font-bold-weight-light: 600;
+$font-a: $color-yellow;
+$font-a-light: #0b74cd;
+$a-hover: $color-invert;
+$a-hover-light: $font-color-light;
+
+// GRIDS
+$grid-xs: 350px;
+$grid-sm: 576px;
+$grid-md: 768px;
+$grid-lg: 992px;
+$grid-xl: 1200px;
+$grid-xxl: 1600px;
+$grid-w-normal: 900px;
+$grid-w-ex-normal: 1000px;
+$grid-toc: 1300px;
+$padding-lr: $font-size;
+$margin-bottom: 1.5 * $font-size; // margin-bottom
+$margin-bottom-code: 1.1 * $margin-bottom; // for code blocks
+
+// HEADINGs
+$heading-font: $font-heading;
+$heading-weight: 600;
+$heading-color: #f0f0f0;
+$heading-color-light: #4a4a4a;
+$heading-h1-size: $font-size * 1.8;
+$heading-h2-size: $font-size * 1.5; // h2's font size (in comparison with global $font-size)
+$heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
+$heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
+@media (max-width: $grid-md - 1px) {
+  $heading-h1-size: $font-size * 1.75;
+  $heading-h2-size: $font-size * 1.43;
+  $heading-h3-size: $heading-h2-size * 0.87;
+  $heading-h4-size: $heading-h3-size * 0.9;
+}
+$heading-numbering: true;
+$mt-heading: $margin-bottom * 1.5; // margin-top heading
+$margin-bottom-heading: $margin-bottom * 0.8; // margin-bottom heading
+
+// HEADER
+$header-logo: 55px;
+
+// CODE
+$inside-padding: $font-size;
+$pre-padding: $inside-padding;
+$code-bg: #2f3240; // old
+$code-bg-light: #fff;
+$code-bd: #3b3e54;
+$code-bd-light: #e4e2e2;
+$code-max-height: 450px;
+$code-inline-text: #fff;
+$code-inline-text-light: #067b26;
+$code-inline-background: #6b444245;
+$code-inline-background-light: #ececec;
+$code-inline-bd: 1px solid #444;
+$code-inline-bd-light: 1px solid #ddd;
+
+// TOC
+$toc-title: #f5d3a7;
+$toc-title-light: $heading-color-light;
+$toc-title-bd: #555;
+$toc-title-bd-light: #ccc;
+$toc-appendix: #a2a2a2;
+$toc-appendix-light: #545454;
+
+// DARK/LIGHT THINGS
+$a-list-homepage: #ddd;
+$a-list-homepage-light: $font-color-light;
+$a-list-homepage-bd: rgba(255, 255, 255, 0.14);
+$a-list-homepage-bd-light: #cacaca;
+$filter-invert: invert(0);
+$filter-invert-light: invert(1);
+$badge-black-bg: #343642;
+$badge-black-bg-light: #f3f3f3;
+$badge-black-bd: #444;
+$badge-black-bd-light: #ddd;
+$table-bg: #2f3240;
+$table-bg-light: #e8e8e8;
+$badge-green: #009023;
+$badge-green-light: $color-green-light;
+$badge-blue: #2f55c1;
+$badge-blue-light: $badge-blue;
+
+
+@import "./components/mixin"; // mixsin
+@import "./components/dark-light"; // dark / light mode
+@import "./components/font";
+@import "./components/main"; // init css
+@import "./components/heading";
+@import "./components/grid";
+@import "./components/index"; // for home page
+@import "./components/header";
+@import "./components/nav";
+@import "./components/footer";
+@import "./components/about"; // for about page
+@import "./components/component"; // all small components
+@import "./components/texmath"; // markdown-it-texmath
+@import "./components/post";
+@import "./components/prism-vscode"; // with my custom
+@import "./components/code";
+@import "./components/toc";
+@import "./components/img";

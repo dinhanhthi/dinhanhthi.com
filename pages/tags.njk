@@ -1,0 +1,68 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: post
+customClass: "page-single-tag"
+eleventyComputed:
+  title: Topic “{{ tag }}”
+permalink: /tags/{{ tag | slug }}/
+icon: tag_.svg
+---
+
+<p>👉 Check <a href="{{ '/tags/' | url }}">all topics</a> on this site.</p>
+
+{% set customClass = "single-line" %}
+{% include "components/toggle-posts-buttons.njk" %}
+
+{% set more_post = false %}
+{# post outside 11ty .md files #}
+
+{% set newPostListTag = [] %}
+
+{% for post in cat_ex_posts %}
+  {% if not post.hide %}
+    {% for tg in post.tags %}
+      {% if tg == tag %}
+        {% set more_post = true %}
+        {% set singlePost = {
+          'title': post.title,
+          'url': post.url
+        } %}
+        {% if post.notfull %}
+          {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
+        {% endif %}
+        {% if post.private %}
+          {% set singlePost = singlePost | setAttribute('private', post.private) %}
+        {% endif %}
+        {% set newPostListTag = (newPostListTag.push(singlePost), newPostListTag) %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% if more_post %}
+  {% set more_post = newPostListTag %}
+{% endif %}
+
+{% set postslist = collections[tag] %}
+{% set customClass = 'list-of-post' %}
+{% set customIcon = true %}
+{% include "components/postslist.njk" %}
+
+<p class="note-type-indicator">
+  <span>
+    <sup style="color: #bbb">•</sup>Draft notes.</span>
+  <span>
+    <sup style="color: #bbb">†</sup>Private notes.</span>
+  <span>
+    <i class="icon-doc-add fontello-icon"></i> Outside this site.</span>
+</p>

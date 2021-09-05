@@ -1,0 +1,23 @@
+/*! purgecss start ignore */
+
+// Default colors
+body {
+	@include light-vars();
+}
+// dark
+body.dark-theme {
+	@include dark-vars();
+}
+// Styles for users who prefer light mode at the OS level
+@media (prefers-color-scheme: dark) {
+  /* defaults to light theme */
+  body {
+    @include light-vars();
+  }
+  /* Override dark mode with light mode styles if the user decides to swap */
+  body.light-theme {
+    @include dark-vars();
+  }
+}
+
+/*! purgecss end ignore */

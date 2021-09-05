@@ -1,0 +1,14 @@
+---
+#layout: layouts/base.njk
+---
+{% extends "layouts/base.njk" %}
+
+{% block headerLogo%}
+  <div class="header-logo">
+    <img alt="{{ title }}" src="{{ icon }}">
+  </div>
+{% endblock %}
+
+{% block article %}
+  {{ content | safe }}
+{% endblock %}

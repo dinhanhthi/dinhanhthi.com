@@ -1,0 +1,373 @@
+[
+	{
+		"title": "Data Science Learning",
+		"description": "All of courses, assignments, exercises, mini-projects and books that I've done so far in the process of learning by myself Machine Learning and Data Science.",
+		"source": "https://github.com/dinhanhthi/data-science-learning",
+		"icon": "📊",
+		"tech_text": [
+			"many techs"
+		]
+	},
+	{
+		"title": "Mountain vs Beach Classifier",
+		"description": "A small project to build a classifier: moutain vs beach.",
+		"source": "https://github.com/dinhanhthi/eleventy-elasticlunr-js",
+		"icon": "🏖",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			},
+			{
+				"name": "TensorFlow",
+				"icon": "/img_src/about/tf.svg"
+			}
+		]
+	},
+	{
+		"title": "11ty + ElasticlunrJS",
+		"description": "A demo of search function in eleventy website using Elasticlunr.js.",
+		"source": "https://github.com/dinhanhthi/eleventy-elasticlunr-js",
+		"icon": "🔎",
+		"tech": [
+			{
+				"name": "Eleventy",
+				"icon": "/img_src/about/11ty.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img_src/about/node.svg"
+			}
+		]
+	},
+	{
+		"title": "dat-11ty",
+		"description": "An 11ty theme for my personal website. Totally in dark mode.",
+		"source": "https://github.com/dinhanhthi/dinhanhthi.com/releases/tag/v3",
+		"icon": "⛑",
+		"tech": [
+			{
+				"name": "Eleventy",
+				"icon": "/img_src/about/11ty.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img_src/about/node.svg"
+			},
+			{
+				"name": "Nunjucks",
+				"icon": "/img_src/about/nunjucks.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			}
+		]
+	},
+	{
+		"title": "Web Dev Learning",
+		"description": "All of things I've done so far in the process of learning by myself Web Development.",
+		"source": "https://github.com/dinhanhthi/web-dev-learning",
+		"icon": "🌐",
+		"tech_text": [
+			"many techs"
+		]
+	},
+	{
+		"title": "P13 Discussion Group",
+		"description": "Private group for sharing ideas in IT between Vietnamese friends at University Sorbonne Paris Nord",
+		"source": "https://github.com/dinhanhthi/P13-discuss-group",
+		"icon": "💡",
+		"tech_text": [
+			"many techs"
+		]
+	},
+	{
+		"title": "Simple Perso",
+		"icon": "🍒",
+		"description": "A simple and beautiful personal jekyll theme.",
+		"source": "https://github.com/dinhanhthi/simple-perso",
+		"url": "https://dinhanhthi.github.io/simple-perso/",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "Jekyll",
+				"icon": "/img_src/about/jekyll.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			}
+		]
+	},
+	{
+		"title": "dinhanhthi.com",
+		"icon": "⭐",
+		"description": "Source code of my personal website.",
+		"source": "https://github.com/dinhanhthi/dinhanhthi.com",
+		"url": "http://dinhanhthi.com",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "Eleventy",
+				"icon": "/img_src/about/11ty.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "Jekyll",
+				"icon": "/img_src/about/jekyll.svg"
+			},
+			{
+				"name": "Liquid",
+				"icon": "/img_src/about/liquid.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img_src/about/node.svg"
+			},
+			{
+				"name": "Nunjucks",
+				"icon": "/img_src/about/nunjucks.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			}
+		]
+	},
+	{
+		"title": "Cafe in HCM",
+		"icon": "☕",
+		"description": "A capstone project for the course \"Applied Data Science Capstone\" by IBM on Coursera. Setting up a café in Ho Chi Minh city.",
+		"source": "https://github.com/dinhanhthi/cafe-in-hcm",
+		"url": "https://note.dinhanhthi.com/setting-up-a-cafe-in-hcmc",
+		"tech": [
+			{
+				"name": "Foursquare API",
+				"icon": "/img_src/about/foursquare.svg",
+				"later": true
+			},
+			{
+				"name": "Jupyter",
+				"icon": "/img_src/about/jupyter.svg"
+			},
+			{
+				"name": "Python",
+				"icon": "/img_src/about/python.svg"
+			},
+			{
+				"name": "Scikit-learn",
+				"icon": "/img_src/about/scikit-learn.svg"
+			}
+		]
+	},
+	{
+		"title": "ThiThesisTemp",
+		"icon": "🎨",
+		"description": "A simple beautiful LaTeX theme for books, thesis.",
+		"source": "https://github.com/dinhanhthi/ThiThesisTemp",
+		"tech_text": [
+			"LaTeX"
+		]
+	},
+	{
+		"title": "Math2ITwp",
+		"icon": "🐘",
+		"description": "A beautiful Wordpress theme based on Bootstrap 4 with different layouts of posts.",
+		"source": "https://github.com/dinhanhthi/math2itwp",
+		"url": "https://math2it.com",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "JavaScript",
+				"icon": "/img_src/about/js.svg"
+			},
+			{
+				"name": "MySQL",
+				"icon": "/img_src/about/mysql.svg"
+			},
+			{
+				"name": "NodeJS",
+				"icon": "/img_src/about/node.svg"
+			},
+			{
+				"name": "PHP",
+				"icon": "/img_src/about/php.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			},
+			{
+				"name": "Wordpress",
+				"icon": "/img_src/about/wordpress.svg"
+			}
+		]
+	},
+	{
+		"title": "NoteTheme",
+		"icon": "📝",
+		"description": "An AIO Jekyll theme designed for the purpose of taking notes.",
+		"url": "https://dinhanhthi.github.io/NoteTheme/",
+		"source": "https://github.com/dinhanhthi/NoteTheme",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "Jekyll",
+				"icon": "/img_src/about/jekyll.svg"
+			},
+			{
+				"name": "Liquid",
+				"icon": "/img_src/about/liquid.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			}
+		]
+	},
+	{
+		"title": "math2it.com",
+		"icon": "🔥",
+		"description": "A Vietnamese site for intuitive knowledge (Maths, Education and Technology).",
+		"source": "https://github.com/dinhanhthi/math2itwp",
+		"url": "http://math2it.com",
+		"tech_text": [
+			"website",
+			"maths",
+			"IT",
+			"tutorial"
+		]
+	},
+	{
+		"title": "Math2IT Group",
+		"icon": "🎲",
+		"description": "A Vietnamese community about math, education and technology.",
+		"url": "https://www.facebook.com/groups/math2it/",
+		"tech_text": [
+			"community",
+			"forum",
+			"Q&A"
+		]
+	},
+	{
+		"title": "TaniaJekyll",
+		"icon": "🚀",
+		"description": "A beautiful personal Jekyll theme with different layouts of posts designed, based on Bootstrap 4 & Jekyll.",
+		"url": "https://dinhanhthi.github.io/TaniaJekyll",
+		"source": "https://github.com/dinhanhthi/TaniaJekyll",
+		"tech": [
+			{
+				"name": "Bootstrap",
+				"icon": "/img_src/about/bootstrap.svg"
+			},
+			{
+				"name": "Docker",
+				"icon": "/img_src/about/docker.svg"
+			},
+			{
+				"name": "HTML5",
+				"icon": "/img_src/about/html.svg"
+			},
+			{
+				"name": "Jekyll",
+				"icon": "/img_src/about/jekyll.svg"
+			},
+			{
+				"name": "Liquid",
+				"icon": "/img_src/about/liquid.svg"
+			},
+			{
+				"name": "SCSS",
+				"icon": "/img_src/about/sass.svg"
+			}
+		]
+	},
+	{
+		"title": "NXFEM",
+		"icon": "🔢",
+		"source": "https://github.com/dinhanhthi/nxfem",
+		"description": "A Matlab library for Nitsche - Extended Finite Element Method.",
+		"tech": [
+			{
+				"name": "Matlab",
+				"icon": "/img_src/about/matlab.svg"
+			}
+		],
+		"tech_text": [
+			"numerical methods",
+			"maths"
+		]
+	}
+]

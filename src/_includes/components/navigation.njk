@@ -1,0 +1,40 @@
+<nav>
+  <div id="nav">
+    <a class="nav-item no-effect" href="{{ '/' | url }}">
+      <img class="keep-original" src="/img_src/nav/home.svg" alt="home" height="18" width="18">
+      <span>Thi</span>
+    </a>
+    <a class="nav-item no-effect" href="{{ '/about/' | url }}">
+      <img class="keep-original" src="/img_src/nav/about.svg" alt="about" height="15" width="15">
+      <span>About</span>
+    </a>
+    <div id="nav-search" class="nav-search">
+      <form>
+        <input id="nav-search__input"
+							 class="nav-search__input"
+							 type="search"
+							 onfocusin="inFocus(this)"
+							 placeholder='search notes (press "/" to focus &#38; "ESC" to lose)'
+							 aria-label='search notes (press "/" to focus &#38; "ESC" to lose)'
+               autocomplete="off">
+      </form>
+      <div id="nav-search__result-container" style="display: none;">
+        <ul id="nav-search__ul"></ul>
+        <div id="nav-search__no-result" style="display: none;">
+          <p>No results found.</p>
+        </div>
+      </div>
+    </div>
+    <span id="toggle-dark-light" class="nav-item nav-dark-light no-effect" href="">
+      <img class="keep-original" src="/img_src/nav/moon.svg" alt="light-mode" height="20" width="20">
+    </span>
+    <a class="nav-item nav-github no-effect" href="https://github.com/dinhanhthi" target="_blank">
+      <img class="keep-original" src="/img_src/nav/github.svg" alt="github" height="20" width="20">
+    </a>
+  </div>
+  <div id="reading-progress" aria-hidden="true"></div>
+
+</div>
+</nav>
+
+<script async defer src="{{ "/src/js/search.js" | addHash }}"></script>

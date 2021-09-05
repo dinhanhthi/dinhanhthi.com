@@ -1,0 +1,115 @@
+---
+title: "Hi! I'm Thi ツ"
+layout: page
+customClass: "page-index"
+description: I failed my way to success
+icon: '/img_src/avatar.svg'
+date: Last Modified
+---
+
+<header class="pt-0 wave-border wave-border-index">
+  <div class="header-container pt-0">
+
+{% markdown %}
+I'm a Vietnamese guy who has a curious mind. I'd like to learn something new every day. I'm a PhD in Applied Maths and currently a __Data Scientist__. You find in this site my notes which are taken when I've found something new in __Data Science__ and __Web Developement__.{:.intro}
+{% endmarkdown %}
+
+    <div class="social">
+      {% for item in social %}
+        <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}">
+          <img class="keep-original" src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
+        </a>
+      {% endfor %}
+    </div>
+    {% if settings.look4job %}
+      <div class="job mb-1p5">
+        <span>Available for a full-time job!</span>
+      </div>
+    {% endif %}
+    <p class="contact mt-0p5">
+      <a class="button blue no-effect" href="mailto:dinhanhthi@gmail.com">
+        {% if settings.look4job %}Hire me{% else %}Contact{% endif %}
+      </a>
+      <a class="button black" href="{{ '/about/' | url }}">📋 My CV</a>
+      <a class="button black" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">🎨 My sketches</a>
+      <a class="button black" href="/reading/">📚 Reading list</a>
+      <a class="button black" href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">🍲 I cook</a>
+    </p>
+
+  </div>
+</header>
+
+<div class="container wide d-flex d-flex-wrap">
+  <div class="main-cats">
+    {% for item in categories %}
+
+      {# post outside 11ty .md files #}
+      {% set more_post = false %}
+
+      {% set newPostListCat = [] %}
+      {% for post in cat_ex_posts %}
+        {% if not post.hide %}
+          {% for tg in post.tags %}
+            {% if tg == item.name %}
+              {% set more_post = true %}
+              {% set singlePost = {
+                'title': post.title,
+                'url': post.url
+              } %}
+              {% if post.notfull %}
+                {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
+              {% endif %}
+              {% if post.private %}
+                {% set singlePost = singlePost | setAttribute('private', post.private) %}
+              {% endif %}
+              {% set newPostListCat = (newPostListCat.push(singlePost), newPostListCat) %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+      {% if more_post %}
+        {% set more_post = newPostListCat %}
+      {% endif %}
+
+      {% set postslist = collections[item.name] %}
+      {% set lenlist = postslist | length %}
+      {% if lenlist > 0 %}
+        <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
+          <div class="category">
+            <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
+              <i class="{{ item.fontello }} fontello-icon"></i>{{ item.name }}
+            </h2>
+            {% set customClass = 'list-homepage list-of-post' %}
+            {% set customIcon = true %}
+            {% include "components/postslist.njk" %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="toc-index-container">
+
+    {% include "components/toggle-posts-buttons.njk" %}
+
+    <div class="toc-index" id="toc-index">
+      <h3>Notes by topics</h3>
+      <ul class="toc-js toc-common">
+        {% for item in categories %}
+          {% set postslist = collections[item.name] %}
+          {% set lenlist = postslist | length %}
+          {% if lenlist > 0 %}
+            <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
+              <i class="{{ item.fontello }} fontello-icon"></i>
+              <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        <li>
+          <a class="no-color" href="/tags/" style="font-style: italic;">More...</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

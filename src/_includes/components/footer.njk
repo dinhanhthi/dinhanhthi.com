@@ -1,0 +1,52 @@
+<footer>
+  <a href="{{ '/' | url }}" target="_blank">Thi
+    &nbsp;&copy;&nbsp;
+    {{ helpers.currentYear() }}
+  </a>
+  &nbsp;&bull;&nbsp;
+  <a href="/about-the-notes/">
+    About the notes
+  </a>
+  &nbsp;&bull;&nbsp;
+  <a href="/about/">
+    About me
+  </a>
+  &nbsp;&bull;&nbsp;
+	<a href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">
+    My sketches
+  </a>
+  &nbsp;&bull;&nbsp;
+	<a href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">
+    I cook
+  </a>
+  &nbsp;&bull;&nbsp;
+  <a href="/for-me-only/">
+    For me only
+  </a>
+  &nbsp;&bull;&nbsp;
+  <a href="/donate/">
+    Support Thi
+  </a>
+</footer>
+
+{# elasticlunr #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+
+{# {% if googleanalytics %}
+	<script async defer src="{{ "/src/js/cached.js" | addHash }}"></script>
+{% endif %} #}
+
+{% if env.environment != "local" %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-K3YRSB918B');
+  </script>
+{% endif %}
+
+<script async defer src="{{ "/src/js/min.js" | addHash }}"></script>

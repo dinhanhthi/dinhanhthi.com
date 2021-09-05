@@ -1,0 +1,25 @@
+<div class="toggle-buttons{% if customClass %} {{ customClass }}{% endif %}">
+  <div class="toggle-draft">
+    <label class="switch">
+      <input type="checkbox" id="toggle-draft-button"{% if not settings.hideDraftPostsByDefault %} checked{% endif %}>
+      <span class="slider blue"></span>
+    </label>
+    <span class="toggle-text" style="margin-top: -2px;"><sup>•</sup> Draft notes</span>
+  </div>
+
+  <div class="toggle-draft">
+    <label class="switch">
+      <input type="checkbox" id="toggle-private-button"{% if not settings.hidePrivatePostsByDefault %} checked{% endif %}>
+      <span class="slider red"></span>
+    </label>
+    <span class="toggle-text" style="margin-top: -2px;"><sup>†</sup> Private notes</span>
+  </div>
+
+  <div class="toggle-outside">
+    <label class="switch">
+      <input type="checkbox" id="toggle-outside-button"{% if not settings.hideOutsideNotesByDefault %} checked{% endif %}>
+      <span class="slider yellow"></span>
+    </label>
+    <span class="toggle-text" style="margin-bottom: -2px;"><i class="icon-doc-add fontello-icon"></i>Outside this site.</span>
+  </div>
+</div>

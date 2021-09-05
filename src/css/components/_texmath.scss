@@ -1,0 +1,21 @@
+.eq { display: inline-block; }
+.eqn { display: block}
+
+section.eqn{
+	margin-bottom: $margin-bottom;
+}
+
+section.eqno {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center;
+}
+section.eqno > eqn {
+    width: 100%;
+    margin-left: 3em;
+}
+section.eqno > span {
+    width:3em;
+    text-align:right;
+}

@@ -1,0 +1,288 @@
+[
+	{
+		"name": "Experiences",
+		"icon": "/img_src/about/exp.svg",
+		"list": [
+			{
+				"where": "Ideta",
+				"url": "https://www.ideta.io",
+				"title": "Web Developer & Data Scientist",
+				"date": "2/2021 — ongoing",
+				"activity": [
+					"Ideta is a solution that allows companies to create very easily conversational assistants on many communication channels such as Messenger, SMS, Slack, Wechat, Skype business, ... but also voice like Google Home. The solution makes the creation of chatbots accessible to everyone.",
+					"My role is to understand how things work in both backend and frontend, then integrate some self-built Natural Language Processing services to the main platform."
+				],
+				"tech": [
+					{
+						"name": "Angular",
+						"icon": "/img_src/about/angular.svg"
+					},
+					{
+						"name": "Firebase",
+						"icon": "/img_src/about/firebase.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img_src/about/git.svg"
+					},
+					{
+						"name": "JavaScript",
+						"icon": "/img_src/about/js.svg"
+					},
+          {
+            "name": "JestJS",
+            "icon": "/img_src/about/jestjs.svg"
+          },
+					{
+						"name": "Juyter Notebook",
+						"icon": "/img_src/about/jupyter.svg"
+					},
+					{
+						"name": "MongoDB",
+						"icon": "/img_src/about/mongodb.svg"
+					},
+          {
+            "name": "NestJS",
+            "icon": "/img_src/about/nestjs.svg"
+          },
+					{
+						"name": "NodeJS",
+						"icon": "/img_src/about/node.svg"
+					},
+					{
+						"name": "Python",
+						"icon": "/img_src/about/python.svg"
+					},
+					{
+						"name": "RxJS",
+						"icon": "/img_src/about/rxjs.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img_src/about/scikit-learn.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img_src/about/tf.svg"
+					},
+					{
+						"name": "TypeScript",
+						"icon": "/img_src/about/ts.svg"
+					}
+				]
+			},
+			{
+				"where": "Dataswati",
+				"url": "https://www.dataswati.com/",
+				"title": "Data Scientist",
+				"date": "1/2020 — 11/2020",
+				"activity": [
+					"Dataswati is a company who uses Artificial Intelligence technologies to optimize the industrial processes.",
+					"I am one of the main maintainers of POPAI, their main AI library. I work on 4 main projects/clients with different subjects in Machine Learning and Data Science."
+				],
+				"tech": [
+					{
+						"name": "Airflow",
+						"icon": "/img_src/about/airflow.svg"
+					},
+					{
+						"name": "Docker",
+						"icon": "/img_src/about/docker.svg"
+					},
+					{
+						"name": "GNU Bash",
+						"icon": "/img_src/about/bash_.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img_src/about/git.svg"
+					},
+					{
+						"name": "gRPC",
+						"icon": "/img_src/about/grpc.svg"
+					},
+					{
+						"name": "Juyter Notebook",
+						"icon": "/img_src/about/jupyter.svg"
+					},
+					{
+						"name": "MongoDB",
+						"icon": "/img_src/about/mongodb.svg"
+					},
+					{
+						"name": "MySQL",
+						"icon": "/img_src/about/mysql.svg"
+					},
+					{
+						"name": "PyTorch",
+						"icon": "/img_src/about/pytorch.svg"
+					},
+					{
+						"name": "Python",
+						"icon": "/img_src/about/python.svg"
+					},
+					{
+						"name": "R Lang",
+						"icon": "/img_src/about/r.svg"
+					},
+					{
+						"name": "Scikit-learn",
+						"icon": "/img_src/about/scikit-learn.svg"
+					},
+					{
+						"name": "Sphinx Doc Generator",
+						"icon": "/img_src/about/sphinx.svg"
+					},
+					{
+						"name": "TensorFlow",
+						"icon": "/img_src/about/tf.svg"
+					}
+				]
+			},
+			{
+				"where": "Math2IT",
+				"url": "https://math2it.com",
+				"title": "Founder & Web Dev & Blogger",
+				"date": "2013 — current",
+				"activity": [
+					"Math2IT is a Vietnamese community on mathematics, education and technology.",
+					"I writes about mathematics and technology in an intuitive way. I'm also the admin of a community on mathematics and technology on Facebook."
+				],
+				"tech": [
+					{
+						"name": "Bootstrap",
+						"icon": "/img_src/about/bootstrap.svg"
+					},
+					{
+						"name": "Docker",
+						"icon": "/img_src/about/docker.svg"
+					},
+					{
+						"name": "Eleventy",
+						"icon": "/img_src/about/11ty.svg"
+					},
+					{
+						"name": "GatsbyJS",
+						"icon": "/img_src/about/gatsby.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img_src/about/git.svg"
+					},
+					{
+						"name": "GraphQL",
+						"icon": "/img_src/about/graphql.svg"
+					},
+					{
+						"name": "HTML5",
+						"icon": "/img_src/about/html.svg"
+					},
+					{
+						"name": "JavaScript",
+						"icon": "/img_src/about/js.svg"
+					},
+					{
+						"name": "Jekyll",
+						"icon": "/img_src/about/jekyll.svg"
+					},
+					{
+						"name": "MySQL",
+						"icon": "/img_src/about/mysql.svg"
+					},
+					{
+						"name": "PHP",
+						"icon": "/img_src/about/php.svg"
+					},
+					{
+						"name": "React",
+						"icon": "/img_src/about/react.svg"
+					},
+					{
+						"name": "Ruby",
+						"icon": "/img_src/about/ruby.svg"
+					},
+					{
+						"name": "SCSS",
+						"icon": "/img_src/about/sass.svg"
+					},
+					{
+						"name": "Wordpress",
+						"icon": "/img_src/about/wordpress.svg"
+					}
+				]
+			},
+			{
+				"where": "U. Sorbonne Paris Nord",
+				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
+				"title": "Researcher in Applied Maths & Coder",
+				"date": "2013 — 2018",
+				"activity": [
+					"I researched into the growth of biofilm by using the Finite Element Method, a numerical analysis method. The thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and a self-built NXFEM toolbox."
+				],
+				"tech": [
+					{
+						"name": "FreeFEM++",
+						"icon": "/img_src/about/ff.svg"
+					},
+					{
+						"name": "GNU Bash",
+						"icon": "/img_src/about/bash_.svg"
+					},
+					{
+						"name": "Git",
+						"icon": "/img_src/about/git.svg"
+					},
+					{
+						"name": "Matlab",
+						"icon": "/img_src/about/matlab.svg"
+					},
+					{
+						"name": "Python",
+						"icon": "/img_src/about/python.svg"
+					}
+				]
+			}
+		]
+	},
+	{
+		"name": "Education",
+		"icon": "/img_src/about/education.svg",
+		"list": [
+			{
+				"where": "Online courses",
+				"title": "Data Scientist",
+				"date": "2019 — current",
+				"activity": [
+					"I've learned by myself Data Science from the online courses: Coursera, deeplearning.ai, Dataquest, Fastai, Oxford."
+				]
+			},
+			{
+				"where": "U. Sorbonne Paris Nord",
+				"url": "https://www.math.univ-paris13.fr/laga/index.php/en/",
+				"title": "Doctor in Applied Maths",
+				"date": "2013 — 2018",
+				"activity": [
+					"I researched into the growth of biofilm by using the Finite Element Method, a numerical analysis method. The thesis's title is \"Finite Element Methods for nonlinear interface problems. Application to a bioﬁlm growth model\". For the implementation, I used FreeFem++ and a self-built NXFEM toolbox."
+				]
+			},
+			{
+				"where": "U. of Tours",
+				"url": "https://www.univ-tours.fr/",
+				"title": "Master in Applied Maths",
+				"date": "2012 — 2013",
+				"activity": [
+					"My master's degree was awarded by the University of Tours. I took an internship at University Paris 13 under a project of the growth of biofilm."
+				]
+			},
+			{
+				"where": "Ho Chi Minh City Pedagogical U.",
+				"url": "https://hcmue.edu.vn/en/",
+				"title": "Bachelor in Pedagogy & Maths",
+				"date": "2008 — 2012",
+				"activity": [
+					"I was taught how to become a Mathematics teacher. I studied a lot in Mathematics and teaching methods."
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,19 @@
+---
+layout: post
+permalink: /tags/
+icon: tag_.svg
+title: All topics on this site
+---
+
+{% markdown %}
+You can use [[Ctrl]] + [[F]] to quickly find a topic you wanna check.
+{% endmarkdown %}
+
+<ul class="indent col-2-list">
+
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>
+{% endfor %}
+
+</ul>

@@ -1,0 +1,13 @@
+.DS_Store
+.github/
+_site/
+_live/
+_built/
+node_modules/
+package-lock.json
+README.md
+src/_11ty/
+src/third_party
+src/functions
+test
+.oryx_prod_node_modules/

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "My reading list"
+tags: [Others, Collection]
+toc: true
+icon: "/img_src/header/reading.svg"
+keywords: "book reading goodreads"
+permalink: "/reading/"
+date: "2020-12-01"
+---
+
+{% markdown %}
+I like to read books in **applied maths**, **sciences**, **biography**, **history** and **psychology**. Check [my activities on Goodreads](https://www.goodreads.com/user/show/19630622-thi-dinh) (to-read books, comments, ratings,...) for more information.
+{% endmarkdown %}
+
+<ol id="reading-list" class="indent">
+  {% for item in books %}
+    <li class="item">
+      {% if item.reading %}
+        <span class="badge badge-green">I'm reading</span>{% endif %}
+      {% if item.mychoice %}
+        <span class="badge badge-blue">my choice</span>{% endif %}
+      {% if item.goodreads %}
+        <a class="title" href="{{ item.goodreads }}" target="_blank">{{ item.title }}</a>
+      {% else %}
+        <span class="title">{{ item.title }}</span>{% endif %}
+      <span class="author"> &mdash; {{ item.author }}.</span>
+      {% if item.intro %}
+        <span class="intro">{{ item.intro }}</span>{% endif %}
+    </li>
+  {% endfor %}
+</ol>

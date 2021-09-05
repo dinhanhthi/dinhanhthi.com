@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"
+    domain="{{ settings.domain }}"
+    {% if googleanalytics %}
+    ga-id="{{ googleanalytics }}"
+    {% endif %}
+  >
+
+  {% include "components/head.njk" %}
+
+  <body{% if customClass %} class="{{ customClass }}"{% endif %}>
+
+    <script>
+      function showTheme() {
+        const btn = document.getElementById("toggle-dark-light");
+        let toggleIcon = btn.firstElementChild;
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "dark") {
+          document
+            .body
+            .classList
+            .toggle("dark-theme");
+          toggleIcon.src = "/img_src/nav/sun.svg";
+        } else if (currentTheme === "light") {
+          document
+            .body
+            .classList
+            .toggle("light-theme");
+          toggleIcon.src = "/img_src/nav/moon.svg";
+        }
+      }
+      function showContent() {
+        document.body.style.visibility = 'visible';
+        document.body.style.opacity = 1;
+      }
+      window.addEventListener('DOMContentLoaded', (event) => {
+        showTheme();
+        showContent();
+      });
+    </script>
+
+    {% set pageUrlLength = page.url | length %}
+    <header{% if pageUrlLength > 1 and page.url !== '/about/' %} class="wave-border wave-border-post"{% endif %}>
+      {% include "components/navigation.njk" %}
+      <div class="header-container">
+        {% block headerLogo %}{% endblock %}
+        {% block headerTitle %}
+          <h1>{{ title }}
+            {% if notfull %}
+              <sup title="{{ other_data.notfull }}">•</sup>
+            {% endif %}
+          </h1>
+        {% endblock %}
+        {% block extraArticleHeader %}{% endblock %}
+      </div>
+
+      {% if googleanalytics %}
+        <noscript>
+          <img src="/.netlify/functions/ga?v=1&_v=j83&t=pageview&dr=https%3A%2F%2Fno-script.com&_s=1&dh={{ settings.domain | encodeURIComponent }}&dp={{ page.url | encodeURIComponent }}&ul=en-us&de=UTF-8&dt={{title|encodeURIComponent}}&tid={{googleanalytics}}" width="1" height="1"
+        style="display:none" alt="">
+        </noscript>
+      {% endif %}
+    </header>
+
+    <main
+      id="main-wrapper"
+      class="
+        {% if settings.hideDraftPostsByDefault %}hide-draft-posts{% endif %}
+        {% if settings.hidePrivatePostsByDefault %} hide-private-posts{% endif %}
+        {% if settings.hideOutsideNotesByDefault %} hide-outside-posts{% endif %}
+      ">
+      {% block article %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
+
+    {% include "components/footer.njk" %}
+  </body>
+</html>

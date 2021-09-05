@@ -1,0 +1,14 @@
+footer {
+  font-size: 1rem;
+  background: $color-bg-nav;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: $color-faded;
+  a {
+    color: $color-faded;
+    &:hover {
+      color: #fff;
+      border: none;
+    }
+  }
+}

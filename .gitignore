@@ -1,0 +1,16 @@
+notes/
+_site/
+_live/
+_built/
+node_modules/
+.DS_Store
+src/js/min.js
+src/js/min.js.map
+.vscode/
+.netlify/
+.cache/
+.jekyll-cache
+.jekyll-metadata
+Gemfile.lock
+.idea
+.fontello-session

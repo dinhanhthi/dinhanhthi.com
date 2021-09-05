@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Github",
+    "icon": "/img_src/social/github.svg",
+    "url": "https://github.com/dinhanhthi"
+  },
+  {
+    "name": "LinkedIn",
+    "icon": "/img_src/social/linkedin.svg",
+    "url": "https://www.linkedin.com/in/dinhanhthi/"
+  },
+  {
+    "name": "Twitter",
+    "icon": "/img_src/social/twitter.svg",
+    "url": "https://twitter.com/dinhanhthi"
+  },
+  {
+    "name": "Goodreads",
+    "icon": "/img_src/social/goodreads.svg",
+    "url": "https://www.goodreads.com/user/show/19630622-thi-dinh"
+  },
+  {
+    "name": "StackExchange",
+    "icon": "/img_src/social/so.svg",
+    "url": "https://stackexchange.com/users/1344291/anh-thi-dinh"
+  },
+  {
+    "name": "Coursera",
+    "icon": "/img_src/social/coursera.png",
+    "url": "https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556"
+  },
+  {
+    "name": "Math2IT",
+    "icon": "/img_src/social/math2it_.png",
+    "url": "https://math2it.com"
+  }
+]
