@@ -4,6 +4,10 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
+### `4.6.2`
+
+- The same as `4.6.1`, created for the very new branch `dev` (after cleaning up).
+
 ### `4.6.1`
 
 - **Update**:

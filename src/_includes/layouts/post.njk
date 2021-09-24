@@ -32,7 +32,7 @@ date: Last Modified
       <div id="last-modified">
 				{{ page.date.toISOString().slice(0, 10) }}
 				/
-				<a href="https://github.com/dinhanhthi/dinhanhthi/notes/edit/master/{{ page.inputPath }}">Edit on Github</a>
+				<a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
 			</div>
     </div>
   {% endif %}
