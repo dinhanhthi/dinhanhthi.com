@@ -1,6 +1,6 @@
 # dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
 
-⭐  __Demo__ (current version): https://dinhanhthi.com
+⭐ **Demo** (current version): https://dinhanhthi.com
 
 ## Changelog
 
@@ -22,10 +22,13 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 4. A ustomizable resume page.
 5. Optimization images, html, css, javascript files.
 6. Support instant search with hightlight (using [elasticlunr](http://elasticlunr.com/))
-7. **[NEW]** Support Dark / Light Modes with a toggle button.
-8. **[NEW]** Auto scrolling + expanding the TOC. When you scroll to some H2 heading, it will expand all of its H3 children if available. Try [this page](https://dinhanhthi.com/confusion-matrix-and-f1-score/) for an example.
+7. Support Dark / Light Modes with a toggle button.
+8. Auto scrolling + expanding the TOC. When you scroll to some H2 heading, it will expand all of its H3 children if available. Try [this page](https://dinhanhthi.com/confusion-matrix-and-f1-score/) for an example.
 
 ## Illustrated photos (dark vs light)
+
+<details>
+<summary>Click to see screenshots.</summary>
 
 ![Home page](./src/img/frontpage.png)
 
@@ -37,11 +40,13 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 
 ![Note page](./src/img/note-page.png)
 
+</details>
+
 ## Build & dev locally
 
 At the first time after cloning,
 
-``` bash
+```bash
 # Install nodejs
 # https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
 
@@ -50,7 +55,7 @@ npm i # run once
 sh getting_start.sh # run once (for me only)
 ```
 
-``` bash
+```bash
 # If you have any problem with the installation sharp?
 # Try to change the python path to python2
 # Best practice: create a python env containing python just for this task!
@@ -60,7 +65,7 @@ sh getting_start.sh # run once (for me only)
 npm config set python python2
 ```
 
-``` bash
+```bash
 # If you have problems with libvips (MacOS??)?
 # install it first
 brew install vips
@@ -70,7 +75,7 @@ npm i
 
 **For you only**,
 
-``` bash
+```bash
 # Build & watch locally
 npm run share:local-watch
 # Go to http://localhost:8080 to see the result
@@ -88,40 +93,60 @@ npm run share:build
 
 **For me only** (If you wanna understand what I'm doing, [ask me](mailto:dinhanhthi@gmail.com)!),
 
-``` bash
+<details>
+<summary>Click to expand!</summary>
+
+```bash
 sudo npm install http-server -g
 
-# Create _live & Clone dat.com/_site
+# Create \_live & Clone dat.com/\_site
+
 sh getting_started.sh
 
 # Local watch (for developing theme)
+
 npm run local:watch # using sample notes
 npm run local:watch-full # using real notes
+
 # Goto http://localhost:8080
 
 # Local serve (see a full remote page locally)
+
 # Remark: Make sure running "npm run build" at least once!
+
 npm run local:http-serve
+
 # It will serve a full site locally
+
 # Go to http://localhost:8081
+
 # Each time wanna update the changes (eg. posts)
+
 npm run build
 
-# Update site (publish to _site and netlify)?
+# Update site (publish to \_site and netlify)?
+
 sh ud_site.sh
-```
+
+````
+</details>
 
 **(For me only)** Make a shortcut on the system?
 
-``` bash
+<details>
+<summary>Click to expand!</summary>
+
+```bash
 update_dat='cd ~/git/dinhanhthi.com && sh ud_site.sh && cd -1'
-```
+````
+
+</details>
 
 ### Re-install?
 
 In case you have some problems and need to re-install everything,
 
-``` bash
+```bash
 npm run re-install
 ```
 
@@ -131,7 +156,7 @@ It will remove `node_modules/`, `package-lock.json` and re-run `npm i`.
 
 Upload the config file in `/src/fontello/config.json` to [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add more icons you want. After choosing, click to "**Get config only**".
 
-``` bash
+```bash
 # install fontello-cli
 npm install -g fontello-cli
 
@@ -151,7 +176,7 @@ fontello-cli --config src/fontello/config.json --css src/fontello/css --font src
 
 ## Errors?
 
-``` bash
+```bash
 # 'darwin-arm64v8' binaries cannot be used on the 'darwin-x64' platform
 rm -rf node_modules/sharp
 npm  i
@@ -159,7 +184,7 @@ npm  i
 # npm install --arch=x64 --platform=darwin sharp
 ```
 
-``` bash
+```bash
 # connect EADDRNOTAVAIL 127.0.0.1:8080 - Local (192.168.1.109:50781)
 # (Usually after install WARP on MacOS)
 sudo ifconfig lo0 -alias 192.0.2.2
