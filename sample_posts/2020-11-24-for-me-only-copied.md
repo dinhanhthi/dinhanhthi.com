@@ -321,16 +321,6 @@ npm run eleventy --config=.eleventy.dev.js
 
 Other command lines can be found [here](https://www.11ty.dev/docs/usage/#command-line-usage) or using `npx @11ty/eleventy --help`.
 
-### PurgeCSS
-
-Becare full on [PurgeCSS](https://purgecss.com/),
-
-``` css
-/*! purgecss start ignore */
-// css classes
-/*! purgecss end ignore */
-```
-
 ### Custom tags / shortcodes
 
 The main guide is [here](https://www.11ty.dev/docs/shortcodes/).

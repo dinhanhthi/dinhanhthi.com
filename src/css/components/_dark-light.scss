@@ -1,12 +1,10 @@
-/*! purgecss start ignore */
-
 // Default colors
 body {
-	@include light-vars();
+  @include light-vars();
 }
 // dark
 body.dark-theme {
-	@include dark-vars();
+  @include dark-vars();
 }
 // Styles for users who prefer light mode at the OS level
 @media (prefers-color-scheme: dark) {
@@ -19,5 +17,3 @@ body.dark-theme {
     @include dark-vars();
   }
 }
-
-/*! purgecss end ignore */

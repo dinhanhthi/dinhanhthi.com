@@ -9,8 +9,6 @@ header nav {
   z-index: 2;
   position: relative;
 }
-
-/*! purgecss start ignore */
 header {
   background: $color-background;
   color: $font-color;
@@ -166,4 +164,3 @@ p.contact {
     }
   }
 }
-/*! purgecss end ignore */

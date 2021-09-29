@@ -83,7 +83,6 @@
     "postcss": "^8.2.10",
     "pug": "^3.0.2",
     "purge-from-html": "^1.0.3",
-    "purgecss": "^4.0.3",
     "querystring": "^0.2.0",
     "rollup": "^2.45.1",
     "sharp": "^0.28.3",

@@ -1,5 +1,3 @@
-/*! purgecss start ignore */
-
 // Badges
 // ----------------------------------------------------------------
 .badge {
@@ -291,7 +289,6 @@ $gap: 5px;
 
 // Hide / Show
 // ----------------------------------------------------------------
-/*! purgecss start ignore */
 .hsbox {
   margin-bottom: $margin-bottom;
   border: 1px solid var(--toc-title-bd);
@@ -521,7 +518,9 @@ input[type="search"]::-webkit-search-results-decoration {
     }
   }
 }
-.toggle-draft, .toggle-private, .toggle-outside {
+.toggle-draft,
+.toggle-private,
+.toggle-outside {
   display: flex;
   align-items: center;
   .toggle-text {
@@ -552,5 +551,3 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
   }
 }
-
-/*! purgecss end ignore */
