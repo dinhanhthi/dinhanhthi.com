@@ -7,6 +7,11 @@ icon: /img_src/header/coupling.png
 keywords: coupling dataframes inner outer left right merging pandas display side by side concatenate concat
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/data/data-processing' %}
 
 Sometimes, we wanna couple multiple dataframes together. In this note, I use `df` as `DataFrame`, `s` as `Series`.

@@ -8,6 +8,11 @@ keywords: "chunker slide slicing rolling batches windows list sequence split ims
 notfull: true
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/algorithms' %}
 
 This note contains questions/puzzle and algorithms to answer these problems. Most of the codes in this type of note are in [**Python**](/notes#python).

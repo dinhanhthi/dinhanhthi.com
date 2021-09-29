@@ -8,6 +8,11 @@ notfull: 1
 keywords: "autoencoder simple AE pytorch torch basic idea neural network NN layers activations encode encoder decode decoder relu linear sigmoid sequential anomaly detection wave data dataswati test interview"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/deep-learning' %}
 
 From [TESTING FILES](/files/ml/Duality_for_the_SVM.pdf),

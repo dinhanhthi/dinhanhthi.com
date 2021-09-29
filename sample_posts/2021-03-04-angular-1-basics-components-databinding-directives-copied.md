@@ -7,6 +7,11 @@ icon: /img_src/header/angular.svg
 keywords: "dynamic components mooc course fundamental installation 101 typescript ts strict mode bootstrap dropdown CLI how it works selector constructor data binding databinding property binding event binding model convention template style ng-template string interpolation core two-way 2-way two way ngModel form listener shared folder debugging sourcemap View Encapsulation Local References ViewChild DOM ng-content Component lifecycle onChanges onInit doCheck AfterView AfterContent Structure Directive ngIf ngFor ngSwitch attribute renderer custom unless ngOnChanges ngOnInit ngDoCheck ngAfterViewinit ngAfterViewChecked ngOnDestroy ngAfterContentInit ngAfterContentChecked"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/angular' %}
 
 This is my note for the course "Angular - The Complete Guide (2021 Edition)" which is taught by Maximilian Schwarzmüller on Udemy. This is an incredible course for you to start to learn Angular from basic. The official Angular docs is good but it's not for the beginner.

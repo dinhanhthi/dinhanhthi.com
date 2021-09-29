@@ -7,6 +7,11 @@ icon: gitbook.png
 notfull: 1
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/web-dev' %}
 
 ## URLs

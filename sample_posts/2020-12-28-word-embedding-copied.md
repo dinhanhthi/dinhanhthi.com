@@ -9,6 +9,11 @@ notfull: 1
 keywords: "word2vec tool framework tensorflow One-hot encodings vectorize text vectorization dense sparse matrix"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/nlp' %}
 
 ## What & Why?

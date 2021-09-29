@@ -8,6 +8,11 @@ notfull: 1
 keywords: "p values null hypothesis reject alternate hypothesis nullify Chi-Square Test statistical significance multiple testing multiple comparison problem correction multiple testing multiple tests multipletests"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/stats' %}
 
 ## Null hypothesis

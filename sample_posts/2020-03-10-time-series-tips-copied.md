@@ -8,6 +8,11 @@ notfull: 1
 keywords: "find the common time invervals timestamps burst detection bursting burst firing term terminology gaps biggest gaps spaces algorithm starting and ending of each window average moyenne size max min problems with time series time series regression time series classification anomaly detection input read csv read_csv"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/time-series' %}
 
 ## Terminologies & fields of research

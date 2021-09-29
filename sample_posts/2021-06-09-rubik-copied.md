@@ -8,6 +8,11 @@ notfull: 1
 keywords: "gaming puzzle relax others rubik algo algorithm speed cube godube"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/gaming/rubik' %}
 
 ::: warning

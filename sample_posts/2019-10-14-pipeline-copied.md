@@ -7,6 +7,11 @@ icon: pipeline.png
 keywords: "sticky multiple processes into single process multiple tasks at once make_pipeline scaling svm pca sequential work algorithm training parameter best parameter tuning gridsearch cross validation scaling train test sets different folds folds scikit-learn naming name why what where when grid search tuning"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/ML/pipeline' %}
 
 ## What's the idea of Pipeline?

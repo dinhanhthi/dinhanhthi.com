@@ -7,6 +7,11 @@ icon: "/img_src/header/customize.svg"
 keywords: "me for me only customize admin panel edition customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 This post is for me only. It contains shortcodes to create this website.
 
 👉  Note: [11ty](/11ty-nunjucks/).

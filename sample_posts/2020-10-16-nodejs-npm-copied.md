@@ -8,6 +8,11 @@ notefull: 1
 keywords: js javascript package management Node Package Manager
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
+
 {% assign img-url = '/img/post/js/gatsby' %}
 
 ## Install NodeJS & NPM

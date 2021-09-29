@@ -7,6 +7,10 @@ icon: ssh.png
 keywords: "ssh command line remove server rsa public key private key"
 ---
 
+{% markdown %}
+::: danger
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+{% endmarkdown %}
 
 👉 Note: [SSH & Github](/github/#clone-via-git%40-(ssh)).
 
