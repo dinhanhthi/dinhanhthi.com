@@ -70,26 +70,6 @@ describe("check build output for a generic post", () => {
       );
     });
 
-    it("should have GA a setup", () => {
-      if (!GA_ID) {
-        return;
-      }
-      const scripts = doc.querySelectorAll("script[src]");
-      expect(scripts[1].getAttribute("src")).to.match(
-        /^\/src\/js\/cached\.js\?hash=\w+/
-      );
-      const noscript = doc.querySelectorAll("noscript");
-      expect(noscript.length).to.be.greaterThan(0);
-      let count = 0;
-      for (let n of noscript) {
-        if (n.textContent.includes("/.netlify/functions/ga")) {
-          count++;
-          expect(n.textContent).to.contain(GA_ID);
-        }
-      }
-      expect(count).to.equal(1);
-    });
-
     it("should have a good CSP", () => {
       const csp = select(
         "meta[http-equiv='Content-Security-Policy']",
@@ -107,10 +87,6 @@ describe("check build output for a generic post", () => {
             b.getAttribute("aria-label") != null
         ).to.be.true;
       }
-    });
-
-    it("should have a share widget", () => {
-      expect(select("share-widget button", "href")).to.equal(POST_URL);
     });
 
     it("should have a header", () => {

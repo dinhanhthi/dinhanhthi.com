@@ -1,6 +1,6 @@
 {
   "name": "dinhanhthi.com",
-  "version": "4.6.2",
+  "version": "3.7.0",
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
@@ -16,9 +16,6 @@
     "js:build": "rollup -c src/rollup.config.js",
     "js:build-watch": "rollup -c src/rollup.config.js -w",
     "debug": "DEBUG=* eleventy",
-    "share:build": "npm run js:build && npm run css:build && eleventy",
-    "share:serve": "ELEVENTY_ENV=local eleventy --serve",
-    "share:local-watch": "concurrently \"npm run share:serve\" \"npm run js:build-watch\" \"npm run css:watch-local\" -c green,blue,red -n 11ty,css,js",
     "site:build": "npm run build",
     "site:update": "sh ud_site.sh",
     "site:build-update": "npm run site:build && npm run site:update"
@@ -51,10 +48,8 @@
   },
   "dependencies": {
     "@ampproject/toolbox-optimizer": "^2.7.6",
-    "@fortawesome/fontawesome-free": "^5.15.3",
     "@saschazar/wasm-avif": "^1.0.0",
     "clean-css": "^4.2.3",
-    "copyfiles": "^2.4.1",
     "core-js": "^3.12.1",
     "csp-hash-generator": "0.0.3",
     "csso": "^4.0.3",
@@ -82,7 +77,6 @@
     "phin": "^3.5.0",
     "postcss": "^8.2.10",
     "pug": "^3.0.2",
-    "purge-from-html": "^1.0.3",
     "querystring": "^0.2.0",
     "rollup": "^2.45.1",
     "sharp": "^0.28.3",

@@ -59,6 +59,15 @@ header {
       @include screen-lg-up {
         margin-right: 20px;
       }
+
+      &:hover {
+        img {
+          transform: translate(0px, -2px);
+        }
+      }
+      img {
+        transition: transform 0.2s;
+      }
     }
   }
 

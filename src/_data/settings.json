@@ -3,8 +3,7 @@
   "url": "https://dinhanhthi.com",
   "domain": ".com",
   "description": "I failed my way to success!",
-  "genre": "Insert a schema.org genre",
-  "googleAnalyticsId": "GA ID. Update me",
+  "googleAnalyticsId": "256398068",
   "feed": {
     "subtitle": "I failed my way to success!",
     "filename": "feed.xml",
@@ -20,10 +19,7 @@
     "twitterHandle": "dinhanhthi",
     "url": "https://dinhanhthi.com"
   },
-  "publisher": {
-    "name": "Publisher name. Update me."
-  },
-  "look4job": false,
+  "look4job": true,
   "hideDraftPostsByDefault": true,
   "hidePrivatePostsByDefault": true,
   "hideOutsideNotesByDefault": false

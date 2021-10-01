@@ -4,23 +4,23 @@
     "list": [
       {
         "name": "FreeFEM++",
-        "icon": "/img_src/about/ff.svg"
+        "icon": "ff.svg"
       },
       {
         "name": "JavaScript",
-        "icon": "/img_src/about/js.svg"
+        "icon": "js.svg"
       },
       {
         "name": "Matlab",
-        "icon": "/img_src/about/matlab.svg"
+        "icon": "matlab.svg"
       },
       {
         "name": "PHP",
-        "icon": "/img_src/about/php.svg"
+        "icon": "php.svg"
       },
       {
         "name": "Python",
-        "icon": "/img_src/about/python.svg"
+        "icon": "python.svg"
       }
     ]
   },
@@ -29,19 +29,19 @@
     "list": [
       {
         "name": "Jupyter",
-        "icon": "/img_src/about/jupyter.svg"
+        "icon": "jupyter.svg"
       },
       {
         "name": "PyTorch",
-        "icon": "/img_src/about/pytorch.svg"
+        "icon": "pytorch.svg"
       },
       {
         "name": "Scikit-learn",
-        "icon": "/img_src/about/scikit-learn.svg"
+        "icon": "scikit-learn.svg"
       },
       {
         "name": "TensorFlow",
-        "icon": "/img_src/about/tf.svg"
+        "icon": "tf.svg"
       }
     ]
   },
@@ -50,51 +50,51 @@
     "list": [
       {
         "name": "Angular",
-        "icon": "/img_src/about/angular.svg"
+        "icon": "angular.svg"
       },
       {
         "name": "Bootstrap",
-        "icon": "/img_src/about/bootstrap.svg"
+        "icon": "bootstrap.svg"
       },
       {
         "name": "Eleventy",
-        "icon": "/img_src/about/11ty.svg"
+        "icon": "11ty.svg"
       },
       {
         "name": "GatsbyJS",
-        "icon": "/img_src/about/gatsby.svg"
+        "icon": "gatsby.svg"
       },
       {
         "name": "HTML5",
-        "icon": "/img_src/about/html.svg"
+        "icon": "html.svg"
       },
       {
         "name": "Jekyll",
-        "icon": "/img_src/about/jekyll.svg"
+        "icon": "jekyll.svg"
       },
       {
         "name": "Liquid",
-        "icon": "/img_src/about/liquid.svg"
+        "icon": "liquid.svg"
       },
       {
         "name": "Nunjucks",
-        "icon": "/img_src/about/nunjucks.svg"
+        "icon": "nunjucks.svg"
       },
       {
         "name": "RxJS",
-        "icon": "/img_src/about/rxjs.svg"
+        "icon": "rxjs.svg"
       },
       {
         "name": "SCSS",
-        "icon": "/img_src/about/sass.svg"
+        "icon": "sass.svg"
       },
       {
         "name": "TypeScript",
-        "icon": "/img_src/about/ts.svg"
+        "icon": "ts.svg"
       },
       {
         "name": "Wordpress",
-        "icon": "/img_src/about/wordpress.svg"
+        "icon": "wordpress.svg"
       }
     ]
   },
@@ -103,49 +103,49 @@
     "list": [
       {
         "name": "Airflow",
-        "icon": "/img_src/about/airflow.svg"
+        "icon": "airflow.svg"
       },
       {
         "name": "Docker",
-        "icon": "/img_src/about/docker.svg"
+        "icon": "docker.svg"
       },
       {
         "name": "Firebase",
-        "icon": "/img_src/about/firebase.svg"
+        "icon": "firebase.svg"
       },
       {
         "name": "GraphQL",
-        "icon": "/img_src/about/graphql.svg",
+        "icon": "graphql.svg",
         "later": true
       },
       {
         "name": "gRPC",
-        "icon": "/img_src/about/grpc.svg"
+        "icon": "grpc.svg"
       },
       {
         "name": "Heroku",
-        "icon": "/img_src/about/heroku.svg",
+        "icon": "heroku.svg",
         "later": true
       },
       {
         "name": "JestJS",
-        "icon": "/img_src/about/jestjs.svg"
+        "icon": "jestjs.svg"
       },
       {
         "name": "MongoDB",
-        "icon": "/img_src/about/mongodb.svg"
+        "icon": "mongodb.svg"
       },
       {
         "name": "MySQL",
-        "icon": "/img_src/about/mysql.svg"
+        "icon": "mysql.svg"
       },
       {
         "name": "NestJS",
-        "icon": "/img_src/about/nestjs.svg"
+        "icon": "nestjs.svg"
       },
       {
         "name": "NodeJS",
-        "icon": "/img_src/about/node.svg"
+        "icon": "node.svg"
       }
     ]
   },
@@ -154,23 +154,23 @@
     "list": [
       {
         "name": "Git",
-        "icon": "/img_src/about/git.svg"
+        "icon": "git.svg"
       },
       {
         "name": "GNU Bash",
-        "icon": "/img_src/about/bash_.svg"
+        "icon": "bash_.svg"
       },
       {
         "name": "Linux",
-        "icon": "/img_src/about/linux_.svg"
+        "icon": "linux_.svg"
       },
       {
         "name": "Sphinx Doc",
-        "icon": "/img_src/about/sphinx.svg"
+        "icon": "sphinx.svg"
       },
       {
         "name": "VS Code",
-        "icon": "/img_src/about/vscode.svg"
+        "icon": "vscode.svg"
       }
     ]
   }

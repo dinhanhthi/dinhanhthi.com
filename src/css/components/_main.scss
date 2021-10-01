@@ -34,33 +34,6 @@
   background: $color-background;
 }
 
-share-widget {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  opacity: 0.9;
-
-  div {
-    width: 30px;
-    height: 30px;
-    background-image: url("/img_src/share.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
-
-.apple share-widget div {
-  background-image: url("/img_src/share-apple.svg");
-}
-
-share-widget button {
-  margin: 0;
-
-  &:active {
-    transform: scale(1.2);
-  }
-}
-
 html {
   -webkit-text-size-adjust: 100%;
   font-family: $font-main;

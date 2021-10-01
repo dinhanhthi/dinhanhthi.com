@@ -10,7 +10,6 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const elasticlunr = require("elasticlunr");
 // const fetch = require("node-fetch");
 
-// markdown-it
 const markdownIt = require("markdown-it");
 var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
@@ -21,6 +20,10 @@ const CleanCSS = require("clean-css");
 const GA_ID = require("./src/_data/settings.json").googleAnalyticsId;
 
 const categories = require("./src/_data/categories.json");
+
+const thiDataDir = "notes/_data";
+const defaultDataDir = "src/_data";
+var dataDir;
 
 module.exports = {
   environment: process.env.ELEVENTY_ENV,
@@ -38,37 +41,57 @@ module.exports = function (eleventyConfig) {
     headingTag: "h2", // Heading tag when showing heading above the wrapper element
   });
 
-  if (process.env.ELEVENTY_ENV === "local") {
-    eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
-      devMode: true,
-    });
-    eleventyConfig.setDataDeepMerge(true);
-    eleventyConfig.ignores.add("notes"); // ignore folder notes
-    eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
-  } else if (process.env.ELEVENTY_ENV === "local-fullposts") {
-    eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
-      devMode: true,
-    });
-    eleventyConfig.setDataDeepMerge(true);
-    eleventyConfig.ignores.delete("notes"); // use folder notes
-    eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
-  } else {
-    eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
-    eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
-    eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
-    eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
-    eleventyConfig.setDataDeepMerge(true);
-    eleventyConfig.ignores.delete("notes"); // use folder notes
-    eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
+  switch (process.env.ELEVENTY_ENV) {
+    case "local":
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        devMode: true,
+      });
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.add("notes"); // ignore folder notes
+      eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
+      dataDir = thiDataDir;
+      break;
 
-    // eleventy-plugin-local-images
-    eleventyConfig.addPlugin(localImages, {
-      distPath: "_site",
-      assetPath: "/img/remote",
-      selector:
-        "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-      verbose: false,
-    });
+    case "local-share":
+      // Use for others in local mode
+      // The difference here with "local" is only the dataDir
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        devMode: true,
+      });
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.add("notes"); // ignore folder notes
+      eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
+      dataDir = defaultDataDir;
+      break;
+
+    case "local-fullposts":
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        devMode: true,
+      });
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.delete("notes"); // use folder notes
+      eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
+      dataDir = thiDataDir;
+      break;
+
+    default:
+      // Default for "Thi" => use Thi's personal data directory
+      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
+      eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.delete("notes"); // use folder notes
+      eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
+      // eleventy-plugin-local-images
+      eleventyConfig.addPlugin(localImages, {
+        distPath: "_site",
+        assetPath: "/img/remote",
+        selector:
+          "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+        verbose: false,
+      });
+      dataDir = thiDataDir;
   }
 
   // layout alias
@@ -164,7 +187,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({ "notes/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
-  eleventyConfig.addPassthroughCopy({ "src/files": "files" }); // for personal files
+  eleventyConfig.addPassthroughCopy({ "notes/files": "files" }); // for personal files
   eleventyConfig.addPassthroughCopy("src/css");
   // We need to copy cached.js only if GA is used
   eleventyConfig.addPassthroughCopy(GA_ID ? "src/js" : "src/js/*[!cached].*");
@@ -304,7 +327,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: ".",
       includes: "src/_includes",
-      data: "src/_data",
+      data: dataDir,
       // Warning hardcoded throughout repo. Find and replace is your friend :)
       output: "_site",
     },

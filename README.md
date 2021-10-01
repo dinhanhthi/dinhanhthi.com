@@ -1,6 +1,10 @@
 # dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
 
-⭐ **Demo** (current version): https://dinhanhthi.com
+👋 Thi's personal website running on 11ty.
+
+❗ **Note** : This repo is for my personal purpose ONLY. I don't intend to make it be a template (although I used to want to do this). If you wanna use it and have troubles, send me an email if you like but I'm not sure I'll have time to help you. Sorry about that. Anyway, if you find something useful for me to enhance this theme, just let me know, thanks.
+
+📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
 ## Changelog
 
@@ -10,160 +14,57 @@ Read this [changelog](./CHANGELOG.md).
 
 There are several "old" versions (mainly built on **Jekyll**) with different themes.
 
-👉 Version 0 (Jekyll): [v0.dinhanhthi.com](https://v0.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com/tree/v0-jekyll).<br />
-👉 Version 1 (Jekyll): [v1.dinhanhthi.com](https://v1.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com/tree/v1-jekyll).<br />
-👉 Version 2 (Jekyll): [v2.dinhanhthi.com](https://v2.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com/tree/v2-jekyll).<br />
+👉 Version 1 (Jekyll): [v1.dinhanhthi.com](https://v1.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v1).<br />
+👉 Version 2 (Jekyll): [v2.dinhanhthi.com](https://v2.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v2).<br />
+👉 Version 3 (Jekyll): [v3.dinhanhthi.com](https://v3.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v3).
 
-## Features
+## Dev
 
-1. High performance (customized from [Google's high performance theme](https://github.com/google/eleventy-high-performance-blog)).
-2. Flexible on all devices.
-3. Support many components for note taking in markdown (my styles 😉)
-4. A ustomizable resume page.
-5. Optimization images, html, css, javascript files.
-6. Support instant search with hightlight (using [elasticlunr](http://elasticlunr.com/))
-7. Support Dark / Light Modes with a toggle button.
-8. Auto scrolling + expanding the TOC. When you scroll to some H2 heading, it will expand all of its H3 children if available. Try [this page](https://dinhanhthi.com/confusion-matrix-and-f1-score/) for an example.
+Suppose that the installation step is done completely.
 
-## Illustrated photos (dark vs light)
+- **Update data** : modify files in `notes/_data/`. If wanna see them on local when dev, overwrite these files to `src/_data/`,
+- **Update posts** : just modify things in `notes/`.
 
-<details>
-<summary>Click to see screenshots.</summary>
-
-![Home page](./src/img/frontpage.png)
-
-![Home page 2](./src/img/front-more.png)
-
-![About page](./src/img/about-page.png)
-
-![About page 2](./src/img/about-more.png)
-
-![Note page](./src/img/note-page.png)
-
-</details>
-
-## Build & dev locally
-
-At the first time after cloning,
-
-```bash
-# Install nodejs
-# https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
-
-npm i # run once
-
-sh getting_start.sh # run once (for me only)
-```
-
-```bash
-# If you have any problem with the installation sharp?
-# Try to change the python path to python2
-# Best practice: create a python env containing python just for this task!
-
-# In case you have python2 installed but it's not currently default
-# You can choose python version in npm with
-npm config set python python2
-```
-
-```bash
-# If you have problems with libvips (MacOS??)?
-# install it first
-brew install vips
-# then again,
-npm i
-```
-
-**For you only**,
-
-```bash
-# Build & watch locally
-npm run share:local-watch
-# Go to http://localhost:8080 to see the result
-
-# Build site (optional, take longer time with optimizing images)
-npm run share:build
-
-# In case you wanna publish the site using netlify, for example,
-# 1. Make a "notes" folder (with this name!) containing your markdown notes
-# 2. Configure on netlify to run with "share:build"
-# 3. Search and replace { "notes/img": "img" } with { "img": "img"} where ./img/ is the place
-#   you store your images
-# Advanced: you can modify package.json & .eleventy.js for your personal commands if you want.
-```
-
-**For me only** (If you wanna understand what I'm doing, [ask me](mailto:dinhanhthi@gmail.com)!),
-
-<details>
-<summary>Click to expand!</summary>
-
-```bash
-sudo npm install http-server -g
-
-# Create \_live & Clone dat.com/\_site
-
-sh getting_started.sh
-
+``` bash
 # Local watch (for developing theme)
-
-npm run local:watch # using sample notes
-npm run local:watch-full # using real notes
-
 # Goto http://localhost:8080
+npm run local:watch # using sample notes
+npm run local:watch-full # using real notes (without image processing)
 
 # Local serve (see a full remote page locally)
-
 # Remark: Make sure running "npm run build" at least once!
-
+# Goto http://localhost:8080
 npm run local:http-serve
 
 # It will serve a full site locally
-
 # Go to http://localhost:8081
-
 # Each time wanna update the changes (eg. posts)
-
 npm run build
-
-# Update site (publish to \_site and netlify)?
-
-sh ud_site.sh
-
-````
-</details>
-
-**(For me only)** Make a shortcut on the system?
-
-<details>
-<summary>Click to expand!</summary>
-
-```bash
-update_dat='cd ~/git/dinhanhthi.com && sh ud_site.sh && cd -1'
-````
-
-</details>
-
-### Re-install?
-
-In case you have some problems and need to re-install everything,
-
-```bash
-npm run re-install
 ```
 
-It will remove `node_modules/`, `package-lock.json` and re-run `npm i`.
+``` bash
+# Update site & deploy
+sh ud_site.sh
+# or: ud_dat (macos)
+```
+
+<details><summary>More about update data</summary>
+
+Informations must be duplicated both in `src/_data/` and `notes/_data` : `csp.js`, `env.js`, `googleanalytics.js`, `helpers.js`, `settings.json`. Other words: add something in these files, must add in both places. Other files, just modify in `notes/_data` except that we need some info for the sample theme.
+</details>
 
 ### Update Fontello icons?
 
 Upload the config file in `/src/fontello/config.json` to [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add more icons you want. After choosing, click to "**Get config only**".
 
 ```bash
-# install fontello-cli
+# Install fontello-cli
 npm install -g fontello-cli
 
-# install / update new icon
+# Install / update new icon
 fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install
 
-# check code in src/fontello/config.json
+# Check code in src/fontello/config.json
 ```
 
 **Add a custom icon**?
@@ -173,6 +74,82 @@ fontello-cli --config src/fontello/config.json --css src/fontello/css --font src
    2. If you need to crop some images? Use [this site](https://www.iloveimg.com/crop-image).
    3. Need to convert to svg? Use [this site](https://www.pngtosvg.com/).
 2. Drag and drop this icon to fontello site.
+
+## Installation
+
+<details>
+<summary>Click to show (a little long)!</summary>
+
+At the first time after cloning,
+
+```bash
+# Install nodejs
+# https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
+
+npm i # Run once
+
+sh getting_start.sh # Run once
+```
+
+```bash
+# Any problem with sharp?
+# Try to change the python path to python2
+# Best practice: create a python env containing python just for this task!
+
+# In case, python2 installed but it's not currently default
+# Choose python version in npm with
+npm config set python python2
+```
+
+```bash
+# Problems with libvips (MacOS??)? => install it first
+brew install vips
+# Then again,
+npm i
+```
+
+Dev mode,
+
+```bash
+# Install before
+sudo npm install http-server -g
+
+# Create \_live & Clone dat.com/\_site
+sh getting_started.sh
+
+# Local watch (for developing theme)
+npm run local:watch # using sample notes
+npm run local:watch-full # using real notes
+
+# Goto http://localhost:8080
+# Local serve (see a full remote page locally)
+# Remark: Make sure running "npm run build" at least once!
+npm run local:http-serve
+
+# It will serve a full site locally
+# Go to http://localhost:8081
+# Each time wanna update the changes (eg. posts)
+npm run build
+
+# Update site (publish to \_site and netlify)?
+sh ud_site.sh
+````
+
+```bash
+# Make a shortcut on the system?
+update_dat='cd ~/git/dinhanhthi.com && sh ud_site.sh && cd -1'
+```
+</details>
+
+### Re-install?
+
+In case have some problems and need to re-install everything,
+
+```bash
+npm run re-install
+```
+
+It will remove `node_modules/`, `package-lock.json` and re-run `npm i`.
 
 ## Errors?
 

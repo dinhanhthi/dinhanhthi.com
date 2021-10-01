@@ -459,26 +459,32 @@ const toggleOutsideBtn = document.getElementById("toggle-outside-button");
 const mainWrapper = document.getElementById("main-wrapper");
 const pageIndex = document.getElementsByClassName("page-index")[0];
 
-toggleDraftBtn.addEventListener("click", function () {
-  mainWrapper.classList.toggle("hide-draft-posts");
-  if (pageIndex) {
-    hideEmptyCategoryWrapper();
-  }
-});
+if (toggleDraftBtn) {
+  toggleDraftBtn.addEventListener("click", function () {
+    mainWrapper.classList.toggle("hide-draft-posts");
+    if (pageIndex) {
+      hideEmptyCategoryWrapper();
+    }
+  });
+}
 
-togglePrivateBtn.addEventListener("click", function () {
-  mainWrapper.classList.toggle("hide-private-posts");
-  if (pageIndex) {
-    hideEmptyCategoryWrapper();
-  }
-});
+if (togglePrivateBtn) {
+  togglePrivateBtn.addEventListener("click", function () {
+    mainWrapper.classList.toggle("hide-private-posts");
+    if (pageIndex) {
+      hideEmptyCategoryWrapper();
+    }
+  });
+}
 
-toggleOutsideBtn.addEventListener("click", function () {
-  mainWrapper.classList.toggle("hide-outside-posts");
-  if (pageIndex) {
-    hideEmptyCategoryWrapper();
-  }
-});
+if (toggleOutsideBtn) {
+  toggleOutsideBtn.addEventListener("click", function () {
+    mainWrapper.classList.toggle("hide-outside-posts");
+    if (pageIndex) {
+      hideEmptyCategoryWrapper();
+    }
+  });
+}
 
 // Hide on load
 if (

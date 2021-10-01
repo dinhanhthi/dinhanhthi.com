@@ -16,23 +16,23 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "JavaScript",
-				"icon": "/img_src/about/js.svg"
+				"icon": "js.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			},
 			{
 				"name": "TensorFlow",
-				"icon": "/img_src/about/tf.svg"
+				"icon": "tf.svg"
 			}
 		]
 	},
@@ -44,15 +44,15 @@
 		"tech": [
 			{
 				"name": "Eleventy",
-				"icon": "/img_src/about/11ty.svg"
+				"icon": "11ty.svg"
 			},
 			{
 				"name": "JavaScript",
-				"icon": "/img_src/about/js.svg"
+				"icon": "js.svg"
 			},
 			{
 				"name": "NodeJS",
-				"icon": "/img_src/about/node.svg"
+				"icon": "node.svg"
 			}
 		]
 	},
@@ -64,27 +64,27 @@
 		"tech": [
 			{
 				"name": "Eleventy",
-				"icon": "/img_src/about/11ty.svg"
+				"icon": "11ty.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "JavaScript",
-				"icon": "/img_src/about/js.svg"
+				"icon": "js.svg"
 			},
 			{
 				"name": "NodeJS",
-				"icon": "/img_src/about/node.svg"
+				"icon": "node.svg"
 			},
 			{
 				"name": "Nunjucks",
-				"icon": "/img_src/about/nunjucks.svg"
+				"icon": "nunjucks.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			}
 		]
 	},
@@ -115,23 +115,23 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "Docker",
-				"icon": "/img_src/about/docker.svg"
+				"icon": "docker.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "Jekyll",
-				"icon": "/img_src/about/jekyll.svg"
+				"icon": "jekyll.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			}
 		]
 	},
@@ -144,43 +144,43 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "Docker",
-				"icon": "/img_src/about/docker.svg"
+				"icon": "docker.svg"
 			},
 			{
 				"name": "Eleventy",
-				"icon": "/img_src/about/11ty.svg"
+				"icon": "11ty.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "JavaScript",
-				"icon": "/img_src/about/js.svg"
+				"icon": "js.svg"
 			},
 			{
 				"name": "Jekyll",
-				"icon": "/img_src/about/jekyll.svg"
+				"icon": "jekyll.svg"
 			},
 			{
 				"name": "Liquid",
-				"icon": "/img_src/about/liquid.svg"
+				"icon": "liquid.svg"
 			},
 			{
 				"name": "NodeJS",
-				"icon": "/img_src/about/node.svg"
+				"icon": "node.svg"
 			},
 			{
 				"name": "Nunjucks",
-				"icon": "/img_src/about/nunjucks.svg"
+				"icon": "nunjucks.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			}
 		]
 	},
@@ -193,20 +193,20 @@
 		"tech": [
 			{
 				"name": "Foursquare API",
-				"icon": "/img_src/about/foursquare.svg",
+				"icon": "foursquare.svg",
 				"later": true
 			},
 			{
 				"name": "Jupyter",
-				"icon": "/img_src/about/jupyter.svg"
+				"icon": "jupyter.svg"
 			},
 			{
 				"name": "Python",
-				"icon": "/img_src/about/python.svg"
+				"icon": "python.svg"
 			},
 			{
 				"name": "Scikit-learn",
-				"icon": "/img_src/about/scikit-learn.svg"
+				"icon": "scikit-learn.svg"
 			}
 		]
 	},
@@ -228,39 +228,39 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "Docker",
-				"icon": "/img_src/about/docker.svg"
+				"icon": "docker.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "JavaScript",
-				"icon": "/img_src/about/js.svg"
+				"icon": "js.svg"
 			},
 			{
 				"name": "MySQL",
-				"icon": "/img_src/about/mysql.svg"
+				"icon": "mysql.svg"
 			},
 			{
 				"name": "NodeJS",
-				"icon": "/img_src/about/node.svg"
+				"icon": "node.svg"
 			},
 			{
 				"name": "PHP",
-				"icon": "/img_src/about/php.svg"
+				"icon": "php.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			},
 			{
 				"name": "Wordpress",
-				"icon": "/img_src/about/wordpress.svg"
+				"icon": "wordpress.svg"
 			}
 		]
 	},
@@ -273,27 +273,27 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "Docker",
-				"icon": "/img_src/about/docker.svg"
+				"icon": "docker.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "Jekyll",
-				"icon": "/img_src/about/jekyll.svg"
+				"icon": "jekyll.svg"
 			},
 			{
 				"name": "Liquid",
-				"icon": "/img_src/about/liquid.svg"
+				"icon": "liquid.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			}
 		]
 	},
@@ -330,27 +330,27 @@
 		"tech": [
 			{
 				"name": "Bootstrap",
-				"icon": "/img_src/about/bootstrap.svg"
+				"icon": "bootstrap.svg"
 			},
 			{
 				"name": "Docker",
-				"icon": "/img_src/about/docker.svg"
+				"icon": "docker.svg"
 			},
 			{
 				"name": "HTML5",
-				"icon": "/img_src/about/html.svg"
+				"icon": "html.svg"
 			},
 			{
 				"name": "Jekyll",
-				"icon": "/img_src/about/jekyll.svg"
+				"icon": "jekyll.svg"
 			},
 			{
 				"name": "Liquid",
-				"icon": "/img_src/about/liquid.svg"
+				"icon": "liquid.svg"
 			},
 			{
 				"name": "SCSS",
-				"icon": "/img_src/about/sass.svg"
+				"icon": "sass.svg"
 			}
 		]
 	},
@@ -362,7 +362,7 @@
 		"tech": [
 			{
 				"name": "Matlab",
-				"icon": "/img_src/about/matlab.svg"
+				"icon": "matlab.svg"
 			}
 		],
 		"tech_text": [

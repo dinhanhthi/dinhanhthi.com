@@ -11,7 +11,7 @@ date: Last Modified
       {% if "/" in icon %}
         <img class="keep-original" alt="{{ title }}" src="{{ icon }}">
       {% else %}
-        <img class="keep-original" alt="{{ title }}" src="/img_src/header/{{ icon }}">
+        <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}">
       {% endif %}
     {% else %}
       <img class="keep-original" alt="{{ title }}" src="/img_src/nav/about.svg">
@@ -61,7 +61,6 @@ date: Last Modified
         "headline": "{{ title }}",
         "image": [],
         "author": "{{ settings.author.name }}",
-        "genre": "{{ settings.genre }}",
         "url": "{{ settings.url }}{{ canonicalUrl or page.url }}",
         "mainEntityOfPage": "{{ settings.url }}{{ canonicalUrl or page.url }}",
         "datePublished": "{{ page.date | htmlDateString }}",

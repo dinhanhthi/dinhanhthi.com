@@ -2,107 +2,107 @@
   {
     "name": "Project-based Learning",
     "color": "#e97c8e",
-    "svg": "/img_src/cats/project.svg",
+    "svg": "/img/cats/project.svg",
     "fontello": "icon-project"
   },
   {
     "name": "MOOC",
     "color": "#fdcb6e",
-    "svg": "/img_src/cats/mooc.svg",
+    "svg": "/img/cats/mooc.svg",
     "fontello": "icon-mooc",
     "fontello-solid": "icon-mooc"
   },
   {
     "name": "Machine Learning",
     "color": "#84f9ff",
-    "svg": "/img_src/cats/ml.svg",
+    "svg": "/img/cats/ml.svg",
     "fontello": "icon-ml"
   },
   {
     "name": "Data Science",
     "color": "#b5ffb5",
-    "svg": "/img_src/cats/data-science.svg",
+    "svg": "/img/cats/data-science.svg",
     "fontello": "icon-data"
   },
   {
     "name": "Deep Learning",
     "color": "#fde193",
-    "svg": "/img_src/cats/dl.svg",
+    "svg": "/img/cats/dl.svg",
     "fontello": "icon-dl"
   },
   {
     "name": "Time Series",
     "color": "#81ecec",
-    "svg": "/img_src/cats/ts.svg",
+    "svg": "/img/cats/ts.svg",
     "fontello": "icon-ts"
   },
   {
     "name": "NLP",
     "color": "#eac1ea",
-    "svg": "/img_src/cats/nlp.svg",
+    "svg": "/img/cats/nlp.svg",
     "fontello": "icon-chatbot"
   },
   {
     "name": "MLOps",
     "color": "#a0ffa0",
-    "svg": "/img_src/cats/mlops.svg",
+    "svg": "/img/cats/mlops.svg",
     "fontello": "icon-rocket"
   },
   {
     "name": "Python",
     "color": "#a0ffa0",
-    "svg": "/img_src/cats/python.svg",
+    "svg": "/img/cats/python.svg",
     "fontello": "icon-python"
   },
   {
     "name": "R Lang",
     "color": "#80beff",
-    "svg": "/img_src/cats/r.svg",
+    "svg": "/img/cats/r.svg",
     "fontello": "icon-r-lang"
   },
   {
     "name": "Prob & Stats",
     "color": "#daff9f",
-    "svg": "/img_src/cats/stats.svg",
+    "svg": "/img/cats/stats.svg",
     "fontello": "icon-stats"
   },
   {
 		"name": "Angular",
 		"color": "#C31C2F",
-		"svg": "/img_src/cats/ng.svg",
+		"svg": "/img/cats/ng.svg",
     "fontello": "icon-ng"
 	},
   {
     "name": "JavaScript",
-    "svg": "/img_src/cats/js.svg",
+    "svg": "/img/cats/js.svg",
     "fontello": "icon-js-solid"
   },
   {
     "name": "Web Dev",
-    "svg": "/img_src/cats/web-dev.svg",
+    "svg": "/img/cats/web-dev.svg",
     "fontello": "icon-web-dev"
   },
   {
     "name": "Algorithms",
-    "svg": "/img_src/cats/algo.svg",
+    "svg": "/img/cats/algo.svg",
     "fontello": "icon-algo"
   },
   {
     "name": "Skills",
     "color": "#fda798",
-    "svg": "/img_src/cats/skills.svg",
+    "svg": "/img/cats/skills.svg",
     "fontello": "icon-skill"
   },
   {
     "name": "Gaming & Puzzles",
     "color": "#fda798",
-    "svg": "/img_src/cats/games.svg",
+    "svg": "/img/cats/games.svg",
     "fontello": "icon-game"
   },
   {
     "name": "Others",
     "color": "#00cec9",
-    "svg": "/img_src/cats/others.svg",
+    "svg": "/img/cats/others.svg",
     "fontello": "icon-others-solid"
   }
 ]
