@@ -15,6 +15,8 @@ var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
 
+const pageAssetsPlugin = require("eleventy-plugin-page-assets");
+
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
 const GA_ID = require("./src/_data/settings.json").googleAnalyticsId;
@@ -42,7 +44,7 @@ module.exports = function (eleventyConfig) {
   });
 
   switch (process.env.ELEVENTY_ENV) {
-    case "local":
+    case "sample-no-opt":
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
         devMode: true,
       });
@@ -50,21 +52,40 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.add("notes"); // ignore folder notes
       eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
       dataDir = thiDataDir;
+      // Use relative path images
+      eleventyConfig.addPlugin(pageAssetsPlugin, {
+        mode: "parse",
+        postsMatching: "sample_posts/*.md",
+        recursive: true,
+      });
       break;
 
-    case "local-share":
-      // Use for others in local mode
-      // The difference here with "local" is only the dataDir
-      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
-        devMode: true,
-      });
+    case "sample-opt":
+      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
+      eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.add("notes"); // ignore folder notes
       eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
-      dataDir = defaultDataDir;
+      // eleventy-plugin-local-images
+      eleventyConfig.addPlugin(localImages, {
+        distPath: "_site",
+        assetPath: "/img/remote",
+        selector:
+          "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+        verbose: false,
+      });
+      dataDir = thiDataDir;
+      // Use relative path images
+      eleventyConfig.addPlugin(pageAssetsPlugin, {
+        mode: "parse",
+        postsMatching: "sample_posts/*.md",
+        recursive: true,
+      });
       break;
 
-    case "local-fullposts":
+    case "full-no-opt":
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
         devMode: true,
       });
@@ -72,10 +93,15 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes"); // use folder notes
       eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
       dataDir = thiDataDir;
+      // Use relative path images
+      eleventyConfig.addPlugin(pageAssetsPlugin, {
+        mode: "parse",
+        postsMatching: "notes/posts/*/*.md",
+        recursive: true
+      });
       break;
 
-    default:
-      // Default for "Thi" => use Thi's personal data directory
+    default: // full-opt
       eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
@@ -92,6 +118,12 @@ module.exports = function (eleventyConfig) {
         verbose: false,
       });
       dataDir = thiDataDir;
+      // Use relative path images
+      eleventyConfig.addPlugin(pageAssetsPlugin, {
+        mode: "parse",
+        postsMatching: "notes/posts/*/*.md",
+        recursive: true
+      });
   }
 
   // layout alias

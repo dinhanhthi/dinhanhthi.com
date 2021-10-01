@@ -25,21 +25,25 @@ Suppose that the installation step is done completely.
 - **Update data** : modify files in `notes/_data/`. If wanna see them on local when dev, overwrite these files to `src/_data/`,
 - **Update posts** : just modify things in `notes/`.
 
+Without image processing,
+
 ``` bash
-# Local watch (for developing theme)
-# Goto http://localhost:8080
-npm run local:watch # using sample notes
-npm run local:watch-full # using real notes (without image processing)
+# Sample posts (sample_posts/)
+npm run sample:watch-no-opt # localhost:8080
 
-# Local serve (see a full remote page locally)
-# Remark: Make sure running "npm run build" at least once!
-# Goto http://localhost:8080
-npm run local:http-serve
+# Real posts (/notes/posts/)
+npm run full:watch-no-opt # localhost:8080
+```
 
-# It will serve a full site locally
-# Go to http://localhost:8081
-# Each time wanna update the changes (eg. posts)
+With image processing,
+
+``` bash
+# Sample posts (sample_posts/)
+npm run sample:watch-opt # localhost:8080
+
+# Real posts (/notes/posts/)
 npm run build
+npm run full:http-serve-opt # localhost:8081
 ```
 
 ``` bash

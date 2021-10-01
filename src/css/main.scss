@@ -22,7 +22,6 @@ $color-faded-light: #555;
 $color-faded-invert: $color-faded-light;
 $color-faded-invert-light: $color-faded;
 
-
 // FONTS
 $font-main: "Poppins", Arial, Helvetica, sans-serif;
 $font-main-var: "Poppins" var alt, Arial, Helvetica, sans-serif;
@@ -116,7 +115,6 @@ $badge-green: #009023;
 $badge-green-light: $color-green-light;
 $badge-blue: #2f55c1;
 $badge-blue-light: $badge-blue;
-
 
 @import "./components/mixin"; // mixsin
 @import "./components/dark-light"; // dark / light mode

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Algorithm 1"
+title: "Algorithm 1 copied"
 tags: [Algorithms]
 icon: /img_src/cats/algo.svg
 toc: true
@@ -12,8 +12,6 @@ notfull: true
 ::: danger
 Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
 {% endmarkdown %}
-
-{% assign img-url = '/img/post/algorithms' %}
 
 This note contains questions/puzzle and algorithms to answer these problems. Most of the codes in this type of note are in [**Python**](/notes#python).
 
@@ -101,5 +99,5 @@ plt.figure(figsize=(im_size, im_size))
 plt.imshow(image, cmap='gray')
 plt.show()
 ~~~
-![Bernoulli squares]({{img-url}}/bernoulli-squares.png){:.img-full-90}
+![Bernoulli squares](./img/bernoulli-squares.png){:.img-full-90}
 </div>
