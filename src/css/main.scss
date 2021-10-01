@@ -28,9 +28,9 @@ $font-main: "Poppins", Arial, Helvetica, sans-serif;
 $font-main-var: "Poppins" var alt, Arial, Helvetica, sans-serif;
 $font-heading: "Recoleta", Arial, Helvetica, sans-serif;
 $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
-$font-size: 16.5px;
+$font-size: 16px;
 $font-color: #eee;
-$font-color-light: #222;
+$font-color-light: #323232;
 $font-bold-color: #8cc8ff;
 $font-bold-color-light: $font-color-light;
 $font-bold-weight: 600;
@@ -59,15 +59,15 @@ $heading-font: $font-heading;
 $heading-weight: 600;
 $heading-color: #f0f0f0;
 $heading-color-light: #4a4a4a;
-$heading-h1-size: $font-size * 1.8;
-$heading-h2-size: $font-size * 1.5; // h2's font size (in comparison with global $font-size)
-$heading-h3-size: $heading-h2-size * 0.87; // h3's font size (in comparison with global h2)
+$heading-h1-size: $font-size * 1.75;
+$heading-h2-size: $font-size * 1.43; // h2's font size (in comparison with global $font-size)
+$heading-h3-size: $heading-h2-size * 0.9; // h3's font size (in comparison with global h2)
 $heading-h4-size: $heading-h3-size * 0.9; // h3's font size (in comparison with global h3)
 @media (max-width: $grid-md - 1px) {
-  $heading-h1-size: $font-size * 1.75;
-  $heading-h2-size: $font-size * 1.43;
-  $heading-h3-size: $heading-h2-size * 0.87;
-  $heading-h4-size: $heading-h3-size * 0.9;
+  $heading-h1-size: $font-size * 1.71;
+  $heading-h2-size: $font-size * 1.4;
+  // $heading-h3-size: $heading-h2-size * 0.9;
+  // $heading-h4-size: $heading-h3-size * 0.9;
 }
 $heading-numbering: true;
 $mt-heading: $margin-bottom * 1.5; // margin-top heading

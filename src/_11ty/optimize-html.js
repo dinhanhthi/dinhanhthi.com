@@ -50,7 +50,7 @@ const minifyFontelloCss = async (rawContent, outputPath) => {
     // For relative paths in fontello
     // Note that, in .eleventy.js, there is a
     // eleventyConfig.addPassthroughCopy({ "src/fontello": "fontello" });
-    before = before.replace(/..\/font\/fontello/g, "fontello/font/fontello");
+    before = before.replace(/..\/font\/fontello/g, "/fontello/font/fontello");
 
     const after = csso.minify(before).css;
     content = content.replace("</head>", `<style>${after}</style></head>`);
