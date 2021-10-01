@@ -53,9 +53,14 @@ npm run full:build-http-serve-opt
 ```
 
 ``` bash
-# Update site & deploy
-sh ud_site.sh
-# or: ud_dat (macos)
+# Build & update & deploy
+npm run site:build-update
+
+# Just build
+npm run build # _site
+
+# Just update & deploy what built in _site
+npm run site:update
 ```
 
 <details><summary>More about update data</summary>

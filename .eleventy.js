@@ -24,8 +24,8 @@ const GA_ID = require("./src/_data/settings.json").googleAnalyticsId;
 const categories = require("./src/_data/categories.json");
 
 const thiDataDir = "notes/_data";
-const defaultDataDir = "src/_data";
-var dataDir;
+// const defaultDataDir = "src/_data";
+var dataDir = thiDataDir;
 
 module.exports = {
   environment: process.env.ELEVENTY_ENV,
@@ -49,35 +49,10 @@ module.exports = function (eleventyConfig) {
         devMode: true,
       });
       eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.add("notes"); // ignore folder notes
-      eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
-      dataDir = thiDataDir;
-      // Use relative path images
-      eleventyConfig.addPlugin(pageAssetsPlugin, {
-        mode: "parse",
-        postsMatching: "sample_posts/*.md",
-        recursive: true,
-      });
-      break;
-
-    case "sample-opt":
-      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
-      eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
-      eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
-      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
-      eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.add("notes"); // ignore folder notes
-      eleventyConfig.ignores.delete("sample_posts"); // use folder sample_posts
-      // eleventy-plugin-local-images
-      eleventyConfig.addPlugin(localImages, {
-        distPath: "_site",
-        assetPath: "/img/remote",
-        selector:
-          "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-        verbose: false,
-      });
-      dataDir = thiDataDir;
-      // Use relative path images
+      eleventyConfig.ignores.add("notes");
+      eleventyConfig.ignores.delete("sample_posts");
+      // dataDir = thiDataDir;
+      // // Use relative path images
       // eleventyConfig.addPlugin(pageAssetsPlugin, {
       //   mode: "parse",
       //   postsMatching: "sample_posts/*.md",
@@ -85,30 +60,62 @@ module.exports = function (eleventyConfig) {
       // });
       break;
 
+    // case "sample-opt":
+    //   // // Use relative path images
+    //   // eleventyConfig.addPlugin(pageAssetsPlugin, {
+    //   //   mode: "parse",
+    //   //   postsMatching: "sample_posts/*.md",
+    //   //   recursive: true,
+    //   // });
+
+    //   eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js"), {
+    //     distPath: "_built",
+    //   }); // take too long to build
+    //   eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
+    //   eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
+    //   eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+    //     devMode: false,
+    //     distPath: "_built",
+    //   });
+    //   eleventyConfig.setDataDeepMerge(true);
+    //   eleventyConfig.ignores.add("notes/posts");
+    //   eleventyConfig.ignores.delete("sample_posts");
+    //   // eleventy-plugin-local-images
+    //   eleventyConfig.addPlugin(localImages, {
+    //     distPath: "_built",
+    //     assetPath: "/img/remote",
+    //     selector:
+    //       "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+    //     verbose: false,
+    //   });
+    //   // dataDir = defaultDataDir;
+    //   break;
+
     case "full-no-opt":
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
         devMode: true,
       });
       eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.delete("notes"); // use folder notes
-      eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
-      dataDir = thiDataDir;
-      // Use relative path images
-      eleventyConfig.addPlugin(pageAssetsPlugin, {
-        mode: "parse",
-        postsMatching: "notes/posts/*/*.md",
-        recursive: true
-      });
+      eleventyConfig.ignores.delete("notes");
+      eleventyConfig.ignores.add("sample_posts");
+      // dataDir = thiDataDir;
+      // // Use relative path images
+      // eleventyConfig.addPlugin(pageAssetsPlugin, {
+      //   mode: "parse",
+      //   postsMatching: "notes/posts/*/*.md",
+      //   recursive: true,
+      // });
       break;
 
-    default: // full-opt
+    default:
+      // full-opt
       eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
       eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.delete("notes"); // use folder notes
-      eleventyConfig.ignores.add("sample_posts"); // ignore folder sample_posts
+      eleventyConfig.ignores.delete("notes");
+      eleventyConfig.ignores.add("sample_posts");
       // eleventy-plugin-local-images
       eleventyConfig.addPlugin(localImages, {
         distPath: "_site",
@@ -117,13 +124,13 @@ module.exports = function (eleventyConfig) {
           "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
         verbose: false,
       });
-      dataDir = thiDataDir;
-      // Use relative path images
-      // eleventyConfig.addPlugin(pageAssetsPlugin, {
-      //   mode: "parse",
-      //   postsMatching: "notes/posts/*/*.md",
-      //   recursive: true
-      // });
+    // dataDir = thiDataDir;
+    // Use relative path images
+    // eleventyConfig.addPlugin(pageAssetsPlugin, {
+    //   mode: "parse",
+    //   postsMatching: "notes/posts/*/*.md",
+    //   recursive: true
+    // });
   }
 
   // layout alias
