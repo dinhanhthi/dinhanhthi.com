@@ -41,9 +41,15 @@ With image processing,
 # Sample posts (sample_posts/)
 npm run sample:watch-opt # localhost:8080
 
+# Just build sample_post
+npm run sample:build-opt
+
 # Real posts (/notes/posts/)
 npm run build
 npm run full:http-serve-opt # localhost:8081
+
+# Build and http serve real posts
+npm run full:build-http-serve-opt
 ```
 
 ``` bash
@@ -120,24 +126,9 @@ sudo npm install http-server -g
 
 # Create \_live & Clone dat.com/\_site
 sh getting_started.sh
-
-# Local watch (for developing theme)
-npm run local:watch # using sample notes
-npm run local:watch-full # using real notes
-
-# Goto http://localhost:8080
-# Local serve (see a full remote page locally)
-# Remark: Make sure running "npm run build" at least once!
-npm run local:http-serve
-
-# It will serve a full site locally
-# Go to http://localhost:8081
-# Each time wanna update the changes (eg. posts)
-npm run build
-
-# Update site (publish to \_site and netlify)?
-sh ud_site.sh
 ````
+
+Check section [Dev](#dev) for more.
 
 ```bash
 # Make a shortcut on the system?

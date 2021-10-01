@@ -15,7 +15,7 @@ var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
 
-const pageAssetsPlugin = require("eleventy-plugin-page-assets");
+// const pageAssetsPlugin = require("eleventy-plugin-page-assets");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
@@ -78,11 +78,11 @@ module.exports = function (eleventyConfig) {
       });
       dataDir = thiDataDir;
       // Use relative path images
-      eleventyConfig.addPlugin(pageAssetsPlugin, {
-        mode: "parse",
-        postsMatching: "sample_posts/*.md",
-        recursive: true,
-      });
+      // eleventyConfig.addPlugin(pageAssetsPlugin, {
+      //   mode: "parse",
+      //   postsMatching: "sample_posts/*.md",
+      //   recursive: true,
+      // });
       break;
 
     case "full-no-opt":
@@ -119,11 +119,11 @@ module.exports = function (eleventyConfig) {
       });
       dataDir = thiDataDir;
       // Use relative path images
-      eleventyConfig.addPlugin(pageAssetsPlugin, {
-        mode: "parse",
-        postsMatching: "notes/posts/*/*.md",
-        recursive: true
-      });
+      // eleventyConfig.addPlugin(pageAssetsPlugin, {
+      //   mode: "parse",
+      //   postsMatching: "notes/posts/*/*.md",
+      //   recursive: true
+      // });
   }
 
   // layout alias
