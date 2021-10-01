@@ -35,6 +35,8 @@ const ACTIVATE_AVIF = false;
  * blog layout.
  */
 
+let distPath = "_site";
+
 const processImage = async (img, outputPath) => {
   let src = img.getAttribute("src");
   if (/^(https?\:\/\/|\/\/)/i.test(src)) {
@@ -44,11 +46,14 @@ const processImage = async (img, outputPath) => {
     // resolve relative URL
     src =
       "/" +
-      path.relative("./_site/", path.resolve(path.dirname(outputPath), src));
+      path.relative(
+        "./" + distPath + "/",
+        path.resolve(path.dirname(outputPath), src)
+      );
   }
   let dimensions;
   try {
-    dimensions = await sizeOf("_site/" + src);
+    dimensions = await sizeOf(distPath + "/" + src);
   } catch (e) {
     console.warn(e.message, src);
     return;
@@ -118,7 +123,11 @@ const dimImages = async (rawContent, outputPath) => {
 
   if (outputPath && outputPath.endsWith(".html")) {
     const dom = new JSDOM(content);
-    const images = [...dom.window.document.querySelectorAll("img:not(.keep-original),amp-img")];
+    const images = [
+      ...dom.window.document.querySelectorAll(
+        "img:not(.keep-original),amp-img"
+      ),
+    ];
 
     if (images.length > 0) {
       await Promise.all(images.map((i) => processImage(i, outputPath)));
@@ -131,7 +140,11 @@ const dimImages = async (rawContent, outputPath) => {
 
 module.exports = {
   initArguments: {},
-  configFunction: async (eleventyConfig, pluginOptions = {}) => {
+  configFunction: async (
+    eleventyConfig,
+    pluginOptions = { distPath: "_site" }
+  ) => {
+    distPath = pluginOptions.distPath;
     eleventyConfig.addTransform("imgDim", dimImages);
   },
 };

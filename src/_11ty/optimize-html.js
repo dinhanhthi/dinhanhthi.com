@@ -1,8 +1,11 @@
 const minify = require("html-minifier").minify;
 const AmpOptimizer = require("@ampproject/toolbox-optimizer");
+
+let distPath = "_site";
+
 const ampOptimizer = AmpOptimizer.create({
   blurredPlaceholders: true,
-  imageBasePath: "./_site/",
+  imageBasePath: "./" + distPath + "/",
   //verbose: true,
 });
 const csso = require("csso");
@@ -90,7 +93,8 @@ const optimizeAmp = async (rawContent, outputPath) => {
 
 module.exports = {
   initArguments: {},
-  configFunction: async (eleventyConfig, pluginOptions = {devMode: false}) => {
+  configFunction: async (eleventyConfig, pluginOptions = {devMode: false, distPath: "_site"}) => {
+    distPath = pluginOptions.distPath;
     if (pluginOptions.devMode) {
       eleventyConfig.addTransform("minifyCss", minifyCssDev);
     } else {
