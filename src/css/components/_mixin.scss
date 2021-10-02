@@ -84,7 +84,7 @@
   --a-list-homepage: #{$a-list-homepage};
   --a-list-homepage-bd: #{$a-list-homepage-bd};
   --font-a: #{$font-a};
-  --a-hover: #{$a-hover};
+  --font-a-border: #{$font-a-border};
   --filter-invert: #{$filter-invert};
   --toc-title: #{$toc-title};
   --toc-title-bd: #{$toc-title-bd};
@@ -97,6 +97,32 @@
   --table-bg: #{$table-bg};
   --badge-green: #{$badge-green};
   --badge-blue: #{$badge-blue};
+  --scroll-thumb-bg: #{$scroll-thumb-bg};
+  --scroll-thumb-bg-hover: #{$scroll-thumb-bg-hover};
+  --scroll-track: #{$scroll-track};
+  // prism
+  --prism-bg: #{$prism-bg};
+  --prism-color: #{$prism-color};
+  --prism-border: #{$prism-border};
+  --prism-selection: #{$prism-selection};
+  --prism-token-doctype: #{$prism-token-doctype};
+  --prism-token-doctype-tag: #{$prism-token-doctype-tag};
+  --prism-token-comment: #{$prism-token-comment};
+  --prism-token-number: #{$prism-token-number};
+  --prism-token-string: #{$prism-token-string};
+  --prism-token-function: #{$prism-token-function};
+  --prism-token-class-name: #{$prism-token-class-name};
+  --prism-token-variable: #{$prism-token-variable};
+  --prism-token-selector: #{$prism-token-selector};
+  --prism-token-cdata: #{$prism-token-cdata};
+  --prism-token-regex: #{$prism-token-regex};
+  --prism-token-rule: #{$prism-token-rule};
+  --prism-token-attr-name: #{$prism-token-attr-name};
+  --prism-token-parameter: #{$prism-token-parameter};
+  --prism-token-constant: #{$prism-token-constant};
+  --prism-highlight-line-bg: #{$prism-highlight-line-bg};
+  --prism-highlight-line-add-bg: #{$prism-highlight-line-add-bg};
+  --prism-highlight-line-remove-bg: #{$prism-highlight-line-remove-bg};
 }
 
 @mixin light-vars() {
@@ -119,7 +145,7 @@
   --a-list-homepage: #{$a-list-homepage-light};
   --a-list-homepage-bd: #{$a-list-homepage-bd-light};
   --font-a: #{$font-a-light};
-  --a-hover: #{$a-hover-light};
+  --font-a-border: #{$font-a-border-light};
   --filter-invert: #{$filter-invert-light};
   --toc-title: #{$toc-title-light};
   --toc-title-bd: #{$toc-title-bd-light};
@@ -132,4 +158,30 @@
   --table-bg: #{$table-bg-light};
   --badge-green: #{$badge-green-light};
   --badge-blue: #{$badge-blue-light};
+  --scroll-thumb-bg: #{$scroll-thumb-bg-light};
+  --scroll-thumb-bg-hover: #{$scroll-thumb-bg-hover-light};
+  --scroll-track: #{$scroll-track-light};
+  // prism
+  --prism-bg: #{$prism-bg-light};
+  --prism-color: #{$prism-color-light};
+  --prism-border: #{$prism-border-light};
+  --prism-selection: #{$prism-selection-light};
+  --prism-token-doctype: #{$prism-token-doctype-light};
+  --prism-token-doctype-tag: #{$prism-token-doctype-tag-light};
+  --prism-token-comment: #{$prism-token-comment-light};
+  --prism-token-number: #{$prism-token-number-light};
+  --prism-token-string: #{$prism-token-string-light};
+  --prism-token-function: #{$prism-token-function-light};
+  --prism-token-class-name: #{$prism-token-class-name-light};
+  --prism-token-variable: #{$prism-token-variable-light};
+  --prism-token-selector: #{$prism-token-selector-light};
+  --prism-token-cdata: #{$prism-token-cdata-light};
+  --prism-token-regex: #{$prism-token-regex-light};
+  --prism-token-rule: #{$prism-token-rule-light};
+  --prism-token-attr-name: #{$prism-token-attr-name-light};
+  --prism-token-parameter: #{$prism-token-parameter-light};
+  --prism-token-constant: #{$prism-token-constant-light};
+  --prism-highlight-line-bg: #{$prism-highlight-line-bg-light};
+  --prism-highlight-line-add-bg: #{$prism-highlight-line-add-bg-light};
+  --prism-highlight-line-remove-bg: #{$prism-highlight-line-remove-bg-light};
 }

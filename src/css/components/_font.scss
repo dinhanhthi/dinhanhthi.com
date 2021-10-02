@@ -1,92 +1,107 @@
 // GENERATED FROM:
 // http://google-webfonts-helper.herokuapp.com/fonts/poppins?subsets=latin
 
-/* poppins-regular - latin */
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/poppins/poppins-v15-latin-regular.eot"); /* IE9 Compat Modes */
+  src: url("/fonts/poppins/poppins-v15-latin-regular.eot");
   src: local("Poppins Regular"), local("Poppins-Regular"),
     url("/fonts/poppins/poppins-v15-latin-regular.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/poppins/poppins-v15-latin-regular.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("/fonts/poppins/poppins-v15-latin-regular.woff") format("woff"),
-    /* Modern Browsers */ url("/fonts/poppins/poppins-v15-latin-regular.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */
-      url("/fonts/poppins/poppins-v15-latin-regular.svg#Poppins") format("svg"); /* Legacy iOS */
+    url("/fonts/poppins/poppins-v15-latin-regular.woff2") format("woff2"),
+    url("/fonts/poppins/poppins-v15-latin-regular.woff") format("woff"),
+    url("/fonts/poppins/poppins-v15-latin-regular.ttf") format("truetype"),
+    url("/fonts/poppins/poppins-v15-latin-regular.svg#Poppins") format("svg");
   font-display: swap;
 }
-/* poppins-italic - latin */
+
 @font-face {
   font-family: "Poppins";
   font-style: italic;
   font-weight: 400;
-  src: url("/fonts/poppins/poppins-v15-latin-italic.eot"); /* IE9 Compat Modes */
+  src: url("/fonts/poppins/poppins-v15-latin-italic.eot");
   src: local("Poppins Italic"), local("Poppins-Italic"),
     url("/fonts/poppins/poppins-v15-latin-italic.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/poppins/poppins-v15-latin-italic.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("/fonts/poppins/poppins-v15-latin-italic.woff") format("woff"),
-    /* Modern Browsers */ url("/fonts/poppins/poppins-v15-latin-italic.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */
-      url("/fonts/poppins/poppins-v15-latin-italic.svg#Poppins") format("svg"); /* Legacy iOS */
+    url("/fonts/poppins/poppins-v15-latin-italic.woff2") format("woff2"),
+    url("/fonts/poppins/poppins-v15-latin-italic.woff") format("woff"),
+    url("/fonts/poppins/poppins-v15-latin-italic.ttf") format("truetype"),
+    url("/fonts/poppins/poppins-v15-latin-italic.svg#Poppins") format("svg");
   font-display: swap;
 }
-/* poppins-600 - latin */
+
 @font-face {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  src: url("/fonts/poppins/poppins-v15-latin-600.eot"); /* IE9 Compat Modes */
+  src: url("/fonts/poppins/poppins-v15-latin-600.eot");
   src: local("Poppins SemiBold"), local("Poppins-SemiBold"),
     url("/fonts/poppins/poppins-v15-latin-600.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/poppins/poppins-v15-latin-600.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/poppins/poppins-v15-latin-600.woff")
-      format("woff"),
-    /* Modern Browsers */ url("/fonts/poppins/poppins-v15-latin-600.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */
-      url("/fonts/poppins/poppins-v15-latin-600.svg#Poppins") format("svg"); /* Legacy iOS */
+    url("/fonts/poppins/poppins-v15-latin-600.woff2") format("woff2"),
+    url("/fonts/poppins/poppins-v15-latin-600.woff") format("woff"),
+    url("/fonts/poppins/poppins-v15-latin-600.ttf") format("truetype"),
+    url("/fonts/poppins/poppins-v15-latin-600.svg#Poppins") format("svg");
   font-display: swap;
   font-display: swap;
 }
-/* poppins-600italic - latin */
+
 @font-face {
   font-family: "Poppins";
   font-style: italic;
   font-weight: 600;
-  src: url("/fonts/poppins/poppins-v15-latin-600italic.eot"); /* IE9 Compat Modes */
+  src: url("/fonts/poppins/poppins-v15-latin-600italic.eot");
   src: local("Poppins SemiBold Italic"), local("Poppins-SemiBoldItalic"),
     url("/fonts/poppins/poppins-v15-latin-600italic.eot?#iefix")
       format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/poppins/poppins-v15-latin-600italic.woff2")
-      format("woff2"),
-    /* Super Modern Browsers */
-      url("/fonts/poppins/poppins-v15-latin-600italic.woff") format("woff"),
-    /* Modern Browsers */ url("/fonts/poppins/poppins-v15-latin-600italic.ttf")
-      format("truetype"),
-    /* Safari, Android, iOS */
-      url("/fonts/poppins/poppins-v15-latin-600italic.svg#Poppins")
-      format("svg"); /* Legacy iOS */
+    url("/fonts/poppins/poppins-v15-latin-600italic.woff2") format("woff2"),
+    url("/fonts/poppins/poppins-v15-latin-600italic.woff") format("woff"),
+    url("/fonts/poppins/poppins-v15-latin-600italic.ttf") format("truetype"),
+    url("/fonts/poppins/poppins-v15-latin-600italic.svg#Poppins") format("svg");
   font-display: swap;
 }
 
-/* Recoleta-700bold */
+// @font-face {
+//   font-family: "Recoleta";
+//   font-weight: 400;
+//   font-style: normal;
+//   src: url("/fonts/recoleta/Recoleta-Regular.eot");
+//   src: url("/fonts/recoleta/Recoleta-Regular.woff2") format("woff2"),
+//     url("/fonts/recoleta/Recoleta-Regular.woff") format("woff"),
+//     url("/fonts/poppins/Recoleta-Regular.ttf") format("truetype");
+//   font-display: swap;
+// }
+
 @font-face {
   font-family: "Recoleta";
-  src: url("/fonts/recoleta/Recoleta-Bold.woff2") format("woff2"),
-    url("/fonts/recoleta/Recoleta-Bold.woff") format("woff"),
-    url("/fonts/poppins/Recoleta-Bold.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/recoleta/Recoleta-Medium.eot");
+  src: url("/fonts/recoleta/Recoleta-Medium.woff2") format("woff2"),
+    url("/fonts/recoleta/Recoleta-Medium.woff") format("woff"),
+    url("/fonts/poppins/Recoleta-Medium.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Recoleta";
+  src: url("/fonts/recoleta/Recoleta-SemiBold.eot");
+    src: url("/fonts/recoleta/Recoleta-SemiBold.woff2") format("woff2"),
+    url("/fonts/recoleta/Recoleta-SemiBold.woff") format("woff"),
+    url("/fonts/poppins/Recoleta-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: bold;
   font-display: swap;
 }
+
+// @font-face {
+//   font-family: "Recoleta";
+//   src: url("/fonts/recoleta/Recoleta-Bold.eot");
+//     src: url("/fonts/recoleta/Recoleta-Bold.woff2") format("woff2"),
+//     url("/fonts/recoleta/Recoleta-Bold.woff") format("woff"),
+//     url("/fonts/poppins/Recoleta-Bold.ttf") format("truetype");
+//   font-weight: 700;
+//   font-style: bold;
+//   font-display: swap;
+// }

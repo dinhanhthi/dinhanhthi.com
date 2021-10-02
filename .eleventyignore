@@ -6,6 +6,7 @@ _built/
 node_modules/
 package-lock.json
 README.md
+CHANGELOG.md
 src/_11ty/
 src/third_party
 src/functions

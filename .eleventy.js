@@ -3,19 +3,14 @@ const { promisify } = require("util");
 const fs = require("fs");
 const hasha = require("hasha");
 const readFile = promisify(fs.readFile);
-// const stat = promisify(fs.stat);
-// const execFile = promisify(require("child_process").execFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const elasticlunr = require("elasticlunr");
-// const fetch = require("node-fetch");
 
 const markdownIt = require("markdown-it");
 var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
-
-// const pageAssetsPlugin = require("eleventy-plugin-page-assets");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
@@ -51,45 +46,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.add("notes");
       eleventyConfig.ignores.delete("sample_posts");
-      // dataDir = thiDataDir;
-      // // Use relative path images
-      // eleventyConfig.addPlugin(pageAssetsPlugin, {
-      //   mode: "parse",
-      //   postsMatching: "sample_posts/*.md",
-      //   recursive: true,
-      // });
       break;
-
-    // case "sample-opt":
-    //   // // Use relative path images
-    //   // eleventyConfig.addPlugin(pageAssetsPlugin, {
-    //   //   mode: "parse",
-    //   //   postsMatching: "sample_posts/*.md",
-    //   //   recursive: true,
-    //   // });
-
-    //   eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js"), {
-    //     distPath: "_built",
-    //   }); // take too long to build
-    //   eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
-    //   eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
-    //   eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
-    //     devMode: false,
-    //     distPath: "_built",
-    //   });
-    //   eleventyConfig.setDataDeepMerge(true);
-    //   eleventyConfig.ignores.add("notes/posts");
-    //   eleventyConfig.ignores.delete("sample_posts");
-    //   // eleventy-plugin-local-images
-    //   eleventyConfig.addPlugin(localImages, {
-    //     distPath: "_built",
-    //     assetPath: "/img/remote",
-    //     selector:
-    //       "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-    //     verbose: false,
-    //   });
-    //   // dataDir = defaultDataDir;
-    //   break;
 
     case "full-no-opt":
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
@@ -98,13 +55,6 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes");
       eleventyConfig.ignores.add("sample_posts");
-      // dataDir = thiDataDir;
-      // // Use relative path images
-      // eleventyConfig.addPlugin(pageAssetsPlugin, {
-      //   mode: "parse",
-      //   postsMatching: "notes/posts/*/*.md",
-      //   recursive: true,
-      // });
       break;
 
     default:
@@ -124,13 +74,6 @@ module.exports = function (eleventyConfig) {
           "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
         verbose: false,
       });
-    // dataDir = thiDataDir;
-    // Use relative path images
-    // eleventyConfig.addPlugin(pageAssetsPlugin, {
-    //   mode: "parse",
-    //   postsMatching: "notes/posts/*/*.md",
-    //   recursive: true
-    // });
   }
 
   // layout alias
@@ -181,14 +124,14 @@ module.exports = function (eleventyConfig) {
     return dt.toISO();
   });
 
-  // for adding new key-value to a dictionary
-  // first used in postslist.njk
+  // For adding new key-value to a dictionary
+  // First used in postslist.njk
   eleventyConfig.addFilter("setAttribute", function (dictionary, key, value) {
     dictionary[key] = value;
     return dictionary;
   });
 
-  // used in /pages/search-index.json
+  // Used in /pages/search-index.json
   eleventyConfig.addFilter("search", (collection) => {
     var index = elasticlunr(function () {
       this.addField("title");
@@ -287,14 +230,14 @@ module.exports = function (eleventyConfig) {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
-          // opening tag
+          // Opening tag
           return (
             '<div class="hsbox"><div class="hs__title">' +
             markdownItp.renderInline(m[1]) +
             '</div><div class="hs__content">'
           );
         } else {
-          // closing tag
+          // Closing tag
           return "</div></div>";
         }
       },
@@ -302,7 +245,7 @@ module.exports = function (eleventyConfig) {
     .use(require("@gerhobbelt/markdown-it-inline-text-color"));
   eleventyConfig.setLibrary("md", markdownLibrary);
 
-  // using {% markdown %}{% endmarkdown %} inside .njk
+  // Using {% markdown %}{% endmarkdown %} inside .njk
   eleventyConfig.addPairedShortcode("markdown", (content, inline = null) => {
     return inline
       ? markdownLibrary.renderInline(content)
@@ -319,7 +262,7 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  // using {% ref "url" %}
+  // Using {% ref "url" %}
   eleventyConfig.addShortcode("ref", function (url) {
     return (
       '<sup><a href="' +
@@ -335,7 +278,6 @@ module.exports = function (eleventyConfig) {
         const content_404 = fs.readFileSync("_site/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
-          // Provides the 404 content without redirect.
           res.write(content_404);
           res.end();
         });

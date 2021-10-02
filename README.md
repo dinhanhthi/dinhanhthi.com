@@ -1,8 +1,8 @@
-# dinhanhthi.com in 11ty [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
+# dinhanhthi.com [![Netlify Status](https://api.netlify.com/api/v1/badges/ace14869-1b28-471b-ad0f-5f1f7defa382/deploy-status)](https://app.netlify.com/sites/inspiring-goldstine-cfc130/deploys)
 
 👋 Thi's personal website running on 11ty.
 
-❗ **Note** : This repo is for my personal purpose ONLY. I don't intend to make it be a template (although I used to want to do this). If you wanna use it and have troubles, send me an email if you like but I'm not sure I'll have time to help you. Sorry about that. Anyway, if you find something useful for me to enhance this theme, just let me know, thanks.
+❗ **Note** : This repo is for my personal purpose ONLY. Although I used to wanna make this be an 11ty theme for others to be able to use but the complexity and my free time prevent me to continue. If you can find yourself how to use it, it's great, otherwise, just ask me but I cannot promise that I will reply (soon) 🙁. Anyway, if you find something useful for me to enhance this theme, just let me know, many thanks.
 
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
@@ -50,6 +50,13 @@ npm run full:http-serve-opt # localhost:8081
 
 # Build and http serve real posts
 npm run full:build-http-serve-opt
+```
+
+❗ Sometimes, css/js watch don't work, need to run thse separatedly,
+
+``` bash
+npm run css:watch-local
+npm run js:build-watch
 ```
 
 ``` bash

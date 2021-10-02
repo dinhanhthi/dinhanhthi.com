@@ -3,7 +3,7 @@ layout: post
 title: "For me only"
 tags: [Others, Static Site Generators, 11ty]
 toc: true
-icon: "/img_src/header/customize.svg"
+icon: "/img/header/customize.svg"
 keywords: "me for me only customize admin panel edition customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
 ---
 
@@ -27,7 +27,7 @@ tags: [Others] # base: Project-based Learning, MOOC, Machine Learning,
                #       NLP, MLOps, Python, R Lang, Linear Algebra,
                #       Prob & Stats, JavaScript, Web Dev, Algorithms
                #       Skills, Others
-icon: "/img_src/header/customize.svg" # can be "customize.svg"
+icon: "/img/header/customize.svg" # can be "customize.svg"
                                   # if it's in /img_src/header/
 keywords: "for me only customize edit this site box font blocks" # used for searching
 toc: true # `false` to hide toc

@@ -5,10 +5,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  font-size: $font-size;
-}
-
 .fontello-icon:before {
   margin-left: 0 !important;
 }
@@ -20,42 +16,18 @@
 }
 ::-webkit-scrollbar-thumb {
   // background: #3e466b;
-  background: #4f5c98;
+  background: var(--scroll-thumb-bg);
   border-radius: 6px;
   &:hover {
-    background: #aaa;
+    background: var(--scroll-thumb-bg-hover);
     cursor: pointer;
   }
 }
 ::-webkit-scrollbar-track {
-  background: #363948;
+  background: var(--scroll-track);
 }
 ::-webkit-scrollbar-corner {
-  background: $color-background;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  font-family: $font-main;
-  font-size: $font-size;
-}
-
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: $font-main-var;
-  }
-}
-
-body {
-  font-family: $font-main;
   background: var(--color-background);
-  color: var(--font-color);
-  margin: 0;
-  font-size: $font-size;
-}
-
-.test-dead-code-elimination-sentinel {
-  color: red;
 }
 
 /*
@@ -69,20 +41,10 @@ main img {
   content-visibility: auto;
 }
 
-b,
-strong {
-  font-weight: var(--font-bold-color-weight);
-  color: var(--font-bold-color);
-}
-
 dialog {
   background-color: #8dff80;
   position: fixed;
   opacity: 0.9;
-}
-
-small {
-  font-size: 80%;
 }
 
 sub {
@@ -126,35 +88,10 @@ mark {
   background-color: transparent;
   box-shadow: inset 0 -5px 0 $color-yellow;
 }
-
-a {
-  color: var(--font-a);
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-    border-bottom: 3px solid var(--font-a);
-    color: var(--a-hover);
-  }
-
-  &.no-effect {
-    &:hover {
-      border-bottom: none;
-    }
-  }
-
-  &.no-color {
-    color: var(--font-color) !important;
-  }
-
-  strong,
-  b {
-    color: var(--font-a);
-    &:hover {
-      color: var(--a-hover);
-    }
-  }
+code mark {
+  box-shadow: none;
 }
+
 
 hr {
   border-bottom: 1px solid #eee;

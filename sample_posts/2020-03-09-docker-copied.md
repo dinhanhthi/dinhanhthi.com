@@ -3,7 +3,7 @@ layout: post
 title: "Docker 101"
 tags: [MLOps, Docker]
 toc: true
-icon: /img_src/header/docker.svg
+icon: docker.svg
 keywords: "pybash tania rascia CI CD continuous integration deployment pipeline docker idea how to use airflow kubernetes k8s k apache container images dangling images vscode vsc visual studio code ssh container env environnement file variable"
 ---
 
@@ -18,6 +18,22 @@ Note that, this is a sample post. For a full version, please [visit this page](h
 👉 Note: [ Wordpress Docker](/wordpress-docker)
 👉 Note: [ Airflow + Kubernetes 101](/airflow-k8s-101)
 👉 Note: [ Tensorflow extra](/tensorflow)
+
+``` js/1,3
+function foo(bar) {
+    var a = 42,
+        b = 'Prism';
+    return a + bar(b)
+}
+```
+
+``` js/4/2
+function foo(bar) {
+    var a = 42,
+        b = 'Prism';
+    return a + bar(b)
+}
+```
 
 ## What and Why?
 

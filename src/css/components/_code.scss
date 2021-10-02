@@ -49,12 +49,12 @@ pre {
   & > code {
     display: block;
     padding: ($inside-padding - 2px) $inside-padding $inside-padding;
-    background: $code-bg;
-    border: 0.5px solid $code-bd;
+    background: var(--prism-bg);
+    border: 0.5px solid var(--prism-border);
     overflow: auto;
     border-radius: 3px;
     max-height: $code-max-height;
-    color: #eee;
+    color: var(--prism-color);
     // overflow: auto;
   }
 }
@@ -87,16 +87,15 @@ pre {
 }
 
 .highlight-line-active {
-  background-color: #444;
-  background-color: hsla(0, 0%, 27%, 0.8);
+  background-color: var(--prism-highlight-line-bg);
 }
 
 .highlight-line-add {
-  background-color: #45844b; // backup
+  background-color: var(--prism-highlight-line-add-bg);
 }
 
 .highlight-line-remove {
-  background-color: #902f2f; // backup
+  background-color: var(--prism-highlight-line-remove-bg);
 }
 
 .highlight-line-active,

@@ -3,7 +3,7 @@ layout: post
 title: "NodeJS & NPM"
 tags: [JavaScript]
 toc: true
-icon: /img_src/header/nodejs.png
+icon: nodejs.png
 notefull: 1
 keywords: js javascript package management Node Package Manager
 ---

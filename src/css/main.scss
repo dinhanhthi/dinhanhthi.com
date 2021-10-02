@@ -36,6 +36,8 @@ $font-bold-weight: 600;
 $font-bold-weight-light: 600;
 $font-a: $color-yellow;
 $font-a-light: #0b74cd;
+$font-a-border: #ffd47985;
+$font-a-border-light: #0b74cda6;
 $a-hover: $color-invert;
 $a-hover-light: $font-color-light;
 
@@ -57,7 +59,7 @@ $margin-bottom-code: 1.1 * $margin-bottom; // for code blocks
 $heading-font: $font-heading;
 $heading-weight: 600;
 $heading-color: #f0f0f0;
-$heading-color-light: #4a4a4a;
+$heading-color-light: #3a3a3a;
 $heading-h1-size: $font-size * 1.75;
 $heading-h2-size: $font-size * 1.43; // h2's font size (in comparison with global $font-size)
 $heading-h3-size: $heading-h2-size * 0.9; // h3's font size (in comparison with global h2)
@@ -78,7 +80,7 @@ $header-logo: 55px;
 // CODE
 $inside-padding: $font-size;
 $pre-padding: $inside-padding;
-$code-bg: #2f3240; // old
+$code-bg: #2f3240;
 $code-bg-light: #fff;
 $code-bd: #3b3e54;
 $code-bd-light: #e4e2e2;
@@ -115,11 +117,19 @@ $badge-green: #009023;
 $badge-green-light: $color-green-light;
 $badge-blue: #2f55c1;
 $badge-blue-light: $badge-blue;
+$scroll-thumb-bg: #4f5c98;
+$scroll-thumb-bg-light: #ced4da;
+$scroll-thumb-bg-hover: #aaa;
+$scroll-thumb-bg-hover-light: #adb5bd;
+$scroll-track: transparent;
+$scroll-track-light: transparent;
 
+@import "./components/prism_variables";
 @import "./components/mixin"; // mixsin
 @import "./components/dark-light"; // dark / light mode
 @import "./components/font";
 @import "./components/main"; // init css
+@import "./components/typography";
 @import "./components/heading";
 @import "./components/grid";
 @import "./components/index"; // for home page

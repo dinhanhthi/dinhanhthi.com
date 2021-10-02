@@ -3,7 +3,7 @@ layout: post
 title: "Data Combining"
 tags: [Data Science]
 toc: true
-icon: /img_src/header/coupling.png
+icon: coupling.png
 keywords: coupling dataframes inner outer left right merging pandas display side by side concatenate concat
 ---
 

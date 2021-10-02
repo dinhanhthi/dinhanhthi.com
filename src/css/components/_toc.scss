@@ -1,5 +1,5 @@
 .toc-common {
-  font-size: 90%;
+  font-size: 85%;
   li {
     a {
       color: var(--color-faded);
@@ -34,6 +34,7 @@
     content: "In this note";
     display: block;
     font-family: $font-heading;
+    font-weight: 500;
     @include toc-title();
     @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
       margin-top: -3rem;
