@@ -1,8 +1,9 @@
 pre,
 code {
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
-    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier,
-    monospace;
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+    "Courier New", Courier, monospace;
   line-height: 1.5;
 }
 
@@ -38,6 +39,38 @@ a {
   &:hover {
     & > code {
       color: var(--code-inline-text);
+    }
+  }
+}
+
+pre[class*="language-"] {
+  position: relative;
+  & > .copy {
+    position: absolute;
+    z-index: 99;
+    padding: 1px 5px;
+    top: 5px;
+    right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--code-inline-background);
+    border: 0.5px solid var(--prism-border);
+    color: var(--color-faded);
+    opacity: 0.6;
+    .fontello-icon::before {
+      margin-right: 0;
+    }
+    &:hover {
+      color: var(--font-a);
+    }
+    .icon-ok {
+      color: #22a846;
+    }
+  }
+
+  &:hover {
+    & > .copy {
+      opacity: 1;
     }
   }
 }

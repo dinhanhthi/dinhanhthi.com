@@ -1,3 +1,4 @@
+import { handleCodeCopying } from "./js/copy";
 import settings from "./_data/settings.json";
 
 const exposed = {};
@@ -6,26 +7,6 @@ if (location.search) {
   a.href = location.href;
   a.search = "";
   history.replaceState(null, null, a.href);
-}
-
-function tweet_(url) {
-  open(
-    "https://twitter.com/intent/tweet?url=" + encodeURIComponent(url),
-    "_blank"
-  );
-}
-function tweet(anchor) {
-  tweet_(anchor.getAttribute("href"));
-}
-expose("tweet", tweet);
-
-function message(msg) {
-  var dialog = document.getElementById("message");
-  dialog.textContent = msg;
-  dialog.setAttribute("open", "");
-  setTimeout(function () {
-    dialog.removeAttribute("open");
-  }, 3000);
 }
 
 function prefetch(e) {
@@ -161,10 +142,6 @@ if (window.ResizeObserver && document.querySelector("header nav #nav")) {
   }).observe(document.body);
 }
 
-function expose(name, fn) {
-  exposed[name] = fn;
-}
-
 addEventListener("click", (e) => {
   const handler = e.target.closest("[on-click]");
   if (!handler) {
@@ -253,29 +230,28 @@ function offsetAnchor() {
   }
 }
 // Captures click events of all <a> elements with href starting with #
-addEventListener("click", function (e) {
-  // Click events are captured before hashchanges. Timeout
-  // causes offsetAnchor to be called after the page jump.
-  if (
-    (e.target.tagName === "A" && e.target.hash.startsWith("#")) ||
-    (e.target.tagName === "svg" &&
-      e.target.parentElement.tagName === "A" &&
-      e.target.parentElement.hash.startsWith("#")) ||
-    (e.target.tagName === "path" &&
-      e.target.parentElement.parentElement.tagName === "A" &&
-      e.target.parentElement.parentElement.hash.startsWith("#"))
-  ) {
-    window.setTimeout(function () {
-      offsetAnchor();
-    }, 0);
-  }
+document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    // Click events are captured before hashchanges. Timeout
+    // causes offsetAnchor to be called after the page jump.
+    if (
+      (e.target.tagName === "A" && e.target.hash.startsWith("#")) ||
+      (e.target.tagName === "I" &&
+        e.target.parentElement.tagName === "A" &&
+        e.target.parentElement.hash.startsWith("#"))
+    ) {
+      window.setTimeout(function () {
+        offsetAnchor();
+      }, 0);
+    }
+  });
 });
+
 // Set the offset when entering page with hash present in the url
 window.setTimeout(offsetAnchor, 0);
 
 // Hide/show box
 // -----------------------------------------
-var triggers = Array.from(document.querySelectorAll('[class="hs__title"]'));
 window.addEventListener(
   "click",
   (ev) => {
@@ -568,3 +544,6 @@ function hideEmptyCategoryWrapper() {
     }
   });
 }
+
+// COPY BUTTON
+handleCodeCopying();

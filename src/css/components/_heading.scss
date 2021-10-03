@@ -54,9 +54,15 @@ h4 {
     opacity: 0;
     border-bottom: none;
     transition: all 0.2s ease-in-out;
-    svg {
-      fill: var(--color-faded);
-    }
+    font-size: 85%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--color-faded);
+    // svg {
+    //   fill: var(--color-faded);
+    // }
   }
 
   & > .h2-wrapper {

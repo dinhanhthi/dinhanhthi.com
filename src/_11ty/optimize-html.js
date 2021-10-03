@@ -2,6 +2,7 @@ const minify = require("html-minifier").minify;
 const AmpOptimizer = require("@ampproject/toolbox-optimizer");
 
 let distPath = "_site";
+let editSample = false; // link to sample posts editing link on github
 
 const ampOptimizer = AmpOptimizer.create({
   blurredPlaceholders: true,
@@ -62,7 +63,19 @@ const minifyFontelloCss = async (rawContent, outputPath) => {
 };
 
 const minifyCssDev = async (rawContent, outputPath) => {
-  return rawContent.replace("</head>", '<link rel="stylesheet" type="text/css" href="/src/css/main.css" /></head>');
+  if (editSample) {
+    return rawContent
+    .replace("notes/edit/master", "dinhanhthi.com/edit/dev")
+    .replace(
+      "</head>",
+      '<link rel="stylesheet" type="text/css" href="/src/css/main.css" /></head>'
+    );
+  }
+  return rawContent
+    .replace(
+      "</head>",
+      '<link rel="stylesheet" type="text/css" href="/src/css/main.css" /></head>'
+    );
 };
 
 const minifyHtml = (rawContent, outputPath) => {
@@ -93,8 +106,12 @@ const optimizeAmp = async (rawContent, outputPath) => {
 
 module.exports = {
   initArguments: {},
-  configFunction: async (eleventyConfig, pluginOptions = {devMode: false, distPath: "_site"}) => {
+  configFunction: async (
+    eleventyConfig,
+    pluginOptions = { devMode: false, distPath: "_site", editSample: false }
+  ) => {
     distPath = pluginOptions.distPath;
+    editSample = pluginOptions.editSample;
     if (pluginOptions.devMode) {
       eleventyConfig.addTransform("minifyCss", minifyCssDev);
     } else {

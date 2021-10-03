@@ -1,5 +1,6 @@
 ---
-title: "Hi! I'm Thi 👋"
+title: "Hi! I'm Thi"
+specialTitle: "👋"
 layout: page
 customClass: "page-index"
 description: I failed my way to success
@@ -16,7 +17,7 @@ I'm a Vietnamese guy who has a curious mind. I'd like to learn something new eve
 
     <div class="social">
       {% for item in social %}
-        <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}">
+        <a class="no-effect" title="{{ item.name }}" href="{{ item.url }}" target="_blank">
           <img class="keep-original" src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
         </a>
       {% endfor %}

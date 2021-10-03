@@ -52,7 +52,7 @@ npm run full:http-serve-opt # localhost:8081
 npm run full:build-http-serve-opt
 ```
 
-❗ Sometimes, css/js watch don't work, need to run thse separatedly,
+❗ Sometimes, css/js watch don't work, need to run these separatedly,
 
 ``` bash
 npm run css:watch-local
@@ -83,19 +83,31 @@ Upload the config file in `/src/fontello/config.json` to [fontello.com](https://
 # Install fontello-cli
 npm install -g fontello-cli
 
+# Remove old session (if changing the current icons, not adding new ones)
+rm .fontello-session
+
 # Install / update new icon
 fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install
 
-# Check code in src/fontello/config.json
+# Check code in src/fontello/config.json, field "css"
 ```
 
-**Add a custom icon**?
+```html
+<!-- How to use? -->
+<i class="fontello-icon icon-ng"></i>
+```
+
+**Note**: Sometimes, there are duplicates hexa/decimal code (although the names are different). On fontello website, navigate to "Customize Codes" tab, find duplicates and change them. Note that, in this tab, the codes are shown in hexa base but in the downlowded config, the codes are shown in decimal based (field `"code"`). You can use [this site](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to convert between them.
+
+<details>
+<summary>Add a custom icon?</summary>
 
 1. Search for an icon (eg. svg images) + download to local.
    1. Free SVG icon: [site](https://uxwing.com/).
    2. If you need to crop some images? Use [this site](https://www.iloveimg.com/crop-image).
    3. Need to convert to svg? Use [this site](https://www.pngtosvg.com/).
 2. Drag and drop this icon to fontello site.
+</details>
 
 ## Installation
 

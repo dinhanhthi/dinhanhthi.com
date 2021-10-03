@@ -44,7 +44,8 @@ const CSP = {
 			"https://gist.github.com/",
 			"https://www.googletagmanager.com/",
 			"https://www.google-analytics.com",
-      "https://cdn.jsdelivr.net" // katex
+      "https://cdn.jsdelivr.net", // katex
+      "https://unpkg.com"
 		],
 		[
 			"connect-src",

@@ -34,6 +34,9 @@
 .icon-algo-solid:before { content: '\e820'; } /* '' */
 .icon-puzzle-outline:before { content: '\e821'; } /* '' */
 .icon-ng:before { content: '\e822'; } /* '' */
+.icon-ok:before { content: '\e823'; } /* '' */
+.icon-link:before { content: '\e824'; } /* '' */
+.icon-copy:before { content: '\f0c5'; } /* '' */
 .icon-gamepad:before { content: '\f11b'; } /* '' */
 .icon-fork:before { content: '\f126'; } /* '' */
 .icon-mlops-solid:before { content: '\f135'; } /* '' */

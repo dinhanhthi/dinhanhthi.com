@@ -204,6 +204,9 @@ $gap: 5px;
     }
     &:nth-child(odd) {
       padding-right: $gap;
+      .copy {
+        right: 10px;
+      }
     }
     & > code {
       height: 100%;
