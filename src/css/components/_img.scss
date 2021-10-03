@@ -2,6 +2,7 @@
   img {
     height: auto;
     width: 100%;
+    border-radius: $box-border-radius;
     &.bg-white {
       background: #fff;
     }

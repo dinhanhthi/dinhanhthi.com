@@ -14,6 +14,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
 - 🎨 **Styling**
   - Change copy block icon.
   - Change alert box style.
+  - More border-radius for boxes.
 
 ### `4.7.2`
 

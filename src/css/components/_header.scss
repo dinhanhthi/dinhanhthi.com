@@ -92,7 +92,7 @@ header {
       padding: 10px;
       background: #343950;
       box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
-      border-radius: 15px;
+      border-radius: $box-border-radius * 2;
       &:last-child {
         margin-right: 0;
       }

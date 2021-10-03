@@ -1133,7 +1133,7 @@ body {
     /* line 10, src/css/components/_index.scss */
     .page-index .main-cats > .category-wrapper > .category {
       border: 1px solid var(--code-bd);
-      border-radius: 7px;
+      border-radius: 0.6rem;
       height: fit-content;
       background: var(--code-bg);
       padding: 1.5rem 1.5rem;
@@ -1180,7 +1180,7 @@ body {
     width: 100%;
     color: var(--toc-appendix);
     border: 1px solid var(--code-bd);
-    border-radius: 7px;
+    border-radius: 0.6rem;
     height: fit-content;
     background: var(--code-bg);
     display: flex;
@@ -1379,7 +1379,7 @@ header {
       padding: 10px;
       background: #343950;
       box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
-      border-radius: 15px; }
+      border-radius: 1.2rem; }
       /* line 96, src/css/components/_header.scss */
       header .social a:last-child {
         margin-right: 0; }
@@ -1802,7 +1802,7 @@ footer {
   /* line 108, src/css/components/_about.scss */
   .page-about .container .section .list-of {
     border: 0.5px solid var(--code-bd);
-    border-radius: 4px;
+    border-radius: 0.6rem;
     background: var(--code-bg);
     box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108; }
 
@@ -1900,7 +1900,7 @@ footer {
           border: 1px solid var(--badge-black-bd);
           background: var(--badge-black-bg);
           padding: 3px;
-          border-radius: 3px; }
+          border-radius: 0.6rem; }
           /* line 161, src/css/components/_about.scss */
           .page-about .container .exp-edu .list-of .item .title .tech .skill-small picture {
             display: inline-flex; }
@@ -1977,7 +1977,7 @@ footer {
         border: 1px solid var(--badge-black-bd);
         background: var(--badge-black-bg);
         padding: 3px;
-        border-radius: 3px; }
+        border-radius: 0.6rem; }
         /* line 161, src/css/components/_about.scss */
         .page-about .container .projects .list-of .title .tech .skill-small picture {
           display: inline-flex; }
@@ -1986,7 +1986,7 @@ footer {
         margin: 3px 6px 3px 0;
         border: 1px solid var(--a-list-homepage-bd);
         background: var(--badge-black-bg);
-        padding: 5.2px 6px;
+        padding: 3px 8px;
         border-radius: 3px;
         font-size: 0.9rem;
         color: var(--color-faded);
@@ -2106,7 +2106,7 @@ footer {
   color: var(--font-color);
   padding: 16px;
   margin-bottom: 16px;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   border-left: 6px solid; }
   /* line 102, src/css/components/_component.scss */
   .info *:last-child,
@@ -2377,7 +2377,7 @@ kbd {
   margin-bottom: 24px;
   border: 1px solid var(--toc-title-bd);
   padding: 1rem;
-  border-radius: 3px; }
+  border-radius: 0.6rem; }
   /* line 308, src/css/components/_component.scss */
   .hsbox .hs__title {
     cursor: pointer; }
@@ -2550,7 +2550,7 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 10px;
   display: flex;
   border: 1px solid var(--code-bd);
-  border-radius: 7px;
+  border-radius: 0.6rem;
   height: fit-content;
   background: var(--code-bg); }
   @media screen and (min-width: 992px) {
@@ -3127,7 +3127,7 @@ pre {
     background: var(--prism-bg);
     border: 0.5px solid var(--prism-border);
     overflow: auto;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     max-height: 450px;
     color: var(--prism-color); }
 
@@ -3294,111 +3294,112 @@ pre {
 /* line 2, src/css/components/_img.scss */
 .page-note img {
   height: auto;
-  width: 100%; }
-  /* line 5, src/css/components/_img.scss */
+  width: 100%;
+  border-radius: 0.6rem; }
+  /* line 6, src/css/components/_img.scss */
   .page-note img.bg-white {
     background: #fff; }
 
 @media screen and (min-width: 768px) {
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-30,
   .page-note .img-30 {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-35,
   .page-note .img-35 {
     width: 35%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-40,
   .page-note .img-40 {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-45,
   .page-note .img-45 {
     width: 45%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-50,
   .page-note .img-50 {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-55,
   .page-note .img-55 {
     width: 55%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-60,
   .page-note .img-60 {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-65,
   .page-note .img-65 {
     width: 65%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-70,
   .page-note .img-70 {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-75,
   .page-note .img-75 {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-80,
   .page-note .img-80 {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-85,
   .page-note .img-85 {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-90,
   .page-note .img-90 {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-95,
   .page-note .img-95 {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     display: block; }
-  /* line 13, src/css/components/_img.scss */
+  /* line 14, src/css/components/_img.scss */
   .page-note .img-full-100,
   .page-note .img-100 {
     width: 100%;
@@ -3406,10 +3407,10 @@ pre {
     margin-right: auto;
     display: block; } }
 
-/* line 24, src/css/components/_img.scss */
+/* line 25, src/css/components/_img.scss */
 .page-note p > img + br, .page-note p > picture + br {
   display: none; }
-  /* line 26, src/css/components/_img.scss */
+  /* line 27, src/css/components/_img.scss */
   .page-note p > img + br + em, .page-note p > picture + br + em {
     display: block;
     text-align: center;

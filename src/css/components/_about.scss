@@ -107,7 +107,7 @@
 
       .list-of {
         border: 0.5px solid var(--code-bd);
-        border-radius: 4px;
+        border-radius: $box-border-radius;
         background: var(--code-bg);
         box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
       }
@@ -157,7 +157,7 @@
       border: 1px solid var(--badge-black-bd);
       background: var(--badge-black-bg);
       padding: 3px;
-      border-radius: 3px;
+      border-radius: $box-border-radius;
       picture {
         display: inline-flex;
       }
@@ -298,7 +298,7 @@
               margin: 3px 6px 3px 0;
               border: 1px solid var(--a-list-homepage-bd);
               background: var(--badge-black-bg);
-              padding: 5.2px 6px;
+              padding: 3px 8px;
               border-radius: 3px;
               font-size: 0.9rem;
               color: var(--color-faded);

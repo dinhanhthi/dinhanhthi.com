@@ -78,6 +78,9 @@ $margin-bottom-heading: $margin-bottom * 0.8; // margin-bottom heading
 // HEADER
 $header-logo: 55px;
 
+//
+$box-border-radius: 0.6rem;
+
 // CODE
 $code-font-size: 0.9 * $font-size;
 $inside-padding: $font-size;
@@ -93,7 +96,7 @@ $code-inline-background: #6b444245;
 $code-inline-background-light: #ececec;
 $code-inline-bd: 1px solid #444;
 $code-inline-bd-light: 1px solid #ddd;
-$code-border-radius: 10px;
+$code-border-radius: $box-border-radius;
 
 // TOC
 $toc-title: #f5d3a7;
@@ -102,6 +105,7 @@ $toc-title-bd: #555;
 $toc-title-bd-light: #ccc;
 $toc-appendix: #a2a2a2;
 $toc-appendix-light: #545454;
+
 
 // DARK/LIGHT THINGS
 $a-list-homepage: #ddd;

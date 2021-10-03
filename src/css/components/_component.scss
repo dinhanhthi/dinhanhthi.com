@@ -96,7 +96,7 @@
   color: var(--font-color);
   padding: 16px;
   margin-bottom: 16px;
-  border-radius: 6px;
+  border-radius: $box-border-radius;
   border-left: 6px solid;
 
   *:last-child {
@@ -304,7 +304,7 @@ $gap: 5px;
   margin-bottom: $margin-bottom;
   border: 1px solid var(--toc-title-bd);
   padding: 1rem;
-  border-radius: 3px;
+  border-radius: $box-border-radius;
   .hs__title {
     cursor: pointer;
     &::before {
