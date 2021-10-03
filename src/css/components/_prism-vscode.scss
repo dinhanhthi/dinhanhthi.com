@@ -1,7 +1,7 @@
 pre[class*="language-"],
 code[class*="language-"] {
   color: var(--prism-color);
-  font-size: 0.9rem;
+  font-size: $code-font-size;
   text-shadow: none;
   font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono",
     "Courier New", monospace;

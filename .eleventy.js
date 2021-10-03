@@ -49,6 +49,24 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("sample_posts");
       break;
 
+    case "sample-opt":
+      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
+      eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.delete("sample_posts");
+      eleventyConfig.ignores.add("notes");
+      // eleventy-plugin-local-images
+      eleventyConfig.addPlugin(localImages, {
+        distPath: "_site",
+        assetPath: "/img/remote",
+        selector:
+          "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
+        verbose: false,
+      });
+      break;
+
     case "full-no-opt":
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
         devMode: true,
@@ -196,8 +214,7 @@ module.exports = function (eleventyConfig) {
     .use(require("markdown-it-anchor"), {
       permalink: true,
       permalinkClass: "direct-link",
-      permalinkSymbol:
-        '<i class="fontello-icon icon-link">',
+      permalinkSymbol: '<i class="fontello-icon icon-link"></i>',
     })
     .use(require("markdown-it-mark")) // ==mark==
     .use(require("markdown-it-attrs"), {

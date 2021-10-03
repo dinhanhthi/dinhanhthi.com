@@ -68,6 +68,7 @@
   --color-blue: #{$color-blue};
   --color-green: #{$color-green};
   --color-yellow: #{$color-yellow};
+  --color-red: #{$color-red-dark};
   --color-invert: #{$color-invert};
   --color-faded: #{$color-faded};
   --color-faded-invert: #{$color-faded-invert};
@@ -123,12 +124,22 @@
   --prism-highlight-line-bg: #{$prism-highlight-line-bg};
   --prism-highlight-line-add-bg: #{$prism-highlight-line-add-bg};
   --prism-highlight-line-remove-bg: #{$prism-highlight-line-remove-bg};
+  // Alert boxes
+  --alert-info-bg: #{$alert-info-bg};
+  --alert-info-bd: #{$alert-info-bd};
+  --alert-success-bg: #{$alert-success-bg};
+  --alert-success-bd: #{$alert-success-bd};
+  --alert-danger-bg: #{$alert-danger-bg};
+  --alert-danger-bd: #{$alert-danger-bd};
+  --alert-warning-bg: #{$alert-warning-bg};
+  --alert-warning-bd: #{$alert-warning-bd};
 }
 
 @mixin light-vars() {
   --color-blue: #{$color-blue-light};
   --color-green: #{$color-green-light};
   --color-yellow: #{$color-yellow-light};
+  --color-red: #{$color-red};
   --color-invert: #{$color-invert-light};
   --color-faded: #{$color-faded-light};
   --color-faded-invert: #{$color-faded-invert-light};
@@ -184,4 +195,13 @@
   --prism-highlight-line-bg: #{$prism-highlight-line-bg-light};
   --prism-highlight-line-add-bg: #{$prism-highlight-line-add-bg-light};
   --prism-highlight-line-remove-bg: #{$prism-highlight-line-remove-bg-light};
+  // Alert boxes
+  --alert-info-bg: #{$alert-info-bg-light};
+  --alert-info-bd: #{$alert-info-bd-light};
+  --alert-success-bg: #{$alert-success-bg-light};
+  --alert-success-bd: #{$alert-success-bd-light};
+  --alert-danger-bg: #{$alert-danger-bg-light};
+  --alert-danger-bd: #{$alert-danger-bd-light};
+  --alert-warning-bg: #{$alert-warning-bg-light};
+  --alert-warning-bd: #{$alert-warning-bd-light};
 }

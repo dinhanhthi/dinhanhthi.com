@@ -29,23 +29,23 @@ Without image processing,
 
 ``` bash
 # Sample posts (sample_posts/)
-npm run sample:watch-no-opt # localhost:8080
+npm run sample:watch-no-opt # localhost:8080, built to "_built"
 
 # Real posts (/notes/posts/)
-npm run full:watch-no-opt # localhost:8080
+npm run full:watch-no-opt # localhost:8080, built to "_built"
 ```
 
 With image processing,
 
 ``` bash
 # Sample posts (sample_posts/)
-npm run sample:watch-opt # localhost:8080
+npm run sample:watch-opt # localhost:8080, built to "_site"
 
 # Just build sample_post
-npm run sample:build-opt
+npm run sample:build-opt # built to "_site"
 
 # Real posts (/notes/posts/)
-npm run build
+npm run build # built to "_site"
 npm run full:http-serve-opt # localhost:8081
 
 # Build and http serve real posts
@@ -56,6 +56,7 @@ npm run full:build-http-serve-opt
 
 ``` bash
 npm run css:watch-local
+# Need to save some css codes to make this watch run!
 npm run js:build-watch
 ```
 

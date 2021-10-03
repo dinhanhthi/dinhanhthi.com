@@ -10,7 +10,7 @@ const handleCodeCopying = () => {
       if (!isPrismClass(preTags[i])) continue;
       preTags[
         i
-      ].innerHTML = `<div class="copy"><i class="fontello-icon icon-copy"></i></div>${preTags[i].innerHTML}`;
+      ].innerHTML = `<div class="copy"><i class="fontello-icon icon-clone"></i></div>${preTags[i].innerHTML}`;
     }
   }
 
@@ -22,7 +22,7 @@ const handleCodeCopying = () => {
     event.trigger.innerHTML = '<i class="fontello-icon icon-ok"></i>';
     setTimeout(() => {
       event.clearSelection();
-      event.trigger.innerHTML = '<i class="fontello-icon icon-copy"></i>';
+      event.trigger.innerHTML = '<i class="fontello-icon icon-clone"></i>';
     }, 1000);
   });
 };

@@ -7,12 +7,41 @@ icon: titanic.svg
 keywords: survive passenger drop features convert to dummy variables impute missing data gridsearchcv Continuous to categorical random forest create an output file Manav Sehgal Dataquest Abhinav Sagar
 ---
 
-{% markdown %}
+::: warning
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+:::
+
+::: success
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+:::
+
+::: info
+Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
+:::
+
 ::: danger
 Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-{% endmarkdown %}
+:::
 
 {% assign img-url = '/img/post/project/titanic' %}
+
+## Just for testing
+
+::: code-output-flex
+~~~ python
+x = [1, 2]
+y = [1, 2]
+z = [2, 1]
+
+x == y
+x == z
+~~~
+
+~~~
+True
+False
+~~~
+:::
 
 ## Introduction
 

@@ -46,23 +46,23 @@ h4 {
         color: var(--font-a);
       }
     }
-  }
 
-  .direct-link {
-    position: absolute;
-    left: -23px;
-    opacity: 0;
-    border-bottom: none;
-    transition: all 0.2s ease-in-out;
-    font-size: 85%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: var(--color-faded);
-    // svg {
-    //   fill: var(--color-faded);
-    // }
+    .direct-link {
+      position: absolute;
+      left: -23px;
+      opacity: 0;
+      border-bottom: none;
+      transition: all 0.2s ease-in-out;
+      font-size: 85%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--color-faded);
+      // svg {
+      //   fill: var(--color-faded);
+      // }
+    }
   }
 
   & > .h2-wrapper {

@@ -7,8 +7,16 @@
 
   <meta name="theme-color" content="#f9c412">
   <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
-  <title>{{ title or renderData.title or settings.title | escape }}</title>
-  <meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ title or renderData.title or settings.title | escape  }}">
+
+  {% set pageUrlLength = page.url | length %}
+  {% if pageUrlLength > 1 %}
+    {% set pageTitle = [title or renderData.title, " | Note of Thi"] | join %}
+  {% else %}
+    {% set pageTitle = title or renderData.title or settings.title %}
+  {% endif %}
+  <title>{{ pageTitle }}</title>
+  <meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ pageTitle  }}">
+
   {% set desc = renderData.description or description or subtitle %}
   {% if not desc %}
     {% set desc = content | striptags | truncate(140) %}

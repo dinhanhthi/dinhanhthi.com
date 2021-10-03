@@ -12,6 +12,7 @@ $color-green: #86f7a2;
 $color-green-light: #0ab534;
 $color-pink: #ff79c6;
 $color-red: #ff5555;
+$color-red-dark: #ff5555; // a little strange here, I know!
 $color-yellow: #ffd479;
 $color-yellow-light: #ffc342;
 $color-bg-nav: #35373c;
@@ -78,6 +79,7 @@ $margin-bottom-heading: $margin-bottom * 0.8; // margin-bottom heading
 $header-logo: 55px;
 
 // CODE
+$code-font-size: 0.9 * $font-size;
 $inside-padding: $font-size;
 $pre-padding: $inside-padding;
 $code-bg: #2f3240;
@@ -91,6 +93,7 @@ $code-inline-background: #6b444245;
 $code-inline-background-light: #ececec;
 $code-inline-bd: 1px solid #444;
 $code-inline-bd-light: 1px solid #ddd;
+$code-border-radius: 10px;
 
 // TOC
 $toc-title: #f5d3a7;
@@ -123,6 +126,29 @@ $scroll-thumb-bg-hover: #aaa;
 $scroll-thumb-bg-hover-light: #adb5bd;
 $scroll-track: transparent;
 $scroll-track-light: transparent;
+
+// Alert boxes
+// Follow Primer's color schemes: https://primer.style/css/support/color-system
+// (--color-scale-*-4) for border, add "30" (light), "70" (dark) at the end for backgrounds
+$alert-info-bg: #4184e470;
+$alert-info-bd: #4184e4;
+$alert-info-bg-light: #2188ff30;
+$alert-info-bd-light: #2188ff;
+
+$alert-success-bg: #46954a70;
+$alert-success-bd: #46954a;
+$alert-success-bg-light: #34d05830;
+$alert-success-bd-light: #34d058;
+
+$alert-danger-bg: #e5534b70;
+$alert-danger-bd: #e5534b;
+$alert-danger-bg-light: #ea4a5a30;
+$alert-danger-bd-light: #ea4a5a;
+
+$alert-warning-bg: #ae7c1470;
+$alert-warning-bd: #ae7c14;
+$alert-warning-bg-light: #ffdf5d30;
+$alert-warning-bd-light: #ffdf5d;
 
 @import "./components/prism_variables";
 @import "./components/mixin"; // mixsin

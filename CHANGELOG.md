@@ -4,6 +4,17 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
+### `4.7.3`
+
+- 🎉 **New**
+  - Add `| Note of Thi` in header title (browser's tab) for pages being not home.
+- 🧰 **Fixes**
+  - Fix npm command `sample:watch-opt` and `sample:11ty-opt`.
+  - Strange anchor link icon appearing on prod version.
+- 🎨 **Styling**
+  - Change copy block icon.
+  - Change alert box style.
+
 ### `4.7.2`
 
 - 🎉 **New**

@@ -92,26 +92,32 @@
   position: relative;
   padding: $inside-padding;
   margin-bottom: $margin-bottom;
-  border: 1px solid transparent;
   border-radius: 0.25rem;
   color: var(--font-color);
-  border-left-width: 15px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border-left: 6px solid;
 
   *:last-child {
     margin-bottom: 0;
   }
 }
 .info {
-  border-color: var(--color-blue);
+  border-color: var(--alert-info-bd);
+  background-color: var(--alert-info-bg);
 }
 .success {
-  border-color: var(--color-green);
+  border-color: var(--alert-success-bd);
+  background-color: var(--alert-success-bg);
 }
 .danger {
-  border-color: $color-red;
+  border-color: var(--alert-danger-bd);
+  background-color: var(--alert-danger-bg);
 }
 .warning {
-  border-color: var(--color-yellow);
+  border-color: var(--alert-warning-bd);
+  background-color: var(--alert-warning-bg);
 }
 
 // Keyboard
@@ -147,8 +153,10 @@ kbd {
       }
     }
     &:last-child > code {
+      font-size: $code-font-size;
       background: #252731;
       border-color: #3a3a3a80;
+      color: #eee;
       height: 100%;
       white-space: pre-wrap;
       @media (max-width: $grid-md) {
@@ -205,7 +213,7 @@ $gap: 5px;
     &:nth-child(odd) {
       padding-right: $gap;
       .copy {
-        right: 10px;
+        right: 14px;
       }
     }
     & > code {
