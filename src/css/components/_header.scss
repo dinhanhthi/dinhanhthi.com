@@ -49,16 +49,22 @@ header {
 
   .social {
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     a {
       margin-right: 10px;
+      margin-bottom: 10px;
+      display: inline-flex;
+      padding: 10px;
+      background: #343950;
+      box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+      border-radius: 15px;
       &:last-child {
         margin-right: 0;
       }
 
-      @include screen-lg-up {
-        margin-right: 20px;
-      }
+      // @include screen-lg-up {
+      //   margin-right: 20px;
+      // }
 
       &:hover {
         img {

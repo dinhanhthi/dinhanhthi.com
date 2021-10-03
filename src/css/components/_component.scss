@@ -313,10 +313,11 @@ $gap: 5px;
       border-bottom: 0.5px solid var(--toc-title-bd);
       margin-bottom: 1rem;
       & + .hs__content {
-        display: block;
+        // display: block;
+        height: auto;
         opacity: 1;
         padding: 5px 0;
-        transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
+        // transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
       }
       &::before {
         transform: rotate(90deg) translateX(-3px);
@@ -324,8 +325,11 @@ $gap: 5px;
     }
   }
   .hs__content {
-    display: none;
-    transition: all 0.2s 0s ease;
+    // display: none;
+    height: 0;
+    overflow: hidden;
+    // transition: all 0.2s 0s ease;
+    transition: all 0.25s ease;
     > *:last-child {
       margin-bottom: 0;
     }

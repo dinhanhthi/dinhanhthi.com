@@ -4,6 +4,13 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
+### `4.7.2`
+
+- 🎨 **Styling**
+  - Github's style for anchor link.
+  - Animation for hide/show box.
+  - New social icon styling on home page.
+
 ### `4.7.1`
 
 There are many changes which contain much on cleaning, styles.

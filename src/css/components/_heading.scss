@@ -37,13 +37,25 @@ h4 {
     font-family: $heading-font;
     color: var(--heading-color);
     font-weight: 500;
+    position: relative;
     &:hover {
       .direct-link {
-        display: inline-block;
+        opacity: 1;
       }
       a:hover {
         color: var(--font-a);
       }
+    }
+  }
+
+  .direct-link {
+    position: absolute;
+    left: -23px;
+    opacity: 0;
+    border-bottom: none;
+    transition: all 0.2s ease-in-out;
+    svg {
+      fill: var(--color-faded);
     }
   }
 
@@ -132,13 +144,6 @@ h4 {
         line-height: 1;
       }
     }
-  }
-
-  .direct-link {
-    display: none;
-    color: #777;
-    border-bottom: none;
-    margin-left: 3px;
   }
 
   pre,

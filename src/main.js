@@ -256,7 +256,15 @@ function offsetAnchor() {
 addEventListener("click", function (e) {
   // Click events are captured before hashchanges. Timeout
   // causes offsetAnchor to be called after the page jump.
-  if (e.target.tagName == "A" && e.target.hash.startsWith("#")) {
+  if (
+    (e.target.tagName === "A" && e.target.hash.startsWith("#")) ||
+    (e.target.tagName === "svg" &&
+      e.target.parentElement.tagName === "A" &&
+      e.target.parentElement.hash.startsWith("#")) ||
+    (e.target.tagName === "path" &&
+      e.target.parentElement.parentElement.tagName === "A" &&
+      e.target.parentElement.parentElement.hash.startsWith("#"))
+  ) {
     window.setTimeout(function () {
       offsetAnchor();
     }, 0);
