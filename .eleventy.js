@@ -11,6 +11,7 @@ const markdownIt = require("markdown-it");
 var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
+const anchor = require("markdown-it-anchor");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
@@ -211,10 +212,13 @@ module.exports = function (eleventyConfig) {
     breaks: true, // use '\n' as <br>
     linkify: true, // Autoconvert URL-like text to links
   })
-    .use(require("markdown-it-anchor"), {
-      permalink: true,
-      permalinkClass: "direct-link",
-      permalinkSymbol: '<i class="fontello-icon icon-link"></i>',
+    .use(anchor, {
+      level: 2,
+      permalink: anchor.permalink.ariaHidden({
+        placement: "after",
+        class: "direct-link",
+        symbol: '<i class="fontello-icon icon-link"></i>',
+      }),
     })
     .use(require("markdown-it-mark")) // ==mark==
     .use(require("markdown-it-attrs"), {

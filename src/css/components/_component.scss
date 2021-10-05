@@ -5,7 +5,7 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.25rem;
+  border-radius: $box-border-radius;
   padding: 3px 5px;
   font-size: 13px;
   text-transform: uppercase;
@@ -91,11 +91,8 @@
 .warning {
   position: relative;
   padding: $inside-padding;
-  margin-bottom: $margin-bottom;
-  border-radius: 0.25rem;
   color: var(--font-color);
-  padding: 16px;
-  margin-bottom: 16px;
+  margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
   border-left: 6px solid;
 

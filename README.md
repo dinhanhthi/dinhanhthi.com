@@ -8,7 +8,7 @@
 
 ## Changelog
 
-Read this [changelog](./CHANGELOG.md).
+👉  Read this [changelog](./CHANGELOG.md).
 
 ## Older versions
 
@@ -22,31 +22,40 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 
 Suppose that the installation step is done completely.
 
-- **Update data** : modify files in `notes/_data/`. If wanna see them on local when dev, overwrite these files to `src/_data/`,
-- **Update posts** : just modify things in `notes/`.
+- **Update data** : modify files in `notes/_data/`. Files need to be duplicated in both `notes/_data` and `src/_data`: `helpers.js`, `settings.json`, `env.js`, `csp.js`, `googleanalytics.js`.
+- **Update posts** : just modify things in `notes/`. For testing locally `sample:*`, modify in `sample_posts/`.
+- **Header icon** (frontmatter):
+  - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
+  - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons on `/notes/`)
 
 Without image processing,
 
-``` bash
+```bash
 # Sample posts (sample_posts/)
 npm run sample:watch-no-opt # localhost:8080, built to "_built"
+# Wait for finishing the built and run
+npm run css:touch
 
 # Real posts (/notes/posts/)
 npm run full:watch-no-opt # localhost:8080, built to "_built"
+# Wait for finishing the built and run
+npm run css:touch
 ```
 
 With image processing,
 
-``` bash
+```bash
 # Sample posts (sample_posts/)
 npm run sample:watch-opt # localhost:8080, built to "_site"
+# Wait for finishing the built and run
+npm run css:touch
 
 # Just build sample_post
 npm run sample:build-opt # built to "_site"
 
 # Real posts (/notes/posts/)
 npm run build # built to "_site"
-npm run full:http-serve-opt # localhost:8081
+npm run full:http-serve-opt # localhost:8081 over "_live" (a copied of "_site")
 
 # Build and http serve real posts
 npm run full:build-http-serve-opt
@@ -54,13 +63,13 @@ npm run full:build-http-serve-opt
 
 ❗ Sometimes, css/js watch don't work, need to run these separatedly,
 
-``` bash
+```bash
 npm run css:watch-local
 # Need to save some css codes to make this watch run!
 npm run js:build-watch
 ```
 
-``` bash
+```bash
 # Build & update & deploy
 npm run site:build-update
 
@@ -71,10 +80,9 @@ npm run build # _site
 npm run site:update
 ```
 
-<details><summary>More about update data</summary>
+### Download SVG from flaticon
 
-Informations must be duplicated both in `src/_data/` and `notes/_data` : `csp.js`, `env.js`, `googleanalytics.js`, `helpers.js`, `settings.json`. Other words: add something in these files, must add in both places. Other files, just modify in `notes/_data` except that we need some info for the sample theme.
-</details>
+Normally, you cannot download SVG format from flaticon. Just click on Edit > Open Inspect Element > Copy SVG HTML element > Create a new file + paste this + save as `.svg`.
 
 ### Update Fontello icons?
 
@@ -151,7 +159,7 @@ sudo npm install http-server -g
 
 # Create \_live & Clone dat.com/\_site
 sh getting_started.sh
-````
+```
 
 Check section [Dev](#dev) for more.
 
@@ -159,6 +167,7 @@ Check section [Dev](#dev) for more.
 # Make a shortcut on the system?
 update_dat='cd ~/git/dinhanhthi.com && sh ud_site.sh && cd -1'
 ```
+
 </details>
 
 ### Re-install?

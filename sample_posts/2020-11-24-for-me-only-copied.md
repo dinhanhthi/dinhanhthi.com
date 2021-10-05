@@ -14,7 +14,7 @@ Note that, this is a sample post. For a full version, please [visit this page](h
 
 This post is for me only. It contains shortcodes to create this website.
 
-👉  Note: [11ty](/11ty-nunjucks/).
+👉  Note: [11ty & Nunjucks](/11ty-nunjucks/).
 
 ## Frontmatter
 

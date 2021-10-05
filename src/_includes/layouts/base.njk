@@ -45,10 +45,11 @@
       <div class="header-container">
         {% block headerLogo %}{% endblock %}
         {% block headerTitle %}
-          <h1>{{ title }}
+          <h1>
             {% if specialTitle %}
               <span class="special-title">{{ specialTitle }}</span>
             {% endif %}
+            {{ title }}
             {% if notfull %}
               <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}

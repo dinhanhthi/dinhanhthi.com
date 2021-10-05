@@ -1,5 +1,5 @@
 .toc-common {
-  font-size: 85%;
+  font-size: 88%;
   li {
     a {
       color: var(--color-faded);
@@ -43,6 +43,20 @@
   & > ol {
     padding-left: 0;
     margin-bottom: 0;
+    border: 0.5px solid var(--toc-title-bd);
+    border-radius: $box-border-radius;
+    padding: 1rem;
+    width: fit-content;
+
+    & > li {
+      &::before {
+        background: var(--code-inline-background);
+        border-radius: 5px;
+        padding: 1px;
+        padding-left: 7px;
+        margin-right: 5px;
+      }
+    }
 
     @include column-count(1);
     @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
@@ -65,7 +79,7 @@
         overflow: hidden;
         transition: all 300ms ease-in-out;
         box-shadow: inset 0.5px 0 0 0px var(--color-faded);
-        margin-left: 5px;
+        margin-left: 10px;
       }
     }
 
