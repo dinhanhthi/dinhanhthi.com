@@ -563,3 +563,11 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
   }
 }
+
+//
+.hover-translate {
+  transition: transform .2s;
+  &:hover {
+    transform: translate(0px, -2px);
+  }
+}

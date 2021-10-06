@@ -34,6 +34,7 @@
       margin-top: -0.5rem;
     }
   }
+
   ul,
   ol {
     margin-top: 0;
@@ -48,6 +49,16 @@
       }
       & > *:not(span) {
         margin-bottom: 10px;
+      }
+    }
+  }
+
+  &,
+  * > {
+    ol,
+    ul {
+      @include screen-lg-down {
+        padding-left: $padding-lr;
       }
     }
   }

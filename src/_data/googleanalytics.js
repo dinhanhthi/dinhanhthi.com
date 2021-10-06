@@ -19,7 +19,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const settings = require("./settings.json");
+// const settings = require("./settings.json");
+const settings = require("../../notes/_data/settings.json");
 
 module.exports = function () {
   let id = settings.googleAnalyticsId;

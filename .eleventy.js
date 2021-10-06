@@ -15,13 +15,13 @@ const anchor = require("markdown-it-anchor");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
-const GA_ID = require("./src/_data/settings.json").googleAnalyticsId;
-
-const categories = require("./src/_data/categories.json");
 
 const thiDataDir = "notes/_data";
 // const defaultDataDir = "src/_data";
 var dataDir = thiDataDir;
+
+const categories = require("./" + thiDataDir + "/categories.json");
+const GA_ID = require("./" + thiDataDir + "/settings.json").googleAnalyticsId;
 
 module.exports = {
   environment: process.env.ELEVENTY_ENV,
@@ -149,6 +149,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("setAttribute", function (dictionary, key, value) {
     dictionary[key] = value;
     return dictionary;
+  });
+
+  // Get infor from techs.json for items in skills.json
+  eleventyConfig.addFilter("getTech", function (techId, techArray) {
+    return techArray.find((tech) => tech.id === techId);
   });
 
   // Used in /pages/search-index.json

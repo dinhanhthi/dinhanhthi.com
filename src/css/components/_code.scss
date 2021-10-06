@@ -67,6 +67,10 @@ pre[class*="language-"] {
     .icon-ok {
       color: #22a846;
     }
+
+    @include screen-lg-down {
+      opacity: 1;
+    }
   }
 
   &:hover {

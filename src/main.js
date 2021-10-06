@@ -1,5 +1,7 @@
 import { handleCodeCopying } from "./js/copy";
-import settings from "./_data/settings.json";
+// import settings from "./_data/settings.json";
+import settings from "../notes/_data/settings.json";
+
 
 const exposed = {};
 if (location.search) {

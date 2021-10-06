@@ -22,13 +22,13 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 
 Suppose that the installation step is done completely.
 
-- **Update data** : modify files in `notes/_data/`. Files need to be duplicated in both `notes/_data` and `src/_data`: `helpers.js`, `settings.json`, `env.js`, `csp.js`, `googleanalytics.js`.
+- **Update data** : in `notes/_data/`. There are also `googleanalytics.js` and `csp.js` in `src/_data`.
 - **Update posts** : just modify things in `notes/`. For testing locally `sample:*`, modify in `sample_posts/`.
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons on `/notes/`)
 
-Without image processing,
+Without image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
 
 ```bash
 # Sample posts (sample_posts/)
@@ -42,7 +42,7 @@ npm run full:watch-no-opt # localhost:8080, built to "_built"
 npm run css:touch
 ```
 
-With image processing,
+With image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
 
 ```bash
 # Sample posts (sample_posts/)

@@ -3,7 +3,7 @@ title: About me
 layout: page
 customClass: page-about
 icon: "/img_src/nav/about.svg"
-permalink: /about/
+permalink: /about-copy/
 ---
 
 {# Intro #}
@@ -57,19 +57,20 @@ I use this website to document everything I've learned while going through the p
       </div>
       <div class="list-of">
         {% for item in group.list %}
-          {% set itemInfo = item | getTech(techs) %}
-          {% if itemInfo.url %}
-            <a href="{{ itemInfo.url }}" target="_blank">
-              <div class="badge black hover-translate">
-                <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                <span>{{ itemInfo.name }}</span>
+          {% if not item.later %}
+            {% if item.url %}
+              <a href="{{ item.url }}" target="_blank">
+                <div class="badge black">
+                  <img class="keep-original" src="/img/about/{{ item.icon }}" alt="{{ item.name }}" height="20" width="20">
+                  <span>{{ item.name }}</span>
+                </div>
+              </a>
+            {% else %}
+              <div class="badge black">
+                <img class="keep-original" src="/img/about/{{ item.icon }}" alt="{{ item.name }}" height="20" width="20">
+                <span>{{ item.name }}</span>
               </div>
-            </a>
-          {% else %}
-            <div class="badge black hover-translate">
-              <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-              <span>{{ itemInfo.name }}</span>
-            </div>
+            {% endif %}
           {% endif %}
         {% endfor %}
       </div>
@@ -90,11 +91,6 @@ I use this website to document everything I've learned while going through the p
           <div class="item">
             <div class="d-flex d-flex-wrap align-items-center">
               <div class="where">
-                {% if item.logo %}
-                <div class="logo{% if item.bgwhite %} bg-white{% endif %}">
-                  <img class="keep-original" src="/img/about/exp/{{ item.logo }}" alt="{{ item.where }}'s logo">
-                </div>
-                {% endif %}
                 <div>
                   {% if item.url %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.where }}</a>
@@ -121,18 +117,9 @@ I use this website to document everything I've learned while going through the p
                 {% if item.tech %}
                   <div class="tech">
                     {% for item2 in item.tech %}
-                      {% set itemInfo = item2 | getTech(techs) %}
-                      {% if itemInfo.url %}
-                        <a href="{{ itemInfo.url }}" target="_blank">
-                          <div title="{{ itemInfo.name }}" class="skill-small hover-translate">
-                            <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                          </div>
-                        </a>
-                      {% else %}
-                        <div title="{{ itemInfo.name }}" class="skill-small hover-translate">
-                          <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                        </div>
-                      {% endif %}
+                      <div title="{{ item2.name }}" class="skill-small">
+                        <img class="keep-original" src="/img/about/{{ item2.icon }}" alt="{{ item2.name }}" height="20" width="20">
+                      </div>
                     {% endfor %}
                   </div>
                 {% endif %}
@@ -167,18 +154,9 @@ I use this website to document everything I've learned while going through the p
                 <div class="tech">
                   {% if item.tech %}
                     {% for item2 in item.tech %}
-                      {% set itemInfo = item2 | getTech(techs) %}
-                      {% if itemInfo.url %}
-                        <a href="{{ itemInfo.url }}" target="_blank">
-                          <div title="{{ itemInfo.name }}" class="skill-small hover-translate">
-                            <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                          </div>
-                        </a>
-                      {% else %}
-                        <div title="{{ itemInfo.name }}" class="skill-small hover-translate">
-                          <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                        </div>
-                      {% endif %}
+                      <div title="{{ item2.name }}" class="skill-small">
+                        <img class="keep-original" src="/img/about/{{ item2.icon }}" alt="{{ item2.name }}" height="20" width="20">
+                      </div>
                     {% endfor %}
                   {% endif %}
                   {% if item.tech_text %}

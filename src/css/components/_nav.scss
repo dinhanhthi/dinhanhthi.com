@@ -11,6 +11,24 @@ nav {
     padding-right: 1.5rem;
   }
 
+  .reading-progress-container {
+    padding-bottom: 1px;
+    background: $color-background;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 9999;
+    left: 0;
+
+    #reading-progress {
+      border-bottom: 2px solid $color-yellow;
+      width: 100vw;
+      transform: translate(-100vw, 0);
+      will-change: transform;
+      pointer-events: none;
+    }
+  }
+
   @media (max-width: $grid-lg) {
     padding: 0 1rem;
     nav #nav .nav-search .nav-search__input {

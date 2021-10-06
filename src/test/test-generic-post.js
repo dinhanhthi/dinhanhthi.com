@@ -3,7 +3,8 @@ const expect = require("expect.js");
 const { JSDOM } = require("jsdom");
 const readFileSync = require("fs").readFileSync;
 const existsSync = require("fs").existsSync;
-const settings = require("../src/_data/settings.json");
+// const settings = require("../src/_data/settings.json");
+const settings = require("../../notes/_data/settings.json");
 const GA_ID = require("../src/_data/googleanalytics.js")();
 
 /**

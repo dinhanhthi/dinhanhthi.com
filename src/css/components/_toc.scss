@@ -36,9 +36,6 @@
     font-family: $font-heading;
     font-weight: 500;
     @include toc-title();
-    @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
-      margin-top: -3rem;
-    }
   }
   & > ol {
     padding-left: 0;
@@ -102,7 +99,14 @@
 
   @media (max-width: $grid-toc - 1px) {
     margin-bottom: $margin-bottom;
-    border: 3px double var(--color-faded);
+    padding: 0;
+    & > ol {
+      width: 100%;
+      padding-top: 4rem;
+      &::before {
+        margin-top: -3rem;
+      }
+    }
   }
 
   @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {

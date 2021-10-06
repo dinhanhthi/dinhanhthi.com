@@ -60,6 +60,16 @@
     }
   }
 
+  .list-of {
+    a {
+      color: var(--font-color);
+      border-bottom: none;
+      &:hover {
+        color: var(--font-a);
+      }
+    }
+  }
+
   .container {
     .section {
       padding: 0 $padding-lr;
@@ -163,6 +173,23 @@
       }
     }
 
+    .logo {
+      width: calc(min(80px, 80%));
+      height: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      &.bg-white {
+        width: calc(min(100px, 80%));
+        img {
+          background: #fff;
+          border-radius: $box-border-radius;
+          padding: 10px;
+        }
+      }
+    }
+
     .exp-edu {
       width: 50%;
       .list-of {
@@ -173,7 +200,6 @@
             padding: 1rem 0;
             border-bottom: $abt-border-bottom;
           }
-
           $abt-where: 25%;
           $abt-title: 100% - $abt-where;
           .where {
@@ -181,8 +207,12 @@
             flex: 0 0 $abt-where;
             max-width: $abt-where;
             font-size: calc(1rem + 1px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             div {
               padding: 2px;
+              text-align: center;
               &:last-child {
                 font-size: 0.95rem;
                 color: var(--color-blue);

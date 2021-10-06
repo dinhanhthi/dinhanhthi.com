@@ -164,19 +164,6 @@ header {
   }
 }
 
-#reading-progress {
-  z-index: 3;
-  border-bottom: 1px solid $color-yellow;
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  transform: translate(-100vw, 0);
-  will-change: transform;
-  pointer-events: none;
-}
-
 .intro {
   font-size: 1.02rem;
   b,
