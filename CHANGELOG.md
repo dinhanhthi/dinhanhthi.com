@@ -27,6 +27,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Progress bar display in white background also.
 - 💪🏻 **Enhancement**
   - Upgrade `markdown-it-anchor` to `8.3.1` (previous `5.2.5`).
+  - Upgrade `concurrently` to `6.3.0` from `6.2.1`.
   - Create 11ty filter `getTech()` for About pages. Now, we only need the `id` of skills in `techs.json`.
 
 ### `4.7.2`
