@@ -31,7 +31,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-  eleventyConfig.addPlugin(require("eleventy-plugin-nesting-toc"), {
+  // eleventyConfig.addPlugin(require("eleventy-plugin-nesting-toc"), {
+  eleventyConfig.addPlugin(require("./third_party/eleventy-plugin-nesting-toc"), {
     tags: ["h2", "h3"], // Which heading tags are selected (headings must each have an ID attribute)
     wrapper: "div", // Element to put around the root `ol`
     wrapperClass: "toc toc-common toc-js", // Class for the element around the root `ol`

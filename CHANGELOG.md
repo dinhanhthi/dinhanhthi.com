@@ -9,6 +9,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
 - 🎉 **New**
   - Add `| Note of Thi` in header title (browser's tab) for pages being not home.
   - Add logos for places in About page.
+  - Add a small arrow icon on TOC headings which have children inside.
 - 🧰 **Fixes**
   - Fix npm command `sample:watch-opt` and `sample:11ty-opt`.
   - Strange anchor link icon appearing on prod version.

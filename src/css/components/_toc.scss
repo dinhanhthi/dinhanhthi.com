@@ -15,6 +15,18 @@
   }
 }
 
+//
+.toc-heading-down::after {
+  content: " ";
+  color: var(--color-faded);
+  display: inline-block;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
 .toc-active {
   & > a {
     color: var(--color-heading) !important;
@@ -49,8 +61,7 @@
       &::before {
         background: var(--code-inline-background);
         border-radius: 5px;
-        padding: 1px;
-        padding-left: 7px;
+        padding: 1px 7px;
         margin-right: 5px;
       }
     }
@@ -89,9 +100,10 @@
       }
       li {
         &::before {
-          content: counters(item, ".") ". ";
+          content: counters(item, ".");
           counter-increment: item;
           color: var(--color-faded);
+          margin-right: 5px;
         }
       }
     }

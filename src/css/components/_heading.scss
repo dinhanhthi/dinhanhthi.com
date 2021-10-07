@@ -162,7 +162,7 @@ h4 {
     & > h2 {
       counter-reset: h3counter;
       &:before {
-        content: counter(h2counter) ".";
+        content: counter(h2counter);
         counter-increment: h2counter;
         padding: 0 10px;
         border-radius: 10px;
@@ -173,8 +173,9 @@ h4 {
     & > h3 {
       counter-reset: h4counter;
       &:before {
-        content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+        content: counter(h2counter) "." counter(h3counter);
         counter-increment: h3counter;
+        margin-right: 5px;
       }
     }
     & > h4:before {
@@ -182,9 +183,9 @@ h4 {
         "."
         counter(h3counter)
         "."
-        counter(h4counter)
-        ".\0000a0\0000a0";
+        counter(h4counter);
       counter-increment: h4counter;
+      margin-right: 5px;
     }
   }
 } // end page-note
