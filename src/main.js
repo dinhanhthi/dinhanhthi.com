@@ -553,3 +553,11 @@ function hideEmptyCategoryWrapper() {
 
 // COPY BUTTON
 handleCodeCopying();
+
+// scroll to top
+document.getElementById("scroll-top").onclick = function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};

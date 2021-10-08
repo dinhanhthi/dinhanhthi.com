@@ -11,6 +11,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Add logos for places in About page.
   - Add a small arrow icon on TOC headings which have children inside.
   - Using `postcss` and its `autoprefixer`.
+  - Add button "Back to top" ☝.
 - 🧰 **Fixes**
   - Fix npm command `sample:watch-opt` and `sample:11ty-opt`.
   - Strange anchor link icon appearing on prod version.
@@ -32,6 +33,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Upgrade `markdown-it-anchor` to `8.3.1` (previous `5.2.5`).
   - Upgrade `concurrently` to `6.3.0` from `6.2.1`.
   - Create 11ty filter `getTech()` for About pages. Now, we only need the `id` of skills in `techs.json`.
+  - Add `scroll-behavior: smooth;`
 
 ### `4.7.2`
 

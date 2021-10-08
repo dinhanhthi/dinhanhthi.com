@@ -26,7 +26,7 @@ Suppose that the installation step is done completely.
 - **Update posts** : just modify things in `notes/`. For testing locally `sample:*`, modify in `sample_posts/`.
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
-  - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons on `/notes/`)
+  - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
 
 Without image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
 
