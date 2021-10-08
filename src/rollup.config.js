@@ -5,11 +5,11 @@ export default [
     input: "src/main.js",
     output: [
       {
-        file: "src/js/min.js",
+        file: "src/_includes/main.min.js",
         format: "iife",
-        sourcemap: true,
+        sourcemap: false,
       },
     ],
     plugins: [json()],
-  },
+  }
 ];

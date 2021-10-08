@@ -6,6 +6,7 @@ const readFile = promisify(fs.readFile);
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const elasticlunr = require("elasticlunr");
+const { minify } = require("terser");
 
 const markdownIt = require("markdown-it");
 var markdownItp = require("markdown-it")();
@@ -32,13 +33,30 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
   // eleventyConfig.addPlugin(require("eleventy-plugin-nesting-toc"), {
-  eleventyConfig.addPlugin(require("./third_party/eleventy-plugin-nesting-toc"), {
-    tags: ["h2", "h3"], // Which heading tags are selected (headings must each have an ID attribute)
-    wrapper: "div", // Element to put around the root `ol`
-    wrapperClass: "toc toc-common toc-js", // Class for the element around the root `ol`
-    headingText: "", // Optional text to show in heading above the wrapper element
-    headingTag: "h2", // Heading tag when showing heading above the wrapper element
-  });
+  eleventyConfig.addPlugin(
+    require("./third_party/eleventy-plugin-nesting-toc"),
+    {
+      tags: ["h2", "h3"], // Which heading tags are selected (headings must each have an ID attribute)
+      wrapper: "div", // Element to put around the root `ol`
+      wrapperClass: "toc toc-common toc-js", // Class for the element around the root `ol`
+      headingText: "", // Optional text to show in heading above the wrapper element
+      headingTag: "h2", // Heading tag when showing heading above the wrapper element
+    }
+  );
+
+  eleventyConfig.addNunjucksAsyncFilter(
+    "jsmin",
+    async function (code, callback) {
+      try {
+        const minified = await minify(code);
+        callback(null, minified.code);
+      } catch (err) {
+        console.error("Terser error: ", err);
+        // Fail gracefully.
+        callback(null, code);
+      }
+    }
+  );
 
   switch (process.env.ELEVENTY_ENV) {
     case "sample-no-opt":
