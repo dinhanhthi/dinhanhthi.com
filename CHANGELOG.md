@@ -4,7 +4,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
-### `4.8.*`
+### `4.8.3`
 
 - 🎉 **New**
   - Add `| Note of Thi` in header title (browser's tab) for pages being not home.
