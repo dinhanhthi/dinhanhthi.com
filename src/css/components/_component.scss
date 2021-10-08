@@ -120,18 +120,20 @@
 // Keyboard
 // ----------------------------------------------------------------
 kbd {
-  background: #3c3c3c;
-  color: #fff;
+  background: var(--code-inline-background);
+  color: var(--font-color);
   border: 1px solid #444;
   border-radius: 3px;
-  display: inline-block;
-  margin: 0 0.1em;
+  margin: 0 2px;
   padding: 0.1em 0.2em;
   font-weight: 400;
-  line-height: 1.4;
-  font-size: 0.8rem;
+  line-height: 1;
+  font-size: 1rem;
   box-shadow: 1px 3px 0 0 #8c8c8c, 1px 1px 0 0 #8c8c8c, 1px 1px 0 0 #000;
-  text-shadow: 1px 1px #000;
+  min-width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Code & output

@@ -336,6 +336,13 @@ const addSelected2 = (ulRes, li) => {
             }
           }
           a.innerHTML = title;
+          // external badge
+          if (target === "_blank") {
+            const span = document.createElement("span");
+            span.setAttribute("class", "external-badge");
+            span.innerHTML = "external";
+            h3.appendChild(span);
+          }
           h3.appendChild(a);
 
           const p = document.createElement("p");
