@@ -10,6 +10,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Add `| Note of Thi` in header title (browser's tab) for pages being not home.
   - Add logos for places in About page.
   - Add a small arrow icon on TOC headings which have children inside.
+  - Using `postcss` and its `autoprefixer`.
 - 🧰 **Fixes**
   - Fix npm command `sample:watch-opt` and `sample:11ty-opt`.
   - Strange anchor link icon appearing on prod version.
@@ -17,6 +18,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Heading numbering for headings inside other components.
   - Heading inside other components display in TOC.
   - Overfow math equation on mobile.
+  - Add `:::col-2-list` which matches to "already-exist" `<div class="col-2-list">`.
 - 🎨 **Styling**
   - Change copy block icon.
   - Change alert box style.
@@ -26,6 +28,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Add border for TOC (both in posts and index).
   - Progress bar display in white background also.
 - 💪🏻 **Enhancement**
+  - Upgrade `@11ty/eleventy` to `1.0.0-beta.1` (previous `1.0.0-canary.38`).
   - Upgrade `markdown-it-anchor` to `8.3.1` (previous `5.2.5`).
   - Upgrade `concurrently` to `6.3.0` from `6.2.1`.
   - Create 11ty filter `getTech()` for About pages. Now, we only need the `id` of skills in `techs.json`.

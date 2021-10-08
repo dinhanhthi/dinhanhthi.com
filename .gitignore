@@ -14,3 +14,4 @@ src/js/min.js.map
 Gemfile.lock
 .idea
 .fontello-session
+src/css/main.css

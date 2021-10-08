@@ -83,11 +83,18 @@
         padding: 0 4px 2px 4px;
       }
       ol {
-        padding-left: 10px;
+        padding-left: 20px;
         overflow: hidden;
         transition: all 300ms ease-in-out;
         box-shadow: inset 0.5px 0 0 0px var(--color-faded);
-        margin-left: 10px;
+        margin-left: -18px;
+        & > li {
+          padding-left: 19px;
+          &::before {
+            margin-left: -19px;
+            margin-right: 8px;
+          }
+        }
       }
     }
 
@@ -98,12 +105,23 @@
         counter-reset: item;
         list-style-type: none;
       }
+      & > li {
+        padding-left: 30px;
+        &::before {
+          margin-left: -30px;
+        }
+      }
+
       li {
         &::before {
           content: counters(item, ".");
           counter-increment: item;
           color: var(--color-faded);
-          margin-right: 5px;
+          margin-right: 6px;
+          width: 10px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
         }
       }
     }

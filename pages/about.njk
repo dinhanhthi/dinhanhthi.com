@@ -2,7 +2,7 @@
 title: About me
 layout: page
 customClass: page-about
-icon: "/img_src/nav/about.svg"
+icon: "/img_src/avatar_memoji.png"
 permalink: /about/
 ---
 
@@ -159,8 +159,7 @@ I use this website to document everything I've learned while going through the p
           <div class="list-of">
             <div class="title">
               <a href="{% if item.source %}{{ item.source }}{% else %}{{ item.url }}{% endif %}">
-                <h4>{{ item.icon }}
-                  <span>{{ item.title }}</span></h4>
+                <h4>{{ item.icon }}<span>{{ item.title }}</span></h4>
               </a>
               <p>{{ item.description | safe }}</p>
               {% if item.tech or item.tech_text %}

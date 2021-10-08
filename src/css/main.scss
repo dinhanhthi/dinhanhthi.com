@@ -31,6 +31,8 @@ $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $font-size: 16px;
 $font-color: #eee;
 $font-color-light: #4b4b4b;
+$font-color-darker: #f6f6f6;
+$font-color-darker-light: #333;
 $font-bold-color: #8cc8ff;
 $font-bold-color-light: $font-color-light;
 $font-bold-weight: 600;
@@ -136,8 +138,8 @@ $scroll-track-light: transparent;
 // (--color-scale-*-4) for border, add "30" (light), "70" (dark) at the end for backgrounds
 $alert-info-bg: #4184e470;
 $alert-info-bd: #4184e4;
-$alert-info-bg-light: #2188ff30;
-$alert-info-bd-light: #2188ff;
+$alert-info-bg-light: #5ca7ff30;
+$alert-info-bd-light: #5ca7ff;
 
 $alert-success-bg: #46954a70;
 $alert-success-bd: #46954a;
@@ -146,13 +148,13 @@ $alert-success-bd-light: #34d058;
 
 $alert-danger-bg: #e5534b70;
 $alert-danger-bd: #e5534b;
-$alert-danger-bg-light: #ea4a5a30;
-$alert-danger-bd-light: #ea4a5a;
+$alert-danger-bg-light: #ff818e30;
+$alert-danger-bd-light: #ff818e;
 
 $alert-warning-bg: #ae7c1470;
 $alert-warning-bd: #ae7c14;
-$alert-warning-bg-light: #ffdf5d30;
-$alert-warning-bd-light: #ffdf5d;
+$alert-warning-bg-light: #ffcd0030;
+$alert-warning-bd-light: #ffcd00;
 
 @import "./components/prism_variables";
 @import "./components/mixin"; // mixsin

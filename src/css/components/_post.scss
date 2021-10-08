@@ -46,9 +46,17 @@
         margin-bottom: 5px;
         margin-top: 5px;
         padding-left: 20px;
+        li {
+          & > *:not(span) {
+            margin-bottom: 10px;
+          }
+        }
       }
       & > *:not(span) {
         margin-bottom: 10px;
+        & > pre {
+          margin-bottom: 10px;
+        }
       }
     }
   }

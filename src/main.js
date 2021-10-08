@@ -2,7 +2,6 @@ import { handleCodeCopying } from "./js/copy";
 // import settings from "./_data/settings.json";
 import settings from "../notes/_data/settings.json";
 
-
 const exposed = {};
 if (location.search) {
   var a = document.createElement("a");
@@ -193,16 +192,21 @@ if (document.querySelectorAll("h2, h3") != null) {
               toc.querySelectorAll("a").forEach((item) => {
                 item.parentElement.classList.remove("toc-active");
               });
-              document
-                .querySelector(`.toc-js li a[href="#${id}"]`)
-                .parentElement.classList.add("toc-active");
+              if (document.querySelector(`.toc-js li a[href="#${id}"]`)) {
+                document
+                  .querySelector(`.toc-js li a[href="#${id}"]`)
+                  .parentElement.classList.add("toc-active");
+              }
+
               if (heading.tagName === "H2") {
                 toc.querySelectorAll("a").forEach((item) => {
                   item.parentElement.classList.remove("h2-focused");
                 });
-                document
-                  .querySelector(`.toc-js li a[href="#${id}"]`)
-                  .parentElement.classList.add("h2-focused");
+                if (document.querySelector(`.toc-js li a[href="#${id}"]`)) {
+                  document
+                    .querySelector(`.toc-js li a[href="#${id}"]`)
+                    .parentElement.classList.add("h2-focused");
+                }
               }
             }
           }

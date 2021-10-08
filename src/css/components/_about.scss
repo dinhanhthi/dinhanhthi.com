@@ -1,4 +1,10 @@
 .page-about {
+
+  .header-logo {
+    width: auto;
+    height: 120px;
+  }
+
   .part {
     margin-bottom: 4rem;
   }
@@ -181,7 +187,7 @@
         height: 100%;
       }
       &.bg-white {
-        width: calc(min(100px, 80%));
+        width: calc(min(120px, 80%));
         img {
           background: #fff;
           border-radius: $box-border-radius;
@@ -298,11 +304,14 @@
         width: 100%;
         .title {
           padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
           a {
             color: var(--heading-color);
             &:hover {
               span {
-                border-bottom: 3px solid var(--font-a);
+                border-bottom: 1px solid var(--font-a);
               }
             }
           }
@@ -315,6 +324,7 @@
             margin: 0;
             color: var(--color-faded);
             line-height: 1.5;
+            flex: 1;
           }
           .tech {
             margin-top: 1rem;

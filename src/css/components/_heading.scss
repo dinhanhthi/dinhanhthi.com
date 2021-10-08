@@ -57,7 +57,9 @@ h4 {
   }
 
   * > {
-    h2, h3, h4 {
+    h2,
+    h3,
+    h4 {
       .direct-link {
         display: none !important;
       }
@@ -161,13 +163,21 @@ h4 {
     }
     & > h2 {
       counter-reset: h3counter;
+      position: relative;
+      padding-bottom: 0;
+      border-bottom: none;
+      margin-left: -3px;
       &:before {
         content: counter(h2counter);
         counter-increment: h2counter;
         padding: 0 10px;
         border-radius: 10px;
-        margin-right: 5px;
         background: var(--code-inline-background);
+        width: 0.8 * $heading-h2-size;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5px;
       }
     }
     & > h3 {
@@ -179,11 +189,7 @@ h4 {
       }
     }
     & > h4:before {
-      content: counter(h2counter)
-        "."
-        counter(h3counter)
-        "."
-        counter(h4counter);
+      content: counter(h2counter) "." counter(h3counter) "." counter(h4counter);
       counter-increment: h4counter;
       margin-right: 5px;
     }

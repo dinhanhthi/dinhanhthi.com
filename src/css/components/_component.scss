@@ -91,7 +91,7 @@
 .warning {
   position: relative;
   padding: $inside-padding;
-  color: var(--font-color);
+  color: var(--font-color-darker);
   margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
   border-left: 6px solid;
@@ -143,10 +143,10 @@ kbd {
     overflow: auto;
     &:first-child > code {
       border-bottom-right-radius: 0%;
-      border-bottom-left-radius: 0%;
       height: 100%;
       @media (max-width: $grid-md) {
         border-bottom: none;
+        border-bottom-left-radius: 0%;
       }
     }
     &:last-child > code {
@@ -566,7 +566,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 //
 .hover-translate {
-  transition: transform .2s;
+  transition: transform 0.2s;
   &:hover {
     transform: translate(0px, -2px);
   }

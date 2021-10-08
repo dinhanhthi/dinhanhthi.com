@@ -211,6 +211,7 @@ module.exports = function (eleventyConfig) {
   // But without this the JS build artefacts doesn't trigger a build.
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addWatchTarget("./src/css/main.css");
+  eleventyConfig.addWatchTarget("./notes/_data/");
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -249,6 +250,7 @@ module.exports = function (eleventyConfig) {
     .use(mdItContainer, "code-2cols")
     .use(mdItContainer, "col-2-equal")
     .use(mdItContainer, "col-2-flex")
+    .use(mdItContainer, "col-2-list")
     .use(mdItContainer, "list-item") // for items like in MacOS fresh start post
     .use(require("markdown-it-kbd")) // [[Ctrl]]
     .use(require("markdown-it-footnote"))
