@@ -20,6 +20,7 @@ const CleanCSS = require("clean-css");
 const thiDataDir = "notes/_data";
 // const defaultDataDir = "src/_data";
 var dataDir = thiDataDir;
+var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
 const GA_ID = require("./" + thiDataDir + "/settings.json").googleAnalyticsId;
@@ -39,8 +40,8 @@ module.exports = function (eleventyConfig) {
       tags: ["h2", "h3"], // Which heading tags are selected (headings must each have an ID attribute)
       wrapper: "div", // Element to put around the root `ol`
       wrapperClass: "toc toc-common toc-js", // Class for the element around the root `ol`
-      headingText: "", // Optional text to show in heading above the wrapper element
-      headingTag: "h2", // Heading tag when showing heading above the wrapper element
+      headingText: "In this note", // Optional text to show in heading above the wrapper element
+      headingTag: "div", // Heading tag when showing heading above the wrapper element
     }
   );
 
@@ -60,7 +61,9 @@ module.exports = function (eleventyConfig) {
 
   switch (process.env.ELEVENTY_ENV) {
     case "sample-no-opt":
+      distPath = "_built";
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        distPath: distPath,
         devMode: true,
         editSample: true,
       });
@@ -70,6 +73,7 @@ module.exports = function (eleventyConfig) {
       break;
 
     case "sample-opt":
+      distPath = "_site";
       eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
@@ -79,7 +83,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.add("notes");
       // eleventy-plugin-local-images
       eleventyConfig.addPlugin(localImages, {
-        distPath: "_site",
+        distPath: distPath,
         assetPath: "/img/remote",
         selector:
           "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
@@ -88,7 +92,9 @@ module.exports = function (eleventyConfig) {
       break;
 
     case "full-no-opt":
+      distPath = "_built";
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        distPath: distPath,
         devMode: true,
       });
       eleventyConfig.setDataDeepMerge(true);
@@ -98,6 +104,7 @@ module.exports = function (eleventyConfig) {
 
     default:
       // full-opt
+      distPath = "_site";
       eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
@@ -107,7 +114,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.add("sample_posts");
       // eleventy-plugin-local-images
       eleventyConfig.addPlugin(localImages, {
-        distPath: "_site",
+        distPath: distPath,
         assetPath: "/img/remote",
         selector:
           "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
@@ -123,7 +130,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncFilter(
     "addHash",
     function (absolutePath, callback) {
-      readFile(`_site${absolutePath}`, {
+      readFile(`${distPath}${absolutePath}`, {
         encoding: "utf-8",
       })
         .then((content) => {
@@ -217,7 +224,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   // We need to copy cached.js only if GA is used
   eleventyConfig.addPassthroughCopy(GA_ID ? "src/js" : "src/js/*[!cached].*");
-  eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `_site/fonts`
+  eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `${distPath}/fonts`
   // eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy({ "src/fontello": "fontello" });
 
@@ -324,7 +331,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function (err, browserSync) {
-        const content_404 = fs.readFileSync("_site/404.html");
+        const content_404 = fs.readFileSync(distPath + "/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
           res.write(content_404);
@@ -359,7 +366,7 @@ module.exports = function (eleventyConfig) {
       includes: "src/_includes",
       data: dataDir,
       // Warning hardcoded throughout repo. Find and replace is your friend :)
-      output: "_site",
+      output: distPath,
     },
   };
 };

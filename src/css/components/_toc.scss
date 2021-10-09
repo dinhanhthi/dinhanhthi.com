@@ -15,7 +15,6 @@
   }
 }
 
-//
 .toc-heading-down::after {
   content: " ";
   color: var(--color-faded);
@@ -41,21 +40,27 @@
 .toc {
   padding: 15px;
 
-  // In this note
-  & > ol::before {
-    content: "In this note";
-    display: block;
-    font-family: $font-heading;
-    font-weight: 500;
-    @include toc-title();
+  & > .ol-container {
+    border: 0.5px solid var(--toc-title-bd);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    & > div:first-child {
+      display: block;
+      font-family: $font-heading;
+      font-weight: 500;
+      @include toc-title();
+      margin-bottom: 1rem;
+    }
   }
-  & > ol {
+
+  & > .ol-container > ol {
     padding-left: 0;
     margin-bottom: 0;
-    border: 0.5px solid var(--toc-title-bd);
-    border-radius: $box-border-radius;
-    padding: 1rem;
-    width: fit-content;
+    overflow: auto;
 
     & > li {
       &::before {
@@ -66,7 +71,9 @@
       }
     }
 
-    @include column-count(1);
+    @media (max-width: $grid-sm - 1px) {
+      @include column-count(1);
+    }
     @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
       @include column-count(2);
     }
@@ -130,9 +137,8 @@
   @media (max-width: $grid-toc - 1px) {
     margin-bottom: $margin-bottom;
     padding: 0;
-    & > ol {
+    & > .ol-container > ol {
       width: 100%;
-      padding-top: 4rem;
       &::before {
         margin-top: -3rem;
       }
@@ -149,11 +155,14 @@
     padding-top: 0;
     margin-right: calc((900px - 100vw) / 2);
     border-left: none;
-    position: -webkit-sticky;
     position: sticky;
     top: 60px;
-    max-height: calc(100vh - 80px);
-    overflow: auto;
+    height: calc(100vh - 80px);
+    & > .ol-container {
+      width: fit-content;
+      height: fit-content;
+      max-height: 100%;
+    }
     ol {
       margin-top: 0;
       margin-bottom: 0;

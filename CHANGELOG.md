@@ -4,6 +4,11 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
+### `4.9.0`
+
+- 🧰 **Fixes**
+  - Very long TOC. Fixed TOC header.
+
 ### `4.8.3`
 
 - 🎉 **New**
@@ -11,7 +16,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
   - Add logos for places in About page.
   - Add a small arrow icon on TOC headings which have children inside.
   - Using `postcss` and its `autoprefixer`.
-  - Add button "Back to top" ☝.\
+  - Add button "Back to top" ☝.
   - Add bage "External" for external posts in search results.
 - 🧰 **Fixes**
   - Fix npm command `sample:watch-opt` and `sample:11ty-opt`.

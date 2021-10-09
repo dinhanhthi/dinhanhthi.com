@@ -103,11 +103,14 @@ class Toc {
     let html = "";
 
     if (root.children.length) {
-      if (headingText) {
-        html += `<${headingTag}>${headingText}</${headingTag}>\n`;
-      }
+      const headingText_ = headingText
+        ? `<${headingTag}>${headingText}</${headingTag}>\n`
+        : "";
+      // if (headingText) {
+      //   html += `<${headingTag}>${headingText}</${headingTag}>\n`;
+      // }
 
-      html += `<${wrapper} class="${wrapperClass}">${root.html()}</${wrapper}>`;
+      html += `<${wrapper} class="${wrapperClass}"><div class="ol-container">${headingText_}${root.html()}</div></${wrapper}>`;
     }
 
     return html;
