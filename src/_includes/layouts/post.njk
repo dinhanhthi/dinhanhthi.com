@@ -9,12 +9,12 @@ date: Last Modified
   <div class="header-logo post-layout">
     {% if icon %}
       {% if "/" in icon %}
-        <img class="keep-original" alt="{{ title }}" src="{{ icon }}">
+        <img class="keep-original" alt="{{ title }}" src="{{ icon }}" height="55" width="55">
       {% else %}
-        <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}">
+        <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}" height="55" width="55">
       {% endif %}
     {% else %}
-      <img class="keep-original" alt="{{ title }}" src="/img_src/nav/about.svg">
+      <img class="keep-original" alt="{{ title }}" src="/img_src/nav/about.svg" height="55" width="55">
     {% endif %}
   </div>
 {% endblock %}

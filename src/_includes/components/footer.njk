@@ -50,9 +50,4 @@
 {% endif %}
 
 <script src="/src/js/clipboard.min.js"></script>
-
-{% set js %}
-  {% include "main.min.js" %}
-  {% include "search.js" %}
-{% endset %}
-<script>{{ js | jsmin | safe }}</script>
+<script async defer src="{{ "/src/js/min.js" | addHash }}"></script>

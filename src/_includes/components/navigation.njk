@@ -39,3 +39,8 @@
 
 </div>
 </nav>
+
+{% set js %}
+  {% include "search.js" %}
+{% endset %}
+<script>{{ js | jsmin | safe }}</script>

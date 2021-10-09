@@ -5,7 +5,7 @@ export default [
     input: "src/main.js",
     output: [
       {
-        file: "src/_includes/main.min.js",
+        file: "src/js/min.js",
         format: "iife",
         sourcemap: false,
       },

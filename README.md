@@ -61,14 +61,6 @@ npm run full:http-serve-opt # localhost:8081 over "_live" (a copied of "_site")
 npm run full:build-http-serve-opt
 ```
 
-❗ Sometimes, css/js watch don't work, need to run these separatedly,
-
-```bash
-npm run css:watch-local
-# Need to save some css codes to make this watch run!
-npm run js:build-watch
-```
-
 ```bash
 # Build & update & deploy
 npm run site:build-update
