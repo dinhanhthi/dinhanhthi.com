@@ -32,10 +32,6 @@
 {# elasticlunr #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
 
-{# {% if googleanalytics %}
-	<script async defer src="{{ "/src/js/cached.js" | addHash }}"></script>
-{% endif %} #}
-
 {% if env.environment != "local" %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B"></script>
@@ -51,3 +47,14 @@
 
 <script src="/src/js/clipboard.min.js"></script>
 <script async defer src="{{ "/src/js/min.js" | addHash }}"></script>
+
+{% if customJS %}
+  {% set jsFooter %}
+    {% for file in customJS %}
+      {% include "scripts/" + file %}
+    {% endfor %}
+  {% endset %}
+  <script>
+    {{ jsFooter | jsmin | safe }}
+  </script>
+{% endif %}

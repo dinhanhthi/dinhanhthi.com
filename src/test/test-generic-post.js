@@ -5,8 +5,6 @@ const readFileSync = require("fs").readFileSync;
 const existsSync = require("fs").existsSync;
 // const settings = require("../src/_data/settings.json");
 const settings = require("../../notes/_data/settings.json");
-const GA_ID = require("../src/_data/googleanalytics.js")();
-
 /**
  * These tests kind of suck and they are kind of useful.
  *
@@ -60,15 +58,6 @@ describe("check build output for a generic post", () => {
       const css = select("style");
       expect(css).to.match(/header nav/);
       expect(css).to.not.match(/test-dead-code-elimination-sentinel/);
-    });
-
-    it("should have script elements", () => {
-      const scripts = doc.querySelectorAll("script[src]");
-      let has_ga_id = GA_ID ? 1 : 0;
-      expect(scripts).to.have.length(has_ga_id + 1); // NOTE: update this when adding more <script>
-      expect(scripts[0].getAttribute("src")).to.match(
-        /^\/src\/js\/min\.js\?hash=\w+/
-      );
     });
 
     it("should have a good CSP", () => {

@@ -23,7 +23,6 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
-const GA_ID = require("./" + thiDataDir + "/settings.json").googleAnalyticsId;
 
 module.exports = {
   environment: process.env.ELEVENTY_ENV,
@@ -222,8 +221,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
   eleventyConfig.addPassthroughCopy({ "notes/files": "files" }); // for personal files
   eleventyConfig.addPassthroughCopy("src/css");
-  // We need to copy cached.js only if GA is used
-  eleventyConfig.addPassthroughCopy(GA_ID ? "src/js" : "src/js/*[!cached].*");
+  eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `${distPath}/fonts`
   // eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy({ "src/fontello": "fontello" });
