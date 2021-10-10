@@ -32,7 +32,7 @@
 {# elasticlunr #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
 
-{% if env.environment != "local" %}
+{% if env.environment !== "sample-no-opt" and env.environment !== "sample-opt" and env.environment !== "full-no-opt" %}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B"></script>
   <script>
@@ -46,13 +46,13 @@
 {% endif %}
 
 <script src="/src/js/clipboard.min.js"></script>
-<script async defer src="{{ "/src/js/min.js" | addHash }}"></script>
+<script async defer src="{{ "/src/js/main.min.js" | addHash }}"></script>
 
 {% if customJS %}
   {% set jsFooter %}
-    {% for file in customJS %}
-      {% include "scripts/" + file %}
-    {% endfor %}
+  {% for file in customJS %}
+    {% include "scripts/" + file %}
+  {% endfor %}
   {% endset %}
   <script>
     {{ jsFooter | jsmin | safe }}

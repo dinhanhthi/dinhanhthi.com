@@ -3,7 +3,7 @@ layout: post
 title: "R Installation"
 tags: [R Lang]
 toc: true
-icon: /img_src/cats/r.svg
+icon: /img/cats/r.svg
 notfull: 1
 keywords: "r jupyter notebook programming language install 101 windows linux ubuntu extension package lib library requirement LC_ALL utf8 UTF-8"
 ---

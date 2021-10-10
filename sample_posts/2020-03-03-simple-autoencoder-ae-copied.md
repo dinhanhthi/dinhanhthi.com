@@ -3,7 +3,7 @@ layout: post
 title: "Simple AutoEncoder (AE)"
 tags: [Deep Learning]
 toc: true
-icon: /img_src/cats/dl.svg
+icon: /img/cats/dl.svg
 notfull: 1
 keywords: "autoencoder simple AE pytorch torch basic idea neural network NN layers activations encode encoder decode decoder relu linear sigmoid sequential anomaly detection wave data dataswati test interview"
 ---

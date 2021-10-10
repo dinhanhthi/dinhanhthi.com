@@ -2,10 +2,10 @@ import json from "@rollup/plugin-json";
 
 export default [
   {
-    input: "src/main.js",
+    input: ['src/js/main.js'],
     output: [
       {
-        file: "src/js/min.js",
+        file: "src/js/main.min.js",
         format: "iife",
         sourcemap: false,
       },

@@ -2,7 +2,7 @@
 layout: post
 title: "Algorithm 1 copied"
 tags: [Algorithms]
-icon: /img_src/cats/algo.svg
+icon: /img/cats/algo.svg
 toc: true
 keywords: "chunker slide slicing rolling batches windows list sequence split imshow plot true false grid squares bernoulli distribution algorithm python"
 notfull: true

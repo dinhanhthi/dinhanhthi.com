@@ -3,7 +3,7 @@ layout: post
 title: "p-value"
 toc: true
 tags: [Prob & Stats]
-icon: /img_src/cats/stats.svg
+icon: /img/cats/stats.svg
 notfull: 1
 keywords: "p values null hypothesis reject alternate hypothesis nullify Chi-Square Test statistical significance multiple testing multiple comparison problem correction multiple testing multiple tests multipletests"
 ---
