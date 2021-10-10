@@ -23,10 +23,12 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
+// const settings = require("./" + thiDataDir + "/settings.json");
 
-module.exports = {
-  environment: process.env.ELEVENTY_ENV,
-};
+// module.exports = {
+//   environment: process.env.ELEVENTY_ENV,
+//   settings: settings
+// };
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -188,6 +190,8 @@ module.exports = function (eleventyConfig) {
       this.addField("keywords");
       this.addField("tags");
       this.addField("cat");
+      // this.addField("target");
+      // this.addField("private");
       this.setRef("id");
     });
     collection.forEach((page) => {
@@ -200,6 +204,7 @@ module.exports = function (eleventyConfig) {
           ? categories.find((item) => item.name === page.cat).fontello
           : "icon-tags",
         target: page.target,
+        privatePost: page.privatePost
         //"content": page.templateContent,
       });
     });
@@ -217,6 +222,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("tagList", require("./src/_11ty/getTagList"));
   // Filter source file names using a glob
 
+  eleventyConfig.addPassthroughCopy({ "notes/_data": "data" });
   eleventyConfig.addPassthroughCopy({ "notes/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
   eleventyConfig.addPassthroughCopy({ "notes/files": "files" }); // for personal files

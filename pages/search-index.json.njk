@@ -7,10 +7,14 @@ permalink: pages/search-index.json
 {% for post in collections.posts %}
   {% if not post.data.hide %}
     {% set newPostListSearch = (newPostListSearch.push({
-      url: post.url, title: post.data.title, keywords: post.data.keywords, tags: post.data.tags, cat: post
+      url: post.url,
+      title: post.data.title,
+      keywords: post.data.keywords,
+      tags: post.data.tags, cat: post
         .data
         .tags[1],
-      target: "_self"
+      target: "_self",
+      privatePost: post.data.privatePost
     }), newPostListSearch) %}
   {% endif %}
 {% endfor %}
@@ -23,7 +27,8 @@ permalink: pages/search-index.json
       keywords: post.keywords,
       tags: post.tags,
       cat: post.tags[0],
-      target: "_blank"
+      target: "_blank",
+      privatePost: post.private
     }), newPostListSearch) %}
   {% endif %}
 {% endfor %}
@@ -38,7 +43,8 @@ permalink: pages/search-index.json
     keywords: 'All posts in this topic tag.',
     tags: "",
     cat: "",
-    target: ""
+    target: "",
+    privatePost: "false"
   }), newPostListSearch) %}
 {% endfor %}
 
