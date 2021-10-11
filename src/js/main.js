@@ -382,9 +382,17 @@ const toggleIconFn = (theme) => {
 handleCodeCopying();
 
 // scroll to top
-document.getElementById("scroll-top").onclick = function () {
+const scrollTopBtn = document.getElementById("scroll-top-btn");
+scrollTopBtn.onclick = function () {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 };
+addEventListener("scroll", () => {
+  const scrollTop =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  scrollTop > 200
+    ? scrollTopBtn.classList.add("is-visible")
+    : scrollTopBtn.classList.remove("is-visible");
+});

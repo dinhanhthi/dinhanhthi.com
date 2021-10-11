@@ -355,7 +355,7 @@ table {
   margin-bottom: $margin-bottom;
   background-color: transparent;
   border-spacing: 0;
-  border-radius: 3px;
+  border-radius: $box-border-radius;
   padding: 0 !important;
   table-layout: fixed;
   overflow: hidden;
@@ -574,7 +574,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-// scroll to top
+// back to top
 @keyframes toTop {
   from {
     transform: translate(0, 0);
@@ -584,7 +584,7 @@ input[type="search"]::-webkit-search-results-decoration {
     transform: translate(0, -3px);
   }
 }
-#scroll-top {
+#scroll-top-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -605,5 +605,11 @@ input[type="search"]::-webkit-search-results-decoration {
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
+  }
+  opacity: 0;
+  transition: opacity .3s 0s, visibility 0s 0s;
+  &.is-visible {
+    opacity: 1;
+    transition: opacity .3s 0s, visibility 0s 0s;
   }
 }
