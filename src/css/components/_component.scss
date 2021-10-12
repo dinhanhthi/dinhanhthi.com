@@ -2,12 +2,14 @@
 // ----------------------------------------------------------------
 .badge {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: $box-border-radius;
   padding: 3px 5px;
-  font-size: 13px;
+  font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0 !important;
@@ -36,6 +38,20 @@
   &.badge-pink {
     background: #c12f79bf;
     color: #fff;
+  }
+
+  &.badge-my-choice {
+    padding: 1px 10px;
+    background: #fff7df;
+    color: #7b561a;
+    border: 0.5px solid #a892658c;
+  }
+
+  &.badge-reading {
+    padding: 1px 10px;
+    background: #dfffe5;
+    color: #1a7b2b;
+    border: 0.5px solid #6ad27099;
   }
 
   img {
@@ -120,9 +136,11 @@
 // Keyboard
 // ----------------------------------------------------------------
 kbd {
-  background: var(--code-inline-background);
-  color: var(--font-color);
-  border: 1px solid #444;
+  // background: var(--code-inline-background);
+  background: $code-inline-background-light;
+  // color: var(--font-color);
+  color: $font-color-light;
+  border: 1px solid var(--color-faded-invert);
   border-radius: 3px;
   margin: 0 2px;
   padding: 0.1em 0.2em;
@@ -599,6 +617,7 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 100%;
   }
   &:hover {
+    background: #c0c0c099;
     img {
       animation-duration: 0.3s;
       animation-name: toTop;

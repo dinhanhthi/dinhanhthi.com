@@ -6,8 +6,9 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ### `4.9.0`
 
-- 🧰 **Fixes**
-  - Very long TOC. Fixed TOC header.
+- Fixes and small changes
+- Private badge in search result.
+- Custom js files for each page.
 
 ### `4.8.3`
 

@@ -53,10 +53,10 @@ pre[class*="language-"] {
     right: 8px;
     border-radius: 5px;
     cursor: pointer;
+    opacity: 0;
     background: var(--code-inline-background);
     border: 0.5px solid var(--prism-border);
     color: var(--color-faded);
-    opacity: 0;
     transition: opacity 0.2s ease-in-out;
     .fontello-icon::before {
       margin-right: 0;
@@ -66,6 +66,10 @@ pre[class*="language-"] {
     }
     .icon-ok {
       color: #22a846;
+    }
+
+    &.copying {
+      opacity: 1;
     }
 
     @include screen-lg-down {

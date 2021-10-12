@@ -19,10 +19,14 @@ const handleCodeCopying = () => {
   });
 
   clipboard.on('success', (event) => {
-    event.trigger.innerHTML = '<i class="fontello-icon icon-ok"></i>';
+    // event.trigger.innerHTML = '<i class="fontello-icon icon-ok"></i>';
+    event.clearSelection();
+    event.trigger.innerHTML = '<span class="icon-ok">copied</span>';
+    event.trigger.classList.add('copying');
     setTimeout(() => {
-      event.clearSelection();
+      // event.clearSelection();
       event.trigger.innerHTML = '<i class="fontello-icon icon-clone"></i>';
+      event.trigger.classList.remove('copying');
     }, 1000);
   });
 };

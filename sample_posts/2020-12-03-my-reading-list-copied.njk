@@ -22,9 +22,9 @@ I like to read books in **applied maths**, **sciences**, **biography**, **histor
   {% for item in books %}
     <li class="item">
       {% if item.reading %}
-        <span class="badge badge-green">I'm reading</span>{% endif %}
+        <span class="badge badge-reading">I'm reading</span>{% endif %}
       {% if item.mychoice %}
-        <span class="badge badge-blue">my choice</span>{% endif %}
+        <span class="badge badge-my-choice">my choice</span>{% endif %}
       {% if item.goodreads %}
         <a class="title" href="{{ item.goodreads }}" target="_blank">{{ item.title }}</a>
       {% else %}

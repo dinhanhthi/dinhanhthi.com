@@ -11,18 +11,6 @@ keywords: survive passenger drop features convert to dummy variables impute miss
 Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
 :::
 
-::: success
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-:::
-
-::: info
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-:::
-
-::: danger
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-:::
-
 {% assign img-url = '/img/post/project/titanic' %}
 
 ## Just for testing

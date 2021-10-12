@@ -94,7 +94,8 @@ $code-bd-light: #e4e2e2;
 $code-max-height: 450px;
 $code-inline-text: #fff;
 $code-inline-text-light: #067b26;
-$code-inline-background: #6b444245;
+// $code-inline-background: #6b444245;
+$code-inline-background: #eeeeee21;
 $code-inline-background-light: #ececec;
 $code-inline-bd: 1px solid #444;
 $code-inline-bd-light: 1px solid #ddd;
@@ -136,23 +137,23 @@ $scroll-track-light: transparent;
 // Alert boxes
 // Follow Primer's color schemes: https://primer.style/css/support/color-system
 // (--color-scale-*-4) for border, add "30" (light), "70" (dark) at the end for backgrounds
-$alert-info-bg: #4184e470;
-$alert-info-bd: #4184e4;
+$alert-info-bg: #66a5ff24;
+$alert-info-bd: #66a5ff;
 $alert-info-bg-light: #5ca7ff30;
 $alert-info-bd-light: #5ca7ff;
 
-$alert-success-bg: #46954a70;
-$alert-success-bd: #46954a;
+$alert-success-bg: #37c03e24;
+$alert-success-bd: #37c03e;
 $alert-success-bg-light: #34d05830;
 $alert-success-bd-light: #34d058;
 
-$alert-danger-bg: #e5534b70;
+$alert-danger-bg: #e5534b24;
 $alert-danger-bd: #e5534b;
 $alert-danger-bg-light: #ff818e30;
 $alert-danger-bd-light: #ff818e;
 
-$alert-warning-bg: #ae7c1470;
-$alert-warning-bd: #ae7c14;
+$alert-warning-bg: #f0ac1f24;
+$alert-warning-bd: #f0ac1f;
 $alert-warning-bg-light: #ffcd0030;
 $alert-warning-bd-light: #ffcd00;
 
