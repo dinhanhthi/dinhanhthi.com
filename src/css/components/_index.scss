@@ -23,7 +23,9 @@
     width: fit-content;
 
     .toc-index {
-      border: 0.5px solid var(--toc-title-bd);
+      // border: 0.5px solid var(--toc-title-bd);
+      border: 1px solid var(--code-bd);
+      background: var(--code-bg);
       border-radius: $box-border-radius;
       padding: 1rem;
       h3 {

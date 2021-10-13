@@ -218,7 +218,7 @@ kbd {
 $gap: 5px;
 @mixin col-2($flex-grow, $flex-shrink, $flex-basis, $flex-wrap) {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: $flex-wrap;
   & > * {
     flex: $flex-grow $flex-shrink $flex-basis;
@@ -249,9 +249,27 @@ $gap: 5px;
   .code-2cols,
   .col-2-equal {
     @include col-2(0, 0, 50%, wrap);
+    &.center {
+      align-items: center;
+    }
+    &.flex-start {
+      align-items: flex-start;
+    }
+    &.flex-end {
+      align-items: flex-end;
+    }
   }
   .col-2-flex {
     @include col-2(1, 1, auto, nowrap);
+    &.center {
+      align-items: center;
+    }
+    &.flex-start {
+      align-items: flex-start;
+    }
+    &.flex-end {
+      align-items: flex-end;
+    }
     & > * {
       margin-right: 10px;
       &:last-child {

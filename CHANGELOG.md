@@ -12,6 +12,8 @@ This file contains the detail of changelogs. For **release**, [check this](https
 - Change badge styles/colors.
 - Cleaning.
 - Save chosen "toggle posts" buttons on local and get them back on reload the page.
+- Make default title for `::: hsbox`.
+- Add align options for `col-2-equal` and `col-2-flex`. Now, we can use `::: col-2-equal` (default, equal heights), `::: col-2-equal center` (center align), `::: col-2-equal flex-start` (top align), `::: col-2-equal flex-end` (bottom align). The same for `::: col-2-flex`.
 
 ### `4.9.0`
 

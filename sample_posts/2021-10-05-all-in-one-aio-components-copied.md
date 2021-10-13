@@ -129,6 +129,8 @@ Equal sizes
 ~~~ python
 a = (1, 2, 3) # tuple
 x = list(a)
+
+// Another line
 ~~~
 
 ~~~ python
@@ -187,7 +189,7 @@ print(x)
 ~~~
 :::
 
-### Code with results
+### Codes with results
 
 ::: code-output-flex
 ~~~ python
@@ -219,9 +221,42 @@ print(x)
 ~~~
 :::
 
-### Code with figures
+### Codes with figures
 
 ::: col-2-equal
+~~~ python
+a = (1, 2, 3) # tuple
+x = list(a)
+print(a)
+print(x)
+~~~
+
+![My home]({{img-url}}/home.jpg)
+:::
+
+::: col-2-equal center
+~~~ python
+a = (1, 2, 3) # tuple
+x = list(a)
+print(a)
+print(x)
+~~~
+
+![My home]({{img-url}}/home.jpg)
+:::
+
+::: col-2-equal flex-start
+~~~ python
+a = (1, 2, 3) # tuple
+x = list(a)
+print(a)
+print(x)
+~~~
+
+![My home]({{img-url}}/home.jpg)
+:::
+
+::: col-2-equal flex-end
 ~~~ python
 a = (1, 2, 3) # tuple
 x = list(a)
@@ -299,6 +334,10 @@ print(x)
 
 
 ## Hide / Show boxes
+
+::: hsbox
+This box uses default title.
+:::
 
 ::: hsbox **Title Name** without `""` and use markdown
 Content
@@ -381,7 +420,7 @@ _This is the smallest one!_
 
 ### Tables side by side
 
-::: col-2-flex
+::: col-2-flex flex-start
 <table>
   <thead>
     <tr>
@@ -459,7 +498,7 @@ _This is the smallest one!_
 
 ### Table and figure
 
-::: col-2-flex
+::: col-2-flex flex-start
 <table>
   <thead>
     <tr>

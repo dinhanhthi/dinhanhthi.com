@@ -2,7 +2,7 @@
 
 👋 Thi's personal website running on 11ty.
 
-❗ **Note** : This repo is for my personal purpose ONLY. Although I used to wanna make this be an 11ty theme for others to be able to use but the complexity and my free time prevent me to continue. If you can find yourself how to use it, it's great, otherwise, just ask me but I cannot promise that I will reply (soon) 🙁. Anyway, if you find something useful for me to enhance this theme, just let me know, many thanks.
+❗ **Note** : This repo is for my purpose ONLY. Although I used to wanna make this be a 11ty theme for others to be able to use, but the complexity and my free time prevent me to continue. If you can find yourself how to use it, it's great, otherwise, just ask me, but I cannot promise that I will reply (soon) 🙁. Anyway, if you find something useful for me to enhance this theme, just let me know, many thanks.
 
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 

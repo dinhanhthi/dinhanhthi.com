@@ -204,7 +204,7 @@ module.exports = function (eleventyConfig) {
           ? categories.find((item) => item.name === page.cat).fontello
           : "icon-tags",
         target: page.target,
-        privatePost: page.privatePost
+        privatePost: page.privatePost,
         //"content": page.templateContent,
       });
     });
@@ -277,23 +277,52 @@ module.exports = function (eleventyConfig) {
     .use(mdItContainer, "code-output-equal")
     .use(mdItContainer, "code-output-flex")
     .use(mdItContainer, "code-2cols")
-    .use(mdItContainer, "col-2-equal")
-    .use(mdItContainer, "col-2-flex")
+    // .use(mdItContainer, "col-2-equal")
+    .use(mdItContainer, "col-2-equal", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          if (!m) {
+            return "<div class='col-2-equal'>";
+          } else {
+            return "<div class='col-2-equal " + m[1] + "'>";
+          }
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    // .use(mdItContainer, "col-2-flex")
+    .use(mdItContainer, "col-2-flex", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-flex\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          if (!m) {
+            return "<div class='col-2-flex'>";
+          } else {
+            return "<div class='col-2-flex " + m[1] + "'>";
+          }
+        } else {
+          return "</div>";
+        }
+      },
+    })
     .use(mdItContainer, "col-2-list")
     .use(mdItContainer, "list-item") // for items like in MacOS fresh start post
     .use(require("markdown-it-kbd")) // [[Ctrl]]
     .use(require("markdown-it-footnote"))
     .use(mdItContainer, "hsbox", {
-      validate: function (params) {
-        return params.trim().match(/^hsbox\s+(.*)$/);
-      },
+      // validate: function (params) {
+      //   return params.trim().match(/^hsbox\s+(.*)$/);
+      // },
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
+          renderedTitle = m ? m[1] : "Toggle hidden content!";
           // Opening tag
           return (
             '<div class="hsbox"><div class="hs__title">' +
-            markdownItp.renderInline(m[1]) +
+            renderedTitle +
             '</div><div class="hs__content">'
           );
         } else {
