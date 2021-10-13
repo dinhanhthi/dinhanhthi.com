@@ -27,7 +27,6 @@ Suppose that the installation step is done completely.
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
-- **Default hide/show of toggle post buttons**: Make sure things in `notes/_data/settings.json` are the same as ones in `src/_includes/scripts/toggle-notes.js`!
 
 Without image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
 
