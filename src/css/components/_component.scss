@@ -218,7 +218,7 @@ kbd {
 $gap: 5px;
 @mixin col-2($flex-grow, $flex-shrink, $flex-basis, $flex-wrap) {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   flex-wrap: $flex-wrap;
   & > * {
     flex: $flex-grow $flex-shrink $flex-basis;

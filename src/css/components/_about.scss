@@ -219,12 +219,17 @@
             div {
               padding: 2px;
               text-align: center;
-              &:last-child {
-                font-size: 0.95rem;
-                color: var(--color-blue);
+              &.place {
+                font-weight: 500;
               }
-              a {
-                color: var(--heading-color);
+              &.date {
+                font-size: 0.95rem;
+                // color: var(--color-blue);
+                color: var(--color-faded);
+              }
+              a:hover {
+                // color: var(--heading-color);
+                border-bottom: 1px solid var(--font-a-border);
               }
             }
           }
@@ -308,7 +313,7 @@
           flex-direction: column;
           height: 100%;
           a {
-            color: var(--heading-color);
+            // color: var(--heading-color);
             &:hover {
               span {
                 border-bottom: 1px solid var(--font-a);

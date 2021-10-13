@@ -2,7 +2,7 @@
 title: About me
 layout: page
 customClass: page-about
-icon: "/img_src/avatar_memoji.png"
+icon: "/img_src/avatar_memoji.webp"
 permalink: /about/
 ---
 
@@ -95,14 +95,14 @@ I use this website to document everything I've learned while going through the p
                   <img class="keep-original" src="/img/about/exp/{{ item.logo }}" alt="{{ item.where }}'s logo">
                 </div>
                 {% endif %}
-                <div>
+                <div class="place">
                   {% if item.url %}
                     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.where }}</a>
                   {% else %}
                     {{ item.where }}
                   {% endif %}
                 </div>
-                <div>{{ item.date }}</div>
+                <div class="date">{{ item.date }}</div>
               </div>
               <div class="title">
                 <h4>{{ item.title }}</h4>

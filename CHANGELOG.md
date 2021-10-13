@@ -4,6 +4,15 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
+### `4.9.5`
+
+- Fix stretch on `col-2-*`.
+- Custom `math: true` on frontmatter for posts having math equations.
+- Add font weight 500 for Poppins. Change bold weight to 500 (previously "bold").
+- Change badge styles/colors.
+- Cleaning.
+- Save chosen "toggle posts" buttons on local and get them back on reload the page.
+
 ### `4.9.0`
 
 - Fixes and small changes
