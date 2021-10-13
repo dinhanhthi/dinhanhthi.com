@@ -3,6 +3,7 @@ layout: post
 title: "For me only"
 tags: [Others, Static Site Generators, 11ty]
 toc: true
+math: true
 icon: "/img/header/customize.svg"
 keywords: "me for me only customize admin panel edition customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
 ---

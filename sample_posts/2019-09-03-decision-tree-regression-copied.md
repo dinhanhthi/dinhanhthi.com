@@ -4,6 +4,7 @@ title: "Decision Tree Regression"
 tags: [Machine Learning]
 toc: true
 icon: decision-tree.svg
+math: true
 icon-photo: decision-tree.svg
 keywords: classification regression MSE Mean Square Error MAE Mean Absolute Error stopping conditions Standard Deviation Reduction SDR Graphviz example Saed Sayad
 ---

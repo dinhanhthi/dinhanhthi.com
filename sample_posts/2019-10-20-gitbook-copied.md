@@ -4,7 +4,8 @@ title: "Gitbook"
 tags: [Web Dev, Git]
 toc: true
 icon: gitbook.png
-notfull: 1
+notfull: true
+math: true
 ---
 
 {% markdown %}

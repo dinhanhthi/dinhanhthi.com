@@ -4,6 +4,7 @@ title: "DL 1 - NN and DL"
 tags: [MOOC, deeplearning.ai, Deep Learning]
 toc: true
 icon: deeplearning-ai.png
+math: true
 keywords: "logistic regression sigmoid derivative function python tips softmax activation function forward propagation and backward propagation simple neural network model predict an image of cat tanh relu leaky relu gradient descent L layer L-layer initialize parameters and hyperparameters shallow nn recognize a cat reshape neural networks supervised learning geoffrey hinton binary classification logistic gradient descent derivatives computation graph vetorization jupyter notebook Pieter Abbeel NN representation backprop intuition matrix dimension deep l-layer building blocks hyperparameters andrew ng"
 ---
 
