@@ -8,11 +8,6 @@ notfull: 1
 keywords: "r jupyter notebook programming language install 101 windows linux ubuntu extension package lib library requirement LC_ALL utf8 UTF-8"
 ---
 
-{% markdown %}
-::: danger
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-{% endmarkdown %}
-
 {% assign img-url = '/img/post/r' %}
 
 ## Install R

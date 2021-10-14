@@ -3,19 +3,14 @@ layout: post
 title: "For me only"
 tags: [Others, Static Site Generators, 11ty]
 toc: true
+icon: "customize.svg"
 math: true
-icon: "/img/header/customize.svg"
 keywords: "me for me only customize admin panel edition customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
 ---
 
-{% markdown %}
-::: danger
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-{% endmarkdown %}
-
 This post is for me only. It contains shortcodes to create this website.
 
-👉  Note: [11ty & Nunjucks](/11ty-nunjucks/).
+👉  Note: [11ty](/11ty-nunjucks/).
 
 ## Frontmatter
 
@@ -32,9 +27,12 @@ icon: "/img/header/customize.svg" # can be "customize.svg"
                                   # if it's in /img_src/header/
 keywords: "for me only customize edit this site box font blocks" # used for searching
 toc: true # `false` to hide toc
+          # More: # Headings{:data-toc-exclude} to exclude some headings
 notfull: true # if the post is not good enough
 hide: true # if don't want to show it on index
 private: true # (if the post comes from external source) a private link
+read: true # reading post type
+math: true # using math equations in page?
 ```
 
 ## Other components
@@ -51,7 +49,7 @@ private: true # (if the post comes from external source) a private link
 	``` bash
 	👉 :point_right:
 	🔅 :low_brightness:
-	❓ :qusetion:
+	❓ :question:
 	❗ :exclamation:
 	🇻🇳 :vietnam:
 	```
@@ -197,9 +195,22 @@ There are also others: `.columns-2.size-2-1` (`1-2`, `3-2`, `2-3`, `1-1`).
 
 ### Two columns
 
+**Note**: You have to use "open" `:::` and "end" `:::` for below shortcodes!
+
 ``` html
 <!-- flexible width -->
+
+<!-- (equal heights) -->
 ::: col-2-flex
+
+<!-- top align -->
+::: col-2-flex flex-start
+
+<!-- bottom align -->
+::: col-2-flex flex-end
+
+<!-- center align -->
+::: col-2-flex center
 ```
 
 ``` html
@@ -209,10 +220,18 @@ There are also others: `.columns-2.size-2-1` (`1-2`, `3-2`, `2-3`, `1-1`).
 Content
 </div>
 
-<!-- or use (not recommended) -->
+<!-- or use -->
+<!-- (equal heights) -->
 ::: col-2-equal
-Content
-:::
+
+<!-- top align -->
+::: col-2-equal flex-start
+
+<!-- bottom align -->
+::: col-2-equal flex-end
+
+<!-- center align -->
+::: col-2-equal center
 ```
 
 ## Boxes
@@ -368,9 +387,14 @@ A pragraph {:.custom-class}
 table
 ```
 
-``` bash
-# heading
+``` js
+// headings
 # Heading{:#heading-id}
+```
+
+``` js
+// Exclude some headings from TOC
+# Heading{:data-toc-exclude}
 ```
 :::
 

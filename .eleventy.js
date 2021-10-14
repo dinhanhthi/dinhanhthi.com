@@ -318,15 +318,13 @@ module.exports = function (eleventyConfig) {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
-          renderedTitle = m ? m[1] : "Toggle hidden content!";
-          // Opening tag
+          renderedTitle = m ? markdownItp.renderInline(m[1]) : "Toggle hidden content!";
           return (
             '<div class="hsbox"><div class="hs__title">' +
             renderedTitle +
             '</div><div class="hs__content">'
           );
         } else {
-          // Closing tag
           return "</div></div>";
         }
       },

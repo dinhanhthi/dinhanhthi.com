@@ -8,16 +8,11 @@ icon: "/img_src/header/aio.svg"
 keywords: "AIO all in one components post types boxes hide show hide/show linke url insert images 11ty eleventy topics all topics subjects code blocks boxes math equations"
 ---
 
-{% markdown %}
-::: danger
-Note that, this is a sample post. For a full version, please [visit this page](https://dinhanhthi.com{{ page.url | replace: "-copied", "" }})!
-{% endmarkdown %}
-
 This note is used to show the compoents I created to use in this site. It's for me only. I use it as a reference when I wanna create some components for the notes.
 
 {% assign img-url = '/img/post/others' %}
 
-👉 **Note:** [For me only](/for-me-only-copied/) (This is another technical note used for this site only).
+👉 **Note:** [For me only](/for-me-only/) (This is another technical note used for this site only).
 
 ## Inline components
 
@@ -51,7 +46,34 @@ A paragraph
 
 Nothing inside.
 
-## Two columns list
+## List
+
+Ordered list,
+
+1. This is an item
+2. This is an item
+   1. This is a nested item.
+   2. This is a nested item.
+3. This is an item
+   - This is a nested item.
+   - This is a nested item.
+   - This is a nested item.
+4. This is an item which has a very long length. I use this to test the wrap of text inside an item of the list.
+5. This is an item
+
+Unordered list,
+
+- This is an item
+- This is an item
+- This is an item
+  - This is an item
+  - This is an item
+- This is an item
+  1. This is a nested item.
+  2. This is a nested item.
+- This is an item
+
+### Two columns list
 
 ::: col-2-list
 1. Item 1
@@ -65,18 +87,31 @@ Nothing inside.
 
 ::: warning
 The content with a [link inside](#)!
+::: hsbox Hide / Show box inside
+Content
 :::
 
 ::: success
 The content with a [link inside](#)!
+
+::: hsbox Hide / Show box
+Content
 :::
 
 <div class="info">
+
 This one uses directly html markups.
+
+::: hsbox Hide / Show box inside
+Content
+:::
 </div>
 
 ::: danger
 The content with a [link inside](#)!
+
+::: hsbox Hide / Show box inside
+Content
 :::
 
 ## Maths
@@ -129,8 +164,6 @@ Equal sizes
 ~~~ python
 a = (1, 2, 3) # tuple
 x = list(a)
-
-// Another line
 ~~~
 
 ~~~ python
@@ -223,6 +256,8 @@ print(x)
 
 ### Codes with figures
 
+Equal heights,
+
 ::: col-2-equal
 ~~~ python
 a = (1, 2, 3) # tuple
@@ -233,6 +268,8 @@ print(x)
 
 ![My home]({{img-url}}/home.jpg)
 :::
+
+Center align,
 
 ::: col-2-equal center
 ~~~ python
@@ -245,6 +282,8 @@ print(x)
 ![My home]({{img-url}}/home.jpg)
 :::
 
+Top align,
+
 ::: col-2-equal flex-start
 ~~~ python
 a = (1, 2, 3) # tuple
@@ -255,6 +294,8 @@ print(x)
 
 ![My home]({{img-url}}/home.jpg)
 :::
+
+Bottom align,
 
 ::: col-2-equal flex-end
 ~~~ python

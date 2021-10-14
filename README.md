@@ -23,10 +23,11 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 Suppose that the installation step is done completely.
 
 - **Update data** : in `notes/_data/`. There are also `csp.js` in `src/_data`.
-- **Update posts** : just modify things in `notes/`. For testing locally `sample:*`, modify in `sample_posts/`.
+- ⛑ Search a file, if there are duplicates, **edit the one in `sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
+- **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
 
 Without image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
 
@@ -123,7 +124,7 @@ At the first time after cloning,
 
 npm i # Run once
 
-sh getting_start.sh # Run once
+sh scripts/getting_start.sh # Run once
 ```
 
 ```bash

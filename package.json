@@ -24,8 +24,11 @@
     "js:build-watch": "rollup -c src/rollup.config.js -w",
     "debug": "DEBUG=* eleventy",
     "site:build": "npm run build",
-    "site:update": "sh ud_site.sh",
-    "site:build-update": "npm run site:build && npm run site:update"
+    "site:update": "sh scripts/ud_site.sh",
+    "site:build-update": "npm run site:build && npm run site:update",
+    "ud-samples-mac": "python scripts/copy_sample_posts.py mac",
+    "ud-samples-linux": "python scripts/copy_sample_posts.py linux",
+    "ud-samples-win": "python scripts/copy_sample_posts.py win"
   },
   "repository": {
     "type": "git",

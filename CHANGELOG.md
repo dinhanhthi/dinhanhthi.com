@@ -4,7 +4,7 @@ This file contains the detail of changelogs. For **release**, [check this](https
 
 ## Verion `4`
 
-### `4.9.5`
+### `4.9.1`
 
 - Fix stretch on `col-2-*`.
 - Custom `math: true` on frontmatter for posts having math equations.
