@@ -30,7 +30,7 @@ date: Last Modified
         {% endfor %}
       </div>
       <div id="last-modified">
-				{{ page.date.toISOString().slice(0, 10) }}
+				Last updated {{ page.date | toDuration }}
 				/
 				<a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
 			</div>
@@ -41,16 +41,31 @@ date: Last Modified
 {% block article %}
   <article class="post-container">
     <div class="container normal mt-2 page-note">
+
+      {% set lastUpdatedDays = page.date | toDurationDays %}
+      {% if lastUpdatedDays > settings.outdatedTime %}
+        <div class="danger not-full-warning">
+          <div class="warning-icon">
+            <img src="/img_src/icons/warning.svg" alt="Warning">
+          </div>
+          <div>This post was <strong>updated more than 6 months ago</strong>, some information may be outdated!</div>
+          </div>
+      {% endif %}
+
+      {% if notfull %}
+        <div class="warning not-full-warning">
+          <div class="warning-icon">
+            <img src="/img_src/icons/warning.svg" alt="Warning">
+          </div>
+          <div>This is a draft, the content is not complete and in low quality!</div>
+          </div>
+      {% endif %}
+
       {% if toc %}
         {{ content | toc | safe }}
         {{ content | safe }}
       {% else %}
         {{ content | safe }}
-      {% endif %}
-      {% if notfull %}
-        <p class="note-type-indicator">
-          <sup style="color: #bbb">•</sup>This is a draft note.
-        </p>
       {% endif %}
     </div>
 

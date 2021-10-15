@@ -5,6 +5,22 @@
 }
 
 .page-note {
+
+  .not-full-warning {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .warning-icon {
+      height: 30px;
+      margin-bottom: 0 !important;
+      margin-right: 10px;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+
   .p-list {
     & > * {
       margin-bottom: 1rem;

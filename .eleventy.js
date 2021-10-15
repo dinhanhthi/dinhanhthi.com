@@ -25,24 +25,18 @@ var distPath;
 const categories = require("./" + thiDataDir + "/categories.json");
 // const settings = require("./" + thiDataDir + "/settings.json");
 
-// module.exports = {
-//   environment: process.env.ELEVENTY_ENV,
-//   settings: settings
-// };
-
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
 
-  // eleventyConfig.addPlugin(require("eleventy-plugin-nesting-toc"), {
   eleventyConfig.addPlugin(
     require("./third_party/eleventy-plugin-nesting-toc"),
     {
-      tags: ["h2", "h3"], // Which heading tags are selected (headings must each have an ID attribute)
-      wrapper: "div", // Element to put around the root `ol`
-      wrapperClass: "toc toc-common toc-js", // Class for the element around the root `ol`
-      headingText: "In this note", // Optional text to show in heading above the wrapper element
-      headingTag: "div", // Heading tag when showing heading above the wrapper element
+      tags: ["h2", "h3"],
+      wrapper: "div",
+      wrapperClass: "toc toc-common toc-js",
+      headingText: "In this note",
+      headingTag: "div",
     }
   );
 
@@ -54,7 +48,6 @@ module.exports = function (eleventyConfig) {
         callback(null, minified.code);
       } catch (err) {
         console.error("Terser error: ", err);
-        // Fail gracefully.
         callback(null, code);
       }
     }
@@ -123,7 +116,7 @@ module.exports = function (eleventyConfig) {
       });
   }
 
-  // layout alias
+  // Layout alias
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
@@ -161,6 +154,27 @@ module.exports = function (eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd-LL-yyyy");
+  });
+
+  // Compute duration from date
+  eleventyConfig.addFilter("toDuration", (dateObj) => {
+    const durationInDays = (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
+    if (durationInDays < 1) {
+      return "today";
+    } else if (durationInDays < 2) {
+      return "yesterday";
+    } else if (durationInDays < 30) {
+      return Math.round(durationInDays) + " days ago";
+    } else if (durationInDays < 365) {
+      return Math.round(durationInDays / 30) + " months ago";
+    } else {
+      return Math.round(durationInDays / 365) + " years ago";
+    }
+  });
+
+  eleventyConfig.addFilter("toDurationDays", (dateObj) => {
+    const durationInDays = (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
+    return Math.round(durationInDays);
   });
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
