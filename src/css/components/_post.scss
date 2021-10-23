@@ -11,9 +11,10 @@
     flex-direction: row;
     align-items: center;
     .warning-icon {
-      height: 30px;
+      height: 25px;
       margin-bottom: 0 !important;
       margin-right: 10px;
+      flex-shrink: 0;
       img {
         height: 100%;
         width: auto;
@@ -82,7 +83,7 @@
     ol,
     ul {
       @include screen-lg-down {
-        padding-left: $padding-lr;
+        padding-left: $padding-lr + 4px;
       }
     }
   }

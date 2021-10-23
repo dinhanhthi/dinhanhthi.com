@@ -2,7 +2,7 @@
 
 👋 Thi's personal website running on 11ty.
 
-❗ **Note** : This repo is for my purpose ONLY. Although I used to wanna make this be a 11ty theme for others to be able to use, but the complexity and my free time prevent me to continue. If you can find yourself how to use it, it's great, otherwise, just ask me, but I cannot promise that I will reply (soon) 🙁. Anyway, if you find something useful for me to enhance this theme, just let me know, many thanks.
+❗ **Note** : This repo is for my purposes ONLY. I actually wanted make it into an 11ty theme that could be used by others, but the complexity and my free time prevent me from continuing. If you figure out how to use it yourself that's great, otherwise just ask me but I can not promise I'll answer (soon) 🙁. Anyway, if you find something useful for me to improve this theme, just let me know, thanks a lot.
 
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
@@ -20,7 +20,7 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 
 ## Dev
 
-Suppose that the installation step is done completely.
+Let us assume that the installation step has been fully completed.
 
 - **Update data** : in `notes/_data/`. There are also `csp.js` in `src/_data`.
 - ⛑ Search a file, if there are duplicates, **edit the one in `sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
@@ -29,7 +29,7 @@ Suppose that the installation step is done completely.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
 - **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
 
-Without image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
+Without image editing (**Note**: run `npm run css:touch` again every time you run the following commands!),
 
 ```bash
 # Sample posts (sample_posts/)
@@ -43,7 +43,7 @@ npm run full:watch-no-opt # localhost:8080, built to "_built"
 npm run css:touch
 ```
 
-With image processing (**Note**: everytime re-run below commands, run `npm run css:touch` again!),
+Without image editing (**Note**: run `npm run css:touch` again every time you run the following commands!),
 
 ```bash
 # Sample posts (sample_posts/)
@@ -75,11 +75,11 @@ npm run site:update
 
 ### Download SVG from flaticon
 
-Normally, you cannot download SVG format from flaticon. Just click on Edit > Open Inspect Element > Copy SVG HTML element > Create a new file + paste this + save as `.svg`.
+Normally, you can not download the SVG format from flaticon. Just click Edit > Open Inspect Element > Copy SVG HTML element > Create a new file + paste this + save as `.svg`.
 
 ### Update Fontello icons?
 
-Upload the config file in `/src/fontello/config.json` to [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add more icons you want. After choosing, click to "**Get config only**".
+Upload the configuration file to `/src/fontello/config.json` on [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add any other icons you want. Once selected, click on "**Get config only**".
 
 ```bash
 # Install fontello-cli
@@ -99,7 +99,7 @@ fontello-cli --config src/fontello/config.json --css src/fontello/css --font src
 <i class="fontello-icon icon-ng"></i>
 ```
 
-**Note**: Sometimes, there are duplicates hexa/decimal code (although the names are different). On fontello website, navigate to "Customize Codes" tab, find duplicates and change them. Note that, in this tab, the codes are shown in hexa base but in the downlowded config, the codes are shown in decimal based (field `"code"`). You can use [this site](https://www.rapidtables.com/convert/number/decimal-to-hex.html) to convert between them.
+**Note**: Sometimes, there are duplicates of hex/decimal codes (although the names are different). Navigate to the "Customize Codes" tab on the fontello website, find the duplicates, and change them. Note that,  this tab, the codes in hexa-base, the downlowded configuration displays them in decimal-base (`"code"` field). On [this site](https://www.rapidtables.com/convert/number/decimal-to-hex.html) you can convert the two formats.
 
 <details>
 <summary>Add a custom icon?</summary>

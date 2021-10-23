@@ -6,7 +6,12 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
   <meta name="theme-color" content="#f9c412">
-  <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
+
+  {% if notfull or hide %}
+    <meta name="robots" content="noindex">
+  {% else %}
+    <meta name="robots" content="max-snippet:-1, max-image-preview: large, max-video-preview: -1">
+  {% endif %}
 
   {% set pageUrlLength = page.url | length %}
   {% if pageUrlLength > 1 %}

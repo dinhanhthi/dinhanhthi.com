@@ -29,7 +29,7 @@ keywords: "for me only customize edit this site box font blocks" # used for sear
 toc: true # `false` to hide toc
           # More: # Headings{:data-toc-exclude} to exclude some headings
 notfull: true # if the post is not good enough
-hide: true # if don't want to show it on index
+hide: true # if don't want to show it on index and result engine
 private: true # (if the post comes from external source) a private link
 read: true # reading post type
 math: true # using math equations in page?

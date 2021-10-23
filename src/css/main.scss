@@ -34,7 +34,7 @@ $font-color-light: #4b4b4b;
 $font-color-darker: #f6f6f6;
 $font-color-darker-light: #333;
 $font-bold-color: #8cc8ff;
-$font-bold-color-light: $font-color-light;
+$font-bold-color-light: #222;
 $font-bold-weight: 500;
 $font-a: $color-yellow;
 $font-a-light: #0b74cd;
@@ -52,7 +52,7 @@ $grid-xl: 1200px;
 $grid-xxl: 1600px;
 $grid-w-normal: 900px;
 $grid-w-ex-normal: 1000px;
-$grid-toc: 1300px;
+$grid-toc: 1400px;
 $padding-lr: $font-size;
 $margin-bottom: 1.5 * $font-size; // margin-bottom
 $margin-bottom-code: 1.1 * $margin-bottom; // for code blocks
@@ -140,7 +140,7 @@ $scroll-thumb-bg-hover-light: #adb5bd;
 $scroll-track: transparent;
 $scroll-track-light: transparent;
 
-// Alert boxes
+// BOXES
 // Follow Primer's color schemes: https://primer.style/css/support/color-system
 // (--color-scale-*-4) for border, add "30" (light), "70" (dark) at the end for backgrounds
 $alert-info-bg: #66a5ff24;
@@ -162,6 +162,9 @@ $alert-warning-bg: #f0ac1f24;
 $alert-warning-bd: #f0ac1f;
 $alert-warning-bg-light: #ffcd0030;
 $alert-warning-bd-light: #ffcd00;
+
+$bg-hs-box: rgba(255, 255, 255, 0.05);
+$bg-hs-box-light: rgba(255, 255, 255, 0.25);
 
 @import "./components/prism_variables";
 @import "./components/mixin"; // mixsin

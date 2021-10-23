@@ -1,7 +1,6 @@
 ---
 #layout: layouts/base.njk
 permalink: "{{ page.fileSlug }}/"
-date: Last Modified
 ---
 {% extends "layouts/base.njk" %}
 
@@ -30,7 +29,7 @@ date: Last Modified
         {% endfor %}
       </div>
       <div id="last-modified">
-				Last updated {{ page.date | toDuration }}
+				Last modified {{ page.date | toDuration }}
 				/
 				<a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
 			</div>
@@ -46,9 +45,9 @@ date: Last Modified
       {% if lastUpdatedDays > settings.outdatedTime %}
         <div class="danger not-full-warning">
           <div class="warning-icon">
-            <img src="/img_src/icons/warning.svg" alt="Warning">
+            <img src="/img_src/icons/time.svg" alt="Warning">
           </div>
-          <div>This post was <strong>updated more than 6 months ago</strong>, some information may be outdated!</div>
+          <div>This post was <strong>updated more than 1 year ago</strong>, some information may be outdated!</div>
           </div>
       {% endif %}
 
@@ -57,7 +56,7 @@ date: Last Modified
           <div class="warning-icon">
             <img src="/img_src/icons/warning.svg" alt="Warning">
           </div>
-          <div>This is a draft, the content is not complete and in low quality!</div>
+          <div>This is a draft, the content is not complete and of poor quality!</div>
           </div>
       {% endif %}
 

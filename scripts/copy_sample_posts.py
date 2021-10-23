@@ -3,6 +3,11 @@ import sys
 import shutil
 
 def copy(os_name = 'mac'):
+    '''Copy files from samples/ to notes/ based on the information given in a text file
+    HOW TO USE?
+    py copy_sample_posts.py
+    '''
+
     if os_name == 'mac':
         dat_dir = '/Users/thi/git/dinhanhthi.com/'
     elif os_name == 'linux':
@@ -25,7 +30,7 @@ def copy(os_name = 'mac'):
                 srcfile = os.path.split(srcfile_path)[1]
                 dstdir = os.path.join(dstfile_path, srcfile)
                 shutil.copy(srcfile_path, dstdir)
-                print('✅  ' + sample_dir + line.split(',')[0].strip() + ' 👉 ' + notes_dir + line.split(',')[1].strip())
+                print('✅  ' + sample_dir + line.split(',')[0].strip() + ' 👉 ' + notes_dir)
 
 if __name__ == "__main__":
     copy(sys.argv[1])

@@ -86,21 +86,20 @@ Unordered list,
 ## Alert boxes
 
 ::: warning
-The content with a [link inside](#)!
+**Warning**: The content with a [link inside](#)!
 ::: hsbox Hide / Show box inside
 Content
 :::
 
 ::: success
-The content with a [link inside](#)!
-
+**Success**:The content with a [link inside](#)!
 ::: hsbox Hide / Show box
 Content
 :::
 
 <div class="info">
 
-This one uses directly html markups.
+**Info**: This one uses directly html markups.
 
 ::: hsbox Hide / Show box inside
 Content
@@ -108,13 +107,12 @@ Content
 </div>
 
 ::: danger
-The content with a [link inside](#)!
-
+**Danger**: The content with a [link inside](#)!
 ::: hsbox Hide / Show box inside
 Content
 :::
 
-## Maths
+## Math
 
 $$
 \underbrace{SDR(S,O)}_{\text{Standard Deviation Reduction}}= \underbrace{SD(S)}_{\text{SD before split}}- \underbrace{\sum_j P(O_j | S) \times SD(S,O_j)}_{\text{weighted SD after split}}
@@ -127,18 +125,12 @@ $$
     $$\begin{aligned}SD(S) &= \frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y}_i)^2, \\\text{or  } SD(S) &= \frac{1}{n}\sum_{i=1}^n \vert y_i - \bar{y}_i \vert,\end{aligned}$$
 
     where $y_i\in$ the target values (*Hours Played* in the above example), $\bar{y}=\frac{\Sigma y}{n}$ is the mean value and $n$ is the number of examples **in this node**.
-2. Check the **stopping conditions** (we don't need to make any split at this node) to stop the split and this node becomes a leaf node. Otherwise, go to step 3.
-
-    - The minimum number of samples required to split an internal node, use `min_samples_split` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
-    - The maximum depth of the tree, use `max_depth` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
-    - A node will be split if this split induces a decrease of the impurity greater than or equal to this value, use `min_impurity_decrease` in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor).
-    - Its *coefficient of variation* ($\frac{SD(S)}{\bar{y}}$) is less than a certain threshold.
-3. Calculate the **Standard Deviation Reduction** (SDR) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest SDR will be chosen!
+2. Calculate the **Standard Deviation Reduction** (SDR) after splitting node $S$ on each attribute (for example, consider attribute $O$). The attribute w.r.t. the biggest SDR will be chosen!
 
     $$\underbrace{SDR(S,O)}_{\text{Standard Deviation Reduction}}= \underbrace{SD(S)}_{\text{SD before split}}- \underbrace{\sum_j P(O_j | S) \times SD(S,O_j)}_{\text{weighted SD after split}}$$
 
     where $j \in$ number of different properties in $O$ and $P(O_j)$ is the propability of property $O_j$ in $O$. Note that, $SD(S,O_j)$ means the SD of node $O_j$ which is also a child of node $S$.
-4. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1
+3. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1
 
 :::
 

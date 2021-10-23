@@ -145,10 +145,6 @@
     }
   }
 
-  @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
-    padding-top: 4rem;
-  }
-
   @media (min-width: $grid-toc) {
     float: right;
     width: calc((100vw - 900px) / 2 - 20px);

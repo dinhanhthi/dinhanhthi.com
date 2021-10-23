@@ -75,7 +75,6 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("sample_posts");
       eleventyConfig.ignores.add("notes");
-      // eleventy-plugin-local-images
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
         assetPath: "/img/remote",
@@ -106,7 +105,6 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes");
       eleventyConfig.ignores.add("sample_posts");
-      // eleventy-plugin-local-images
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
         assetPath: "/img/remote",
@@ -116,7 +114,6 @@ module.exports = function (eleventyConfig) {
       });
   }
 
-  // Layout alias
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
@@ -158,7 +155,8 @@ module.exports = function (eleventyConfig) {
 
   // Compute duration from date
   eleventyConfig.addFilter("toDuration", (dateObj) => {
-    const durationInDays = (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
+    const durationInDays =
+      (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
     if (durationInDays < 1) {
       return "today";
     } else if (durationInDays < 2) {
@@ -173,7 +171,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("toDurationDays", (dateObj) => {
-    const durationInDays = (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
+    const durationInDays =
+      (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
     return Math.round(durationInDays);
   });
 
@@ -204,8 +203,6 @@ module.exports = function (eleventyConfig) {
       this.addField("keywords");
       this.addField("tags");
       this.addField("cat");
-      // this.addField("target");
-      // this.addField("private");
       this.setRef("id");
     });
     collection.forEach((page) => {
@@ -234,16 +231,13 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("tagList", require("./src/_11ty/getTagList"));
-  // Filter source file names using a glob
-
   eleventyConfig.addPassthroughCopy({ "notes/_data": "data" });
   eleventyConfig.addPassthroughCopy({ "notes/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
-  eleventyConfig.addPassthroughCopy({ "notes/files": "files" }); // for personal files
+  eleventyConfig.addPassthroughCopy({ "notes/files": "files" });
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `${distPath}/fonts`
-  // eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy({ "src/fontello": "fontello" });
 
   // We need to rebuild upon JS change to update the CSP.
@@ -256,7 +250,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/css/main.css");
   eleventyConfig.addWatchTarget("./notes/_data/");
 
-  /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true, // html tag inside source
     breaks: true, // use '\n' as <br>
@@ -291,7 +284,6 @@ module.exports = function (eleventyConfig) {
     .use(mdItContainer, "code-output-equal")
     .use(mdItContainer, "code-output-flex")
     .use(mdItContainer, "code-2cols")
-    // .use(mdItContainer, "col-2-equal")
     .use(mdItContainer, "col-2-equal", {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
@@ -306,7 +298,6 @@ module.exports = function (eleventyConfig) {
         }
       },
     })
-    // .use(mdItContainer, "col-2-flex")
     .use(mdItContainer, "col-2-flex", {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^col-2-flex\s+(.*)$/);
@@ -332,7 +323,9 @@ module.exports = function (eleventyConfig) {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^hsbox\s+(.*)$/);
         if (tokens[idx].nesting === 1) {
-          renderedTitle = m ? markdownItp.renderInline(m[1]) : "Toggle hidden content!";
+          renderedTitle = m
+            ? markdownItp.renderInline(m[1])
+            : "Toggle hidden content!";
           return (
             '<div class="hsbox"><div class="hs__title">' +
             renderedTitle +
@@ -372,7 +365,6 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function (err, browserSync) {
@@ -390,27 +382,13 @@ module.exports = function (eleventyConfig) {
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
-
-    // If your site lives in a different subdirectory, change this.
-    // Leading or trailing slashes are all normalized away, so don’t worry about those.
-
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for link URLs (it does not affect your file structure)
-    // Best paired with the `url` filter: https://www.11ty.io/docs/filters/url/
-
-    // You can also pass this in on the command line using `--pathprefix`
-    // pathPrefix: "/",
-
     markdownTemplateEngine: "liquid",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
-
-    // These are all optional, defaults are shown:
     dir: {
       input: ".",
       includes: "src/_includes",
       data: dataDir,
-      // Warning hardcoded throughout repo. Find and replace is your friend :)
       output: distPath,
     },
   };

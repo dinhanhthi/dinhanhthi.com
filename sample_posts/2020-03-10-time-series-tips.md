@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Time Series extra"
+title: "Time Series discrete note"
 icon: ts.png
 tags: [Time Series]
 toc: true

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Tensorflow extra"
+title: "Tensorflow discrete note"
 tags: [Deep Learning]
 toc: true
 icon: tensorflow.svg
-notfull: 1
+notfull: true
 keywords: "device gpu cuda nvidia graphical device torch deep learning neural network dell xps 7590 gpu install nvidia installation torch docker nvidia-docker nvidia-container-runtime packages batch size problem"
 ---
 
