@@ -26,9 +26,7 @@
     "site:build": "npm run build",
     "site:update": "sh scripts/ud_site.sh",
     "site:build-update": "npm run site:build && npm run site:update",
-    "ud-samples-mac": "python scripts/copy_sample_posts.py mac",
-    "ud-samples-linux": "python scripts/copy_sample_posts.py linux",
-    "ud-samples-win": "python scripts/copy_sample_posts.py win"
+    "ud-samples": "python scripts/copy_sample_posts.py"
   },
   "repository": {
     "type": "git",

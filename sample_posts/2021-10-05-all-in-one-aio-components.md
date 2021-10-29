@@ -112,6 +112,45 @@ Content
 Content
 :::
 
+### Inside other components
+
+Inside a list,
+
+1. Item
+
+    ::: warning
+    Content
+    :::
+
+    - Item
+
+        ::: success
+        Content
+        :::
+
+    - Item
+
+2. Item
+
+Inside hide/show box,
+
+::: hsbox Title
+Content of the hide/show box.
+
+::: warning
+Content of the warning box.
+:::
+
+::: hsbox Box > List > Box
+1. Item
+
+    ::: success
+    Content
+    :::
+
+2. Item
+:::
+
 ## Math
 
 $$
@@ -133,6 +172,125 @@ $$
 3. After splitting, we have new child nodes. Each of them becomes a new parent node in the next step. Go back to step 1
 
 :::
+
+## Two columns
+
+::: col-2-equal
+```bash
+# Test
+# Test
+# Test
+# Test
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+# Test
+# Test
+# Test
+# Test
+# Test
+```
+:::
+
+```bash
+# Test
+```
+
+{% hsbox "Title" %}
+
+::: col-2-equal
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+:::
+
+``` bash
+# Test
+```
+
+{% endhsbox %}
+
+::: warning
+
+::: col-2-equal
+```bash
+# Test
+# Test
+# Test
+# Test
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+# Test
+# Test
+# Test
+```
+
+``` bash
+# Test
+```
+:::
+
+<div class="success">
+
+::: col-2-equal
+```bash
+# Test
+# Test
+# Test
+# Test
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+
+```bash
+# Test
+```
+:::
+
+``` bash
+# Test
+```
+</div>
 
 ## Insert codes
 
@@ -426,6 +584,48 @@ Content
   - Sub item.
 - Item
 {% endhsbox %}
+
+### Inside other components
+
+Alert box,
+
+::: success
+**Success**:The content with a [link inside](#)!
+::: hsbox Hide / Show box
+Content
+:::
+
+::: danger
+
+Box > List > Box,
+
+1. Item
+
+    ::: hsbox Title
+    Content of hsbox.
+    :::
+
+2. Item
+
+:::
+
+Inside a list,
+
+- We don't need to use directly `<div>`, we can use `:::`!
+
+    ::: hsbox Hide / Show box
+    Content
+    :::
+
+    1. Item
+
+        ::: hsbox Hide / Show box
+        Content
+        :::
+
+    2. Item
+
+- Item
 
 ## Insert figures
 

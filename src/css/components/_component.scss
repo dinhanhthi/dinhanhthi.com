@@ -42,19 +42,13 @@
 
   &.badge-my-choice {
     padding: 1px 10px;
-    // background: #fff7df;
-    // color: #7b561a;
     color: var(--badge-choice);
-    // border: 0.5px solid #a892658c;
     border: 0.5px solid var(--badge-choice);
   }
 
   &.badge-reading {
     padding: 1px 10px;
-    // background: #dfffe5;
-    // color: #1a7b2b;
     color: var(--badge-reading);
-    // border: 0.5px solid #6ad27099;
     border: 0.5px solid var(--badge-reading);
   }
 
@@ -114,14 +108,14 @@
   color: var(--font-color-darker);
   margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
-  border-left: 6px solid;
+  border: 1px solid;
+  border-left: 8px solid;
 
-  & > * {
+  & > *:not(.col-2-equal):not(.col-2-flex) {
     margin-bottom: $margin-bottom * 0.8 !important;
-  }
-
-  *:last-child {
-    margin-bottom: 0 !important;
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
   }
 
   .hsbox {
@@ -130,27 +124,25 @@
 }
 .info {
   border-color: var(--alert-info-bd);
-  background-color: var(--alert-info-bg);
+  // background-color: var(--alert-info-bg);
 }
 .success {
   border-color: var(--alert-success-bd);
-  background-color: var(--alert-success-bg);
+  // background-color: var(--alert-success-bg);
 }
 .danger {
   border-color: var(--alert-danger-bd);
-  background-color: var(--alert-danger-bg);
+  // background-color: var(--alert-danger-bg);
 }
 .warning {
   border-color: var(--alert-warning-bd);
-  background-color: var(--alert-warning-bg);
+  // background-color: var(--alert-warning-bg);
 }
 
 // Keyboard
 // ----------------------------------------------------------------
 kbd {
-  // background: var(--code-inline-background);
   background: $code-inline-background-light;
-  // color: var(--font-color);
   color: $font-color-light;
   border: 1px solid var(--color-faded-invert);
   border-radius: 3px;
@@ -257,6 +249,7 @@ $gap: 5px;
     }
   }
 }
+
 @include screen-md-up {
   .code-2cols,
   .col-2-equal {
@@ -656,9 +649,9 @@ input[type="search"]::-webkit-search-results-decoration {
     }
   }
   opacity: 0;
-  transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
   &.is-visible {
     opacity: 1;
-    transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
   }
 }

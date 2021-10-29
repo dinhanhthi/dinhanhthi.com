@@ -1,39 +1,40 @@
 import os
-import sys
 import shutil
+import sys
 
-# file_name = "angular-1-basics-components-databinding-directives"
-sample_dir = 'sample_posts/'
-notes_dir = 'notes/posts/'
+from helper import notes_dir, notes_full_path, sample_dir, sample_full_path, list_sample_files
 
-def to_samples(os_name = 'mac', file_name=''):
-# def to_samples(os_name = 'mac'):
-    """Find and copy a file from notes/posts/ to sample_posts/
+
+def to_samples(file_name="", method="move"):
+    """Find and move a file that are not in list_sample_posts.txt from notes/posts/ to sample_posts/
     HOW TO USE?
-    py to_samples.py mac docker-gpu
+        python to_samples.py docker-gpu
+        where "docker-gpu" comes from "https://dinhanhthi.com/docker-gpu/"
     """
-
-    if os_name == 'mac':
-        dat_dir = '/Users/thi/git/dinhanhthi.com/'
-    elif os_name == 'linux':
-        dat_dir = '/home/thi/git/dinhanhthi.com/'
-    elif os_name == 'win':
-        dat_dir = '/home/thi/git/dinhanhthi.com/'
-    else:
-        print('OS not supported !!!')
-        sys.exit(1)
-
-    sample_full_path = dat_dir + sample_dir
-    notes_full_path = dat_dir + notes_dir
 
     for root, _, files in os.walk(notes_full_path):
         for name in files:
             if name.find(file_name) != -1:
                 file_full_path = os.path.abspath(os.path.join(root, name))
-                print (os.path.split(file_full_path)[1])
-                shutil.copy(file_full_path, sample_full_path + os.path.split(file_full_path)[1])
-                print('✅  ' + notes_dir + os.path.split(file_full_path)[1] + ' 👉 ' + sample_dir)
+                try:
+                    if method == "move" and name[11:name.rfind(".")] not in list_sample_files:
+                        rst = shutil.move(file_full_path, sample_full_path +
+                                          "/" + os.path.split(file_full_path)[1])
+                        if rst:
+                            print("✅  MOVED : " + notes_dir + '/' +
+                                  os.path.split(file_full_path)[1] + " 👉 " + sample_dir + '/')
+                    elif method == "copy":
+                        rst = shutil.copy(file_full_path, sample_full_path +
+                                          "/" + os.path.split(file_full_path)[1])
+                        if rst:
+                            print("✅  COPIED : " + notes_dir + '/' +
+                                  os.path.split(file_full_path)[1] + " 👉 " + sample_dir + '/')
+                except:
+                    pass
 
 
 if __name__ == "__main__":
-    to_samples(sys.argv[1], sys.argv[2])
+    if len(sys.argv) == 1:  # method = "move"
+        to_samples(sys.argv[1])
+    elif len(sys.argv) == 2:  # method = "copy"
+        to_samples(sys.argv[1], "copy")

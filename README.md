@@ -18,9 +18,29 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 👉 Version 2 (Jekyll): [v2.dinhanhthi.com](https://v2.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v2).<br />
 👉 Version 3 (Jekyll): [v3.dinhanhthi.com](https://v3.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v3).
 
+## Useful commands
+
+<details>
+<summary>On MacOS</summary>
+
+```bash
+dat # go to dinhanhthi.com/
+goto:dat
+ud_samples # update modifs from sample_posts/ to notes/posts/ (in a suitable folder)
+ud_dat # build & deploy to netlify
+notes:update # git update notes/
+to_samples docker-gpu # move note docker-gpu to sample_posts/
+to_notes all # move ALL notes from sample_posts/ to notes/posts/ (in a suitable folder)
+             # (these notes aren't the notes in scripts/list_sample_posts.txt)
+to_notes nodejs-npm # move note "nodejs-npm" to notes/posts/ (in a suitable folder)
+cp_to_notes nodejs-npm # just copy from samples to notes
+cp_to_samples nodejs-npm # just copy from notes to samples
+```
+</details>
+
 ## Dev
 
-Let us assume that the installation step has been fully completed.
+Let us assume that the installation step is complete.
 
 - **Update data** : in `notes/_data/`. There are also `csp.js` in `src/_data`.
 - ⛑ Search a file, if there are duplicates, **edit the one in `sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
@@ -29,27 +49,21 @@ Let us assume that the installation step has been fully completed.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
 - **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
 
-Without image editing (**Note**: run `npm run css:touch` again every time you run the following commands!),
+Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
 # Sample posts (sample_posts/)
 npm run sample:watch-no-opt # localhost:8080, built to "_built"
-# Wait for finishing the built and run
-npm run css:touch
 
 # Real posts (/notes/posts/)
 npm run full:watch-no-opt # localhost:8080, built to "_built"
-# Wait for finishing the built and run
-npm run css:touch
 ```
 
-Without image editing (**Note**: run `npm run css:touch` again every time you run the following commands!),
+Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
 # Sample posts (sample_posts/)
 npm run sample:watch-opt # localhost:8080, built to "_site"
-# Wait for finishing the built and run
-npm run css:touch
 
 # Just build sample_post
 npm run sample:build-opt # built to "_site"

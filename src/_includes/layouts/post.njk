@@ -24,7 +24,7 @@ permalink: "{{ page.fileSlug }}/"
       <div id="note-tag">
         {% for tag in tags %}
           {% if tag != "posts" %}
-            <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>
+            <a href="/tags/{{ tag | slug }}/" {% if loop.index %}id="category"{% endif %}}>{{ tag }}</a>
           {% endif %}
         {% endfor %}
       </div>

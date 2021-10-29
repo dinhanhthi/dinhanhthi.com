@@ -1,0 +1,21 @@
+{
+  "Project-based Learning": "project",
+  "MOOC": "mooc",
+  "Machine Learning": "ml",
+  "Data Science": "data-science",
+  "Deep Learning": "deep-learning",
+  "Time Series": "time-series",
+  "NLP": "nlp",
+  "MLOps": "mlops",
+  "Python": "python",
+  "R Lang": "r",
+  "Prob & Stats": "stats",
+  "Angular": "angular",
+  "JavaScript": "js",
+  "Web Dev": "web-dev",
+  "API": "api",
+  "Algorithms": "algorithms",
+  "Skills": "skills",
+  "Gaming & Puzzles": "gaming",
+  "Others": "others"
+}

@@ -3,13 +3,14 @@ layout: post
 title: "Python Installation"
 tags: [Python]
 toc: true
-icon: "/img_src/about/python.svg"
+icon: "/img/about/python.svg"
 keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object UnicodeDecodeError: 'ascii' codec conda: The following packages are not available from current channels freetype (from matplotlib) dtaidistance: C-library is not available"
+date: 2021-10-29
 ---
 
 ## Windows
 
-__Update 11/Sep/20__: Install python [on WSL2](/docker-wsl2-windows) using [**Miniconda**](#linux-ubuntu).
+✅ __Update 11/Sep/20__: Install python [on WSL2](/docker-wsl2-windows) using [**Miniconda**](#linux-ubuntu).
 
 ::: hsbox Other options (directly install)
 Download and install [Anaconda](https://www.anaconda.com/distribution/) or smaller version [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
@@ -153,6 +154,10 @@ sudo apt-mark hold python2 python2-minimal python2.7 python2.7-minimal libpython
 
 👉 Note: [Jupyter notebook](/jupyter-notebook/).
 
+::: success
+If you use [VSCode](/visual-studio-code/), you should use its Jupyter Notebook extension, it's quick, clean and very easy to use.
+:::
+
 Anaconda contains JN in it, no need to install it again. `cd` to the folder you wanna work on and run
 
 ::: code-2cols
@@ -178,7 +183,7 @@ python -m notebook
 
 ## Check GPU
 
-👉 Read more on [note of pytorch](/pytorch#problem-with-cuda-version).
+👉 Note: [Pytorch](/pytorch#problem-with-cuda-version).
 
 ``` python
 # with pytorch
@@ -226,21 +231,21 @@ python -m pip install --user --upgrade pip # install for current user only
 python -m pip install --upgrade pip # need to run cmder as administrator
 ~~~
 
-::: hsbox AttributeError: 'NoneType' object
+::: hsbox `AttributeError: 'NoneType' object`
 First, `activate <env>` and then using `easy_install -U pip`. You can check the version of pip by `pip -V`.
 :::
+
+~~~ bash
+# INSTALL A PACKAGE
+pip install <package> # admin <-- SHOULDN'T!!!
+pip install --user <package> # current user only
+~~~
 
 <div class="col-2-equal">
 
 ~~~ bash
 # LIST ALL INSTALLED PACKAGES
 pip freeze
-~~~
-
-~~~ bash
-# INSTALL A PACKAGE
-pip install <package> # admin <-- SHOULDN'T!!!
-pip install --user <package> # current user only
 ~~~
 
 ``` bash
@@ -293,8 +298,7 @@ Install packages with requirement file,
 pip install -r requirements.txt
 ~~~
 
-An example of requirement file,
-
+::: hsbox An example of requirement file
 ~~~ bash
 geopandas==0.4.1
 grpcio==1.27.1
@@ -303,10 +307,21 @@ h5py==2.10.0
 isodate==0.6.0
 PyYAML==5.3.1
 ~~~
-
+:::
 
 ## `pip` vs `conda`?
 
+👌 **Fact**: each conda environment has a `pip`, just install package in each env with the corresponding `pip`.
+
+``` bash
+conda activate base
+which pip # /Users/thi/miniforge3/bin/pip
+
+conda activate working
+which pip # /Users/thi/miniforge3/envs/working/bin/pip
+```
+
+::: hsbox Old comments
 Differences:{% ref "https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter" %}
 
 - `pip` installs **python packages** in **any environment**.
@@ -316,9 +331,13 @@ Which one to be used?{% ref "https://jakevdp.github.io/blog/2017/12/05/installin
 
 - If you installed Python using Anaconda or Miniconda, then use `conda` to install Python packages. If `conda` tells you the package you want doesn't exist, then use `pip` (or try `conda-forge`, which has more packages available than the default conda channel).
 - If you installed Python any other way (from source, using `pyenv`, `virtualenv`, etc.), then use `pip` to install Python packages
+:::
 
 ## Python virtual environnement
 
+👌 **Fact**: For a simple life, use conda environment!
+
+::: hsbox Click to show
 👉🏻 Main guide is [here](https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments).
 
 ``` bash
@@ -336,19 +355,19 @@ deactivate
 ```
 
 To detele, just remove the corresponding folder, i.e., `<DIR>`.
+:::
 
 ## pyenv{:#pyenv}
 
-👉🏻 Read more [on SO](https://stackoverflow.com/questions/58044214/installing-anaconda-with-pyenv-unable-to-configure-virtual-environment).
-
-Note that, above method didn't work on MacOS M1.
+👉🏻 Read more [on SO](https://stackoverflow.com/questions/58044214/installing-anaconda-with-pyenv-unable-to-configure-virtual-environment). Note that, these methods didn't work on MacOS M1.
 
 ## Conda
 
 ### Install / Update conda
 
-👉 Read more on [this section](#linux-(ubuntu)).
+👉 Read more in [this section](#linux-(ubuntu)).
 
+::: col-2-equal
 ~~~ bash
 # INSTALL CONDA BY PIP (without Anaconda)
 pip install conda
@@ -359,15 +378,22 @@ pip install conda
 conda --version # check version
 conda update -n base -c defaults conda
 ~~~
+:::
 
-If there is an error `TypeError: LoadLibrary() argument 1 must be str, not None` at the end of the log, try to activate the environment `base` before running above line.
+::: hsbox Error `TypeError: LoadLibrary() argument 1 must be str, not None`
+Try to activate the environment `base` before running above line.
 
 ~~~ bash
 activate base # on Windows
 source activate base # on MacOS
 ~~~
+:::
 
 ### Install packages with conda
+
+👌 **Fact**: Activate an environment conda, use its `pip` to install any package.
+
+{% hsbox "Like using `conda`?" %}
 
 ~~~ bash
 # INSTALL
@@ -410,14 +436,16 @@ dependencies:
 # install packages with requirements.txt
 conda install --file requirements.txt
 ```
+{% endhsbox %}
 
 ### Environment
 
 👉 Check an [official doc](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) or [this useful post](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533).
 
-Create a new environment with python version 3.7:
 
+::: hsbox Creating
 ~~~ bash
+# Create a new environment with python version 3.7
 conda create -n <env-name> python=3.7 anaconda
 # created in /home/thi/miniconda3/envs/<env-name>/
 source activate <env-name> # activate this env
@@ -449,8 +477,7 @@ conda env create -n <env> -f /path/to/<file>.yml
 # Clone from another env
 conda create --name <cloned-env> --clone <env>
 ~~~
-
-
+:::
 
 ::: warning
 Most of below commands are assumed to be run in an environment named `env` which is already activated. If you don't activate any environment before, use an alternative instead. For example,
@@ -506,7 +533,7 @@ conda env export -f <file>.yml
 conda env update -n <env> -f /path/to/<file>.yml --prune
 ~~~
 
-{% hsbox "Show activated env in [zsh](/terminal/#zsh-(linux))" %}
+{% hsbox "Show activated env in [zsh](/terminal/#zsh-linux)" %}
 ``` bash
 # run this first in your current shell
 conda init zsh
