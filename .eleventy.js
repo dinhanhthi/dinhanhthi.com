@@ -64,6 +64,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.add("notes");
       eleventyConfig.ignores.delete("sample_posts");
+      eleventyConfig.ignores.add("note_mode_posts");
       break;
 
     case "sample-opt":

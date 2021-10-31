@@ -23,7 +23,7 @@ def copy():
                     if rst:
                         print("✅  " + sample_dir + "/" + full_name +
                               " 👉 " + notes_dir + "/" + father_folder + "/")
-                except:
+                except BaseException:
                     pass
 
 

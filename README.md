@@ -29,6 +29,7 @@ goto:dat
 ud_samples # update modifs from sample_posts/ to notes/posts/ (in a suitable folder)
 ud_dat # build & deploy to netlify
 notes:update # git update notes/
+touch_css # to run npm css:touch anywhere
 
 to_samples docker-gpu # move note docker-gpu to sample_posts/
 cp_to_samples nodejs-npm # just copy from notes to samples
@@ -42,6 +43,11 @@ cp_to_notes nodejs-npm # just copy from samples to notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
 # WIP notes must be in sample_posts/
+
+# Turn note mode on/off
+# Only build files in note_mode_list.txt
+note_mode on
+note_mode off
 ```
 </details>
 
