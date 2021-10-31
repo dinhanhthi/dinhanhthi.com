@@ -1,9 +1,9 @@
 import shutil
 import sys
 
-from helper import (categories, get_full_name,
-                    get_parent_folder, notes_dir, lst_notes_in_samples, lst_files_in_samples,
-                    notes_full_path, sample_dir, sample_full_path, list_sample_files)
+from helper import (get_full_name, get_parent_folder, list_sample_files,
+                    lst_files_in_samples, lst_notes_in_samples, notes_dir,
+                    notes_full_path, sample_dir, sample_full_path)
 
 
 def to_notes(file_name="all"):
@@ -26,23 +26,26 @@ def to_notes(file_name="all"):
 def copy_move_single(file_name, method="move"):
     full_name = get_full_name(file_name.strip(), lst_files_in_samples)
     if full_name:
-        father_folder = get_parent_folder(
-            full_name, sample_full_path, categories)
+        father_folder = get_parent_folder(full_name, sample_full_path)
         srcfile = sample_full_path + "/" + full_name
         dstfile = notes_full_path + "/" + father_folder + "/" + full_name
         try:
-            if method == "move" and file_name not in list_sample_files:
-                rst = shutil.move(srcfile, dstfile)
-                if rst:
-                    print("✅  MOVED : " + sample_dir + '/' +
-                          full_name + " 👉 " + notes_dir + '/' + father_folder + '/')
+            if method == "move":
+                if (file_name not in list_sample_files):
+                    rst = shutil.move(srcfile, dstfile)
+                    if rst:
+                        print("✅  MOVED : " + sample_dir + '/' +
+                              full_name + " 👉 " + notes_dir + '/' + father_folder + '/')
+                else:
+                    print(
+                        "❌ Cannot move because " + file_name + " is in list_sample_posts.txt!!!")
             elif method == "copy":
                 rst = shutil.copy(srcfile, dstfile)
                 if rst:
                     print("✅  COPIED : " + sample_dir + '/' +
                           full_name + " 👉 " + notes_dir + '/' + father_folder + '/')
         except:
-            pass
+            print("🙅‍♂️ " + file_name + " is NOT moved / copied !!!")
 
 
 if __name__ == "__main__":

@@ -20,8 +20,10 @@ with open(file_list_txt) as f:
     data = f.read()
 list_sample_files = data.split('\n')
 lst_files_in_samples = os.listdir(sample_full_path)
-lst_notes_in_samples = [file for file in lst_files_in_samples if file.endswith('.md') or file.endswith('.njk')]
-lst_notes_in_samples = [file for file in lst_notes_in_samples if file[11:file.rfind('.')] not in list_sample_files]
+lst_notes_in_samples = [file for file in lst_files_in_samples if file.endswith(
+    '.md') or file.endswith('.njk')]
+lst_notes_in_samples = [file for file in lst_notes_in_samples if file[11:file.rfind(
+    '.')] not in list_sample_files]
 
 
 def get_full_name(line, list_files):
@@ -30,9 +32,13 @@ def get_full_name(line, list_files):
             return file
 
 
-def get_parent_folder(file_name, full_path, cats):
-    post = frontmatter.load(full_path + '/' + file_name)
-    return cats[post['tags'][0]]
+def get_parent_folder(file_name, full_path):
+    return get_parent_folder_notes(full_path + '/' + file_name)
+
+
+def get_parent_folder_notes(file_full_path):
+    post = frontmatter.load(file_full_path)
+    return categories[post['tags'][0]]
 
 
 def get_file_info_notes(file_name, notes_path_full):

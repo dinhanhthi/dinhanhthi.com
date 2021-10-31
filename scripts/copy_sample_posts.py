@@ -1,8 +1,8 @@
 import shutil
 
-from helper import (categories, file_list_txt, get_full_name,
-                    get_parent_folder, lst_files_in_samples, notes_dir, list_sample_files,
-                    notes_full_path, sample_dir, sample_full_path)
+from helper import (get_full_name, get_parent_folder, list_sample_files,
+                    lst_files_in_samples, notes_dir, notes_full_path,
+                    sample_dir, sample_full_path)
 
 
 def copy():
@@ -15,8 +15,7 @@ def copy():
         if (not line.startswith("#")):
             full_name = get_full_name(line.strip(), lst_files_in_samples)
             if full_name:
-                father_folder = get_parent_folder(
-                    full_name, sample_full_path, categories)
+                father_folder = get_parent_folder(full_name, sample_full_path)
                 srcfile = sample_full_path + "/" + full_name
                 dstfile = notes_full_path + "/" + father_folder + "/" + full_name
                 try:

@@ -12,6 +12,9 @@
     {% if post.data.private %}
       {% set singlePost = singlePost | setAttribute('private', post.data.private) %}
     {% endif %}
+    {% if post.data.good %}
+      {% set singlePost = singlePost | setAttribute('good', post.data.good) %}
+    {% endif %}
     {% if not post.data.hide %}
       {% set newPostList = (newPostList.push(singlePost), newPostList) %}
     {% endif %}
@@ -58,6 +61,9 @@
         <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
           {% if post.title %}
             {{ post.title }}
+            {% if post.good %}
+              <sup title="{{ other_data.good }}" style="color: #ffc50b;">⭑</sup>
+            {% endif %}
             {% if post.notfull %}
               <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}

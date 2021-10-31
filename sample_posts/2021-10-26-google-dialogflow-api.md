@@ -12,7 +12,6 @@ date: 2021-10-29
 
 Google's documentation is like an ocean. It's not easy to find a right one to start. This note contains only basic things that I've already worked with. Trying your own hand at Google's APIs will help you understand more.
 
-👉 Note: [Google OAuth 2.0 with NodeJS](/google-oauth-2.0-nodejs/).
 👉 Repo: [dinhanhthi/google-api-playground](https://github.com/dinhanhthi/google-api-playground) (private).
 
 ## Official documentation
@@ -84,34 +83,7 @@ The old version uses [`dialogflow`](https://www.npmjs.com/package/dialogflow) an
 In case you wanna try something outside the files given in [samples](https://github.com/googleapis/nodejs-dialogflow/tree/main/samples). Check [this SDK](https://googleapis.dev/nodejs/dialogflow/latest/index.html). Suppose we wanna try this one -- [`AgentsClient.searchAgents()`](https://googleapis.dev/nodejs/dialogflow/4.5.0/v2.AgentsClient.html#searchAgents)
 
 1. Make the same things in "Step by step". At step 7, create `search-agents.js` with the same content as [`samples/set-agent.js`](https://github.com/googleapis/nodejs-dialogflow/blob/main/samples/set-agent.js). We are going to change this file.
-2. Read the [reference](https://googleapis.dev/nodejs/dialogflow/4.5.0/v2.AgentsClient.html#searchAgents), change the input. Below is an example,
-
-    ```js
-    "use strict";
-    async function main() {
-    const location = "global";
-    const { AgentsClient } = require("@google-cloud/dialogflow");
-    const parent = (location) => "projects/-" + "/locations/" + location;
-    const client = new AgentsClient({
-        credentials: { private_key, client_email },
-        apiEndpoint: location + "-dialogflow.googleapis.com",
-    });
-    async function searchAgents() {
-        const request = { parent: parent(location) };
-        const [response] = await client.searchAgents(request);
-        console.log(`response: ${JSON.stringify(response, null, 2)}`);
-    }
-    await searchAgents();
-    }
-    process.on("unhandledRejection", (err) => {
-    console.error(err.message);
-    process.exitCode = 1;
-    });
-    main();
-    ```
-
-    Then run `node search-agents.js`.
-
+2. Read the [reference](https://googleapis.dev/nodejs/dialogflow/4.5.0/v2.AgentsClient.html#searchAgents), change the input. Here is [an example](https://gist.github.com/dinhanhthi/b40217eff2b938ffbfece82de8bb0907),
 :::
 
 ::: hsbox Different locations?
@@ -168,7 +140,7 @@ What's this `gapi`? You can use it completely inside an HTML file without using 
 👉 [REST API](https://cloud.google.com/dialogflow/docs/reference/rest/v2-overview).
 👉 [Node.js SDK](https://googleapis.dev/nodejs/dialogflow/latest/index.html).
 
-::: hsbox Some examples
+::: hsbox The corresponding between references
 `projects.agent.search`
 
 - `GET https://{endpoint}/v2/{parent=projects/*}/agent:search`
@@ -182,7 +154,16 @@ What's this `gapi`? You can use it completely inside an HTML file without using 
 - **SDK**: [.../v2.SessionsClient.html#detectIntent](https://googleapis.dev/nodejs/dialogflow/latest/v2.SessionsClient.html#detectIntent)
 :::
 
+## Using REST API in Node.js
 
+- Normally, it's easier if we use [Node.js SDK](https://googleapis.dev/nodejs/dialogflow/latest/index.html).
+- First, you need to create a Service Account, then create a key and download the JSON file. Follow [these steps](https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account).
+- Check [an example code](https://gist.github.com/dinhanhthi/e57e00886adaa611e2b49f9dcf76d90e).
+- **Remark**: the code above use `request` which has been [already deprecated](https://www.npmjs.com/package/request)! You can choose [any alternative](https://github.com/request/request/issues/3143).
+
+::: warning
+**Remark**: With keys generated from a service account (stored in JSON), we can **only get 1 agent** for methods like [`projects.agent.search`](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent/search) although it says that we can get a list of agents. In this case, try to [get access token via OAuth 2.0](https://www.youtube.com/watch?v=Qt3KJZ2kQk0). With this, we can access to all projects instead of only 1 (which is used to generate the json file).
+:::
 
 ## Dialogflow REST APIs with Postman
 
