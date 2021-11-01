@@ -43,11 +43,6 @@ cp_to_notes nodejs-npm # just copy from samples to notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
 # WIP notes must be in sample_posts/
-
-# Turn note mode on/off
-# Only build files in note_mode_list.txt
-note_mode on
-note_mode off
 ```
 </details>
 
@@ -112,11 +107,8 @@ Upload the configuration file to `/src/fontello/config.json` on [fontello.com](h
 # Install fontello-cli
 npm install -g fontello-cli
 
-# Remove old session (if changing the current icons, not adding new ones)
-rm .fontello-session
-
-# Install / update new icon
-fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install
+# Run
+npm run ud-fontello
 
 # Check code in src/fontello/config.json, field "css"
 ```

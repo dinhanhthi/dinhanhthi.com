@@ -1,6 +1,6 @@
 {
   "name": "dinhanhthi.com",
-  "version": "4.9.0",
+  "version": "4.10.1",
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
@@ -26,7 +26,8 @@
     "site:build": "npm run build",
     "site:update": "sh scripts/ud_site.sh",
     "site:build-update": "npm run site:build && npm run site:update",
-    "ud-samples": "python scripts/copy_sample_posts.py"
+    "ud-samples": "python scripts/copy_sample_posts.py",
+    "ud-fontello": "npx rimraf .fontello-session && fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install"
   },
   "repository": {
     "type": "git",

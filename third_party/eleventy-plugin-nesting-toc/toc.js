@@ -40,13 +40,13 @@ class Item {
   html() {
     let markup = "";
     if (this.slug && this.text) {
-      markup += `
-                    <li><a href="#${this.slug}"${
-        this.children.length > 0 ? ' class="toc-heading-down"' : ""
-      }>
-                    ${this.text}
-                    </a>
-            `;
+      let idI = `<i id="${this.slug}" onclick="showChildrenHedings(this.id)" class="icon-right-circle circle-icon"></i>`;
+      markup +=
+        `<li>` +
+        `${this.children.length > 0 ? idI : ""}` +
+        `<a href="#${this.slug}"${
+          this.children.length > 0 ? ' class="toc-heading-down"' : ""
+        }>${this.text}</a>`;
     }
     if (this.children.length > 0) {
       markup += `
@@ -61,6 +61,10 @@ class Item {
     }
 
     return markup;
+  }
+
+  showChildrenHedings() {
+    console.log("Clicked!!!");
   }
 }
 
