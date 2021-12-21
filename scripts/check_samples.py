@@ -8,7 +8,7 @@ init()  # use Colorama to make Termcolor work on Windows too
 
 
 def check_samples():
-    """Check notes in sample_posts/ but not in list_sample_posts.txt
+    """Check notes in notes/sample_posts/ but not in list_sample_posts.txt
       HOW TO USE:
         python scripts/check_samples.py
         (on mac - for me only) check_samples
@@ -24,7 +24,7 @@ def check_samples():
         file for file in lst_notes_in_samples_in_short
         if file not in lst_of_notes_in_notes_in_short]
     print("")
-    print(Fore.YELLOW + "🍋 Notes MOVED to sample_posts/ (NOT IN notes/)" + Fore.RESET)
+    print(Fore.YELLOW + "🍋 Notes MOVED to notes/sample_posts/ (NOT IN notes/)" + Fore.RESET)
     print(notes_moved_to_samples)
     print("")
 

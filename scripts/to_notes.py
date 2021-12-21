@@ -7,7 +7,7 @@ from helper import (get_full_name, get_parent_folder, list_sample_files,
 
 
 def to_notes(file_name="all"):
-    """Move/copy & replace files that are not in list_sample_posts.txt from sample_posts/ to notes/posts/
+    """Move/copy & replace files that are not in list_sample_posts.txt from notes/sample_posts/ to notes/posts/
     HOW TO USE?
         - Move all files:
             python to_notes.py all

@@ -6,7 +6,7 @@ from helper import notes_dir, notes_full_path, sample_dir, sample_full_path, lis
 
 
 def to_samples(file_name="", method="move"):
-    """Find and move a file that are not in list_sample_posts.txt from notes/posts/ to sample_posts/
+    """Find and move a file that are not in list_sample_posts.txt from notes/posts/ to notes/sample_posts/
     HOW TO USE?
         python to_samples.py docker-gpu
         where "docker-gpu" comes from "https://dinhanhthi.com/docker-gpu/"

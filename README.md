@@ -34,15 +34,15 @@ pip install -r requirements.txt
 ```bash
 dat # go to dinhanhthi.com/
 goto:dat
-ud_samples # update modifs from sample_posts/ to notes/posts/ (in a suitable folder)
+ud_samples # update modifs from notes/sample_posts/ to notes/posts/ (in a suitable folder)
 ud_dat # build & deploy to netlify
 notes:update # git update notes/
 touch_css # to run npm css:touch anywhere
 
-to_samples docker-gpu # move note docker-gpu to sample_posts/
+to_samples docker-gpu # move note docker-gpu to notes/sample_posts/
 cp_to_samples nodejs-npm # just copy from notes to samples
 
-to_notes all # move ALL notes from sample_posts/ to notes/posts/ (in a suitable folder)
+to_notes all # move ALL notes from notes/sample_posts/ to notes/posts/ (in a suitable folder)
              # (these notes aren't the notes in scripts/list_sample_posts.txt)
 to_notes nodejs-npm # move note "nodejs-npm" to notes/posts/ (in a suitable folder)
 cp_to_notes nodejs-npm # just copy from samples to notes
@@ -50,9 +50,9 @@ cp_to_notes nodejs-npm # just copy from samples to notes
 # Reading notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
-# WIP notes must be in sample_posts/
+# WIP notes must be in notes/sample_posts/
 
-# Check notes in sample_posts/ but not in list_sample_posts.txt
+# Check notes in notes/sample_posts/ but not in list_sample_posts.txt
 check_samples
 ```
 </details>
@@ -62,7 +62,7 @@ check_samples
 Let us assume that the installation step is complete.
 
 - **Update data** : in `notes/_data/`. There are also `csp.js` in `src/_data`.
-- ⛑ Search a file, if there are duplicates, **edit the one in `sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
+- ⛑ Search a file, if there are duplicates, **edit the one in `notes/sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
@@ -71,7 +71,7 @@ Let us assume that the installation step is complete.
 Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
-# Sample posts (sample_posts/)
+# Sample posts (notes/sample_posts/)
 npm run sample:watch-no-opt # localhost:8080, built to "_built"
 
 # Real posts (/notes/posts/)
@@ -81,7 +81,7 @@ npm run full:watch-no-opt # localhost:8080, built to "_built"
 Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
-# Sample posts (sample_posts/)
+# Sample posts (notes/sample_posts/)
 npm run sample:watch-opt # localhost:8080, built to "_site"
 
 # Just build sample_post
