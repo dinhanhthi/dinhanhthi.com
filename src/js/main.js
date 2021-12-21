@@ -100,6 +100,13 @@ document.body.addEventListener(
 
 // Scrolling toc
 // -----------------------------------------
+function getSafe(fn, defaultVal) {
+  try {
+    return fn();
+  } catch (e) {
+    return defaultVal;
+  }
+}
 if (document.querySelectorAll("h2, h3") != null) {
   function headingTOC() {
     document.querySelectorAll("h2:not(.exclude-from-toc), h3:not(.exclude-from-toc)").forEach((heading) => {
@@ -109,7 +116,9 @@ if (document.querySelectorAll("h2, h3") != null) {
           var toc = document.getElementsByClassName("toc-js")[0];
           if (toc != null) {
             toc.querySelectorAll("a").forEach((item) => {
-              item.parentElement.classList.remove("toc-active");
+              if (item.parentElement) {
+                item.parentElement.classList.remove("toc-active");
+              }
             });
             if (document.querySelector(`.toc-js li a[href="#${id}"]`)) {
               document.querySelector(`.toc-js li a[href="#${id}"]`).parentElement.classList.add("toc-active");
@@ -117,25 +126,33 @@ if (document.querySelectorAll("h2, h3") != null) {
 
             if (heading.tagName === "H2") {
               toc.querySelectorAll("a").forEach((item) => {
-                if (item.getAttribute("href") !== "#" + id) {
+                if (item.getAttribute("href") !== "#" + id && item.parentElement) {
                   item.parentElement.classList.remove("h2-focused");
-                  if (
-                    item.previousSibling &&
-                    item.previousSibling.classList.contains("icon-down-circle") &&
-                    !item.parentElement.classList.contains("showChildren")
-                  ) {
-                    item.previousSibling.classList.remove("icon-down-circle");
-                    item.previousSibling.classList.add("icon-right-circle");
-                  }
+                  getSafe(() => {
+                    if (
+                      item.previousSibling &&
+                      item.previousSibling.classList.contains("icon-down-open") &&
+                      !item.parentElement.classList.contains("showChildren")
+                    ) {
+                      item.previousSibling.classList.remove("icon-down-open");
+                      item.previousSibling.classList.add("icon-right-open");
+                    }
+                  }, "nothing");
                 }
               });
               const selectedAId = document.querySelector(`.toc-js li a[href="#${id}"]`);
-              if (selectedAId) {
+              if (selectedAId && selectedAId.parentElement) {
                 selectedAId.parentElement.classList.add("h2-focused");
-                if (selectedAId.previousSibling && !selectedAId.parentElement.classList.contains("hideChildren")) {
-                  selectedAId.previousSibling.classList.remove("icon-right-circle");
-                  selectedAId.previousSibling.classList.add("icon-down-circle");
-                }
+                getSafe(() => {
+                  if (
+                    selectedAId.previousSibling &&
+                    selectedAId.parentElement.classList &&
+                    !selectedAId.parentElement.classList.contains("hideChildren")
+                  ) {
+                    selectedAId.previousSibling.classList.remove("icon-right-open");
+                    selectedAId.previousSibling.classList.add("icon-down-open");
+                  }
+                }, "nothing");
               }
             }
           }
@@ -162,7 +179,7 @@ if (document.querySelectorAll("h2, h3") != null) {
 // -----------------------------------------
 function offsetAnchor() {
   if (location.hash.length !== 0) {
-    window.scrollTo({ left: window.scrollX, top: window.scrollY - 60 });
+    window.scrollTo({ left: window.scrollX, top: window.scrollY - 60, behavior: "smooth" });
   }
 }
 // Captures click events of all <a> elements with href starting with #

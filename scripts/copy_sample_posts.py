@@ -9,6 +9,7 @@ def copy():
     """Copy files listed in  from samples/ to notes/posts/
     HOW TO USE?
         python copy_sample_posts.py
+        (on mac - for me only) ud_samples
     """
 
     for line in list_sample_files:

@@ -15,7 +15,7 @@
 @mixin code-inline() {
   border: var(--code-inline-bd);
   background: var(--code-inline-background);
-  padding: 2px 4px;
+  padding: 1px 4px 2px 4px;
   margin: 0 1px;
   border-radius: 3px;
   font-size: 0.9rem;

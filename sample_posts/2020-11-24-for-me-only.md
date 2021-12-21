@@ -6,11 +6,13 @@ toc: true
 icon: "customize.svg"
 math: true
 keywords: "me for me only customize admin panel edition customize edit this site box font blocks for me only dinhanhthi dinh anh thi custom size emoji"
+noOudated: true
 ---
 
 This post is for me only. It contains shortcodes to create this website.
 
 👉  Note: [11ty](/11ty-nunjucks/).
+👉 Note: [All in one components](/all-in-one-aio-components/).
 
 ## Frontmatter
 
@@ -21,10 +23,10 @@ descriptopm: description of the post
 tags: [Others] # base: Project-based Learning, MOOC, Machine Learning,
                #       Data Science, Deep Learning, Time Series,
                #       NLP, MLOps, Python, R Lang, Linear Algebra,
-               #       Prob & Stats, JavaScript, Web Dev, Algorithms
-               #       Skills, Others
-icon: "/img/header/customize.svg" # can be "customize.svg"
-                                  # if it's in /img_src/header/
+               #       Prob & Stats, JavaScript, Web Dev, API, Algorithms
+               #       Skills, Gaming & Puzzles, Others
+icon: "/img_src/header/customize.svg" # can be "customize.svg"
+                                  # if it's in /notes/img/header/
 keywords: "for me only customize edit this site box font blocks" # used for searching
 toc: true # `false` to hide toc
           # More: # Headings{:data-toc-exclude} to exclude some headings
@@ -32,7 +34,9 @@ notfull: true # if the post is not good enough
 hide: true # if don't want to show it on index and result engine
 private: true # (if the post comes from external source) a private link
 read: true # reading post type
-math: true # using math equations in page?
+math: true # using math equations in note?
+good: true # (on hold) the note is good written
+noOudated: true # this kind of post doesn't have "outdated" warning box
 ```
 
 ## Other components

@@ -36,13 +36,12 @@
 .icon-ng:before { content: '\e822'; } /* '' */
 .icon-ok:before { content: '\e823'; } /* '' */
 .icon-link:before { content: '\e824'; } /* '' */
-.icon-down-micro:before { content: '\e825'; } /* '' */
 .icon-down-circle:before { content: '\e826'; } /* '' */
-.icon-down-open:before { content: '\e827'; } /* '' */
 .icon-api:before { content: '\e828'; } /* '' */
 .icon-right-circle:before { content: '\e829'; } /* '' */
+.icon-down-open:before { content: '\e82a'; } /* '' */
+.icon-right-open:before { content: '\e82b'; } /* '' */
 .icon-copy:before { content: '\f0c5'; } /* '' */
-.icon-sort-down:before { content: '\f0dd'; } /* '' */
 .icon-gamepad:before { content: '\f11b'; } /* '' */
 .icon-fork:before { content: '\f126'; } /* '' */
 .icon-mlops-solid:before { content: '\f135'; } /* '' */

@@ -33,6 +33,9 @@
   &::before {
     color: var(--font-a) !important;
   }
+  .circle-icon {
+    color: var(--font-a) !important;
+  }
 }
 
 .toc {
@@ -69,10 +72,10 @@
       }
     }
 
-    @media (max-width: $grid-sm - 1px) {
+    @media (max-width: #{$grid-sm - 1px}) {
       @include column-count(1);
     }
-    @media (min-width: $grid-sm) and (max-width: $grid-toc - 1px) {
+    @media (min-width: $grid-sm) and (max-width: #{$grid-toc - 1px}) {
       @include column-count(2);
     }
 
@@ -132,7 +135,7 @@
     }
   }
 
-  @media (max-width: $grid-toc - 1px) {
+  @media (max-width: #{$grid-toc - 1px}) {
     margin-bottom: $margin-bottom;
     padding: 0;
     & > .ol-container > ol {
@@ -178,9 +181,12 @@
           &::before {
             color: var(--font-a) !important;
           }
+          .circle-icon {
+            color: var(--font-a) !important;
+          }
         }
         .circle-icon {
-          margin-right: 3px;
+          margin-left: -3px;
           color: var(--color-faded);
         }
         .circle-icon {

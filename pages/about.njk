@@ -82,8 +82,7 @@ On this website, I document everything I have learned during my learning and wor
   {% for sec in cv %}
     <div id="{{ sec.name | lower }}" class="section exp-edu">
       <div class="div-h2">
-        <h2 class="d-flex align-items-center"><img class="keep-original" src="{{ sec.icon }}" alt="{{ sec.name }}" height="30" width="30">
-          {{ sec.name }}</h2>
+        <h2 class="d-flex align-items-center">{{ sec.name }}</h2>
       </div>
       <div class="list-of">
         {% for item in sec.list %}
@@ -158,7 +157,7 @@ On this website, I document everything I have learned during my learning and wor
         <div class="list-wrapper">
           <div class="list-of">
             <div class="title">
-              <a href="{% if item.source %}{{ item.source }}{% else %}{{ item.url }}{% endif %}">
+              <a href="{% if item.source %}{{ item.source }}{% else %}{{ item.url }}{% endif %}" target="_blank">
                 <h4>{{ item.icon }}<span>{{ item.title }}</span></h4>
               </a>
               <p>{{ item.description | safe }}</p>

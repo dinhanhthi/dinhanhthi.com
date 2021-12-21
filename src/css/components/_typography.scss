@@ -61,3 +61,48 @@ a {
 h2 > .icon-api {
   margin-right: 10px !important;
 }
+
+mark {
+  color: inherit;
+  padding: 1px 5px 3px 5px;
+  border-radius: 5px;
+  background: var(--mark-color);
+}
+
+code mark {
+  box-shadow: none;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    height: auto;
+  }
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+hr {
+  border-bottom: 1px solid #eee;
+}

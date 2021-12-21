@@ -5,20 +5,22 @@ tags: [API]
 toc: true
 icon: dialogflow.svg
 keywords: "apis request http apis application programming interface dialogflow google sdk google cloud gcp apis credentials REST postman gapi gsi sign in with google new version service account endpoint location detect intent roles tokens"
-date: 2021-10-29
+date: 2021-11-03
 ---
 
 {% assign img-url = '/img/post/api' %}
 
 Google's documentation is like an ocean. It's not easy to find a right one to start. This note contains only basic things that I've already worked with. Trying your own hand at Google's APIs will help you understand more.
 
-👉 Repo: [dinhanhthi/google-api-playground](https://github.com/dinhanhthi/google-api-playground) (private).
+👉 Github: [dinhanhthi/google-api-playground](https://github.com/dinhanhthi/google-api-playground) (private).
+👉 Note: [Google's OAuth2 APIs](/google-oauth2-api/)
 
 ## Official documentation
 
 {% hsbox "Click to show" %}
 
 1. [APIs & references](https://cloud.google.com/dialogflow/es/docs/reference) -- the root of all things.
+   
    1. [Node.js client library](https://cloud.google.com/dialogflow/es/docs/reference/libraries/nodejs) -- wanna use in a backend?
       1. [Dialogflow SDK Client Reference](https://googleapis.dev/nodejs/dialogflow/latest/index.html)
       2. [googleapis/nodejs-dialogflow](https://github.com/googleapis/nodejs-dialogflow) -- Github repo.
@@ -90,7 +92,9 @@ In case you wanna try something outside the files given in [samples](https://git
 The example in "Try something outside..." gives us an example of using different regions. Below are some remarks:
 
 1. On [DF console](https://dialogflow.cloud.google.com/), you can create some agents in a different regions, default is `global` (or `us`).
+
 2. On the Google's documentations, they don't mention about the usage of location. If they say `parent = "projects/-"`, we shoud use `parent = "projects/-" + "/locations/" + location` where `location` can be [one of "Region ID"](https://cloud.google.com/dialogflow/es/docs/how/region#regions).
+
 3. Change also the endpoint, option `apiEndpoint` in [`AgentsClient`'s constructor](https://googleapis.dev/nodejs/dialogflow/latest/v2.AgentsClient.html), for example.
 
     ```js
@@ -98,7 +102,22 @@ The example in "Try something outside..." gives us an example of using different
         apiEndpoint: location + "-dialogflow.googleapis.com",
     });
     ```
+
 :::
+
+
+
+::: warning
+
+On SDK documentation, they don't mention about the location in the `parent` property. For example, they say "`parent` can be `projects/<Project ID or '-'>`", but you can add [the location information](https://cloud.google.com/dialogflow/es/docs/how/region#regions) inside it like that
+
+```js
+const parent = (location) => "projects/-" + "/locations/" + location; 
+```
+
+:::
+
+
 
 ## Wanna try `gapi` (JS client)?
 
@@ -152,6 +171,23 @@ What's this `gapi`? You can use it completely inside an HTML file without using 
 - `POST https://{endpoint}/v2/{session=projects/*/locations/*/agent/sessions/*}:detectIntent`
 - **REST**: [.../v2/projects.agent.sessions/detectIntent](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent.sessions/detectIntent)
 - **SDK**: [.../v2.SessionsClient.html#detectIntent](https://googleapis.dev/nodejs/dialogflow/latest/v2.SessionsClient.html#detectIntent)
+
+:::
+
+
+
+::: warning
+
+Sometimes, the location infotmation is mentionned in the REST API but not in the SDK. For example, load the list of agents w.r.t. [some location](https://cloud.google.com/dialogflow/es/docs/how/region#regions),
+
+- **REST** (different with [the general case](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.agent/search)): https://cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.locations.agent/search
+
+- **SDK** (the same as the general case), in this, we just need to add "location" into the `agent` property, like
+
+  ```js
+  const parent = (location) => "projects/-" + "/locations/" + location; 
+  ```
+
 :::
 
 ## Using REST API in Node.js
@@ -172,4 +208,41 @@ What's this `gapi`? You can use it completely inside an HTML file without using 
 :::hsbox Additional configurations
 - Create a collection and add the Authorization for this collection. All of its request will use the same auth method.
 - Create variables (on tab "Variables") to store "CLIENT ID" (`client_id`) and "CLIENT SECRET" (as `client_secret`), then use them in the form by `{% raw %}{{client_id}}{% endraw %}` and `{% raw %}{{client_secret}}{% endraw %}`.
+
 :::
+
+
+
+## Location problem
+
+👉 [List of endpoints](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview#rest_endpoints) (containing location inside).
+👉 [LIst of location information](https://cloud.google.com/dialogflow/es/docs/how/region#regions) you can use with Dialogflow.
+
+You have to use ==the same [endpoint](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview#rest_endpoints) and [location information](https://cloud.google.com/dialogflow/es/docs/how/region#regions)== in the API/SDK. If you use them differently, for example,
+
+```js
+https://global-dialogflow.googleapis.com/v2/projects/-/locations/europe-west1/agent:search
+```
+
+You will meet an error like below,
+
+```
+"Please switch to 'europe-west1-dialogflow.googleapis.com' to access resources located in 'europe-west1'."
+```
+
+In the SDK documention, they don't mention about the location you need to use in the `agent` property. For example, they say "`parent` can be `projects/<Project ID or '-'>`", but you can add [the location information](https://cloud.google.com/dialogflow/es/docs/how/region#regions) inside it like that
+
+```js
+const parent = (location) => "projects/-" + "/locations/" + location; 
+```
+
+💡They are the same (for [endpoints](https://cloud.google.com/dialogflow/es/docs/reference/rest/v2-overview#rest_endpoints)):
+
+```js
+dialogflow.googleapis.com
+us-dialogflow.googleapis.com
+global-dialogflow.googleapis.com
+```
+
+
+

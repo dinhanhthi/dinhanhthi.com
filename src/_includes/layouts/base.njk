@@ -45,7 +45,9 @@
               <span class="special-title">{{ specialTitle }}</span>
             {% endif %}
             {{ title }}
-            {% if notfull %}
+            {% if lowQuality %}
+              <sup class="draft-badge">low-quality</sup>
+            {% elif notfull %}
               <sup class="draft-badge">draft</sup>
             {% endif %}
           </h1>

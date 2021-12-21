@@ -292,7 +292,7 @@ $gap: 5px;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   margin-bottom: $margin-bottom;
-  @media (min-width: $grid-sm) and (max-width: $grid-md - 1px) {
+  @media (min-width: $grid-sm) and (max-width: #{$grid-md - 1px}) {
     grid-template-columns: 2fr 1fr;
     &.size-1-1 {
       grid-template-columns: 1fr 1fr !important;
@@ -369,6 +369,8 @@ $gap: 5px;
         height: auto;
         opacity: 1;
         padding: 5px 0;
+        max-height: 700px;
+        overflow: auto;
         // transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
       }
       &::before {

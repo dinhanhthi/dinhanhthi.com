@@ -40,7 +40,7 @@ class Item {
   html() {
     let markup = "";
     if (this.slug && this.text) {
-      let idI = `<i id="${this.slug}" onclick="showChildrenHedings(this.id)" class="icon-right-circle circle-icon"></i>`;
+      let idI = `<i id="${this.slug}" onclick="showChildrenHedings(this.id)" class="icon-right-open circle-icon"></i>`;
       markup +=
         `<li>` +
         `${this.children.length > 0 ? idI : ""}` +

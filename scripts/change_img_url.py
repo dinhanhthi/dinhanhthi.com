@@ -1,6 +1,7 @@
 from helper import dat_dir, sample_full_path, get_full_name, lst_files_in_samples
 import sys
 
+
 def change_url(file_name):
     """ Replace image url in the md file to {{ img-url }}
         How to use?
@@ -22,6 +23,7 @@ def change_url(file_name):
             print('✅  Image URL in "' + full_name + '" has been changed!')
     except:
         print("🙅‍♂️ " + file_name + " is UNCHANGED !!!")
+
 
 if __name__ == "__main__":
     change_url(sys.argv[1])

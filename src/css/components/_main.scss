@@ -28,77 +28,15 @@
   background: var(--color-background);
 }
 
-/*
-  Make image rasterization lazy. This means that e.g. the cost of the
-  blurry placeholder is never paid if images load before entering
-  the viewport.
-  Context
-  - https://web.dev/content-visibility/#skipping-rendering-work-with-content-visibility
- */
-main img {
-  content-visibility: auto;
-}
-
 dialog {
   background-color: #8dff80;
   position: fixed;
   opacity: 0.9;
 }
 
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-[type="number"] {
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    height: auto;
-  }
-}
-
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-
-  &::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-}
-
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit;
-}
-
-mark {
-  color: inherit;
-  // padding: 0;
-  // background-color: transparent;
-  // box-shadow: inset 0 -5px 0 $color-yellow;
-  padding: 0 5px;
-  border-radius: 5px;
-  background: var(--mark-color);
-}
-code mark {
-  box-shadow: none;
-}
-
-hr {
-  border-bottom: 1px solid #eee;
-}
-
-img {
-  max-width: 100%;
 }
 
 .filter-invert {

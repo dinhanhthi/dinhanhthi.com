@@ -8,11 +8,11 @@
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && rm -r _live/* && cp -Rf _site/* _live/",
     "sample:serve-no-opt": "npx rimraf _built && npm run css:touch && ELEVENTY_ENV=sample-no-opt eleventy --serve --watch --output _built",
     "sample:watch-no-opt": "concurrently \"npm run css:watch-local\" \"npm run sample:serve-no-opt\" \"npm run js:build-watch\" -c green,blue,red -n css,11ty,js",
-    "sample:serve-opt": "npx rimraf _site && && npm run css:touch && ELEVENTY_ENV=sample-opt eleventy --serve --watch",
+    "sample:serve-opt": "npx rimraf _site && && npm run css:touch && ELEVENTY_ENV=sample-opt eleventy --serve --watch --incremental",
     "sample:watch-opt": "concurrently \"npm run css:watch-local\" \"npm run sample:serve-opt\" \"npm run js:build-watch\" -c green,blue,red -n css,11ty,js",
     "sample:11ty-opt": "ELEVENTY_ENV=sample-opt eleventy",
     "sample:build-opt": "npm run js:build && npm run css:build && npm run css:prefix && npm run sample:11ty-opt",
-    "full:serve-no-opt": "npx rimraf _built && ELEVENTY_ENV=full-no-opt eleventy --serve --watch --output _built",
+    "full:serve-no-opt": "npx rimraf _built && ELEVENTY_ENV=full-no-opt eleventy --serve --watch --incremental --output _built",
     "full:watch-no-opt": "concurrently \"npm run full:serve-no-opt\" \"npm run css:watch-local\" \"npm run js:build-watch\" -c green,blue,red -n 11ty,css,js",
     "full:http-serve-opt": "cp -Rf _site/* _live/ && http-server _live -p 8081",
     "full:build-http-serve-opt": "npm run build && npm run full:http-serve-opt",
@@ -27,7 +27,9 @@
     "site:update": "sh scripts/ud_site.sh",
     "site:build-update": "npm run site:build && npm run site:update",
     "ud-samples": "python scripts/copy_sample_posts.py",
-    "ud-fontello": "npx rimraf .fontello-session && fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install"
+    "ud-fontello": "npx rimraf .fontello-session && fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install",
+    "touch:index": "touch index.njk",
+    "touch:all": "touch package.json"
   },
   "repository": {
     "type": "git",
@@ -74,7 +76,7 @@
     "katex": "^0.13.18",
     "lru-cache": "^5.1.1",
     "markdown-it": "^11.0.1",
-    "markdown-it-anchor": "^8.3.1",
+    "markdown-it-anchor": "^8.4.1",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.0",

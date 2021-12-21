@@ -74,6 +74,9 @@
         color: var(--font-a);
       }
     }
+    p > a {
+      border-bottom: 0.5px solid var(--font-color);
+    }
   }
 
   .container {
@@ -362,7 +365,7 @@
         }
       }
 
-      @media (min-width: $grid-md) and (max-width: $grid-xl - 1px) {
+      @media (min-width: $grid-md) and (max-width: #{$grid-xl - 1px}) {
         .list-wrapper {
           width: calc(100% / 3);
           &:nth-child(3n) {
@@ -371,7 +374,7 @@
         }
       }
 
-      @media (min-width: $grid-sm) and (max-width: $grid-md - 1px) {
+      @media (min-width: $grid-sm) and (max-width: #{$grid-md - 1px}) {
         .list-wrapper {
           width: 50%;
           &:nth-child(2n) {

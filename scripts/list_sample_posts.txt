@@ -6,9 +6,9 @@ data-ml-tools-resources
 tensorflow
 time-series-tips
 docker
-algorithm-1
-rubik
-r-installation
+#algorithm-1
+#rubik
+#r-installation
 python-installation
 p-value
 js-tips

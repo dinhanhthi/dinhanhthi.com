@@ -23,6 +23,14 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 <details>
 <summary>On MacOS</summary>
 
+**Before using**,
+
+```bash
+# Install Python first!
+cd scripts/
+pip install -r requirements.txt
+```
+
 ```bash
 dat # go to dinhanhthi.com/
 goto:dat
@@ -43,6 +51,9 @@ cp_to_notes nodejs-npm # just copy from samples to notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
 # WIP notes must be in sample_posts/
+
+# Check notes in sample_posts/ but not in list_sample_posts.txt
+check_samples
 ```
 </details>
 
@@ -101,7 +112,7 @@ Normally, you can not download the SVG format from flaticon. Just click Edit > O
 
 ### Update Fontello icons?
 
-Upload the configuration file to `/src/fontello/config.json` on [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add any other icons you want. Once selected, click on "**Get config only**".
+Upload the configuration file in `/src/fontello/config.json` to [fontello.com](https://fontello.com/) (by clicking on the spanner symbol). Add any other icons you want. Once selected, click on "**Get config only**".
 
 ```bash
 # Install fontello-cli
@@ -161,6 +172,10 @@ npm config set python python2
 brew install vips
 # Then again,
 npm i
+```
+
+```bash
+npm i -g kill-port
 ```
 
 Dev mode,

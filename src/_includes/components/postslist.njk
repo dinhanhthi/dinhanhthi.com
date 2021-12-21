@@ -9,12 +9,15 @@
     {% if post.data.notfull %}
       {% set singlePost = singlePost | setAttribute('notfull', post.data.notfull) %}
     {% endif %}
+    {% if post.data.lowQuality %}
+      {% set singlePost = singlePost | setAttribute('lowQuality', post.data.lowQuality) %}
+    {% endif %}
     {% if post.data.private %}
       {% set singlePost = singlePost | setAttribute('private', post.data.private) %}
     {% endif %}
-    {% if post.data.good %}
+    {# {% if post.data.good %}
       {% set singlePost = singlePost | setAttribute('good', post.data.good) %}
-    {% endif %}
+    {% endif %} #}
     {% if not post.data.hide %}
       {% set newPostList = (newPostList.push(singlePost), newPostList) %}
     {% endif %}
@@ -31,6 +34,9 @@
       {% if post.notfull %}
         {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
       {% endif %}
+      {% if post.lowQuality %}
+        {% set singlePost = singlePost | setAttribute('lowQuality', post.lowQuality) %}
+      {% endif %}
       {% if post.private %}
         {% set singlePost = singlePost | setAttribute('private', post.private) %}
       {% endif %}
@@ -42,7 +48,7 @@
 
   {% for post in newPostList | sort(attribute = 'title') %}
     <li class="
-      {% if post.notfull %}post-not-full{% endif %}
+      {% if post.notfull or post.lowQuality %}post-not-full{% endif %}
       {% if post.private %} post-private{% endif %}
       {% if post.external %} post-outside{% endif %}
     ">
@@ -61,10 +67,10 @@
         <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
           {% if post.title %}
             {{ post.title }}
-            {% if post.good %}
+            {# {% if post.good %}
               <sup title="{{ other_data.good }}" style="color: #ffc50b;">⭑</sup>
-            {% endif %}
-            {% if post.notfull %}
+            {% endif %} #}
+            {% if post.notfull or post.lowQuality %}
               <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}
             {% if post.private %}
@@ -72,7 +78,7 @@
             {% endif %}
           {% else %}
             <code>{{ post.url }}</code>
-            {% if post.notfull %}
+            {% if post.notfull or post.lowQuality %}
               <sup title="{{ other_data.notfull }}">•</sup>
             {% endif %}
             {% if post.private %}

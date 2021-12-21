@@ -5,7 +5,7 @@ tags: [Python]
 toc: true
 icon: "/img/about/python.svg"
 keywords: "windows linux mac anaconda pip jupyter notebook activate base ubuntu install new packages conda env environement revision ImportError ssl error ssh module _ssl TLS/SSL check version update pip upgrade pip AttributeError: 'NoneType' object UnicodeDecodeError: 'ascii' codec conda: The following packages are not available from current channels freetype (from matplotlib) dtaidistance: C-library is not available"
-date: 2021-10-29
+date: 2021-11-02
 ---
 
 ## Windows
@@ -91,6 +91,29 @@ python --version
 # to be sure, check if python3 is installed?
 python3 --version
 ~~~
+
+::: hsbox In case you wanna make Python 3 as default on MacOS (For using things in [VSCode](/visual-studio-code/), for example).
+
+```bash
+# Make sure: unlink to conda
+conda deactivate
+# Check current version
+python --version # something: Python 2.7.18
+which python # should: /usr/local/bin/python
+
+# Suppose python3 is in
+# /Users/thi/miniforge3/bin/python
+sudo ln -s -f /Users/thi/miniforge3/bin/python /usr/local/bin/python
+# Type your password
+# Refresh current terminal
+touch ~/.zshrc
+# or
+touch ~/.bashrc
+# Check again
+python --version # something: Python 3.9.1
+```
+
+:::
 
 ## Linux (Ubuntu)
 

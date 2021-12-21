@@ -43,7 +43,7 @@ customJS: ["showChildrenHeadings.js"]
     <div class="container normal mt-2 page-note">
 
       {% set lastUpdatedDays = page.date | toDurationDays %}
-      {% if lastUpdatedDays > settings.outdatedTime %}
+      {% if lastUpdatedDays > settings.outdatedTime and not noOudated %}
         <div class="danger not-full-warning">
           <div class="warning-icon">
             <img src="/img_src/icons/time.svg" alt="Warning">
@@ -52,7 +52,14 @@ customJS: ["showChildrenHeadings.js"]
           </div>
       {% endif %}
 
-      {% if notfull %}
+      {% if lowQuality %}
+        <div class="danger low-quality-warning">
+          <div class="warning-icon">
+            <img src="/img_src/icons/warning.svg" alt="Warning">
+          </div>
+          <div>This is a low-quality note, read at your own risk!</div>
+          </div>
+      {% elif notfull %}
         <div class="warning not-full-warning">
           <div class="warning-icon">
             <img src="/img_src/icons/warning.svg" alt="Warning">

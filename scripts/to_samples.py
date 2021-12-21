@@ -23,17 +23,20 @@ def to_samples(file_name="", method="move"):
                             rst = shutil.move(file_full_path, sample_full_path +
                                               "/" + os.path.split(file_full_path)[1])
                             if rst:
-                                print("✅  MOVED : " + notes_dir + '/' + parent + '/' +
-                                      os.path.split(file_full_path)[1] + " 👉 " + sample_dir + '/')
+                                print(
+                                    "✅  MOVED : " + notes_dir + '/' + parent + '/' +
+                                    os.path.split(file_full_path)[1] + " 👉 " +
+                                    sample_dir + '/')
                         else:
-                            print(
-                                "❌ Cannot move because " + file_name + " is in list_sample_posts.txt!!!")
+                            print("❌ Cannot move because " + file_name +
+                                  " is in list_sample_posts.txt!!!")
                     elif method == "copy":
                         rst = shutil.copy(file_full_path, sample_full_path +
                                           "/" + os.path.split(file_full_path)[1])
                         if rst:
                             print("✅  COPIED : " + notes_dir + '/' + parent + '/' +
-                                  os.path.split(file_full_path)[1] + " 👉 " + sample_dir + '/')
+                                  os.path.split(file_full_path)[1] + " 👉 " +
+                                  sample_dir + '/')
                 except:
                     print("🙅‍♂️ " + file_name + " is NOT moved / copied !!!")
 

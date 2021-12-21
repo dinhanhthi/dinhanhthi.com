@@ -5,7 +5,7 @@ icon: donate.svg
 permalink: /donate/
 ---
 
-I spend a lot of time learning something new. After each journey, I find that there is a shorter way that I wish I had known before. For this reason, I write **for free**{:.tgreen} about the things I know/understand to help others save their time. If you find my work useful, give me some motivation, I'll be very grateful.
+I spend a lot of time learning something new. After each journey, I find that there is a shorter way that I wish I had known before. For this reason, I write ==**for free**== about the things I know/understand to help others save their time. If you find my work useful, give me some motivation, I'll be very grateful.
 
 {:.indent}
 - **Paypal**[/dinhanhthi](https://www.paypal.me/DinhAnhThi)

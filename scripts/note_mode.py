@@ -1,8 +1,9 @@
 import sys
 import shutil
-from helper import (get_full_name, note_mode_list, lst_files_in_samples, lst_files_note_mode,
-                    sample_full_path, sample_dir, note_mode_dir, lst_mdnjk_note_mode,
-                    note_mode_full_path, lst_mdnjk_in_samples, dat_dir)
+from helper import (
+    get_full_name, note_mode_list, lst_files_in_samples, lst_files_note_mode,
+    sample_full_path, sample_dir, note_mode_dir, lst_mdnjk_note_mode,
+    note_mode_full_path, lst_mdnjk_in_samples, dat_dir)
 
 
 def turn_note_mode(turn_on="off"):
@@ -20,7 +21,9 @@ def turn_note_mode(turn_on="off"):
         for file in lst_mdnjk_in_samples:
             file_short = file[11:file.rfind('.')]
             if (file_short not in note_mode_list):
-                full_name = get_full_name(file_short.strip(), lst_files_in_samples)
+                full_name = get_full_name(
+                    file_short.strip(),
+                    lst_files_in_samples)
                 if full_name:
                     srcfile = sample_full_path + "/" + full_name
                     dstfile = note_mode_full_path + "/" + full_name

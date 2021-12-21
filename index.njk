@@ -61,6 +61,9 @@ I am a Vietnamese with a curious mind. I would like to learn something new every
               {% if post.notfull %}
                 {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
               {% endif %}
+              {% if post.lowQuality %}
+                {% set singlePost = singlePost | setAttribute('lowQuality', post.lowQuality) %}
+              {% endif %}
               {% if post.private %}
                 {% set singlePost = singlePost | setAttribute('private', post.private) %}
               {% endif %}
