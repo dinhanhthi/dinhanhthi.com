@@ -1,7 +1,6 @@
 ---
 #layout: layouts/base.njk
 permalink: "{{ page.fileSlug }}/"
-customJS: ["showChildrenHeadings.js"]
 ---
 {% extends "layouts/base.njk" %}
 
@@ -33,7 +32,7 @@ customJS: ["showChildrenHeadings.js"]
 				Last modified {{ page.date | toDuration }}
 				/
 				<a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
-			</div>
+      </div>
     </div>
   {% endif %}
 {% endblock %}
@@ -49,7 +48,7 @@ customJS: ["showChildrenHeadings.js"]
             <img src="/img_src/icons/time.svg" alt="Warning">
           </div>
           <div>This post was <strong>updated more than 1 year ago</strong>, some information may be outdated!</div>
-          </div>
+        </div>
       {% endif %}
 
       {% if lowQuality %}
@@ -58,17 +57,18 @@ customJS: ["showChildrenHeadings.js"]
             <img src="/img_src/icons/warning.svg" alt="Warning">
           </div>
           <div>This is a low-quality note, read at your own risk!</div>
-          </div>
+        </div>
       {% elif notfull %}
         <div class="warning not-full-warning">
           <div class="warning-icon">
             <img src="/img_src/icons/warning.svg" alt="Warning">
           </div>
           <div>This is a draft, the content is not complete and of poor quality!</div>
-          </div>
+        </div>
       {% endif %}
 
       {% if toc %}
+        {# <div class="toc-container">{{ content | toc | safe }}</div> #}
         {{ content | toc | safe }}
         {{ content | safe }}
       {% else %}

@@ -44,6 +44,9 @@
             {% if specialTitle %}
               <span class="special-title">{{ specialTitle }}</span>
             {% endif %}
+            {% if specialTitleImageUrl %}
+              <span class="special-title"><img src="{{ specialTitleImageUrl }}" class="keep-original" alt="hi" ></span>
+            {% endif %}
             {{ title }}
             {% if lowQuality %}
               <sup class="draft-badge">low-quality</sup>

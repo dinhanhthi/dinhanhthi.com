@@ -57,20 +57,30 @@ header {
     font-size: 2.2rem;
     margin-bottom: 0;
     margin-top: 0;
+    display: inline-flex;
     .special-title {
       animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
       animation-duration: 2.5s; /* Change to speed up or slow down */
       animation-iteration-count: infinite; /* Never stop waving :) */
       transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-      display: inline-block;
+      // display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        margin-right: 10px;
+        height: 2.2rem;
+      }
     }
     .draft-badge {
+      height: fit-content;
       background: #7c7c7c;
       font-size: 0.8rem;
       padding: 1px 5px;
       border-radius: 0.6rem;
       font-weight: normal;
       font-family: "Poppins", Arial, Helvetica, sans-serif;
+      margin-left: 5px;
     }
   }
 

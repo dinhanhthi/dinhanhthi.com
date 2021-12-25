@@ -44,22 +44,24 @@
   & > .ol-container {
     border: 0.5px solid var(--toc-title-bd);
     border-radius: 0.6rem;
-    padding: 1rem;
+    padding: 1rem 0;
     width: 100%;
     display: flex;
     height: 100%;
     flex-direction: column;
-    & > div:first-child {
+    & > .toc-heading {
       display: block;
       font-family: $font-heading;
       font-weight: 500;
       @include toc-title();
       margin-bottom: 1rem;
+      padding: 0 1rem;
+      padding-bottom: 5px;
     }
   }
 
   & > .ol-container > ol {
-    padding-left: 0;
+    padding: 0 1rem;
     margin-bottom: 0;
     overflow: auto;
 
@@ -92,7 +94,7 @@
       }
       ol {
         padding-left: 20px;
-        overflow: hidden;
+        // overflow: hidden;
         transition: all 300ms ease-in-out;
         box-shadow: inset 0.5px 0 0 0px var(--color-faded);
         margin-left: -18px;
@@ -165,32 +167,7 @@
       margin-bottom: 0;
       li {
         ol {
-          max-height: 0;
           margin-bottom: 0;
-        }
-        &.h2-focused:not(.hideChildren),
-        &.showChildren {
-          > ol {
-            max-height: 1000px;
-          }
-        }
-        &.h2-focused.hideChildren {
-          & > a {
-            color: var(--font-a) !important;
-          }
-          &::before {
-            color: var(--font-a) !important;
-          }
-          .circle-icon {
-            color: var(--font-a) !important;
-          }
-        }
-        .circle-icon {
-          margin-left: -3px;
-          color: var(--color-faded);
-        }
-        .circle-icon {
-          cursor: pointer;
         }
       }
     }

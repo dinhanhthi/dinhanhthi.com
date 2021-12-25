@@ -47,7 +47,10 @@ if (window.ResizeObserver && document.querySelector("header nav #nav")) {
   var bottom = 10000;
   function updateProgress() {
     requestedAniFrame = false;
-    var percent = Math.min((document.scrollingElement.scrollTop / (bottom - winHeight)) * 100, 100);
+    var percent = Math.min(
+      (document.scrollingElement.scrollTop / (bottom - winHeight)) * 100,
+      100
+    );
     progress.style.transform = `translate(-${100 - percent}vw, 0)`;
     if (Date.now() - timeOfLastScroll < 3000) {
       requestAnimationFrame(updateProgress);
@@ -109,56 +112,48 @@ function getSafe(fn, defaultVal) {
 }
 if (document.querySelectorAll("h2, h3") != null) {
   function headingTOC() {
-    document.querySelectorAll("h2:not(.exclude-from-toc), h3:not(.exclude-from-toc)").forEach((heading) => {
-      var id = heading.getAttribute("id"); // id of headings
-      if (document.getElementsByTagName("html")[0].scrollTop >= heading.offsetTop - 150) {
-        if (id != null) {
-          var toc = document.getElementsByClassName("toc-js")[0];
-          if (toc != null) {
-            toc.querySelectorAll("a").forEach((item) => {
-              if (item.parentElement) {
-                item.parentElement.classList.remove("toc-active");
-              }
-            });
-            if (document.querySelector(`.toc-js li a[href="#${id}"]`)) {
-              document.querySelector(`.toc-js li a[href="#${id}"]`).parentElement.classList.add("toc-active");
-            }
-
-            if (heading.tagName === "H2") {
+    document
+      .querySelectorAll("h2:not(.exclude-from-toc), h3:not(.exclude-from-toc)")
+      .forEach((heading) => {
+        var id = heading.getAttribute("id"); // id of headings
+        if (
+          document.getElementsByTagName("html")[0].scrollTop >=
+          heading.offsetTop - 150
+        ) {
+          if (id != null) {
+            var toc = document.getElementsByClassName("toc-js")[0];
+            if (toc != null) {
               toc.querySelectorAll("a").forEach((item) => {
-                if (item.getAttribute("href") !== "#" + id && item.parentElement) {
-                  item.parentElement.classList.remove("h2-focused");
-                  getSafe(() => {
-                    if (
-                      item.previousSibling &&
-                      item.previousSibling.classList.contains("icon-down-open") &&
-                      !item.parentElement.classList.contains("showChildren")
-                    ) {
-                      item.previousSibling.classList.remove("icon-down-open");
-                      item.previousSibling.classList.add("icon-right-open");
-                    }
-                  }, "nothing");
+                if (item.parentElement) {
+                  item.parentElement.classList.remove("toc-active");
                 }
               });
-              const selectedAId = document.querySelector(`.toc-js li a[href="#${id}"]`);
-              if (selectedAId && selectedAId.parentElement) {
-                selectedAId.parentElement.classList.add("h2-focused");
-                getSafe(() => {
+              if (document.querySelector(`.toc-js li a[href="#${id}"]`)) {
+                document
+                  .querySelector(`.toc-js li a[href="#${id}"]`)
+                  .parentElement.classList.add("toc-active");
+              }
+
+              if (heading.tagName === "H2") {
+                toc.querySelectorAll("a").forEach((item) => {
                   if (
-                    selectedAId.previousSibling &&
-                    selectedAId.parentElement.classList &&
-                    !selectedAId.parentElement.classList.contains("hideChildren")
+                    item.getAttribute("href") !== "#" + id &&
+                    item.parentElement
                   ) {
-                    selectedAId.previousSibling.classList.remove("icon-right-open");
-                    selectedAId.previousSibling.classList.add("icon-down-open");
+                    item.parentElement.classList.remove("h2-focused");
                   }
-                }, "nothing");
+                });
+                const selectedAId = document.querySelector(
+                  `.toc-js li a[href="#${id}"]`
+                );
+                if (selectedAId && selectedAId.parentElement) {
+                  selectedAId.parentElement.classList.add("h2-focused");
+                }
               }
             }
           }
         }
-      }
-    });
+      });
   }
 
   // Remove "#" at the end of heading in toc
@@ -179,7 +174,11 @@ if (document.querySelectorAll("h2, h3") != null) {
 // -----------------------------------------
 function offsetAnchor() {
   if (location.hash.length !== 0) {
-    window.scrollTo({ left: window.scrollX, top: window.scrollY - 60, behavior: "smooth" });
+    window.scrollTo({
+      left: window.scrollX,
+      top: window.scrollY - 60,
+      behavior: "smooth",
+    });
   }
 }
 // Captures click events of all <a> elements with href starting with #
@@ -305,7 +304,8 @@ const addSelected2 = (ulRes, li) => {
               });
             }
             if (keywords.indexOf("<mark>") > 10 && tags != "") {
-              keywords = "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
+              keywords =
+                "..." + keywords.substring(keywords.indexOf("<mark>") - 10);
             }
             // Too long keywords or content
             // -- uncomment below if search on full content
@@ -338,13 +338,15 @@ const addSelected2 = (ulRes, li) => {
 
           // If <a> focused by a Tab key
           if (!!item.getElementsByClassName("item__content")[0]) {
-            item.getElementsByClassName("item__content")[0].firstChild.firstChild.addEventListener(
-              "focus",
-              () => {
-                addSelected2(ulRes, item);
-              },
-              false
-            );
+            item
+              .getElementsByClassName("item__content")[0]
+              .firstChild.firstChild.addEventListener(
+                "focus",
+                () => {
+                  addSelected2(ulRes, item);
+                },
+                false
+              );
           }
         });
       } else {
@@ -358,7 +360,9 @@ const addSelected2 = (ulRes, li) => {
   fetch("/pages/search-index.json").then((response) =>
     response.json().then((rawIndex) => {
       window.searchIndex = elasticlunr.Index.load(rawIndex);
-      document.getElementById("nav-search__input").addEventListener("input", search);
+      document
+        .getElementById("nav-search__input")
+        .addEventListener("input", search);
     })
   );
 })(window, document);
@@ -372,11 +376,15 @@ const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 btn.onclick = function () {
   if (prefersDarkScheme.matches) {
     document.body.classList.toggle("light-theme");
-    var theme = document.body.classList.contains("light-theme") ? "light" : "dark";
+    var theme = document.body.classList.contains("light-theme")
+      ? "light"
+      : "dark";
     toggleIconFn(theme);
   } else {
     document.body.classList.toggle("dark-theme");
-    var theme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+    var theme = document.body.classList.contains("dark-theme")
+      ? "dark"
+      : "light";
     toggleIconFn(theme);
   }
   localStorage.setItem("theme", theme);
@@ -401,6 +409,9 @@ scrollTopBtn.onclick = function () {
   });
 };
 addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  scrollTop > 200 ? scrollTopBtn.classList.add("is-visible") : scrollTopBtn.classList.remove("is-visible");
+  const scrollTop =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  scrollTop > 200
+    ? scrollTopBtn.classList.add("is-visible")
+    : scrollTopBtn.classList.remove("is-visible");
 });
