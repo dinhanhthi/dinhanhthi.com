@@ -75,7 +75,7 @@
     "jimp": "^0.16.1",
     "katex": "^0.13.18",
     "lru-cache": "^5.1.1",
-    "markdown-it": "^11.0.1",
+    "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-attrs": "^3.0.3",
     "markdown-it-container": "^3.0.0",
