@@ -20,7 +20,7 @@
     {% set pageTitle = title or renderData.title or settings.title %}
   {% endif %}
   <title>{{ pageTitle }}</title>
-  <meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ pageTitle  }}">
+  <meta prefix="og:http://ogp.me/ns#" property="og:title" content="{{ pageTitle  }}">
 
   {% set desc = renderData.description or description or subtitle %}
   {% if not desc %}
@@ -28,19 +28,19 @@
   {% endif %}
   {% if desc %}
     <meta name="description" content="{{ desc | escape  }}">
-    <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{ desc | escape }}">
+    <meta prefix="og:http://ogp.me/ns#" property="og:description" content="{{ desc | escape }}">
   {% endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@{{ settings.author.twitterHandle }}">
   <meta name="twitter:creator" content="@{{ settings.author.twitterHandle }}">
 
   {# facebook & linkedin #}
-  <meta prefix="og: http://ogp.me/ns#" property="og:image" content="{{ settings.url }}/img_src/frontpage.png">
+  <meta prefix="og:http://ogp.me/ns#" property="og:image" content="{{ settings.url }}/img_src/cover.png">
 
-  <meta prefix="og: http://ogp.me/ns#" property="og:type" content="article"/>
+  <meta prefix="og:http://ogp.me/ns#" property="og:type" content="article"/>
 
   <link rel="canonical" href="{{ settings.url }}{{ canonicalUrl or page.url }}">
-  <meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{ settings.url }}{{ canonicalUrl or page.url }}">
+  <meta prefix="og:http://ogp.me/ns#" property="og:url" content="{{ settings.url }}{{ canonicalUrl or page.url }}">
   <!-- This is a blog and so it SHOULD be safe and it is nice for the web
          to send referrers cross-origin.
          However, if you use sensitive data in URLs, consider changing this to
