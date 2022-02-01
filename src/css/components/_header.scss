@@ -98,6 +98,13 @@ header {
       width: auto;
       height: 100%;
     }
+    &.icon-white {
+      width: $header-logo + 7px;
+      height: $header-logo + 7px;
+      background: #fff;
+      border-radius: 50%;
+      padding: 10px;
+    }
   }
 
   .social {

@@ -5,7 +5,7 @@ permalink: "{{ page.fileSlug }}/"
 {% extends "layouts/base.njk" %}
 
 {% block headerLogo%}
-  <div class="header-logo post-layout">
+  <div class="header-logo post-layout{% if iconWhite %} icon-white{% endif %}">
     {% if icon %}
       {% if "/" in icon %}
         <img class="keep-original" alt="{{ title }}" src="{{ icon }}" height="55" width="55">
