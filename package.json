@@ -6,6 +6,7 @@
   "scripts": {
     "re-install": "npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && rm -r _live/* && cp -Rf _site/* _live/",
+    "watch": "npm run full:watch-no-opt",
     "sample:serve-no-opt": "npx rimraf _built && npm run css:touch && ELEVENTY_ENV=sample-no-opt eleventy --serve --watch --output _built",
     "sample:watch-no-opt": "concurrently \"npm run css:watch-local\" \"npm run sample:serve-no-opt\" \"npm run js:build-watch\" -c green,blue,red -n css,11ty,js",
     "sample:serve-opt": "npx rimraf _site && && npm run css:touch && ELEVENTY_ENV=sample-opt eleventy --serve --watch --incremental",
