@@ -13,6 +13,7 @@ permalink: pages/search-index.json
       tags: post.data.tags, cat: post
         .data
         .tags[1],
+      cat: post.tags[0],
       target: "_self",
       privatePost: post.data.privatePost
     }), newPostListSearch) %}
