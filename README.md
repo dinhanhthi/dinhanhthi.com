@@ -16,14 +16,13 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 
 👉 Version 1 (Jekyll): [v1.dinhanhthi.com](https://v1.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v1).<br />
 👉 Version 2 (Jekyll): [v2.dinhanhthi.com](https://v2.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v2).<br />
-👉 Version 3 (Jekyll): [v3.dinhanhthi.com](https://v3.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v3).
+👉 Version 3 (Jekyll): [v3.dinhanhthi.com](https://v3.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v3).<br />
+👉 Version 4 (Gatsby, dropped at 60%): [source](https://github.com/dinhanhthi/dinhanhthi.com-v4-gatsby).
 
 ## Useful commands
 
 <details>
-<summary>On MacOS</summary>
-
-**Before using**,
+<summary>On MacOS (for me only)</summary>
 
 ```bash
 # Install Python first!
@@ -34,26 +33,15 @@ pip install -r requirements.txt
 ```bash
 dat # go to dinhanhthi.com/
 goto:dat
-ud_samples # update modifs from notes/sample_posts/ to notes/posts/ (in a suitable folder)
 ud_dat # build & deploy to netlify
 notes:update # git update notes/
 touch_css # to run npm css:touch anywhere
-
-to_samples docker-gpu # move note docker-gpu to notes/sample_posts/
-cp_to_samples nodejs-npm # just copy from notes to samples
-
-to_notes all # move ALL notes from notes/sample_posts/ to notes/posts/ (in a suitable folder)
-             # (these notes aren't the notes in scripts/list_sample_posts.txt)
-to_notes nodejs-npm # move note "nodejs-npm" to notes/posts/ (in a suitable folder)
-cp_to_notes nodejs-npm # just copy from samples to notes
+touch_all # build whole site
 
 # Reading notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
 # WIP notes must be in notes/sample_posts/
-
-# Check notes in notes/sample_posts/ but not in list_sample_posts.txt
-check_samples
 ```
 </details>
 
@@ -62,34 +50,24 @@ check_samples
 Let us assume that the installation step is complete.
 
 - **Update data** : in `notes/_data/`. There are also `csp.js` in `src/_data`.
-- ⛑ Search a file, if there are duplicates, **edit the one in `notes/sample_posts/`**. Then using `npm run ud-samples-mac`! (On Mac/Linux, use `ud_samples`)
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
 - **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
 
-Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
+Without image optimization (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
-# Sample posts (notes/sample_posts/)
-npm run sample:watch-no-opt # localhost:8080, built to "_built"
-
 # Real posts (/notes/posts/)
 npm run full:watch-no-opt # localhost:8080, built to "_built"
 ```
 
-Without image editing (**Note**: If there is any propblem with the style, run `npm run css:touch`),
+Without image optimization (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
 ```bash
-# Sample posts (notes/sample_posts/)
-npm run sample:watch-opt # localhost:8080, built to "_site"
-
-# Just build sample_post
-npm run sample:build-opt # built to "_site"
-
 # Real posts (/notes/posts/)
 npm run build # built to "_site"
-npm run full:http-serve-opt # localhost:8081 over "_live" (a copied of "_site")
+npm run full:http-serve-opt # localhost:8081 over "_live" (a copy of "_site")
 
 # Build and http serve real posts
 npm run full:build-http-serve-opt

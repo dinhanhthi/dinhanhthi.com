@@ -54,39 +54,6 @@ module.exports = function (eleventyConfig) {
   );
 
   switch (process.env.ELEVENTY_ENV) {
-    case "sample-no-opt":
-      distPath = "_built";
-      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
-        distPath: distPath,
-        devMode: true,
-        editSample: true,
-      });
-      eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.add("notes/posts");
-      eleventyConfig.ignores.delete("notes/sample_posts");
-      eleventyConfig.ignores.delete("notes/low-quality-posts");
-      eleventyConfig.ignores.add("note_mode_posts");
-      break;
-
-    case "sample-opt":
-      distPath = "_site";
-      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
-      eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
-      eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
-      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
-      eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.delete("notes/sample_posts");
-      eleventyConfig.ignores.delete("notes/low-quality-posts");
-      eleventyConfig.ignores.add("notes/posts");
-      eleventyConfig.addPlugin(localImages, {
-        distPath: distPath,
-        assetPath: "/img/remote",
-        selector:
-          "img,amp-img,amp-video,meta[property='og:image'],meta[name='twitter:image'],amp-story",
-        verbose: false,
-      });
-      break;
-
     case "full-no-opt":
       distPath = "_built";
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
