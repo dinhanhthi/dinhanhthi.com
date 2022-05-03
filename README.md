@@ -17,7 +17,7 @@ There are several "old" versions (mainly built on **Jekyll**) with different the
 👉 Version 1 (Jekyll): [v1.dinhanhthi.com](https://v1.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v1).<br />
 👉 Version 2 (Jekyll): [v2.dinhanhthi.com](https://v2.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v2).<br />
 👉 Version 3 (Jekyll): [v3.dinhanhthi.com](https://v3.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v3).<br />
-👉 Version 4 (Gatsby, dropped at 60%): [source](https://github.com/dinhanhthi/dinhanhthi.com-v4-gatsby).
+👉 Version 4 (Gatsby, canceled at 60%): [demo of what I did](https://dinhanhthi-com-v4-gatsby.netlify.app/) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v4-gatsby).
 
 ## Useful commands
 
