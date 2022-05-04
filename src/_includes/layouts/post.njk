@@ -42,7 +42,7 @@ permalink: "{{ page.fileSlug }}/"
     <div class="container normal mt-2 page-note">
 
       {% set lastUpdatedDays = page.date | toDurationDays %}
-      {% if lastUpdatedDays > settings.outdatedTime and not noOudated %}
+      {% if lastUpdatedDays > settings.outdatedTime and not noOutdated %}
         <div class="danger not-full-warning">
           <div class="warning-icon">
             <img class="keep-original" src="/img_src/icons/time.svg" alt="Warning">

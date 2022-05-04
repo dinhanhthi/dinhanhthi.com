@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live",
     "re-install": "npm run clean && npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
-    "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && rm -r _live/* && cp -Rf _site/* _live/",
+    "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",
+    "build-local": "npx rimraf -rf _built && npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=full-no-opt eleventy",
     "watch": "npm run full:watch-no-opt",
     "full:serve-no-opt": "npx rimraf _built && ELEVENTY_ENV=full-no-opt eleventy --serve --watch --incremental",
     "full:watch-no-opt": "concurrently \"npm run full:serve-no-opt\" \"npm run css:watch-local\" \"npm run js:build-watch\" -c green,blue,red -n 11ty,css,js",

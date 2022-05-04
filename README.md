@@ -60,6 +60,11 @@ Without image optimization (**Note**: If there is any propblem with the style, r
 ```bash
 # Real posts (/notes/posts/)
 npm run full:watch-no-opt # localhost:8080, built to "_built"
+# or
+npm run watch
+
+# Build whole site locally (to "_built")
+npm run build-local
 ```
 
 Without image optimization (**Note**: If there is any propblem with the style, run `npm run css:touch`),

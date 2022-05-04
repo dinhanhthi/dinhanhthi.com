@@ -62,7 +62,6 @@ if (window.ResizeObserver && document.querySelector("header nav #nav")) {
     if (document.querySelector("#comments,footer")) {
       bottom =
         document.scrollingElement.scrollTop +
-        // document.querySelector("#comments,footer").getBoundingClientRect().top;
         document.querySelector("#comments,footer").getBoundingClientRect().top;
     }
     winHeight = window.innerHeight;
