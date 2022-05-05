@@ -311,6 +311,7 @@ const addSelected2 = (ulRes, li) => {
             // if (keywords.length > 500) {
             // 	keywords = "..." + keywords.substring(0, keywords.indexOf("<mark>") + kw.length + 15) + "..."
             // }
+            keywords = '<span class="keywords">keywords</span> ' + keywords;
           }
           p.innerHTML = keywords;
           divContent.appendChild(p);

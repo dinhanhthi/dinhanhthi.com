@@ -175,6 +175,15 @@ nav {
               width: 100%;
               overflow: hidden;
               text-overflow: ellipsis;
+
+              .keywords {
+                opacity: 0.6;
+                background: #000;
+                border-radius: 3px;
+                padding: 0px 5px;
+                font-size: 80%;
+              }
+
               h3 {
                 margin: 0;
                 white-space: nowrap;
