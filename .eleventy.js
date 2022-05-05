@@ -23,7 +23,6 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
-// const settings = require("./" + thiDataDir + "/settings.json");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
