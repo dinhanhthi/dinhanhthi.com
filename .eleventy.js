@@ -65,10 +65,10 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes/low-quality-posts");
       break;
 
-    default:
+    default: // take too long to build
       // full-opt
       distPath = "_site";
-      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js")); // take too long to build
+      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
@@ -333,6 +333,18 @@ module.exports = function (eleventyConfig) {
       '<sup><a href="' +
       url +
       '" rel="noopener noreferrer" target="_blank">[ref]</a></sup>'
+    );
+  });
+
+  // Using {% icon "time" %}
+  // Keys: time | danger | success | info | warning
+  eleventyConfig.addShortcode("icon", function (icon) {
+    return (
+      '<img width="auto" height="25" class="keep-original" src="/img_src/icons/' +
+      icon +
+      '.svg" alt="' +
+      icon +
+      '" style="vertical-align: middle;">'
     );
   });
 

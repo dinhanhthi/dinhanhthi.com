@@ -14,7 +14,7 @@ img {
 }
 
 .page-note {
-  img {
+  img:not([height]):not([class*="img-"]) {
     height: auto;
     width: 100%;
     border-radius: $box-border-radius;
