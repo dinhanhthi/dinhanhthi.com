@@ -12,6 +12,6 @@ I spend a lot of time learning something new. After each journey, I find that th
 - **Ko-fi**[/dinhanhthi](https://www.ko-fi.com/dinhanhthi)
 - **Buy Me A Coffee**[/dinhanhthi](https://www.buymeacoffee.com/dinhanhthi)
 - **Momo** (in Vietnam only): _(+84)0898053074_
-- **Encourage me with a letter**: [dinhanhthi@gmail.com](mailto:dinhanhthi@gmail.com)
+- **Encourage me with a letter**: [me@dinhanhthi.com](mailto:me@dinhanhthi.com)
 
 Thank you so much 💖.
