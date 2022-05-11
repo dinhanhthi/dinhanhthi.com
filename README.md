@@ -6,10 +6,6 @@
 
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
-## Changelog
-
-👉  Read this [changelog](./CHANGELOG.md).
-
 ## Older versions
 
 There are several "old" versions (mainly built on **Jekyll**) with different themes.
