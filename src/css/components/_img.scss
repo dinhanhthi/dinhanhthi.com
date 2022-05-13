@@ -29,6 +29,7 @@ img {
       .img-full-#{$size},
       .img-#{$size} {
         width: $size/100 * 100%;
+        height: auto;
         margin-left: auto;
         margin-right: auto;
         display: block;
@@ -38,13 +39,19 @@ img {
 
   p {
     & > img + br,
-    & > picture + br {
-      display: none;
-      & + em {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        font-size: 0.9rem;
+    & > picture {
+      & > img {
+        height: auto;
+        border-radius: $box-border-radius;
+      }
+      & + br {
+        display: none;
+        & + em {
+          display: block;
+          text-align: center;
+          margin-top: 10px;
+          font-size: 0.9rem;
+        }
       }
     }
   }

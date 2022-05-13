@@ -432,6 +432,7 @@ table {
   tbody > tr {
     &:nth-child(odd) {
       background: var(--table-bg);
+      color: var(--font-color-darker);
     }
     &:last-child {
       border-bottom: none;
