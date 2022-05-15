@@ -337,14 +337,14 @@ module.exports = function (eleventyConfig) {
   });
 
   // Using {% icon "time" %}
-  // Keys: time | danger | success | info | warning
+  // Keys: time | danger | success | info | warning | idea
   eleventyConfig.addShortcode("icon", function (icon) {
     return (
       '<img width="auto" height="25" class="keep-original" src="/img_src/icons/' +
       icon +
       '.svg" alt="' +
       icon +
-      '" style="vertical-align: middle;">'
+      '" style="vertical-align: middle; margin-right: 5px;">'
     );
   });
 
