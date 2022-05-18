@@ -169,3 +169,16 @@ pre {
   margin-right: -$inside-padding;
   padding: 0 $inside-padding;
 }
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Unselectable copy/paste for comments */
+.token.comment, code > br + br, .token.comment + br {
+  -webkit-user-select: none;
+  user-select: none;
+}
