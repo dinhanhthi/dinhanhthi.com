@@ -113,6 +113,7 @@
   --prism-token-doctype-tag: #{$prism-token-doctype-tag};
   --prism-token-comment: #{$prism-token-comment};
   --prism-token-number: #{$prism-token-number};
+  --prism-token-inserted: #{$prism-token-inserted};
   --prism-token-string: #{$prism-token-string};
   --prism-token-function: #{$prism-token-function};
   --prism-token-class-name: #{$prism-token-class-name};
@@ -188,6 +189,7 @@
   --prism-token-doctype-tag: #{$prism-token-doctype-tag-light};
   --prism-token-comment: #{$prism-token-comment-light};
   --prism-token-number: #{$prism-token-number-light};
+  --prism-token-inserted: #{$prism-token-inserted-light};
   --prism-token-string: #{$prism-token-string-light};
   --prism-token-function: #{$prism-token-function-light};
   --prism-token-class-name: #{$prism-token-class-name-light};

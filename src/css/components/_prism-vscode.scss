@@ -80,9 +80,12 @@ code[class*="language-"] *::selection {
 .token.number,
 .token.constant,
 .token.symbol,
-.token.inserted,
 .token.unit {
   color: var(--prism-token-number);
+}
+
+.token.inserted {
+  color: var(--prism-token-inserted);
 }
 
 .token.selector,

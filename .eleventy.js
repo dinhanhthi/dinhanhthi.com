@@ -340,7 +340,7 @@ module.exports = function (eleventyConfig) {
   // Keys: time | danger | success | info | warning | idea
   eleventyConfig.addShortcode("icon", function (icon) {
     return (
-      '<img width="auto" height="25" class="keep-original" src="/img_src/icons/' +
+      '<img width="25" height="25" class="keep-original" src="/img_src/icons/' +
       icon +
       '.svg" alt="' +
       icon +
