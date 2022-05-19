@@ -178,7 +178,7 @@ pre {
 }
 
 /* Unselectable copy/paste for comments */
-.token.comment, code > br + br, .token.comment + br {
+.token.comment, .token.comment + br {
   -webkit-user-select: none;
   user-select: none;
 }

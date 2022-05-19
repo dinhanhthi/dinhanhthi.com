@@ -47,7 +47,7 @@ permalink: "{{ page.fileSlug }}/"
           <div class="warning-icon">
             {% icon "time" %}
           </div>
-          <div>This post was <strong>updated more than 1 year ago</strong>, some information may be outdated!</div>
+          <div>The last modifications of this post were around <strong>{{ page.date | toDuration }}</strong>, some information may be outdated!</div>
         </div>
       {% endif %}
 
