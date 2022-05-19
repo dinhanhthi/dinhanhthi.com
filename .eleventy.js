@@ -337,7 +337,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Using {% icon "time" %}
-  // Keys: time | danger | success | info | warning | idea
+  // Keys: time | danger | success | info | warning | idea | draft
   eleventyConfig.addShortcode("icon", function (icon) {
     return (
       '<img width="25" height="25" class="keep-original" src="/img_src/icons/' +

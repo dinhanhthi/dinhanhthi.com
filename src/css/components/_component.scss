@@ -352,6 +352,13 @@ $gap: 5px;
   border-radius: $box-border-radius;
   .hs__title {
     cursor: pointer;
+
+    & > code {
+      background: none;
+      border: none;
+      font-size: 0.95rem;
+    }
+
     &::before {
       content: " ";
       color: var(--color-faded);
