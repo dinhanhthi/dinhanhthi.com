@@ -10,7 +10,7 @@
     "build-local": "npx rimraf -rf _built && npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=full-no-opt eleventy",
     "watch": "npm run full:watch-no-opt",
     "full:serve-no-opt": "npx rimraf _built && ELEVENTY_ENV=full-no-opt eleventy --serve --watch --incremental",
-    "full:watch-no-opt": "concurrently \"npm run full:serve-no-opt\" \"npm run css:watch-local\" \"npm run js:build-watch\" -c green,blue,red -n 11ty,css,js",
+    "full:watch-no-opt": "concurrently \"npm run css:watch-local\" \"npm run full:serve-no-opt\" \"npm run js:build-watch\" -c green,blue,red -n css,11ty,js",
     "full:http-serve-opt": "cp -Rf _site/* _live/ && http-server _live -p 8081",
     "full:build-http-serve-opt": "npm run build && npm run full:http-serve-opt",
     "css:build": "node-sass src/css/main.scss src/css/main.css",
