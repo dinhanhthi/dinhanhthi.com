@@ -70,7 +70,6 @@ nav {
     }
 
     .nav-avatar {
-      margin-right: 0 !important;
       padding-right: 0 !important;
     }
 
@@ -82,8 +81,8 @@ nav {
       }
 
       &.nav-text {
-        padding: 0.375rem 0.7rem;
-        border-radius: 5px;
+        padding: 0.3rem 0.7rem;
+        border-radius: 7px;
         &:hover {
           background: #384151;
         }
@@ -126,6 +125,19 @@ nav {
       position: relative;
       form {
         display: flex;
+        flex: 1;
+        align-items: center;
+        padding-left: 10px;
+        .back-slash {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3px 8px;
+          border: 1px solid #434040;
+          border-radius: 4px;
+          font-size: 10px;
+          color: #999;
+        }
       }
       .nav-search__input {
         border: 0;
@@ -133,6 +145,7 @@ nav {
         color: #ddd;
         font-size: 1.05rem;
         padding: 0.6rem 1rem;
+        padding-left: 0.5rem;
         width: 100%;
         &:focus {
           outline: none;
