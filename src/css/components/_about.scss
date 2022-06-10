@@ -11,13 +11,14 @@
 
   $abt-intro: 65%;
   .intro {
-    padding: 0 $padding-lr 2rem $padding-lr;
+    padding: 0 $padding-lr 2rem 2*$padding-lr;
     width: $abt-intro;
   }
 
   .coordinate {
     width: 100% - $abt-intro;
     padding: 0 $padding-lr;
+    padding-right: 2*$padding-lr;
     font-size: 1rem;
     ul {
       padding-left: 0;
@@ -57,12 +58,12 @@
   @include screen-md-down {
     .intro {
       width: 100%;
-      padding: 0 $padding-lr 1rem;
+      padding: 0 2*$padding-lr 1rem;
       border-bottom: 1px solid #444;
     }
     .coordinate {
       width: 100%;
-      padding: 1rem $padding-lr 1.5rem;
+      padding: 1rem 2*$padding-lr 1.5rem;
     }
   }
 
