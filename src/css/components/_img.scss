@@ -54,5 +54,17 @@ img {
         }
       }
     }
+
+    & > img {
+      & + br {
+        display: none;
+        & + em {
+          display: block;
+          text-align: center;
+          margin-top: 10px;
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 }

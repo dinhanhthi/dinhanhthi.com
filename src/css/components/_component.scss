@@ -672,6 +672,7 @@ input[type="search"]::-webkit-search-results-decoration {
   &.is-visible {
     opacity: 1;
     transition: opacity 0.3s 0s, visibility 0s 0s;
+    z-index: 999;
   }
   @include screen-sm-down {
     right: 20px;
@@ -681,6 +682,7 @@ input[type="search"]::-webkit-search-results-decoration {
 #buy-me-a-coffee {
   display: block;
   right: 20px;
+  z-index: 999;
   @include screen-sm-down {
     left: 20px;
   }
