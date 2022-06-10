@@ -8,7 +8,7 @@ init()  # use Colorama to make Termcolor work on Windows too
 
 
 def check_samples():
-    """Check notes in notes/sample_posts/ but not in list_sample_posts.txt
+    """Check notes in sample_posts/ but not in list_sample_posts.txt
       HOW TO USE:
         python scripts/check_samples.py
         (on mac - for me only) check_samples

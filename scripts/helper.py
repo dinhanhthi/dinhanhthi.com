@@ -7,7 +7,7 @@ from pathlib import Path  # requires python >= 3.4
 
 curdir = Path(os.path.abspath(__file__))
 dat_dir = str(curdir.parent.parent.absolute())
-sample_dir = '/notes/sample_posts'
+sample_dir = '/sample_posts'
 sample_full_path = dat_dir + sample_dir
 
 notes_dir = '/notes/posts'

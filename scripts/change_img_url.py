@@ -5,7 +5,7 @@ import sys
 def change_url(file_name):
     """ Replace image url in the md file to {{ img-url }}
         How to use?
-            File must be placed in dinhanhthi.com/notes/sample_posts/
+            File must be placed in dinhanhthi.com/sample_posts/
             Images must be placed in dinhanhthi.com/notes/img_tmp/
             py scripts/change_img_url.py ydkjsy-1
     """

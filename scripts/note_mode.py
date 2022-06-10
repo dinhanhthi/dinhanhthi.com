@@ -7,7 +7,7 @@ from helper import (
 
 
 def turn_note_mode(turn_on="off"):
-    """ Copy all files from notes/sample_posts/ to note_mode_posts/
+    """ Copy all files from sample_posts/ to note_mode_posts/
             except the files listed in note_mode_list.txt
         We use this script to build only the files in note_mode_list.txt
             (faster building time for quickly see the result when taking notes)

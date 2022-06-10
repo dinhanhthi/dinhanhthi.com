@@ -53,6 +53,18 @@ module.exports = function (eleventyConfig) {
   );
 
   switch (process.env.ELEVENTY_ENV) {
+    case "theming":
+      distPath = "_built";
+      eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
+        distPath: distPath,
+        devMode: true,
+      });
+      eleventyConfig.setDataDeepMerge(true);
+      eleventyConfig.ignores.add("notes/posts");
+      eleventyConfig.ignores.delete("sample_posts");
+      eleventyConfig.ignores.add("notes/low-quality-posts");
+      break;
+
     case "full-no-opt":
       distPath = "_built";
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"), {
@@ -61,7 +73,7 @@ module.exports = function (eleventyConfig) {
       });
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes/posts");
-      eleventyConfig.ignores.add("notes/sample_posts");
+      eleventyConfig.ignores.add("sample_posts");
       eleventyConfig.ignores.delete("notes/low-quality-posts");
       break;
 
@@ -74,7 +86,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes/posts");
-      eleventyConfig.ignores.add("notes/sample_posts");
+      eleventyConfig.ignores.add("sample_posts");
       eleventyConfig.ignores.add("notes/low-quality-posts");
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,

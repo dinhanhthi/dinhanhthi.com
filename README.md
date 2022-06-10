@@ -37,11 +37,20 @@ touch_all # build whole site
 # Reading notes
 change_img_url ydkjsy-1 # change url to {{ img-url }}
 # Images must be stored in dat.com/notes/img_tmp/
-# WIP notes must be in notes/sample_posts/
 ```
 </details>
 
 ## Dev
+
+__Shortcodes__:
+
+``` bash
+# Watch mode localhost
+npm run watch
+
+# For modifying theme (parse only posts in sample_posts/)
+npm run theming
+```
 
 Let us assume that the installation step is complete.
 
@@ -50,6 +59,12 @@ Let us assume that the installation step is complete.
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
 - **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
+
+For modifying theme (parse only posts in `sample_posts/`)
+
+```bash
+npm run theming # (--incremental is turned off)
+```
 
 Without image optimization (**Note**: If there is any propblem with the style, run `npm run css:touch`),
 
