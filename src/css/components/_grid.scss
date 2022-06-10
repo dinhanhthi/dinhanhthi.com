@@ -1,91 +1,91 @@
-.d-flex{
+.d-flex {
   display: -ms-flexbox;
-	display: flex;
+  display: flex;
 }
 
-.d-flex-wrap{
+.d-flex-wrap {
   -ms-flex-wrap: wrap;
-	flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.align-items-center{
+.align-items-center {
   align-items: center;
 }
 
-.container{
+.container {
   width: 100%;
   margin: 0 auto;
-}
 
-.wide{
-  @media (min-width: $grid-xxl){
-    width: $grid-xxl;
+  &.wide {
+    @media (min-width: $grid-xxl) {
+      width: $grid-xxl;
+    }
   }
-}
 
-.normal{
-  padding: 0 $padding-lr;
-  width: 100%;
-  @media (min-width: ($grid-w-normal + $padding-lr)){
-    width: $grid-w-normal;
+  &.normal {
+    padding: 0 $padding-lr;
+    width: 100%;
+    @media (min-width: ($grid-w-normal + $padding-lr)) {
+      width: $grid-w-normal;
+    }
   }
-}
 
-.ex-normal{
-  @media (min-width: $grid-xl){
-    width: $grid-w-ex-normal;
+  &.ex-normal {
+    @media (min-width: $grid-xl) {
+      width: $grid-w-ex-normal;
+    }
   }
 }
 
 $spacing-sizes: 0, 1, 2, 3, 4, 5;
-@each $s in $spacing-sizes{
-  .pt-#{$s}{
-    padding-top: ($s * 1rem)!important;
+@each $s in $spacing-sizes {
+  .pt-#{$s} {
+    padding-top: ($s * 1rem) !important;
   }
-  .pt-#{$s}p5{
+  .pt-#{$s}p5 {
     padding-top: ($s * 1rem + 0.5rem);
   }
-  .pr-#{$s}{
-    padding-right: ($s * 1rem);
+  .pr-#{$s} {
+    padding-right: ($s * 1rem) !important;
   }
-  .pr-#{$s}p5{
+  .pr-#{$s}p5 {
     padding-right: ($s * 1rem + 0.5rem);
   }
-  .pb-#{$s}{
+  .pb-#{$s} {
     padding-bottom: ($s * 1rem);
   }
-  .pb-#{$s}p5{
+  .pb-#{$s}p5 {
     padding-bottom: ($s * 1rem + 0.5rem);
   }
-  .pl-#{$s}{
+  .pl-#{$s} {
     padding-left: ($s * 1rem);
   }
-  .pl-#{$s}p5{
+  .pl-#{$s}p5 {
     padding-left: ($s * 1rem + 0.5rem);
   }
 
-  .mt-#{$s}{
+  .mt-#{$s} {
     margin-top: ($s * 1rem);
   }
-  .mt-#{$s}p5{
+  .mt-#{$s}p5 {
     margin-top: ($s * 1rem + 0.5rem);
   }
-  .mr-#{$s}{
-    margin-right: ($s * 1rem);
+  .mr-#{$s} {
+    margin-right: ($s * 1rem) !important;
   }
-  .mr-#{$s}p5{
+  .mr-#{$s}p5 {
     margin-right: ($s * 1rem + 0.5rem);
   }
-  .mb-#{$s}{
+  .mb-#{$s} {
     margin-bottom: ($s * 1rem);
   }
-  .mb-#{$s}p5{
+  .mb-#{$s}p5 {
     margin-bottom: ($s * 1rem + 0.5rem);
   }
-  .ml-#{$s}{
+  .ml-#{$s} {
     margin-left: ($s * 1rem);
   }
-  .ml-#{$s}p5{
+  .ml-#{$s}p5 {
     margin-left: ($s * 1rem + 0.5rem);
   }
 }

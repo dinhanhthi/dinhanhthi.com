@@ -9,7 +9,7 @@ main img {
   content-visibility: auto;
 }
 
-img {
+img:not(.keep-original) {
   max-width: 100%;
 }
 
