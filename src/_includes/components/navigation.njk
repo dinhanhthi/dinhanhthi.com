@@ -27,10 +27,14 @@
         </div>
       </div>
     </div>
-    <span class="nav-item nav-button-icon nav-dark-light no-effect" id="toggle-dark-light" href="">
-      <img class="keep-original" src="/img_src/nav/moon.svg" alt="light-mode" height="25" width="25">
+    <span
+      class="nav-item nav-button-icon nav-dark-light no-effect scale-img-on-active tooltip-auto"
+      data-title="Dark Theme"
+      id="toggle-dark-light"
+      href="">
+      <img class="keep-original" src="/img_src/nav/moon.svg" alt="toggle themes" height="25" width="25">
     </span>
-    <a class="nav-hide-sm nav-item nav-button-icon nav-github no-effect" href="https://github.com/dinhanhthi" target="_blank">
+    <a class="nav-hide-sm nav-item nav-button-icon nav-github no-effect scale-img-on-active" href="https://github.com/dinhanhthi" target="_blank">
       <img class="keep-original" src="/img_src/nav/github.svg" alt="github" height="25" width="25">
     </a>
   </div>
@@ -45,6 +49,8 @@
 {{page.url}}
 
 {% set js %}
-  {% include "scripts/search.js" %}
+{% include "scripts/search.js" %}
 {% endset %}
-<script>{{ js | jsmin | safe }}</script>
+<script>
+{{ js | jsmin | safe }}
+</script>

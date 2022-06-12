@@ -27,16 +27,9 @@
     content: attr(data-title);
     font-size: 0.8rem;
     padding: 5px 10px;
-    top: 30px;
-    left: -5px;
+    bottom: -35px;
+    left: 0;
     white-space: nowrap;
-  }
-
-  &.tooltip-auto__big {
-    &:before {
-      top: 60px;
-      left: 0;
-    }
   }
 }
 

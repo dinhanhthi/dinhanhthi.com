@@ -16,7 +16,7 @@ nav {
     width: 100%;
     position: absolute;
     bottom: 0;
-    z-index: 9999;
+    z-index: -1;
     left: 0;
 
     #reading-progress {
@@ -54,7 +54,7 @@ nav {
 
     a {
       color: #ccc;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 500;
       white-space: nowrap;
 

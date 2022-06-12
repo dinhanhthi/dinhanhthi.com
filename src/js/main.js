@@ -369,11 +369,11 @@ const addSelected2 = (ulRes, li) => {
 
 // Dark/Light toggle
 // -----------------------------------------
-const btn = document.getElementById("toggle-dark-light");
-let toggleIcon = btn.firstElementChild;
+const toggleThemeBtn = document.getElementById("toggle-dark-light");
+let toggleIcon = toggleThemeBtn.firstElementChild;
 
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-btn.onclick = function () {
+toggleThemeBtn.onclick = function () {
   if (prefersDarkScheme.matches) {
     document.body.classList.toggle("light-theme");
     var theme = document.body.classList.contains("light-theme")
@@ -392,8 +392,10 @@ btn.onclick = function () {
 const toggleIconFn = (theme) => {
   if (theme === "dark") {
     toggleIcon.src = "/img_src/nav/sun.svg";
+    toggleThemeBtn.setAttribute('data-title', 'Light Theme')
   } else {
     toggleIcon.src = "/img_src/nav/moon.svg";
+    toggleThemeBtn.setAttribute('data-title', 'Dark Theme')
   }
 };
 

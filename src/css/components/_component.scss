@@ -97,6 +97,14 @@
   }
 }
 
+.scale-img-on-active {
+  &:active {
+    img {
+      transform: scale(0.9);
+    }
+  }
+}
+
 // Warning boxes
 // ----------------------------------------------------------------
 .info,
