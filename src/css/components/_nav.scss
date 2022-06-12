@@ -28,14 +28,14 @@ nav {
     }
   }
 
-  @media (max-width: $grid-lg) {
+  @include screen-lg-down {
     padding: 0 1rem;
     nav #nav .nav-search .nav-search__input {
       padding-right: 1rem;
     }
   }
 
-  @media (max-width: $grid-sm) {
+  @include screen-sm-down {
     padding: 0 0.5em;
     nav #nav .nav-search .nav-search__input {
       padding-right: 0.5rem;
@@ -137,6 +137,12 @@ nav {
           border-radius: 4px;
           font-size: 10px;
           color: #999;
+        }
+
+        .back-slash {
+          @include screen-md-down {
+            display: none;
+          }
         }
       }
       .nav-search__input {
