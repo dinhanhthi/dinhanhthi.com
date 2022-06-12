@@ -283,12 +283,14 @@ const addSelected2 = (ulRes, li) => {
           if (target === "_blank") {
             const span = document.createElement("span");
             span.setAttribute("class", "external-badge");
+            span.setAttribute("data-external", true);
             span.innerHTML = "external";
             h3.appendChild(span);
           }
           if (privatePost == true) {
             var spanPrivate = document.createElement("span");
             spanPrivate.setAttribute("class", "external-badge");
+            spanPrivate.setAttribute("data-private", true);
             spanPrivate.innerHTML = "private";
             h3.appendChild(spanPrivate);
           }
