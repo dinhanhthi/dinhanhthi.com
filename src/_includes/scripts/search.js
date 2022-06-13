@@ -99,14 +99,12 @@ inputSearch.onkeydown = (e) => {
       .getElementsByClassName("item__content")[0]
       .getElementsByTagName("h3")[0];
     const isExternal = h3El.querySelectorAll("[data-external=true]")[0];
-    const isPrivate = h3El.querySelectorAll("[data-private=true]")[0];
+    // const isPrivate = h3El.querySelectorAll("[data-private=true]")[0];
     const href = h3El.getElementsByTagName("a")[0].href;
-    if (!isPrivate) {
-      if (!isExternal) {
-        window.location.href = href;
-      } else {
-        window.open(href, "_blank");
-      }
+    if (!isExternal) {
+      window.location.href = href;
+    } else {
+      window.open(href, "_blank");
     }
   }
 
