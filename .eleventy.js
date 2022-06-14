@@ -100,6 +100,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
+  eleventyConfig.addLayoutAlias("blog", "layouts/blog.njk");
 
   eleventyConfig.addNunjucksAsyncFilter(
     "addHash",

@@ -44,17 +44,22 @@ header {
   .header-container {
     width: 900px;
     padding: 5rem 1rem 1rem;
-    text-align: center;
     max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .post-header {
+    text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0 auto;
-    text-align: center;
+
+    h1 {
+      font-size: 2.2rem;
+    }
   }
 
   h1 {
-    font-size: 2.2rem;
     margin-bottom: 0;
     margin-top: 0;
     display: inline-flex;
@@ -221,6 +226,60 @@ p.contact {
     }
     &:hover {
       color: #fff;
+    }
+  }
+}
+
+.blog-header {
+  .blog-tags {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 10px;
+    a {
+      background: linear-gradient(
+        140deg,
+        #d2a8ff 12.09%,
+        #f778ba 42.58%,
+        #ff7b72 84.96%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      font-weight: 500;
+      font-size: 1.1rem;
+      border-bottom: 1px dashed;
+      border-bottom-color: transparent;
+      &:hover {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+  h1.blog-title {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+  .blog-description {
+    opacity: 0.6;
+    margin-bottom: 10px;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+  .blog-date {
+    font-style: italic;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+    }
+    a {
+      color: $font-a;
+      &:hover {
+        color: $a-hover;
+        border-bottom-color: $font-a;
+      }
     }
   }
 }

@@ -185,6 +185,7 @@ $bg-hs-box-light: rgba(255, 255, 255, 0.25);
 @import "./components/about"; // for about page
 @import "./components/component"; // all small components
 @import "./components/texmath"; // markdown-it-texmath
+@import "./components/blog";
 @import "./components/post";
 @import "./components/prism-vscode"; // with my custom
 @import "./components/code";

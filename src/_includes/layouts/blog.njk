@@ -1,0 +1,80 @@
+---
+#layout: layouts/base.njk
+permalink: "{{ page.fileSlug }}/"
+---
+{% extends "layouts/base.njk" %}
+
+{% block extraArticleHeader %}
+  {% if tags %}
+    <div id="more-info">
+      <div id="note-tag">
+        {% for tag in tags %}
+          {% if tag != "posts" %}
+            <a href="/tags/{{ tag | slug }}/" {% if loop.index %}id="category"{% endif %}}>{{ tag }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div id="last-modified">
+				Last modified {{ page.date | toDuration }}
+				/
+				<a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block article %}
+  <article class="post-container">
+    <div class="container normal mt-2 page-note">
+
+      {% set lastUpdatedDays = page.date | toDurationDays %}
+      {% if lastUpdatedDays > settings.outdatedTime and not noOutdated %}
+        <div class="danger not-full-warning">
+          <div class="warning-icon">
+            {% icon "time" %}
+          </div>
+          <div>The last modifications of this post were around <strong>{{ page.date | toDuration }}</strong>, some information may be outdated!</div>
+        </div>
+      {% endif %}
+
+      {% if lowQuality %}
+        <div class="danger low-quality-warning">
+          <div class="warning-icon">
+            {% icon "warning" %}
+          </div>
+          <div>This is a low-quality note, read at your own risk!</div>
+        </div>
+      {% elif notfull %}
+        <div class="warning not-full-warning">
+          <div class="warning-icon">
+            {% icon "draft" %}
+          </div>
+          <div>This is a draft, the content is not complete and of poor quality!</div>
+        </div>
+      {% endif %}
+
+      {% if toc %}
+        {# <div class="toc-container">{{ content | toc | safe }}</div> #}
+        {{ content | toc | safe }}
+        {{ content | safe }}
+      {% else %}
+        {{ content | safe }}
+      {% endif %}
+    </div>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ title }}",
+        "image": [],
+        "author": "{{ settings.author.name }}",
+        "url": "{{ settings.url }}{{ canonicalUrl or page.url }}",
+        "mainEntityOfPage": "{{ settings.url }}{{ canonicalUrl or page.url }}",
+        "datePublished": "{{ page.date | htmlDateString }}",
+        "dateModified": "{{ page.date.toISOString().slice(0, 10) }}",
+        "description": "{% if description %}{{ description }}{% else %}{{ content | striptags | truncate(140) }}{% endif %}"
+      }
+    </script>
+  </article>
+{% endblock %}

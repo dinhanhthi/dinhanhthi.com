@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog
 title: "Sample blog post"
-tags: [Project-based Learning, MOOC, Machine Learning, Data Science, Deep Learning, Time Series, NLP, MLOps, Python, R Lang, Prob & Stats, Angular, JavaScript, Web Dev, API & Services, Algorithms, Skills, Gaming & Puzzles, Others]
+description: "This note is used to show the compoents I created to use in this site. It's for me only. I use it as a reference when I wanna create some components for the notes."
+tags: [Project-based Learning, MOOC]
 toc: true
 math: true
 icon: "/img_src/header/aio.svg"
