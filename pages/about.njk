@@ -118,22 +118,8 @@ On this website, I document everything I have learned during my learning and wor
                   <p>{{ p | safe }}</p>
                 {% endfor %}
                 {% if item.tech %}
-                  <div class="tech">
-                    {% for item2 in item.tech %}
-                      {% set itemInfo = item2 | getTech(techs) %}
-                      {% if itemInfo.url %}
-                        <a href="{{ itemInfo.url }}" target="_blank">
-                          <div data-title="{{ itemInfo.name }}" class="skill-small hover-translate tooltip-auto">
-                            <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                          </div>
-                        </a>
-                      {% else %}
-                        <div data-title="{{ itemInfo.name }}" class="skill-small hover-translate tooltip-auto">
-                          <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
+                  {% set techItems = item.tech %}
+                  {% include "components/techBadges.njk" %}
                 {% endif %}
               </div>
             </div>
@@ -158,33 +144,14 @@ On this website, I document everything I have learned during my learning and wor
           <div class="list-of">
             <div class="title">
               <a href="{% if item.source %}{{ item.source }}{% else %}{{ item.url }}{% endif %}" target="_blank">
-                <h4>{{ item.icon }}<span>{{ item.title }}</span></h4>
+                <h4>{{ item.icon }}
+                  <span>{{ item.title }}</span></h4>
               </a>
               <p>{{ item.description | safe }}</p>
               {% if item.tech or item.tech_text %}
-                <div class="tech">
-                  {% if item.tech %}
-                    {% for item2 in item.tech %}
-                      {% set itemInfo = item2 | getTech(techs) %}
-                      {% if itemInfo.url %}
-                        <a href="{{ itemInfo.url }}" target="_blank">
-                          <div data-title="{{ itemInfo.name }}" class="skill-small hover-translate tooltip-auto">
-                            <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                          </div>
-                        </a>
-                      {% else %}
-                        <div data-title="{{ itemInfo.name }}" class="skill-small hover-translate tooltip-auto">
-                          <img class="keep-original" src="/img/about/{{ itemInfo.icon }}" alt="{{ itemInfo.name }}" height="20" width="20">
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %}
-                  {% if item.tech_text %}
-                    {% for item3 in item.tech_text %}
-                      <span class="tech-text">{{ item3 }}</span>
-                    {% endfor %}
-                  {% endif %}
-                </div>
+                {% set techItems = item.tech %}
+                {% set techTexts = item.tech_text %}
+                {% include "components/techBadges.njk" %}
               {% endif %}
             </div>
           </div>

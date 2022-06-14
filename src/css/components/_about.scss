@@ -1,5 +1,4 @@
 .page-about {
-
   .header-logo {
     width: auto;
     height: 120px;
@@ -11,14 +10,14 @@
 
   $abt-intro: 65%;
   .intro {
-    padding: 0 $padding-lr 2rem 2*$padding-lr;
+    padding: 0 $padding-lr 2rem 2 * $padding-lr;
     width: $abt-intro;
   }
 
   .coordinate {
     width: 100% - $abt-intro;
     padding: 0 $padding-lr;
-    padding-right: 2*$padding-lr;
+    padding-right: 2 * $padding-lr;
     font-size: 1rem;
     ul {
       padding-left: 0;
@@ -58,12 +57,12 @@
   @include screen-md-down {
     .intro {
       width: 100%;
-      padding: 0 2*$padding-lr 1rem;
+      padding: 0 2 * $padding-lr 1rem;
       border-bottom: 1px solid #444;
     }
     .coordinate {
       width: 100%;
-      padding: 1rem 2*$padding-lr 1.5rem;
+      padding: 1rem 2 * $padding-lr 1.5rem;
     }
   }
 
@@ -228,11 +227,9 @@
               }
               &.date {
                 font-size: 0.95rem;
-                // color: var(--color-blue);
                 color: var(--color-faded);
               }
               a:hover {
-                // color: var(--heading-color);
                 border-bottom: 1px solid var(--font-a-border);
               }
             }
@@ -253,13 +250,6 @@
               margin: 0 0 0.5rem 0;
               color: var(--color-faded);
               line-height: 1.5;
-            }
-            .tech {
-              margin-top: 1rem;
-              flex-wrap: wrap;
-              .skill-small {
-                @include skill-small();
-              }
             }
           }
 
@@ -317,7 +307,6 @@
           flex-direction: column;
           height: 100%;
           a {
-            // color: var(--heading-color);
             &:hover {
               span {
                 border-bottom: 1px solid var(--font-a);
@@ -334,26 +323,6 @@
             color: var(--color-faded);
             line-height: 1.5;
             flex: 1;
-          }
-          .tech {
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            .skill-small {
-              @include skill-small();
-            }
-            .tech-text {
-              margin: 3px 6px 3px 0;
-              border: 1px solid var(--a-list-homepage-bd);
-              background: var(--badge-black-bg);
-              padding: 3px 8px;
-              border-radius: 3px;
-              font-size: 0.9rem;
-              color: var(--color-faded);
-              font-family: monospace;
-              word-spacing: -3px;
-            }
           }
         }
       }

@@ -55,7 +55,7 @@ $grid-xxl: 1600px;
 $grid-w-normal: 900px;
 $grid-w-ex-normal: 1000px;
 $grid-toc: 1400px;
-$padding-lr: $font-size;
+$padding-lr: 16px;
 $margin-bottom: 1.5 * $font-size; // margin-bottom
 $margin-bottom-code: 1.1 * $margin-bottom; // for code blocks
 
@@ -88,7 +88,7 @@ $li-margin-bottom: 5px;
 
 // CODE
 $code-font-size: 0.9 * $font-size;
-$inside-padding: $font-size;
+$inside-padding: 16px;
 $pre-padding: $inside-padding;
 $code-bg: #2f3240;
 $code-bg-light: #fff;

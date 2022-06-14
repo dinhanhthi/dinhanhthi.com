@@ -695,3 +695,32 @@ input[type="search"]::-webkit-search-results-decoration {
     left: 20px;
   }
 }
+
+.skill-badges {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .skill-small {
+    display: inline-flex;
+    margin: 3px 6px 3px 0;
+    border: 1px solid var(--badge-black-bd);
+    background: var(--badge-black-bg);
+    padding: 3px;
+    border-radius: $box-border-radius;
+    picture {
+      display: inline-flex;
+    }
+  }
+  .tech-text {
+    margin: 3px 6px 3px 0;
+    border: 1px solid var(--a-list-homepage-bd);
+    background: var(--badge-black-bg);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    color: var(--color-faded);
+    font-family: monospace;
+    word-spacing: -3px;
+  }
+}
