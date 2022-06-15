@@ -38,7 +38,7 @@ header nav {
 }
 
 header {
-  background: $color-background;
+  background: $color-header-background;
   color: $font-color;
 
   .header-container {
@@ -48,7 +48,7 @@ header {
     margin: 0 auto;
   }
 
-  .post-header {
+  .post-header, .page-header {
     text-align: center;
     display: flex;
     align-items: center;
