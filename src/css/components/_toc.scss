@@ -155,7 +155,7 @@
     margin-right: calc((900px - 100vw) / 2);
     border-left: none;
     position: sticky;
-    top: 60px;
+    top: $fixed-top;
     height: calc(100vh - 80px);
     & > .ol-container {
       width: fit-content;

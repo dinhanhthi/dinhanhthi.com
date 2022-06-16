@@ -175,7 +175,7 @@ function offsetAnchor() {
   if (location.hash.length !== 0) {
     window.scrollTo({
       left: window.scrollX,
-      top: window.scrollY - 60,
+      top: window.scrollY - 70, // the same as main.scss/$fixed-top
       behavior: "smooth",
     });
   }
