@@ -83,14 +83,27 @@ I am a Vietnamese with a curious mind. I would like to learn something new every
       {% set lenlist = postslist | length %}
       {% if lenlist > 0 %}
         <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
-          <div class="category">
-            <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
-              <i class="{{ item.fontello }} fontello-icon"></i>{{ item.name }}
-            </h2>
-            {% set customClass = 'list-homepage list-of-post' %}
-            {% set customIcon = true %}
-            {% include "components/postslist.njk" %}
-          </div>
+          {% if item.name === 'Blog' %}
+            <div class="blog">
+              <div class="h2-dots _big">
+                <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
+                  <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>{{ item.name }}
+                </h2>
+              </div>
+              {% set customClass = 'list-of-blog' %}
+              {% set customIcon = true %}
+              {% include "components/postslist.njk" %}
+            </div>
+          {% else %}
+            <div class="category">
+              <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
+                <i class="{{ item.fontello }} fontello-icon"></i>{{ item.name }}
+              </h2>
+              {% set customClass = 'list-homepage list-of-post' %}
+              {% set customIcon = true %}
+              {% include "components/postslist.njk" %}
+            </div>
+          {% endif %}
         </div>
       {% endif %}
     {% endfor %}

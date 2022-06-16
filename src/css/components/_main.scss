@@ -47,38 +47,6 @@ main {
   margin: 0 auto;
 }
 
-.list-of-post {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-  .fontello-icon {
-    margin-left: -25px;
-    &::before {
-      opacity: 0.75;
-    }
-  }
-  li {
-    margin-bottom: 10px !important;
-    padding-right: 10px;
-    padding-left: 25px;
-    width: 100%;
-    a {
-      color: var(--a-list-homepage);
-      border-bottom: 2px dotted var(--a-list-homepage-bd);
-    }
-    &:hover {
-      a {
-        border-color: var(--font-a);
-        color: var(--color-invert);
-      }
-      cursor: pointer;
-      &::before {
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .note-type-indicator {
   font-size: 0.95rem;
   color: var(--color-faded);

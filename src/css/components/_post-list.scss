@@ -1,0 +1,41 @@
+.list-of-post {
+  .fontello-icon {
+    margin-left: -25px;
+    &::before {
+      opacity: 0.75;
+    }
+  }
+  .post-item {
+    margin-bottom: 10px !important;
+    padding-right: 10px;
+    padding-left: 25px;
+    width: 100%;
+    a {
+      color: var(--a-list-homepage);
+      border-bottom: 2px dotted var(--a-list-homepage-bd);
+    }
+    &:hover {
+      a {
+        border-color: var(--font-a);
+        color: var(--color-invert);
+      }
+      cursor: pointer;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// index.njk
+.category {
+  .list-homepage {
+    @include column-count(1);
+    @include screen-md-up {
+      @include column-count(2);
+    }
+    @include screen-lg-up {
+      @include column-count(3);
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<ul{% if customClass %} class="{{ customClass }}"{% endif %}>
+<div class="toggle-posts{% if customClass %} {{ customClass }}{% endif %}">
 
   {% set newPostList = [] %}
   {% for post in postslist %}
@@ -47,8 +47,8 @@
   {% endif %}
 
   {% for post in newPostList | sort(attribute = 'title') %}
-    <li class="
-      {% if post.notfull or post.lowQuality %}post-not-full{% endif %}
+    <div class="post-item
+      {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
       {% if post.private %} post-private{% endif %}
       {% if post.external %} post-outside{% endif %}
     ">
@@ -86,7 +86,7 @@
             {% endif %}
           {% endif %}
         </a>
-      </li>
+      </div>
       {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
     {% endfor %}
-  </ul>
+  </div>
