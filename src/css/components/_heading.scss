@@ -195,3 +195,51 @@ h4 {
     }
   }
 } // end page-note
+
+// headings with dots at the end like in About page
+.h2-dots {
+  position: relative;
+  display: inline-block;
+
+  h2 {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    img {
+      margin-right: 8px;
+      display: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 28px;
+    right: -15px;
+    content: "";
+    height: 20px;
+    width: 30px;
+
+    background-image: -webkit-repeating-radial-gradient(
+      center center,
+      var(--color-invert),
+      var(--color-invert) 1px,
+      transparent 0px,
+      transparent 100%
+    );
+
+    -webkit-background-size: 6px 6px;
+    -moz-background-size: 6px 6px;
+    background-size: 6px 6px;
+    z-index: 0;
+  }
+
+  &._small {
+    zoom: 0.9;
+  }
+
+  &._big {
+    zoom: 1.1;
+  }
+}

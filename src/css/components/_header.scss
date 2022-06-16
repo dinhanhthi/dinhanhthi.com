@@ -48,7 +48,8 @@ header {
     margin: 0 auto;
   }
 
-  .post-header, .page-header {
+  .post-header,
+  .page-header {
     text-align: center;
     display: flex;
     align-items: center;
@@ -236,6 +237,9 @@ p.contact {
     gap: 1rem;
     margin-bottom: 10px;
     a {
+      font-weight: 500;
+      font-size: 1.1rem;
+      border: none;
       background: linear-gradient(
         140deg,
         #d2a8ff 12.09%,
@@ -247,12 +251,15 @@ p.contact {
       -webkit-text-fill-color: rgba(0, 0, 0, 0);
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
-      font-weight: 500;
-      font-size: 1.1rem;
-      border-bottom: 1px dashed;
-      border-bottom-color: transparent;
       &:hover {
-        border-bottom-color: #fff;
+        background: linear-gradient(
+          140deg,
+          #d6dc6c 12.09%,
+          #77f282 42.58%,
+          #40c235 84.96%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
       }
     }
   }

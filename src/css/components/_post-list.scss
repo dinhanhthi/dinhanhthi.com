@@ -39,3 +39,29 @@
     }
   }
 }
+
+.list-of-blog {
+  display: flex;
+  gap: 1rem;
+
+  .post-item {
+    background: linear-gradient(180deg,#6d4363,#362c42);
+    width: 25%;
+    min-height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+
+    a {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 500;
+      &:hover {
+        border: none;
+      }
+    }
+  }
+}
