@@ -7,6 +7,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const elasticlunr = require("elasticlunr");
 const { minify } = require("terser");
+const _ = require("lodash");
 
 const markdownIt = require("markdown-it");
 var markdownItp = require("markdown-it")();
@@ -187,6 +188,8 @@ module.exports = function (eleventyConfig) {
       this.addField("keywords");
       this.addField("tags");
       this.addField("cat");
+      this.addField("icon");
+      this.addField("iconColor");
       this.setRef("id");
     });
     collection.forEach((page) => {
@@ -195,9 +198,17 @@ module.exports = function (eleventyConfig) {
         title: page.title,
         keywords: page.keywords,
         tags: page.tags,
-        cat: page.cat
+        cat: page.cat,
+        icon: page.cat
           ? categories.find((item) => item.name === page.cat).fontello
           : "icon-tags",
+        iconColor: page.cat
+          ? _.get(
+              categories.find((item) => item.name === page.cat),
+              "color",
+              "#fff"
+            )
+          : "#fff",
         target: page.target,
         privatePost: page.privatePost,
         //"content": page.templateContent,
