@@ -46,7 +46,17 @@
     {% endfor %}
   {% endif %}
 
-  {% for post in newPostList | sort(attribute = 'title') %}
+  {% if sortBy === 'date' %}
+    {% set newPostList = newPostList | sort(attribute = 'date') %}
+  {% else %}
+    {% set newPostList = newPostList | sort(attribute = 'title') %}
+  {% endif %}
+
+  {% if limitPosts %}
+    {% set newPostList = newPostList | head(limitPosts) %}
+  {% endif %}
+
+  {% for post in newPostList %}
     <div class="post-item
       {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
       {% if post.private %} post-private{% endif %}
