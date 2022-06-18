@@ -23,8 +23,8 @@
     {% endif %}
   {% endfor %}
 
-  {% if more_post %}
-    {% for post in more_post %}
+  {% if morePosts %}
+    {% for post in morePosts %}
       {% set singlePost = {
         'title': post.title,
         'url': post.url,

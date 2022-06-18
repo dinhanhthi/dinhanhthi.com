@@ -48,14 +48,14 @@ I am a Vietnamese with a curious mind. I would like to learn something new every
     {% for item in categories %}
 
       {# post outside 11ty .md files #}
-      {% set more_post = false %}
+      {% set morePosts = false %}
 
       {% set newPostListCat = [] %}
       {% for post in cat_ex_posts %}
         {% if not post.hide %}
           {% for tg in post.tags %}
             {% if tg == item.name %}
-              {% set more_post = true %}
+              {% set morePosts = true %}
               {% set singlePost = {
                 'title': post.title,
                 'url': post.url
@@ -75,8 +75,8 @@ I am a Vietnamese with a curious mind. I would like to learn something new every
         {% endif %}
       {% endfor %}
 
-      {% if more_post %}
-        {% set more_post = newPostListCat %}
+      {% if morePosts %}
+        {% set morePosts = newPostListCat %}
       {% endif %}
 
       {% set postslist = collections[item.name] %}
