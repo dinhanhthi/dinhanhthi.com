@@ -170,6 +170,14 @@ $alert-warning-bd-light: #ffcd00;
 $bg-hs-box: rgba(255, 255, 255, 0.05);
 $bg-hs-box-light: rgba(255, 255, 255, 0.25);
 
+// BLOG
+$bg-blog-card: $code-bg;
+$bg-blog-card-light: $code-bg-light;
+$post-gap: 1.5rem;
+$min-blog-card-width: 250px;
+$min-blog-card-height: 10rem;
+
+
 @import "./components/prism_variables";
 @import "./components/mixin"; // mixsin
 @import "./components/dark-light"; // dark / light mode

@@ -40,23 +40,33 @@
   }
 }
 
+// For blog posts
 .list-of-blog {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, 1fr));
+  row-gap: $post-gap;
+  column-gap: $post-gap;
 
   .post-item {
-    background: linear-gradient(180deg,#6d4363,#362c42);
-    width: 25%;
-    min-height: 10rem;
+    background: var(--bg-blog-card);
+    box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+    min-height: $min-blog-card-height;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-radius: 16px;
+      transform: scale(1.03);
+    }
 
     a {
-      color: #fff;
+      // color: #fff;
+      color: var(--heading-color);
       font-size: 1.2rem;
       font-weight: 500;
       &:hover {

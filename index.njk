@@ -52,13 +52,16 @@ date: Last Modified
         <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
           {% if item.name === 'Blog' %}
             <div class="blog">
-              <div class="h2-dots _big">
+              <div class="h2-dots _big _no-dots">
                 <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
                   <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>{{ item.name }}
+                  <a class="heading-more no-effect" href="/blog/">...more</a>
                 </h2>
               </div>
               {% set customClass = 'list-of-blog' %}
               {% set customIcon = false %}
+              {% set sortBy = 'date' %}
+              {% set limitPosts = 7 %}
               {% include "components/postslist.njk" %}
             </div>
           {% else %}
@@ -87,7 +90,7 @@ date: Last Modified
           {% set lenlist = postslist | length %}
           {% if lenlist > 0 %}
             <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
-              <i class="{{ item.fontello }} fontello-icon"></i>
+              <i{% if item.name === 'Blog' %} style="color: {{item.color}};"{% endif %} class="{{ item.fontello }} fontello-icon"></i>
               <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
             </li>
           {% endif %}

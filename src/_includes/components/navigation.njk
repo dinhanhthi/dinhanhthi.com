@@ -9,6 +9,14 @@
     <a class="nav-item no-effect nav-text{% if page.url === '/about/' %} active{% endif %}" href="{{ '/about/' | url }}">
       <span>About</span>
     </a>
+    {% for item in categories %}
+      {% if item.name == 'Blog' %}
+        <a class="nav-item no-effect nav-text{% if page.url === '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
+          <i class="icon-feather fontello-icon" style="color: {{item.color}};"></i>
+          <span>{{ item.name }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
     <div id="nav-search" class="nav-search">
       <form>
         <span class="back-slash">/</span>
@@ -49,8 +57,6 @@
 
 </div>
 </nav>
-
-{{page.url}}
 
 {% set js %}
 {% include "scripts/search.js" %}

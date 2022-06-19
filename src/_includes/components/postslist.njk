@@ -47,7 +47,7 @@
   {% endif %}
 
   {% if sortBy === 'date' %}
-    {% set newPostList = newPostList | sort(attribute = 'date') %}
+    {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
   {% else %}
     {% set newPostList = newPostList | sort(attribute = 'title') %}
   {% endif %}
