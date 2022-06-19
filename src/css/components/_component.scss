@@ -555,7 +555,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   @include box-bg(var(--code-bg), var(--code-bd));
 
-  @include screen-lg-up {
+  @include screen-sm-up {
     &:not(.single-line) {
       flex-direction: column;
       & > div:not(:last-child) {
@@ -573,17 +573,11 @@ input[type="search"]::-webkit-search-results-decoration {
         margin-bottom: 0;
       }
     }
-  }
 
-  @include screen-lg-down {
-    align-items: center;
-    padding: 10px 15px;
-    width: fit-content;
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
-    & > div:not(:last-child) {
-      margin-right: 15px;
-      margin-bottom: 0;
+    &.plain {
+      padding: 1rem 0;
+      border: none;
+      background: transparent;
     }
   }
 
