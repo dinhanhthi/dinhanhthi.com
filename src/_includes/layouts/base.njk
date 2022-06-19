@@ -34,57 +34,7 @@
       });
     </script>
 
-    {% set pageUrlLength = page.url | length %}
-    <header{% if pageUrlLength > 1 and page.url !== '/about/' %} class="wave-border wave-border-post"{% endif %}>
-      {% include "components/navigation.njk" %}
-      <div class="header-container">
-        {% if layout === 'post' or layout === 'page' %}
-          <div class="post-header">
-            {% block headerLogo %}{% endblock %}
-            {% block headerTitle %}
-              <h1>
-                {% if specialTitle %}
-                  <span class="special-title">{{ specialTitle }}</span>
-                {% endif %}
-                {% if specialTitleImageUrl %}
-                  <span class="special-title"><img width="36" height="36" src="{{ specialTitleImageUrl }}" class="keep-original" alt="hi" ></span>
-                {% endif %}
-                {{ title }}
-                {% if lowQuality %}
-                  <sup class="draft-badge">low-quality</sup>
-                {% elif notfull %}
-                  <sup class="draft-badge">draft</sup>
-                {% endif %}
-              </h1>
-            {% endblock %}
-            {% block extraArticleHeader %}{% endblock %}
-          </div>
-        {% elif layout === 'blog' %}
-          <div class="blog-header">
-            {% if tags %}
-              <div class="blog-tags">
-                {% for tag in tags %}
-                  {% if tag != "posts" %}
-                    <a href="/tags/{{ tag | slug }}/" {% if loop.index %}id="category"{% endif %}}>{{ tag }}</a>
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% endif %}
-            <h1 class="blog-title">{{ title }}</h1>
-            {% if tags %}
-              <div class="blog-description">
-                {{ description }}
-              </div>
-            {% endif %}
-            <div class="blog-date">
-              Last updated {{ page.date | toDuration }}
-              /
-              <a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
-            </div>
-          </div>
-        {% endif %}
-      </div>
-    </header>
+    {% include "components/header.njk" %}
 
     <main
       id="main-wrapper"

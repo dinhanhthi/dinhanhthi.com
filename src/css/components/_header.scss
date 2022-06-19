@@ -43,13 +43,12 @@ header {
 
   .header-container {
     width: 900px;
-    padding: 5rem 1rem 1rem;
     max-width: 100%;
     margin: 0 auto;
+    padding: 6rem 1rem 1rem 1rem;
   }
 
-  .post-header,
-  .page-header {
+  .post-header {
     text-align: center;
     display: flex;
     align-items: center;
@@ -57,6 +56,7 @@ header {
 
     h1 {
       font-size: 2.2rem;
+      margin-bottom: 1rem;
     }
   }
 
@@ -69,7 +69,6 @@ header {
       animation-duration: 2.5s; /* Change to speed up or slow down */
       animation-iteration-count: infinite; /* Never stop waving :) */
       transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
-      // display: inline-block;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -182,11 +181,11 @@ header {
     width: 100%;
     background-size: 100% 100%;
   }
-  &.wave-border-index::after {
+  &.wave-border-gray::after {
     background: hsla(0, 0%, 100%, 0.5);
     background-image: var(--wave-bd-index);
   }
-  &.wave-border-post::after {
+  &.wave-border-white::after {
     background: #fff;
     background-image: var(--wave-bd-post);
   }

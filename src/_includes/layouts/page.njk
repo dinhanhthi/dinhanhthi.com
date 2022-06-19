@@ -3,12 +3,6 @@
 ---
 {% extends "layouts/base.njk" %}
 
-{% block headerLogo%}
-  <div class="header-logo page-layout{% if iconWhite %} icon-white{% endif %}">
-    <img alt="{{ title }}" src="{{ icon }}" class="keep-original" height="120" width="120">
-  </div>
-{% endblock %}
-
 {% block article %}
   {{ content | safe }}
 {% endblock %}
