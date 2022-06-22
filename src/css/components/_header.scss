@@ -267,16 +267,13 @@ p.contact {
     margin-bottom: 10px;
   }
   .blog-description {
-    opacity: 0.6;
+    opacity: 0.9;
     margin-bottom: 10px;
-    &:hover {
-      opacity: 0.85;
-    }
   }
   .blog-date {
     font-style: italic;
     font-size: 0.95rem;
-    opacity: 0.9;
+    opacity: 0.8;
     &:hover {
       opacity: 1;
     }

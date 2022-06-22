@@ -139,7 +139,9 @@ module.exports = function (eleventyConfig) {
   });
 
   // Compute duration from date
-  eleventyConfig.addFilter("toDuration", (dateObj) => {
+  eleventyConfig.addFilter("toDuration", (inputDateObj) => {
+    const dateObj =
+      typeof inputDateObj === "string" ? new Date(inputDateObj) : inputDateObj;
     const durationInDays =
       (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
     if (durationInDays < 1) {
@@ -155,10 +157,28 @@ module.exports = function (eleventyConfig) {
     }
   });
 
-  eleventyConfig.addFilter("toDurationDays", (dateObj) => {
+  eleventyConfig.addFilter("toDurationDays", (inputDateObj) => {
+    const dateObj =
+      typeof inputDateObj === "string" ? new Date(inputDateObj) : inputDateObj;
     const durationInDays =
       (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
     return Math.round(durationInDays);
+  });
+
+  eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
+    const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+    if (!dt.isValid) {
+      return "";
+    }
+    return dt.toISO();
+  });
+
+  eleventyConfig.addFilter("toDate", (inputString) => {
+    return new Date(inputString);
+  });
+
+  eleventyConfig.addFilter("isBlog", (inputArray) => {
+    return inputArray ? inputArray.includes("Blog") : false;
   });
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
@@ -215,6 +235,10 @@ module.exports = function (eleventyConfig) {
       });
     });
     return index.toJSON();
+  });
+
+  eleventyConfig.addFilter("getBlog", (collection) => {
+    return collection.filter((col) => col.name === "Blog")[0];
   });
 
   // Get the first `n` elements of a collection

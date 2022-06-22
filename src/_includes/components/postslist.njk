@@ -4,7 +4,9 @@
   {% for post in postslist %}
     {% set singlePost = {
       'title': post.data.title,
-      'url': post.url
+      'url': post.url,
+      'date': post.date,
+      'isBlog': post.data.tags | isBlog
     } %}
     {% if post.data.notfull %}
       {% set singlePost = singlePost | setAttribute('notfull', post.data.notfull) %}
@@ -29,7 +31,9 @@
         'title': post.title,
         'url': post.url,
         'target': "_blank",
-        'external': true
+        'external': true,
+        'date': post.date,
+        'isBlog': post.tags | isBlog
       } %}
       {% if post.notfull %}
         {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
@@ -46,7 +50,7 @@
     {% endfor %}
   {% endif %}
 
-  {% if sortBy === 'date' %}
+  {% if sortBy == 'date' %}
     {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
   {% else %}
     {% set newPostList = newPostList | sort(attribute = 'title') %}
@@ -57,24 +61,34 @@
   {% endif %}
 
   {% for post in newPostList %}
-    <div class="post-item
-      {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
-      {% if post.private %} post-private{% endif %}
-      {% if post.external %} post-outside{% endif %}
-    ">
-      {% if customIcon %}
-        {% if not post.external %}
-          <i class="icon-doc fontello-icon"></i>
-        {% else %}
-          <i class="icon-doc-add fontello-icon"></i>
-        {% endif %}
-      {% endif %}
+    {% if not hideBlogPosts or not post.isBlog  %}
       {% if post.target %}
         {% set target = post.target %}
       {% else %}
         {% set target = "_self" %}
-        {% endif%}
+      {% endif%}
+      {% if 'list-of-blog' in customClass %}
         <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
+      {% endif %}
+      <div class="post-item
+        {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
+        {% if post.private %} post-private{% endif %}
+        {% if post.external %} post-outside{% endif %}
+      ">
+        {% if customIcon %}
+          {% if post.isBlog %}
+            {% set blogItem = categories | getBlog %}
+            <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }};"></i>
+          {% else %}
+            {% if not post.external %}
+              <i class="icon-doc fontello-icon"></i>
+            {% else %}
+              <i class="icon-doc-add fontello-icon"></i>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {% if not 'list-of-blog' in customClass %}<a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">{% endif %}
           {% if post.title %}
             {{ post.title }}
             {# {% if post.good %}
@@ -95,8 +109,12 @@
               <sup title="{{ other_data.private }}">†</sup>
             {% endif %}
           {% endif %}
-        </a>
+        {% if not 'list-of-blog' in customClass %}
+          </a>{% if post.date and showDate %} — <span class="last-modified">{{ post.date | toDuration }}</span>{% endif %}
+        {% endif %}
       </div>
+      {% if 'list-of-blog' in customClass %}</a>{% endif %}
       {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
-    {% endfor %}
-  </div>
+    {% endif %}
+  {% endfor %}
+</div>

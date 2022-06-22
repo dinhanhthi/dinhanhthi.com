@@ -50,11 +50,12 @@ date: Last Modified
       {% set lenlist = postslist | length %}
       {% if lenlist > 0 %}
         <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
-          {% if item.name === 'Blog' %}
+          {% if item.name == 'Blog' %}
             <div class="blog">
               <div class="h2-dots _big _no-dots">
                 <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
-                  <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>{{ item.name }}
+                  <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>
+                  <span>{{ item.name }}</span>
                   <a class="heading-more no-effect" href="/blog/">...more</a>
                 </h2>
               </div>
@@ -64,11 +65,19 @@ date: Last Modified
               {% set limitPosts = 4 %}
               {% include "components/postslist.njk" %}
             </div>
+
+            <div class="h2-dots _big _no-dots">
+              <h2 class="heading-notes">
+                <img alt="Note icon" src="/img_src/icons/notes.svg" width="30" height="30" class="keep-original" />
+                <span>Notes</span>
+              </h2>
+            </div>
           {% else %}
             <div class="category">
               <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
                 <i class="{{ item.fontello }} fontello-icon"></i>{{ item.name }}
               </h2>
+              {% set hideBlogPosts = true %}
               {% set customClass = 'list-homepage list-of-post' %}
               {% set customIcon = true %}
               {% include "components/postslist.njk" %}
@@ -90,7 +99,7 @@ date: Last Modified
           {% set lenlist = postslist | length %}
           {% if lenlist > 0 %}
             <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
-              <i{% if item.name === 'Blog' %} style="color: {{item.color}};"{% endif %} class="{{ item.fontello }} fontello-icon"></i>
+              <i{% if item.name == 'Blog' %} style="color: {{item.color}};"{% endif %} class="{{ item.fontello }} fontello-icon"></i>
               <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
             </li>
           {% endif %}

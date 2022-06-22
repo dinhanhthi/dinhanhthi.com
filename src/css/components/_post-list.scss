@@ -24,6 +24,11 @@
         opacity: 1;
       }
     }
+    .last-modified {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
   }
 }
 
@@ -43,7 +48,6 @@
 // For blog posts
 .list-of-blog {
   display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, 1fr));
   grid-template-columns: repeat(4, 1fr);
   row-gap: $post-gap;
   column-gap: $post-gap;
@@ -54,6 +58,19 @@
 
   @include screen-sm-down {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  &._auto {
+    grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, 1fr)) !important;
+  }
+
+  a {
+    color: var(--heading-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    &:hover {
+      border: none;
+    }
   }
 
   .post-item {
@@ -71,16 +88,6 @@
     &:hover {
       border-radius: 16px;
       transform: scale(1.03);
-    }
-
-    a {
-      // color: #fff;
-      color: var(--heading-color);
-      font-size: 1.2rem;
-      font-weight: 500;
-      &:hover {
-        border: none;
-      }
     }
   }
 }

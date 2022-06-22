@@ -1,5 +1,5 @@
 {% set pageUrlLength = page.url | length %}
-{% set waveType = 'gray' if containerBackgroundType === 'gray' else
+{% set waveType = 'gray' if containerBackgroundType == 'gray' else
   'white' %}
 <header class="wave-border wave-border-{{ waveType }}">
 
@@ -8,10 +8,8 @@
   <div class="header-container{% if customHeaderContainerClasses %} {{customHeaderContainerClasses}}{% endif %}">
 
     {# layout post/page #}
-    {% if layout === 'post' or layout === 'page' %}
+    {% if layout == 'post' or layout == 'page' %}
       <div class="post-header">
-        {# {% block headerLogo %}{% endblock %} #}
-
         <div class="header-logo post-layout{% if iconWhite %} icon-white{% endif %}">
           {% if icon %}
             {% if "/" in icon %}
@@ -32,7 +30,7 @@
             {% if specialTitleImageUrl %}
               <span class="special-title"><img width="36" height="36" src="{{ specialTitleImageUrl }}" class="keep-original" alt="hi" ></span>
             {% endif %}
-            {{ title }}
+            {{ title | safe }}
             {% if lowQuality %}
               <sup class="draft-badge">low-quality</sup>
             {% elif notfull %}
@@ -41,13 +39,17 @@
           </h1>
         {% endblock %}
 
-        {# {% block extraArticleHeader %}{% endblock %} #}
         {% if tags %}
           <div id="more-info">
             <div id="note-tag">
               {% for tag in tags %}
-                {% if tag != "posts" %}
-                  <a href="/tags/{{ tag | slug }}/" {% if loop.index %}id="category"{% endif %}>{{ tag }}</a>
+                {% if tag != "posts" and tag !== 'Blog' %}
+                  <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>
+                {% endif %}
+                {% if tag == 'Blog' %}
+                  {% set blogItem = categories | getBlog %}
+                  <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }};"></i>
+                  <a href="/blog/">{{ tag }}</a>
                 {% endif %}
               {% endfor %}
             </div>
@@ -60,7 +62,7 @@
         {% endif %}
 
         {# page "index" #}
-        {% if page.url === '/' %}
+        {% if page.url == '/' %}
           <p class="intro">
             I am a Vietnamese with a curious mind. I would like to learn something new every day.
             I also have a PhD in Applied Mathematics and currently work as a <b>Data Scientist</b>.
@@ -90,7 +92,7 @@
           </p>
         {% endif %}
 
-        {% if page.url === '/about/' %}
+        {% if page.url == '/about/' %}
           <div class="d-flex d-flex-wrap">
             <div class="intro">
               <p>
@@ -141,19 +143,26 @@
       </div>
       <!-- .post-header -->
 
-      {# layout blog #}
-    {% elif layout === 'blog' %}
+    {# layout blog #}
+    {% elif layout == 'blog' %}
       <div class="blog-header">
         {% if tags %}
           <div class="blog-tags">
             {% for tag in tags %}
-              {% if tag != "posts" %}
-                <a href="/tags/{{ tag | slug }}/" {% if loop.index %}id="category"{% endif %}}>{{ tag }}</a>
-              {% endif %}
+              {% if tag != "posts" and tag !== 'Blog' %}
+                  <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>
+                {% endif %}
+                {% if tag == 'Blog' %}
+                  {% set blogItem = categories | getBlog %}
+                  <span>
+                    <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }}; margin-right: -0.2em;"></i>
+                    <a href="/blog/">{{ tag }}</a>
+                  </span>
+                {% endif %}
             {% endfor %}
           </div>
         {% endif %}
-        <h1 class="blog-title">{{ title }}</h1>
+        <h1 class="blog-title">{{ title | safe }}</h1>
         {% if tags %}
           <div class="blog-description">
             {{ description }}

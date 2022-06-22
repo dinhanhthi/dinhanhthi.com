@@ -36,7 +36,9 @@ icon: tag_.svg
         {% set morePosts = true %}
         {% set singlePost = {
           'title': post.title,
-          'url': post.url
+          'url': post.url,
+          'date': post.date | toDate,
+          'tags': post.tags
         } %}
         {% if post.notfull %}
           {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
@@ -55,6 +57,14 @@ icon: tag_.svg
 {% endif %}
 
 {% set postslist = collections[tag] %}
-{% set customClass = 'list-of-post' %}
-{% set customIcon = true %}
-{% include "components/postslist.njk" %}
+{% set numberOfPosts = postslist | length + morePosts | length %}
+
+{% if numberOfPosts > 0 %}
+  {% set customClass = 'list-of-post' %}
+  {% set customIcon = true %}
+  {% set sortBy = 'date' %}
+  {% set showDate = true %}
+  {% include "components/postslist.njk" %}
+{% else %}
+  <div class="no-posts">This topic contains no post, please return later.</div>
+{% endif %}
