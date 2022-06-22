@@ -32,6 +32,16 @@
   color: var(--toc-title);
 }
 
+@mixin screen-xs-down {
+  @media screen and (max-width: #{$grid-xs - 1px}) {
+    @content;
+  }
+}
+@mixin screen-xs-up {
+  @media screen and (min-width: #{$grid-xs}) {
+    @content;
+  }
+}
 @mixin screen-sm-down {
   @media screen and (max-width: #{$grid-sm - 1px}) {
     @content;
@@ -59,6 +69,16 @@
 }
 @mixin screen-lg-up {
   @media screen and (min-width: #{$grid-lg}) {
+    @content;
+  }
+}
+@mixin screen-xl-down {
+  @media screen and (max-width: #{$grid-xl - 1px}) {
+    @content;
+  }
+}
+@mixin screen-xl-up {
+  @media screen and (min-width: #{$grid-xl}) {
     @content;
   }
 }
