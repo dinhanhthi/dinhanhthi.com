@@ -1,3 +1,14 @@
+{#
+  Parameters:
+  - postslist
+  - morePosts
+  - customClass (string)
+  - sortBy ('date')
+  - limitPosts (number)
+  - customIcon (boolean)
+  - hideBlogPosts (boolean)
+#}
+
 <div class="toggle-posts{% if customClass %} {{ customClass }}{% endif %}">
 
   {% set newPostList = [] %}
