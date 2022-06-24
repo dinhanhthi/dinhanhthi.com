@@ -265,18 +265,15 @@ p.contact {
   h1.blog-title {
     font-size: 2.4rem;
     margin-bottom: 10px;
+    line-height: 1.2;
   }
   .blog-description {
-    opacity: 0.9;
+    opacity: 0.8;
     margin-bottom: 10px;
   }
   .blog-date {
     font-style: italic;
     font-size: 0.95rem;
-    opacity: 0.8;
-    &:hover {
-      opacity: 1;
-    }
     a {
       color: $font-a;
       &:hover {

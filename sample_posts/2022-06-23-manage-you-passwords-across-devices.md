@@ -1,11 +1,10 @@
 ---
 layout: blog
-title: "\"Blog\" vs \"Notes\" on this site?"
-description: "What are the differences between blog posts and notes on this site?"
+title: "Manage your passwords across the devices"
+description: "A free tool I'm using for managing my personal passwords. I show you also the settings to make things be easy!"
 tags: [Blog]
-toc: true
-math: false
-keywords: "difference blog note post"
+toc: false
+keywords: "bitwarden password manager"
 ---
 
 This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word. This is the first word.
