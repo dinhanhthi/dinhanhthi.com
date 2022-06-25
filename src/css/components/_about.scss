@@ -1,17 +1,15 @@
 .page-about {
+
   .header-logo {
     width: auto;
     height: 120px;
-  }
-
-  .part {
-    margin-bottom: 4rem;
   }
 
   $abt-intro: 65%;
   .intro {
     padding: 0 $padding-lr 2rem 2 * $padding-lr;
     width: $abt-intro;
+    text-align: left;
   }
 
   .coordinate {
@@ -19,6 +17,7 @@
     padding: 0 $padding-lr;
     padding-right: 2 * $padding-lr;
     font-size: 1rem;
+    text-align: left;
     ul {
       padding-left: 0;
       list-style: none;
@@ -57,12 +56,12 @@
   @include screen-md-down {
     .intro {
       width: 100%;
-      padding: 0 2 * $padding-lr 1rem;
+      padding: 0 1rem 1rem;
       border-bottom: 1px solid #444;
     }
     .coordinate {
       width: 100%;
-      padding: 1rem 2 * $padding-lr 1.5rem;
+      padding: 1rem 1rem 1.5rem;
     }
   }
 
@@ -85,45 +84,6 @@
       flex: 1;
       margin: 1rem 0;
 
-      .div-h2 {
-        position: relative;
-        display: inline-block;
-        &::after {
-          position: absolute;
-          opacity: 0.45;
-          top: 28px;
-          right: -15px;
-          content: "";
-          height: 20px;
-          width: 30px;
-
-          background-image: -webkit-repeating-radial-gradient(
-            center center,
-            var(--color-invert),
-            var(--color-invert) 1px,
-            transparent 0px,
-            transparent 100%
-          );
-
-          -webkit-background-size: 6px 6px;
-          -moz-background-size: 6px 6px;
-          background-size: 6px 6px;
-          z-index: 0;
-        }
-      }
-
-      $abt-h2: 23%;
-      h2 {
-        font-size: 1.7rem;
-        line-height: 1;
-        margin-bottom: 1.5rem;
-        margin-top: 1rem;
-        img {
-          margin-right: 8px;
-          display: none;
-        }
-      }
-
       .list-of {
         border: 0.5px solid var(--code-bd);
         border-radius: $box-border-radius;
@@ -134,9 +94,6 @@
 
     .skills {
       &.section {
-        .div-h2 {
-          zoom: 0.9;
-        }
         h2 {
           margin-bottom: 1rem;
         }

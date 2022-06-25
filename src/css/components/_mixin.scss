@@ -32,6 +32,16 @@
   color: var(--toc-title);
 }
 
+@mixin screen-xs-down {
+  @media screen and (max-width: #{$grid-xs - 1px}) {
+    @content;
+  }
+}
+@mixin screen-xs-up {
+  @media screen and (min-width: #{$grid-xs}) {
+    @content;
+  }
+}
 @mixin screen-sm-down {
   @media screen and (max-width: #{$grid-sm - 1px}) {
     @content;
@@ -59,6 +69,16 @@
 }
 @mixin screen-lg-up {
   @media screen and (min-width: #{$grid-lg}) {
+    @content;
+  }
+}
+@mixin screen-xl-down {
+  @media screen and (max-width: #{$grid-xl - 1px}) {
+    @content;
+  }
+}
+@mixin screen-xl-up {
+  @media screen and (min-width: #{$grid-xl}) {
     @content;
   }
 }
@@ -91,8 +111,8 @@
   --toc-title-bd: #{$toc-title-bd};
   --toc-appendix: #{$toc-appendix};
   --heading-color: #{$heading-color};
-  --wave-bd-index: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23282a36;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23282a36;'%3E%3C/path%3E%3C/svg%3E");
-  --wave-bd-post: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23282a36;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23282a36;'%3E%3C/path%3E%3C/svg%3E");
+  --wave-bd-index: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23282a36;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %231c1f2e;'%3E%3C/path%3E%3C/svg%3E");
+  --wave-bd-post: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23282a36;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %231c1f2e;'%3E%3C/path%3E%3C/svg%3E");
   --badge-black-bg: #{$badge-black-bg};
   --badge-black-bd: #{$badge-black-bd};
   --table-bg: #{$table-bg};
@@ -104,6 +124,8 @@
   --scroll-thumb-bg-hover: #{$scroll-thumb-bg-hover};
   --scroll-track: #{$scroll-track};
   --bg-hs-box: #{$bg-hs-box};
+  --bg-blog-card: #{$bg-blog-card};
+  --blog-card-title-color: #{$blog-card-title-color};
   // prism
   --prism-bg: #{$prism-bg};
   --prism-color: #{$prism-color};
@@ -167,8 +189,8 @@
   --toc-title-bd: #{$toc-title-bd-light};
   --toc-appendix: #{$toc-appendix-light};
   --heading-color: #{$heading-color-light};
-  --wave-bd-index: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23f6f6f6;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23282a36;'%3E%3C/path%3E%3C/svg%3E");
-  --wave-bd-post: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23fff;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23282a36;'%3E%3C/path%3E%3C/svg%3E");
+  --wave-bd-index: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23f6f6f6;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %231c1f2e;'%3E%3C/path%3E%3C/svg%3E");
+  --wave-bd-post: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23fff;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %231c1f2e;'%3E%3C/path%3E%3C/svg%3E");
   --badge-black-bg: #{$badge-black-bg-light};
   --badge-black-bd: #{$badge-black-bd-light};
   --table-bg: #{$table-bg-light};
@@ -180,6 +202,8 @@
   --scroll-thumb-bg-hover: #{$scroll-thumb-bg-hover-light};
   --scroll-track: #{$scroll-track-light};
   --bg-hs-box: #{$bg-hs-box-light};
+  --bg-blog-card: #{$bg-blog-card-light};
+  --blog-card-title-color: #{$blog-card-title-color-light};
   // prism
   --prism-bg: #{$prism-bg-light};
   --prism-color: #{$prism-color-light};

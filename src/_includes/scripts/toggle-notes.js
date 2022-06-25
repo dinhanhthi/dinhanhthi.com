@@ -94,9 +94,9 @@ function hideEmptyCategoryWrapper() {
     const categoryWrapper = document.querySelectorAll(".category-wrapper");
 
     categoryWrapper.forEach((cat) => {
-      const listOfPosts = cat.querySelector(".list-of-post");
+      const listOfPosts = cat.querySelector(".toggle-posts");
       // Remark: There are lis contains both draft, private and outside classes
-      const numberOfLis = listOfPosts.querySelectorAll("li").length;
+      const numberOfLis = listOfPosts.querySelectorAll(".post-item").length;
       let numberOfHiddenLis = 0;
 
       if (listHiddenClass.length > 0) {

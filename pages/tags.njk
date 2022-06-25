@@ -21,10 +21,10 @@ icon: tag_.svg
 
 <p>👉 Check <a href="{{ '/tags/' | url }}">all topics</a> on this site.</p>
 
-{% set customClass = "single-line" %}
+{% set customClass = "single-line plain" %}
 {% include "components/toggle-posts-buttons.njk" %}
 
-{% set more_post = false %}
+{% set morePosts = false %}
 {# post outside 11ty .md files #}
 
 {% set newPostListTag = [] %}
@@ -33,10 +33,12 @@ icon: tag_.svg
   {% if not post.hide %}
     {% for tg in post.tags %}
       {% if tg == tag %}
-        {% set more_post = true %}
+        {% set morePosts = true %}
         {% set singlePost = {
           'title': post.title,
-          'url': post.url
+          'url': post.url,
+          'date': post.date | toDate,
+          'tags': post.tags
         } %}
         {% if post.notfull %}
           {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
@@ -50,11 +52,19 @@ icon: tag_.svg
   {% endif %}
 {% endfor %}
 
-{% if more_post %}
-  {% set more_post = newPostListTag %}
+{% if morePosts %}
+  {% set morePosts = newPostListTag %}
 {% endif %}
 
 {% set postslist = collections[tag] %}
-{% set customClass = 'list-of-post' %}
-{% set customIcon = true %}
-{% include "components/postslist.njk" %}
+{% set numberOfPosts = postslist | length + morePosts | length %}
+
+{% if numberOfPosts > 0 %}
+  {% set customClass = 'list-of-post' %}
+  {% set customIcon = true %}
+  {% set sortBy = 'date' %}
+  {% set showDate = true %}
+  {% include "components/postsList.njk" %}
+{% else %}
+  <div class="no-posts">This topic contains no post, please return later.</div>
+{% endif %}

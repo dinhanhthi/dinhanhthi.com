@@ -1,12 +1,13 @@
 ---
 #layout: layouts/base.njk
 permalink: "{{ page.fileSlug }}/"
+noHeadingNumbering: true
 ---
 {% extends "layouts/base.njk" %}
 
 {% block article %}
   <article class="post-container">
-    <div class="container {{ containerWidth if containerWidth else "normal" }} mt-2 page-note">
+    <div class="container normal mt-2 page-note">
 
       {% set lastUpdatedDays = page.date | toDurationDays %}
       {% if lastUpdatedDays > settings.outdatedTime and not noOutdated %}
@@ -35,6 +36,7 @@ permalink: "{{ page.fileSlug }}/"
       {% endif %}
 
       {% if toc %}
+        {# <div class="toc-container">{{ content | toc | safe }}</div> #}
         {{ content | toc | safe }}
         {{ content | safe }}
       {% else %}

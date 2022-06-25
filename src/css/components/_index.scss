@@ -139,15 +139,8 @@
       margin-right: 5px;
     }
   }
-  .list-homepage {
-    @include column-count(1);
-    @include screen-md-up {
-      @include column-count(2);
-    }
-    @include screen-lg-up {
-      @include column-count(3);
-    }
-  }
+
+  // There is things in _post-list.scss
 }
 
 .page-index {
@@ -161,5 +154,12 @@
       height: 120px;
       width: auto;
     }
+  }
+}
+
+.blog {
+  margin-bottom: 2rem;
+  .h2-dots > h2 {
+    margin-bottom: 1rem;
   }
 }

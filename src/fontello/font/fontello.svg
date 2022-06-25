@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2021 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2022 by original authors @ fontello.com</metadata>
 <defs>
 <font id="fontello" horiz-adv-x="1000" >
 <font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -89,6 +89,8 @@
 <glyph glyph-name="down-open" unicode="&#xe82a;" d="M564 422l-234-224q-18-18-40-18t-40 18l-234 224q-16 16-16 41t16 41q38 38 78 0l196-188 196 188q40 38 78 0 16-16 16-41t-16-41z" horiz-adv-x="580" />
 
 <glyph glyph-name="right-open" unicode="&#xe82b;" d="M98 626l226-236q16-16 16-40 0-22-16-38l-226-236q-16-16-40-16t-40 16q-36 36 0 80l186 194-186 196q-36 44 0 80 16 16 41 16t39-16z" horiz-adv-x="340" />
+
+<glyph glyph-name="feather" unicode="&#xe831;" d="M60-138q-6-20-26-8-18 8-16 34 4 100 50 226-100 154-52 316 10-32 32-78t44-80 32-30q8 4 0 83t-11 166 25 157q22 44 80 94t104 70q-24-46-33-94t-4-78 21-32q12 0 84 120t106 122q46 4 114-29t82-65q12-24 0-79t-40-83q-44-44-146-62t-114-24q-16-10 12-34 54-48 176-20-56-80-136-114t-132-38-54-10q-4-24 49-54t101-14q-30-56-63-84t-54-35-76-11-85-8z" horiz-adv-x="698" />
 
 <glyph glyph-name="copy" unicode="&#xf0c5;" d="M946 636q23 0 38-16t16-38v-678q0-23-16-38t-38-16h-535q-23 0-38 16t-16 38v160h-303q-23 0-38 16t-16 38v375q0 22 11 49t27 42l228 228q15 16 42 27t49 11h232q23 0 38-16t16-38v-183q38 23 71 23h232z m-303-119l-167-167h167v167z m-357 214l-167-167h167v167z m109-361l176 176v233h-214v-233q0-22-15-37t-38-16h-233v-357h286v143q0 22 11 49t27 42z m534-449v643h-215v-232q0-22-15-38t-38-15h-232v-358h500z" horiz-adv-x="1000" />
 

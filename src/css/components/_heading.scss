@@ -27,6 +27,14 @@ h4 {
   }
 }
 
+.no-heading-numbering {
+  h2, h3, h4 {
+    &:before {
+      display: none !important;
+    }
+  }
+}
+
 .page-note {
   h1,
   h2,
@@ -195,3 +203,82 @@ h4 {
     }
   }
 } // end page-note
+
+// headings with dots at the end like in About page
+.h2-dots {
+  position: relative;
+  display: inline-block;
+
+  h2 {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    img {
+      margin-right: 10px;
+      // display: none;
+    }
+
+    & > .fontello-icon + span {
+      margin-left: -5px;
+    }
+
+    &.heading-notes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      margin-top: 2rem;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 28px;
+    right: -15px;
+    content: "";
+    height: 20px;
+    width: 30px;
+
+    background-image: -webkit-repeating-radial-gradient(
+      center center,
+      var(--color-invert),
+      var(--color-invert) 1px,
+      transparent 0px,
+      transparent 100%
+    );
+
+    -webkit-background-size: 6px 6px;
+    -moz-background-size: 6px 6px;
+    background-size: 6px 6px;
+    z-index: 0;
+  }
+
+  &._small {
+    zoom: 0.9;
+  }
+
+  &._big {
+    zoom: 1.1;
+  }
+
+  &._no-dots {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+a.heading-more {
+  font-size: 65%;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--heading-color);
+  padding-left: 5px;
+  letter-spacing: 1px;
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+  }
+}

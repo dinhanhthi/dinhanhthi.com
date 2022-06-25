@@ -1,0 +1,182 @@
+{% set pageUrlLength = page.url | length %}
+{% set waveType = 'gray' if containerBackgroundType == 'gray' else
+  'white' %}
+<header class="wave-border wave-border-{{ waveType }}">
+
+  {% include "components/navigation.njk" %}
+
+  <div class="header-container{% if customHeaderContainerClasses %} {{customHeaderContainerClasses}}{% endif %}">
+
+    {# layout post/page #}
+    {% if layout == 'post' or layout == 'page' %}
+      <div class="post-header">
+        <div class="header-logo post-layout{% if iconWhite %} icon-white{% endif %}">
+          {% if icon %}
+            {% if "/" in icon %}
+              <img class="keep-original" alt="{{ title }}" src="{{ icon }}" height="55" width="55">
+            {% else %}
+              <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}" height="55" width="55">
+            {% endif %}
+          {% else %}
+            <img class="keep-original" alt="{{ title }}" src="/img_src/nav/about.svg" height="55" width="55">
+          {% endif %}
+        </div>
+
+        {% block headerTitle %}
+          <h1>
+            {% if specialTitle %}
+              <span class="special-title">{{ specialTitle }}</span>
+            {% endif %}
+            {% if specialTitleImageUrl %}
+              <span class="special-title"><img width="36" height="36" src="{{ specialTitleImageUrl }}" class="keep-original" alt="hi" ></span>
+            {% endif %}
+            {{ title | safe }}
+            {% if lowQuality %}
+              <sup class="draft-badge">low-quality</sup>
+            {% elif notfull %}
+              <sup class="draft-badge">draft</sup>
+            {% endif %}
+          </h1>
+        {% endblock %}
+
+        {% if tags %}
+          <div id="more-info">
+            <div id="note-tag">
+              {% for tag in tags %}
+                {% if tag != "posts" and tag !== 'Blog' %}
+                  <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>
+                {% endif %}
+                {% if tag == 'Blog' %}
+                  {% set blogItem = categories | getBlog %}
+                  <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }};"></i>
+                  <a href="/blog/">{{ tag }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div id="last-modified">
+              Last modified {{ page.date | toDuration }}
+              /
+              <a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
+            </div>
+          </div>
+        {% endif %}
+
+        {# page "index" #}
+        {% if page.url == '/' %}
+          <p class="intro">
+            I am a Vietnamese with a curious mind. I would like to learn something new every day.
+            I also have a PhD in Applied Mathematics and currently work as a <b>Data Scientist</b>.
+            On this page, you can find the notes I made when I discovered something new in the fields of
+            <b>Data Science</b> and <b>Web Development</b>.
+          </p>
+          <div class="social">
+            {% for item in social %}
+              <a class="no-effect tooltip-auto" data-title="{{ item.name }}" href="{{ item.url }}" target="_blank">
+                <img class="keep-original" src="{{ item.icon }}" alt="{{ item.name }}" height="40" width="40">
+              </a>
+            {% endfor %}
+          </div>
+          {% if settings.look4job %}
+            <div class="job mb-1p5">
+              <span>Available for a full-time job!</span>
+            </div>
+          {% endif %}
+          <p class="contact mt-0p5">
+            <a class="button blue no-effect" href="mailto:me@dinhanhthi.com">
+              {% if settings.look4job %}Hire me{% else %}Contact{% endif %}
+            </a>
+            <a class="button black" href="{{ '/about/' | url }}">📋 My CV</a>
+            <a class="button black" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">🎨 My sketches</a>
+            <a class="button black" href="/reading/">📚 Reading list</a>
+            <a class="button black" href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">🍲 I cook</a>
+          </p>
+        {% endif %}
+
+        {% if page.url == '/about/' %}
+          <div class="d-flex d-flex-wrap">
+            <div class="intro">
+              <p>
+                I am <b>Thi</b>, a Vietnamese <b>Data Scientist</b> with a curious mind.
+                As an ever-learning worm, I am interested in researching and sharing content about
+                <b>Applied Mathematics</b>, <b>Web Dev</b> and <b>Data Science</b>.
+                I have a PhD in Applied Mathematics from
+                <a href="https://www.math.univ-paris13.fr" target="_blank">U. Sorbonne Paris Nord</a>
+                and am an avid self-learner in Data Science.
+              </p>
+              <p>
+                On this website, I document everything I have learned during my learning and working process in these areas.
+              </p>
+            </div>
+
+            <div class="coordinate">
+              <ul>
+                <li>
+                  <span>From</span> Ben Tre, Vietnam</li>
+                <li>
+                  <span>Location</span> Île-de-France, France</li>
+                <li>
+                  <span>Github</span> github.com/dinhanhthi</li>
+                <li>
+                  <span>LinkedIn</span> linkedin.com/in/dinhanhthi</li>
+                <li>
+                  <span>Email</span> me@dinhanhthi.com</li>
+              </ul>
+              {% if settings.look4job %}
+                <div class="job">
+                  <span>Available for a full-time job!</span>
+                </div>
+              {% endif %}
+            </div>
+
+            <p class="contact">
+              <a class="button blue no-effect" href="mailto:me@dinhanhthi.com">
+                {% if settings.look4job %}Hire me{% else %}Contact{% endif %}
+              </a>
+              <a class="button black" href="{{ '/' | url }}">🖊 My notes</a>
+              <a class="button black" href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">🎨 My sketches</a>
+              <a class="button black" href="/reading/">📚 Reading list</a>
+              <a class="button black" href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">🍲 I cook</a>
+            </p>
+          </div>
+        {% endif %}
+
+      </div>
+      <!-- .post-header -->
+
+    {# layout blog #}
+    {% elif layout == 'blog' %}
+      <div class="blog-header">
+        {% if tags %}
+          <div class="blog-tags">
+            {% for tag in tags %}
+              {% if tag != "posts" and tag !== 'Blog' %}
+                  <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>
+                {% endif %}
+                {% if tag == 'Blog' %}
+                  {% set blogItem = categories | getBlog %}
+                  <span>
+                    <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }}; margin-right: -0.2em;"></i>
+                    <a href="/blog/">{{ tag }}</a>
+                  </span>
+                {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <h1 class="blog-title">{{ title | safe }}</h1>
+        {% if tags %}
+          <div class="blog-description">
+            {{ description }}
+          </div>
+        {% endif %}
+        <div class="blog-date">
+              Last updated {{ page.date | toDuration }}
+              /
+              <a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+  <!-- .header-container -->
+
+</header>

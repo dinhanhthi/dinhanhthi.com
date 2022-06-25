@@ -11,9 +11,19 @@ You can use [[Ctrl]] + [[F]] to quickly find a topic you wanna check.
 
 <ul class="indent col-2-list">
 
-{% for tag in collections.tagList %}
-  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-  <li><a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a></li>
-{% endfor %}
+  {% for tag in collections.tagList %}
+    {% if tag != 'Blog' %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+      <li>
+        <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+      </li>
+    {% else %}
+      {% set blogItem = categories | getBlog %}
+      <li>
+        <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }}; margin-right: -0.2em;"></i>
+        <a href="/blog/" class="post-tag">{{ tag }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
 
 </ul>

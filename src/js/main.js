@@ -102,13 +102,6 @@ document.body.addEventListener(
 
 // Scrolling toc
 // -----------------------------------------
-function getSafe(fn, defaultVal) {
-  try {
-    return fn();
-  } catch (e) {
-    return defaultVal;
-  }
-}
 if (document.querySelectorAll("h2, h3") != null) {
   function headingTOC() {
     document
@@ -246,7 +239,7 @@ const addSelected2 = (ulRes, li) => {
         // If there is result
         noResEl.style.display = "none";
         results.map((r) => {
-          var { id, title, keywords, tags, cat, target, privatePost } = r.doc; // use keywords instead
+          var { id, title, keywords, tags, cat, icon, iconColor, target, privatePost } = r.doc; // use keywords instead
 
           // Use content??? (modify .eleventy.js also!)
           // var { id, title, keywords, cat, content } = r.doc;
@@ -259,7 +252,8 @@ const addSelected2 = (ulRes, li) => {
           divIcon.setAttribute("class", "item__icon");
           el.appendChild(divIcon);
           const divIcon__icon = document.createElement("li");
-          divIcon__icon.setAttribute("class", "fontello-icon " + cat);
+          divIcon__icon.setAttribute("class", `fontello-icon ${icon}`);
+          if (cat === 'Blog') divIcon__icon.style.color = iconColor;
           divIcon.appendChild(divIcon__icon);
 
           const divContent = document.createElement("div");

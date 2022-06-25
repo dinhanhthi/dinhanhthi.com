@@ -1,0 +1,144 @@
+.list-of-post {
+  .fontello-icon {
+    margin-left: -25px;
+    &::before {
+      opacity: 0.75;
+    }
+  }
+  .post-item {
+    margin-bottom: 10px !important;
+    padding-right: 10px;
+    padding-left: 25px;
+    width: 100%;
+    a {
+      color: var(--a-list-homepage);
+      border-bottom: 2px dotted var(--a-list-homepage-bd);
+    }
+    &:hover {
+      a {
+        border-color: var(--font-a);
+        color: var(--color-invert);
+      }
+      cursor: pointer;
+      &::before {
+        opacity: 1;
+      }
+    }
+    .last-modified {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// index.njk
+.category {
+  .list-homepage {
+    @include column-count(1);
+    @include screen-md-up {
+      @include column-count(2);
+    }
+    @include screen-lg-up {
+      @include column-count(3);
+    }
+  }
+}
+
+// For blog posts
+.list-of-blog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: $post-gap;
+  column-gap: $post-gap;
+
+  @include screen-xl-down {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include screen-sm-down {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &._auto {
+    grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, 1fr)) !important;
+  }
+
+  a {
+    color: var(--blog-card-title-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    &:hover {
+      border: none;
+    }
+  }
+
+  .post-item {
+    background: var(--bg-blog-card);
+    box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+    min-height: $min-blog-card-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-radius: 16px;
+      transform: scale(1.03);
+    }
+
+    &._blog-card {
+      position: relative;
+      overflow: hidden;
+
+      .bottom-wave {
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+
+        .waves {
+          position:relative;
+          width: 100%;
+          height:5vh;
+          margin-bottom:-7px; /*Fix for safari gap*/
+          min-height:60px;
+          max-height:150px;
+
+          .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+          }
+          .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(3) {
+            animation-delay: -7s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(4) {
+            animation-delay: -1s;
+            animation-duration: 10s;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Animation for bottom-wave */
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% {
+    transform: translate3d(85px,0,0);
+  }
+}
