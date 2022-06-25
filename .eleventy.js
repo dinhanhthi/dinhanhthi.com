@@ -203,40 +203,35 @@ module.exports = function (eleventyConfig) {
   });
 
   // Get random colors (from a predefined set) for bottom-wave in blog cards
-  eleventyConfig.addFilter("getRandomColor", function (name, idx) {
-
-    // Get the same number for each name
-    // function getHash(input, numColors) {
-    //   var hash = 0,
-    //     len = input.length;
-    //   for (var i = 0; i < len; i++) {
-    //     hash = (hash << 5) - hash + input.charCodeAt(i);
-    //     hash |= 0; // to 32bit integer
-    //   }
-    //   return Math.abs(hash) % numColors;
-    // }
-
-    // Based on index
+  eleventyConfig.addFilter("getRandomColor", function (name, postIdx, idx) {
+    // Get the same number for each name -> colors are fixed for each name
     function getHash(input, numColors) {
-      return input % numColors;
+      var hash = 0,
+        len = input.length;
+      for (var i = 0; i < len; i++) {
+        hash = (hash << 5) - hash + input.charCodeAt(i);
+        hash |= 0; // to 32bit integer
+      }
+      return Math.abs(hash) % numColors;
     }
+    const color = waveColors[getHash(name, waveColors.length)];
+
+    // Based on index -> new posts make old posts' colors change
+    // function getHash(input, numColors) {
+    //   return input % numColors;
+    // }
+    // const color = waveColors[getHash(postIdx, waveColors.length)];
+
+
     switch (idx) {
       case 0:
-        return `rgba(${
-          waveColors[getHash(name, waveColors.length)]
-        }, 0.1)`;
+        return `rgba(${color}, 0.1)`;
       case 1:
-        return `rgba(${
-          waveColors[getHash(name, waveColors.length)]
-        }, 0.05)`;
+        return `rgba(${color}, 0.05)`;
       case 2:
-        return `rgba(${
-          waveColors[getHash(name, waveColors.length)]
-        }, 0.01)`;
+        return `rgba(${color}, 0.01)`;
       case 3:
-        return `rgba(${
-          waveColors[getHash(name, waveColors.length)]
-        }, 0.005)`;
+        return `rgba(${color}, 0.005)`;
     }
   });
 

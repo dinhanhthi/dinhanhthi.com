@@ -34,7 +34,7 @@ const waveColors = [
   // 17.
   "166, 0, 255",
   // 18.
-  "0, 255, 255",
+  "0, 139, 139",
 ];
 
 if (typeof module === "object" && module.exports) module.exports = waveColors;

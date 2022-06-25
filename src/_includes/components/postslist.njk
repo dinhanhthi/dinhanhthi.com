@@ -144,10 +144,10 @@
                   ></path>
                 </defs>
                 <g class="parallax">
-                  <use fill="{{ loop.index0 | getRandomColor(0) }}" x="48" xlink:href="#gentle-wave" y="0"></use>
-                  <use fill="{{ loop.index0 | getRandomColor(1) }}" x="48" xlink:href="#gentle-wave" y="3"></use>
-                  <use fill="{{ loop.index0 | getRandomColor(2) }}" x="48" xlink:href="#gentle-wave" y="5"></use>
-                  <use fill="{{ loop.index0 | getRandomColor(3) }}" x="48" xlink:href="#gentle-wave" y="7"></use>
+                  <use fill="{{ post.title | getRandomColor(loop.index0, 0) }}" x="48" xlink:href="#gentle-wave" y="0"></use>
+                  <use fill="{{ post.title | getRandomColor(loop.index0, 1) }}" x="48" xlink:href="#gentle-wave" y="3"></use>
+                  <use fill="{{ post.title | getRandomColor(loop.index0, 2) }}" x="48" xlink:href="#gentle-wave" y="5"></use>
+                  <use fill="{{ post.title | getRandomColor(loop.index0, 3) }}" x="48" xlink:href="#gentle-wave" y="7"></use>
                 </g>
               </svg>
             </div>
