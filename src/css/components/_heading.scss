@@ -27,6 +27,14 @@ h4 {
   }
 }
 
+.no-heading-numbering {
+  h2, h3, h4 {
+    &:before {
+      display: none !important;
+    }
+  }
+}
+
 .page-note {
   h1,
   h2,

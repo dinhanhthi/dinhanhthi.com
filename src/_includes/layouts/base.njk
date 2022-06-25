@@ -42,6 +42,7 @@
         {% if settings.hideDraftPostsByDefault %}hide-draft-posts{% endif %}
         {% if settings.hidePrivatePostsByDefault %} hide-private-posts{% endif %}
         {% if settings.hideOutsideNotesByDefault %} hide-outside-posts{% endif %}
+        {% if noHeadingNumbering %} no-heading-numbering{% endif %}
       ">
       {% block article %}
         {{ content | safe }}
