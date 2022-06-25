@@ -365,7 +365,10 @@ $gap: 5px;
   padding: 1rem;
   border-radius: $box-border-radius;
   .hs__title {
-    cursor: pointer;
+    cursor: zoom-in;
+    &.show {
+      cursor: zoom-out;
+    }
 
     & > code {
       background: none;

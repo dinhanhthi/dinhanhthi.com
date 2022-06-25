@@ -89,5 +89,56 @@
       border-radius: 16px;
       transform: scale(1.03);
     }
+
+    &._blog-card {
+      position: relative;
+      overflow: hidden;
+
+      .bottom-wave {
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+
+        .waves {
+          position:relative;
+          width: 100%;
+          height:5vh;
+          margin-bottom:-7px; /*Fix for safari gap*/
+          min-height:60px;
+          max-height:150px;
+
+          .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+          }
+          .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(3) {
+            animation-delay: -7s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(4) {
+            animation-delay: -1s;
+            animation-duration: 10s;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Animation for bottom-wave */
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% {
+    transform: translate3d(85px,0,0);
   }
 }

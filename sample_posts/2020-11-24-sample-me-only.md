@@ -67,7 +67,7 @@ Files need to be changed for this sections:
 ``` bash
 src/_data/cat_ex_position.json # posts (must have enough tags for each post)
 index.njk # links to below file
-src/_includes/postslist.njk
+src/_includes/postsList.njk
 pages/tags.njk # tag page, also link to above file
 pages/search-index.json # search-index.json, may change also .eleventy.js
 ```

@@ -24,6 +24,7 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
+const waveColors = require("./src/_data/wave_colors");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -190,7 +191,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // For adding new key-value to a dictionary
-  // First used in postslist.njk
+  // First used in postsList.njk
   eleventyConfig.addFilter("setAttribute", function (dictionary, key, value) {
     dictionary[key] = value;
     return dictionary;
@@ -199,6 +200,44 @@ module.exports = function (eleventyConfig) {
   // Get infor from techs.json for items in skills.json
   eleventyConfig.addFilter("getTech", function (techId, techArray) {
     return techArray.find((tech) => tech.id === techId);
+  });
+
+  // Get random colors (from a predefined set) for bottom-wave in blog cards
+  eleventyConfig.addFilter("getRandomColor", function (name, idx) {
+
+    // Get the same number for each name
+    // function getHash(input, numColors) {
+    //   var hash = 0,
+    //     len = input.length;
+    //   for (var i = 0; i < len; i++) {
+    //     hash = (hash << 5) - hash + input.charCodeAt(i);
+    //     hash |= 0; // to 32bit integer
+    //   }
+    //   return Math.abs(hash) % numColors;
+    // }
+
+    // Based on index
+    function getHash(input, numColors) {
+      return input % numColors;
+    }
+    switch (idx) {
+      case 0:
+        return `rgba(${
+          waveColors[getHash(name, waveColors.length)]
+        }, 0.1)`;
+      case 1:
+        return `rgba(${
+          waveColors[getHash(name, waveColors.length)]
+        }, 0.05)`;
+      case 2:
+        return `rgba(${
+          waveColors[getHash(name, waveColors.length)]
+        }, 0.01)`;
+      case 3:
+        return `rgba(${
+          waveColors[getHash(name, waveColors.length)]
+        }, 0.005)`;
+    }
   });
 
   // Used in /pages/search-index.json

@@ -177,7 +177,7 @@ $post-gap: 1.5rem;
 $min-blog-card-width: 250px;
 $min-blog-card-height: 10rem;
 $blog-card-title-color: #dadada;
-$blog-card-titile-color-light: #555;
+$blog-card-title-color-light: #555;
 
 
 @import "./components/prism_variables";
@@ -185,7 +185,7 @@ $blog-card-titile-color-light: #555;
 @import "./components/dark-light"; // dark / light mode
 @import "./components/font";
 @import "./components/main"; // init css
-@import "./components/post-list"; // for includes/components/postslist.njk
+@import "./components/posts-list"; // for includes/components/postsList.njk
 @import "./components/tooltip";
 @import "./components/typography";
 @import "./components/heading";

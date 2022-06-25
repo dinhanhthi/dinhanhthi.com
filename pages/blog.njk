@@ -47,14 +47,14 @@ containerBackgroundType: gray
   {% set numberOfPosts = postslist | length + morePosts | length %}
 
   {% if numberOfPosts > 0 %}
-    {% set customClass = "single-line plain" %}
-    {% include "components/toggle-posts-buttons.njk" %}
+    {# {% set customClass = "single-line plain" %}
+    {% include "components/toggle-posts-buttons.njk" %} #}
 
     {% set customClass = 'list-of-blog _auto' %}
     {% set customIcon = false %}
     {% set sortBy = 'date' %}
 
-    {% include "components/postslist.njk" %}
+    {% include "components/postsList.njk" %}
   {% else %}
     <div class="no-posts">This topic contains no post, please return later.</div>
   {% endif %}

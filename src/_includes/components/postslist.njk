@@ -78,13 +78,19 @@
       {% else %}
         {% set target = "_self" %}
       {% endif%}
+
+      {# 👋 a tag around #}
       {% if 'list-of-blog' in customClass %}
         <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
       {% endif %}
+
       <div class="post-item
-        {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
-        {% if post.private %} post-private{% endif %}
-        {% if post.external %} post-outside{% endif %}
+        {% if not post.isBlog %}
+          {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
+          {% if post.private %} post-private{% endif %}
+          {% if post.external %} post-outside{% endif %}
+        {% endif %}
+        {% if 'list-of-blog' in customClass %} _blog-card{% endif %}
       ">
         {% if customIcon %}
           {% if post.isBlog %}
@@ -99,32 +105,73 @@
           {% endif %}
         {% endif %}
 
-        {% if not 'list-of-blog' in customClass %}<a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">{% endif %}
-          {% if post.title %}
+        {% if not 'list-of-blog' in customClass %}
+          <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
+        {% endif %}
+
+        {% if post.title %}
+          <span>
             {{ post.title }}
-            {# {% if post.good %}
-              <sup title="{{ other_data.good }}" style="color: #ffc50b;">⭑</sup>
-            {% endif %} #}
-            {% if post.notfull or post.lowQuality %}
-              <sup title="{{ other_data.notfull }}">•</sup>
+
+            {# 👋 Don't show draft/private/good indicator for blog posts #}
+            {% if not post.isBlog %}
+              {# {% if post.good %}
+                <sup title="{{ other_data.good }}" style="color: #ffc50b;">⭑</sup>
+              {% endif %} #}
+              {% if post.notfull or post.lowQuality %}
+                <sup title="{{ other_data.notfull }}">•</sup>
+              {% endif %}
+              {% if post.private %}
+                <sup title="{{ other_data.private }}">†</sup>
+              {% endif %}
             {% endif %}
-            {% if post.private %}
-              <sup title="{{ other_data.private }}">†</sup>
-            {% endif %}
-          {% else %}
-            <code>{{ post.url }}</code>
-            {% if post.notfull or post.lowQuality %}
-              <sup title="{{ other_data.notfull }}">•</sup>
-            {% endif %}
-            {% if post.private %}
-              <sup title="{{ other_data.private }}">†</sup>
-            {% endif %}
+          </span>
+
+          {% if 'list-of-blog' in customClass %}
+            <div class="bottom-wave">
+              <svg
+                class="waves"
+                preserveAspectRatio="none"
+                shape-rendering="auto"
+                viewBox="0 24 150 28"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <defs>
+                  <path
+                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                    id="gentle-wave"
+                  ></path>
+                </defs>
+                <g class="parallax">
+                  <use fill="{{ loop.index0 | getRandomColor(0) }}" x="48" xlink:href="#gentle-wave" y="0"></use>
+                  <use fill="{{ loop.index0 | getRandomColor(1) }}" x="48" xlink:href="#gentle-wave" y="3"></use>
+                  <use fill="{{ loop.index0 | getRandomColor(2) }}" x="48" xlink:href="#gentle-wave" y="5"></use>
+                  <use fill="{{ loop.index0 | getRandomColor(3) }}" x="48" xlink:href="#gentle-wave" y="7"></use>
+                </g>
+              </svg>
+            </div>
           {% endif %}
+        {% else %}
+          <code>{{ post.url }}</code>
+          {% if post.notfull or post.lowQuality %}
+            <sup title="{{ other_data.notfull }}">•</sup>
+          {% endif %}
+          {% if post.private %}
+            <sup title="{{ other_data.private }}">†</sup>
+          {% endif %}
+        {% endif %}
+
         {% if not 'list-of-blog' in customClass %}
           </a>{% if post.date and showDate %} — <span class="last-modified">{{ post.date | toDuration }}</span>{% endif %}
         {% endif %}
       </div>
-      {% if 'list-of-blog' in customClass %}</a>{% endif %}
+
+      {# a tag around #}
+      {% if 'list-of-blog' in customClass %}
+        </a>
+      {% endif %}
+
       {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
     {% endif %}
   {% endfor %}
