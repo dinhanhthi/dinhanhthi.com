@@ -63,7 +63,10 @@ module.exports = function (eleventyConfig) {
       });
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.add("notes/posts");
+      eleventyConfig.ignores.add("notes/blog");
+      eleventyConfig.ignores.delete("notes/blog_wip");
       eleventyConfig.ignores.delete("sample_posts");
+      eleventyConfig.ignores.delete("notes/fixed_notes");
       eleventyConfig.ignores.add("notes/low-quality-posts");
       break;
 
@@ -75,8 +78,11 @@ module.exports = function (eleventyConfig) {
       });
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes/posts");
+      eleventyConfig.ignores.delete("notes/blog");
       eleventyConfig.ignores.add("sample_posts");
+      eleventyConfig.ignores.add("notes/blog_wip");
       eleventyConfig.ignores.delete("notes/low-quality-posts");
+      eleventyConfig.ignores.delete("notes/fixed_notes");
       break;
 
     default: // take too long to build
@@ -88,7 +94,10 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.delete("notes/posts");
+      eleventyConfig.ignores.delete("notes/blog");
+      eleventyConfig.ignores.delete("notes/fixed_notes");
       eleventyConfig.ignores.add("sample_posts");
+      eleventyConfig.ignores.add("notes/blog_wip");
       eleventyConfig.ignores.add("notes/low-quality-posts");
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
@@ -287,6 +296,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "notes/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
   eleventyConfig.addPassthroughCopy({ "notes/files": "files" });
+  eleventyConfig.addPassthroughCopy({ "notes/img_blog": "img_blog" });
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `${distPath}/fonts`
