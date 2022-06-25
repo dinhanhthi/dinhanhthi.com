@@ -56,7 +56,9 @@ date: Last Modified
                 <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
                   <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>
                   <span>{{ item.name }}</span>
-                  <a class="heading-more no-effect" href="/blog/">...more</a>
+                  {% if postslist | length > 4 %}
+                    <a class="heading-more no-effect" href="/blog/">...more</a>
+                  {% endif %}
                 </h2>
               </div>
               {% set customClass = 'list-of-blog' %}

@@ -63,9 +63,11 @@ module.exports = function (eleventyConfig) {
       });
       eleventyConfig.setDataDeepMerge(true);
       eleventyConfig.ignores.add("notes/posts");
-      eleventyConfig.ignores.add("notes/blog");
+
+      eleventyConfig.ignores.delete("notes/blog"); // ###Thi
       eleventyConfig.ignores.delete("notes/blog_wip");
       eleventyConfig.ignores.delete("sample_posts");
+
       eleventyConfig.ignores.delete("notes/fixed_notes");
       eleventyConfig.ignores.add("notes/low-quality-posts");
       break;

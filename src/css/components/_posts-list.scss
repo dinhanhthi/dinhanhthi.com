@@ -61,7 +61,7 @@
   }
 
   &._auto {
-    grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, $max-blog-card-width)) !important;
   }
 
   a {
