@@ -11,7 +11,7 @@
     </a>
     {% for item in categories %}
       {% if item.name == 'Blog' %}
-        <a class="nav-item no-effect nav-text{% if page.url == '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
+        <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
           <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>
           <span>{{ item.name }}</span>
         </a>

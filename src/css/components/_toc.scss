@@ -15,17 +15,6 @@
   }
 }
 
-// .toc-heading-down::after {
-//   content: " ";
-//   color: var(--color-faded);
-//   display: inline-block;
-//   border-left: 5px solid transparent;
-//   border-right: 5px solid transparent;
-//   border-top: 5px solid currentColor;
-//   vertical-align: middle;
-//   margin-left: 5px;
-// }
-
 .toc-active {
   & > a {
     color: var(--font-a) !important;
@@ -35,6 +24,17 @@
   }
   .circle-icon {
     color: var(--font-a) !important;
+  }
+}
+
+.no-heading-numbering {
+  .ol-container {
+    li:before {
+      display: none !important;
+    }
+  }
+  .toc > .ol-container > ol > li {
+    padding-left: 0 !important;
   }
 }
 
