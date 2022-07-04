@@ -45,6 +45,12 @@ nav {
     }
   }
 
+  @include screen-md-down {
+    .nav-hide-md {
+      display: none !important;
+    }
+  }
+
   #nav {
     display: -ms-flexbox;
     display: flex;

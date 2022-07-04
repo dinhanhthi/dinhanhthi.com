@@ -82,6 +82,16 @@
     @content;
   }
 }
+@mixin screen-xxl-down {
+  @media screen and (max-width: #{$grid-xxl - 1px}) {
+    @content;
+  }
+}
+@mixin screen-xxl-up {
+  @media screen and (min-width: #{$grid-xxl}) {
+    @content;
+  }
+}
 
 
 @mixin dark-vars() {

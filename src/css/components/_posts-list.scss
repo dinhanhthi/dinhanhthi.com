@@ -53,6 +53,10 @@
   column-gap: $post-gap;
 
   @include screen-xl-down {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include screen-lg-down {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -60,13 +64,9 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
-  &._auto {
-    grid-template-columns: repeat(auto-fit, minmax($min-blog-card-width, $max-blog-card-width)) !important;
-  }
-
   a {
     color: var(--blog-card-title-color);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     &:hover {
       border: none;

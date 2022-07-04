@@ -2,14 +2,15 @@
 title: About me
 layout: page
 containerBackgroundType: gray
-customClass: page-about
+customClass: "page-about bg-gray"
 customHeaderContainerClasses: "container ex-normal"
 icon: "/img_src/avatar_memoji.webp"
 permalink: /about/
 ---
 
 {# Skills #}
-<div class="container wide d-flex d-flex-wrap">
+{# <div class="container wide d-flex d-flex-wrap"> #}
+<div class="container skills-container">
   {% for group in skills %}
     <div id="{{ group.name | lower }}" class="section skills">
       <div class="h2-dots _small">
@@ -38,7 +39,8 @@ permalink: /about/
 </div>
 
 {# Education & Experiences #}
-<div class="container d-flex d-flex-wrap wide">
+{# <div class="container d-flex d-flex-wrap wide"> #}
+<div class="container cv-container">
   {% for sec in cv %}
     <div id="{{ sec.name | lower }}" class="section exp-edu">
       <div class="h2-dots">

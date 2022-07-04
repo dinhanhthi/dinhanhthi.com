@@ -110,9 +110,9 @@ module.exports = function (eleventyConfig) {
       });
   }
 
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
-  eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
   eleventyConfig.addLayoutAlias("base", "layouts/base.njk");
+  eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
+  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("blog", "layouts/blog.njk");
 
   eleventyConfig.addNunjucksAsyncFilter(
@@ -163,9 +163,11 @@ module.exports = function (eleventyConfig) {
     } else if (durationInDays < 30) {
       return Math.round(durationInDays) + " days ago";
     } else if (durationInDays < 365) {
-      return Math.round(durationInDays / 30) + " months ago";
+      const numMonths = Math.round(durationInDays / 30);
+      return `${numMonths} month${numMonths > 1 ? 's': ''} ago`;
     } else {
-      return Math.round(durationInDays / 365) + " years ago";
+      const numYears = Math.round(durationInDays / 365);
+      return `${numYears} year${numYears > 1 ? 's': ''} ago`;
     }
   });
 

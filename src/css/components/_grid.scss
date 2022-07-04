@@ -1,3 +1,7 @@
+#main-wrapper {
+  padding: 0 $padding-margin;
+}
+
 .d-flex {
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +22,7 @@
 
   &.wide {
     @media (min-width: $grid-xxl) {
-      width: $grid-xxl;
+      width: calc($grid-xxl - 2 * $padding-margin);
     }
   }
 

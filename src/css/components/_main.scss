@@ -3,6 +3,18 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: $font-main;
+  background: var(--color-background-post);
+  color: var(--font-color);
+  margin: 0;
+  font-size: $font-size;
+
+  &.bg-gray {
+    background: var(--color-background);
+  }
+}
+
 .fontello-icon:before {
   margin-left: 0 !important;
 }

@@ -4,7 +4,7 @@ containerBackgroundType: gray
 title: "Hi! I'm Thi"
 specialTitleImageUrl: "/img_src/wave.webp"
 description: I failed my way to success
-customClass: "page-index"
+customClass: "page-index bg-gray"
 customJS: ["toggle-notes.js"]
 icon: '/img_src/avatar_memoji.webp'
 date: Last Modified
@@ -64,7 +64,7 @@ date: Last Modified
               {% set customClass = 'list-of-blog' %}
               {% set customIcon = false %}
               {% set sortBy = 'date' %}
-              {% set limitPosts = 4 %}
+              {# {% set limitPosts = 4 %} #}
               {% include "components/postsList.njk" %}
             </div>
 
