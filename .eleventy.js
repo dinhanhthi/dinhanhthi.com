@@ -164,10 +164,10 @@ module.exports = function (eleventyConfig) {
       return Math.round(durationInDays) + " days ago";
     } else if (durationInDays < 365) {
       const numMonths = Math.round(durationInDays / 30);
-      return `${numMonths} month${numMonths > 1 ? 's': ''} ago`;
+      return `${numMonths} month${numMonths > 1 ? "s" : ""} ago`;
     } else {
       const numYears = Math.round(durationInDays / 365);
-      return `${numYears} year${numYears > 1 ? 's': ''} ago`;
+      return `${numYears} year${numYears > 1 ? "s" : ""} ago`;
     }
   });
 
@@ -234,7 +234,6 @@ module.exports = function (eleventyConfig) {
     //   return input % numColors;
     // }
     // const color = waveColors[getHash(postIdx, waveColors.length)];
-
 
     switch (idx) {
       case 0:
@@ -343,10 +342,71 @@ module.exports = function (eleventyConfig) {
       katexOptions: { macros: { "\\RR": "\\mathbb{R}" } },
     })
     .use(require("markdown-it-task-lists")) // tasks [x]
-    .use(mdItContainer, "success")
-    .use(mdItContainer, "info")
-    .use(mdItContainer, "warning")
-    .use(mdItContainer, "danger")
+    .use(mdItContainer, "success", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='success alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/success.svg' alt='Success icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(mdItContainer, "tip", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='idea alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/idea.svg' alt='Idea icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(mdItContainer, "info", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='info alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/info.svg' alt='Info icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(mdItContainer, "warning", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='warning alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/warning.svg' alt='Warning icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(mdItContainer, "danger", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='danger alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/danger.svg' alt='Danger icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
     .use(mdItContainer, "code-output-equal")
     .use(mdItContainer, "code-output-flex")
     .use(mdItContainer, "code-2cols")

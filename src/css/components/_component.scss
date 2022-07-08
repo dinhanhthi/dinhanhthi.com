@@ -116,14 +116,14 @@
 .info,
 .success,
 .danger,
-.warning {
+.warning,
+.alert {
   position: relative;
   padding: $inside-padding;
   color: var(--font-color-darker);
   margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
   border: 1px solid;
-  border-left: 8px solid;
 
   & > *:not(.col-2-equal):not(.col-2-flex) {
     margin-bottom: $margin-bottom * 0.8 !important;
@@ -135,7 +135,29 @@
   .hsbox {
     background: var(--bg-hs-box);
   }
+
+  ._icon {
+    position: absolute;
+    width: 35px;
+    height: 30px;
+    background: var(--color-background-post);
+    border-radius: 50%;
+
+    left: -18px;
+    top: 13px;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
+
+// .hs__content ._icon {
+//   left: 50%;
+//   display: inline;
+//   top: -11px;
+// }
+
 .info {
   border-color: var(--alert-info-bd);
   // background-color: var(--alert-info-bg);
@@ -151,6 +173,9 @@
 .warning {
   border-color: var(--alert-warning-bd);
   // background-color: var(--alert-warning-bg);
+}
+.idea {
+  border-color: var(--alert-idea-bd);
 }
 
 // Keyboard
@@ -359,13 +384,17 @@ $gap: 5px;
 
 // Hide / Show
 // ----------------------------------------------------------------
+$padding-hs-box: 1rem;
 .hsbox {
   margin-bottom: $margin-bottom;
   border: 0.5px solid var(--toc-title-bd);
-  padding: 1rem;
+  padding: $padding-hs-box 0;
   border-radius: $box-border-radius;
   .hs__title {
     cursor: zoom-in;
+    padding-left: $padding-hs-box;
+    padding-right: $padding-hs-box;
+
     &.show {
       cursor: zoom-out;
     }
@@ -393,13 +422,12 @@ $gap: 5px;
       border-bottom: 0.5px solid var(--toc-title-bd);
       margin-bottom: 1rem;
       & + .hs__content {
-        // display: block;
         height: auto;
         opacity: 1;
-        padding: 5px 0;
+        padding-top: 5px;
+        padding-bottom: 5px;
         max-height: 700px;
         overflow: auto;
-        // transition: all 0.25s 0s cubic-bezier(0.4, 0, 0.2, 1);
       }
       &::before {
         transform: rotate(90deg) translateX(-3px);
@@ -407,11 +435,11 @@ $gap: 5px;
     }
   }
   .hs__content {
-    // display: none;
     height: 0;
     overflow: hidden;
-    // transition: all 0.2s 0s ease;
     transition: all 0.25s ease;
+    padding-left: $padding-hs-box;
+    padding-right: $padding-hs-box;
     > *:last-child {
       margin-bottom: 0;
     }

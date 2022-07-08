@@ -83,7 +83,7 @@
     gap: 1rem;
 
     &.skills-container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     &.cv-container {
@@ -91,7 +91,6 @@
     }
 
     .section {
-      // padding: 0 $padding-lr;
       flex: 1;
       margin: 1rem 0;
 
@@ -111,30 +110,6 @@
         .list-of {
           padding: 0.5rem;
         }
-
-        // @include screen-xxl-down {
-        //   width: calc(100% / 3);
-        //   flex: none;
-        //   &:nth-last-child(-n + 2) {
-        //     width: 50%;
-        //   }
-        // }
-
-        // @include screen-lg-down {
-        //   width: 50%;
-        //   flex: none;
-        //   &:last-child {
-        //     width: 100%;
-        //   }
-        // }
-
-        // @include screen-sm-down {
-        //   width: 100%;
-        //   flex: none;
-        //   &:nth-last-child(-n + 2) {
-        //     width: 100%;
-        //   }
-        // }
       }
     }
 

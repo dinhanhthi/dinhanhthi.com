@@ -6,22 +6,6 @@
 
 .page-note {
 
-  .not-full-warning, .low-quality-warning {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .warning-icon {
-      height: 25px;
-      margin-bottom: 0 !important;
-      margin-right: 10px;
-      flex-shrink: 0;
-      img {
-        height: 100%;
-        width: auto;
-      }
-    }
-  }
-
   .p-list {
     & > * {
       margin-bottom: 1rem;
