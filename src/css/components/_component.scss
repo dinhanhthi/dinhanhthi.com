@@ -119,7 +119,7 @@
 .warning,
 .alert {
   position: relative;
-  padding: $inside-padding;
+  padding: 1rem;
   color: var(--font-color-darker);
   margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
@@ -150,6 +150,10 @@
     align-items: center;
     justify-content: center;
   }
+}
+
+.alert {
+  padding-left: 1.5rem;
 }
 
 // .hs__content ._icon {
