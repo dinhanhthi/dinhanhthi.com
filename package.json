@@ -46,7 +46,7 @@
     "cross-env": "^7.0.3",
     "elasticlunr": "^0.9.5",
     "eleventy-plugin-local-images": "^0.4.1",
-    "file-type": "^12.0.1",
+    "file-type": "^16.5.4",
     "fs-extra": "^8.1.0",
     "jsdom": "^19.0.0",
     "lodash": "^4.17.21",
