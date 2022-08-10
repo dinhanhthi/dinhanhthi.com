@@ -66,6 +66,7 @@ module.exports = function (eleventyConfig) {
 
       eleventyConfig.ignores.delete("notes/blog"); // ###Thi
       eleventyConfig.ignores.delete("notes/blog_wip");
+      eleventyConfig.ignores.delete("notes/posts_wip");
       eleventyConfig.ignores.delete("sample_posts");
 
       eleventyConfig.ignores.delete("notes/fixed_notes");
@@ -83,6 +84,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes/blog");
       eleventyConfig.ignores.add("sample_posts");
       eleventyConfig.ignores.add("notes/blog_wip");
+      eleventyConfig.ignores.add("notes/posts_wip");
       eleventyConfig.ignores.delete("notes/low-quality-posts");
       eleventyConfig.ignores.delete("notes/fixed_notes");
       break;
@@ -100,6 +102,7 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes/fixed_notes");
       eleventyConfig.ignores.add("sample_posts");
       eleventyConfig.ignores.add("notes/blog_wip");
+      eleventyConfig.ignores.add("notes/posts_wip");
       eleventyConfig.ignores.add("notes/low-quality-posts");
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
@@ -299,7 +302,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "notes/img": "img" });
   eleventyConfig.addPassthroughCopy({ "src/img": "img_src" });
   eleventyConfig.addPassthroughCopy({ "notes/files": "files" });
-  eleventyConfig.addPassthroughCopy({ "notes/img_blog": "img_blog" });
+  eleventyConfig.addPassthroughCopy({ "notes/img_post": "img_post" });
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" }); // Copy `src/fonts` to `${distPath}/fonts`

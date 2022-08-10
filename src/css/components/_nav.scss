@@ -1,4 +1,7 @@
 // navigation
+
+$spacing-right-item: 0.5rem;
+
 nav {
   position: fixed;
   top: 0;
@@ -38,7 +41,7 @@ nav {
   @include screen-sm-down {
     padding: 0 0.5em;
     nav #nav .nav-search .nav-search__input {
-      padding-right: 0.5rem;
+      padding-right: $spacing-right-item;
     }
     .nav-hide-sm {
       display: none !important;
@@ -66,7 +69,7 @@ nav {
 
       display: flex;
       align-items: center;
-      padding: 0 0.5rem;
+      padding: 0 $spacing-right-item;
       white-space: nowrap;
       &:hover {
         color: #fff;
@@ -80,10 +83,14 @@ nav {
     }
 
     .nav-item {
-      margin-right: 0.5rem;
+      margin-right: $spacing-right-item;
       text-align: left;
       @include screen-sm-down {
         width: unset !important;
+      }
+
+      &:last-child {
+        margin-right: 0;
       }
 
       &.nav-text {
@@ -117,7 +124,6 @@ nav {
       padding: 5px;
       cursor: pointer;
       display: inline-flex;
-      margin-left: 0.5rem;
       @include screen-sm-down {
         margin-right: 0;
       }
@@ -129,6 +135,7 @@ nav {
       border-radius: 0.5rem;
       width: 100%;
       position: relative;
+      margin-right: $spacing-right-item;
       form {
         display: flex;
         flex: 1;
