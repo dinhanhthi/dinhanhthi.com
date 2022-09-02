@@ -36,7 +36,7 @@ module.exports = function (eleventyConfig) {
       tags: ["h2", "h3"],
       wrapper: "div",
       wrapperClass: "toc toc-common toc-js",
-      headingText: "In this note",
+      headingText: "On this page",
       headingTag: "div",
     }
   );
@@ -359,6 +359,19 @@ module.exports = function (eleventyConfig) {
       },
     })
     .use(mdItContainer, "tip", {
+      render: function (tokens, idx) {
+        var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
+        if (tokens[idx].nesting === 1) {
+          return `<div class='idea alert'>
+                    <div class='_icon'>
+                      <img width='22' height='22' class='keep-original' src='/img_src/icons/idea.svg' alt='Idea icon'>
+                    </div>`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(mdItContainer, "idea", {
       render: function (tokens, idx) {
         var m = tokens[idx].info.trim().match(/^col-2-equal\s+(.*)$/);
         if (tokens[idx].nesting === 1) {

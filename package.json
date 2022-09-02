@@ -9,6 +9,7 @@
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",
     "build-local": "npx rimraf -rf _built && npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=full-no-opt eleventy",
     "watch": "npm run full:watch-no-opt",
+    "preprod": "full:build-http-serve-opt",
     "theming": "concurrently \"npm run css:watch-local\" \"npm run theming:serve-watch\" \"npm run js:build-watch\" -c green,blue,red -n css,11ty,js",
     "theming:serve-watch": "npx rimraf _built && ELEVENTY_ENV=theming eleventy --serve --watch",
     "full:serve-no-opt": "npx rimraf _built && ELEVENTY_ENV=full-no-opt eleventy --serve --watch --incremental",

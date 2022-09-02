@@ -22,7 +22,8 @@ h4 {
 }
 
 .blog-container {
-  h2, h3 {
+  h2,
+  h3 {
     zoom: 1.1;
   }
 }
@@ -34,7 +35,9 @@ h4 {
 }
 
 .no-heading-numbering {
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     &:before {
       display: none !important;
     }

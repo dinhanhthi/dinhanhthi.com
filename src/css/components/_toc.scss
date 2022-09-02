@@ -33,8 +33,14 @@
       display: none !important;
     }
   }
-  .toc > .ol-container > ol > li {
-    padding-left: 0 !important;
+  .toc > .ol-container > ol {
+    & > li {
+      padding-left: 0 !important;
+    }
+    li ol {
+      margin-left: 3px;
+      padding-left: 0;
+    }
   }
 }
 

@@ -156,30 +156,25 @@
   padding-left: 1.5rem;
 }
 
-// .hs__content ._icon {
-//   left: 50%;
-//   display: inline;
-//   top: -11px;
-// }
-
 .info {
   border-color: var(--alert-info-bd);
-  // background-color: var(--alert-info-bg);
+  background-color: var(--alert-info-bg);
 }
 .success {
   border-color: var(--alert-success-bd);
-  // background-color: var(--alert-success-bg);
+  background-color: var(--alert-success-bg);
 }
 .danger {
   border-color: var(--alert-danger-bd);
-  // background-color: var(--alert-danger-bg);
+  background-color: var(--alert-danger-bg);
 }
 .warning {
   border-color: var(--alert-warning-bd);
-  // background-color: var(--alert-warning-bg);
+  background-color: var(--alert-warning-bg);
 }
 .idea {
   border-color: var(--alert-idea-bd);
+  background-color: var(--alert-idea-bg);
 }
 
 // Keyboard

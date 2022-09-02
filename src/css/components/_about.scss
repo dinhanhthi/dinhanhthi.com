@@ -56,7 +56,8 @@
   @include screen-md-down {
     .intro {
       width: 100%;
-      padding: 0 1rem 1rem;
+      padding: 0;
+      padding-bottom: 1rem;
       border-bottom: 1px solid #444;
     }
     .coordinate {
@@ -87,7 +88,7 @@
     }
 
     &.cv-container {
-      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     .section {

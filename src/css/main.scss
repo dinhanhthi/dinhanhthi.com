@@ -26,7 +26,6 @@ $color-faded-invert-light: $color-faded;
 
 // FONTS
 $font-main: "Poppins", Arial, Helvetica, sans-serif;
-$font-main-var: "Poppins" var alt, Arial, Helvetica, sans-serif;
 $font-heading: "Recoleta", Arial, Helvetica, sans-serif;
 $font-code: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
 $font-size: 1rem;
@@ -57,9 +56,9 @@ $grid-w-normal: 900px;
 $grid-w-ex-normal: 1200px;
 $grid-toc: 1400px;
 $padding-lr: 16px;
-$margin-bottom: 1.5 * $font-size; // margin-bottom
+$margin-bottom: 1 * $font-size; // margin-bottom
 $margin-bottom-code: 1.1 * $margin-bottom; // for code blocks
-$padding-margin: 2rem;
+$padding-margin: 24px;
 
 // HEADINGs
 $heading-font: $font-heading;
@@ -85,7 +84,7 @@ $heading-heading-minus-margin: -0.5rem;
 $header-logo: 55px;
 
 // OTHERS
-$box-border-radius: 0.5rem;
+$box-border-radius: 5px;
 $li-margin-bottom: 5px;
 
 // CODE
@@ -148,28 +147,31 @@ $scroll-track-light: transparent;
 // BOXES
 // Follow Primer's color schemes: https://primer.style/css/support/color-system
 // (--color-scale-*-4) for border, add "30" (light), "70" (dark) at the end for backgrounds
-$alert-info-bg: #66a5ff24;
-$alert-info-bd: #66a5ff;
-$alert-info-bg-light: #5ca7ff30;
+
+$alert-info-bd: #66a5ff61;
 $alert-info-bd-light: #5ca7ff;
+$alert-info-bg: #66a5ff24;
+$alert-info-bg-light: #5ca7ff1f;
 
-$alert-success-bg: #37c03e24;
-$alert-success-bd: #37c03e;
-$alert-success-bg-light: #34d05830;
+$alert-success-bd: #37c03e57;
 $alert-success-bd-light: #34d058;
+$alert-success-bg: #37c03e24;
+$alert-success-bg-light: #34d05830;
 
-$alert-danger-bg: #e5534b24;
-$alert-danger-bd: #e5534b;
-$alert-danger-bg-light: #ff818e30;
+$alert-danger-bd: #e5534b4d;
 $alert-danger-bd-light: #ff818e;
+$alert-danger-bg: #e5534b24;
+$alert-danger-bg-light: #ff818e30;
 
+$alert-warning-bd: #ffc0482b;
+$alert-warning-bd-light: #ffc048;
 $alert-warning-bg: #f0ac1f24;
 $alert-warning-bg-light: #ffcd0030;
-$alert-warning-bd: #ffc04882;
-$alert-warning-bd-light: #ffc048;
 
-$alert-idea-bd: #ffc00870;
-$alert-idea-bd-light: #ffc008;
+$alert-idea-bd: $alert-success-bd;
+$alert-idea-bd-light: $alert-success-bd-light;
+$alert-idea-bg: $alert-success-bg;
+$alert-idea-bg-light: $alert-success-bg-light;
 
 $bg-hs-box: rgba(255, 255, 255, 0.05);
 $bg-hs-box-light: rgba(255, 255, 255, 0.25);

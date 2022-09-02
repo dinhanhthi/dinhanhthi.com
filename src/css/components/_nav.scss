@@ -10,6 +10,10 @@ nav {
   padding: 0 1.5rem;
   background: $color-bg-nav;
 
+  .container {
+    gap: 0 !important;
+  }
+
   nav #nav .nav-search .nav-search__input {
     padding-right: 1.5rem;
   }
@@ -23,11 +27,12 @@ nav {
     left: 0;
 
     #reading-progress {
-      border-bottom: 2px solid $color-yellow;
+      border-bottom: 3px solid #ffa541;
       width: 100vw;
       transform: translate(-100vw, 0);
       will-change: transform;
       pointer-events: none;
+      margin-top: -4px;
     }
   }
 
@@ -63,7 +68,7 @@ nav {
 
     a {
       color: #ccc;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 500;
       white-space: nowrap;
 
@@ -104,6 +109,10 @@ nav {
             background: #282a36;
             color: #fff;
           }
+        }
+        @include screen-sm-down {
+          background: #384151;
+          font-size: 1.1rem;
         }
       }
 
@@ -169,6 +178,10 @@ nav {
         &:focus {
           outline: none;
           border: 0;
+        }
+        @include screen-sm-down {
+          font-size: 1.15rem;
+          padding: 0.45rem 0.5rem;
         }
       }
 

@@ -42,15 +42,19 @@ change_img_url ydkjsy-1 # change url to {{ img-url }}
 
 ## Dev
 
-__Shortcodes__:
+**TL;DR;**
 
-``` bash
-# Watch mode localhost
-npm run watch
+- Watch mode (no image optimization, all posts): `npm run watch`.
+- Theming mode (for customizing themes + display all blog posts): `npm run theming`.
+- Mimic prod version locally: `npm run preprod` (port `8081`).
+- Temporary blog posts: put in **notes/blog_wip/**.
+- Temporary note posts: put in **notes/posts_wip/**.
+- For working with Typora + VSCode ([this blog post](https://dinhanhthi.com/images-11ty-markdown/)):
+  - Blog posts must be store in **notes/blog/name-of-blog.md** (no sub folder).
+  - Note posts must be store in **notes/posts/name-of-note.md** (no sub folder).
 
-# For modifying theme (parse only posts in sample_posts/)
-npm run theming
-```
+<details>
+<summary>More details (a little old)</summary>
 
 Let us assume that the installation step is complete.
 
@@ -99,6 +103,8 @@ npm run build # _site
 # Just update & deploy what built in _site
 npm run site:update
 ```
+
+</details>
 
 ### Download SVG from flaticon
 

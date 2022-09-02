@@ -170,6 +170,7 @@
   --alert-warning-bg: #{$alert-warning-bg};
   --alert-warning-bd: #{$alert-warning-bd};
   --alert-idea-bd: #{$alert-idea-bd};
+  --alert-idea-bg: #{$alert-idea-bg};
   --mark-color: #{$mark-color};
 }
 
@@ -249,5 +250,6 @@
   --alert-warning-bg: #{$alert-warning-bg-light};
   --alert-warning-bd: #{$alert-warning-bd-light};
   --alert-idea-bd: #{$alert-idea-bd-light};
+  --alert-idea-bg: #{$alert-idea-bg-light};
   --mark-color: #{$mark-color-light};
 }

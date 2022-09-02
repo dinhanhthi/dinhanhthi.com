@@ -154,7 +154,7 @@
                 {% endif %}
                 {% if tag == 'Blog' %}
                   {% set blogItem = categories | getBlog %}
-                  <span>
+                  <span class="blog-tag">
                     <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }}; margin-right: -0.2em;"></i>
                     <a href="/blog/">{{ tag }}</a>
                   </span>
