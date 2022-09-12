@@ -52,7 +52,7 @@
   row-gap: $post-gap;
   column-gap: $post-gap;
 
-  @include screen-xl-down {
+  @include screen-xxl-down {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -93,6 +93,7 @@
     &._blog-card {
       position: relative;
       overflow: hidden;
+      height: 100%;
 
       .bottom-wave {
         position: absolute;
