@@ -4,6 +4,13 @@
   padding-bottom: 3rem;
 }
 
+.comment-container {
+  margin-top: 2rem;
+  .utterances {
+    max-width: 100%;
+  }
+}
+
 .page-note {
 
   .p-list {
