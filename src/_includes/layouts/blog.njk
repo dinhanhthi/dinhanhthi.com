@@ -10,14 +10,24 @@ noHeadingNumbering: true
     <div class="container normal mt-2 page-note">
 
       {% include "components/warning-blog-post.njk" %}
-
       {% if toc %}
-        {# <div class="toc-container">{{ content | toc | safe }}</div> #}
         {{ content | toc | safe }}
-        {{ content | safe }}
-      {% else %}
-        {{ content | safe }}
       {% endif %}
+
+      {{ content | safe }}
+
+      {% if basePartUrl %}
+        {% set singleSeries = series | getSeries(basePartUrl) %}
+        {% if part < singleSeries.parts %}
+          <div class="navigate-in-series next">
+            {% set nextPart = part + 1 %}
+            {% set nextPartUrl = '/' + basePartUrl + '-' + nextPart + '/' %}
+            {% emoji "👉" %}
+            <a href="{{ nextPartUrl }}" class="btn btn-primary btn-lg">Go to the next part of this series.</a>
+          </div>
+        {% endif %}
+      {% endif %}
+
     </div>
 
     {% include "components/comment.njk" %}

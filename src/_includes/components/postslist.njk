@@ -34,6 +34,9 @@
     {% if not post.data.hide %}
       {% set newPostList = (newPostList.push(singlePost), newPostList) %}
     {% endif %}
+    {% if post.data.part %}
+      {% set singlePost = singlePost | setAttribute('part', post.data.part) %}
+    {% endif %}
   {% endfor %}
 
   {% if morePosts %}
@@ -57,6 +60,9 @@
       {% endif %}
       {% if not post.hide %}
         {% set newPostList = (newPostList.push(singlePost), newPostList) %}
+      {% endif %}
+      {% if post.part %}
+        {% set singlePost = singlePost | setAttribute('part', post.part) %}
       {% endif %}
     {% endfor %}
   {% endif %}
@@ -110,7 +116,7 @@
         {% endif %}
 
         {% if post.title %}
-          <span>
+          <span class="card-title">
             {{ post.title }}
 
             {# 👋 Don't show draft/private/good indicator for blog posts #}
@@ -124,6 +130,9 @@
               {% if post.private %}
                 <sup title="{{ other_data.private }}">†</sup>
               {% endif %}
+            {% endif %}
+            {% if post.part %}
+              <span class="post-part-card">{{ post.part }}</span>
             {% endif %}
           </span>
 

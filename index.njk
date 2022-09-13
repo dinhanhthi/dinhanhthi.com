@@ -30,6 +30,9 @@ date: Last Modified
               {% if post.notfull %}
                 {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
               {% endif %}
+              {% if post.part %}
+                {% set singlePost = singlePost | setAttribute('part', post.part) %}
+              {% endif %}
               {% if post.lowQuality %}
                 {% set singlePost = singlePost | setAttribute('lowQuality', post.lowQuality) %}
               {% endif %}

@@ -5,3 +5,16 @@
     flex-direction: column;
   }
 }
+
+.navigate-in-series {
+  padding: 1rem 0;
+  border: 5px double #aaa;
+  border-left: none;
+  border-right: none;
+  &.next {
+    margin-top: 3rem;
+  }
+  &.previous {
+    margin-bottom: 2rem;
+  }
+}

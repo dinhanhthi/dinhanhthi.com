@@ -95,21 +95,37 @@
       overflow: hidden;
       height: 100%;
 
+      .post-part-card {
+        padding: 5px;
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $color-yellow;
+        align-items: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 90%;
+        margin-left: 5px;
+        color: #3d2e2e;
+      }
+
       .bottom-wave {
         position: absolute;
         bottom: -2px;
         width: 100%;
 
         .waves {
-          position:relative;
+          position: relative;
           width: 100%;
-          height:5vh;
-          margin-bottom:-7px; /*Fix for safari gap*/
-          min-height:60px;
-          max-height:150px;
+          height: 5vh;
+          margin-bottom: -7px; /*Fix for safari gap*/
+          min-height: 60px;
+          max-height: 150px;
 
           .parallax > use {
-            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+            animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5)
+              infinite;
           }
           .parallax > use:nth-child(1) {
             animation-delay: -2s;
@@ -133,13 +149,12 @@
   }
 }
 
-
 /* Animation for bottom-wave */
 @keyframes move-forever {
   0% {
-   transform: translate3d(-90px,0,0);
+    transform: translate3d(-90px, 0, 0);
   }
   100% {
-    transform: translate3d(85px,0,0);
+    transform: translate3d(85px, 0, 0);
   }
 }

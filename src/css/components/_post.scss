@@ -5,14 +5,20 @@
 }
 
 .comment-container {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  background: var(--bg-comment-container);
+  border-radius: 1rem;
+  padding: 1rem;
+
+  h2 {
+    margin: 1rem;
+  }
   .utterances {
     max-width: 100%;
   }
 }
 
 .page-note {
-
   .p-list {
     & > * {
       margin-bottom: 1rem;

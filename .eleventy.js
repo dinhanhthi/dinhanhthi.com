@@ -29,6 +29,7 @@ const waveColors = require("./src/_data/wave_colors");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(require("eleventy-plugin-emoji"));
 
   eleventyConfig.addPlugin(
     require("./third_party/eleventy-plugin-nesting-toc"),
@@ -218,8 +219,13 @@ module.exports = function (eleventyConfig) {
     return techArray.find((tech) => tech.id === techId);
   });
 
+  // Get the right series in noptes/_data/series.json for a post
+  eleventyConfig.addFilter("getSeries", function (seriesList, basePartUrl) {
+    return seriesList.find((series) => series.basePartUrl === basePartUrl);
+  });
+
   // Get random colors (from a predefined set) for bottom-wave in blog cards
-  eleventyConfig.addFilter("getRandomColor", function (name, postIdx, idx) {
+  eleventyConfig.addFilter("getRandomColor", function (name, _postIdx, idx) {
     // Get the same number for each name -> colors are fixed for each name
     function getHash(input, numColors) {
       var hash = 0,
@@ -236,7 +242,7 @@ module.exports = function (eleventyConfig) {
     // function getHash(input, numColors) {
     //   return input % numColors;
     // }
-    // const color = waveColors[getHash(postIdx, waveColors.length)];
+    // const color = waveColors[getHash(_postIdx, waveColors.length)];
 
     switch (idx) {
       case 0:

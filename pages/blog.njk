@@ -30,6 +30,9 @@ containerBackgroundType: gray
           {% if post.notfull %}
             {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
           {% endif %}
+          {% if post.part %}
+            {% set singlePost = singlePost | setAttribute('part', post.part) %}
+          {% endif %}
           {% if post.private %}
             {% set singlePost = singlePost | setAttribute('private', post.private) %}
           {% endif %}
