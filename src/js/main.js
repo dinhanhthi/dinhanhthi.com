@@ -202,6 +202,9 @@ window.addEventListener(
     if (ev.target.classList.contains("hs__title")) {
       ev.target.classList.toggle("show");
     }
+    if (ev.target.parentElement.classList.contains("hs__title")) {
+      ev.target.parentElement.classList.toggle("show");
+    }
   },
   false
 );
@@ -239,7 +242,17 @@ const addSelected2 = (ulRes, li) => {
         // If there is result
         noResEl.style.display = "none";
         results.map((r) => {
-          var { id, title, keywords, tags, cat, icon, iconColor, target, privatePost } = r.doc; // use keywords instead
+          var {
+            id,
+            title,
+            keywords,
+            tags,
+            cat,
+            icon,
+            iconColor,
+            target,
+            privatePost,
+          } = r.doc; // use keywords instead
 
           // Use content??? (modify .eleventy.js also!)
           // var { id, title, keywords, cat, content } = r.doc;
@@ -253,7 +266,7 @@ const addSelected2 = (ulRes, li) => {
           el.appendChild(divIcon);
           const divIcon__icon = document.createElement("li");
           divIcon__icon.setAttribute("class", `fontello-icon ${icon}`);
-          if (cat === 'Blog') divIcon__icon.style.color = iconColor;
+          if (cat === "Blog") divIcon__icon.style.color = iconColor;
           divIcon.appendChild(divIcon__icon);
 
           const divContent = document.createElement("div");
@@ -388,10 +401,10 @@ toggleThemeBtn.onclick = function () {
 const toggleIconFn = (theme) => {
   if (theme === "dark") {
     toggleIcon.src = "/img_src/nav/sun.svg";
-    toggleThemeBtn.setAttribute('data-title', 'Light Theme')
+    toggleThemeBtn.setAttribute("data-title", "Light Theme");
   } else {
     toggleIcon.src = "/img_src/nav/moon.svg";
-    toggleThemeBtn.setAttribute('data-title', 'Dark Theme')
+    toggleThemeBtn.setAttribute("data-title", "Dark Theme");
   }
 };
 
