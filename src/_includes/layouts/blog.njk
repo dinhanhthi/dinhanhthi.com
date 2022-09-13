@@ -18,7 +18,7 @@ noHeadingNumbering: true
 
       {% if basePartUrl %}
         {% set singleSeries = series | getSeries(basePartUrl) %}
-        {% if part < singleSeries.parts %}
+        {% if part < singleSeries.finished  %}
           <div class="navigate-in-series next">
             {% set nextPart = part + 1 %}
             {% set nextPartUrl = '/' + basePartUrl + '-' + nextPart + '/' %}

@@ -190,7 +190,7 @@
             {% for idx in range(0, singleSeries.parts) %}
               <a
                 href="{% if idx+1 === part %}javascript:void(0){% else %}/{{ basePartUrl }}-{{ idx + 1 }}/{% endif %}"
-                class="part-tag no-effect{% if idx + 1 > singleSeries.finished %} tooltip-auto disabled{% endif %}{% if idx + 1 === part %} tooltip-auto{% endif %}"
+                class="part-tag no-effect{% if idx+1 === part %} current{% endif %}{% if idx + 1 > singleSeries.finished %} tooltip-auto disabled{% endif %}{% if idx + 1 === part %} tooltip-auto{% endif %}"
                 data-title="{% if idx + 1 > singleSeries.finished %}coming soon{% elif idx + 1 === part %}current post{% endif %}"
               >
                 PART {{ idx + 1 }}
