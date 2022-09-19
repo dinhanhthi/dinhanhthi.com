@@ -4,6 +4,8 @@
 
 ❗ **Note** : This repo is for my purposes ONLY. I actually wanted make it into an 11ty theme that could be used by others, but the complexity and my free time prevent me from continuing. If you figure out how to use it yourself that's great, otherwise just ask me but I can not promise I'll answer (soon) 🙁. Anyway, if you find something useful for me to improve this theme, just let me know, thanks a lot.
 
+XXX
+
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
 ## Older versions
@@ -28,7 +30,6 @@ pip install -r requirements.txt
 
 ```bash
 dat # go to dinhanhthi.com/
-goto:dat
 ud_dat # build & deploy to netlify
 notes:update # git update notes/
 touch_css # to run npm css:touch anywhere
@@ -62,7 +63,7 @@ Let us assume that the installation step is complete.
 - **Header icon** (frontmatter):
   - `icon: aio.svg`: icon has to be stored in `notes/img/header/`.
   - `icon: /src/img_src/aio.svg`: icon has to be stored in `/src/img/header/` (Yes, it's `img_src`!!!). It's useful for sample posts (we don't have to store icons in `/notes/`)
-- **Update site**: `npm run site:build-update` (On Mac/Linux, use `ud_dat`)
+- **Update site**: `npm run site:update` (On Mac/Linux, use `ud_dat`)
 
 For modifying theme (parse only posts in `sample_posts/`)
 

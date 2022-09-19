@@ -90,10 +90,13 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes/fixed_notes");
       break;
 
-    default: // take too long to build
+    default: // take longer to build, but optimize the output
       // full-opt
       distPath = "_site";
-      eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js"));
+
+      // Comment below if the build is too slow
+      // eleventyConfig.addPlugin(require("./src/_11ty/img-dim.js"));
+
       eleventyConfig.addPlugin(require("./src/_11ty/json-ld.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/apply-csp.js"));
       eleventyConfig.addPlugin(require("./src/_11ty/optimize-html.js"));
@@ -484,7 +487,10 @@ module.exports = function (eleventyConfig) {
         }
       },
     })
-    .use(require("@gerhobbelt/markdown-it-inline-text-color"));
+    .use(require("@gerhobbelt/markdown-it-inline-text-color"))
+    .use(require("markdown-it-image-lazy-loading"), {
+      decoding: true,
+    });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Using {% markdown %}{% endmarkdown %} inside .njk

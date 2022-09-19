@@ -48,8 +48,9 @@
   padding: 15px;
 
   & > .ol-container {
-    border: 0.5px solid var(--toc-title-bd);
-    border-radius: 0.6rem;
+    border: 0.5px solid;
+    border-color: var(--toc-title-bd);
+    border-radius: 5px;
     padding: 10px 0;
     width: 100%;
     display: flex;

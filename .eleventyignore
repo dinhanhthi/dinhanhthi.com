@@ -2,6 +2,7 @@
 .github/
 _site/
 _live/
+_notes/
 _built/
 node_modules/
 package-lock.json

@@ -172,7 +172,7 @@
         {% endif %}
 
         {% if not 'list-of-blog' in customClass %}
-          </a>{% if post.date and showDate %} — <span class="last-modified">{{ post.date | toDuration }}</span>{% endif %}
+          </a>{% if post.date and showDate %} — <span class="last-modified">updated {{ post.date | toDuration }}</span>{% endif %}
         {% endif %}
       </div>
 

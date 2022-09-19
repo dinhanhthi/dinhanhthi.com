@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live",
     "re-install": "npm run clean && npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
+    "build-netlify": "npm run js:build && npm run css:build && npm run css:prefix && eleventy",
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",
     "build-local": "npx rimraf -rf _built && npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=full-no-opt eleventy",
     "watch": "npm run full:watch-no-opt",
@@ -52,6 +53,7 @@
     "jsdom": "^19.0.0",
     "lodash": "^4.17.21",
     "luxon": "^1.21.3",
+    "netlify-plugin-cache": "^1.0.3",
     "postcss-cli": "^9.0.1",
     "rimraf": "^2.7.1",
     "shorthash": "0.0.2"
@@ -80,6 +82,7 @@
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-footnote": "^3.0.2",
+    "markdown-it-image-lazy-loading": "^1.2.0",
     "markdown-it-kbd": "^2.2.0",
     "markdown-it-mark": "^3.0.0",
     "markdown-it-task-lists": "^2.1.1",

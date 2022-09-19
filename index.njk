@@ -68,7 +68,7 @@ date: Last Modified
               {% set customIcon = false %}
               {% set sortBy = 'date' %}
               {% set limitPosts = 8 %}
-              {% include "components/postsList.njk" %}
+              {% include "components/postslist.njk" %}
             </div>
 
             <div class="h2-dots _big _no-dots">
@@ -85,7 +85,8 @@ date: Last Modified
               {% set hideBlogPosts = true %}
               {% set customClass = 'list-homepage list-of-post' %}
               {% set customIcon = true %}
-              {% include "components/postsList.njk" %}
+              {% set limitPosts = null %}
+              {% include "components/postslist.njk" %}
             </div>
           {% endif %}
         </div>

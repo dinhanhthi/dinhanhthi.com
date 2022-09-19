@@ -18,12 +18,16 @@ noHeadingNumbering: true
 
       {% if basePartUrl %}
         {% set singleSeries = series | getSeries(basePartUrl) %}
-        {% if part < singleSeries.finished  %}
+        {% if part < singleSeries.parts %}
           <div class="navigate-in-series next">
             {% set nextPart = part + 1 %}
             {% set nextPartUrl = '/' + basePartUrl + '-' + nextPart + '/' %}
             {% emoji "👉" %}
-            <a href="{{ nextPartUrl }}" class="btn btn-primary btn-lg">Go to the next part of this series.</a>
+            {% if part < singleSeries.finished %}
+              <a href="{{ nextPartUrl }}" class="btn btn-primary btn-lg">Go to the next part of this series.</a>
+            {% else %}
+              To be continued...
+            {% endif %}
           </div>
         {% endif %}
       {% endif %}
