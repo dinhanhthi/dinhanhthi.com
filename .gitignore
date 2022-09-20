@@ -16,5 +16,6 @@ Gemfile.lock
 .fontello-session
 src/css/main.css
 scripts/__pycache__/
+notesData/
 
 .unotes/unotes_meta.json

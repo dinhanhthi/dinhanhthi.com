@@ -4,8 +4,6 @@
 
 ❗ **Note** : This repo is for my purposes ONLY. I actually wanted make it into an 11ty theme that could be used by others, but the complexity and my free time prevent me from continuing. If you figure out how to use it yourself that's great, otherwise just ask me but I can not promise I'll answer (soon) 🙁. Anyway, if you find something useful for me to improve this theme, just let me know, thanks a lot.
 
-XXX
-
 📚 Markdown notes are stored in [a separated repo](https://github.com/dinhanhthi/notes).
 
 ## Older versions
@@ -43,7 +41,13 @@ change_img_url ydkjsy-1 # change url to {{ img-url }}
 
 ## Dev
 
-**TL;DR;**
+### New computer?
+
+- Clone this repo with `dinhanhthi.com` name.
+- Clone notes to `dinhanhthi.com/notesData` (Yes, change its name! This is different from `dinhanhthi.com/notes` which is a submodule of this repo).
+- Modify + update notes in `notesData`.
+
+### TL;DR;
 
 - Watch mode (no image optimization, all posts): `npm run watch`.
 - Theming mode (for customizing themes + display all blog posts): `npm run theming`.

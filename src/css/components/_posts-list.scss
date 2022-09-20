@@ -94,6 +94,20 @@
       position: relative;
       overflow: hidden;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .post-part-name {
+        display: block;
+        font-size: 85%;
+        font-weight: normal;
+        border-radius: 10px;
+        border: 1px solid #cccccc69;
+        padding: 0 10px;
+        margin-top: 9px;
+        background: #ffd4793b;
+        color: var(--color-invert);
+      }
 
       .post-part-card {
         padding: 5px;

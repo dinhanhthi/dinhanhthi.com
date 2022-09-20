@@ -1,12 +1,12 @@
 echo "1️⃣ Updating notes..."
-cd ../notes
+cd notesData
 git add .
 git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`"
 git push
 # echo "⏰ Wait 3 seconds..."
 # sleep 3
 echo "2️⃣ Updating submodules & current changes..."
-cd ../dinhanhthi.com
+cd ..
 git submodule update --remote
 git add .
 git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`"

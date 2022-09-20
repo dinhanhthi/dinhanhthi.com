@@ -37,6 +37,9 @@
     {% if post.data.part %}
       {% set singlePost = singlePost | setAttribute('part', post.data.part) %}
     {% endif %}
+    {% if post.data.partName %}
+      {% set singlePost = singlePost | setAttribute('partName', post.data.partName) %}
+    {% endif %}
   {% endfor %}
 
   {% if morePosts %}
@@ -63,6 +66,9 @@
       {% endif %}
       {% if post.part %}
         {% set singlePost = singlePost | setAttribute('part', post.part) %}
+      {% endif %}
+      {% if post.partName %}
+        {% set singlePost = singlePost | setAttribute('partName', post.partName) %}
       {% endif %}
     {% endfor %}
   {% endif %}
@@ -135,6 +141,10 @@
               <span class="post-part-card">{{ post.part }}</span>
             {% endif %}
           </span>
+
+          {% if post.partName %}
+            <div class="post-part-name">{{ post.partName }}</div>
+          {% endif %}
 
           {% if 'list-of-blog' in customClass %}
             <div class="bottom-wave">

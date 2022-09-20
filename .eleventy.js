@@ -63,15 +63,15 @@ module.exports = function (eleventyConfig) {
         devMode: true,
       });
       eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.add("notes/posts");
-
-      eleventyConfig.ignores.delete("notes/blog"); // ###Thi
-      eleventyConfig.ignores.delete("notes/blog_wip");
-      eleventyConfig.ignores.delete("notes/posts_wip");
       eleventyConfig.ignores.delete("sample_posts");
-
-      eleventyConfig.ignores.delete("notes/fixed_notes");
-      eleventyConfig.ignores.add("notes/low-quality-posts");
+      eleventyConfig.ignores.add("notes");
+      // notesData
+      eleventyConfig.ignores.add("notesData/posts");
+      eleventyConfig.ignores.delete("notesData/blog");
+      eleventyConfig.ignores.delete("notesData/blog_wip");
+      eleventyConfig.ignores.delete("notesData/posts_wip");
+      eleventyConfig.ignores.delete("notesData/fixed_notes");
+      eleventyConfig.ignores.add("notesData/low-quality-posts");
       break;
 
     case "full-no-opt":
@@ -81,13 +81,15 @@ module.exports = function (eleventyConfig) {
         devMode: true,
       });
       eleventyConfig.setDataDeepMerge(true);
-      eleventyConfig.ignores.delete("notes/posts");
-      eleventyConfig.ignores.delete("notes/blog");
       eleventyConfig.ignores.add("sample_posts");
-      eleventyConfig.ignores.add("notes/blog_wip");
-      eleventyConfig.ignores.add("notes/posts_wip");
-      eleventyConfig.ignores.delete("notes/low-quality-posts");
-      eleventyConfig.ignores.delete("notes/fixed_notes");
+      eleventyConfig.ignores.add("notes");
+      // notesData
+      eleventyConfig.ignores.delete("notesData/posts");
+      eleventyConfig.ignores.delete("notesData/blog");
+      eleventyConfig.ignores.add("notesData/blog_wip");
+      eleventyConfig.ignores.add("notesData/posts_wip");
+      eleventyConfig.ignores.delete("notesData/low-quality-posts");
+      eleventyConfig.ignores.delete("notesData/fixed_notes");
       break;
 
     default: // take longer to build, but optimize the output
@@ -108,6 +110,8 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.add("notes/blog_wip");
       eleventyConfig.ignores.add("notes/posts_wip");
       eleventyConfig.ignores.add("notes/low-quality-posts");
+      // notesData
+      eleventyConfig.ignores.add("notesData");
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
         assetPath: "/img/remote",

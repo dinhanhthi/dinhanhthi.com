@@ -33,6 +33,9 @@ containerBackgroundType: gray
           {% if post.part %}
             {% set singlePost = singlePost | setAttribute('part', post.part) %}
           {% endif %}
+          {% if post.partName %}
+            {% set singlePost = singlePost | setAttribute('partName', post.partName) %}
+          {% endif %}
           {% if post.private %}
             {% set singlePost = singlePost | setAttribute('private', post.private) %}
           {% endif %}
