@@ -81,7 +81,7 @@ header {
     padding: 8rem $padding-margin 3rem;
     @include screen-lg-up {
       padding-left: 0;
-      padding-right: 2 * $padding-margin;
+      padding-right: 0;
     }
   }
 
@@ -331,6 +331,10 @@ p.contact {
       margin-left: 5px;
       font-family: $font-main;
       font-weight: $font-bold-weight;
+    }
+    .post-part-name {
+      font-size: 75%;
+      color: $color-yellow;
     }
   }
   .blog-description {

@@ -187,6 +187,8 @@ $max-blog-card-width: 350px;
 $min-blog-card-height: 10rem;
 $blog-card-title-color: #dadada;
 $blog-card-title-color-light: #555;
+$part-name-bg: $bg-blog-card;
+$part-name-bg-light: #fff5df;
 
 
 @import "./components/prism_variables";

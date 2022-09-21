@@ -1,7 +1,7 @@
 _site/
-_notes/
 _live/
 _built/
+notes/
 node_modules/
 .DS_Store
 src/js/min.js
@@ -16,6 +16,4 @@ Gemfile.lock
 .fontello-session
 src/css/main.css
 scripts/__pycache__/
-notesData/
-
 .unotes/unotes_meta.json

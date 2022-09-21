@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live",
     "re-install": "npm run clean && npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
-    "build-netlify": "npm run js:build && npm run css:build && npm run css:prefix && eleventy",
+    "build-netlify": "npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=netlify eleventy",
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",
     "build-local": "npx rimraf -rf _built && npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=full-no-opt eleventy",
     "watch": "npm run full:watch-no-opt",
@@ -23,9 +23,9 @@
     "css:touch": "touch src/css/components/_main.scss",
     "js:build": "rollup -c src/rollup.config.js",
     "js:build-watch": "rollup -c src/rollup.config.js -w",
-    "site:build": "npm run build",
     "site:update": "sh scripts/ud_site.sh",
-    "site:build-update": "npm run site:build && npm run site:update",
+    "site:update-local": "sh scripts/ud_site_local.sh",
+    "site:build-update": "npm run build && npm run site:update-local",
     "ud-fontello": "npx rimraf .fontello-session && fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install",
     "touch:index": "touch index.njk",
     "touch:all": "touch package.json"
@@ -61,7 +61,6 @@
   "dependencies": {
     "@ampproject/toolbox-optimizer": "^2.7.6",
     "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
-    "@saschazar/wasm-avif": "^1.0.0",
     "cheerio": "^1.0.0-rc.10",
     "clean-css": "^4.2.3",
     "core-js": "^3.12.1",

@@ -173,6 +173,7 @@
   --alert-idea-bd: #{$alert-idea-bd};
   --alert-idea-bg: #{$alert-idea-bg};
   --mark-color: #{$mark-color};
+  --part-name-bg: #{$part-name-bg};
 }
 
 @mixin light-vars() {
@@ -254,4 +255,5 @@
   --alert-idea-bd: #{$alert-idea-bd-light};
   --alert-idea-bg: #{$alert-idea-bg-light};
   --mark-color: #{$mark-color-light};
+  --part-name-bg: #{$part-name-bg-light};
 }

@@ -24,6 +24,11 @@ body {
   height: 8px;
   width: 8px;
 }
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
 ::-webkit-scrollbar-thumb {
   background: var(--scroll-thumb-bg);
   border-radius: 6px;

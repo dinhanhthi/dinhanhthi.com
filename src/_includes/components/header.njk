@@ -173,6 +173,9 @@
           {% if part %}
             <span class="post-part">PART {{ part }}</span>
           {% endif %}
+          {% if partName %}
+            <span class="post-part-name">— {{ partName }}</span>
+          {% endif %}
         </h1>
         {% if tags %}
           <div class="blog-description">

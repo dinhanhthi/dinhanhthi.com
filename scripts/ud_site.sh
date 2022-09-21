@@ -1,3 +1,5 @@
+# USED FOR BUILDING AND DEPLOYING SITE WITH NETLIFY!
+
 echo "1️⃣ Updating notes..."
 cd notesData
 git add .
@@ -16,5 +18,9 @@ git push
 echo "3️⃣ Merging dev to prod..."
 git push . head:prod
 echo "🚀 Updating prod & trigger build on netlify..."
-git push origin prod
+git push origin prod --force
+echo "4️⃣ Merging prod to dev..."
+git push . head:dev --force
+echo "🔙 Back to dev"
+git checkout dev
 echo "✅ Done!"
