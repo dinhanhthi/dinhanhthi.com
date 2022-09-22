@@ -17,38 +17,8 @@ date: Last Modified
       {# post outside 11ty .md files #}
       {% set morePosts = false %}
 
-      {% set newPostListCat = [] %}
-      {% for post in cat_ex_posts %}
-        {% if not post.hide %}
-          {% for tg in post.tags %}
-            {% if tg == item.name %}
-              {% set morePosts = true %}
-              {% set singlePost = {
-                'title': post.title,
-                'url': post.url
-              } %}
-              {% if post.notfull %}
-                {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
-              {% endif %}
-              {% if post.part %}
-                {% set singlePost = singlePost | setAttribute('part', post.part) %}
-              {% endif %}
-              {% if post.partName %}
-                {% set singlePost = singlePost | setAttribute('partName', post.partName) %}
-              {% endif %}
-              {% if post.lowQuality %}
-                {% set singlePost = singlePost | setAttribute('lowQuality', post.lowQuality) %}
-              {% endif %}
-              {% if post.private %}
-                {% set singlePost = singlePost | setAttribute('private', post.private) %}
-              {% endif %}
-              {% set newPostListCat = (newPostListCat.push(singlePost), newPostListCat) %}
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-
-      {% if morePosts %}
+      {% set newPostListCat = cat_ex_posts | filterByTag(item.name) %}
+      {% if (newPostListCat | length) > 0 %}
         {% set morePosts = newPostListCat %}
       {% endif %}
 

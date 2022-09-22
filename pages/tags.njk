@@ -25,36 +25,11 @@ hideComment: true
 {% set customClass = "single-line plain" %}
 {% include "components/toggle-posts-buttons.njk" %}
 
-{% set morePosts = false %}
 {# post outside 11ty .md files #}
-
-{% set newPostListTag = [] %}
-
-{% for post in cat_ex_posts %}
-  {% if not post.hide %}
-    {% for tg in post.tags %}
-      {% if tg == tag %}
-        {% set morePosts = true %}
-        {% set singlePost = {
-          'title': post.title,
-          'url': post.url,
-          'date': post.date | toDate,
-          'tags': post.tags
-        } %}
-        {% if post.notfull %}
-          {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
-        {% endif %}
-        {% if post.private %}
-          {% set singlePost = singlePost | setAttribute('private', post.private) %}
-        {% endif %}
-        {% set newPostListTag = (newPostListTag.push(singlePost), newPostListTag) %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
-
-{% if morePosts %}
-  {% set morePosts = newPostListTag %}
+{% set morePosts = false %}
+{% set newPostListCat = cat_ex_posts | filterByTag(tag) %}
+{% if (newPostListCat | length) > 0 %}
+  {% set morePosts = newPostListCat %}
 {% endif %}
 
 {% set postslist = collections[tag] %}

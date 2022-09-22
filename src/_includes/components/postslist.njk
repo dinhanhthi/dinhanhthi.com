@@ -7,6 +7,8 @@
   - limitPosts (number)
   - customIcon (boolean)
   - hideBlogPosts (boolean)
+
+  For customized attributes like "notfull", modify in notes/_data/post_attributes.json
 #}
 
 <div class="toggle-posts{% if customClass %} {{ customClass }}{% endif %}">
@@ -19,26 +21,9 @@
       'date': post.date,
       'isBlog': post.data.tags | isBlog
     } %}
-    {% if post.data.notfull %}
-      {% set singlePost = singlePost | setAttribute('notfull', post.data.notfull) %}
-    {% endif %}
-    {% if post.data.lowQuality %}
-      {% set singlePost = singlePost | setAttribute('lowQuality', post.data.lowQuality) %}
-    {% endif %}
-    {% if post.data.private %}
-      {% set singlePost = singlePost | setAttribute('private', post.data.private) %}
-    {% endif %}
-    {# {% if post.data.good %}
-      {% set singlePost = singlePost | setAttribute('good', post.data.good) %}
-    {% endif %} #}
+    {% set singlePost = singlePost | assignAttributes(post.data) %}
     {% if not post.data.hide %}
       {% set newPostList = (newPostList.push(singlePost), newPostList) %}
-    {% endif %}
-    {% if post.data.part %}
-      {% set singlePost = singlePost | setAttribute('part', post.data.part) %}
-    {% endif %}
-    {% if post.data.partName %}
-      {% set singlePost = singlePost | setAttribute('partName', post.data.partName) %}
     {% endif %}
   {% endfor %}
 
@@ -52,23 +37,9 @@
         'date': post.date,
         'isBlog': post.tags | isBlog
       } %}
-      {% if post.notfull %}
-        {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
-      {% endif %}
-      {% if post.lowQuality %}
-        {% set singlePost = singlePost | setAttribute('lowQuality', post.lowQuality) %}
-      {% endif %}
-      {% if post.private %}
-        {% set singlePost = singlePost | setAttribute('private', post.private) %}
-      {% endif %}
+      {% set singlePost = singlePost | assignAttributes(post) %}
       {% if not post.hide %}
         {% set newPostList = (newPostList.push(singlePost), newPostList) %}
-      {% endif %}
-      {% if post.part %}
-        {% set singlePost = singlePost | setAttribute('part', post.part) %}
-      {% endif %}
-      {% if post.partName %}
-        {% set singlePost = singlePost | setAttribute('partName', post.partName) %}
       {% endif %}
     {% endfor %}
   {% endif %}

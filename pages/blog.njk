@@ -10,46 +10,14 @@ containerBackgroundType: gray
 
 <div class="container wide">
 
-  {% set morePosts = false %}
   {# post outside 11ty .md files #}
-
-  {% set tag = 'Blog' %}
-  {% set newPostListTag = [] %}
-
-  {% for post in cat_ex_posts %}
-    {% if not post.hide %}
-      {% for tg in post.tags %}
-        {% if tg == tag %}
-          {% set morePosts = true %}
-          {% set singlePost = {
-            'title': post.title,
-            'url': post.url,
-            'date': post.date | toDate,
-            'tags': post.tags
-          } %}
-          {% if post.notfull %}
-            {% set singlePost = singlePost | setAttribute('notfull', post.notfull) %}
-          {% endif %}
-          {% if post.part %}
-            {% set singlePost = singlePost | setAttribute('part', post.part) %}
-          {% endif %}
-          {% if post.partName %}
-            {% set singlePost = singlePost | setAttribute('partName', post.partName) %}
-          {% endif %}
-          {% if post.private %}
-            {% set singlePost = singlePost | setAttribute('private', post.private) %}
-          {% endif %}
-          {% set newPostListTag = (newPostListTag.push(singlePost), newPostListTag) %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
-
-  {% if morePosts %}
-    {% set morePosts = newPostListTag %}
+  {% set morePosts = false %}
+  {% set newPostListCat = cat_ex_posts | filterByTag('Blog') %}
+  {% if (newPostListCat | length) > 0 %}
+    {% set morePosts = newPostListCat %}
   {% endif %}
 
-  {% set postslist = collections[tag] %}
+  {% set postslist = collections['Blog'] %}
   {% set numberOfPosts = postslist | length + morePosts | length %}
 
   {% if numberOfPosts > 0 %}

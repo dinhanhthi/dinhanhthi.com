@@ -19,11 +19,11 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 
 const thiDataDir = "notes/_data";
-// const defaultDataDir = "src/_data";
 var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
+const postAttributes = require("./" + thiDataDir + "/post_attributes.json");
 const waveColors = require("./src/_data/wave_colors");
 
 module.exports = function (eleventyConfig) {
@@ -226,11 +226,42 @@ module.exports = function (eleventyConfig) {
     return dt.toISO();
   });
 
-  // For adding new key-value to a dictionary
-  // First used in postsList.njk
-  eleventyConfig.addFilter("setAttribute", function (dictionary, key, value) {
-    dictionary[key] = value;
-    return dictionary;
+  /**
+   * For assigning new attributes to a post from postData
+   */
+  eleventyConfig.addFilter("assignAttributes", function (post, postData) {
+    for (const att of postAttributes) {
+      if (postData[att]) post[att] = postData[att];
+    }
+    return post;
+  });
+
+  /**
+   * Create a new post list based on a tag
+   * posts: eg. cat_ex_posts
+   * tag: tagId
+   */
+  eleventyConfig.addFilter("filterByTag", function (posts, tag) {
+    const filteredPosts = [];
+    for (const post of posts) {
+      if (!post?.hide) {
+        for (const tg of post?.tags) {
+          if (tg == tag) {
+            const singlePost = {
+              title: post?.title || "",
+              url: post?.url || ""
+            };
+            if (post?.date) singlePost.date = new Date(post.date);
+            if (post?.tags) singlePost.tags = post.tags;
+            for (const att of postAttributes) {
+              if (post[att]) singlePost[att] = post[att];
+            }
+            filteredPosts.push(singlePost);
+          }
+        }
+      }
+    }
+    return filteredPosts;
   });
 
   // Get infor from techs.json for items in skills.json
@@ -549,7 +580,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function (err, browserSync) {
+      ready: function (_err, browserSync) {
         const content_404 = fs.readFileSync(distPath + "/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
