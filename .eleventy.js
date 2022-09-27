@@ -25,6 +25,7 @@ var distPath;
 const categories = require("./" + thiDataDir + "/categories.json");
 const postAttributes = require("./" + thiDataDir + "/post_attributes.json");
 const waveColors = require("./src/_data/wave_colors");
+const { get } = require("lodash");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -245,12 +246,12 @@ module.exports = function (eleventyConfig) {
     const filteredPosts = [];
     for (const post of posts) {
       if (!post?.hide) {
-        if (tag !== 'all') {
+        if (tag !== "all") {
           for (const tg of post?.tags) {
             if (tg == tag) {
               const singlePost = {
                 title: post?.title || "",
-                url: post?.url || ""
+                url: post?.url || "",
               };
               if (post?.date) singlePost.date = new Date(post.date);
               if (post?.tags) singlePost.tags = post.tags;
@@ -263,7 +264,7 @@ module.exports = function (eleventyConfig) {
         } else {
           const singlePost = {
             title: post?.title || "",
-            url: post?.url || ""
+            url: post?.url || "",
           };
           if (post?.date) singlePost.date = new Date(post.date);
           if (post?.tags) singlePost.tags = post.tags;
@@ -285,7 +286,6 @@ module.exports = function (eleventyConfig) {
     return techArray.find((tech) => tech.id === techId);
   });
 
-
   /**
    * Get category from categories.json
    * How to use: {% set cat = categories | getCategory(catName) %}
@@ -300,6 +300,17 @@ module.exports = function (eleventyConfig) {
    */
   eleventyConfig.addFilter("getSeries", function (seriesList, basePartUrl) {
     return seriesList.find((series) => series.basePartUrl === basePartUrl);
+  });
+
+  /**
+   * Get list of titles from notion database
+   * How to use: {% set titles = notion.json.results | getNotionPostTitle %}
+   */
+  eleventyConfig.addFilter("getNotionPostTitle", function (results) {
+    if (!results) return [];
+    return results.map((post) => ({
+      title: get(post, 'properties.Name.title[0].text.content', 'Untitled'),
+    }));
   });
 
   // Get random colors (from a predefined set) for bottom-wave in blog cards
