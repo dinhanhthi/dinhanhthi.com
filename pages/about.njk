@@ -17,7 +17,7 @@ permalink: /about/
       </div>
       <div class="list-of">
         {% for item in group.list %}
-          {% set itemInfo = item | getTech(techs) %}
+          {% set itemInfo = techs | getTech(item) %}
           {% if itemInfo.url %}
             <a href="{{ itemInfo.url }}" target="_blank">
               <div class="badge black hover-translate">

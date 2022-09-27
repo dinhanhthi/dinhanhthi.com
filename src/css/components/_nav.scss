@@ -92,6 +92,10 @@ nav {
       text-align: left;
       @include screen-sm-down {
         width: unset !important;
+
+        &.nav-about {
+          margin-right: 15px;
+        }
       }
 
       &:last-child {
@@ -142,9 +146,9 @@ nav {
       display: block;
       background: #282a36;
       border-radius: 0.5rem;
-      width: 100%;
       position: relative;
       margin-right: $spacing-right-item;
+      flex: 1;
       form {
         display: flex;
         flex: 1;

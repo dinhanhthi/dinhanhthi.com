@@ -53,6 +53,10 @@
   column-gap: $post-gap;
 
   @include screen-xxl-down {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include screen-xl-down {
     grid-template-columns: repeat(3, 1fr);
   }
 

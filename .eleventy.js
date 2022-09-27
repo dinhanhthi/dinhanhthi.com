@@ -264,8 +264,11 @@ module.exports = function (eleventyConfig) {
     return filteredPosts;
   });
 
-  // Get infor from techs.json for items in skills.json
-  eleventyConfig.addFilter("getTech", function (techId, techArray) {
+  /**
+   * Get infor from techs.json for items in skills.json
+   * How to use: {% set itemInfo = techs | getTech(techId) %}
+   */
+  eleventyConfig.addFilter("getTech", function (techArray, techId) {
     return techArray.find((tech) => tech.id === techId);
   });
 

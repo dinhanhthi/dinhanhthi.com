@@ -1,7 +1,7 @@
 <div class="skill-badges">
   {% if techItems %}
     {% for item in techItems %}
-      {% set itemInfo = item | getTech(techs) %}
+      {% set itemInfo = techs | getTech(item) %}
       {% if itemInfo.url %}
         <a href="{{ itemInfo.url }}" target="_blank">
           <div data-title="{{ itemInfo.name }}" class="skill-small hover-translate tooltip-auto">

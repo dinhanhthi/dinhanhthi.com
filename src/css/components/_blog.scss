@@ -1,6 +1,7 @@
 .page-blog {
   .container:not(#nav) {
-    padding: 2rem 1rem;
+    padding: 2rem 0;
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
   }

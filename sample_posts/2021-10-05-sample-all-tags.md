@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "All tags note"
-tags: [Project-based Learning, MOOC, Machine Learning, Data Science, Deep Learning, Time Series, NLP, MLOps, Python, R Lang, Prob & Stats, Angular, JavaScript, Web Dev, API & Services, Algorithms, Skills, Gaming & Puzzles, Others]
+tags: [posts, Project-based Learning, MOOC, Machine Learning, Data Science, Deep Learning, Time Series, NLP, MLOps, Python, R Lang, Prob & Stats, Angular, JavaScript, Web Dev, API & Services, Algorithms, Skills, Gaming & Puzzles, Others]
 toc: true
 math: true
 icon: "/img_src/header/aio.svg"
