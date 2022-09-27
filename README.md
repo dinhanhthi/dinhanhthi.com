@@ -47,11 +47,12 @@ change_img_url ydkjsy-1 # change url to {{ img-url }}
 - Clone notes to `dinhanhthi.com/notesData` (Yes, change its name! This is different from `dinhanhthi.com/notes` which is a submodule of this repo).
 - Modify + update notes in `notesData`.
 
-### TL;DR;
+### ⭐ TL;DR;
 
-- Watch mode (no image optimization, all posts): `npm run watch`.
-- Theming mode (for customizing themes + display all blog posts): `npm run theming`.
-- Mimic prod version locally: `npm run preprod` (port `8081`).
+- Watch mode (all posts as on prod): `npm run watch`.
+- Theming mode (for customizing themes + display draft & fixed posts): `npm run theming`.
+- Preprod (all posts on prod + serve in `8081`): `npm run preprod`
+  - Build preprod (in case preprod is already running): `npm run build-preprod`
 - Temporary blog posts: put in **notes/blog_wip/**.
 - Temporary note posts: put in **notes/posts_wip/**.
 - For working with Typora + VSCode ([this blog post](https://dinhanhthi.com/images-11ty-markdown/)):

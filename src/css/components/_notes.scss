@@ -1,0 +1,128 @@
+.page-notes {
+  .container:not(#nav) {
+    padding-top: 2rem;
+  }
+
+  .main-cats {
+    flex: 1;
+    & > .category-wrapper {
+      padding-bottom: 1.5rem;
+      & > .category {
+        @include box-bg(var(--code-bg), var(--code-bd));
+        padding: 1.5rem 1.5rem;
+        box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+      }
+    }
+  }
+
+  .toc-index-container {
+    padding-left: 1rem;
+    position: sticky;
+    top: $fixed-top;
+    height: fit-content;
+    width: fit-content;
+
+    .toc-index {
+      border: 1px solid var(--code-bd);
+      background: var(--code-bg);
+      border-radius: $box-border-radius;
+      padding: 1rem;
+      h3 {
+        @include toc-title();
+      }
+      ul {
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
+        i {
+          color: var(--color-invert);
+          &::before {
+            font-weight: normal;
+          }
+        }
+        li {
+          margin-bottom: 5px;
+        }
+      }
+      .toc-active > a {
+        font-weight: normal;
+        color: var(--font-a) !important;
+      }
+    }
+
+    .appendix-toc {
+      padding: 5px 10px;
+      margin-top: 1rem;
+      font-size: 85%;
+      width: 100%;
+      color: var(--toc-appendix);
+      @include box-bg(var(--code-bg), var(--code-bd));
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @include screen-lg-up {
+    // Trick on vision
+    .appendix-toc,
+    .toggle-buttons {
+      margin-left: -2px;
+    }
+  }
+
+  @include screen-lg-down {
+    .main-cats {
+      flex: 1 1 100%;
+      order: 2;
+      padding-right: 0;
+    }
+    .toc-index-container {
+      flex: 1 1 100%;
+      order: 1;
+      position: inherit;
+      padding-left: 0;
+      margin-bottom: $margin-bottom;
+      .toc-index {
+        border: 3px double var(--color-faded);
+        padding: 15px;
+      }
+      ul {
+        @include column-count(3);
+      }
+      .appendix-toc {
+        align-items: center;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        border: 0;
+        padding: 0;
+        flex-direction: row;
+        div {
+          margin-right: 10px;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen-md-down {
+    .toc-index {
+      ul {
+        @include column-count(2);
+      }
+    }
+  }
+
+  @include screen-sm-down {
+    .toc-index {
+      ul {
+        @include column-count(1);
+      }
+    }
+    .appendix-toc {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+---
+layout: page
+containerWidth: wide
+permalink: /notes/
+icon: /img_src/icons/notes.svg
+title: All notes on this site
+customClass: "page-notes bg-gray"
+customJS: ["toggle-notes.js"]
+containerBackgroundType: gray
+---
+
+<div class="container wide d-flex d-flex-wrap">
+  <div class="main-cats">
+    {% for item in categories %}
+
+      {# post outside 11ty .md files #}
+      {% set morePosts = false %}
+
+      {% set newPostListCat = cat_ex_posts | filterByTag(item.name) %}
+      {% if (newPostListCat | length) > 0 %}
+        {% set morePosts = newPostListCat %}
+      {% endif %}
+
+      {% set postslist = collections[item.name] %}
+      {% set lenlist = postslist | length %}
+      {% if lenlist > 0 %}
+        {% if item.name != 'Blog' %}
+          <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
+            <div class="category">
+              <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
+                <i class="{{ item.fontello }} fontello-icon"></i>{{ item.name }}
+              </h2>
+              {% set customClass = 'list-homepage list-of-post' %}
+              {% set customIcon = true %}
+              {% set limitPosts = null %}
+              {% include "components/postslist.njk" %}
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="toc-index-container">
+
+    {% include "components/toggle-posts-buttons.njk" %}
+
+    <div class="toc-index" id="toc-index">
+      <h3>Notes by topics</h3>
+      <ul class="toc-js toc-common">
+        {% for item in categories %}
+          {% if item.name != 'Blog' %}
+            {% set postslist = collections[item.name] %}
+            {% set lenlist = postslist | length %}
+            {% if lenlist > 0 %}
+              <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
+                <i class="{{ item.fontello }} fontello-icon"></i>
+                <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        <li>
+          <a class="no-color" href="/tags/" style="font-style: italic;">More...</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

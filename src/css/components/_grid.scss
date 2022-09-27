@@ -52,6 +52,10 @@ main {
       width: $grid-w-ex-normal;
     }
   }
+
+  &._content-wrapper {
+    padding: 3rem 0;
+  }
 }
 
 $spacing-sizes: 0, 1, 2, 3, 4, 5;

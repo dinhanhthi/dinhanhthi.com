@@ -90,6 +90,11 @@ nav {
     .nav-item {
       margin-right: $spacing-right-item;
       text-align: left;
+
+      &:not(.nav-avatar) {
+        height: 35px;
+      }
+
       @include screen-sm-down {
         width: unset !important;
 
@@ -130,6 +135,11 @@ nav {
         &:hover {
           background: #384151;
         }
+      }
+
+      img.nav-item__icon {
+        height: 80%;
+        margin-right: 5px;
       }
     }
 

@@ -3,20 +3,21 @@
     <a class="nav-item no-effect nav-avatar" href="{{ '/' | url }}">
       <img class="keep-original" src="/img_src/avatar_memoji.webp" alt="Thi" height="40" width="40">
     </a>
-    <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/' %} active{% endif %}" href="{{ '/' | url }}">
+    <a class="nav-hide-md nav-item no-effect nav-text{% if page.url == '/' %} active{% endif %}" href="{{ '/' | url }}">
       <span>Home</span>
     </a>
-    <a class="nav-item no-effect nav-text{% if page.url == '/about/' %} active{% endif %}" href="{{ '/about/' | url }}">
+    <a class="nav-item nav-about no-effect nav-text{% if page.url == '/about/' %} active{% endif %}" href="{{ '/about/' | url }}">
       <span>About</span>
     </a>
-    {% for item in categories %}
-      {% if item.name == 'Blog' %}
-        <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
-          <i class="{{ item.fontello }} fontello-icon" style="color: {{item.color}};"></i>
-          <span>{{ item.name }}</span>
-        </a>
-      {% endif %}
-    {% endfor %}
+    {% set blogCat = categories | getCategory('Blog') %}
+    <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
+      <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i>
+      <span>{{ blogCat.name }}</span>
+    </a>
+    <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/notes/' %} active{% endif %}" href="{{ '/notes/' | url }}">
+      <img class="nav-item__icon" src="/img_src/icons/notes.svg" alt="Notes Icon">
+      <span>Notes</span>
+    </a>
     <div id="nav-search" class="nav-search">
       <form>
         <span class="back-slash">/</span>

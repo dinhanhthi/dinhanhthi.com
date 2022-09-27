@@ -245,19 +245,32 @@ module.exports = function (eleventyConfig) {
     const filteredPosts = [];
     for (const post of posts) {
       if (!post?.hide) {
-        for (const tg of post?.tags) {
-          if (tg == tag) {
-            const singlePost = {
-              title: post?.title || "",
-              url: post?.url || ""
-            };
-            if (post?.date) singlePost.date = new Date(post.date);
-            if (post?.tags) singlePost.tags = post.tags;
-            for (const att of postAttributes) {
-              if (post[att]) singlePost[att] = post[att];
+        if (tag !== 'all') {
+          for (const tg of post?.tags) {
+            if (tg == tag) {
+              const singlePost = {
+                title: post?.title || "",
+                url: post?.url || ""
+              };
+              if (post?.date) singlePost.date = new Date(post.date);
+              if (post?.tags) singlePost.tags = post.tags;
+              for (const att of postAttributes) {
+                if (post[att]) singlePost[att] = post[att];
+              }
+              filteredPosts.push(singlePost);
             }
-            filteredPosts.push(singlePost);
           }
+        } else {
+          const singlePost = {
+            title: post?.title || "",
+            url: post?.url || ""
+          };
+          if (post?.date) singlePost.date = new Date(post.date);
+          if (post?.tags) singlePost.tags = post.tags;
+          for (const att of postAttributes) {
+            if (post[att]) singlePost[att] = post[att];
+          }
+          filteredPosts.push(singlePost);
         }
       }
     }
@@ -272,7 +285,19 @@ module.exports = function (eleventyConfig) {
     return techArray.find((tech) => tech.id === techId);
   });
 
-  // Get the right series in noptes/_data/series.json for a post
+
+  /**
+   * Get category from categories.json
+   * How to use: {% set cat = categories | getCategory(catName) %}
+   */
+  eleventyConfig.addFilter("getCategory", function (catArr, catName) {
+    return catArr.find((cate) => cate.name === catName);
+  });
+
+  /**
+   * Get category from categories.json
+   * How to use: {% set singleSeries = series | getSeries(basePartUrl) %}
+   */
   eleventyConfig.addFilter("getSeries", function (seriesList, basePartUrl) {
     return seriesList.find((series) => series.basePartUrl === basePartUrl);
   });
