@@ -185,7 +185,7 @@ pre {
 }
 
 /* Unselectable copy/paste for comments */
-.token.comment, .token.comment + br {
-  -webkit-user-select: none;
-  user-select: none;
-}
+// .token.comment, .token.comment + br {
+//   -webkit-user-select: none;
+//   user-select: none;
+// }

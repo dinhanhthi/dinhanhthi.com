@@ -22,8 +22,7 @@ containerBackgroundType: gray
       {% endif %}
 
       {% set postslist = collections[item.name] %}
-      {% set lenlist = postslist | length %}
-      {% if lenlist > 0 %}
+      {% if postslist | length > 0 %}
         {% if item.name != 'Blog' %}
           <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
             <div class="category">
@@ -50,8 +49,7 @@ containerBackgroundType: gray
         {% for item in categories %}
           {% if item.name != 'Blog' %}
             {% set postslist = collections[item.name] %}
-            {% set lenlist = postslist | length %}
-            {% if lenlist > 0 %}
+            {% if postslist | length > 0 %}
               <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
                 <i class="{{ item.fontello }} fontello-icon"></i>
                 <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>

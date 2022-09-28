@@ -25,15 +25,19 @@ date: Last Modified
       <h2 id="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
         <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i>
         <span>Latest blog posts</span>
-        {% if postslist | length > 8 %}
+        {% if postslist | length > 6 %}
           <a class="heading-more no-effect" href="/blog/">...more</a>
         {% endif %}
       </h2>
     </div>
-    {% set customClass = 'list-of-blog' %}
+    {% if postslist | length > 6 %}
+      {% set customClass = 'list-of-blog _hide-last' %}
+    {% else %}
+      {% set customClass = 'list-of-blog' %}
+    {% endif %}
     {% set customIcon = false %}
     {% set sortBy = 'date' %}
-    {% set limitPosts = 8 %}
+    {% set limitPosts = 6 %}
     {% include "components/postslist.njk" %}
   </div>
 

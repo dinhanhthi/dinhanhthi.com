@@ -27,6 +27,39 @@
     }
   }
 
+  // Check in _posts-list.scss too
+  .list-of-blog._hide-last {
+    @include screen-xxl-up {
+      & > :nth-last-child(1) {
+        display: none;
+      }
+    }
+
+    @include screen-xxl-down {
+      & > :nth-last-child(-n+2) {
+        display: none;
+      }
+    }
+
+    @include screen-xl-down {
+      & > :nth-last-child(-n+2) {
+        display: block;
+      }
+    }
+
+    @include screen-lg-down {
+      & > :nth-last-child(-n+2) {
+        display: none;
+      }
+    }
+
+    @include screen-sm-down {
+      & > :nth-last-child(-n+2) {
+        display: block;
+      }
+    }
+  }
+
   #notes {
     margin-top: 3rem;
   }

@@ -23,7 +23,7 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
-const postAttributes = require("./" + thiDataDir + "/post_attributes.json");
+const postAttributes = require("./" + thiDataDir + "/post_attributes.json"); // custom post attributes
 const waveColors = require("./src/_data/wave_colors");
 const { get } = require("lodash");
 
@@ -255,6 +255,7 @@ module.exports = function (eleventyConfig) {
               };
               if (post?.date) singlePost.date = new Date(post.date);
               if (post?.tags) singlePost.tags = post.tags;
+              if (post?.inputPath) singlePost.inputPath = post.inputPath;
               for (const att of postAttributes) {
                 if (post[att]) singlePost[att] = post[att];
               }
@@ -268,6 +269,7 @@ module.exports = function (eleventyConfig) {
           };
           if (post?.date) singlePost.date = new Date(post.date);
           if (post?.tags) singlePost.tags = post.tags;
+          if (post?.inputPath) singlePost.inputPath = post.inputPath;
           for (const att of postAttributes) {
             if (post[att]) singlePost[att] = post[att];
           }
@@ -309,9 +311,39 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("getNotionPostTitle", function (results) {
     if (!results) return [];
     return results.map((post) => ({
-      title: get(post, 'properties.Name.title[0].text.content', 'Untitled'),
+      title: get(post, "properties.Name.title[0].text.content", "Untitled"),
     }));
   });
+
+  /**
+   * Check if updated? new? for a post
+   * How to use: {% set status = post.date | checkDateStatus(post.inputPath) %}
+   */
+  eleventyConfig.addFilter(
+    "checkDateStatus",
+    function (postDateStr, postInputPath) {
+      if (!postDateStr || !postInputPath) return null;
+      const postDate = new Date(postDateStr);
+      const originalDate = new Date(
+        postInputPath.match(/\d{4}-\d{2}-\d{2}/gm)[0]
+      );
+      const inDays = 1000 * 60 * 60 * 24;
+      const durationInDays =
+        (new Date().getTime() - postDate.getTime()) / inDays;
+
+      if (durationInDays < 14) {
+        if (
+          Math.abs(postDate.getTime() - originalDate.getTime()) / inDays <
+          2
+        ) {
+          return "new";
+        } else {
+          return "updated";
+        }
+      }
+      return null;
+    }
+  );
 
   // Get random colors (from a predefined set) for bottom-wave in blog cards
   eleventyConfig.addFilter("getRandomColor", function (name, _postIdx, idx) {

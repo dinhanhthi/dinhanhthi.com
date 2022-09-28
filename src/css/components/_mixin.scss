@@ -174,6 +174,10 @@
   --alert-idea-bg: #{$alert-idea-bg};
   --mark-color: #{$mark-color};
   --part-name-bg: #{$part-name-bg};
+  --status-updated: #{$status-updated};
+  --status-updated-text: #{$status-updated-text};
+  --status-new: #{$status-new};
+  --status-new-text: #{$status-new-text};
 }
 
 @mixin light-vars() {
@@ -256,4 +260,8 @@
   --alert-idea-bg: #{$alert-idea-bg-light};
   --mark-color: #{$mark-color-light};
   --part-name-bg: #{$part-name-bg-light};
+  --status-updated: #{$status-updated-light};
+  --status-updated-text: #{$status-updated-text-light};
+  --status-new: #{$status-new-light};
+  --status-new-text: #{$status-new-text-light};
 }

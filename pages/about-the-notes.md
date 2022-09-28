@@ -3,6 +3,7 @@ layout: post
 title: About the notes
 icon: notes.svg
 permalink: /about-the-notes/
+noOutdated: true
 ---
 
 👉 **Blog**: ["Blog" vs "Notes" on this site?](/blog-vs-note/)

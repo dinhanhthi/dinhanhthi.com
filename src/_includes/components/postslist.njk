@@ -18,7 +18,8 @@
       'title': post.data.title,
       'url': post.url,
       'date': post.date,
-      'isBlog': post.data.tags | isBlog
+      'isBlog': post.data.tags | isBlog,
+      'inputPath': post.inputPath
     } %}
     {% set singlePost = singlePost | assignAttributes(post.data) %}
     {% if not post.data.hide %}
@@ -34,7 +35,8 @@
         'target': "_blank",
         'external': true,
         'date': post.date,
-        'isBlog': post.tags | isBlog
+        'isBlog': post.tags | isBlog,
+        'inputPath': post.inputPath
       } %}
       {% set singlePost = singlePost | assignAttributes(post) %}
       {% if not post.hide %}
@@ -154,6 +156,10 @@
 
             {% if not 'list-of-blog' in customClass %}
             </a>
+            {% set status = post.date | checkDateStatus(post.inputPath) %}
+            {% if status == 'new' or status == 'updated' %}
+              <span class="post-status {{ status }}">{{ status }}</span>
+            {% endif %}
             {% if post.date and showDate %} — <span class="last-modified">updated {{ post.date | toDuration }}</span>
             {% endif %}
           {% endif %}

@@ -24,6 +24,20 @@
         opacity: 1;
       }
     }
+    .post-status {
+      font-size: 80%;
+      padding: 0 5px;
+      border-radius: 5px;
+      margin-left: 7px;
+      &.updated {
+        background: var(--status-updated);
+        color: var(--status-updated-text);
+      }
+      &.new {
+        background: var(--status-new);
+        color: var(--status-new-text);
+      }
+    }
     .last-modified {
       font-style: italic;
       opacity: 0.8;
@@ -52,6 +66,12 @@
   row-gap: $post-gap;
   column-gap: $post-gap;
 
+  // Check _index.scss too
+
+  @include screen-xxl-up {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   @include screen-xxl-down {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -70,7 +90,7 @@
 
   a {
     color: var(--blog-card-title-color);
-    font-size: 1.15rem;
+    font-size: 1.13rem;
     font-weight: 500;
     &:hover {
       border: none;
@@ -85,7 +105,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.3rem;
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
 
@@ -103,7 +123,7 @@
 
       .post-part-name {
         display: block;
-        font-size: 85%;
+        font-size: 83%;
         font-weight: normal;
         border-radius: 10px;
         border: 1px solid #cccccc69;
