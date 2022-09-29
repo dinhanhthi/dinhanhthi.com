@@ -27,7 +27,8 @@ hideComment: true
 
 {# post outside 11ty .md files #}
 {% set morePosts = false %}
-{% set newPostListCat = cat_ex_posts | filterByTag(tag) %}
+{% set externalPosts = cat_ex_posts | concat(notion.json) %}
+{% set newPostListCat = externalPosts | filterByTag(tag) %}
 {% if (newPostListCat | length) > 0 %}
   {% set morePosts = newPostListCat %}
 {% endif %}

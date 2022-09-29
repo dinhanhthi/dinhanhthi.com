@@ -12,7 +12,8 @@ containerBackgroundType: gray
 
   {# post outside 11ty .md files #}
   {% set morePosts = false %}
-  {% set newPostListCat = cat_ex_posts | filterByTag('Blog') %}
+  {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+  {% set newPostListCat = externalPosts | filterByTag('Blog') %}
   {% if (newPostListCat | length) > 0 %}
     {% set morePosts = newPostListCat %}
   {% endif %}

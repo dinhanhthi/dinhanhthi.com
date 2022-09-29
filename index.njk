@@ -44,19 +44,21 @@ date: Last Modified
 
   {# Notes #}
   {% set postslist = collections.posts %}
+  {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+  {% set newPostListCat = externalPosts | filterByTag('all') %}
+  {% set morePosts = newPostListCat %}
   {% set limitPosts = 9 %}
   <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
     <div class="h2-dots _big _no-dots">
       <h2 id="notes">
         <img alt="Note icon" src="/img_src/icons/notes.svg" width="30" height="30" class="keep-original"/>
         <span>Recently updated notes</span>
-        {% if postslist | length > 9 %}
+        {% if postslist | length + morePosts | length > 9 %}
           <a class="heading-more no-effect" href="/notes/">...more</a>
         {% endif %}
       </h2>
     </div>
-    {% set newPostListCat = cat_ex_posts | filterByTag('all') %}
-    {% set morePosts = newPostListCat %}
+
     {% set customClass = 'list-homepage list-of-post' %}
     {% set customIcon = true %}
     {% set sortBy = 'date' %}

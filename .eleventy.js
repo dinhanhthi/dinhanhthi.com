@@ -22,7 +22,7 @@ var dataDir = thiDataDir;
 var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
-const postAttributes = require("./" + thiDataDir + "/post_attributes.json"); // custom post attributes
+const customPostAttributes = require("./" + thiDataDir + "/custom_post_attributes.json");
 const waveColors = require("./src/_data/wave_colors");
 
 
@@ -230,7 +230,7 @@ module.exports = function (eleventyConfig) {
    * For assigning new attributes to a post from postData
    */
   eleventyConfig.addFilter("assignAttributes", function (post, postData) {
-    for (const att of postAttributes) {
+    for (const att of customPostAttributes) {
       if (postData[att]) post[att] = postData[att];
     }
     return post;
@@ -255,13 +255,13 @@ module.exports = function (eleventyConfig) {
               if (post?.date) singlePost.date = new Date(post.date);
               if (post?.tags) singlePost.tags = post.tags;
               if (post?.inputPath) singlePost.inputPath = post.inputPath;
-              for (const att of postAttributes) {
+              for (const att of customPostAttributes) {
                 if (post[att]) singlePost[att] = post[att];
               }
               filteredPosts.push(singlePost);
             }
           }
-        } else {
+        } else { // not filter by tag
           const singlePost = {
             title: post?.title || "",
             url: post?.url || "",
@@ -269,7 +269,7 @@ module.exports = function (eleventyConfig) {
           if (post?.date) singlePost.date = new Date(post.date);
           if (post?.tags) singlePost.tags = post.tags;
           if (post?.inputPath) singlePost.inputPath = post.inputPath;
-          for (const att of postAttributes) {
+          for (const att of customPostAttributes) {
             if (post[att]) singlePost[att] = post[att];
           }
           filteredPosts.push(singlePost);

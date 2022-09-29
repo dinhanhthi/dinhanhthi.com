@@ -1,10 +1,10 @@
 {
   "name": "dinhanhthi.com",
-  "version": "4.11.1",
+  "version": "4.12.0",
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
-    "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live",
+    "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live && rpx rimraf .cache",
     "re-install": "npm run clean && npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
     "build-netlify": "npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=netlify eleventy",
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",
@@ -39,7 +39,7 @@
   },
   "homepage": "https://dinhanhthi.com",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
@@ -60,7 +60,7 @@
     "shorthash": "0.0.2"
   },
   "dependencies": {
-    "@ampproject/toolbox-optimizer": "^2.7.6",
+    "@ampproject/toolbox-optimizer": "^2.6.0",
     "@gerhobbelt/markdown-it-inline-text-color": "^1.0.1-1",
     "cheerio": "^1.0.0-rc.10",
     "clean-css": "^4.2.3",
