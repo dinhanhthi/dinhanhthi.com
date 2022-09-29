@@ -29,13 +29,16 @@
       padding: 0 5px;
       border-radius: 5px;
       margin-left: 7px;
+      border: 1px solid;
       &.updated {
         background: var(--status-updated);
         color: var(--status-updated-text);
+        border-color: var(--status-updated);
       }
       &.new {
         background: var(--status-new);
         color: var(--status-new-text);
+        border-color: var(--status-new);
       }
     }
     .last-modified {

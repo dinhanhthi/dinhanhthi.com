@@ -14,8 +14,9 @@ date: Last Modified
   {# Blog #}
   {% set blogCat = categories | getCategory('Blog') %}
   <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
+    {% set externalPosts = cat_ex_posts | concat(notion.json) %}
     {% set morePosts = false %}
-    {% set newPostListCat = cat_ex_posts | filterByTag(blogCat.name) %}
+    {% set newPostListCat = externalPosts | filterByTag(blogCat.name) %}
     {% if (newPostListCat | length) > 0 %}
       {% set morePosts = newPostListCat %}
     {% endif %}

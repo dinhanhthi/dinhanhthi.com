@@ -11,12 +11,12 @@ containerBackgroundType: gray
 
 <div class="container wide d-flex d-flex-wrap">
   <div class="main-cats">
+    {% set externalPosts = cat_ex_posts | concat(notion.json) %}
     {% for item in categories %}
 
       {# post outside 11ty .md files #}
       {% set morePosts = false %}
-
-      {% set newPostListCat = cat_ex_posts | filterByTag(item.name) %}
+      {% set newPostListCat = externalPosts | filterByTag(item.name) %}
       {% if (newPostListCat | length) > 0 %}
         {% set morePosts = newPostListCat %}
       {% endif %}
