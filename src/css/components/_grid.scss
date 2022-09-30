@@ -13,7 +13,7 @@ main {
 
 
 #main-wrapper {
-  padding: 0 $padding-margin;
+  padding: 3rem $padding-margin;
 }
 
 .d-flex {
@@ -51,10 +51,6 @@ main {
     @media (min-width: $grid-xl) {
       width: $grid-w-ex-normal;
     }
-  }
-
-  &._content-wrapper {
-    padding: 3rem 0;
   }
 }
 
