@@ -23,6 +23,7 @@ var distPath;
 
 const categories = require("./" + thiDataDir + "/categories.json");
 const waveColors = require("./src/_data/wave_colors");
+const { convertDate } = require("./notes/_data/helpers");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -175,21 +176,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("toDuration", (inputDateObj) => {
     const dateObj =
       typeof inputDateObj === "string" ? new Date(inputDateObj) : inputDateObj;
-    const durationInDays =
-      (new Date().getTime() - dateObj.getTime()) / (1000 * 60 * 60 * 24);
-    if (durationInDays < 1) {
-      return "today";
-    } else if (durationInDays < 2) {
-      return "yesterday";
-    } else if (durationInDays < 30) {
-      return Math.round(durationInDays) + " days ago";
-    } else if (durationInDays < 365) {
-      const numMonths = Math.round(durationInDays / 30);
-      return `${numMonths} month${numMonths > 1 ? "s" : ""} ago`;
-    } else {
-      const numYears = Math.round(durationInDays / 365);
-      return `${numYears} year${numYears > 1 ? "s" : ""} ago`;
-    }
+    return convertDate(dateObj, "upToDay");
   });
 
   eleventyConfig.addFilter("toDurationDays", (inputDateObj) => {

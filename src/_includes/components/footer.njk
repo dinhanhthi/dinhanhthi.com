@@ -1,24 +1,32 @@
-<footer>
-  <a href="{{ '/' | url }}" target="_blank">Thi
+{% set waveType = 'gray' if containerBackgroundType == 'gray' else
+  'white' %}
+<footer class="wave-border-footer wave-border-{{ waveType }}">
+  <div class="footer-inside">
+    <a href="{{ '/' | url }}" target="_blank">Thi
     &nbsp;&copy;&nbsp;
     {{ helpers.currentYear() }}
-  </a>
-  &nbsp;&bull;&nbsp;
-  <a href="/about-the-notes/">
-    About this site
-  </a>
-  &nbsp;&bull;&nbsp;
-	<a href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">
-    My sketches
-  </a>
-  &nbsp;&bull;&nbsp;
-	<a href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">
-    I cook
-  </a>
-  &nbsp;&bull;&nbsp;
-  <a href="/support-thi/">
-    <img class="keep-original" src="/img_src/icons/coffee.svg" alt="Support Thi" height="16" width="16" /> Support Thi
-  </a>
+    </a>
+    &nbsp;&bull;&nbsp;
+    <a href="/about-the-notes/">
+      About this site
+    </a>
+    &nbsp;&bull;&nbsp;
+    <a href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3" target="_blank">
+      My sketches
+    </a>
+    &nbsp;&bull;&nbsp;
+    <a href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">
+      I cook
+    </a>
+    &nbsp;&bull;&nbsp;
+    <a href="/support-thi/">
+      <img class="keep-original" src="/img_src/icons/coffee.svg" alt="Support Thi" height="16" width="16"/> Support Thi
+    </a>
+
+    <div class="more-info">
+      Built with <a href="https://www.11ty.dev/" target="_blank">11ty</a>, hosted on <a href="https://www.netlify.com/" target="_blank">Netlify</a>
+    </div>
+  </div>
 </footer>
 
 {# elasticlunr #}

@@ -220,11 +220,11 @@ header {
   }
   &.wave-border-gray::after {
     background: hsla(0, 0%, 100%, 0.5);
-    background-image: var(--wave-bd-index);
+    background-image: var(--wave-border-gray-header);
   }
   &.wave-border-white::after {
     background: #fff;
-    background-image: var(--wave-bd-post);
+    background-image: var(--wave-border-white-header);
   }
 }
 
