@@ -13,17 +13,12 @@ containerBackgroundType: gray
   <div class="main-cats">
     {% set externalPosts = cat_ex_posts | concat(notion.json) %}
     {% for item in categories %}
-
-      {# post outside 11ty .md files #}
-      {% set morePosts = false %}
-      {% set newPostListCat = externalPosts | filterByTag(item.name) %}
-      {% if (newPostListCat | length) > 0 %}
-        {% set morePosts = newPostListCat %}
-      {% endif %}
-
-      {% set postslist = collections[item.name] %}
-      {% if postslist | length > 0 %}
-        {% if item.name != 'Blog' %}
+      {% if item.name != 'Blog' %}
+        {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
+        {% set internalPosts = collections[item.name] %}
+        {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
+        {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+        {% if newPostList | length > 0 %}
           <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
             <div class="category">
               <h2 id="{{ item.name | lower | trim | replace(" ", "-") }}">
@@ -39,17 +34,19 @@ containerBackgroundType: gray
       {% endif %}
     {% endfor %}
   </div>
+
   <div class="toc-index-container">
-
     {% include "components/toggle-posts-buttons.njk" %}
-
     <div class="toc-index" id="toc-index">
       <h3>Notes by topics</h3>
       <ul class="toc-js toc-common">
         {% for item in categories %}
           {% if item.name != 'Blog' %}
-            {% set postslist = collections[item.name] %}
-            {% if postslist | length > 0 %}
+            {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
+            {% set internalPosts = collections[item.name] %}
+            {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
+            {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+            {% if newPostList | length > 0 %}
               <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
                 <i class="{{ item.fontello }} fontello-icon"></i>
                 <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
@@ -62,6 +59,5 @@ containerBackgroundType: gray
         </li>
       </ul>
     </div>
-
   </div>
 </div>

@@ -4,7 +4,7 @@
   "license": "MIT",
   "description": "A personal website for note-taking built based on 11ty engine with high performance.",
   "scripts": {
-    "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live && rpx rimraf .cache",
+    "clean": "npx rimraf _built && npx rimraf _site && npx rimraf _live && npx rimraf .cache && npx rimraf .empty",
     "re-install": "npm run clean && npx rimraf ./node_modules && npx rimraf ./package-lock.json && npm i",
     "build-netlify": "npm run js:build && npm run css:build && npm run css:prefix && ELEVENTY_ENV=netlify eleventy",
     "build": "npx rimraf -rf _site && npm run js:build && npm run css:build && npm run css:prefix && eleventy && mkdir -p _live && npx rimraf -rf _live/* && cp -Rf _site/* _live/",

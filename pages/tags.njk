@@ -26,17 +26,13 @@ hideComment: true
 {% include "components/toggle-posts-buttons.njk" %}
 
 {# post outside 11ty .md files #}
-{% set morePosts = false %}
 {% set externalPosts = cat_ex_posts | concat(notion.json) %}
-{% set newPostListCat = externalPosts | filterByTag(tag) %}
-{% if (newPostListCat | length) > 0 %}
-  {% set morePosts = newPostListCat %}
-{% endif %}
+{% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: tag, byTag: true, external: true}) %}
+{% set internalPosts = collections[tag] %}
+{% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: tag, byTag: true, external: false}) %}
+{% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
 
-{% set postslist = collections[tag] %}
-{% set numberOfPosts = postslist | length + morePosts | length %}
-
-{% if numberOfPosts > 0 %}
+{% if newPostList | length > 0 %}
   {% set customClass = 'list-of-post' %}
   {% set customIcon = true %}
   {% set sortBy = 'date' %}

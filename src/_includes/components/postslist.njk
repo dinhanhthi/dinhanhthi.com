@@ -1,7 +1,6 @@
 {#
   Parameters:
-  - postslist
-  - morePosts
+  - newPostList
   - customClass (string)
   - sortBy ('date')
   - limitPosts (number)
@@ -11,39 +10,6 @@
 #}
 
 <div class="toggle-posts{% if customClass %} {{ customClass }}{% endif %}">
-
-  {% set newPostList = [] %}
-  {% for post in postslist %}
-    {% set singlePost = {
-      'title': post.data.title,
-      'url': post.url,
-      'date': post.date,
-      'isBlog': post.data.tags | isBlog,
-      'inputPath': post.inputPath
-    } %}
-    {% set singlePost = singlePost | assignAttributes(post.data) %}
-    {% if not post.data.hide %}
-      {% set newPostList = (newPostList.push(singlePost), newPostList) %}
-    {% endif %}
-  {% endfor %}
-
-  {% if morePosts %}
-    {% for post in morePosts %}
-      {% set singlePost = {
-        'title': post.title,
-        'url': post.url,
-        'target': "_blank",
-        'external': true,
-        'date': post.date,
-        'isBlog': post.tags | isBlog,
-        'inputPath': post.inputPath
-      } %}
-      {% set singlePost = singlePost | assignAttributes(post) %}
-      {% if not post.hide %}
-        {% set newPostList = (newPostList.push(singlePost), newPostList) %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
 
   {% if sortBy == 'date' %}
     {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}

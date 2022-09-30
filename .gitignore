@@ -18,4 +18,3 @@ src/css/main.css
 scripts/__pycache__/
 .unotes/unotes_meta.json
 .env
-notes
