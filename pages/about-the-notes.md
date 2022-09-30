@@ -20,6 +20,6 @@ There are some facts:
 7. The notes have **new brothers** every day.
 8. The notes with **the little dot** (<sup>•</sup>) at the end of the title are **not good enough**!
 9. You can share and keep the notes **for free**, but **not for commercial purposes**!
-10. The page is created with [**11ty**](https://www.11ty.dev/).
+10. This site is created with [**11ty**](https://www.11ty.dev/).
 
 Thank you and welcome to my world of notes.
