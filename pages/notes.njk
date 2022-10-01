@@ -26,7 +26,6 @@ containerBackgroundType: gray
               </h2>
               {% set customClass = 'list-homepage list-of-post' %}
               {% set customIcon = true %}
-              {% set limitPosts = null %}
               {% include "components/postslist.njk" %}
             </div>
           </div>
@@ -40,18 +39,16 @@ containerBackgroundType: gray
     <div class="toc-index" id="toc-index">
       <h3>Notes by topics</h3>
       <ul class="toc-js toc-common">
-        {% for item in categories %}
-          {% if item.name != 'Blog' %}
-            {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
-            {% set internalPosts = collections[item.name] %}
-            {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
-            {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
-            {% if newPostList | length > 0 %}
-              <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
-                <i class="{{ item.fontello }} fontello-icon"></i>
-                <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
-              </li>
-            {% endif %}
+        {% for item in categories | selectattr("showInNoteToc") %}
+          {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
+          {% set internalPosts = collections[item.name] %}
+          {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
+          {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+          {% if newPostList | length > 0 %}
+            <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">
+              <i class="{{ item.fontello }} fontello-icon"></i>
+              <a href="#{{ item.name | lower | trim | replace(" ", "-") }}">{{ item.name }}</a>
+            </li>
           {% endif %}
         {% endfor %}
         <li>

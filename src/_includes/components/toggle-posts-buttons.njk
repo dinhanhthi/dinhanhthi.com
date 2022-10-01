@@ -4,7 +4,7 @@
       <input type="checkbox" id="toggle-draft-button"{% if not settings.hideDraftPostsByDefault %} checked{% endif %}>
       <span class="slider blue"></span>
     </label>
-    <span class="toggle-text" style="margin-top: -2px;"><sup>•</sup> Draft</span>
+    <span class="toggle-text toggle-label" style="margin-top: -2px;"><sup>•</sup> Draft</span>
   </div>
 
   <div class="toggle-draft">
@@ -12,7 +12,7 @@
       <input type="checkbox" id="toggle-private-button"{% if not settings.hidePrivatePostsByDefault %} checked{% endif %}>
       <span class="slider red"></span>
     </label>
-    <span class="toggle-text" style="margin-top: -2px;"><sup>†</sup> Private</span>
+    <span class="toggle-text toggle-label" style="margin-top: -2px;"><sup>†</sup> Private</span>
   </div>
 
   <div class="toggle-outside">
@@ -20,6 +20,10 @@
       <input type="checkbox" id="toggle-outside-button"{% if not settings.hideOutsideNotesByDefault %} checked{% endif %}>
       <span class="slider yellow"></span>
     </label>
-    <span class="toggle-text" style="margin-bottom: -2px;"><i class="icon-doc-add fontello-icon"></i>Outside</span>
+    <span class="toggle-text toggle-label" style="margin-bottom: -2px;"><i class="icon-doc-add fontello-icon"></i>Outside</span>
+  </div>
+
+  <div class="blog-posts-label toggle-label">
+    <i class="fontello-icon icon-feather" style="color: #50c06a;"></i> Blog posts
   </div>
 </div>

@@ -11,7 +11,7 @@
     </a>
     {% set blogCat = categories | getCategory('Blog') %}
     <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/blog/' %} active{% endif %}" href="{{ '/blog/' | url }}">
-      <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i>
+      <i class="{{ blogCat.fontello }} fontello-icon" style="color: #50c06a;"></i>
       <span>{{ blogCat.name }}</span>
     </a>
     <a class="nav-hide-sm nav-item no-effect nav-text{% if page.url == '/notes/' %} active{% endif %}" href="{{ '/notes/' | url }}">

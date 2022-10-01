@@ -632,10 +632,17 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   align-items: center;
   .toggle-text {
-    color: var(--color-faded);
-    font-size: 88%;
     margin-left: 3px;
+    font-size: 88%;
   }
+}
+
+.toggle-label {
+  color: var(--color-faded);
+}
+
+.blog-posts-label {
+  font-size: 95%;
 }
 
 .hide-category {

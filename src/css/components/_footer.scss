@@ -4,9 +4,9 @@ footer {
     background: $color-bg-nav;
     padding: 4rem 1rem 2rem 1rem;
     text-align: center;
-    color: $color-faded;
+    color: #ddd;
     a {
-      color: $color-faded;
+      color: #ddd;
       &:hover {
         color: #fff;
         border: none;
@@ -37,7 +37,7 @@ footer {
 
   .more-info {
     margin-top: 5px;
-    opacity: 70%;
+    opacity: 80%;
     font-size: 95%;
     font-style: italic;
   }

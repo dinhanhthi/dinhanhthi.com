@@ -52,6 +52,12 @@ main {
       width: $grid-w-ex-normal;
     }
   }
+
+  &._gap {
+    &.__big {
+      gap: 3rem;
+    }
+  }
 }
 
 $spacing-sizes: 0, 1, 2, 3, 4, 5;

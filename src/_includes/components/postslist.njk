@@ -3,7 +3,6 @@
   - newPostList
   - customClass (string)
   - sortBy ('date')
-  - limitPosts (number)
   - customIcon (boolean)
 
   For customized attributes like "notfull", modify in notes/_data/custom_post_attributes.json
@@ -15,10 +14,6 @@
     {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
   {% else %}
     {% set newPostList = newPostList | sort(attribute = 'title') %}
-  {% endif %}
-
-  {% if limitPosts %}
-    {% set newPostList = newPostList | head(limitPosts) %}
   {% endif %}
 
   {% for post in newPostList %}

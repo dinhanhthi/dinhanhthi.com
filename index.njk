@@ -9,7 +9,7 @@ icon: '/img_src/avatar_memoji.webp'
 date: Last Modified
 ---
 
-<div class="container wide d-flex d-flex-wrap">
+<div class="container wide d-flex d-flex-wrap _gap __big">
 
   {# Blog #}
   {% set blogCat = categories | getCategory('Blog') %}
@@ -19,23 +19,24 @@ date: Last Modified
     {% set internalPosts = collections['Blog'] %}
     {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false}) %}
     {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+    {% set numTotal = newPostList | length %}
+    {% set newPostList = newPostList | head(6) %}
     <div class="h2-dots _big _no-dots">
       <h2 id="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
-        <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i>
+        {# <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i> #}
         <span>Latest blog posts</span>
-        {% if newPostList | length > 6 %}
+        {% if numTotal > 6 %}
           <a class="heading-more no-effect" href="/blog/">...more</a>
         {% endif %}
       </h2>
     </div>
-    {% if newPostList | length > 6 %}
+    {% if numTotal > 6 %}
       {% set customClass = 'list-of-blog _hide-last' %}
     {% else %}
       {% set customClass = 'list-of-blog' %}
     {% endif %}
     {% set customIcon = false %}
     {% set sortBy = 'date' %}
-    {% set limitPosts = 6 %}
     {% include "components/postslist.njk" %}
   </div>
 
@@ -45,13 +46,16 @@ date: Last Modified
   {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'all', byTag: false, external: true}) %}
   {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'all', byTag: false, external: false}) %}
   {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
-  {% set limitPosts = 9 %}
+  {% set numTotal = newPostList | length %}
+  {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
+  {% set newPostList = newPostList | head(9) %}
+  {% set countPosts = newPostList | countSpecialPosts %}
   <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
     <div class="h2-dots _big _no-dots">
       <h2 id="notes">
-        <img alt="Note icon" src="/img_src/icons/notes.svg" width="30" height="30" class="keep-original"/>
+        {# <img alt="Note icon" src="/img_src/icons/notes.svg" width="30" height="30" class="keep-original"/> #}
         <span>Recently updated notes</span>
-        {% if newPostList | length > 9 %}
+        {% if numTotal > 9 %}
           <a class="heading-more no-effect" href="/notes/">...more</a>
         {% endif %}
       </h2>
@@ -62,6 +66,47 @@ date: Last Modified
     {% set sortBy = 'date' %}
     <div class="category">
       {% include "components/postslist.njk" %}
+    </div>
+    <div class="label-notes">
+      {% if countPosts.numDrafts > 0 %}
+        <div class="label-item">
+          <sup>•</sup> Draft posts
+          {% if countPosts.numPrivate + countPosts.numOutside > 0 %},{% endif %}
+        </div>
+      {% endif %}
+      {% if countPosts.numPrivate > 0 %}
+        <div class="label-item">
+          <sup>†</sup> Private posts
+          {% if countPosts.numOutside > 0 %},{% endif %}
+        </div>
+      {% endif %}
+      {% if countPosts.numOutside > 0 %}
+        <div class="label-item">
+          <i class="icon-doc-add fontello-icon"></i>Outside this site
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="category-wrapper">
+    <div class="h2-dots _big _no-dots">
+      <h2 id="notes">
+        {# <img alt="Topic icon" src="/img/header/tag_.svg" width="30" height="30" class="keep-original"/> #}
+        <span>Topics</span>
+        <a class="heading-more no-effect" href="/tags/">...more</a>
+      </h2>
+    </div>
+    <div class="topic-list">
+      {% for topic in categories | rejectattr("hideFromTopics") | sort(attribute = 'name') %}
+        <a class="no-effect" href="/tags/{{ topic.name | slug }}/">
+          <div class="topic-item">
+            <img alt="{{ topic.name }} icon" src="/img/cats/{{ topic.icon }}" width="30" height="30" class="keep-original"/>
+            <div class="_name">
+              {{ topic.name }}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
     </div>
   </div>
 

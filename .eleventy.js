@@ -199,8 +199,11 @@ module.exports = function (eleventyConfig) {
     return new Date(inputString);
   });
 
-  eleventyConfig.addFilter("isBlog", (inputArray) => {
-    return inputArray ? inputArray.includes("Blog") : false;
+  eleventyConfig.addFilter("countSpecialPosts", (postList) => {
+    const numDrafts = postList.filter((post) => post.notfull).length;
+    const numPrivate = postList.filter((post) => post.private).length;
+    const numOutside = postList.filter((post) => post.external).length;
+    return { numDrafts, numPrivate, numOutside };
   });
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
@@ -215,7 +218,7 @@ module.exports = function (eleventyConfig) {
    * Create a new post list based on a tag
    * @param {Array} posts - list of posts which can be internal posts or external posts
    * @param {String} categoryName - category name to be used for filtering
-   * @param {Boolean} byTag - if true, filter by tag (it tag presents in tags),
+   * @param {Boolean} byTag - if true, filter by tag (if tag presents in tags),
    *  else filter by category (only the 1st tag is used)
    * @returns {Array} - list of new posts
    */
@@ -236,7 +239,7 @@ module.exports = function (eleventyConfig) {
     const filteredPosts = [];
     if (posts && posts.length) {
       for (const post of posts) {
-        if (!post?.hide) {
+        if (!post?.hide && !post?.data?.hide) {
           if (options.categoryName !== "all") {
             if (
               ((get(post, "tags[0]") == options.categoryName ||
@@ -253,7 +256,11 @@ module.exports = function (eleventyConfig) {
             ) {
               const singlePost = {};
               if (post?.date) singlePost.date = new Date(post.date);
-              if (post?.tags?.includes("Blog")) singlePost.isBlog = true;
+              if (
+                post?.tags?.includes("Blog") ||
+                post?.data?.tags?.includes("Blog")
+              )
+                singlePost.isBlog = true;
               if (options?.external) singlePost.external = true;
               for (const att of postAttributes) {
                 if (get(post, att) || get(post, `data.${att}`))
@@ -263,10 +270,14 @@ module.exports = function (eleventyConfig) {
             }
           } else {
             // not filter by tag
-            if (!get(post, "data.hide")) {
+            if (!post?.hide && !get(post, "data.hide")) {
               const singlePost = {};
               if (post?.date) singlePost.date = new Date(post.date);
-              if (post?.tags?.includes("Blog")) singlePost.isBlog = true;
+              if (
+                post?.tags?.includes("Blog") ||
+                post?.data?.tags?.includes("Blog")
+              )
+                singlePost.isBlog = true;
               if (options?.external) singlePost.external = true;
               for (const att of postAttributes) {
                 if (get(post, att) || get(post, `data.${att}`))
