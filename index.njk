@@ -15,9 +15,9 @@ date: Last Modified
   {% set blogCat = categories | getCategory('Blog') %}
   {% set externalPosts = cat_ex_posts | concat(notion.json) %}
   <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
-    {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: true}) %}
-    {% set internalPosts = collections['Blog'] %}
-    {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false}) %}
+    {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: true, debugSource: 'index blog - externalPosts'}) %}
+    {% set internalPosts = collections['Blog'] | normalizePosts({debugSource: 'index blog'}) %}
+    {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false, debugSource: 'index blog - internal'}) %}
     {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
     {% set numTotal = newPostList | length %}
     {% set newPostList = newPostList | head(6) %}
@@ -42,9 +42,9 @@ date: Last Modified
 
   {# Notes #}
   {% set externalPosts = cat_ex_posts | concat(notion.json) %}
-  {% set internalPosts = collections.posts %}
-  {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'all', byTag: false, external: true}) %}
-  {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'all', byTag: false, external: false}) %}
+  {% set internalPosts = collections.posts | normalizePosts({debugSource: 'index notes'}) %}
+  {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'all', external: true, debugSource: 'index notes - externalPosts'}) %}
+  {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'all', external: false, debugSource: 'index notes - internal'}) %}
   {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
   {% set numTotal = newPostList | length %}
   {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}

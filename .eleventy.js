@@ -12,7 +12,7 @@ var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
 const anchor = require("markdown-it-anchor");
-const { get } = require("lodash");
+const { get, remove } = require("lodash");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
@@ -215,80 +215,110 @@ module.exports = function (eleventyConfig) {
   });
 
   /**
+   * Normalize internal posts
+   * - Remove all "posts" from the tags
+   * - Remove all .data from the posts
+   * @param {Array} posts - list of posts
+   * @param {Object} options - options
+   * @param {boolean} options.debug - Activate the debug mode
+   * @param {string} options.debugSource - Source of the debug
+   * @returns {Array} - list of normalized posts
+   */
+  eleventyConfig.addFilter("normalizePosts", (posts, options) => {
+    if (options?.debug) console.log("🐝 Called from: ", options?.debugSource);
+    const newPosts = [];
+    if (posts && posts.length) {
+      for (const post of posts) {
+        const newPost = { ...post };
+        if (post.data) {
+          for (const key of Object.keys(post.data)) {
+            newPost[key] = post.data[key];
+          }
+          delete newPost.data;
+        }
+        if (newPost?.tags?.includes("posts"))
+          newPost.tags = newPost?.tags?.filter((tag) => tag !== "posts");
+        newPosts.push(newPost);
+      }
+    }
+    if (options?.debug) {
+      console.log(
+        "🐝 newPosts: ",
+        newPosts.map((post) => ({ title: post?.title, tags: post?.tags }))
+      );
+    }
+    return newPosts;
+  });
+
+  /**
    * Create a new post list based on a tag
    * @param {Array} posts - list of posts which can be internal posts or external posts
-   * @param {String} categoryName - category name to be used for filtering
-   * @param {Boolean} byTag - if true, filter by tag (if tag presents in tags),
+   * @param {Object} options - options
+   * @param {string} options.categoryName - category name to be used for filtering
+   * @param {boolean} options.byTag - if true, filter by tag (if tag presents in tags),
    *  else filter by category (only the 1st tag is used)
+   * @param {boolean} options.debug - Activate the debug mode
+   * @param {string} options.debugSource - Source of the debug
    * @returns {Array} - list of new posts
    */
   eleventyConfig.addFilter("filterByCategory", function (posts, options) {
+    if (options?.debug) console.log("🐞 Called from: ", options?.debugSource);
     const postAttributes = [
-      "title",
+      // "date" will be treated differently
+      "inputPath",
       "tags",
+      "title",
       "url",
-      "inputPath", // There is also "date" bug it'll be treated differently
-      // below are custom attributes
-      "notfull",
-      "private",
+      // Below are custom attributes
+      "hide",
+      "keywords",
       "lowQuality",
+      "notfull",
       "part",
       "partName",
-      "hide",
+      "private",
     ];
     const filteredPosts = [];
     if (posts && posts.length) {
       for (const post of posts) {
-        if (!post?.hide && !post?.data?.hide) {
+        if (!post?.hide) {
           if (options.categoryName !== "all") {
             if (
-              ((get(post, "tags[0]") == options.categoryName ||
-                get(post, "data.tags[1]") == options.categoryName || // post.data.tags[0] is "posts" for notes
-                get(post, "data.tags[0]") == options.categoryName) && // post.data.tags[0] is "Blog" for blog posts
-                !get(post, "data.hide") &&
+              (get(post, "tags[0]") == options.categoryName && // post.data.tags[0] is "Blog" for blog posts
                 !get(post, "hide") &&
                 !options?.byTag) ||
-              ((get(post, "data.tags")?.includes(options.categoryName) ||
-                get(post, "tags")?.includes(options.categoryName)) &&
-                !get(post, "data.hide") &&
+              (get(post, "tags")?.includes(options.categoryName) &&
                 !get(post, "hide") &&
                 options?.byTag)
             ) {
-              const singlePost = {};
-              if (post?.date) singlePost.date = new Date(post.date);
-              if (
-                post?.tags?.includes("Blog") ||
-                post?.data?.tags?.includes("Blog")
-              )
-                singlePost.isBlog = true;
-              if (options?.external) singlePost.external = true;
-              for (const att of postAttributes) {
-                if (get(post, att) || get(post, `data.${att}`))
-                  singlePost[att] = get(post, att) || get(post, `data.${att}`);
-              }
+              let singlePost = {};
+              singlePost = assignSinglePost(singlePost, post, options);
               filteredPosts.push(singlePost);
             }
           } else {
-            // not filter by tag
-            if (!post?.hide && !get(post, "data.hide")) {
-              const singlePost = {};
-              if (post?.date) singlePost.date = new Date(post.date);
-              if (
-                post?.tags?.includes("Blog") ||
-                post?.data?.tags?.includes("Blog")
-              )
-                singlePost.isBlog = true;
-              if (options?.external) singlePost.external = true;
-              for (const att of postAttributes) {
-                if (get(post, att) || get(post, `data.${att}`))
-                  singlePost[att] = get(post, att) || get(post, `data.${att}`);
-              }
+            if (!post?.hide) {
+              let singlePost = {};
+              singlePost = assignSinglePost(singlePost, post, options);
               filteredPosts.push(singlePost);
             }
           }
         }
       }
     }
+
+    function assignSinglePost(singlePost, post, options) {
+      if (post?.date) singlePost.date = new Date(post.date);
+      if (post?.tags) singlePost.cat = post.tags[0];
+      if (post?.tags?.includes("Blog")) singlePost.isBlog = true;
+      if (options?.external) singlePost.external = true;
+      singlePost.target = options?.external ? "_blank" : "_self";
+      for (const att of postAttributes) {
+        if (get(post, att))
+          singlePost[att] = get(post, att);
+      }
+      return singlePost;
+    }
+
     return filteredPosts;
   });
 
@@ -404,7 +434,9 @@ module.exports = function (eleventyConfig) {
         tags: page.tags,
         cat: page.cat,
         icon: page.cat
-          ? categories.find((item) => item.name === page.cat).fontello
+          ? categories.find((item) => item.name === page.cat)
+            ? categories.find((item) => item.name === page.cat).fontello
+            : "icon-tags"
           : "icon-tags",
         iconColor: page.cat
           ? get(
@@ -414,7 +446,7 @@ module.exports = function (eleventyConfig) {
             )
           : "#fff",
         target: page.target,
-        privatePost: page.privatePost,
+        privatePost: page.private,
         //"content": page.templateContent,
       });
     });

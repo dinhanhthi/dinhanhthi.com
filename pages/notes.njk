@@ -14,9 +14,9 @@ containerBackgroundType: gray
     {% set externalPosts = cat_ex_posts | concat(notion.json) %}
     {% for item in categories %}
       {% if item.name != 'Blog' %}
-        {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
-        {% set internalPosts = collections[item.name] %}
-        {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
+        {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, debugSource: '(notes - externalPosts'}) %}
+        {% set internalPosts = collections[item.name] | normalizePosts({debugSource: 'notes page'}) %}
+        {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, debugSource: 'notes - internalPosts'}) %}
         {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
         {% if newPostList | length > 0 %}
           <div class="category-wrapper" name="{{ item.name | lower | trim | replace(" ", "-") }}">
@@ -40,9 +40,9 @@ containerBackgroundType: gray
       <h3>Notes by topics</h3>
       <ul class="toc-js toc-common">
         {% for item in categories | selectattr("showInNoteToc") %}
-          {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, source: 'externalPosts'}) %}
-          {% set internalPosts = collections[item.name] %}
-          {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, source: 'internalPosts'}) %}
+          {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: item.name, byTag: false, external: true, debugSource: 'notes toc - externalPosts'}) %}
+          {% set internalPosts = collections[item.name] | normalizePosts({debugSource: 'notes page toc'}) %}
+          {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: item.name, byTag: false, external: false, debugSource: 'notes toc - internalPosts'}) %}
           {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
           {% if newPostList | length > 0 %}
             <li name="toc-li-{{ item.name | lower | trim | replace(" ", "-") }}">

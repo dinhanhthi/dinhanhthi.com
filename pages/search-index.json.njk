@@ -2,34 +2,11 @@
 permalink: pages/search-index.json
 ---
 
-{% set newPostListSearch = [] %}
-{% for post in collections.posts %}
-  {% if not post.data.hide %}
-    {% set newPostListSearch = (newPostListSearch.push({
-      url: post.url,
-      title: post.data.title,
-      keywords: post.data.keywords,
-      tags: post.data.tags,
-      cat: post.data.tags[1],
-      target: "_self",
-      privatePost: post.data.privatePost
-    }), newPostListSearch) %}
-  {% endif %}
-{% endfor %}
-
-{% for post in cat_ex_posts %}
-  {% if not post.hide %}
-    {% set newPostListSearch = (newPostListSearch.push({
-      url: post.url,
-      title: post.title,
-      keywords: post.keywords,
-      tags: post.tags,
-      cat: post.tags[0],
-      target: "_blank",
-      privatePost: post.private
-    }), newPostListSearch) %}
-  {% endif %}
-{% endfor %}
+{% set externalPosts = cat_ex_posts | concat(notion.json) %}
+{% set internalPosts = collections.posts | normalizePosts({debugSource: 'search-index'}) %}
+{% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'all', external: true, debugSource: 'search index - externalPosts'}) %}
+{% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'all', external: false, debugSource: 'search index - internal'}) %}
+{% set newPostListSearch = externalPostsByCategory | concat(internalPostsByCategory) %}
 
 {% for tag in collections.tagList %}
   {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
@@ -42,7 +19,7 @@ permalink: pages/search-index.json
     tags: "",
     cat: "",
     target: "",
-    privatePost: "false"
+    private: "false"
   }), newPostListSearch) %}
 {% endfor %}
 

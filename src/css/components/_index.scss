@@ -89,7 +89,12 @@
   .topic-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 10px;
+    &::after {
+      content: "";
+      flex: auto;
+    }
     .topic-item {
       display: flex;
       align-items: center;

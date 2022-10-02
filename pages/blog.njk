@@ -12,9 +12,9 @@ containerBackgroundType: gray
 
   {# post outside 11ty .md files #}
   {% set externalPosts = cat_ex_posts | concat(notion.json) %}
-  {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: true}) %}
-  {% set internalPosts = collections['Blog'] %}
-  {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false}) %}
+  {% set internalPosts = collections['Blog'] | normalizePosts({debugSource: 'blog page'}) %}
+  {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: true, debugSource: 'blog - externalPosts'}) %}
+  {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false, debugSource: 'blog - internal'}) %}
   {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
 
   {% if newPostList | length > 0 %}

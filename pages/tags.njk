@@ -27,9 +27,9 @@ hideComment: true
 
 {# post outside 11ty .md files #}
 {% set externalPosts = cat_ex_posts | concat(notion.json) %}
-{% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: tag, byTag: true, external: true}) %}
-{% set internalPosts = collections[tag] %}
-{% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: tag, byTag: true, external: false}) %}
+{% set internalPosts = collections[tag] | normalizePosts({debugSource: 'tag page'}) %}
+{% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: tag, byTag: true, external: true, debugSource: 'tag - externalPosts'}) %}
+{% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: tag, byTag: true, external: false, debugSource: 'tag - externalPosts'}) %}
 {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
 
 {% if newPostList | length > 0 %}
