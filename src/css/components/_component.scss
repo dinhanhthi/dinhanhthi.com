@@ -745,6 +745,7 @@ input[type="search"]::-webkit-search-results-decoration {
     background: var(--badge-black-bg);
     padding: 3px;
     border-radius: $box-border-radius;
+    height: 27px;
     picture {
       display: inline-flex;
     }
@@ -759,5 +760,9 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--color-faded);
     font-family: monospace;
     word-spacing: -3px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

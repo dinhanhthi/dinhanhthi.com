@@ -98,14 +98,18 @@ date: Last Modified
     </div>
     <div class="topic-list">
       {% for topic in categories | rejectattr("hideFromTopics") | sort(attribute = 'name') %}
-        <a class="no-effect" href="/tags/{{ topic.name | slug }}/">
-          <div class="topic-item">
-            <img alt="{{ topic.name }} icon" src="/img/cats/{{ topic.icon }}" width="30" height="30" class="keep-original"/>
-            <div class="_name">
-              {{ topic.name }}
+        {% set internalPosts = collections[topic.name] | normalizePosts({debugSource: 'index page - topic list'}) %}
+        {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: topic.name, byTag: true, external: false, debugSource: 'index page - topic list'}) %}
+        {% if internalPostsByCategory | length > 1 %}
+          <a class="no-effect" href="/tags/{{ topic.name | slug }}/">
+            <div class="topic-item">
+              <img alt="{{ topic.name }} icon" src="/img/cats/{{ topic.icon }}" width="30" height="30" class="keep-original"/>
+              <div class="_name">
+                {{ topic.name }}
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        {% endif %}
       {% endfor %}
     </div>
   </div>

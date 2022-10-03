@@ -289,7 +289,10 @@ module.exports = function (eleventyConfig) {
                 !options?.byTag) ||
               (get(post, "tags")?.includes(options.categoryName) &&
                 !get(post, "hide") &&
-                options?.byTag)
+                options?.byTag) ||
+              (get(post, "tags[1]") == options.categoryName && // also allow Blog displayed in the notes, their [1] is the category
+                get(post, "tags[0]") == "Blog" &&
+                !options?.byTag)
             ) {
               let singlePost = {};
               singlePost = assignSinglePost(singlePost, post, options);
@@ -313,8 +316,7 @@ module.exports = function (eleventyConfig) {
       if (options?.external) singlePost.external = true;
       singlePost.target = options?.external ? "_blank" : "_self";
       for (const att of postAttributes) {
-        if (get(post, att))
-          singlePost[att] = get(post, att);
+        if (get(post, att)) singlePost[att] = get(post, att);
       }
       return singlePost;
     }
