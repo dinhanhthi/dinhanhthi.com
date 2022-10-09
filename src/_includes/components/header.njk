@@ -15,7 +15,12 @@
             {% if "/" in icon %}
               <img class="keep-original" alt="{{ title }}" src="{{ icon }}" height="55" width="55">
             {% else %}
-              <img class="keep-original" alt="{{ title }}" src="/img/header/{{ icon }}" height="55" width="55">
+              {% set headerIcon = '/img/header/' + icon %}
+              {% if customClass == 'page-single-tag' %}
+                {% set tagIcon = categories | getTopicIcon(tag) %}
+                {% set headerIcon = '/img/cats/' + tagIcon %}
+              {% endif %}
+              <img class="keep-original" alt="{{ title }}" src="{{ headerIcon }}" height="55" width="55">
             {% endif %}
           {% else %}
             <img class="keep-original" alt="{{ title }}" src="/img_src/nav/about.svg" height="55" width="55">
@@ -149,7 +154,7 @@
       </div>
       <!-- .post-header -->
 
-    {# layout blog #}
+      {# layout blog #}
     {% elif layout == 'blog' %}
       <div class="blog-header">
         {% if tags %}

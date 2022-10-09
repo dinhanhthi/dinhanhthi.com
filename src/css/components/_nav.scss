@@ -110,6 +110,7 @@ nav {
       &.nav-text {
         padding: 0.3rem 0.7rem;
         border-radius: 7px;
+        height: 38px;
         &:hover {
           background: #384151;
         }
@@ -159,6 +160,7 @@ nav {
       position: relative;
       margin-right: $spacing-right-item;
       flex: 1;
+      height: 38px;
       form {
         display: flex;
         flex: 1;

@@ -348,6 +348,15 @@ module.exports = function (eleventyConfig) {
   });
 
   /**
+   * Get topic's icons from categories.json
+   * How to use: {% set cat = categories | getTopicIcon(catName) %}
+   */
+  eleventyConfig.addFilter("getTopicIcon", function (catArr, catName) {
+    const cat = catArr.find((cate) => cate.name === catName);
+    return cat?.icon || "tag_.svg";
+  });
+
+  /**
    * Get category from categories.json
    * How to use: {% set singleSeries = series | getSeries(basePartUrl) %}
    */

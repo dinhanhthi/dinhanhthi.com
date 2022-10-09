@@ -9,7 +9,7 @@ icon: '/img_src/avatar_memoji.webp'
 date: Last Modified
 ---
 
-<div class="container wide d-flex d-flex-wrap _gap __big">
+<div class="container wide ex-normal d-flex d-flex-wrap _gap __big">
 
   {# Blog #}
   {% set blogCat = categories | getCategory('Blog') %}
@@ -98,9 +98,11 @@ date: Last Modified
     </div>
     <div class="topic-list">
       {% for topic in categories | rejectattr("hideFromTopics") | sort(attribute = 'name') %}
+        {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+        {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: topic.name, byTag: true, external: true, debugSource: 'index page - topic list'}) %}
         {% set internalPosts = collections[topic.name] | normalizePosts({debugSource: 'index page - topic list'}) %}
         {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: topic.name, byTag: true, external: false, debugSource: 'index page - topic list'}) %}
-        {% if internalPostsByCategory | length > 1 %}
+        {% if internalPostsByCategory | length + externalPostsByCategory | length > 2 %}
           <a class="no-effect" href="/tags/{{ topic.name | slug }}/">
             <div class="topic-item">
               <img alt="{{ topic.name }} icon" src="/img/cats/{{ topic.icon }}" width="30" height="30" class="keep-original"/>

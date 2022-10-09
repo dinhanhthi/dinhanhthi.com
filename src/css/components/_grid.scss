@@ -34,6 +34,12 @@ main {
   width: 100%;
   margin: 0 auto;
 
+  &.ex-normal {
+    @media (min-width: $grid-xl) {
+      width: $grid-w-ex-normal;
+    }
+  }
+
   &.wide {
     @media (min-width: $grid-xxl) {
       width: $grid-xxl - 2 * $padding-margin;
@@ -44,12 +50,6 @@ main {
     width: 100%;
     @media (min-width: ($grid-w-normal + $padding-lr)) {
       width: $grid-w-normal;
-    }
-  }
-
-  &.ex-normal {
-    @media (min-width: $grid-xl) {
-      width: $grid-w-ex-normal;
     }
   }
 
