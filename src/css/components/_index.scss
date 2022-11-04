@@ -38,6 +38,11 @@
       .fontello-icon::before {
         font-style: italic;
       }
+      @include screen-sm-down {
+        margin-top: 1rem;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
     }
   }
 

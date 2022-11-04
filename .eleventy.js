@@ -118,7 +118,8 @@ module.exports = function (eleventyConfig) {
       eleventyConfig.ignores.delete("notes/fixed_notes");
       eleventyConfig.ignores.add("sample_posts");
       eleventyConfig.ignores.add("notes/blog_wip");
-      eleventyConfig.ignores.add("notes/posts_wip");
+      // eleventyConfig.ignores.add("notes/posts_wip");
+      eleventyConfig.ignores.delete("notes/posts_wip");
       eleventyConfig.addPlugin(localImages, {
         distPath: distPath,
         assetPath: "/img/remote",

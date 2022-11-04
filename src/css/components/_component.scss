@@ -123,7 +123,7 @@
   color: var(--font-color-darker);
   margin-bottom: $margin-bottom;
   border-radius: $box-border-radius;
-  border: 1px solid;
+  // border: 1px solid;
 
   & > *:not(.col-2-equal):not(.col-2-flex) {
     margin-bottom: $margin-bottom * 0.8 !important;

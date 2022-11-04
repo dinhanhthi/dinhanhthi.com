@@ -60,10 +60,10 @@
                 {# 👋 Don't show draft/private/good indicator for blog posts #}
                 {% if not post.isBlog %}
                   {% if post.notfull or post.lowQuality %}
-                    <sup title="{{ other_data.notfull }}">•</sup>
+                    <sup title="Draft note">•</sup>
                   {% endif %}
                   {% if post.private %}
-                    <sup title="{{ other_data.private }}">†</sup>
+                    <sup title="Private note">†</sup>
                   {% endif %}
                 {% endif %}
                 {% if post.part %}
@@ -108,10 +108,10 @@
             {% else %}
               <code>{{ post.url }}</code>
               {% if post.notfull or post.lowQuality %}
-                <sup title="{{ other_data.notfull }}">•</sup>
+                <sup title="Draft note">•</sup>
               {% endif %}
               {% if post.private %}
-                <sup title="{{ other_data.private }}">†</sup>
+                <sup title="Private note">†</sup>
               {% endif %}
             {% endif %}
 

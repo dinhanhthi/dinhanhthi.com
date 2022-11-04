@@ -44,8 +44,9 @@ change_img_url ydkjsy-1 # change url to {{ img-url }}
 ### New computer?
 
 - Clone this repo with `dinhanhthi.com` name.
-- Clone notes to `dinhanhthi.com/notesData` (Yes, change its name! This is different from `dinhanhthi.com/notes` which is a submodule of this repo).
-- Modify + update notes in `notesData`.
+- Clone [notes](https://github.com/dinhanhthi/notes) to `dinhanhthi.com/notes`.
+- Run `npm i` to install stuffs.
+- Modify + update notes in `notes`.
 
 ### ⭐ TL;DR;
 
