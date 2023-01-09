@@ -159,7 +159,7 @@
     float: right;
     width: calc((100vw - 900px) / 2 - 20px);
     padding-top: 0;
-    margin-right: calc((900px - 100vw) / 2);
+    margin-right: calc((900px - 100vw) / 2 + 10px);
     border-left: none;
     position: sticky;
     top: $fixed-top;

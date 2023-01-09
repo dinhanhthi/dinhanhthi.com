@@ -54,8 +54,8 @@ change_img_url ydkjsy-1 # change url to {{ img-url }}
 - Theming mode (for customizing themes + display draft & fixed posts): `npm run theming`.
 - Preprod (all posts on prod + serve in `8081`): `npm run preprod`
   - Build preprod (in case preprod is already running): `npm run build-preprod`
-- Temporary blog posts: put in **notes/blog_wip/**.
-- Temporary note posts: put in **notes/posts_wip/**.
+- Temporary blog posts: put in **notes/blog_wip/** (these posts are showed in both dev and prod modes).
+- Temporary note posts: put in **notes/posts_wip/** (these posts are showed in both dev and prod modes).
 - For working with Typora + VSCode ([this blog post](https://dinhanhthi.com/images-11ty-markdown/)):
   - Blog posts must be store in **notes/blog/name-of-blog.md** (no sub folder).
   - Note posts must be store in **notes/posts/name-of-note.md** (no sub folder).
