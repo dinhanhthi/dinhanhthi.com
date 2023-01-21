@@ -12,7 +12,7 @@ var markdownItp = require("markdown-it")();
 const mdItContainer = require("markdown-it-container");
 const tm = require("./third_party/markdown-it-texmath"); // copied from github:dinhanhthi/markdown-it-texmath
 const anchor = require("markdown-it-anchor");
-const { get, remove } = require("lodash");
+const { get } = require("lodash");
 
 const localImages = require("./third_party/eleventy-plugin-local-images/.eleventy.js");
 const CleanCSS = require("clean-css");
@@ -701,20 +701,20 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function (_err, browserSync) {
-        const content_404 = fs.readFileSync(distPath + "/404.html");
+  // eleventyConfig.setBrowserSyncConfig({
+  //   callbacks: {
+  //     ready: function (_err, browserSync) {
+  //       const content_404 = fs.readFileSync(distPath + "/404.html");
 
-        browserSync.addMiddleware("*", (req, res) => {
-          res.write(content_404);
-          res.end();
-        });
-      },
-    },
-    ui: false,
-    ghostMode: false,
-  });
+  //       browserSync.addMiddleware("*", (req, res) => {
+  //         res.write(content_404);
+  //         res.end();
+  //       });
+  //     },
+  //   },
+  //   ui: false,
+  //   ghostMode: false,
+  // });
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
