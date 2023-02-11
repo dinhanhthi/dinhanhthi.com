@@ -11,5 +11,5 @@ echo "3️⃣ Start updating _site to Github"
 git add .
 git commit -m "Updated: `date +'%Y-%m-%d %H:%M:%S'`"
 git push
-echo "✅ End updating & come back to dinhanhthi.com"
+echo "✅ End updating"
 cd ../dinhanhthi.com/
