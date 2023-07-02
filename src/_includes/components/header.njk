@@ -59,8 +59,10 @@
               {% endfor %}
             </div>
             <div id="last-modified">
+              {% if not hideLastModified %}
               Last modified {{ page.date | toDuration }}
               /
+              {% endif %}
               <a href="https://github.com/dinhanhthi/notes/edit/master/{{ page.inputPath | replace('notes/', '') }}">Edit on Github</a>
             </div>
           </div>
