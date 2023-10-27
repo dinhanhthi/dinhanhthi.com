@@ -1,2 +1,0 @@
-python-frontmatter
-colorama
