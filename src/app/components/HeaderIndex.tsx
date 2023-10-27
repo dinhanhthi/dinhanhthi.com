@@ -1,0 +1,79 @@
+import Avatar from '@/public/avatar.webp'
+import WavingHand from '@/public/waving_hand.webp'
+import BadgeInfos from '@notion-x/src/components/BadgeInfos'
+import BadgeSocial from '@notion-x/src/components/BadgeSocial'
+import ImageComponent from '@notion-x/src/components/ImageComponent'
+import { ImageType } from '@notion-x/src/interface'
+import cn from 'classnames'
+import Image from 'next/image'
+
+import inforLinks from '../../data/inforLinks'
+import me from '../../data/me'
+import socials from '../../data/social'
+import Header from './Header'
+
+export default function HeaderIndex() {
+  const ySpacingClass = 'mt-6 md:mt-4'
+  return (
+    <Header headerType="gray" headerWidth="wide">
+      <div
+        className={cn(
+          'flex flex-col md:flex-row md:gap-6 flex-wrap items-center justify-items-stretch'
+        )}
+      >
+        <div className="h-28 md:order-2 md:h-60">
+          <ImageComponent
+            alt="Thi's avatar"
+            image={{ staticImageData: Avatar }}
+            className="h-full w-auto"
+          />
+        </div>
+        <div className="md:order-1 md:flex-1">
+          <h1
+            className={cn(
+              'flex thi-title justify-center md:justify-start font-heading',
+              ySpacingClass
+            )}
+          >
+            <span
+              className={cn(
+                'mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center'
+              )}
+            >
+              <Image src={WavingHand} alt="Waving hand" width={36} height={36} />
+            </span>
+            {"Hi! I'm Thi"}
+          </h1>
+          <p
+            className={cn(
+              'max-w-full text-base text-center text-main-dark md:text-left',
+              ySpacingClass
+            )}
+            dangerouslySetInnerHTML={{ __html: me.shortIntro }}
+          ></p>
+          <div
+            className={cn(
+              'flex flex-wrap items-center justify-center gap-3 md:justify-start',
+              ySpacingClass
+            )}
+          >
+            {socials.map(item => (
+              <BadgeSocial
+                key={item.id}
+                icon={{ staticImageData: item.icon } as ImageType}
+                url={item.url}
+                title={item.title}
+                imgClass={cn('h-full', item.imgClass)}
+              />
+            ))}
+          </div>
+        </div>
+        <div className={'mt-10 flex w-full flex-wrap items-center justify-center gap-3 md:order-3'}>
+          {inforLinks.map(item => (
+            <BadgeInfos key={item.id} {...item} />
+          ))}
+        </div>
+      </div>
+    </Header>
+  )
+}
