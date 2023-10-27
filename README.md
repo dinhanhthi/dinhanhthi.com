@@ -2,7 +2,7 @@
 
 Next.js 13.5+ + Tailwind CSS + Notion as CMS + [notion-x](https://github.com/dinhanhthi/notion-x).
 
-👉 An example of Notion Database for notes: [check here](https://thi-cs.notion.site/thi-cs/98af612503b54cc8b9ee527957418d6e?v=ed9d8334d20043c1ab9ea831022b2999).
+> 🚨 The source code on this page is for reference only. You cannot clone and use it to create an exact replica of my website. It lacks the Notion databases that power my site, and I don't have time to make it publicly available. **Please don't email me for a clone**. I'm working on writing a guide as soon as possible. Thanks for your understanding.
 
 ## Previous versions
 
