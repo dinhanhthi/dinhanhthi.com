@@ -1,0 +1,298 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-heading;
+}
+
+h1 {
+  font-size: $heading-h1-size;
+}
+
+h2 {
+  font-size: $heading-h2-size;
+}
+
+h3 {
+  font-size: $heading-h3-size;
+}
+
+h4 {
+  font-size: $heading-h4-size;
+}
+
+.blog-container {
+  h2,
+  h3 {
+    zoom: 1.1;
+  }
+}
+
+@if $heading-numbering {
+  body {
+    counter-reset: h2counter;
+  }
+}
+
+.no-heading-numbering {
+  h2,
+  h3,
+  h4 {
+    &:before {
+      display: none !important;
+    }
+  }
+}
+
+.page-note {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    margin-bottom: $margin-bottom-heading;
+    margin-top: 0;
+    color: var(--heading-color);
+  }
+
+  h1 {
+    & + h2 {
+      margin-top: $heading-heading-minus-margin;
+    }
+  }
+
+  h2 {
+    & + h3 {
+      margin-top: $heading-heading-minus-margin;
+    }
+  }
+
+  h3 {
+    & + h4 {
+      margin-top: $heading-heading-minus-margin;
+    }
+  }
+
+  * > {
+    h2,
+    h3,
+    h4 {
+      .direct-link {
+        display: none !important;
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    position: relative;
+    &:hover {
+      .direct-link {
+        opacity: 1;
+      }
+      a:hover {
+        color: var(--font-a);
+      }
+    }
+
+    .direct-link {
+      position: absolute;
+      left: -23px;
+      opacity: 0;
+      border-bottom: none;
+      transition: all 0.2s ease-in-out;
+      font-size: 85%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--color-faded);
+      // svg {
+      //   fill: var(--color-faded);
+      // }
+
+      @include screen-lg-down {
+        position: unset;
+        display: none;
+      }
+    }
+  }
+
+  & > h2 {
+    margin: $mt-heading 0 $margin-bottom-heading 0;
+    border-bottom: 1px dashed var(--toc-title-bd);
+    padding-bottom: 5px;
+    @if not $heading-numbering {
+      &:before {
+        content: "# ";
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  & > h3 {
+    font-size: $heading-h3-size;
+    margin-bottom: $margin-bottom-heading;
+    margin-top: 0.8 * $mt-heading;
+    @if not $heading-numbering {
+      &:before {
+        content: "● ";
+        color: #8ed08e;
+        font-size: 1.45rem;
+        vertical-align: unset;
+        line-height: 1;
+      }
+    }
+
+    & + h4 {
+      margin-top: -0.5rem;
+    }
+  }
+
+  & > h4 {
+    font-size: $heading-h4-size;
+    margin-bottom: $margin-bottom-heading;
+    margin-top: 0.8 * $mt-heading;
+    @if not $heading-numbering {
+      &:before {
+        content: "∴ ";
+        color: #ffa871;
+        font-size: 1.48;
+        line-height: 1;
+      }
+    }
+  }
+
+  pre,
+  .code-output-equal,
+  .code-output-flex {
+    & + h2,
+    & + h3,
+    & + h4 {
+      margin-top: $mt-heading;
+    }
+  }
+
+  @if $heading-numbering {
+    & > h1 {
+      counter-reset: h2counter;
+    }
+    & > h2 {
+      counter-reset: h3counter;
+      position: relative;
+      padding-bottom: 0;
+      border-bottom: none;
+      margin-left: -3px;
+      &:before {
+        content: counter(h2counter);
+        counter-increment: h2counter;
+        padding: 0 10px;
+        border-radius: 10px;
+        background: var(--code-inline-background);
+        width: 0.8 * $heading-h2-size;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5px;
+      }
+    }
+    & > h3 {
+      counter-reset: h4counter;
+      &:before {
+        content: counter(h2counter) "." counter(h3counter);
+        counter-increment: h3counter;
+        margin-right: 5px;
+      }
+    }
+    & > h4:before {
+      content: counter(h2counter) "." counter(h3counter) "." counter(h4counter);
+      counter-increment: h4counter;
+      margin-right: 5px;
+    }
+  }
+} // end page-note
+
+// headings with dots at the end like in About page
+.h2-dots {
+  position: relative;
+  display: inline-block;
+
+  h2 {
+    font-size: 1.7rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+
+    &._d-flex {
+      display: flex;
+      align-items: center;
+    }
+
+    img {
+      margin-right: 7px;
+    }
+
+    & > .fontello-icon + span {
+      margin-left: -5px;
+    }
+
+    &.heading-notes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+      margin-top: 2rem;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 28px;
+    right: -15px;
+    content: "";
+    height: 20px;
+    width: 30px;
+
+    background-image: -webkit-repeating-radial-gradient(
+      center center,
+      var(--color-invert),
+      var(--color-invert) 1px,
+      transparent 0px,
+      transparent 100%
+    );
+
+    -webkit-background-size: 6px 6px;
+    -moz-background-size: 6px 6px;
+    background-size: 6px 6px;
+    z-index: 0;
+  }
+
+  &._small {
+    zoom: 0.9;
+  }
+
+  &._big {
+    zoom: 1.1;
+  }
+
+  &._no-dots {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+a.heading-more {
+  font-size: 65%;
+  font-style: italic;
+  font-weight: normal;
+  color: var(--heading-color);
+  padding-left: 5px;
+  letter-spacing: 1px;
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+  }
+}

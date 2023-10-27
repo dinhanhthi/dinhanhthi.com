@@ -1,0 +1,30 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+siteWideUpdate: 2020-07-12
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for page in collections.all %}
+    {% if (not page.data.notfull) and (not page.data.hide) %}
+      {% set absoluteUrl %}{{ page.url | url | absoluteUrl(settings.url) }}{% endset %}
+      {% set pageDate = page.date | sitemapDateTimeString %}
+      {% set lastModifiedDate = page
+        .date
+        .toISOString()
+        .slice(0, 10) %}
+      {% set siteWide = siteWideUpdate | sitemapDateTimeString %}
+      {% set lastmod = siteWide %}
+      {% if pageDate > lastmod %}
+        {% set lastmod = pageDate %}
+      {% endif %}
+      {% if lastModifiedDate > lastmod %}
+        {% set lastmod = lastModifiedDate %}
+      {% endif %}
+      <url>
+        <loc>{{ absoluteUrl }}</loc>
+        <lastmod>{{ lastmod }}</lastmod>
+      </url>
+    {% endif %}
+  {%- endfor %}
+</urlset>

@@ -1,0 +1,135 @@
+{#
+  Parameters:
+  - newPostList
+  - customClass (string)
+  - sortBy ('date')
+  - customIcon (boolean)
+
+  For customized attributes like "notfull", modify in notes/_data/custom_post_attributes.json
+#}
+
+<div class="toggle-posts{% if customClass %} {{ customClass }}{% endif %}">
+
+  {% if sortBy == 'date' %}
+    {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
+  {% else %}
+    {% set newPostList = newPostList | sort(attribute = 'title') %}
+  {% endif %}
+
+  {% for post in newPostList %}
+    {% if post.target %}
+      {% set target = post.target %}
+    {% else %}
+      {% set target = "_self" %}
+      {% endif%}
+
+      {# 👋 a tag around #}
+      {% if 'list-of-blog' in customClass %}
+        <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
+        {% endif %}
+
+        <div class="post-item
+        {% if not post.isBlog %}
+          {% if post.notfull or post.lowQuality %} post-not-full{% endif %}
+          {% if post.private %} post-private{% endif %}
+          {% if post.external %} post-outside{% endif %}
+        {% endif %}
+        {% if 'list-of-blog' in customClass %} _blog-card{% endif %}
+      ">
+          {% if customIcon %}
+            {% if post.isBlog %}
+              {% set blogItem = categories | getBlog %}
+              <i class="{{ blogItem.fontello }} fontello-icon" style="color: {{ blogItem.color }};"></i>
+            {% else %}
+              {% if not post.external %}
+                <i class="icon-doc fontello-icon"></i>
+              {% else %}
+                <i class="icon-doc-add fontello-icon"></i>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+          {% if not 'list-of-blog' in customClass %}
+            <a href="{{ post.url | url }}" rel="noopener noreferrer" target="{{ target }}">
+            {% endif %}
+
+            {% if post.title %}
+              <span class="card-title">
+                {{ post.title }}
+
+                {# 👋 Don't show draft/private/good indicator for blog posts #}
+                {% if not post.isBlog %}
+                  {% if post.notfull or post.lowQuality %}
+                    <sup title="Draft note">•</sup>
+                  {% endif %}
+                  {% if post.private %}
+                    <sup title="Private note">†</sup>
+                  {% endif %}
+                {% endif %}
+                {% if post.part %}
+                  {% if not 'list-of-blog' in customClass %} — Part {% endif %}
+                  <span class="post-part-card">{{ post.part }}</span>
+                {% endif %}
+              </span>
+
+              {% if post.partName %}
+                {% if 'list-of-blog' in customClass %}
+                  <div class="post-part-name">{{ post.partName }}</div>
+                {% else %}
+                  <span>{{ post.partName }}</span>
+                {% endif %}
+              {% endif %}
+
+              {% if 'list-of-blog' in customClass %}
+                <div class="bottom-wave">
+                  <svg
+                class="waves"
+                preserveAspectRatio="none"
+                shape-rendering="auto"
+                viewBox="0 24 150 28"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                    <defs>
+                      <path
+                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                    id="gentle-wave"
+                  ></path>
+                    </defs>
+                    <g class="parallax">
+                      <use fill="{{ post.title | getRandomColor(loop.index0, 0) }}" x="48" xlink:href="#gentle-wave" y="0"></use>
+                      <use fill="{{ post.title | getRandomColor(loop.index0, 1) }}" x="48" xlink:href="#gentle-wave" y="3"></use>
+                      <use fill="{{ post.title | getRandomColor(loop.index0, 2) }}" x="48" xlink:href="#gentle-wave" y="5"></use>
+                      <use fill="{{ post.title | getRandomColor(loop.index0, 3) }}" x="48" xlink:href="#gentle-wave" y="7"></use>
+                    </g>
+                  </svg>
+                </div>
+              {% endif %}
+            {% else %}
+              <code>{{ post.url }}</code>
+              {% if post.notfull or post.lowQuality %}
+                <sup title="Draft note">•</sup>
+              {% endif %}
+              {% if post.private %}
+                <sup title="Private note">†</sup>
+              {% endif %}
+            {% endif %}
+
+            {% if not 'list-of-blog' in customClass %}
+            </a>
+            {% set status = post.date | checkDateStatus(post.inputPath) %}
+            {% if status == 'new' or status == 'updated' %}
+              <span class="post-status {{ status }}">{{ status }}</span>
+            {% endif %}
+            {% if post.date and showDate %} — <span class="last-modified">updated {{ post.date | toDuration }}</span>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {# a tag around #}
+        {% if 'list-of-blog' in customClass %}
+        </a>
+      {% endif %}
+      {# <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> #}
+    {% endfor %}
+  </div>
