@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dinhanhthi.com/
+
+# Sitemaps
+Sitemap: https://dinhanhthi.com/sitemap.xml

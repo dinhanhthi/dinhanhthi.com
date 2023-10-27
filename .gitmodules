@@ -1,0 +1,3 @@
+[submodule "notion-x"]
+	path = notion-x
+	url = https://github.com/dinhanhthi/notion-x.git

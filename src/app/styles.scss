@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Recoleta';
+  font-weight: 500;
+  font-style: normal;
+  src: url('./fonts/recoleta/Recoleta-Medium.eot');
+  src: url('./fonts/recoleta/Recoleta-Medium.woff2') format('woff2'),
+    url('./fonts/recoleta/Recoleta-Medium.woff') format('woff'),
+    url('./fonts/recoleta/Recoleta-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta';
+  src: url('./fonts/recoleta/Recoleta-SemiBold.eot');
+  src: url('./fonts/recoleta/Recoleta-SemiBold.woff2') format('woff2'),
+    url('./fonts/recoleta/Recoleta-SemiBold.woff') format('woff'),
+    url('./fonts/recoleta/Recoleta-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: bold;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px black;
+  }
+  .text-shadow-md {
+    text-shadow: 4px 4px 8px black;
+  }
+  .text-shadow-lg {
+    text-shadow: 15px 15px 30px black;
+  }
+  .text-shadow-none {
+    text-shadow: none;
+  }
+  .bg-wave-top-white {
+    @apply after:block after:h-8 after:w-full after:bg-wave;
+  }
+  .bg-wave-bottom-white {
+    @apply before:block before:h-8 before:w-full before:bg-wave-footer;
+  }
+  .bg-wave-top-stone {
+    @apply after:block after:h-8 after:w-full after:bg-wave-stone;
+  }
+  .bg-wave-bottom-stone {
+    @apply before:block before:h-8 before:w-full before:bg-wave-footer-stone;
+  }
+}
+
+@layer components {
+  .thi-bg {
+    @apply bg-white;
+  }
+
+  /*
+  Don't forget to change manually for "wave-stone" and "wave-footer-stone"
+  classes in tailwind.config.js
+  */
+  .thi-bg-stone {
+    @apply bg-stone-100;
+  }
+
+  .thi-text-color {
+    @apply text-main;
+  }
+
+  .thi-text-rainbow {
+    @apply bg-gradient-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
+  }
+
+  /* Display as normal text except hoving or on small screen */
+  .thi-link-normal {
+    @apply md:thi-text-color w-fit text-link
+    md:hover:text-pink-500;
+  }
+  /* For bg always in dark mode */
+  .thi-link-normal-always-dark {
+    @apply w-fit text-[#ffd479] md:text-[#f8fafc] md:hover:text-[#ffd479];
+  }
+
+  .thi-link {
+    @apply text-link transition-colors duration-150
+    hover:text-pink-500;
+  }
+  .thi-link-always-dark {
+    @apply text-[#ffd479] transition-colors duration-150 hover:text-pink-300;
+  }
+
+  .thi-transition-dark {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+
+  .thi-box-code {
+    @apply thi-transition-dark thi-bg thi-text-color rounded-lg shadow-lg;
+  }
+
+  .thi-badge-code {
+    @apply thi-transition-dark thi-text-color flex h-6 w-fit items-center
+    justify-center rounded-md border bg-stone-100 px-1 align-baseline text-base
+    shadow-sm transition duration-200 ease-in-out hover:-translate-y-0.5;
+  }
+
+  .thi-title {
+    @apply text-3xl font-semibold text-[#f8fafc];
+  }
+
+  /**
+    thi-prose
+    Reamark: There are styles in src/styles/_prism-vscode.scss
+  */
+
+  .thi-prose-code-bg {
+    @apply bg-stone-100;
+  }
+
+  .thi-prose-code-main {
+    @apply prose-code:thi-prose-code-bg prose-code:font-mono prose-code:text-sm
+    prose-code:font-normal prose-code:text-stone-900 prose-code:before:content-none
+    prose-code:after:content-none;
+  }
+
+  .thi-prose-code-heading {
+    @apply prose-code:prose-h2:text-xl prose-code:prose-h3:text-lg
+    prose-code:prose-h4:text-base;
+  }
+
+  .thi-prose-code {
+    @apply thi-prose-code-main thi-prose-code-heading;
+  }
+
+  .thi-prose-pre {
+    @apply prose-pre:thi-prose-code-bg
+    prose-pre:font-mono prose-pre:prose-code:before:content-none;
+  }
+
+  .thi-prose {
+    @apply thi-prose-code thi-prose-pre prose prose-strong:font-medium;
+  }
+}
+
+.m2it-prose {
+  h1,
+  h2,
+  h3 {
+    font-family: 'Recoleta', 'Arial', 'Helvetica', 'sans-serif' !important;
+    font-weight: normal !important;
+  }
+}
