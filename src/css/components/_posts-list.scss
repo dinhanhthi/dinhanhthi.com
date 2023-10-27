@@ -1,0 +1,202 @@
+.list-of-post {
+  .fontello-icon {
+    margin-left: -25px;
+    &::before {
+      opacity: 0.75;
+    }
+  }
+  .post-item {
+    margin-bottom: 10px !important;
+    padding-right: 10px;
+    padding-left: 25px;
+    width: 100%;
+    a {
+      color: var(--a-list-homepage);
+      border-bottom: 2px dotted var(--a-list-homepage-bd);
+    }
+    &:hover {
+      a {
+        border-color: var(--font-a);
+        color: var(--color-invert);
+      }
+      cursor: pointer;
+      &::before {
+        opacity: 1;
+      }
+    }
+    .post-status {
+      font-size: 80%;
+      padding: 0 5px;
+      border-radius: 5px;
+      margin-left: 7px;
+      border: 1px solid;
+      &.updated {
+        background: var(--status-updated);
+        color: var(--status-updated-text);
+        border-color: var(--status-updated);
+      }
+      &.new {
+        background: var(--status-new);
+        color: var(--status-new-text);
+        border-color: var(--status-new);
+      }
+    }
+    .last-modified {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// index.njk
+.category {
+  .list-homepage {
+    @include column-count(1);
+    @include screen-md-up {
+      @include column-count(2);
+    }
+    @include screen-lg-up {
+      @include column-count(3);
+    }
+  }
+}
+
+// For blog posts
+.list-of-blog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: $post-gap;
+  column-gap: $post-gap;
+
+  // Check _index.scss too
+
+  @include screen-xxl-up {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include screen-xxl-down {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include screen-xl-down {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include screen-lg-down {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include screen-sm-down {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  a {
+    color: var(--blog-card-title-color);
+    font-size: 1.13rem;
+    font-weight: 500;
+    &:hover {
+      border: none;
+    }
+  }
+
+  .post-item {
+    background: var(--bg-blog-card);
+    box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+    min-height: $min-blog-card-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.3rem;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-radius: 16px;
+      transform: scale(1.03);
+    }
+
+    &._blog-card {
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .post-part-name {
+        display: block;
+        font-size: 83%;
+        font-weight: normal;
+        border-radius: 10px;
+        border: 1px solid #cccccc69;
+        padding: 0 10px;
+        margin-top: 9px;
+        background: var(--part-name-bg);
+        color: var(--color-invert);
+        z-index: 20;
+      }
+
+      .post-part-card {
+        padding: 5px;
+        display: inline-flex;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $color-yellow;
+        align-items: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 90%;
+        margin-left: 5px;
+        color: #3d2e2e;
+      }
+
+      .bottom-wave {
+        position: absolute;
+        bottom: -2px;
+        width: 100%;
+
+        .waves {
+          position: relative;
+          width: 100%;
+          height: 5vh;
+          margin-bottom: -7px; /*Fix for safari gap*/
+          min-height: 60px;
+          max-height: 150px;
+
+          .parallax > use {
+            animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5)
+              infinite;
+          }
+          .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(2) {
+            animation-delay: -5s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(3) {
+            animation-delay: -7s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(4) {
+            animation-delay: -1s;
+            animation-duration: 10s;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Animation for bottom-wave */
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}

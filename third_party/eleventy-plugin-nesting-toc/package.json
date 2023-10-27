@@ -1,0 +1,33 @@
+{
+  "name": "eleventy-plugin-nesting-toc",
+  "version": "1.3.0",
+  "description": "Eleventy plugin which adds a filter to generate a Table of Contents from html",
+  "main": ".eleventy.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordanShurmer/eleventy-plugin-toc.git"
+  },
+  "keywords": [
+    "11ty",
+    "eleventy-plugin",
+    "eleventy",
+    "plugin",
+    "toc",
+    "table of contents"
+  ],
+  "author": "Jordan Shurmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordanShurmer/eleventy-plugin-toc/issues"
+  },
+  "homepage": "https://github.com/JordanShurmer/eleventy-plugin-toc#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2"
+  }
+}

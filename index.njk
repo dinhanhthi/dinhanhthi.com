@@ -1,0 +1,119 @@
+---
+layout: page
+containerBackgroundType: gray
+title: "Hi! I'm Thi"
+specialTitleImageUrl: "/img_src/wave.webp"
+description: I failed my way to success
+customClass: "page-index bg-gray"
+icon: '/img_src/avatar_memoji.webp'
+date: Last Modified
+---
+
+<div class="container wide ex-normal d-flex d-flex-wrap _gap __big">
+
+  {# Blog #}
+  {% set blogCat = categories | getCategory('Blog') %}
+  {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+  <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
+    {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: true, debugSource: 'index blog - externalPosts'}) %}
+    {% set internalPosts = collections['Blog'] | normalizePosts({debugSource: 'index blog'}) %}
+    {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'Blog', byTag: false, external: false, debugSource: 'index blog - internal'}) %}
+    {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+    {% set numTotal = newPostList | length %}
+    {% set newPostList = newPostList | head(6) %}
+    <div class="h2-dots _big _no-dots">
+      <h2 id="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
+        {# <i class="{{ blogCat.fontello }} fontello-icon" style="color: {{ blogCat.color }};"></i> #}
+        <span>Latest blog posts</span>
+        {% if numTotal > 6 %}
+          <a class="heading-more no-effect" href="/blog/">...more</a>
+        {% endif %}
+      </h2>
+    </div>
+    {% if numTotal > 6 %}
+      {% set customClass = 'list-of-blog _hide-last' %}
+    {% else %}
+      {% set customClass = 'list-of-blog' %}
+    {% endif %}
+    {% set customIcon = false %}
+    {% set sortBy = 'date' %}
+    {% include "components/postslist.njk" %}
+  </div>
+
+  {# Notes #}
+  {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+  {% set internalPosts = collections.posts | normalizePosts({debugSource: 'index notes'}) %}
+  {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: 'all', external: true, debugSource: 'index notes - externalPosts'}) %}
+  {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: 'all', external: false, debugSource: 'index notes - internal'}) %}
+  {% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+  {% set numTotal = newPostList | length %}
+  {% set newPostList = newPostList | sort(attribute = 'date') | reverse %}
+  {% set newPostList = newPostList | head(9) %}
+  {% set countPosts = newPostList | countSpecialPosts %}
+  <div class="category-wrapper" name="{{ blogCat.name | lower | trim | replace(" ", "-") }}">
+    <div class="h2-dots _big _no-dots">
+      <h2 id="notes">
+        {# <img alt="Note icon" src="/img_src/icons/notes.svg" width="30" height="30" class="keep-original"/> #}
+        <span>Recently updated notes</span>
+        {% if numTotal > 9 %}
+          <a class="heading-more no-effect" href="/notes/">...more</a>
+        {% endif %}
+      </h2>
+    </div>
+
+    {% set customClass = 'list-homepage list-of-post' %}
+    {% set customIcon = true %}
+    {% set sortBy = 'date' %}
+    <div class="category">
+      {% include "components/postslist.njk" %}
+    </div>
+    <div class="label-notes">
+      {% if countPosts.numDrafts > 0 %}
+        <div class="label-item">
+          <sup>•</sup> Draft posts
+          {% if countPosts.numPrivate + countPosts.numOutside > 0 %},{% endif %}
+        </div>
+      {% endif %}
+      {% if countPosts.numPrivate > 0 %}
+        <div class="label-item">
+          <sup>†</sup> Private posts
+          {% if countPosts.numOutside > 0 %},{% endif %}
+        </div>
+      {% endif %}
+      {% if countPosts.numOutside > 0 %}
+        <div class="label-item">
+          <i class="icon-doc-add fontello-icon"></i>Outside this site
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="category-wrapper">
+    <div class="h2-dots _big _no-dots">
+      <h2 id="notes">
+        {# <img alt="Topic icon" src="/img/header/tag_.svg" width="30" height="30" class="keep-original"/> #}
+        <span>Topics</span>
+        <a class="heading-more no-effect" href="/tags/">...more</a>
+      </h2>
+    </div>
+    <div class="topic-list">
+      {% for topic in categories | rejectattr("hideFromTopics") | sort(attribute = 'name') %}
+        {% set externalPosts = cat_ex_posts | concat(notion.json) %}
+        {% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: topic.name, byTag: true, external: true, debugSource: 'index page - topic list'}) %}
+        {% set internalPosts = collections[topic.name] | normalizePosts({debugSource: 'index page - topic list'}) %}
+        {% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: topic.name, byTag: true, external: false, debugSource: 'index page - topic list'}) %}
+        {% if internalPostsByCategory | length + externalPostsByCategory | length > 2 %}
+          <a class="no-effect" href="/tags/{{ topic.name | slug }}/">
+            <div class="topic-item">
+              <img alt="{{ topic.name }} icon" src="/img/cats/{{ topic.icon }}" width="30" height="30" class="keep-original"/>
+              <div class="_name">
+                {{ topic.name }}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

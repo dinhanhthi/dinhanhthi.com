@@ -1,0 +1,307 @@
+.page-about {
+
+  .header-logo {
+    width: auto;
+    height: 120px;
+  }
+
+  $abt-intro: 65%;
+  .intro {
+    padding: 0 $padding-lr 2rem 2 * $padding-lr;
+    width: $abt-intro;
+    text-align: left;
+  }
+
+  .coordinate {
+    width: 100% - $abt-intro;
+    padding: 0 $padding-lr;
+    padding-right: 2 * $padding-lr;
+    font-size: 1rem;
+    text-align: left;
+    ul {
+      padding-left: 0;
+      list-style: none;
+      span {
+        color: $color-blue;
+        margin-right: 10px;
+      }
+      a {
+        color: $font-color;
+        &:hover {
+          border-bottom-color: $font-a;
+        }
+      }
+      .job {
+        margin-top: 1rem;
+        span {
+          color: #000;
+          @include screen-md-down {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen-lg-down {
+    .intro {
+      width: 60%;
+    }
+    .coordinate {
+      width: 40%;
+    }
+  }
+
+  @include screen-md-down {
+    .intro {
+      width: 100%;
+      padding: 0;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #444;
+    }
+    .coordinate {
+      width: 100%;
+      padding: 1rem 1rem 1.5rem;
+    }
+  }
+
+  .list-of {
+    a {
+      color: var(--font-color);
+      border-bottom: none;
+      &:hover {
+        color: var(--font-a);
+      }
+    }
+    p > a {
+      border-bottom: 0.5px solid var(--font-color);
+    }
+  }
+
+  .container {
+    display: grid;
+    gap: 1rem;
+
+    &.skills-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    &.cv-container {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .section {
+      flex: 1;
+      margin: 1rem 0;
+
+      .list-of {
+        border: 0.5px solid var(--code-bd);
+        border-radius: $box-border-radius;
+        background: var(--code-bg);
+        box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+      }
+    }
+
+    .skills {
+      &.section {
+        h2 {
+          margin-bottom: 1rem;
+        }
+        .list-of {
+          padding: 0.5rem;
+        }
+      }
+    }
+
+    @mixin skill-small() {
+      display: inline-flex;
+      margin: 3px 6px 3px 0;
+      border: 1px solid var(--badge-black-bd);
+      background: var(--badge-black-bg);
+      padding: 3px;
+      border-radius: $box-border-radius;
+      picture {
+        display: inline-flex;
+      }
+    }
+
+    .logo {
+      width: calc(min(80px, 80%));
+      height: auto;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      &.bg-white {
+        width: calc(min(120px, 80%));
+        img {
+          background: #fff;
+          border-radius: $box-border-radius;
+          padding: 10px;
+        }
+      }
+    }
+
+    .exp-edu {
+      .list-of {
+        $abt-border-bottom: 1px solid var(--color-faded-invert);
+        .item {
+          padding: 0 1rem;
+          & > div {
+            padding: 1rem 0;
+            border-bottom: $abt-border-bottom;
+          }
+          $abt-where: 25%;
+          $abt-title: 100% - $abt-where;
+          .where {
+            padding: 1rem 0.5rem;
+            flex: 0 0 $abt-where;
+            max-width: $abt-where;
+            font-size: calc(1rem + 1px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            div {
+              padding: 2px;
+              text-align: center;
+              &.place {
+                font-weight: 500;
+              }
+              &.date {
+                font-size: 0.95rem;
+                color: var(--color-faded);
+              }
+              a:hover {
+                border-bottom: 1px solid var(--font-a-border);
+              }
+            }
+          }
+          .title {
+            padding: 1rem;
+            flex: 0 0 $abt-title;
+            max-width: $abt-title;
+            h4 {
+              margin-top: 0;
+              margin-bottom: 0.5rem;
+              font-size: 1.25rem;
+            }
+            .where-2 {
+              display: none;
+            }
+            p {
+              margin: 0 0 0.5rem 0;
+              color: var(--color-faded);
+              line-height: 1.5;
+            }
+          }
+
+          &:last-child {
+            & > div {
+              border-bottom: none;
+            }
+          }
+        }
+
+        @include screen-lg-down {
+          .item {
+            padding: 0 0.5rem;
+            .where {
+              display: none;
+            }
+            .title {
+              flex: 1;
+              max-width: 100%;
+              .where-2 {
+                display: block;
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+                font-style: italic;
+                a {
+                  color: var(--heading-color);
+                }
+                span.date-2 {
+                  color: var(--color-blue);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @include screen-md-down {
+        width: 100%;
+        flex: none;
+      }
+    }
+
+    .projects {
+      .list-wrapper {
+        width: 25%;
+        padding: 0 1rem 1rem 0;
+        display: flex;
+      }
+
+      .list-of {
+        width: 100%;
+        .title {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          a {
+            &:hover {
+              span {
+                border-bottom: 1px solid var(--font-a);
+              }
+            }
+          }
+          h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+          }
+          p {
+            margin: 0;
+            color: var(--color-faded);
+            line-height: 1.5;
+            flex: 1;
+          }
+        }
+      }
+
+      @media (min-width: $grid-xl) {
+        .list-wrapper {
+          &:nth-child(4n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $grid-md) and (max-width: #{$grid-xl - 1px}) {
+        .list-wrapper {
+          width: calc(100% / 3);
+          &:nth-child(3n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $grid-sm) and (max-width: #{$grid-md - 1px}) {
+        .list-wrapper {
+          width: 50%;
+          &:nth-child(2n) {
+            padding-right: 0;
+          }
+        }
+      }
+
+      @include screen-sm-down {
+        .list-wrapper {
+          width: 100%;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

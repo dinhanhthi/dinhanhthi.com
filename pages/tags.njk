@@ -1,0 +1,43 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: post
+customClass: "page-single-tag"
+customJS: ["toggle-notes.js"]
+eleventyComputed:
+  title: Topic “{{ tag }}”
+permalink: /tags/{{ tag | slug }}/
+icon: tag_.svg
+hideComment: true
+---
+
+<p>👉 Check <a href="{{ '/tags/' | url }}">all topics</a> on this site.</p>
+
+{% set customClass = "single-line plain" %}
+{% include "components/toggle-posts-buttons.njk" %}
+
+{# post outside 11ty .md files #}
+{% set externalPosts = cat_ex_posts | concat(notion.json) %}
+{% set internalPosts = collections[tag] | normalizePosts({debugSource: 'tag page'}) %}
+{% set externalPostsByCategory = externalPosts | filterByCategory({categoryName: tag, byTag: true, external: true, debugSource: 'tag - externalPosts'}) %}
+{% set internalPostsByCategory = internalPosts | filterByCategory({categoryName: tag, byTag: true, external: false, debugSource: 'tag - externalPosts'}) %}
+{% set newPostList = externalPostsByCategory | concat(internalPostsByCategory) %}
+
+{% if newPostList | length > 0 %}
+  {% set customClass = 'list-of-post' %}
+  {% set customIcon = true %}
+  {% set sortBy = 'date' %}
+  {% set showDate = true %}
+  {% include "components/postslist.njk" %}
+{% else %}
+  <div class="no-posts">This topic contains no post, please return later.</div>
+{% endif %}

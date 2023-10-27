@@ -1,0 +1,191 @@
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
+    "Courier New", Courier, monospace;
+  line-height: 1.5;
+}
+
+h2 > code {
+  font-size: 0.75 * $heading-h2-size !important;
+}
+
+h3 > code {
+  font-size: 0.78 * $heading-h3-size !important;
+}
+
+h4 > code {
+  font-size: 0.8 * $heading-h4-size !important;
+}
+
+*:not(pre) > code {
+  @include code-inline();
+
+  &.no-bg {
+    background: none;
+  }
+
+  &.no-border {
+    border: none;
+  }
+}
+
+h2,
+h3,
+h4 {
+  & > code {
+    color: var(--code-inline-text);
+    padding-right: 6px;
+  }
+}
+
+a {
+  & > code {
+    color: var(--font-a);
+  }
+  &:hover {
+    & > code {
+      color: var(--code-inline-text);
+    }
+  }
+}
+
+pre[class*="language-"] {
+  position: relative;
+  & > .copy {
+    position: absolute;
+    z-index: 99;
+    padding: 1px 5px;
+    top: 8px;
+    right: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    background: var(--code-inline-background);
+    border: 0.5px solid var(--prism-border);
+    color: var(--color-faded);
+    transition: opacity 0.2s ease-in-out;
+    .fontello-icon::before {
+      margin-right: 0;
+    }
+    &:hover {
+      color: var(--font-a);
+    }
+    .icon-ok {
+      color: #22a846;
+    }
+
+    &.copying {
+      opacity: 1;
+    }
+
+    @include screen-lg-down {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    & > .copy {
+      opacity: 1;
+    }
+  }
+}
+
+pre[class*="language-"],
+pre {
+  margin: 0 0 $margin-bottom-code 0;
+  overflow: auto;
+  & > code {
+    display: block;
+    padding: ($inside-padding - 2px) $inside-padding $inside-padding;
+    background: var(--prism-bg);
+    border: 0.5px solid var(--prism-border);
+    overflow: auto;
+    border-radius: $code-border-radius;
+    max-height: $code-max-height;
+    color: var(--prism-color);
+  }
+}
+
+.highlight-line {
+  display: block;
+  text-decoration: none;
+
+  /* override del, ins, mark defaults */
+  color: inherit;
+
+  /* override del, ins, mark defaults */
+
+  &:empty:before {
+    content: " ";
+  }
+
+  + br {
+    display: none;
+  }
+}
+
+/* allow highlighting empty lines */
+
+/* avoid double line breaks when using display: block; */
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+
+.highlight-line-active {
+  background-color: var(--prism-highlight-line-bg);
+}
+
+.highlight-line-add {
+  background-color: var(--prism-highlight-line-add-bg);
+}
+
+.highlight-line-remove {
+  background-color: var(--prism-highlight-line-remove-bg);
+}
+
+.highlight-line-active,
+.highlight-line-add,
+.highlight-line-remove {
+  margin-left: -$inside-padding;
+  margin-right: -$inside-padding;
+  padding: 0 $inside-padding;
+}
+
+/* Differences */
+.token.deleted {
+  background-color: var(--prism-highlight-line-remove-bg);
+}
+.token.inserted {
+  background-color: var(--prism-highlight-line-add-bg);
+}
+.token.deleted, .token.inserted, .token.unchanged {
+  &.prefix {
+    margin-left: -$inside-padding;
+    margin-right: 5px;
+    padding: 2.5px 5px;
+  }
+}
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+  margin-left: -$inside-padding;
+  margin-right: -$inside-padding;
+  padding: 0 $inside-padding;
+}
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/* Unselectable copy/paste for comments */
+// .token.comment, .token.comment + br {
+//   -webkit-user-select: none;
+//   user-select: none;
+// }
