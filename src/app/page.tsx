@@ -32,7 +32,7 @@ export const metadata = getMetadata({
   ]
 })
 
-const HeadingWithMore = ({ title, href }: { title: string; href: string }) => (
+export const HeadingWithMore = ({ title, href }: { title: string; href?: string }) => (
   <h2
     id="notes"
     className={cn(
@@ -40,12 +40,14 @@ const HeadingWithMore = ({ title, href }: { title: string; href: string }) => (
     )}
   >
     <span>{title}</span>
-    <Link
-      className="text-[60%] italic text-slate-600 hover:m2it-link-hover font-normal"
-      href={href}
-    >
-      ...more
-    </Link>
+    {href && (
+      <Link
+        className="text-[60%] italic text-slate-600 hover:m2it-link-hover font-normal"
+        href={href}
+      >
+        ...more
+      </Link>
+    )}
   </h2>
 )
 
