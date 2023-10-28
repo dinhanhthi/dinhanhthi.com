@@ -255,7 +255,9 @@ function transformUnofficialPosts(data: CollectionInstance): Post[] {
     posts.push(getPostProperties(post?.value))
   }
 
-  return posts
+  return posts.filter(
+    post => (process.env.ENV_MODE === 'prod' && post.isPublished) || process.env.ENV_MODE !== 'prod'
+  )
 }
 
 function mapTag(tag: NotionTagData): Tag {
