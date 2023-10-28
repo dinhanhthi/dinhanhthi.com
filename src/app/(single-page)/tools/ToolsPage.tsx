@@ -7,7 +7,8 @@ import { makeSlugText } from '@notion-x/src/lib/helpers'
 import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 import Fuse from 'fuse.js'
-import { ChangeEvent, useRef, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { ChangeEvent, useEffect, useRef, useState } from 'react'
 
 import { Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
@@ -18,11 +19,27 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   const [query, setQuery] = useState('')
   const [tagsToShow, setTagsToShow] = useState<string[]>([])
 
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const tag = searchParams.get('tag')
+
+  useEffect(() => {
+    if (tag && tag.length) {
+      setTagsToShow(tag.split(','))
+    }
+  }, [tag])
+
   const toggleTypeToShow = (tag: string) => {
     if (tagsToShow.includes(tag)) {
+      if (tagsToShow.length === 1) {
+        router.push('/tools')
+      } else {
+        router.push(`/tools?tag=${tagsToShow.filter(item => item !== tag).join(',')}`)
+      }
       setTagsToShow(tagsToShow.filter(item => item !== tag))
     } else {
       setTagsToShow([...tagsToShow, tag])
+      router.push(`/tools?tag=${[...tagsToShow, tag].join(',')}`)
     }
   }
 
