@@ -13,7 +13,7 @@ import ToolsPage, { SkeletonToolItem } from './ToolsPage'
 export const revalidate = 20
 
 export const metadata = getMetadata({
-  title: 'Tools',
+  title: 'Tools I use',
   description: 'Apps, tools, websites I find useful.'
 })
 
@@ -24,7 +24,7 @@ export default async function ProjectsPage() {
     <div className="thi-bg-stone flex flex-col">
       <HeaderPage
         headerType="gray"
-        title="Tools"
+        title="Tools I use"
         subtitle={`I'm always on the lookout for new apps and websites that can help me learn and work more effectively. Here's a list of tools that I've found really useful so far.`}
         headerWidth="wide"
         icon={{ staticImageData: ToolsIcon }}
