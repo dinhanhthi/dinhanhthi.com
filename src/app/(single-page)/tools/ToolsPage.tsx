@@ -86,13 +86,10 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
       {/* Tags */}
       <div
         className={cn(
-          'border p-4 rounded-xl bg-gray-200 m2it-shadow',
-          'flex items-center gap-3 flex-wrap justify-center sm:justify-start'
+          'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
         )}
       >
-        <div className="text-slate-900 font-medium whitespace-nowrap gap-x-4 gap-y-2">
-          Show tools for both?
-        </div>
+        <div className="text-slate-900 whitespace-nowrap gap-x-4 gap-y-2">Show tools for both?</div>
         <div className="flex gap-2 flex-wrap">
           {props.tags.map(tag => (
             <button
