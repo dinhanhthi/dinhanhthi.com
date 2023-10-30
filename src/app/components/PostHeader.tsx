@@ -14,6 +14,7 @@ import { get } from 'lodash'
 import dynamic from 'next/dynamic'
 import { ExtendedRecordMap } from 'notion-types'
 import { getTextContent } from 'notion-utils'
+import { Suspense } from 'react'
 
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
@@ -91,7 +92,17 @@ export default function PostHeader(props: PostHeaderProps) {
         <div className="py-8 flex flex-col gap-5">
           <div className={cn('flex flex-col md:flex-row gap-3 items-start')}>
             {/* icon */}
-            {icon && <PageIcon block={block} inline={false} />}
+            {icon && (
+              <Suspense
+                fallback={
+                  <div
+                    className={cn('w-[38px] h-[38px] bg-slate-600 rounded-full animate-pulse')}
+                  />
+                }
+              >
+                <PageIcon block={block} inline={false} />
+              </Suspense>
+            )}
 
             {/* Title */}
             <h1

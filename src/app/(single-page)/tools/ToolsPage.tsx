@@ -72,9 +72,27 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
 
   return (
     <div className="flex flex-col gap-6">
+      <div>
+        👉{' '}
+        <a
+          className="m2it-link"
+          target="_blank"
+          href="https://github.com/stars/dinhanhthi/lists/favorites"
+        >
+          My favorite repositories
+        </a>{' '}
+        on Github.
+      </div>
       {/* Tags */}
-      <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
-        <div className="text-slate-600 whitespace-nowrap">Show tools for both?</div>
+      <div
+        className={cn(
+          'border p-4 rounded-xl bg-gray-200 m2it-shadow',
+          'flex items-center gap-3 flex-wrap justify-center sm:justify-start'
+        )}
+      >
+        <div className="text-slate-900 font-medium whitespace-nowrap gap-x-4 gap-y-2">
+          Show tools for both?
+        </div>
         <div className="flex gap-2 flex-wrap">
           {props.tags.map(tag => (
             <button
