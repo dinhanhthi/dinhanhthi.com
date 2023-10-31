@@ -3,6 +3,7 @@
 import { LazyImage } from '@notion-x/src/components/lazy-image'
 import FiSearch from '@notion-x/src/icons/FiSearch'
 import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
+import TiTag from '@notion-x/src/icons/TiTag'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
@@ -32,14 +33,16 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   const toggleTypeToShow = (tag: string) => {
     if (tagsToShow.includes(tag)) {
       if (tagsToShow.length === 1) {
-        router.push('/tools')
+        router.push('/tools', { scroll: false })
       } else {
-        router.push(`/tools?tag=${tagsToShow.filter(item => item !== tag).join(',')}`)
+        router.push(`/tools?tag=${tagsToShow.filter(item => item !== tag).join(',')}`, {
+          scroll: false
+        })
       }
       setTagsToShow(tagsToShow.filter(item => item !== tag))
     } else {
       setTagsToShow([...tagsToShow, tag])
-      router.push(`/tools?tag=${[...tagsToShow, tag].join(',')}`)
+      router.push(`/tools?tag=${[...tagsToShow, tag].join(',')}`, { scroll: false })
     }
   }
 
@@ -83,32 +86,6 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
         </a>{' '}
         on Github.
       </div>
-      {/* Tags */}
-      <div
-        className={cn(
-          'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
-        )}
-      >
-        <div className="text-slate-900 whitespace-nowrap gap-x-4 gap-y-2">Show tools for both?</div>
-        <div className="flex gap-2 flex-wrap">
-          {props.tags.map(tag => (
-            <button
-              onClick={() => toggleTypeToShow(tag)}
-              key={makeSlugText(tag)}
-              className={cn(
-                'whitespace-nowrap border px-2 text-base rounded-md',
-                'transition duration-200 ease-in-out',
-                {
-                  'bg-white': !tagsToShow.includes(tag),
-                  'bg-sky-600 text-white': tagsToShow.includes(tag)
-                }
-              )}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </div>
 
       {/* Search */}
       <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
@@ -133,6 +110,33 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
             <IoCloseCircle className="h-5 w-5 text-slate-500" />
           </button>
         )}
+      </div>
+
+      {/* Tags */}
+      <div
+        className={cn(
+          'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
+        )}
+      >
+        <div className="flex gap-2 flex-wrap items-center">
+          <TiTag className="text-gray-500 text-lg" />
+          {props.tags.map(tag => (
+            <button
+              onClick={() => toggleTypeToShow(tag)}
+              key={makeSlugText(tag)}
+              className={cn(
+                'whitespace-nowrap border px-2 text-base rounded-md',
+                'transition duration-200 ease-in-out',
+                {
+                  'bg-white': !tagsToShow.includes(tag),
+                  'bg-sky-600 text-white': tagsToShow.includes(tag)
+                }
+              )}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Tool list */}

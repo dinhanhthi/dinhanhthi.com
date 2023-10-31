@@ -32,13 +32,22 @@ export const metadata = getMetadata({
   ]
 })
 
-export const HeadingWithMore = ({ title, href }: { title: string; href?: string }) => (
+export const HeadingWithMore = ({
+  title,
+  href,
+  icon
+}: {
+  title: string
+  href?: string
+  icon?: React.ReactNode
+}) => (
   <h2
     id="notes"
     className={cn(
       'font-heading text-3xl font-medium text-slate-700 flex items-baseline flex-wrap gap-y-0 gap-x-4'
     )}
   >
+    {!!icon && icon}
     <span>{title}</span>
     {href && (
       <Link
@@ -52,7 +61,16 @@ export const HeadingWithMore = ({ title, href }: { title: string; href?: string 
 )
 
 export default async function Home() {
-  const posts = await getPosts({ pageSize: 8 })
+  const pinnedPosts = await getPosts({
+    pageSize: 4,
+    filter: {
+      property: 'pinned',
+      checkbox: {
+        equals: true
+      }
+    }
+  })
+  const posts = await getPosts({ pageSize: 6 })
   const projects = await getProjects()
   const _topics = await getTopics()
   const { tools } = await getTools()
@@ -75,11 +93,35 @@ export default async function Home() {
           {/* Notes */}
           <div className="flex flex-col gap-2">
             <HeadingWithMore title="Recently updated notes" href="/notes/" />
+            {/* pinned */}
             <div className="thi-box-code overflow-hidden">
               <Suspense
                 fallback={
                   <SkeletonPostList
                     count={4}
+                    postType="PostSimple"
+                    options={{
+                      className: 'flex flex-col divide-y'
+                    }}
+                  />
+                }
+              >
+                <PostList
+                  posts={pinnedPosts}
+                  postType="PostSimple"
+                  postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
+                  options={{
+                    className: 'flex flex-col divide-y'
+                  }}
+                />
+              </Suspense>
+            </div>
+            {/* notes */}
+            <div className="thi-box-code overflow-hidden">
+              <Suspense
+                fallback={
+                  <SkeletonPostList
+                    count={8}
                     postType="PostSimple"
                     options={{
                       className: 'flex flex-col divide-y'
