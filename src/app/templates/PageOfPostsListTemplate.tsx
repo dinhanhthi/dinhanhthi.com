@@ -18,6 +18,7 @@ type PageOfPostsListTemplateProps = {
 
 export default function PageOfPostsListTemplate(props: PageOfPostsListTemplateProps) {
   const { object, posts, totalPages, currentPage } = props
+  const pinnedPosts = posts.filter(post => post.pinned)
 
   return (
     <div className="thi-bg-stone">
@@ -32,7 +33,19 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         {posts.length === 0 && <div className="my-4 text-xl">There is no post yet!</div>}
         {posts.length > 0 && (
           <>
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-8">
+              {pinnedPosts.length > 0 && (
+                <div className="thi-box-code overflow-hidden">
+                  <PostList
+                    posts={pinnedPosts}
+                    postType="PostSimple"
+                    postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
+                    options={{
+                      className: 'flex flex-col divide-y'
+                    }}
+                  />
+                </div>
+              )}
               {posts.length > 0 && (
                 <div className="thi-box-code overflow-hidden">
                   <PostList
