@@ -94,7 +94,7 @@ export default async function Home() {
           <div className="flex flex-col gap-2">
             <HeadingWithMore title="Recently updated notes" href="/notes/" />
             {/* pinned */}
-            <div className="thi-box-code overflow-hidden">
+            <div className="thi-box-code overflow-hidden mb-3">
               <Suspense
                 fallback={
                   <SkeletonPostList
