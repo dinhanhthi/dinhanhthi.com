@@ -1,3 +1,4 @@
+import { NotionPost, NotionTagData, Tag, Tool } from '@/src/interface'
 import { NotionSorts, Post } from '@notion-x/src/interface'
 import { getUnofficialDatabase, queryDatabase } from '@notion-x/src/lib/db'
 import { getJoinedRichText, makeSlugText } from '@notion-x/src/lib/helpers'
@@ -5,7 +6,6 @@ import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoint
 import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
 
-import { NotionPost, NotionTagData, Tag, Tool } from '../../interface'
 import { Project } from '../components/ProjectItem'
 import { defaultPostDate, defaultPostTitle } from './config'
 import { getFilter, getPostProperties, getUri } from './helpers'
@@ -309,6 +309,9 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // wellWritten
       const wellWritten = get(post, 'properties.wellWritten.checkbox') || false
 
+      // pinned
+      const pinned = get(post, 'properties.pinned.checkbox') || false
+
       return {
         id,
         title,
@@ -318,7 +321,8 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
         createdDate,
         tags,
         isDraft,
-        wellWritten
+        wellWritten,
+        pinned
       } as Post
     })
   )
