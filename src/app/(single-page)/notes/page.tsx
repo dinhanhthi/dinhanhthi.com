@@ -36,7 +36,7 @@ export default async function NotesPage() {
       }
     }
   })
-  const posts = await getPosts({ pageSize: 8 })
+  const posts = await getPosts({ pageSize: 8 + pinnedPosts.length })
   const _tags = await getTopics()
   const tags = _tags.map(tag => ({
     ...tag,
@@ -103,7 +103,7 @@ export default async function NotesPage() {
                     }
                   >
                     <PostList
-                      posts={posts}
+                      posts={posts.filter(post => !post.pinned)}
                       postType="PostSimple"
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
