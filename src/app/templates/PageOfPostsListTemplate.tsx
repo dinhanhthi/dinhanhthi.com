@@ -49,7 +49,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
               {posts.length > 0 && (
                 <div className="thi-box-code overflow-hidden">
                   <PostList
-                    posts={posts}
+                    posts={posts.filter(post => !post.pinned)}
                     postType="PostSimple"
                     postTypeOpts={defaultPostTypeOpts}
                     options={{
