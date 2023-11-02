@@ -70,7 +70,7 @@ export default async function Home() {
       }
     }
   })
-  const posts = await getPosts({ pageSize: 6 })
+  const posts = await getPosts({ pageSize: 10 })
   const projects = await getProjects()
   const _topics = await getTopics()
   const { tools } = await getTools()
@@ -130,7 +130,7 @@ export default async function Home() {
                 }
               >
                 <PostList
-                  posts={posts}
+                  posts={posts.filter(post => !post.pinned)}
                   postType="PostSimple"
                   postTypeOpts={defaultPostTypeOpts}
                   options={{
