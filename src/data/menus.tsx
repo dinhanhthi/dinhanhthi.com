@@ -43,6 +43,10 @@ export const MENUS: MenuType[] = [
   {
     name: 'Tools',
     uri: '/tools/'
+  },
+  {
+    name: 'Bookmarks',
+    uri: '/bookmarks/'
   }
 ]
 

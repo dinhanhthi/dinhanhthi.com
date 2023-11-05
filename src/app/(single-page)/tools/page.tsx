@@ -13,7 +13,7 @@ import ToolsPage, { SkeletonToolItem } from './ToolsPage'
 export const revalidate = 20
 
 export const metadata = getMetadata({
-  title: 'Tools I use',
+  title: 'Tools I use | Thi',
   description: 'Apps, tools, websites I find useful.'
 })
 
