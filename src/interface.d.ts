@@ -51,6 +51,52 @@ export type NotionPost = {
   }
 }
 
+export interface BookmarkItem {
+  id: string
+  url: string
+  createdTime?: string
+  title?: string
+  description?: string
+  coverUrl?: string
+}
+
+export type NotionBookmarkItem = {
+  id: string
+  created_time: string
+  cover: {
+    external: {
+      url: string
+    }
+    file: {
+      url: string
+    }
+  }
+  properties: {
+    title: {
+      title: { plain_text: string }[]
+    }
+    url: {
+      url: string
+    }
+    tag?: {
+      multi_select: NotionTagData[]
+    }
+    icon?: {
+      files?: {
+        name?: string
+        file?: { url?: string }
+        external?: { url?: string }
+      }[]
+    }
+    description?: {
+      rich_text: { plain_text: string }[]
+    }
+    coverUrl?: {
+      url: string
+    }
+  }
+}
+
 export type NotionTagData = {
   id: string
   name: string
