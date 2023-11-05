@@ -1,10 +1,19 @@
-import { NotionPost, NotionTagData, Tag, Tool } from '@/src/interface'
+import {
+  BookmarkItem,
+  NotionBookmarkItem,
+  NotionPost,
+  NotionTagData,
+  Tag,
+  Tool
+} from '@/src/interface'
 import { NotionSorts, Post } from '@notion-x/src/interface'
 import { getUnofficialDatabase, queryDatabase } from '@notion-x/src/lib/db'
 import { getJoinedRichText, makeSlugText } from '@notion-x/src/lib/helpers'
+import { Client } from '@notionhq/client'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
+import urlMetadata from 'url-metadata'
 
 import { Project } from '../components/ProjectItem'
 import { defaultPostDate, defaultPostTitle } from './config'
@@ -58,6 +67,143 @@ export async function getPosts(options: {
     console.error('🚨 Error in getPosts()', error)
     return []
   }
+}
+
+export async function getBookmarks(options: {
+  startCursor?: string
+  pageSize?: number
+}): Promise<BookmarkItem[]> {
+  if (!process.env.DB_BOOKMARKS) throw new Error('getPosts(): DB_BOOKMARKS is not defined')
+  const { startCursor, pageSize } = options
+
+  try {
+    const data = await queryDatabase({
+      dbId: process.env.DB_BOOKMARKS as string,
+      startCursor,
+      pageSize,
+      sorts: [
+        {
+          property: 'Created time',
+          direction: 'descending'
+        }
+      ]
+    })
+
+    return await transformNotionBookmarksData(data?.results as any[])
+  } catch (error) {
+    console.error('🚨 Error in getBookmarks()', error)
+    return []
+  }
+}
+
+async function transformNotionBookmarksData(data: NotionBookmarkItem[]): Promise<BookmarkItem[]> {
+  if (!data || !data.length) return []
+  return Promise.all(
+    data?.map(async bookmark => {
+      // id
+      const id = bookmark.id
+
+      // url
+      const url = bookmark.properties.url.url
+
+      // createdTime
+      const createdTime = bookmark.created_time
+
+      // title
+      const _title = bookmark.properties?.title?.title[0]?.plain_text
+
+      // description
+      const _description = getJoinedRichText(bookmark.properties?.description?.rich_text as any)
+
+      // cover
+      const _coverUrl = bookmark.properties?.coverUrl?.url
+
+      let __title: string | undefined
+      let __description: string | undefined
+      let __coverUrl: string | undefined
+      if (!_title || !_description || !_title.length || !_description.length) {
+        const fetchedMeta = await getBookmarkMetadataAndUpdateNotion(url, id)
+        __title = fetchedMeta.title
+        __description = fetchedMeta.description
+        __coverUrl = fetchedMeta.coverUrl
+      }
+
+      return {
+        id,
+        url,
+        createdTime,
+        title: _title || __title,
+        description: _description || __description,
+        coverUrl: _coverUrl || __coverUrl
+      } as BookmarkItem
+    })
+  )
+}
+
+async function getBookmarkMetadataAndUpdateNotion(
+  url: string,
+  id: string
+): Promise<Pick<BookmarkItem, 'title' | 'description' | 'coverUrl'>> {
+  const metadata = await urlMetadata(url)
+
+  const title = metadata?.title as string
+  const description = metadata?.description as string
+  const coverUrl = (metadata?.['og:image'] || metadata?.image) as string
+
+  try {
+    await updateBookmarkOnNotion(id, { title, description, coverUrl })
+  } catch (error) {
+    console.error('🚨 Error in updateBookmarkOnNotion()', error)
+  }
+
+  return { title, description, coverUrl }
+}
+
+async function updateBookmarkOnNotion(
+  markId: string,
+  options: Pick<BookmarkItem, 'title' | 'description' | 'coverUrl'>
+) {
+  const { title, description, coverUrl } = options
+
+  if (!title && !description && !coverUrl) return null
+
+  const notion = new Client({ auth: process.env.NOTION_TOKEN })
+  const promises = [] as Promise<any>[]
+
+  if (title) {
+    promises.push(
+      notion.pages.update({
+        page_id: markId,
+        properties: {
+          title: { title: [{ type: 'text', text: { content: title } }] }
+        }
+      })
+    )
+  }
+
+  if (description) {
+    promises.push(
+      notion.pages.update({
+        page_id: markId,
+        properties: {
+          description: {
+            rich_text: [{ type: 'text', text: { content: description } }]
+          }
+        }
+      })
+    )
+  }
+
+  if (coverUrl) {
+    promises.push(
+      notion.pages.update({
+        page_id: markId,
+        properties: { coverUrl: { url: coverUrl } }
+      })
+    )
+  }
+
+  return Promise.all(promises)
 }
 
 export async function getTools() {
