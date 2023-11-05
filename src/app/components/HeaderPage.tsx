@@ -21,7 +21,7 @@ export default function HeaderPage(props: HeaderPageProps) {
       headerType={props.headerType}
       headerWidth={props.headerWidth}
     >
-      <div className="py-8">
+      <div className="py-8 w-full">
         <div className="flex flex-col md:flex-row items-center gap-3">
           {!!props.icon && (
             <div>

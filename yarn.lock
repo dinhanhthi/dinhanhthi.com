@@ -6172,6 +6172,13 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+url-metadata@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/url-metadata/-/url-metadata-3.3.0.tgz#647b17458071b08995b3ce48bf6dd0cf367f2aec"
+  integrity sha512-jU3PYznjlTwcanGP6SbGmjZ+7MzMRLpieIdUQJhs0VQbEC5NxIvtvqxSY2spepMcZqkP0ZqgoAYCDxwLHk+exA==
+  dependencies:
+    cheerio "^1.0.0-rc.12"
+
 use-sync-external-store@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
