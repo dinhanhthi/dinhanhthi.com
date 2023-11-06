@@ -118,7 +118,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
         )}
       >
         <div className="flex gap-2 flex-wrap items-center">
-          <TiTag className="text-gray-500 text-lg" />
+          {/* <TiTag className="text-gray-500 text-lg" /> */}
           {props.tags.map(tag => (
             <button
               onClick={() => toggleTypeToShow(tag)}

@@ -1,11 +1,11 @@
 'use client'
 
+import FiSearch from '@notion-x/src/icons/FiSearch'
+import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
 import cn from 'classnames'
 import Fuse from 'fuse.js'
 import { ChangeEvent, useRef, useState } from 'react'
 
-import FiSearch from '../../../../notion-x/src/icons/FiSearch'
-import IoCloseCircle from '../../../../notion-x/src/icons/IoCloseCircle'
 import ProjectItem, { Project, ProjectType } from '../../components/ProjectItem'
 
 export default function ProjectPage(props: { projects: Project[] }) {
