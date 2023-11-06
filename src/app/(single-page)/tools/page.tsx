@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
+import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
 import { getTools } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
@@ -42,9 +43,20 @@ export default async function ProjectsPage() {
 
 function SkeletonToolContainer() {
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-6">
+      <div>
+        👉{' '}
+        <a
+          className="m2it-link"
+          target="_blank"
+          href="https://github.com/stars/dinhanhthi/lists/favorites"
+        >
+          My favorite repositories
+        </a>{' '}
+        on Github.
+      </div>
+      <SkeletonSearchBar placeholder="Search tools..." />
       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
-        <div className="text-slate-600 whitespace-nowrap">Show only?</div>
         <div className="flex gap-x-2 gap-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
             <div key={i} className={cn('h-6 w-20 bg-white rounded-md animate-pulse')}></div>

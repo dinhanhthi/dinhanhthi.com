@@ -1,5 +1,4 @@
 import BookmarksIcon from '@/public/bookmarks.png'
-import FiSearch from '@notion-x/src/icons/FiSearch'
 import { OptionalCatchAllParams, OptionalCatchAllProps } from '@notion-x/src/interface'
 import { getStartCursorForCurrentPage } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
@@ -10,6 +9,7 @@ import { Suspense } from 'react'
 import Container from '../../../components/Container'
 import Footer from '../../../components/Footer'
 import HeaderPage from '../../../components/HeaderPage'
+import { SkeletonSearchBar } from '../../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../../lib/config'
 import { getBookmarks } from '../../../lib/fetcher'
 import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
@@ -96,21 +96,10 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
   )
 }
 
-export function SkeletonSearchBar() {
-  return (
-    <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
-      <div className={cn('grid place-items-center text-slate-500')}>
-        <FiSearch className="text-2xl" />
-      </div>
-      <div className="text-slate-400">Search bookmarks...</div>
-    </div>
-  )
-}
-
 function SkeletonBookmarkContainer() {
   return (
     <div className="flex flex-col gap-8">
-      <SkeletonSearchBar />
+      <SkeletonSearchBar placeholder="Search bookmarks..." />
       <div className="flex flex-col gap-4">
         {Array.from({ length: marksPerPage }).map((_, i) => (
           <SkeletonBookmarkItemTemplate key={i} />
