@@ -21,6 +21,7 @@ export default function BookmarkItemTemplate(props: BookmarkItemProps) {
         'hover:border-sky-300 group'
       )}
     >
+      {/* Featured image */}
       <div
         className={cn('rounded-md w-[120px] min-w-[120px] overflow-hidden border-slate-100 border')}
       >
@@ -39,6 +40,8 @@ export default function BookmarkItemTemplate(props: BookmarkItemProps) {
           </div>
         )}
       </div>
+
+      {/* Content */}
       <div className="flex gap-2 flex-col">
         <div className="text-slate-900 text-[0.9rem] group-hover:m2it-link-hover">{mark.title}</div>
         <div className="text-slate-600 text-[0.8rem]">{mark.description}</div>
@@ -58,3 +61,31 @@ const ImagePlaceholder = () => (
     <BsFillBookmarkHeartFill className="text-[25px] text-slate-400" />
   </div>
 )
+
+export function SkeletonBookmarkItemTemplate() {
+  return (
+    <div className="flex flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white">
+      {/* Featured image */}
+      <div
+        className={cn('rounded-md w-[120px] min-w-[120px] overflow-hidden border-slate-100 border')}
+      >
+        <div className={cn('p-4', 'flex items-center justify-center bg-slate-100')}>
+          <BsFillBookmarkHeartFill className="text-2xl text-slate-300" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className={cn('min-w-0 flex-1 flex flex-col gap-4 pl-4 animate-pulse')}>
+        <div className="flex gap-1.5 flex-col">
+          <div className="font-semibold text-slate-700">
+            <div className="w-1/2 h-4 bg-slate-100 rounded-md"></div>
+          </div>
+        </div>
+        <div className={cn('flex flex-col gap-1 text-slate-700')}>
+          <div className="w-full h-2 bg-slate-100 rounded-md"></div>
+          <div className="w-4/5 h-2 bg-slate-100 rounded-md"></div>
+        </div>
+      </div>
+    </div>
+  )
+}
