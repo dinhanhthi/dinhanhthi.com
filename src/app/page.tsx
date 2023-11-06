@@ -17,6 +17,7 @@ import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
+import HeadingWithMore from './components/HeadingWithMore'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
 import { getBookmarks, getPosts, getProjects, getTools, getTopics } from './lib/fetcher'
@@ -221,31 +222,3 @@ export default async function Home() {
     </div>
   )
 }
-
-export const HeadingWithMore = ({
-  title,
-  href,
-  icon
-}: {
-  title: string
-  href?: string
-  icon?: React.ReactNode
-}) => (
-  <h2
-    id="notes"
-    className={cn(
-      'font-heading text-[1.7rem] font-medium text-slate-700 flex items-baseline flex-wrap gap-y-0 gap-x-4'
-    )}
-  >
-    {!!icon && icon}
-    <span>{title}</span>
-    {href && (
-      <Link
-        className="text-[60%] italic text-slate-600 hover:m2it-link-hover font-normal"
-        href={href}
-      >
-        ...more
-      </Link>
-    )}
-  </h2>
-)
