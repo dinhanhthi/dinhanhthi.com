@@ -1,4 +1,7 @@
+'use client'
+
 import cn from 'classnames'
+import { useEffect, useState } from 'react'
 
 import { BookmarkItem } from '../../../interface'
 import SimpleImage from '../../components/SimpleImage'
@@ -6,10 +9,25 @@ import BsFillBookmarkHeartFill from '../../icons/BsFillBookmarkHeartFill'
 
 type BookmarkItemProps = {
   mark: BookmarkItem
+  hideNew?: boolean
 }
 
 export default function BookmarkItemTemplate(props: BookmarkItemProps) {
-  const { mark } = props
+  const { mark, hideNew } = props
+
+  const [isNew, setIsNew] = useState(false)
+
+  useEffect(() => {
+    const now = new Date()
+    const markDate = new Date(mark.createdTime)
+    const diff = now.getTime() - markDate.getTime()
+    const diffInDays = diff / (1000 * 3600 * 24)
+
+    if (diffInDays <= 7) {
+      setIsNew(true)
+    }
+  }, [mark.createdTime])
+
   return (
     <a
       key={mark.id}
@@ -43,7 +61,19 @@ export default function BookmarkItemTemplate(props: BookmarkItemProps) {
 
       {/* Content */}
       <div className="flex gap-2 flex-col">
-        <div className="text-slate-900 text-[0.9rem] group-hover:m2it-link-hover">{mark.title}</div>
+        <div className="text-slate-900 text-[0.9rem] group-hover:m2it-link-hover">
+          {isNew && !hideNew && (
+            <span
+              className={cn(
+                'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md',
+                'whitespace-nowrap mr-2'
+              )}
+            >
+              new
+            </span>
+          )}
+          {mark.title}
+        </div>
         <div className="text-slate-600 text-[0.8rem]">{mark.description}</div>
       </div>
     </a>
