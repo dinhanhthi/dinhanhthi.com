@@ -8,6 +8,7 @@ import { Suspense } from 'react'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
+import HeadingWithMore from '../../components/HeadingWithMore'
 import NoteTopicSection from '../../components/NoteTopicSection'
 import NotesToc from '../../components/NotesToc'
 import {
@@ -18,7 +19,6 @@ import {
 } from '../../lib/config'
 import { getPosts, getTopics } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
-import { HeadingWithMore } from '../../page'
 
 export const revalidate = 20
 
