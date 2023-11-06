@@ -12,7 +12,8 @@ import { BookmarkItem, Tool } from '../interface'
 import BookmarkItemTemplate, {
   SkeletonBookmarkItemTemplate
 } from './(single-page)/bookmarks/BookmarkItemTemplate'
-import { SkeletonToolItem, ToolItem } from './(single-page)/tools/ToolsPage'
+import ToolItem from './(single-page)/tools/ToolItem'
+import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
