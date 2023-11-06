@@ -1,10 +1,12 @@
 'use client'
 
 import PostHeaderTopics from '@notion-x/src/components/PostHeaderTopics'
+import SimpleImage from '@notion-x/src/components/SimpleImage'
 import { PageIcon } from '@notion-x/src/components/page-icon'
 import { Text } from '@notion-x/src/components/text'
 import AiOutlineClockCircle from '@notion-x/src/icons/AiOutlineClockCircle'
 import HiMiniCheckBadge from '@notion-x/src/icons/HiMiniCheckBadge'
+import PiImageSquareDuotone from '@notion-x/src/icons/PiImageSquareDuotone'
 import RiUser3Line from '@notion-x/src/icons/RiUser3Line'
 import { useNotionContext } from '@notion-x/src/lib/context'
 import { usePostDateStatus } from '@notion-x/src/lib/hooks'
@@ -17,11 +19,9 @@ import { Suspense } from 'react'
 
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
-import PiImageSquareDuotone from '../icons/PiImageSquareDuotone'
 import { defaultPostTypeOpts } from '../lib/config'
 import { getPostProperties } from '../lib/helpers'
 import Header from './Header'
-import SimpleImage from './SimpleImage'
 
 const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
   ssr: false

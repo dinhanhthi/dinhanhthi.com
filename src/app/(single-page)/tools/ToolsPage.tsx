@@ -2,7 +2,6 @@
 
 import FiSearch from '@notion-x/src/icons/FiSearch'
 import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
-import TiTag from '@notion-x/src/icons/TiTag'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
 import Fuse from 'fuse.js'
