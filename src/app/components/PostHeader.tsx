@@ -1,11 +1,12 @@
 'use client'
 
 import PostHeaderTopics from '@notion-x/src/components/PostHeaderTopics'
-import { LazyImage } from '@notion-x/src/components/lazy-image'
+import SimpleImage from '@notion-x/src/components/SimpleImage'
 import { PageIcon } from '@notion-x/src/components/page-icon'
 import { Text } from '@notion-x/src/components/text'
 import AiOutlineClockCircle from '@notion-x/src/icons/AiOutlineClockCircle'
 import HiMiniCheckBadge from '@notion-x/src/icons/HiMiniCheckBadge'
+import PiImageSquareDuotone from '@notion-x/src/icons/PiImageSquareDuotone'
 import RiUser3Line from '@notion-x/src/icons/RiUser3Line'
 import { useNotionContext } from '@notion-x/src/lib/context'
 import { usePostDateStatus } from '@notion-x/src/lib/hooks'
@@ -71,17 +72,26 @@ export default function PostHeader(props: PostHeaderProps) {
     get(defaultPostTypeOpts, 'maxDaysWinthin', 7)
   )
 
+  function ImagePlaceholder() {
+    return (
+      <div
+        className={cn('bg-gray-100 flex items-center justify-center animate-pulse w-full h-full')}
+      >
+        <PiImageSquareDuotone className="text-[80px] text-slate-400" />
+      </div>
+    )
+  }
+
   return (
     <>
       {block?.format?.page_cover && (
         <div className="flex w-full items-center justify-center h-[25vh] max-h-[25vh] min-h-[25vh]">
           <div className="relative flex h-full w-full items-center overflow-hidden">
-            <LazyImage
+            <SimpleImage
               src={mapImageUrl(pageCover as any, block)}
               alt={getTextContent(title)}
-              priority={true}
               className="notion-page-cover absolute"
-              style={pageCoverStyle}
+              imagePlaceholder={ImagePlaceholder()}
             />
           </div>
         </div>

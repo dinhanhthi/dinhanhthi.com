@@ -9,9 +9,10 @@ import { Suspense } from 'react'
 import Container from '../../../components/Container'
 import Footer from '../../../components/Footer'
 import HeaderPage from '../../../components/HeaderPage'
+import { SkeletonSearchBar } from '../../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../../lib/config'
 import { getBookmarks } from '../../../lib/fetcher'
-import { SkeletonToolItem } from '../../tools/ToolsPage'
+import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
 import BookmarksPageTemplate from '../BookmarksPageTemplate'
 
 const marksPerPage = 24
@@ -82,7 +83,7 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
         iconClassName="h-12 w-12"
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
-        <Suspense fallback={<SkeletonToolContainer />}>
+        <Suspense fallback={<SkeletonBookmarkContainer />}>
           <BookmarksPageTemplate
             totalPages={totalPages}
             currentPage={currentPage}
@@ -95,20 +96,13 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
   )
 }
 
-function SkeletonToolContainer() {
+function SkeletonBookmarkContainer() {
   return (
-    <div className="flex flex-col gap-12">
-      <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
-        <div className="text-slate-600 whitespace-nowrap">Show only?</div>
-        <div className="flex gap-x-2 gap-y-3">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className={cn('h-6 w-20 bg-white rounded-md animate-pulse')}></div>
-          ))}
-        </div>
-      </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <SkeletonToolItem key={i} />
+    <div className="flex flex-col gap-8">
+      <SkeletonSearchBar placeholder="Search bookmarks..." />
+      <div className="flex flex-col gap-4">
+        {Array.from({ length: marksPerPage }).map((_, i) => (
+          <SkeletonBookmarkItemTemplate key={i} />
         ))}
       </div>
     </div>

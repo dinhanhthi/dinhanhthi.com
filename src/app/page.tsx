@@ -8,14 +8,18 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import me from '../data/me'
-import { Tool } from '../interface'
-import { SkeletonToolItem, ToolItem } from './(single-page)/tools/ToolsPage'
+import { BookmarkItem, Tool } from '../interface'
+import BookmarkItemTemplate, {
+  SkeletonBookmarkItemTemplate
+} from './(single-page)/bookmarks/BookmarkItemTemplate'
+import ToolItem from './(single-page)/tools/ToolItem'
+import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
-import { getPosts, getProjects, getTools, getTopics } from './lib/fetcher'
+import { getBookmarks, getPosts, getProjects, getTools, getTopics } from './lib/fetcher'
 import { getMetadata, getUri } from './lib/helpers'
 
 export const revalidate = 20
@@ -32,34 +36,6 @@ export const metadata = getMetadata({
   ]
 })
 
-export const HeadingWithMore = ({
-  title,
-  href,
-  icon
-}: {
-  title: string
-  href?: string
-  icon?: React.ReactNode
-}) => (
-  <h2
-    id="notes"
-    className={cn(
-      'font-heading text-3xl font-medium text-slate-700 flex items-baseline flex-wrap gap-y-0 gap-x-4'
-    )}
-  >
-    {!!icon && icon}
-    <span>{title}</span>
-    {href && (
-      <Link
-        className="text-[60%] italic text-slate-600 hover:m2it-link-hover font-normal"
-        href={href}
-      >
-        ...more
-      </Link>
-    )}
-  </h2>
-)
-
 export default async function Home() {
   const pinnedPosts = await getPosts({
     pageSize: 4,
@@ -74,6 +50,7 @@ export default async function Home() {
   const projects = await getProjects()
   const _topics = await getTopics()
   const { tools } = await getTools()
+  const bookmarks = await getBookmarks({ pageSize: 5 })
 
   const topics = _topics.map(topic => ({
     ...topic,
@@ -138,6 +115,18 @@ export default async function Home() {
                   }}
                 />
               </Suspense>
+            </div>
+          </div>
+
+          {/* Bookmarks */}
+          <div className="flex flex-col gap-4">
+            <HeadingWithMore title="Recent bookmarks" href="/bookmarks/" />
+            <div className="grid grid-cols-1 gap-3">
+              {bookmarks.map((mark: BookmarkItem) => (
+                <Suspense key={mark.id} fallback={<SkeletonBookmarkItemTemplate />}>
+                  <BookmarkItemTemplate key={mark.id} mark={mark} />
+                </Suspense>
+              ))}
             </div>
           </div>
 
@@ -232,3 +221,31 @@ export default async function Home() {
     </div>
   )
 }
+
+export const HeadingWithMore = ({
+  title,
+  href,
+  icon
+}: {
+  title: string
+  href?: string
+  icon?: React.ReactNode
+}) => (
+  <h2
+    id="notes"
+    className={cn(
+      'font-heading text-[1.7rem] font-medium text-slate-700 flex items-baseline flex-wrap gap-y-0 gap-x-4'
+    )}
+  >
+    {!!icon && icon}
+    <span>{title}</span>
+    {href && (
+      <Link
+        className="text-[60%] italic text-slate-600 hover:m2it-link-hover font-normal"
+        href={href}
+      >
+        ...more
+      </Link>
+    )}
+  </h2>
+)
