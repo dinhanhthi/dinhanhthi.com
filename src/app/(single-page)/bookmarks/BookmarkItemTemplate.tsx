@@ -7,14 +7,7 @@ import { BookmarkItem } from '../../../interface'
 import SimpleImage from '../../components/SimpleImage'
 import BsFillBookmarkHeartFill from '../../icons/BsFillBookmarkHeartFill'
 
-type BookmarkItemProps = {
-  mark: BookmarkItem
-  hideNew?: boolean
-}
-
-export default function BookmarkItemTemplate(props: BookmarkItemProps) {
-  const { mark, hideNew } = props
-
+export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
   const [isNew, setIsNew] = useState(false)
 
   useEffect(() => {
@@ -62,7 +55,7 @@ export default function BookmarkItemTemplate(props: BookmarkItemProps) {
       {/* Content */}
       <div className="flex gap-2 flex-col">
         <div className="text-slate-900 text-[0.9rem] group-hover:m2it-link-hover">
-          {isNew && !hideNew && (
+          {isNew && (
             <span
               className={cn(
                 'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md',
