@@ -54,7 +54,7 @@ export type NotionPost = {
 export interface BookmarkItem {
   id: string
   url: string
-  createdTime?: string
+  createdTime: string
   title?: string
   description?: string
   coverUrl?: string

@@ -56,6 +56,7 @@ function parseSearchResults(data: any): SearchResult[] {
 
       const description = _properties?.[UNOFFICIAL_NOTION_KEYS.description]?.[0]?.[0] || null
       const coverUrl = _properties?.[UNOFFICIAL_NOTION_KEYS.coverUrl]?.[0]?.[0] || null
+      const createdTime = data.recordMap?.block?.[markId]?.value?.created_time || null
 
       const titleHighlighted =
         result?.highlight?.title
@@ -76,7 +77,8 @@ function parseSearchResults(data: any): SearchResult[] {
         titleHighlighted,
         textHighlighted,
         description,
-        coverUrl
+        coverUrl,
+        createdTime
       })
     }
   }

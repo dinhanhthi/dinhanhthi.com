@@ -4,7 +4,7 @@ import GoodreadsIcon from '@/public/social/goodreads.svg'
 import LinkedInIcon from '@/public/social/linkedin.svg'
 import Math2ITIcon from '@/public/social/math2it.png'
 import SOIcon from '@/public/social/so.svg'
-import TwitterIcon from '@/public/social/twitter.svg'
+import TwitterIcon from '@/public/social/twitter.png'
 import { BadgeSocialProps } from '@notion-x/src/components/BadgeSocial'
 
 const socials: BadgeSocialProps[] = [
