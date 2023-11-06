@@ -1,10 +1,10 @@
 'use client'
 
+import SimpleImage from '@notion-x/src/components/SimpleImage'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
 import { BookmarkItem } from '../../../interface'
-import SimpleImage from '../../components/SimpleImage'
 import BsFillBookmarkHeartFill from '../../icons/BsFillBookmarkHeartFill'
 
 export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {

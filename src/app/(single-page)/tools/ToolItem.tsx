@@ -1,11 +1,11 @@
 'use client'
 
+import SimpleImage from '@notion-x/src/components/SimpleImage'
 import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
 import { Tool } from '../../../interface'
-import SimpleImage from '../../components/SimpleImage'
 
 type ToolItemProps = {
   tool: Tool
