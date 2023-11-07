@@ -15,7 +15,7 @@ import { getBookmarks } from '../../../lib/fetcher'
 import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
 import BookmarksPageTemplate from '../BookmarksPageTemplate'
 
-const marksPerPage = 24
+const marksPerPage = 15
 
 export const revalidate = 20
 
@@ -82,7 +82,7 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
         icon={{ staticImageData: BookmarksIcon }}
         iconClassName="h-12 w-12"
       />
-      <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
+      <Container className={cn('basis-auto grow shrink-0 z-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonBookmarkContainer />}>
           <BookmarksPageTemplate
             totalPages={totalPages}

@@ -45,16 +45,12 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
             imagePlaceholder={ImagePlaceholder()}
           />
         )}
-        {!mark?.coverUrl && (
-          <div className={cn('p-4', 'flex items-center justify-center bg-slate-100')}>
-            <BsFillBookmarkHeartFill className="text-2xl text-slate-300" />
-          </div>
-        )}
+        {!mark?.coverUrl && <ImagePlaceholder />}
       </div>
 
       {/* Content */}
       <div className="flex gap-2 flex-col">
-        <div className="text-slate-900 text-[0.9rem] group-hover:m2it-link-hover">
+        <div className="text-slate-900 text-[0.95rem] group-hover:m2it-link-hover">
           {isNew && (
             <span
               className={cn(
@@ -67,7 +63,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
           )}
           {mark.title}
         </div>
-        <div className="text-slate-600 text-[0.8rem]">{mark.description}</div>
+        <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">{mark.description}</div>
       </div>
     </a>
   )
