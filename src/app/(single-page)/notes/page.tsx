@@ -1,4 +1,5 @@
 import NotesIcon from '@/public/notes.svg'
+import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
 import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
 import { Tag } from '@notion-x/src/interface'
@@ -8,7 +9,6 @@ import { Suspense } from 'react'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
-import HeadingWithMore from '../../components/HeadingWithMore'
 import NoteTopicSection from '../../components/NoteTopicSection'
 import NotesToc from '../../components/NotesToc'
 import {
