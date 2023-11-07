@@ -1,4 +1,5 @@
 /* eslint-disable quotes */
+import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
 import ImageComponent from '@notion-x/src/components/ImageComponent'
 import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
@@ -17,7 +18,6 @@ import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
-import HeadingWithMore from './components/HeadingWithMore'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
 import { getBookmarks, getPosts, getProjects, getTools, getTopics } from './lib/fetcher'
