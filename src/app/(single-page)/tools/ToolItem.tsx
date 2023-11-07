@@ -1,6 +1,7 @@
 'use client'
 
 import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
@@ -68,6 +69,7 @@ export default function ToolItem(props: ToolItemProps) {
                 width={60}
                 height={60}
                 className={cn('absolute inset-0 m-auto rounded-md')}
+                imagePlaceholder={ImagePlaceholder()}
               />
             </div>
           </div>
@@ -108,3 +110,15 @@ export default function ToolItem(props: ToolItemProps) {
     </a>
   )
 }
+
+const ImagePlaceholder = () => (
+  <div
+    style={{ width: 60, height: 60 }}
+    className={cn(
+      'bg-gray-100 flex items-center justify-center absolute inset-0 m-auto',
+      'rounded-full shadow-md animate-pulse'
+    )}
+  >
+    <AiOutlineLoading3Quarters className="text-[25px] text-slate-400 animate-spin" />
+  </div>
+)

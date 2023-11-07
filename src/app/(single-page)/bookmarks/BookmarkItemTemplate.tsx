@@ -1,6 +1,7 @@
 'use client'
 
 import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
@@ -63,7 +64,9 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
           )}
           {mark.title}
         </div>
-        <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">{mark.description}</div>
+        <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">
+          {mark.description}
+        </div>
       </div>
     </a>
   )
@@ -77,7 +80,7 @@ const ImagePlaceholder = () => (
       'h-full'
     )}
   >
-    <BsFillBookmarkHeartFill className="text-[25px] text-slate-400" />
+    <AiOutlineLoading3Quarters className="text-[25px] text-slate-400 animate-spin" />
   </div>
 )
 
