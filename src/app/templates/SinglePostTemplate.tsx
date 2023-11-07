@@ -51,6 +51,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                   headingScrollMarginTopClass: 'scroll-mt-[70px]',
                   minNumHeadingsToShowToc: 4
                 }}
+                useSimpleImage={true}
               />
             </article>
 

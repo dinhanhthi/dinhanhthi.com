@@ -75,9 +75,13 @@ export default function PostHeader(props: PostHeaderProps) {
   function ImagePlaceholder() {
     return (
       <div
-        className={cn('bg-gray-100 flex items-center justify-center animate-pulse w-full h-full')}
+        className={cn(
+          'bg-gray-100 flex items-center justify-center animate-pulse w-full h-full',
+          'flex flex-col'
+        )}
       >
         <PiImageSquareDuotone className="text-[80px] text-slate-400" />
+        <div className="text-slate-500 text-lg">Loading...</div>
       </div>
     )
   }
