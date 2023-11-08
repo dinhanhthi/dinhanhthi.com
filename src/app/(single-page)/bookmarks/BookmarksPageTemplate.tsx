@@ -92,14 +92,14 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
         )}
         {query.length > 0 && (
           <div className="flex gap-8 flex-col">
-            {isLoading && (
+            {/* {isLoading && (
               <div className={cn('flex items-center justify-center flex-row gap-2 text-slate-500')}>
                 <div className="animate-spin w-">
                   <AiOutlineLoading3Quarters className="text-2xl" />
                 </div>
                 <div className="animate-pulse">Looking for bookmarks. Please wait...</div>
               </div>
-            )}
+            )} */}
             {!!data && !isLoading && (
               <>
                 {error && (
