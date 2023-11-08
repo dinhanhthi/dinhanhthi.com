@@ -29,24 +29,34 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white',
+        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white',
         'hover:border-sky-300 group'
       )}
     >
       {/* Featured image */}
       <div
-        className={cn('rounded-md w-[120px] min-w-[120px] overflow-hidden border-slate-100 border')}
+        className={cn(
+          'rounded-md w-full sm:w-[120px] min-w-[120px] overflow-hidden border-slate-100 border'
+        )}
       >
         {mark?.coverUrl && (
           <SimpleImage
             src={mark.coverUrl!}
-            width={120}
             className={cn('object-cover')}
             style={{ height: '100%' }}
             imagePlaceholder={ImagePlaceholder()}
           />
         )}
-        {!mark?.coverUrl && <ImagePlaceholder />}
+        {!mark?.coverUrl && (
+          <div
+            className={cn(
+              'bg-gray-100 flex items-center justify-center rounded-md w-full',
+              'h-full p-4'
+            )}
+          >
+            <BsFillBookmarkHeartFill className="text-[25px] text-slate-400" />
+          </div>
+        )}
       </div>
 
       {/* Content */}
