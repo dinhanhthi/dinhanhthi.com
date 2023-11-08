@@ -50,11 +50,12 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
         {!mark?.coverUrl && (
           <div
             className={cn(
-              'bg-gray-100 flex items-center justify-center rounded-md w-full',
-              'h-full p-4'
+              'flex items-center justify-center rounded-md w-full',
+              'h-full p-4',
+              generateGradientBgClass(mark.url)
             )}
           >
-            <BsFillBookmarkHeartFill className="text-[25px] text-slate-400" />
+            <BsFillBookmarkHeartFill className="text-[25px] text-white" />
           </div>
         )}
       </div>
@@ -120,4 +121,23 @@ export function SkeletonBookmarkItemTemplate() {
       </div>
     </div>
   )
+}
+
+function generateGradientBgClass(url: string): string {
+  const bgList = [
+    'bg-gradient-to-r from-yellow-200 via-green-200 to-green-500',
+    'bg-gradient-to-r from-violet-500 to-fuchsia-500',
+    'bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400',
+    'bg-gradient-to-r from-sky-500 to-indigo-500',
+    'bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500',
+    'bg-gradient-to-r from-green-200 to-green-500',
+    'bg-gradient-to-r from-cyan-500 to-blue-500',
+    'bg-gradient-to-r from-purple-500 to-pink-500',
+    'bg-gradient-to-r from-yellow-200 to-yellow-500',
+    'bg-gradient-to-r from-rose-300 to-rose-500',
+    'bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800',
+    'bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-200 via-emerald-200 to-yellow-200',
+    'bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-white via-sky-500 to-sky-500'
+  ]
+  return bgList[url.length % bgList.length]
 }
