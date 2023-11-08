@@ -47,7 +47,16 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
             imagePlaceholder={ImagePlaceholder()}
           />
         )}
-        {!mark?.coverUrl && <ImagePlaceholder />}
+        {!mark?.coverUrl && (
+          <div
+            className={cn(
+              'bg-gray-100 flex items-center justify-center rounded-md w-full',
+              'h-full p-4'
+            )}
+          >
+            <BsFillBookmarkHeartFill className="text-[25px] text-slate-400" />
+          </div>
+        )}
       </div>
 
       {/* Content */}
