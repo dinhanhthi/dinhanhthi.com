@@ -20,7 +20,7 @@ import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
-import { getBookmarks, getPosts, getProjects, getTools, getTopics } from './lib/fetcher'
+import { getPosts, getProjects, getTools, getTopics, getUnofficialBookmarks } from './lib/fetcher'
 import { getMetadata, getUri } from './lib/helpers'
 
 export const revalidate = 20
@@ -51,7 +51,7 @@ export default async function Home() {
   const projects = await getProjects()
   const _topics = await getTopics()
   const { tools } = await getTools()
-  const bookmarks = await getBookmarks({ pageSize: 5 })
+  const bookmarks = await getUnofficialBookmarks()
 
   const topics = _topics.map(topic => ({
     ...topic,
@@ -123,7 +123,7 @@ export default async function Home() {
           <div className="flex flex-col gap-4">
             <HeadingWithMore title="Recent bookmarks" href="/bookmarks/" />
             <div className="grid grid-cols-1 gap-3">
-              {bookmarks.map((mark: BookmarkItem) => (
+              {bookmarks.slice(0, 5).map((mark: BookmarkItem) => (
                 <Suspense key={mark.id} fallback={<SkeletonBookmarkItemTemplate />}>
                   <BookmarkItemTemplate key={mark.id} mark={mark} />
                 </Suspense>
