@@ -1,6 +1,5 @@
 import BookmarksIcon from '@/public/bookmarks.png'
 import { OptionalCatchAllParams, OptionalCatchAllProps } from '@notion-x/src/interface'
-import { getStartCursorForCurrentPage } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
@@ -11,11 +10,11 @@ import Footer from '../../../components/Footer'
 import HeaderPage from '../../../components/HeaderPage'
 import { SkeletonSearchBar } from '../../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../../lib/config'
-import { getBookmarks } from '../../../lib/fetcher'
+import { getUnofficialBookmarks } from '../../../lib/fetcher'
 import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
 import BookmarksPageTemplate from '../BookmarksPageTemplate'
 
-const marksPerPage = 15
+const marksPerPage = 5
 
 export const revalidate = 20
 
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
 
 export async function generateStaticParams() {
   const params = [] as OptionalCatchAllParams[]
-  const allMarks = await getBookmarks({})
+  const allMarks = await getUnofficialBookmarks()
   const numMarks = allMarks?.length || 0
   const totalPages = Math.ceil(numMarks / marksPerPage)
   for (let i = 1; i <= totalPages; i++) {
@@ -54,7 +53,7 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
 
   const notRootPage = !!params.slug
 
-  const allMarks = await getBookmarks({})
+  const allMarks = await getUnofficialBookmarks()
   const numMarks = allMarks?.length || 0
   const totalPages = Math.ceil(numMarks / marksPerPage)
 
@@ -66,10 +65,9 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
     notFound()
   }
 
-  const startCursor = getStartCursorForCurrentPage(currentPage, allMarks, marksPerPage)
   const marksOnThisPage = !allMarks.length
     ? []
-    : await getBookmarks({ startCursor, pageSize: marksPerPage })
+    : allMarks.slice(marksPerPage * (currentPage - 1), marksPerPage * currentPage)
 
   return (
     <div className="thi-bg-stone flex flex-col">
