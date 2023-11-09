@@ -25,5 +25,5 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   newLabel: 'new',
   updatedLabel: 'updated',
   humanizeDate: true,
-  maxDaysWinthin: 10
+  maxDaysWinthin: 7
 }
