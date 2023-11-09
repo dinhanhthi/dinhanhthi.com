@@ -259,7 +259,7 @@ async function updateBookmarkOnNotion(
   return Promise.all(promises)
 }
 
-export async function getTools() {
+export async function getUnofficialTools() {
   try {
     const data = await getUnofficialDatabase({
       spaceId: process.env.SPACE_ID,
@@ -270,7 +270,7 @@ export async function getTools() {
       notionApiWeb: process.env.NOTION_API_WEB
     })
     const allTags = getAllToolsTags(data)
-    return { tools: transformTools(data), tags: allTags }
+    return { tools: transformUnofficialTools(data), tags: allTags }
   } catch (error) {
     console.error('🚨 Error in getTools()', error)
     return { tools: [], tags: [] }
@@ -285,7 +285,7 @@ function getAllToolsTags(data: CollectionInstance): string[] {
   )
 }
 
-function transformTools(data: CollectionInstance): Tool[] {
+function transformUnofficialTools(data: CollectionInstance): Tool[] {
   const _block = data?.recordMap?.block
   const toolIds = Object.keys(_block)
   const tools = [] as Tool[]
@@ -376,7 +376,7 @@ function transformTopics(data: CollectionInstance): Tag[] {
   })
 }
 
-export async function getProjects() {
+export async function getUnofficialProjects() {
   try {
     const data = await getUnofficialDatabase({
       spaceId: process.env.SPACE_ID,
@@ -386,14 +386,14 @@ export async function getProjects() {
       notionActiveUser: process.env.NOTION_ACTIVE_USER,
       notionApiWeb: process.env.NOTION_API_WEB
     })
-    return transformProjects(data)
+    return transformUnofficialProjects(data)
   } catch (error) {
     console.error('🚨 Error in getProjects()', error)
     return []
   }
 }
 
-function transformProjects(data: CollectionInstance): Project[] {
+function transformUnofficialProjects(data: CollectionInstance): Project[] {
   const block = data?.recordMap?.block
   const projectIds = Object.keys(block)
   const projects = [] as Project[]
