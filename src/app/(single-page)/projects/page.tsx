@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import { ProjectType, SkeletonProjectItem } from '../../components/ProjectItem'
 import { bodyPadding, containerWide } from '../../lib/config'
-import { getProjects } from '../../lib/fetcher'
+import { getUnofficialProjects } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
 import ProjectPage from './ProjectPage'
 
@@ -19,7 +19,7 @@ export const metadata = getMetadata({
 })
 
 export default async function ProjectsPage() {
-  const projects = await getProjects()
+  const projects = await getUnofficialProjects()
 
   return (
     <div className="thi-bg-stone flex flex-col">

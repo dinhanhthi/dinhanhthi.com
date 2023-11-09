@@ -20,7 +20,13 @@ import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
-import { getPosts, getProjects, getTools, getTopics, getUnofficialBookmarks } from './lib/fetcher'
+import {
+  getPosts,
+  getTopics,
+  getUnofficialBookmarks,
+  getUnofficialProjects,
+  getUnofficialTools
+} from './lib/fetcher'
 import { getMetadata, getUri } from './lib/helpers'
 
 export const revalidate = 20
@@ -48,9 +54,9 @@ export default async function Home() {
     }
   })
   const posts = await getPosts({ pageSize: 10 })
-  const projects = await getProjects()
+  const projects = await getUnofficialProjects()
   const _topics = await getTopics()
-  const { tools } = await getTools()
+  const { tools } = await getUnofficialTools()
   const bookmarks = await getUnofficialBookmarks()
 
   const topics = _topics.map(topic => ({
