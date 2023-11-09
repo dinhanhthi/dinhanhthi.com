@@ -14,7 +14,7 @@ import { getUnofficialBookmarks } from '../../../lib/fetcher'
 import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
 import BookmarksPageTemplate from '../BookmarksPageTemplate'
 
-const marksPerPage = 5
+const marksPerPage = 20
 
 export const revalidate = 20
 
