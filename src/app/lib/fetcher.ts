@@ -69,6 +69,59 @@ export async function getPosts(options: {
   }
 }
 
+export async function getUnofficialBookmarks() {
+  try {
+    const data = await getUnofficialDatabase({
+      spaceId: process.env.SPACE_ID,
+      sourceId: process.env.BOOKMARKS_SOURCE_ID,
+      collectionViewId: process.env.BOOKMARKS_COLLECTION_VIEW_ID,
+      notionTokenV2: process.env.NOTION_TOKEN_V2,
+      notionActiveUser: process.env.NOTION_ACTIVE_USER,
+      notionApiWeb: process.env.NOTION_API_WEB
+    })
+    return transformUnofficialBookmarks(data)
+  } catch (error) {
+    console.error('🚨 Error in getUnofficialBookmarks()', error)
+    return []
+  }
+}
+
+function transformUnofficialBookmarks(data: CollectionInstance): BookmarkItem[] {
+  const block = data?.recordMap?.block
+  const markIds = Object.keys(block)
+  const marks = [] as BookmarkItem[]
+
+  for (const id of markIds) {
+    const mark = block[id]
+    const properties = mark?.value?.properties
+    const title = properties?.title?.[0]?.[0] || 'Untitled'
+    const url = properties?.[`${process.env.BOOKMARKS_URL_KEY}`]?.[0]?.[0] || null
+
+    if (!url) continue
+
+    const description = properties?.[`${process.env.BOOKMARKS_DESC_KEY}`]?.[0]?.[0] || null
+    const coverUrl = properties?.[`${process.env.BOOKMARKS_COVER_URL_KEY}`]?.[0]?.[0] || null
+    const createdTime = data.recordMap?.block?.[id]?.value?.created_time || '2020-01-01'
+
+    marks.push({
+      id,
+      title,
+      description,
+      url,
+      coverUrl,
+      createdTime: new Date(createdTime).toISOString()
+    })
+  }
+
+  return marks.sort(function (a, b) {
+    const keyA = new Date(a.createdTime)
+    const keyB = new Date(b.createdTime)
+    if (keyA < keyB) return 1
+    if (keyA > keyB) return -1
+    return 0
+  })
+}
+
 export async function getBookmarks(options: {
   startCursor?: string
   pageSize?: number
