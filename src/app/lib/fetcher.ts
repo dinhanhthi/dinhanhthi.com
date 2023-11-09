@@ -79,39 +79,52 @@ export async function getUnofficialBookmarks() {
       notionActiveUser: process.env.NOTION_ACTIVE_USER,
       notionApiWeb: process.env.NOTION_API_WEB
     })
-    return transformUnofficialBookmarks(data)
+    return await transformUnofficialBookmarks(data)
   } catch (error) {
     console.error('🚨 Error in getUnofficialBookmarks()', error)
     return []
   }
 }
 
-function transformUnofficialBookmarks(data: CollectionInstance): BookmarkItem[] {
+async function transformUnofficialBookmarks(data: CollectionInstance): Promise<BookmarkItem[]> {
   const block = data?.recordMap?.block
   const markIds = Object.keys(block)
   const marks = [] as BookmarkItem[]
 
-  for (const id of markIds) {
-    const mark = block[id]
-    const properties = mark?.value?.properties
-    const title = properties?.title?.[0]?.[0] || 'Untitled'
-    const url = properties?.[`${process.env.BOOKMARKS_URL_KEY}`]?.[0]?.[0] || null
+  await Promise.all(
+    markIds.map(async id => {
+      const mark = block[id]
+      const properties = mark?.value?.properties
+      const url = properties?.[`${process.env.BOOKMARKS_URL_KEY}`]?.[0]?.[0] || null
 
-    if (!url) continue
+      if (!url) return
 
-    const description = properties?.[`${process.env.BOOKMARKS_DESC_KEY}`]?.[0]?.[0] || null
-    const coverUrl = properties?.[`${process.env.BOOKMARKS_COVER_URL_KEY}`]?.[0]?.[0] || null
-    const createdTime = data.recordMap?.block?.[id]?.value?.created_time || '2020-01-01'
+      const createdTime = data.recordMap?.block?.[id]?.value?.created_time || '2020-01-01'
+      const _title = properties?.title?.[0]?.[0] || null
+      const _description = properties?.[`${process.env.BOOKMARKS_DESC_KEY}`]?.[0]?.[0] || null
+      const _coverUrl = properties?.[`${process.env.BOOKMARKS_COVER_URL_KEY}`]?.[0]?.[0] || null
 
-    marks.push({
-      id,
-      title,
-      description,
-      url,
-      coverUrl,
-      createdTime: new Date(createdTime).toISOString()
+      let __title: string | undefined
+      let __description: string | undefined
+      let __coverUrl: string | undefined
+
+      if (!_title && !_description) {
+        const fetchedMeta = await getBookmarkMetadataAndUpdateNotion(url, id)
+        __title = fetchedMeta.title
+        __description = fetchedMeta.description
+        __coverUrl = fetchedMeta.coverUrl
+      }
+
+      marks.push({
+        id,
+        createdTime: new Date(createdTime).toISOString(),
+        title: _title || __title,
+        description: _description || __description,
+        url,
+        coverUrl: _coverUrl || __coverUrl
+      })
     })
-  }
+  )
 
   return marks.sort(function (a, b) {
     const keyA = new Date(a.createdTime)
@@ -122,6 +135,7 @@ function transformUnofficialBookmarks(data: CollectionInstance): BookmarkItem[] 
   })
 }
 
+// Unused
 export async function getBookmarks(options: {
   startCursor?: string
   pageSize?: number
