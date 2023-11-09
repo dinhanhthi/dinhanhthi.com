@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
-import { getTools } from '../../lib/fetcher'
+import { getUnofficialTools } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
 import ToolsPage, { SkeletonToolItem } from './ToolsPage'
 
@@ -19,7 +19,7 @@ export const metadata = getMetadata({
 })
 
 export default async function ProjectsPage() {
-  const { tools, tags } = await getTools()
+  const { tools, tags } = await getUnofficialTools()
 
   return (
     <div className="thi-bg-stone flex flex-col">
