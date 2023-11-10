@@ -61,22 +61,24 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       </div>
 
       {/* Content */}
-      <div className="flex gap-2 flex-col">
-        <div className="text-slate-900 text-[0.95rem] group-hover:m2it-link-hover">
-          {isNew && (
-            <span
-              className={cn(
-                'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md',
-                'whitespace-nowrap mr-2'
-              )}
-            >
-              new
-            </span>
-          )}
-          {mark.title}
-        </div>
-        <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">
-          {mark.description}
+      <div className="flex gap-3 flex-col justify-between">
+        <div className="flex gap-2 flex-col">
+          <div className="text-slate-900 text-[0.95rem] group-hover:m2it-link-hover">
+            {isNew && (
+              <span
+                className={cn(
+                  'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md',
+                  'whitespace-nowrap mr-2'
+                )}
+              >
+                new
+              </span>
+            )}
+            {mark.title}
+          </div>
+          <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">
+            {mark.description}
+          </div>
         </div>
         <div className="text-[0.8rem] italic text-slate-500">{mark.url}</div>
       </div>
