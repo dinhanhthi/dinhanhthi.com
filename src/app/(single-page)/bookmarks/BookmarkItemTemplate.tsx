@@ -36,7 +36,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       {/* Featured image */}
       <div
         className={cn(
-          'rounded-md w-full sm:w-[120px] min-w-[120px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border'
+          'rounded-md w-full sm:w-[100px] min-w-[100px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border'
         )}
       >
         {mark?.coverUrl && (
