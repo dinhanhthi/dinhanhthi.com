@@ -36,7 +36,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       {/* Featured image */}
       <div
         className={cn(
-          'rounded-md w-full sm:w-[120px] min-w-[120px] max-h-[100px] overflow-hidden border-slate-100 border'
+          'rounded-md w-full sm:w-[120px] min-w-[120px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border'
         )}
       >
         {mark?.coverUrl && (
@@ -78,6 +78,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
         <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">
           {mark.description}
         </div>
+        <div className="text-[0.8rem] italic text-slate-500">{mark.url}</div>
       </div>
     </a>
   )
