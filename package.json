@@ -45,7 +45,7 @@
     "lodash": "^4.17.21",
     "mermaid": "^10.4.0",
     "moment": "^2.29.4",
-    "next": "^13.5.3",
+    "next": "^14.0.2",
     "next-sitemap": "^4.1.8",
     "notion-client": "^6.16.0",
     "notion-types": "^6.16.0",
