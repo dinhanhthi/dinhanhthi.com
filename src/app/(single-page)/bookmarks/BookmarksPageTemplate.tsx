@@ -84,11 +84,16 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
       {/* Bookmarks list */}
       <div className="flex flex-col gap-4">
         {!query.length && (
-          <div className="grid grid-cols-1 gap-4">
-            {props.bookmarks.map((mark: BookmarkItem) => (
-              <BookmarkItemTemplate key={mark.id} mark={mark} />
-            ))}
-          </div>
+          <>
+            <div className="italic text-sm text-slate-600">
+              Remark: descriptions are fetched automatically from the bookmark!
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {props.bookmarks.map((mark: BookmarkItem) => (
+                <BookmarkItemTemplate key={mark.id} mark={mark} />
+              ))}
+            </div>
+          </>
         )}
         {query.length > 0 && (
           <div className="flex gap-8 flex-col">
