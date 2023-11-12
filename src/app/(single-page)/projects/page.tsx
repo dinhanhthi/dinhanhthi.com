@@ -13,9 +13,13 @@ import ProjectPage from './ProjectPage'
 
 export const revalidate = 20
 
+const title = 'Projects'
+const description = 'A list of projects I have done so far.'
+
 export const metadata = getMetadata({
-  title: 'Projects',
-  description: 'A list of projects I have done so far.'
+  title,
+  description,
+  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
 export default async function ProjectsPage() {

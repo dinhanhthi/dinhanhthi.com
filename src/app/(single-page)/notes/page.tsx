@@ -22,9 +22,13 @@ import { getMetadata } from '../../lib/helpers'
 
 export const revalidate = 20
 
+const title = 'Notes'
+const description = 'When I learn something new, I write it down here.'
+
 export const metadata = getMetadata({
-  title: 'Notes',
-  description: 'When I learn something new, I write it down here.'
+  title,
+  description,
+  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
 export default async function NotesPage() {
