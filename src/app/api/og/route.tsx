@@ -27,19 +27,19 @@ export async function GET(request: Request) {
             backgroundImage: 'linear-gradient(to bottom, rgb(40, 42, 54), rgb(50, 53, 65))'
           }}
         >
-          <div tw="text-amber-500 text-2xl italic">dinhanhthi.com</div>
+          <div tw="text-amber-500 text-4xl italic">dinhanhthi.com</div>
           <h2
             style={{
               backgroundClip: 'text',
               backgroundImage: 'linear-gradient(to right, rgb(255, 136, 195), rgb(167, 139, 250))',
               fontWeight: 'bold'
             }}
-            tw="text-5xl text-transparent"
+            tw="text-7xl text-transparent"
           >
             {title}
           </h2>
           {!!description && !!description?.length && (
-            <div tw="text-2xl font-normal text-white leading-tight">{description}</div>
+            <div tw="text-4xl font-normal text-white leading-tight">{description}</div>
           )}
         </div>
       </div>
