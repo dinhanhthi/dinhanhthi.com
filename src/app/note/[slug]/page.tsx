@@ -18,9 +18,13 @@ export async function generateMetadata({ params }: DynamicSegmentParamsProps): P
   const post = allPosts.find(post => post.slug === slug)
   if (!post) return { title: untitled, description: undefined }
 
+  const title = post.title
+  const description = getJoinedRichText(post.excerpt)
+
   return getMetadata({
-    title: post.title,
-    description: getJoinedRichText(post.excerpt)
+    title,
+    description,
+    images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
   })
 }
 

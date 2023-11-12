@@ -8,7 +8,14 @@ import SinglePostTemplate from '../../templates/SinglePostTemplate'
 export const revalidate = 20
 
 export const metadata = getMetadata({
-  title: 'Support Thi'
+  title: 'Support Thi',
+  images: [
+    {
+      url: 'https://i.imgur.com/PyXUtfTh.png',
+      width: 1024,
+      height: 591
+    }
+  ]
 })
 
 export default async function SupportThiPage() {
