@@ -1,5 +1,6 @@
 import TopicIcon from '@/public/topics.svg'
-import ImageComponent from '@notion-x/src/components/ImageComponent'
+import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import Link from 'next/link'
@@ -28,6 +29,20 @@ export default async function TagsPage() {
 
   const tagListContainerClass =
     'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4'
+
+  const ImagePlaceholder = () => {
+    return (
+      <div
+        className={cn(
+          'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center',
+          'flex flex-col h-[30px] w-[30px] rounded-full'
+        )}
+      >
+        <AiOutlineLoading3Quarters className="text-[30px] text-white animate-spin" />
+      </div>
+    )
+  }
+
   return (
     <div className="thi-bg-stone flex flex-col">
       <HeaderPage
@@ -57,10 +72,12 @@ export default async function TagsPage() {
                 >
                   {tag.icon && (
                     <div>
-                      <ImageComponent
-                        image={tag.icon}
+                      <SimpleImage
+                        src={tag.icon.sourceUrl!}
                         alt={tag.name}
-                        imageProps={{ width: 30, height: 30, placeholder: 'empty' }}
+                        width={30}
+                        height={30}
+                        imagePlaceholder={ImagePlaceholder()}
                       />
                     </div>
                   )}
