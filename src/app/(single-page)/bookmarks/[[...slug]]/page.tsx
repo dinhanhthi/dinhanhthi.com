@@ -20,9 +20,15 @@ export const revalidate = 20
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const currentPage = +(params?.slug?.[1] || 1)
+  const title = `My bookmarks - page ${currentPage}`
+  const description =
+    'A collection of links to articles, videos, and other resources I find useful.'
   return {
-    title: `My bookmarks - page ${currentPage} | Thi`,
-    description: 'A collection of links to articles, videos, and other resources I find useful.'
+    title,
+    description,
+    openGraph: {
+      images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+    }
   }
 }
 
