@@ -15,9 +15,13 @@ import { getMetadata } from '../../lib/helpers'
 
 export const revalidate = 20
 
+const title = 'List of topics'
+const description = 'A list of topics I write about'
+
 export const metadata = getMetadata({
-  title: 'List of topics',
-  description: 'A list of topics I write about'
+  title,
+  description,
+  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
 export default async function TagsPage() {

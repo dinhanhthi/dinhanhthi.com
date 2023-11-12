@@ -13,9 +13,13 @@ import ToolsPage, { SkeletonToolItem } from './ToolsPage'
 
 export const revalidate = 20
 
+const title = 'Tools I use'
+const description = 'Apps, tools, websites I find useful.'
+
 export const metadata = getMetadata({
-  title: 'Tools I use | Thi',
-  description: 'Apps, tools, websites I find useful.'
+  title,
+  description,
+  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
 export default async function ProjectsPage() {
