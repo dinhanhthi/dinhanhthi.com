@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
   const title = searchParams.get('title') || '👋 Hello'
-  const description = searchParams.get('description') || 'This is a description'
+  const description = searchParams.get('description')
 
   return new ImageResponse(
     (
@@ -22,12 +22,12 @@ export async function GET(request: Request) {
         }}
       >
         <div
-          tw="flex h-full w-full flex-col items-left justify-center gap-4 px-36 py-6"
+          tw="flex h-full w-full flex-col justify-center px-36 py-6"
           style={{
             backgroundImage: 'linear-gradient(to bottom, rgb(40, 42, 54), rgb(50, 53, 65))'
           }}
         >
-          <div tw="text-amber-500 text-4xl italic">dinhanhthi.com</div>
+          <div tw="text-amber-200 text-4xl italic">dinhanhthi.com</div>
           <h2
             style={{
               backgroundClip: 'text',
