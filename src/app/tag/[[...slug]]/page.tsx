@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
     totalPages > 1 ? `Topic "${tag?.name}" - Page ${currentPage}` : `Topic "${tag?.name}"`
 
   return getMetadata({
-    title
+    title,
+    images: [`/api/og?title=${encodeURI(title)}`]
   })
 }
 
