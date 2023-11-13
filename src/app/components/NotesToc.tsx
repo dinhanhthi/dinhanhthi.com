@@ -13,6 +13,11 @@ type NotesTocProps = {
 
 export default function NotesToc(props: NotesTocProps) {
   const { activeId } = useHeadsObserver(['h2'])
+
+  // Makre sure below is the same as the one in /notes/page/tsx
+  // We cannot use export in this case!
+  const recentUpdatedNotesTitle = 'Recently updated notes'
+
   return (
     <div className={props.className}>
       <div
@@ -27,6 +32,17 @@ export default function NotesToc(props: NotesTocProps) {
             'text-[0.9rem]'
           )}
         >
+          <a
+            className={cn('hover:m2it-link flex gap-2 items-center group', {
+              'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
+              'text-slate-900 font-semibold hover:font-semibold':
+                activeId === makeSlugText(recentUpdatedNotesTitle)
+            })}
+            key={makeSlugText(recentUpdatedNotesTitle)}
+            href={`#${makeSlugText(recentUpdatedNotesTitle)}`}
+          >
+            <div>{recentUpdatedNotesTitle}</div>
+          </a>
           {props.tags.map((tag: Tag) => {
             const anchor = makeSlugText(tag.name)
             return (
