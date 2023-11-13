@@ -20,7 +20,7 @@ export const revalidate = 20
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const currentPage = +(params?.slug?.[1] || 1)
-  const title = `My bookmarks - page ${currentPage}`
+  const title = currentPage === 1 ? 'My bookmarks' : `My bookmarks - page ${currentPage}`
   const description =
     'A collection of links to articles, videos, and other resources I find useful.'
   return {
