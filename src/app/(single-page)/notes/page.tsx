@@ -93,7 +93,7 @@ export default async function NotesPage() {
 
               {/* Recently updated notes */}
               <div className="flex flex-col gap-2">
-                <HeadingWithMore title="Recently updated notes" />
+                <HeadingWithMore title="Recently updated notes" className="scroll-mt-[70px]" />
                 <div className="thi-box-code overflow-hidden">
                   <Suspense
                     fallback={
