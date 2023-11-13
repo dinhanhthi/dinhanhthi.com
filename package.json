@@ -72,7 +72,7 @@
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-syntax-flow": "^7.14.5",
     "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "20.2.5",
     "@types/prismjs": "^1.26.0",

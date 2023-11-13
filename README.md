@@ -1,6 +1,6 @@
 # dinhanhthi.com
 
-Next.js 14+ & Tailwind CSS & Notion as CMS + [notion-x](https://github.com/dinhanhthi/notion-x).
+Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.com/dinhanhthi/notion-x).
 
 > 🚨 The source code on this page is for reference only. You cannot clone and use it to create an exact replica of my website. It lacks the Notion databases that power my site, and I don't have time to make it publicly available. **Please don't email me for a clone** (Instead, you can [read this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas and tips behind the way I created this site so that you can make one for you). I'm working on writing a guide as soon as possible. Thanks for your understanding.
 
