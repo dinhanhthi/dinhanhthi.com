@@ -1,4 +1,5 @@
-import ImageComponent from '@notion-x/src/components/ImageComponent'
+import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import { ImageType } from '@notion-x/src/interface'
 import cn from 'classnames'
 
@@ -15,6 +16,16 @@ type HeaderPageProps = {
 }
 
 export default function HeaderPage(props: HeaderPageProps) {
+  const ImagePlaceholder = () => (
+    <div
+      className={cn(
+        'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center w-full h-full',
+        'flex flex-col rounded-full'
+      )}
+    >
+      <AiOutlineLoading3Quarters className="text-[60px] text-white animate-spin" />
+    </div>
+  )
   return (
     <Header
       childrenContainerClassName={props.childrenContainerClassName}
@@ -25,11 +36,11 @@ export default function HeaderPage(props: HeaderPageProps) {
         <div className="flex flex-col md:flex-row items-center gap-3">
           {!!props.icon && (
             <div>
-              <ImageComponent
-                image={props.icon}
-                alt="icon"
-                className={props.iconClassName}
-                imageProps={{ width: 60, height: 60 }}
+              <SimpleImage
+                src={props.icon.sourceUrl!}
+                alt={props.title}
+                className="notion-page-cover absolute"
+                imagePlaceholder={ImagePlaceholder()}
               />
             </div>
           )}
