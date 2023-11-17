@@ -2,7 +2,7 @@
 
 import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import cn from 'classnames'
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 
 import useScript from '../hooks/useScript'
 
