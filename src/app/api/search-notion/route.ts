@@ -14,7 +14,7 @@ const UNOFFICIAL_NOTION_KEYS = {
 const defaultPostTitle = 'Untitled'
 
 // Allow CORS for OPTIONS request
-export async function OPTIONS(request: Request) {
+export async function OPTIONS(_request: Request) {
   return new Response(null, {
     headers: {
       'Access-Control-Allow-Origin': '*',
