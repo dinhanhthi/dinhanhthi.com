@@ -35,11 +35,11 @@ export default function HeaderPage(props: HeaderPageProps) {
       <div className="py-8 w-full">
         <div className="flex flex-col md:flex-row items-center gap-3">
           {!!props.icon && (
-            <div>
+            <div className="h-[45px] w-[45px]">
               <SimpleImage
-                src={props.icon.sourceUrl!}
+                src={props.icon.sourceUrl || props.icon.staticImageData?.src}
                 alt={props.title}
-                className="notion-page-cover absolute"
+                className="notion-page-cover"
                 imagePlaceholder={ImagePlaceholder()}
               />
             </div>

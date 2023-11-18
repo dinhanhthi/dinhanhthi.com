@@ -48,7 +48,6 @@ export default async function NotesPage() {
   }))
 
   const pinnedTags = tags.filter(tag => tag.pinned)
-  // const predefinedPinnedTags = topics.filter(topic => topic.pinned)
 
   return (
     <div className="thi-bg-stone flex flex-col">
