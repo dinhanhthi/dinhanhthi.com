@@ -1,6 +1,10 @@
 import BadgeTech from '@notion-x/src/components/BadgeTech'
+import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 
+import { Block } from 'notion-types'
+import SimpleImage from '../../../notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '../../../notion-x/src/icons/AiOutlineLoading3Quarters'
 import techs from '../../data/techs'
 
 export type ProjectType = 'ds' | 'web' | 'other'
@@ -17,6 +21,7 @@ export type Project = {
   tech?: string[]
   techText?: string[]
   choice?: boolean
+  block?: Block // used to fetch icons
 }
 
 type ProjectItemProps = {
@@ -26,6 +31,19 @@ type ProjectItemProps = {
 }
 
 export default function ProjectItem({ project, className, grayScale }: ProjectItemProps) {
+  const ImagePlaceholder = () => {
+    return (
+      <div
+        className={cn(
+          'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center',
+          'flex flex-col h-[30px] w-[30px] rounded-full'
+        )}
+      >
+        <AiOutlineLoading3Quarters className="text-[30px] text-white animate-spin" />
+      </div>
+    )
+  }
+  const convertedIconUrl = defaultMapImageUrl(project.icon!, project.block!)!
   return (
     <a
       className={cn(
@@ -43,8 +61,19 @@ export default function ProjectItem({ project, className, grayScale }: ProjectIt
         {project.type.includes('other') && <div className="flex-1 w-full bg-emerald-600"></div>}
       </div>
       <div className="sticky h-full flex flex-col p-4 z-20 bg-white rounded-lg">
-        <div className="text-slate-700 font-medium">
-          {project.icon && <span className="mr-2">{project.icon}</span>}
+        <div className="text-slate-700 font-medium flex items-center gap-2">
+          {/* {project.icon && <span className="mr-2">{project.icon}</span>} */}
+          {project.icon && (
+            <SimpleImage
+              emoji={!project.icon?.includes('http') ? project.icon : undefined}
+              src={convertedIconUrl}
+              alt={project.title}
+              width={25}
+              height={25}
+              className="text-[25px]"
+              imagePlaceholder={ImagePlaceholder()}
+            />
+          )}
           {project.title}
           {!project.source && !project.url && <span>{project.title}</span>}
         </div>
