@@ -408,12 +408,12 @@ export async function getUnofficialProjects() {
 }
 
 function transformUnofficialProjects(data: CollectionInstance): Project[] {
-  const block = data?.recordMap?.block
-  const projectIds = Object.keys(block)
+  const _block = data?.recordMap?.block
+  const projectIds = Object.keys(_block)
   const projects = [] as Project[]
 
   for (const id of projectIds) {
-    const project = block[id]
+    const project = _block[id]
     const properties = project?.value?.properties
     const description = properties?.[`${process.env.PROJECTS_DESC_KEY}`]?.[0]?.[0]
     if (!description) continue // because there are useless blocks in the database
@@ -428,6 +428,7 @@ function transformUnofficialProjects(data: CollectionInstance): Project[] {
     const lastModified =
       properties?.[`${process.env.PROJECTS_LAST_MODIFIED_KEY}`]?.[0]?.[1]?.[0]?.[1]?.start_date ??
       new Date(project?.value?.last_edited_time).toISOString()
+    const block = project?.value as Block
 
     projects.push({
       id,
@@ -440,7 +441,8 @@ function transformUnofficialProjects(data: CollectionInstance): Project[] {
       techText,
       choice,
       icon,
-      lastModified
+      lastModified,
+      block
     })
   }
 
