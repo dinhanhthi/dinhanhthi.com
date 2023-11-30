@@ -14,6 +14,17 @@ const cv: CVGroupType[] = [
     name: 'Experiences',
     list: [
       {
+        id: 'self-employed',
+        where: 'Self-learning',
+        logo: SelfLearnLogo,
+        url: 'https://dinhanhthi.com/projects/',
+        title: 'Fullstack Developer',
+        date: '2013 — current',
+        activity: [
+          'I have been working as a self learning developer for many years. I have worked on many projects, from small to large, from simple to complex.'
+        ]
+      },
+      {
         id: 'ideta',
         where: 'Ideta',
         bgWhite: false,
