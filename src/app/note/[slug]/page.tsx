@@ -2,10 +2,10 @@ import { getUnofficialPosts } from '@/src/app/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
 import { DynamicSegmentParamsProps } from '@notion-x/src/interface'
 import { getJoinedRichText } from '@notion-x/src/lib/helpers'
-import { notionX } from '@notion-x/src/lib/notionx'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { getPage } from '@notion-x/src/lib/notionx'
 import { getMetadata } from '../../lib/helpers'
 
 export const revalidate = 20
@@ -46,8 +46,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     console.log(`👉 pageIdwithDash: `, pageIdwithDash) // ###M
     if (!pageIdwithDash) notFound()
 
-    const recordMap = await notionX.getPage(pageIdwithDash)
-
+    const recordMap = await getPage(pageIdwithDash)
     return <SinglePostTemplate recordMap={recordMap} />
   } catch (error) {
     console.log('🚨Error when loading a single note page', error)
