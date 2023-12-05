@@ -32,23 +32,23 @@ const nextConfig = {
   },
   images: {
     // unoptimized: true,
-    domains: [
-      '0.gravatar.com',
-      '1.gravatar.com',
-      '2.gravatar.com',
-      'secure.gravatar.com',
-      'math2it.com',
-      'dinhanhthi.com',
-      // 👇 for notion's post cover
-      'images.unsplash.com',
-      'notion.so',
-      'www.notion.so',
-      'i.imgur.com',
-      'cloudinary.com',
-      'res.cloudinary.com',
-      's3.us-west-2.amazonaws.com'
-    ],
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.gravatar.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.math2it.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.imgur.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.dinhanhthi.com'
+      },
       {
         protocol: 'https',
         hostname: '**.notion.so'
