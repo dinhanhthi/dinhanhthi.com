@@ -67,6 +67,20 @@ const nextConfig = {
       }
     ]
   }
+  // redirects: async () => {
+  //   return [
+  //     // {
+  //     //   source: '/:slug',
+  //     //   destination: '/note/:slug',
+  //     //   permanent: true
+  //     // }
+  //     {
+  //       source: '/:slug(^(?!notes$|tags$|about$|projects$|tools$|bookmarks$|support-me$).*)',
+  //       destination: '/note/:slug',
+  //       permanent: true
+  //     }
+  //   ]
+  // }
 }
 
 export default nextConfig
