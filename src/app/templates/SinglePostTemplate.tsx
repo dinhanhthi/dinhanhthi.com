@@ -54,6 +54,8 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 }}
                 useSimpleImage={true}
                 showUpdatedIndicator={true}
+                lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
+                createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
               />
             </article>
 
