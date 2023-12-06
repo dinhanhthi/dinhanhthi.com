@@ -47,6 +47,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
+    // console.log(`👉👉👉 recordMap: `, JSON.stringify(recordMap))
     return <SinglePostTemplate recordMap={recordMap} />
   } catch (error) {
     console.log('🚨Error when loading a single note page', error)
