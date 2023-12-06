@@ -1,12 +1,12 @@
 import toTopImg from '@/public/to-top.webp'
 import Nav from '@/src/app/components/nav/Nav'
-import '@/src/fontello/css/fontello.css'
 import LocalRouteChange from '@notion-x/src/components/LocalRouteChange'
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import '@notion-x/src/style/notion-x.scss'
 import { Analytics } from '@vercel/analytics/react'
 import { Metadata } from 'next'
 import Script from 'next/script'
+import '../fontello/css/fontello.css'
 
 import me from '../data/me'
 import { poppins } from './lib/fonts'

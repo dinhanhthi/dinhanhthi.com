@@ -49,9 +49,11 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                   blockCodeCopiedText: 'Copied',
                   blockCodeCopyText: 'Copy',
                   headingScrollMarginTopClass: 'scroll-mt-[70px]',
-                  minNumHeadingsToShowToc: 4
+                  minNumHeadingsToShowToc: 4,
+                  maxDaysWinthin: 7
                 }}
                 useSimpleImage={true}
+                showUpdatedIndicator={true}
               />
             </article>
 
