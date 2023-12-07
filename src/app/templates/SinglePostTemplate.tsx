@@ -1,9 +1,7 @@
-import toTopImg from '@/public/to-top.webp'
 import PostAside from '@/src/app/components/PostAside'
 import PostHeader from '@/src/app/components/PostHeader'
 import PostBody from '@notion-x/src/components/PostBody'
 import PostToc from '@notion-x/src/components/PostToc'
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import { BlockOptionsContextType } from '@notion-x/src/lib/context'
 import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
@@ -56,6 +54,9 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 showUpdatedIndicator={true}
                 lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
                 createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
+                showBackToTopButton={true}
+                showUpdateButtonClassName="tooltip-auto before:left-auto before:right-[55px] before:top-[15px] before:content-[attr(data-title)]"
+                showUpdateButtonPositionClass="right-10 bottom-8"
               />
             </article>
 
@@ -71,7 +72,6 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
 
         <Footer footerType="white" />
       </div>
-      <ScrollToTop image={toTopImg} />
     </>
   )
 }
