@@ -156,3 +156,11 @@
     font-weight: normal !important;
   }
 }
+
+ol,
+ul {
+  ol > .button-indicator,
+  ul > .button-indicator {
+    display: none !important;
+  }
+}
