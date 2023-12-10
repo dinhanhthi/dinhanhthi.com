@@ -6,6 +6,7 @@ import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
+import BsPinAngleFill from '@notion-x/src/icons/BsPinAngleFill'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -66,6 +67,11 @@ export default async function NotesPage() {
             <div className="order-2 flex-1 flex flex-col gap-12">
               {/* pinned */}
               <div className="flex flex-col gap-2">
+                <HeadingWithMore
+                  icon={<BsPinAngleFill className="text-red-600" />}
+                  title="Pinned notes"
+                  className="scroll-mt-[70px]"
+                />
                 <div className="thi-box-code overflow-hidden">
                   <Suspense
                     fallback={
