@@ -2,9 +2,9 @@ import BadgeTech from '@notion-x/src/components/BadgeTech'
 import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 
+import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import { Block } from 'notion-types'
-import SimpleImage from '../../../notion-x/src/components/SimpleImage'
-import AiOutlineLoading3Quarters from '../../../notion-x/src/icons/AiOutlineLoading3Quarters'
 import techs from '../../data/techs'
 
 export type ProjectType = 'ds' | 'web' | 'other'

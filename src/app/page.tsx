@@ -45,7 +45,7 @@ export const metadata = getMetadata({
 
 export default async function Home() {
   const pinnedPosts = await getPosts({
-    pageSize: 4,
+    pageSize: 6,
     filter: {
       property: 'pinned',
       checkbox: {
@@ -82,7 +82,7 @@ export default async function Home() {
               <Suspense
                 fallback={
                   <SkeletonPostList
-                    count={4}
+                    count={6}
                     postType="PostSimple"
                     options={{
                       className: 'flex flex-col divide-y'
