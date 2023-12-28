@@ -1,6 +1,5 @@
 'use client'
 
-import BsPinAngleFill from '@notion-x/src/icons/BsPinAngleFill'
 import { Tag } from '@notion-x/src/interface'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import { useHeadsObserver } from '@notion-x/src/lib/hooks'
@@ -43,10 +42,7 @@ export default function NotesToc(props: NotesTocProps) {
             key={makeSlugText(pinnedNotesTitle)}
             href={`#${makeSlugText(pinnedNotesTitle)}`}
           >
-            <div className="flex items-center gap-1">
-              <BsPinAngleFill className="text-sm" />
-              {pinnedNotesTitle}
-            </div>
+            <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
           </a>
           <a
             className={cn('hover:m2it-link flex gap-2 items-center group', {
