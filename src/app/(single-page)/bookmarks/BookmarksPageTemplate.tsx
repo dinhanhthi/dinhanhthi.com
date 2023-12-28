@@ -49,6 +49,17 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
 
   return (
     <div className="flex flex-col gap-8">
+      <div>
+        👉{' '}
+        <a
+          className="m2it-link"
+          target="_blank"
+          href="https://github.com/stars/dinhanhthi/lists/favorites"
+        >
+          My favorite repositories
+        </a>{' '}
+        on Github.
+      </div>
       {/* Search */}
       <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
         <div className={cn('grid place-items-center text-slate-500')}>
