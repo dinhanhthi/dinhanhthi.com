@@ -130,7 +130,7 @@ export function getPostProperties(post: Block): Post {
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
   const title = properties?.title?.[0]?.[0]
-  const drawTitle = properties?.title
+  const rawTitle = properties?.title
   const date =
     properties?.[`${process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}`]?.[0]?.[1]?.[0]?.[1]?.start_date ??
     new Date(post?.last_edited_time).toISOString()
@@ -154,7 +154,7 @@ export function getPostProperties(post: Block): Post {
     slug,
     uri: `/note/${slug}/`,
     title,
-    drawTitle,
+    rawTitle,
     date,
     createdDate,
     tags,
