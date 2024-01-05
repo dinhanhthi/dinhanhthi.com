@@ -129,7 +129,7 @@ export function getPostProperties(post: Block): Post {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
-  const title = properties?.title?.[0]?.[0]
+  const title = properties?.title?.[1]?.[0] || properties?.title?.[0]?.[0]
   const rawTitle = properties?.title
   const date =
     properties?.[`${process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}`]?.[0]?.[1]?.[0]?.[1]?.start_date ??
