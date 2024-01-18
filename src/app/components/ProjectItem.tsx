@@ -62,11 +62,10 @@ export default function ProjectItem({ project, className, grayScale }: ProjectIt
       </div>
       <div className="sticky h-full flex flex-col p-4 z-20 bg-white rounded-lg">
         <div className="text-slate-700 font-medium flex items-center gap-2">
-          {/* {project.icon && <span className="mr-2">{project.icon}</span>} */}
           {project.icon && (
             <SimpleImage
               emoji={!project.icon?.includes('http') ? project.icon : undefined}
-              src={convertedIconUrl}
+              src={project.icon?.includes('http') ? convertedIconUrl : undefined}
               alt={project.title}
               width={25}
               height={25}
