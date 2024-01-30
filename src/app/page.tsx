@@ -8,6 +8,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
+import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import me from '../data/me'
 import { BookmarkItem, Tool } from '../interface'
 import BookmarkItemTemplate, {
@@ -225,6 +226,7 @@ export default async function Home() {
         </div>
       </Container>
       <Footer footerType="gray" />
+      <ScrollToTop />
     </div>
   )
 }

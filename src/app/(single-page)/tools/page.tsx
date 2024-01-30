@@ -2,6 +2,7 @@ import ToolsIcon from '@/public/tools.webp'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
+import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -41,6 +42,7 @@ export default async function ProjectsPage() {
         </Suspense>
       </Container>
       <Footer footerType="gray" />
+      <ScrollToTop />
     </div>
   )
 }
