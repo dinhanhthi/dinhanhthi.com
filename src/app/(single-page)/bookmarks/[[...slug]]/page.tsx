@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import { Suspense } from 'react'
 
+import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import Container from '../../../components/Container'
 import Footer from '../../../components/Footer'
 import HeaderPage from '../../../components/HeaderPage'
@@ -96,6 +97,7 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
         </Suspense>
       </Container>
       <Footer footerType="gray" />
+      <ScrollToTop />
     </div>
   )
 }
