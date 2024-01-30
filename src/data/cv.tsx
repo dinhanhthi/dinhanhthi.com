@@ -15,10 +15,10 @@ const cv: CVGroupType[] = [
     list: [
       {
         id: 'self-employed',
-        where: 'Self-learning',
+        where: 'Self-working',
         logo: SelfLearnLogo,
         url: 'https://dinhanhthi.com/projects/',
-        title: 'Fullstack Developer',
+        title: 'Full-stack Developer',
         date: '2013 — current',
         activity: [
           'I have been working as a self learning developer for many years. I have worked on many projects, from small to large, from simple to complex.'
@@ -55,11 +55,13 @@ const cv: CVGroupType[] = [
           'linux',
           'mongodb',
           'nestjs',
+          'nextjs',
           'nodejs',
           'openai',
           'postman',
           'python',
           'pytorch',
+          'react',
           'rxjs',
           'scikit-learn',
           'tensorflow',

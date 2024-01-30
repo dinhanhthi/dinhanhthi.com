@@ -6,6 +6,7 @@ import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
+import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -131,6 +132,7 @@ export default async function NotesPage() {
         </div>
       </Container>
       <Footer footerType="gray" />
+      <ScrollToTop />
     </div>
   )
 }
