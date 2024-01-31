@@ -35,7 +35,7 @@ export default function HeaderPage(props: HeaderPageProps) {
       <div className="py-8 w-full">
         <div className="flex flex-col md:flex-row items-center gap-3">
           {!!props.icon && (
-            <div className="h-[45px] w-[45px]">
+            <div className={cn('h-[45px] w-[45px]', props.iconClassName)}>
               <SimpleImage
                 src={props.icon.sourceUrl || props.icon.staticImageData?.src}
                 alt={props.title}
@@ -77,7 +77,7 @@ export function HeaderPageSkeleton(props: Partial<HeaderPageProps>) {
       <div className="flex flex-col md:flex-row items-center gap-3 py-8">
         <div>
           <div className={cn(props.iconClassName, 'rounded-full bg-slate-400')}>
-            <div className="h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24"></div>
+            <div className="h-[45px] w-[45px]"></div>
           </div>
         </div>
         <div className="h-[35px] bg-slate-400 w-[250px] rounded-lg"></div>
