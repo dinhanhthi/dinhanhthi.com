@@ -36,12 +36,14 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           className={cn('font-heading text-2xl font-semibold text-slate-700 scroll-mt-[70px]')}
         >
           <span>{tag.name}</span>
-          <Link
-            className="text-[80%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover"
-            href={tag.uri!}
-          >
-            ...more
-          </Link>
+          {notes.length >= numToDisplay && (
+            <Link
+              className="text-[80%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover"
+              href={tag.uri!}
+            >
+              ...more
+            </Link>
+          )}
         </h2>
       </div>
       <div className="thi-box-code overflow-hidden">
