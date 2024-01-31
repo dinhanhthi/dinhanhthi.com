@@ -76,7 +76,7 @@ export default function ToolItem(props: ToolItemProps) {
         </div>
         <div className={cn('min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4')}>
           <div className="flex gap-3 flex-col">
-            <div className="font-medium text-slate-700 leading-tight">{tool.name}</div>
+            <div className="text-[0.95rem] text-slate-700 leading-snug">{tool.name}</div>
             <div className={cn('flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]')}>
               {isNew && (
                 <span
