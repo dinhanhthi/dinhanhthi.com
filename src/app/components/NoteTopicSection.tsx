@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import { defaultPostTypeOpts } from '../lib/config'
 import { getPosts } from '../lib/fetcher'
+import { poppins } from '../lib/fonts'
 import { getFilterOf } from '../lib/helpers'
 
 type NoteTopicSectionProps = {
@@ -38,7 +39,10 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           <span>{tag.name}</span>
           {notes.length >= numToDisplay && (
             <Link
-              className="text-[80%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover"
+              className={cn(
+                'text-[70%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover',
+                poppins.className
+              )}
               href={tag.uri!}
             >
               ...more
