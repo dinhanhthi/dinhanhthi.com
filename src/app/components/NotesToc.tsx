@@ -26,17 +26,17 @@ export default function NotesToc(props: NotesTocProps) {
           'p-4 flex flex-col divide-y thi-box-code md:bg-transparent md:border-none md:shadow-none'
         )}
       >
-        <div className="pb-2 font-heading font-semibold text-slate-800">Notes by topics</div>
+        <div className="pb-1.5 font-heading font-semibold text-slate-800">Notes by topics</div>
         <div
           className={cn(
-            'grid grid-cols-2 gap-1 md:grid-cols-1 pt-3 overflow-auto m2it-scrollbar m2it-scrollbar-small',
+            'grid grid-cols-2 gap-0.5 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small',
             'text-[0.9rem]'
           )}
         >
           <a
-            className={cn('hover:m2it-link flex gap-2 items-center group', {
+            className={cn('hover:m2it-link flex gap-2 items-center group py-0.5 pl-1', {
               'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
-              'text-slate-900 font-semibold hover:font-semibold':
+              'text-slate-900 bg-slate-200 rounded-r-lg':
                 activeId === makeSlugText(pinnedNotesTitle)
             })}
             key={makeSlugText(pinnedNotesTitle)}
@@ -45,9 +45,9 @@ export default function NotesToc(props: NotesTocProps) {
             <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
           </a>
           <a
-            className={cn('hover:m2it-link flex gap-2 items-center group', {
+            className={cn('hover:m2it-link flex gap-2 items-center group py-0.5 pl-1', {
               'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
-              'text-slate-900 font-semibold hover:font-semibold':
+              'text-slate-900 bg-slate-200 rounded-r-lg':
                 activeId === makeSlugText(recentUpdatedNotesTitle)
             })}
             key={makeSlugText(recentUpdatedNotesTitle)}
@@ -59,9 +59,9 @@ export default function NotesToc(props: NotesTocProps) {
             const anchor = makeSlugText(tag.name)
             return (
               <a
-                className={cn('hover:m2it-link flex gap-2 items-center group', {
+                className={cn('hover:m2it-link flex gap-2 items-center group py-0.5 pl-1', {
                   'text-slate-600': activeId !== anchor,
-                  'text-slate-900 font-semibold hover:font-semibold': activeId === anchor
+                  'text-slate-900 bg-slate-200 rounded-r-lg': activeId === anchor
                 })}
                 key={anchor}
                 href={`#${anchor}`}
