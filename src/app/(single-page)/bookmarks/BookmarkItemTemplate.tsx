@@ -61,8 +61,8 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       </div>
 
       {/* Content */}
-      <div className="flex gap-3 flex-col justify-between">
-        <div className="flex gap-2 flex-col">
+      <div className="flex gap-2 flex-col justify-between">
+        <div className="flex gap-1.5 flex-col">
           <div className="text-slate-900 text-[0.95rem] group-hover:m2it-link-hover">
             {isNew && (
               <span
