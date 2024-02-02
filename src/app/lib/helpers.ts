@@ -148,6 +148,7 @@ export function getPostProperties(post: Block): Post {
   const coverPosition = (1 - (post?.format?.page_cover_position || 0.5)) * 100
   const wellWritten = properties?.[`${process.env.NEXT_PUBLIC_ID_WELL_WRITTEN}`]?.[0]?.[0] === 'Yes'
   const pinned = properties?.[`${process.env.NEXT_PUBLIC_ID_PINNED}`]?.[0]?.[0] === 'Yes'
+  const discrete = properties?.[`${process.env.NEXT_PUBLIC_ID_DISCRETE}`]?.[0]?.[0] === 'Yes'
 
   return {
     id,
@@ -165,6 +166,7 @@ export function getPostProperties(post: Block): Post {
     pageCover,
     coverPosition,
     wellWritten,
-    pinned
+    pinned,
+    discrete
   }
 }

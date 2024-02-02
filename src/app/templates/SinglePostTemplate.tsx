@@ -7,6 +7,7 @@ import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
 import { getPageTableOfContents } from 'notion-utils'
 
+import { Post } from '../../../notion-x/src/interface'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
@@ -14,6 +15,7 @@ import { bodyPadding, containerNormal } from '../lib/config'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap
+  postProps: Post
   blockOptionsContext?: BlockOptionsContextType
   hideMeta?: boolean
 }
@@ -29,7 +31,11 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   return (
     <>
       <div className="animate-fadeIn">
-        <PostHeader recordMap={props.recordMap} hideMeta={props.hideMeta} />
+        <PostHeader
+          recordMap={props.recordMap}
+          postProps={props.postProps}
+          hideMeta={props.hideMeta}
+        />
         <div className={cn('flex justify-center', bodyPadding)}>
           <aside className={cn(asideClass)}>
             <PostAside position="left">
