@@ -6,7 +6,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getPage } from '@notion-x/src/lib/notionx'
-import { getMetadata } from '../../lib/helpers'
+import { getMetadata, getPostProperties } from '../../lib/helpers'
+import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
 export const revalidate = 20
 
@@ -48,7 +49,14 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
     const recordMap = await getPage(pageIdwithDash)
     // console.log(`👉👉👉 recordMap: `, JSON.stringify(recordMap))
-    return <SinglePostTemplate recordMap={recordMap} />
+
+    const id = Object.keys(recordMap.block)[0]
+    const block = recordMap.block[id]?.value
+    const postProps = getPostProperties(block)
+    if (postProps.discrete)
+      return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
+
+    return <SinglePostTemplate recordMap={recordMap} postProps={postProps} />
   } catch (error) {
     console.log('🚨Error when loading a single note page', error)
     notFound()

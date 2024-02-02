@@ -3,6 +3,7 @@ import AiOutlineClockCircle from '@notion-x/src/icons/AiOutlineClockCircle'
 import RiUser3Line from '@notion-x/src/icons/RiUser3Line'
 import cn from 'classnames'
 
+import MdEditNote from '../../icons/MdEditNote'
 import { bodyPadding, containerNormal } from '../../lib/config'
 import Container from '../Container'
 import Footer from '../Footer'
@@ -47,6 +48,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
                   <RiUser3Line className="text-slate-400" />
                   <div className="h-5 w-16 rounded-2xl bg-slate-200"></div>
                 </div>
+                <MdEditNote className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')} />
                 <div className="flex items-center gap-1">
                   <AiOutlineClockCircle className="text-slate-400" />
                   <div className="h-5 w-28 rounded-2xl bg-slate-200"></div>

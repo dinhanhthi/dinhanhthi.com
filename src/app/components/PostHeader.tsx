@@ -17,14 +17,15 @@ import { ExtendedRecordMap } from 'notion-types'
 import { getTextContent } from 'notion-utils'
 import { Suspense } from 'react'
 
+import { Post } from '../../../notion-x/src/interface'
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'
-import { getPostProperties } from '../lib/helpers'
 import Header from './Header'
 
 const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
-  ssr: false
+  ssr: false,
+  loading: () => <div className="animate-pulse w-36 h-4 bg-slate-200 rounded-md" />
 })
 
 export const fullWidthPostCoverHeight = 'h-[25vh] max-h-[25vh] min-h-[25vh]'
@@ -32,7 +33,9 @@ export const gapHeaderItems = 'mb-3'
 
 type PostHeaderProps = {
   recordMap: ExtendedRecordMap
+  postProps: Post
   hideMeta?: boolean
+  discreteStyle?: boolean
 }
 
 const pageCoverStyleCache: Record<string, object> = {}
@@ -56,7 +59,7 @@ export default function PostHeader(props: PostHeaderProps) {
     coverPosition,
     pageCover,
     wellWritten
-  } = getPostProperties(block)
+  } = props.postProps
 
   const pageCoverObjectPosition = `center ${coverPosition}%`
   let pageCoverStyle = pageCoverStyleCache[pageCoverObjectPosition]
@@ -88,7 +91,7 @@ export default function PostHeader(props: PostHeaderProps) {
       )}
 
       {/* Main header with infos */}
-      <Header headerType={'white'} headerWidth="normal">
+      <Header headerType={!props.discreteStyle ? 'white' : 'gray'} headerWidth="normal">
         <div className="py-8 flex flex-col gap-5">
           <div className={cn('flex flex-col items-center sm:flex-row sm:items-start gap-3')}>
             {/* icon */}
@@ -130,6 +133,17 @@ export default function PostHeader(props: PostHeaderProps) {
                   <RiUser3Line className="-mr-1" />
                   {me.name}
                 </div>
+
+                <a
+                  href={`https://www.notion.so/thi-cs/${block.id.replace(/-/g, '')}`}
+                  target="_blank"
+                  className="tooltip-auto flex items-center justify-center"
+                  data-title={'Edit this note (for me only)'}
+                >
+                  <MdEditNote
+                    className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')}
+                  />
+                </a>
 
                 <div className="flex items-center gap-1 text-base opacity-80">
                   <AiOutlineClockCircle />
@@ -197,16 +211,6 @@ export default function PostHeader(props: PostHeaderProps) {
                     />
                   </div>
                 )}
-                <a
-                  href={`https://www.notion.so/thi-cs/${block.id.replace(/-/g, '')}`}
-                  target="_blank"
-                  className="tooltip-auto flex items-center justify-center"
-                  data-title={'Edit this note (for me only)'}
-                >
-                  <MdEditNote
-                    className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')}
-                  />
-                </a>
               </div>
             </div>
           )}
