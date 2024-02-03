@@ -93,7 +93,7 @@ export default function ToolItem(props: ToolItemProps) {
                 <span className={cn('bg-rose-100 text-rose-600 px-2 rounded-md')}>paid</span>
               )}
               {!compactMode &&
-                tool.tag.map(t => (
+                tool.tag?.map(t => (
                   <span className={cn('bg-gray-100 text-gray-600 px-2 rounded-md')} key={t}>
                     {t}
                   </span>

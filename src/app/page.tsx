@@ -45,8 +45,14 @@ export const metadata = getMetadata({
 })
 
 export default async function Home() {
+  const numPinnedPosts = 6
+  const numPosts = 10
+  const numProjects = 6
+  const numBookmarks = 5
+  const numTools = 6
+
   const pinnedPosts = await getPosts({
-    pageSize: 6,
+    pageSize: numPinnedPosts,
     filter: {
       property: 'pinned',
       checkbox: {
@@ -54,7 +60,7 @@ export default async function Home() {
       }
     }
   })
-  const posts = await getPosts({ pageSize: 10 })
+  const posts = await getPosts({ pageSize: numPosts })
   const projects = await getUnofficialProjects()
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
@@ -65,7 +71,7 @@ export default async function Home() {
     icon: { sourceUrl: topic.iconUrl, width: 20, height: 20, blurDataURL: defaultBlurDataURL }
   }))
 
-  const projectsToShow = projects.slice(0, 6)
+  const projectsToShow = projects.slice(0, numProjects)
   const isThereDsProject = projectsToShow.some(project => project.type.includes('ds'))
   const isThereWebProject = projectsToShow.some(project => project.type.includes('web'))
   const isThereOtherProject = projectsToShow.some(project => project.type.includes('other'))
@@ -130,7 +136,7 @@ export default async function Home() {
           <div className="flex flex-col gap-4">
             <HeadingWithMore title="Recent bookmarks" href="/bookmarks/" />
             <div className="grid grid-cols-1 gap-3">
-              {bookmarks.slice(0, 5).map((mark: BookmarkItem) => (
+              {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem) => (
                 <Suspense key={mark.id} fallback={<SkeletonBookmarkItemTemplate />}>
                   <BookmarkItemTemplate key={mark.id} mark={mark} />
                 </Suspense>
@@ -142,7 +148,7 @@ export default async function Home() {
           <div className="flex flex-col gap-4">
             <HeadingWithMore title="Recent tools I use" href="/tools/" />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
-              {tools.slice(0, 6).map((tool: Tool) => (
+              {tools.slice(0, numTools).map((tool: Tool) => (
                 <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
                   <ToolItem key={tool.id} tool={tool} compactMode={true} />
                 </Suspense>
@@ -215,7 +221,7 @@ export default async function Home() {
                 )}
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3">
-                {projects.slice(0, 6).map((project: Project) => (
+                {projects.slice(0, numProjects).map((project: Project) => (
                   <Suspense key={project.id} fallback={<SkeletonProjectItem />}>
                     <ProjectItem key={project.id} project={project} grayScale={true} />
                   </Suspense>

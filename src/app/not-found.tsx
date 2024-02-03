@@ -33,7 +33,7 @@ export default function NotFoundPage() {
             </div>
             <div>
               Please <strong>refresh the page</strong> because sometimes the page doesn&apos;t load
-              on the first visit..
+              on the first visit.
             </div>
           </div>
           <div className="flex items-baseline gap-2">
@@ -52,6 +52,15 @@ export default function NotFoundPage() {
             </div>
             <div>
               Please <strong>use search</strong>.
+            </div>
+          </div>
+          <div className="flex items-baseline gap-2">
+            <div className="bg-pink-700 text-white p-2 rounded-full w-6 h-6 flex shrink-0 items-center justify-center">
+              4
+            </div>
+            <div>
+              Please <strong>wait for a few minutes</strong> because there are sometimes technical
+              issues on rendering pages.
             </div>
           </div>
         </div>
