@@ -16,8 +16,8 @@ export const me = {
   longIntro:
     'I am <span class="font-normal text-amber-200">Thi</span>, a Vietnamese <span class=" font-normal text-amber-200">Data Scientist</span> with a curious mind. As an ever-learning worm, I am interested in researching and sharing content about <span class=" font-normal text-amber-200">Applied Mathematics</span>, <span class=" font-normal text-amber-200">Web Dev</span> and <span class=" font-normal text-amber-200">Data Science</span>. I have a PhD in Applied Mathematics from U. Sorbonne Paris Nord and am an avid self-learner in Data Science.',
   // Display a badge everywhere
-  lookingForJob: false,
-  lookingForJobLabel: 'Looking for a job',
+  lookingForJob: false, // true if you are looking for a job. A badge will be displayed on the home page
+  lookingForJobLabel: 'Looking for a job', // or 'Available for hire'
   coordinate: {
     from: {
       label: 'Ben Tre, Vietnam'
