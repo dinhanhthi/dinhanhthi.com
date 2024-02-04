@@ -124,7 +124,7 @@ export default function PostHeader(props: PostHeaderProps) {
             <div
               className={cn(
                 `flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center
-                justify-center sm:justify-start text-slate-100`
+                justify-center sm:justify-start text-slate-100 overflow-hidden`
               )}
             >
               {/* Author & Date */}
