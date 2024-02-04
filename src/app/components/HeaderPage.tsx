@@ -39,7 +39,7 @@ export default function HeaderPage(props: HeaderPageProps) {
               <SimpleImage
                 src={props.icon.sourceUrl || props.icon.staticImageData?.src}
                 alt={props.title}
-                className="notion-page-cover"
+                className="notion-page-cover h-full w-full"
                 imagePlaceholder={ImagePlaceholder()}
               />
             </div>
