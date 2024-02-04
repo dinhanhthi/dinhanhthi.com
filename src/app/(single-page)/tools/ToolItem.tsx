@@ -67,8 +67,7 @@ export default function ToolItem(props: ToolItemProps) {
               <SimpleImage
                 src={convertedIconUrl}
                 width={60}
-                height={60}
-                className={cn('absolute inset-0 m-auto rounded-md')}
+                className={cn('absolute inset-0 m-auto rounded-md h-auto')}
                 imagePlaceholder={ImagePlaceholder()}
               />
             </div>
