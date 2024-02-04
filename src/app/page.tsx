@@ -159,7 +159,7 @@ export default async function Home() {
           {/* Topics */}
           <div className="flex flex-col gap-4">
             <HeadingWithMore title="Main topics" href="/tags/" />
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 overflow-hidden">
               {topics
                 .filter(t => t.pinned)
                 .map(topic => (
