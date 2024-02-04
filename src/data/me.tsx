@@ -18,6 +18,7 @@ export const me = {
   // Display a badge everywhere
   lookingForJob: false, // true if you are looking for a job. A badge will be displayed on the home page
   lookingForJobLabel: 'Looking for a job', // or 'Available for hire'
+  googleAnalytics: 'G-K3YRSB918B',
   coordinate: {
     from: {
       label: 'Ben Tre, Vietnam'

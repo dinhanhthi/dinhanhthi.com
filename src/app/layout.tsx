@@ -29,16 +29,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={poppins.className}>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=G-K3YRSB918B`} />
-      <Script id="google-analytics">
-        {`
+      {me.googleAnalytics && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${me.googleAnalytics}`} />
+          <Script id="google-analytics">
+            {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-K3YRSB918B');
+          gtag('config', '${me.googleAnalytics}');
         `}
-      </Script>
+          </Script>
+        </>
+      )}
       <body suppressHydrationWarning={true}>
         <div className="flex min-h-screen flex-col justify-between">
           <Nav />
