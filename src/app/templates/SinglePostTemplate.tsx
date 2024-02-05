@@ -54,7 +54,8 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                   blockCodeCopyText: 'Copy',
                   headingScrollMarginTopClass: 'scroll-mt-[70px]',
                   minNumHeadingsToShowToc: 4,
-                  maxDaysWinthin: 7
+                  maxDaysWinthin: 7,
+                  expandTocOnMobile: false
                 }}
                 useSimpleImage={true}
                 showUpdatedIndicator={true}
