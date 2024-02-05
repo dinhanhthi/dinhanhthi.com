@@ -53,7 +53,7 @@ export default function HeaderIndex() {
           ></p>
           <div
             className={cn(
-              'flex flex-wrap items-center justify-center gap-3 md:justify-start',
+              'flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden',
               ySpacingClass
             )}
           >
