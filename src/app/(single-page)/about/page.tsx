@@ -45,7 +45,7 @@ export default async function AboutPage() {
             </Suspense>
           ))}
         </div>
-        <div className={cn('flex flex-wrap gap-10 lg:gap-4', sectionSpacing)}>
+        <div className={cn('flex flex-wrap gap-10 lg:gap-4 overflow-hidden', sectionSpacing)}>
           {cv.map((cvGroup: CVGroupType) => (
             <Suspense
               fallback={<SkeletonCVGroup cvGroup={cvGroup} className="flex-1" />}
