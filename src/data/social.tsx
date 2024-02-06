@@ -1,4 +1,5 @@
 import CouseraIcon from '@/public/social/coursera.png'
+import DuolingoIcon from '@/public/social/duolingo.svg'
 import GithubIcon from '@/public/social/github.svg'
 import GoodreadsIcon from '@/public/social/goodreads.svg'
 import LinkedInIcon from '@/public/social/linkedin.svg'
@@ -50,6 +51,12 @@ const socials: BadgeSocialProps[] = [
     title: 'Math2IT',
     icon: Math2ITIcon,
     url: 'https://math2it.com'
+  },
+  {
+    id: 'duolingo',
+    title: 'Duolingo',
+    icon: DuolingoIcon,
+    url: 'https://www.duolingo.com/profile/mr.Thi'
   }
 ]
 

@@ -7,7 +7,7 @@ import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
 import { getPageTableOfContents } from 'notion-utils'
 
-import { Post } from '../../../notion-x/src/interface'
+import { Post } from '@notion-x/src/interface'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
