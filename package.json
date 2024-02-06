@@ -4,6 +4,7 @@
   "version": "6.0.1",
   "author": "Math2IT Team",
   "private": true,
+  "license": "MIT",
   "engines": {
     "npm": "^9.3.1",
     "node": "^18.14.0"
