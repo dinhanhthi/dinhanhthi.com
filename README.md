@@ -4,6 +4,8 @@ Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.
 
 🎉 The step-by-step tutorial to create a website like this is [HERE](https://dinhanhthi.com/note/how-to-create-a-site-like-this/)! Feel free to mention my assistance when you embark on creating your unique site. Appreciate it!
 
+🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/) with some cups of coffee. Thank you!
+
 🚨 There are individuals who have forked my repository and published their confidential information directly in the `.env.local` or `example.env.local` files. I urge you to please **STOP DOING THIS**, as it will expose your secret information to the world!
 
 ## Previous versions
