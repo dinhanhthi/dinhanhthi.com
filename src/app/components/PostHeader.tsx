@@ -92,7 +92,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
       {/* Main header with infos */}
       <Header headerType={!props.discreteStyle ? 'white' : 'gray'} headerWidth="normal">
-        <div className="py-8 flex flex-col gap-5">
+        <div className="py-8 flex flex-col gap-5 overflow-hidden">
           <div className={cn('flex flex-col items-center sm:flex-row sm:items-start gap-3')}>
             {/* icon */}
             {icon && (
@@ -124,94 +124,94 @@ export default function PostHeader(props: PostHeaderProps) {
             <div
               className={cn(
                 `flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center
-                justify-center sm:justify-start text-slate-100 overflow-hidden`
+                justify-center sm:justify-start text-slate-100`
               )}
             >
-              {/* Author & Date */}
-              <div className={cn('flex flex-wrap gap-3 md:flex-nowrap items-center')}>
-                <div className="flex items-center gap-2 text-base opacity-80">
-                  <RiUser3Line className="-mr-1" />
-                  {me.name}
-                </div>
+              {/* Author */}
+              <div className="flex items-center gap-2 text-base opacity-80">
+                <RiUser3Line className="-mr-1" />
+                {me.name}
+              </div>
 
-                <a
-                  href={`https://www.notion.so/thi-cs/${block.id.replace(/-/g, '')}`}
-                  target="_blank"
-                  className="tooltip-auto flex items-center justify-center"
-                  data-title={'Edit this note (for me only)'}
+              {/* Edit link */}
+              <a
+                href={`https://www.notion.so/thi-cs/${block.id.replace(/-/g, '')}`}
+                target="_blank"
+                className="tooltip-auto flex items-center justify-center"
+                data-title={'Edit this note (for me only)'}
+              >
+                <MdEditNote className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')} />
+              </a>
+
+              {/* added */}
+              <div className="flex items-center gap-1 text-base opacity-80">
+                <AiOutlineClockCircle />
+                <DateComponent
+                  humanize={true}
+                  dateString={createdDate!}
+                  dateLabel="added"
+                  format="MMM DD, YYYY"
+                />
+              </div>
+
+              {/* draft */}
+              {isDraft && (
+                <div
+                  className={cn(
+                    'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
+                    'bg-slate-100 text-slate-700'
+                  )}
                 >
-                  <MdEditNote
-                    className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')}
-                  />
-                </a>
+                  draft
+                </div>
+              )}
 
-                <div className="flex items-center gap-1 text-base opacity-80">
-                  <AiOutlineClockCircle />
-                  <DateComponent
-                    humanize={true}
-                    dateString={createdDate!}
-                    dateLabel="added"
-                    format="MMM DD, YYYY"
+              {status !== 'normal' && (
+                <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
+                  {/* Updated */}
+                  {['updated', 'updatedWithin'].includes(status) && (
+                    <div
+                      className={cn(
+                        'px-3 py-0.5 text-sm items-start rounded-xl whitespace-nowrap',
+                        {
+                          'text-slate-700 bg-slate-100': status === 'updated',
+                          'text-green-900 bg-green-200': status === 'updatedWithin'
+                        }
+                      )}
+                    >
+                      <DateComponent
+                        dateLabel="updated"
+                        humanize={true}
+                        dateString={modifiedDate!}
+                        format="MMM DD, YYYY"
+                      />
+                    </div>
+                  )}
+
+                  {/* New */}
+                  {status === 'new' && (
+                    <div
+                      className={cn(
+                        'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
+                        'bg-amber-200 text-amber-900'
+                      )}
+                    >
+                      new
+                    </div>
+                  )}
+                </div>
+              )}
+              {/* Well written */}
+              {wellWritten && (
+                <div
+                  className="tooltip-auto flex items-center justify-center"
+                  data-title={'Well written, verified by me.'}
+                >
+                  <HiMiniCheckBadge
+                    className={cn('text-[#dadada] inline-block text-xl mt-[-3px]')}
                   />
                 </div>
-              </div>
-
-              {/* Meta */}
-              <div className={cn('flex gap-3 flex-wrap')}>
-                {isDraft && (
-                  <div
-                    className={cn(
-                      'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
-                      'bg-slate-100 text-slate-700'
-                    )}
-                  >
-                    draft
-                  </div>
-                )}
-                {status !== 'normal' && (
-                  <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
-                    {['updated', 'updatedWithin'].includes(status) && (
-                      <div
-                        className={cn(
-                          'px-3 py-0.5 text-sm items-start rounded-xl whitespace-nowrap',
-                          {
-                            'text-slate-700 bg-slate-100': status === 'updated',
-                            'text-green-900 bg-green-200': status === 'updatedWithin'
-                          }
-                        )}
-                      >
-                        <DateComponent
-                          dateLabel="updated"
-                          humanize={true}
-                          dateString={modifiedDate!}
-                          format="MMM DD, YYYY"
-                        />
-                      </div>
-                    )}
-
-                    {status === 'new' && (
-                      <div
-                        className={cn(
-                          'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
-                          'bg-amber-200 text-amber-900'
-                        )}
-                      >
-                        new
-                      </div>
-                    )}
-                  </div>
-                )}
-                {wellWritten && (
-                  <div
-                    className="tooltip-auto flex items-center justify-center"
-                    data-title={'Well written, verified by me.'}
-                  >
-                    <HiMiniCheckBadge
-                      className={cn('text-[#dadada] inline-block text-xl mt-[-3px]')}
-                    />
-                  </div>
-                )}
-              </div>
+              )}
             </div>
           )}
 

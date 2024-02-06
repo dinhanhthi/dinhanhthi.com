@@ -110,36 +110,38 @@ export default async function Home() {
       <Container className={cn(bodyPadding, containerWide)}>
         <div className="flex flex-col gap-14">
           {/* Blog */}
-          <div className="flex flex-col gap-4">
-            <HeadingWithMore
-              title="Recent blog posts"
-              href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
-            />
-            <div className="overflow-hidden">
-              <Suspense
-                fallback={
-                  <SkeletonPostList
-                    count={numBlogPosts}
+          {blogPosts.length > 0 && (
+            <div className="flex flex-col gap-4">
+              <HeadingWithMore
+                title="Recent blog posts"
+                href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
+              />
+              <div className="overflow-hidden">
+                <Suspense
+                  fallback={
+                    <SkeletonPostList
+                      count={numBlogPosts}
+                      postType="PostCardWave"
+                      options={{
+                        className:
+                          'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                      }}
+                    />
+                  }
+                >
+                  <PostList
+                    posts={blogPosts}
                     postType="PostCardWave"
+                    postTypeOpts={defaultPostTypeOpts}
                     options={{
                       className:
                         'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
                     }}
                   />
-                }
-              >
-                <PostList
-                  posts={blogPosts}
-                  postType="PostCardWave"
-                  postTypeOpts={defaultPostTypeOpts}
-                  options={{
-                    className:
-                      'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
-                  }}
-                />
-              </Suspense>
+                </Suspense>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Notes */}
           <div className="flex flex-col gap-2">
