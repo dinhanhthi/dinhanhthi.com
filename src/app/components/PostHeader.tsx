@@ -17,7 +17,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import { getTextContent } from 'notion-utils'
 import { Suspense } from 'react'
 
-import { Post } from '../../../notion-x/src/interface'
+import { Post } from '@notion-x/src/interface'
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'

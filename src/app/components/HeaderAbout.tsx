@@ -3,8 +3,11 @@ import BadgeInfos from '@notion-x/src/components/BadgeInfos'
 import cn from 'classnames'
 import Image from 'next/image'
 
+import BadgeSocial from '@notion-x/src/components/BadgeSocial'
+import { ImageType } from '@notion-x/src/interface'
 import inforLinks from '../../data/inforLinks'
 import me from '../../data/me'
+import socials from '../../data/social'
 import Header from './Header'
 
 export default function HeaderAbout() {
@@ -12,7 +15,7 @@ export default function HeaderAbout() {
     <Header headerType="gray" headerWidth="wide">
       <div
         className="mx-auto flex flex-col flex-wrap items-center justify-items-stretch
-  p-4 md:flex-row xl:max-w-6xl"
+  md:p-4 md:flex-row xl:max-w-6xl"
       >
         <div className={'mb-7 flex w-full flex-col items-center gap-4 md:flex-row md:gap-5'}>
           <div>
@@ -31,6 +34,21 @@ export default function HeaderAbout() {
               className={'mt-4 flex-1 text-left text-main-dark'}
               dangerouslySetInnerHTML={{ __html: me.longIntro }}
             ></p>
+            <div
+              className={cn(
+                'mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden'
+              )}
+            >
+              {socials.map(item => (
+                <BadgeSocial
+                  key={item.id}
+                  icon={{ staticImageData: item.icon } as ImageType}
+                  url={item.url}
+                  title={item.title}
+                  imgClass={cn('h-full', item.imgClass)}
+                />
+              ))}
+            </div>
           </div>
           <div className="w-full rounded-lg border border-slate-600 p-4 md:w-auto">
             <ul>
