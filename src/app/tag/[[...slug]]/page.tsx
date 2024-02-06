@@ -1,6 +1,8 @@
 import { getPosts, getTopics } from '@/src/app/lib/fetcher'
 import { generateMetaTitle, getMetadata, getUri } from '@/src/app/lib/helpers'
-import PageOfPostsListTemplate from '@/src/app/templates/PageOfPostsListTemplate'
+import PageOfPostsListTemplate, {
+  PageOfPostsListTemplateProps
+} from '@/src/app/templates/PageOfPostsListTemplate'
 import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@notion-x/src/interface'
 import { getStartCursorForCurrentPage } from '@notion-x/src/lib/helpers'
 import { Metadata } from 'next'
@@ -9,6 +11,8 @@ import { notFound, redirect } from 'next/navigation'
 import { defaultBlurDataURL } from '../../lib/config'
 
 export const revalidate = 20
+
+const numPostsPerPage = 48
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const slug = params.slug[0] || ''
@@ -85,11 +89,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     notFound()
   }
 
-  const startCursor = getStartCursorForCurrentPage(
-    currentPage,
-    allPosts,
-    +process.env.POSTS_PER_PAGE!
-  )
+  const startCursor = getStartCursorForCurrentPage(currentPage, allPosts, numPostsPerPage)
   const postsOnThisPage = !allPosts.length
     ? []
     : await getPosts({
@@ -100,12 +100,12 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
           }
         },
         startCursor,
-        pageSize: +process.env.POSTS_PER_PAGE!
+        pageSize: numPostsPerPage
       })
 
   return (
     <PageOfPostsListTemplate
-      object={tag}
+      object={tag as PageOfPostsListTemplateProps['object']}
       posts={postsOnThisPage}
       totalPages={totalPages}
       currentPage={currentPage}
@@ -123,7 +123,7 @@ async function getTotalPages(tag: Tag): Promise<[number, Post[]]> {
     }
   })
   const numPosts = allPosts?.length || 0
-  const totalPages = Math.ceil(numPosts / +process.env.POSTS_PER_PAGE!)
+  const totalPages = Math.ceil(numPosts / numPostsPerPage)
   return [totalPages, allPosts]
 }
 
