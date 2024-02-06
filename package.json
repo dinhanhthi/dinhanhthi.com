@@ -1,7 +1,7 @@
 {
   "name": "math2it-nextjs",
   "description": "A Next.js version of Math2IT",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "author": "Math2IT Team",
   "private": true,
   "license": "MIT",
