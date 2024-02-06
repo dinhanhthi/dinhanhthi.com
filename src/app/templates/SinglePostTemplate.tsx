@@ -72,7 +72,12 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
 
           <aside className={cn(asideClass)}>
             <PostAside position="right">
-              <PostToc recordMap={props.recordMap} tocs={tocs} labelTocTitle="In this note" />
+              <PostToc
+                defaultOpenToc={true}
+                recordMap={props.recordMap}
+                tocs={tocs}
+                labelTocTitle="In this note"
+              />
             </PostAside>
           </aside>
         </div>
