@@ -127,7 +127,7 @@ export default function ProjectPage(props: { projects: Project[] }) {
       </div>
 
       {/* Projects */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 overflow-hidden">
         {projectsToShow.map((project: Project) => (
           <ProjectItem
             key={project.id}

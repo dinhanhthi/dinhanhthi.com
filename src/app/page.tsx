@@ -83,7 +83,10 @@ export default async function Home() {
         <div className="flex flex-col gap-14">
           {/* Notes */}
           <div className="flex flex-col gap-2">
-            <HeadingWithMore title="Recently updated notes" href="/notes/" />
+            <HeadingWithMore
+              title="Recently updated notes"
+              href={posts.length >= numPosts ? '/notes/' : undefined}
+            />
             {/* pinned */}
             <div className="thi-box-code overflow-hidden mb-3">
               <Suspense
@@ -134,7 +137,10 @@ export default async function Home() {
 
           {/* Bookmarks */}
           <div className="flex flex-col gap-4">
-            <HeadingWithMore title="Recent bookmarks" href="/bookmarks/" />
+            <HeadingWithMore
+              title="Recent bookmarks"
+              href={bookmarks.length >= numBookmarks ? '/bookmarks/' : undefined}
+            />
             <div className="grid grid-cols-1 gap-3">
               {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem) => (
                 <Suspense key={mark.id} fallback={<SkeletonBookmarkItemTemplate />}>
@@ -146,7 +152,10 @@ export default async function Home() {
 
           {/* Tools */}
           <div className="flex flex-col gap-4">
-            <HeadingWithMore title="Recent tools I use" href="/tools/" />
+            <HeadingWithMore
+              title="Recent tools I use"
+              href={tools.length >= numTools ? '/tools/' : undefined}
+            />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
               {tools.slice(0, numTools).map((tool: Tool) => (
                 <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
@@ -190,7 +199,10 @@ export default async function Home() {
 
           {/* Projects */}
           <div className="flex flex-col gap-4">
-            <HeadingWithMore title="Recent projects" href="/projects/" />
+            <HeadingWithMore
+              title="Recent projects"
+              href={projects.length >= numProjects ? '/projects/' : undefined}
+            />
             <div className="flex flex-col gap-x-3 gap-y-4">
               <div className="flex gap-4 flex-wrap">
                 {isThereDsProject && (
@@ -220,7 +232,7 @@ export default async function Home() {
                   </div>
                 )}
               </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3 overflow-hidden">
                 {projects.slice(0, numProjects).map((project: Project) => (
                   <Suspense key={project.id} fallback={<SkeletonProjectItem />}>
                     <ProjectItem key={project.id} project={project} grayScale={true} />
