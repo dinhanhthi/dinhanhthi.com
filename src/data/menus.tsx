@@ -31,6 +31,10 @@ export const MENUS: MenuType[] = [
     icon: ImPencil2
   },
   {
+    name: 'Blog',
+    uri: '/blogs/'
+  },
+  {
     name: 'Topics',
     uri: '/tags/',
     icon: TiTag

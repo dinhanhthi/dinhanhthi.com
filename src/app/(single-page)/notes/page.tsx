@@ -35,12 +35,34 @@ export const metadata = getMetadata({
 export default async function NotesPage() {
   const pinnedPosts = await getPosts({
     filter: {
-      property: 'pinned',
+      and: [
+        {
+          property: 'pinned',
+          checkbox: {
+            equals: true
+          }
+        },
+        {
+          property: 'blog',
+          checkbox: {
+            equals: false
+          }
+        }
+      ]
+    }
+  })
+
+  const numBlogPosts = 6
+  const blogPosts = await getPosts({
+    pageSize: numBlogPosts,
+    filter: {
+      property: 'blog',
       checkbox: {
         equals: true
       }
     }
   })
+
   const posts = await getPosts({ pageSize: 8 + pinnedPosts.length })
   const _tags = await getTopics()
   const tags = _tags.map(tag => ({
@@ -54,8 +76,7 @@ export default async function NotesPage() {
     <div className="thi-bg-stone flex flex-col">
       <HeaderPage
         title="Notes"
-        subtitle={`When I learn something new, I write it down here. It helps me to remember and
-          understand better. I hope you find it useful.`}
+        subtitle={`When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful.`}
         headerType="gray"
         headerWidth="wide"
         icon={{ staticImageData: NotesIcon }}
@@ -65,6 +86,37 @@ export default async function NotesPage() {
         <div className="flex flex-col md:flex-row gap-8">
           <Suspense fallback={<SkeletonNotesPageBody />}>
             <div className="order-2 flex-1 flex flex-col gap-12">
+              {/* Blog posts */}
+              <div className="flex flex-col gap-2">
+                <HeadingWithMore
+                  title="Blog posts"
+                  href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
+                  className="scroll-mt-[70px]"
+                />
+                <div className="overflow-hidden">
+                  <Suspense
+                    fallback={
+                      <SkeletonPostList
+                        count={numBlogPosts}
+                        postType="PostCardWave"
+                        options={{
+                          className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4'
+                        }}
+                      />
+                    }
+                  >
+                    <PostList
+                      posts={blogPosts}
+                      postType="PostCardWave"
+                      postTypeOpts={defaultPostTypeOpts}
+                      options={{
+                        className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4'
+                      }}
+                    />
+                  </Suspense>
+                </div>
+              </div>
+
               {/* pinned */}
               <div className="flex flex-col gap-2">
                 <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
