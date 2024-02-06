@@ -42,7 +42,9 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         iconClassName={object.className}
       />
       <Container className={cn(bodyPadding, containerWide)}>
-        {posts.length === 0 && <div className="my-4 text-xl">There is no post yet!</div>}
+        {posts.length === 0 && blogPosts && blogPosts.length === 0 && (
+          <div className="my-4 text-xl">There is no post yet!</div>
+        )}
         {posts.length > 0 && (
           <>
             <div className="flex flex-col gap-8">
