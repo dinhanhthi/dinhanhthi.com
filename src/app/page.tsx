@@ -50,17 +50,45 @@ export default async function Home() {
   const numProjects = 6
   const numBookmarks = 5
   const numTools = 6
+  const numBlogPosts = 4
 
   const pinnedPosts = await getPosts({
     pageSize: numPinnedPosts,
     filter: {
-      property: 'pinned',
+      and: [
+        {
+          property: 'pinned',
+          checkbox: {
+            equals: true
+          }
+        },
+        {
+          property: 'blog',
+          checkbox: {
+            equals: false
+          }
+        }
+      ]
+    }
+  })
+  const blogPosts = await getPosts({
+    pageSize: numBlogPosts,
+    filter: {
+      property: 'blog',
       checkbox: {
         equals: true
       }
     }
   })
-  const posts = await getPosts({ pageSize: numPosts })
+  const posts = await getPosts({
+    pageSize: numPosts,
+    filter: {
+      property: 'blog',
+      checkbox: {
+        equals: false
+      }
+    }
+  })
   const projects = await getUnofficialProjects()
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
@@ -110,6 +138,7 @@ export default async function Home() {
                 />
               </Suspense>
             </div>
+
             {/* notes */}
             <div className="thi-box-code overflow-hidden">
               <Suspense
@@ -129,6 +158,38 @@ export default async function Home() {
                   postTypeOpts={defaultPostTypeOpts}
                   options={{
                     className: 'flex flex-col divide-y'
+                  }}
+                />
+              </Suspense>
+            </div>
+          </div>
+
+          {/* Blog */}
+          <div className="flex flex-col gap-4">
+            <HeadingWithMore
+              title="Recent blog posts"
+              href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
+            />
+            <div className="overflow-hidden">
+              <Suspense
+                fallback={
+                  <SkeletonPostList
+                    count={numBlogPosts}
+                    postType="PostCardWave"
+                    options={{
+                      className:
+                        'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                    }}
+                  />
+                }
+              >
+                <PostList
+                  posts={blogPosts}
+                  postType="PostCardWave"
+                  postTypeOpts={defaultPostTypeOpts}
+                  options={{
+                    className:
+                      'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
                   }}
                 />
               </Suspense>

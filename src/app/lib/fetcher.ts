@@ -527,6 +527,9 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // pinned
       const pinned = get(post, 'properties.pinned.checkbox') || false
 
+      // blog
+      const blog = get(post, 'properties.blog.checkbox') || false
+
       return {
         id,
         title,
@@ -537,7 +540,8 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
         tags,
         isDraft,
         wellWritten,
-        pinned
+        pinned,
+        blog
       } as Post
     })
   )

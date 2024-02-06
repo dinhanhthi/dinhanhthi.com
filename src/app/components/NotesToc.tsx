@@ -18,6 +18,7 @@ export default function NotesToc(props: NotesTocProps) {
   // We cannot use export in this case!
   const recentUpdatedNotesTitle = 'Recently updated notes'
   const pinnedNotesTitle = 'Pinned notes'
+  const blogPostsTitle = 'Blog posts'
 
   return (
     <div className={props.className}>
@@ -33,6 +34,16 @@ export default function NotesToc(props: NotesTocProps) {
             'text-[0.9rem]'
           )}
         >
+          <a
+            className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
+              'text-slate-600': activeId !== makeSlugText(blogPostsTitle),
+              'text-slate-900 bg-slate-200 rounded-r-lg': activeId === makeSlugText(blogPostsTitle)
+            })}
+            key={makeSlugText(blogPostsTitle)}
+            href={`#${makeSlugText(blogPostsTitle)}`}
+          >
+            <div className="flex items-center gap-1">{blogPostsTitle}</div>
+          </a>
           <a
             className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
               'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),

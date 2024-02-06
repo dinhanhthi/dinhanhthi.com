@@ -94,19 +94,51 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     ? []
     : await getPosts({
         filter: {
-          property: 'tags',
-          multi_select: {
-            contains: tag?.name
-          }
+          and: [
+            {
+              property: 'tags',
+              multi_select: {
+                contains: tag?.name
+              }
+            },
+            {
+              property: 'blog',
+              checkbox: {
+                equals: false
+              }
+            }
+          ]
         },
         startCursor,
         pageSize: numPostsPerPage
       })
 
+  const blogPosts = await getPosts({
+    pageSize: 4,
+    filter: {
+      and: [
+        {
+          property: 'tags',
+          multi_select: {
+            contains: tag?.name
+          }
+        },
+        {
+          property: 'blog',
+          checkbox: {
+            equals: true
+          }
+        }
+      ]
+    }
+  })
+
   return (
     <PageOfPostsListTemplate
       object={tag as PageOfPostsListTemplateProps['object']}
-      posts={postsOnThisPage}
+      posts={postsOnThisPage.filter(post => !post.pinned)}
+      blogPosts={blogPosts}
+      pinnedPosts={postsOnThisPage.filter(post => post.pinned)}
       totalPages={totalPages}
       currentPage={currentPage}
     />
