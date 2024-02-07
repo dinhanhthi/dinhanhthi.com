@@ -367,10 +367,11 @@ function transformTopics(data: CollectionInstance): Tag[] {
     const properties = topic?.value?.properties
 
     const iconUrl = properties?.[`${process.env.TOPICS_ICON_KEY}`]?.[0]?.[0]
-    if (!iconUrl) continue // because there are useless blocks in the database
+    if (!properties) continue // because there are useless blocks in the database
     const name = properties?.title?.[0]?.[0]
     const description = properties?.[`${process.env.TOPICS_DESC_KEY}`]?.[0]?.[0]
     const pinned = properties?.[`${process.env.TOPICS_PINNED_KEY}`]?.[0]?.[0] === 'Yes'
+    const hide = properties?.[`${process.env.TOPICS_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
     const className = properties?.[`${process.env.TOPICS_CLASSNAME_KEY}`]?.[0]?.[0]
 
     topics.push({
@@ -381,6 +382,7 @@ function transformTopics(data: CollectionInstance): Tag[] {
       uri: getUri('tag', makeSlugText(name)),
       iconUrl,
       pinned,
+      hide,
       className
     })
   }
