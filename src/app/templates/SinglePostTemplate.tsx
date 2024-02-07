@@ -49,7 +49,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 recordMap={props.recordMap}
                 blockOptions={{
                   siteDomain: 'dinhanhthi.com',
-                  labelTocTitle: 'In this note',
+                  labelTocTitle: props.postProps?.blog ? 'In this post' : 'In this note',
                   blockCodeCopiedText: 'Copied',
                   blockCodeCopyText: 'Copy',
                   headingScrollMarginTopClass: 'scroll-mt-[70px]',
