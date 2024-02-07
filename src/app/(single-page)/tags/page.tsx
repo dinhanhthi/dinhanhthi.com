@@ -26,10 +26,12 @@ export const metadata = getMetadata({
 
 export default async function TagsPage() {
   const _tags = await getTopics()
-  const tags = _tags.map(tag => ({
-    ...tag,
-    icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }
-  }))
+  const tags = _tags
+    .filter(tag => !tag.hide)
+    .map(tag => ({
+      ...tag,
+      icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }
+    }))
 
   const tagListContainerClass =
     'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 overflow-hidden w-full'

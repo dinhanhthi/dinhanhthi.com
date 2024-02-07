@@ -1,3 +1,4 @@
+import TagIcon from '@/public/tag.svg'
 import Container from '@/src/app/components/Container'
 import Pagination from '@notion-x/src/components/Pagination'
 import PostList, { PostType } from '@notion-x/src/components/PostsList'
@@ -38,7 +39,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         headerWidth="wide"
         title={object.name}
         subtitle={object.subtitle}
-        icon={object.icon}
+        icon={object.icon?.sourceUrl ? object.icon : { staticImageData: TagIcon }}
         iconClassName={object.className}
       />
       <Container className={cn(bodyPadding, containerWide)}>
