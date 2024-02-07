@@ -39,7 +39,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
                 maxDaysWinthin: 7
               }}
               useSimpleImage={true}
-              discreteStyle={true}
+              discreteStyle={true} // The big difference from SinglePostTemplate is here!
               showUpdatedIndicator={true}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
               createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
