@@ -39,7 +39,11 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         headerWidth="wide"
         title={object.name}
         subtitle={object.subtitle}
-        icon={object.icon?.sourceUrl ? object.icon : { staticImageData: TagIcon }}
+        icon={
+          object.icon?.sourceUrl || object.icon?.staticImageData
+            ? object.icon
+            : { staticImageData: TagIcon }
+        }
         iconClassName={object.className}
       />
       <Container className={cn(bodyPadding, containerWide)}>
