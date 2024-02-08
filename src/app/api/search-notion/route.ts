@@ -8,7 +8,8 @@ const UNOFFICIAL_NOTION_KEYS = {
   published: process.env.NEXT_PUBLIC_ID_PUBLISHED as string,
   title: 'title',
   boldSearchKey: `<${process.env.SEARCH_BOLD_KEY}>`,
-  boldSearchKeyClose: `</${process.env.SEARCH_BOLD_KEY}>`
+  boldSearchKeyClose: `</${process.env.SEARCH_BOLD_KEY}>`,
+  hide: process.env.NEXT_PUBLIC_ID_HIDE as string
 }
 
 const defaultPostTitle = 'Untitled'
@@ -55,6 +56,7 @@ function parseSearchResults(data: any): SearchResult[] {
       const postId = result.id
       const _properties = data.recordMap?.block?.[postId]?.value?.properties
       const isPostPublished = _properties?.[UNOFFICIAL_NOTION_KEYS.published]?.[0]?.[0] === 'Yes'
+      const isPostHide = _properties?.[UNOFFICIAL_NOTION_KEYS.hide]?.[0]?.[0] === 'Yes'
       const _title = _properties?.[UNOFFICIAL_NOTION_KEYS.title]?.[0]?.[0]
       const postTitle = _title || defaultPostTitle
       const _slug = _properties?.[UNOFFICIAL_NOTION_KEYS.slug]?.[0]?.[0] || null
@@ -71,6 +73,7 @@ function parseSearchResults(data: any): SearchResult[] {
           )
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || null
 
+      if (isPostHide) continue
       if (process.env.ENV_MODE === 'prod' && !isPostPublished) continue
 
       results.push({

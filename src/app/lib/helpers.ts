@@ -78,6 +78,13 @@ export function getFilter(filter?: any): QueryDatabaseParameters['filter'] {
       equals: false
     }
   })
+  // Ignore "hide" pages
+  defaultFilter.push({
+    property: 'hide',
+    checkbox: {
+      equals: false
+    }
+  })
   // Ignore sandbox posts in production
   if (process.env.ENV_MODE === 'prod') {
     defaultFilter.push({
@@ -150,6 +157,7 @@ export function getPostProperties(post: Block): Post {
   const pinned = properties?.[`${process.env.NEXT_PUBLIC_ID_PINNED}`]?.[0]?.[0] === 'Yes'
   const discrete = properties?.[`${process.env.NEXT_PUBLIC_ID_DISCRETE}`]?.[0]?.[0] === 'Yes'
   const blog = properties?.[`${process.env.NEXT_PUBLIC_ID_BLOG}`]?.[0]?.[0] === 'Yes'
+  const hide = properties?.[`${process.env.NEXT_PUBLIC_ID_HIDE}`]?.[0]?.[0] === 'Yes'
 
   return {
     id,
@@ -169,6 +177,7 @@ export function getPostProperties(post: Block): Post {
     wellWritten,
     pinned,
     discrete,
-    blog
+    blog,
+    hide
   }
 }
