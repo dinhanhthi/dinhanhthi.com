@@ -50,7 +50,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         {posts.length === 0 && blogPosts && blogPosts.length === 0 && (
           <div className="my-4 text-xl">There is no post yet!</div>
         )}
-        {posts.length > 0 && (
+        {(posts.length > 0 || (blogPosts && blogPosts.length > 0)) && (
           <>
             <div className="flex flex-col gap-8">
               {blogPosts && blogPosts.length > 0 && (

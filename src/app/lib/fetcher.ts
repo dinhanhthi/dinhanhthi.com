@@ -535,6 +535,12 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // blog
       const blog = get(post, 'properties.blog.checkbox') || false
 
+      // hide
+      const hide = get(post, 'properties.hide.checkbox') || false
+
+      // published
+      const isPublished = get(post, 'properties.published.checkbox') || false
+
       return {
         id,
         title,
@@ -546,7 +552,9 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
         isDraft,
         wellWritten,
         pinned,
-        blog
+        blog,
+        hide,
+        isPublished
       } as Post
     })
   )
