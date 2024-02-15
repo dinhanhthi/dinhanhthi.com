@@ -8,10 +8,11 @@ import { ExtendedRecordMap, PageBlock } from 'notion-types'
 import { getPageTableOfContents } from 'notion-utils'
 
 import { Post } from '@notion-x/src/interface'
+import { get } from 'lodash'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
-import { bodyPadding, containerNormal } from '../lib/config'
+import { bodyPadding, containerNormal, defaultPostTypeOpts } from '../lib/config'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap
@@ -54,7 +55,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                   blockCodeCopyText: 'Copy',
                   headingScrollMarginTopClass: 'scroll-mt-[70px]',
                   minNumHeadingsToShowToc: 4,
-                  maxDaysWinthin: 7,
+                  maxDaysWinthin: get(defaultPostTypeOpts, 'maxDaysWinthin', 7),
                   expandTocOnMobile: false
                 }}
                 useSimpleImage={true}
