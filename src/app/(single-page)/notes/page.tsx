@@ -7,6 +7,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import BlogIcon from '../../../../notion-x/src/icons/BlogIcon'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -93,6 +94,7 @@ export default async function NotesPage() {
                     title="Blog posts"
                     href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
                     className="scroll-mt-[70px]"
+                    icon={<BlogIcon className="h-6 w-6" />}
                   />
                   <div className="overflow-hidden">
                     <Suspense

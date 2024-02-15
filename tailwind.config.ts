@@ -16,7 +16,7 @@ export default {
       typography: {
         DEFAULT: {
           css: {
-            color: '#464646'
+            color: '#555'
           }
         }
       },

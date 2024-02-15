@@ -144,57 +144,60 @@ export default async function Home() {
           )}
 
           {/* Notes */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             <HeadingWithMore
               title="Recently updated notes"
               href={posts.length >= numPosts ? '/notes/' : undefined}
             />
-            {/* pinned */}
-            <div className="thi-box-code overflow-hidden mb-3">
-              <Suspense
-                fallback={
-                  <SkeletonPostList
-                    count={6}
-                    postType="PostSimple"
-                    options={{
-                      className: 'flex flex-col divide-y'
-                    }}
-                  />
-                }
-              >
-                <PostList
-                  posts={pinnedPosts}
-                  postType="PostSimple"
-                  postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-                  options={{
-                    className: 'flex flex-col divide-y'
-                  }}
-                />
-              </Suspense>
-            </div>
 
-            {/* notes */}
-            <div className="thi-box-code overflow-hidden">
-              <Suspense
-                fallback={
-                  <SkeletonPostList
-                    count={8}
+            <div className="flex flex-col gap-2">
+              {/* pinned */}
+              <div className="thi-box-code overflow-hidden mb-3">
+                <Suspense
+                  fallback={
+                    <SkeletonPostList
+                      count={6}
+                      postType="PostSimple"
+                      options={{
+                        className: 'flex flex-col divide-y'
+                      }}
+                    />
+                  }
+                >
+                  <PostList
+                    posts={pinnedPosts}
                     postType="PostSimple"
+                    postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                     options={{
                       className: 'flex flex-col divide-y'
                     }}
                   />
-                }
-              >
-                <PostList
-                  posts={posts.filter(post => !post.pinned)}
-                  postType="PostSimple"
-                  postTypeOpts={defaultPostTypeOpts}
-                  options={{
-                    className: 'flex flex-col divide-y'
-                  }}
-                />
-              </Suspense>
+                </Suspense>
+              </div>
+
+              {/* notes */}
+              <div className="thi-box-code overflow-hidden">
+                <Suspense
+                  fallback={
+                    <SkeletonPostList
+                      count={8}
+                      postType="PostSimple"
+                      options={{
+                        className: 'flex flex-col divide-y'
+                      }}
+                    />
+                  }
+                >
+                  <PostList
+                    posts={posts.filter(post => !post.pinned)}
+                    postType="PostSimple"
+                    postTypeOpts={defaultPostTypeOpts}
+                    options={{
+                      className: 'flex flex-col divide-y'
+                    }}
+                  />
+                </Suspense>
+              </div>
             </div>
           </div>
 

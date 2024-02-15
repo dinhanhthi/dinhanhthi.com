@@ -27,17 +27,18 @@ export default function NotesToc(props: NotesTocProps) {
           'p-4 flex flex-col divide-y thi-box-code md:bg-transparent md:border-none md:shadow-none'
         )}
       >
-        <div className="pb-1.5 font-heading font-semibold text-slate-800">Notes by topics</div>
+        <div className="pb-1.5 px-2 font-heading text-lg font-semibold text-slate-800">
+          Notes by topics
+        </div>
         <div
           className={cn(
-            'grid grid-cols-2 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small',
-            'text-[0.9rem]'
+            'grid grid-cols-2 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small text-[0.88rem]'
           )}
         >
           <a
-            className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
+            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
               'text-slate-600': activeId !== makeSlugText(blogPostsTitle),
-              'text-slate-900 bg-slate-200 rounded-r-lg': activeId === makeSlugText(blogPostsTitle)
+              'text-slate-900 bg-slate-200': activeId === makeSlugText(blogPostsTitle)
             })}
             key={makeSlugText(blogPostsTitle)}
             href={`#${makeSlugText(blogPostsTitle)}`}
@@ -45,10 +46,9 @@ export default function NotesToc(props: NotesTocProps) {
             <div className="flex items-center gap-1">{blogPostsTitle}</div>
           </a>
           <a
-            className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
+            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
               'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
-              'text-slate-900 bg-slate-200 rounded-r-lg':
-                activeId === makeSlugText(pinnedNotesTitle)
+              'text-slate-900 bg-slate-200': activeId === makeSlugText(pinnedNotesTitle)
             })}
             key={makeSlugText(pinnedNotesTitle)}
             href={`#${makeSlugText(pinnedNotesTitle)}`}
@@ -56,10 +56,9 @@ export default function NotesToc(props: NotesTocProps) {
             <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
           </a>
           <a
-            className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
+            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
               'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
-              'text-slate-900 bg-slate-200 rounded-r-lg':
-                activeId === makeSlugText(recentUpdatedNotesTitle)
+              'text-slate-900 bg-slate-200': activeId === makeSlugText(recentUpdatedNotesTitle)
             })}
             key={makeSlugText(recentUpdatedNotesTitle)}
             href={`#${makeSlugText(recentUpdatedNotesTitle)}`}
@@ -70,10 +69,13 @@ export default function NotesToc(props: NotesTocProps) {
             const anchor = makeSlugText(tag.name)
             return (
               <a
-                className={cn('hover:m2it-link flex gap-2 items-center group p-1 pr-2', {
-                  'text-slate-600': activeId !== anchor,
-                  'text-slate-900 bg-slate-200 rounded-r-lg': activeId === anchor
-                })}
+                className={cn(
+                  'hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2',
+                  {
+                    'text-slate-600': activeId !== anchor,
+                    'text-slate-900 bg-slate-200': activeId === anchor
+                  }
+                )}
                 key={anchor}
                 href={`#${anchor}`}
               >
