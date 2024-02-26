@@ -142,7 +142,7 @@ const cv: CVGroupType[] = [
         title: 'Researcher in Applied Maths & Coder',
         date: '2013 — 2018',
         activity: [
-          "I have studied the growth of biofilms using the Finite Element Method, a numerical method of analysis. The title of <a href='https://www.theses.fr/2018USPCD083' target='_blank'>the dissertation</a> is \"<i>Finite Element Methods for Nonlinear Interface Problems. Application to a bioﬁlmic growth model</i>\". For the implementation I used FreeFem++ and a self-made NXFEM toolbox written in Matlab."
+          "I have studied the growth of biofilms using the Finite Element Method, a numerical method of analysis. The title of <a href='https://www.theses.fr/2018USPCD083' target='_blank'>the dissertation</a> is \"<i>Finite Element Methods for Nonlinear Interface Problems. Application to a bioﬁlm growth model</i>\". For the implementation I used FreeFem++ and a self-made NXFEM toolbox written in Matlab."
         ],
         tech: ['freefempp', 'bash', 'git', 'linux', 'matlab', 'python']
       }
@@ -191,7 +191,7 @@ const cv: CVGroupType[] = [
         title: 'Doctor in Applied Maths',
         date: '2013 — 2018',
         activity: [
-          "I have studied the growth of biofilms using the Finite Element Method, a numerical method of analysis. The title of <a href='https://www.theses.fr/2018USPCD083' target='_blank'>the dissertation</a> is \"<i>Finite Element Methods for Nonlinear Interface Problems. Application to a bioﬁlmic growth model</i>\". For the implementation I used FreeFem++ and a self-made NXFEM toolbox written in Matlab."
+          "I have studied the growth of biofilms using the Finite Element Method, a numerical method of analysis. The title of <a href='https://www.theses.fr/2018USPCD083' target='_blank'>the dissertation</a> is \"<i>Finite Element Methods for Nonlinear Interface Problems. Application to a bioﬁlm growth model</i>\". For the implementation I used FreeFem++ and a self-made NXFEM toolbox written in Matlab."
         ]
       },
       {
