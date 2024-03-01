@@ -66,3 +66,18 @@ vercel deploy
 # production
 vercel --prod
 ```
+
+## Update something new (for me only)
+
+- Modify directly notion-x's components inside this repo.
+- Overwrite modified files from this repo to notion-x's repo.
+- Push changes from notion-x.
+- On dat, make a script and run `ud_submodules`
+
+  ```bash
+  # Make sure notion-x and this repo are cloned to the same parent folder.
+  alias checkout_notion-x="cd notion-x && git checkout * && cd -"
+  alias ud_submodules='checkout_notion-x && git submodule update --recursive --remote'
+  ```
+
+- If there are changes from notion-x, cannot merge branch from `main` to `dev` or vice verso. We have to force reset one branch to the other!
