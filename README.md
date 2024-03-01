@@ -2,7 +2,7 @@
 
 Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.com/dinhanhthi/notion-x).
 
-🎉 The step-by-step tutorial to create a website like this is [HERE](https://dinhanhthi.com/note/how-to-create-a-site-like-this/)! Feel free to mention my assistance when you embark on creating your unique site. Appreciate it!
+🎉 The step-by-step tutorial to create a website like this is [HERE](https://dinhanhthi.com/note/how-to-create-a-site-like-this/) (🚨 This tut is corresponding to [**v6.1.3**](https://github.com/dinhanhthi/dinhanhthi.com/releases/tag/v6.1.3))! Feel free to mention my assistance when you embark on creating your unique site. Appreciate it!
 
 🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/). Thank you!
 
