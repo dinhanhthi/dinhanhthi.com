@@ -12,10 +12,10 @@ import HeaderPage from '../../../components/HeaderPage'
 import { SkeletonSearchBar } from '../../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../../lib/config'
 import { getUnofficialBookmarks } from '../../../lib/fetcher'
-import { SkeletonBookmarkItemTemplate } from '../BookmarkItemTemplate'
+import { SkeletonBookmarkItemSimpleTemplate } from '../BookmarkItemSimpleTemplate'
 import BookmarksPageTemplate from '../BookmarksPageTemplate'
 
-const marksPerPage = 25
+const marksPerPage = 100
 
 export const revalidate = 20
 
@@ -93,6 +93,7 @@ export default async function BookmarksPage({ params }: OptionalCatchAllProps) {
             totalPages={totalPages}
             currentPage={currentPage}
             bookmarks={marksOnThisPage}
+            startIndex={(currentPage - 1) * marksPerPage}
           ></BookmarksPageTemplate>
         </Suspense>
       </Container>
@@ -108,7 +109,7 @@ function SkeletonBookmarkContainer() {
       <SkeletonSearchBar placeholder="Search bookmarks..." />
       <div className="flex flex-col gap-4">
         {Array.from({ length: marksPerPage }).map((_, i) => (
-          <SkeletonBookmarkItemTemplate key={i} />
+          <SkeletonBookmarkItemSimpleTemplate index={i} key={i} />
         ))}
       </div>
     </div>

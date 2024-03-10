@@ -104,6 +104,8 @@ async function transformUnofficialBookmarks(data: CollectionInstance): Promise<B
       const _description = properties?.[`${process.env.BOOKMARKS_DESC_KEY}`]?.[0]?.[0] || null
       const _coverUrl = properties?.[`${process.env.BOOKMARKS_COVER_URL_KEY}`]?.[0]?.[0] || null
 
+      const tags = properties?.[`${process.env.BOOKMARKS_TAGS_KEY}`]?.[0]?.[0]?.split(',') || []
+
       let __title: string | undefined
       let __description: string | undefined
       let __coverUrl: string | undefined
@@ -121,7 +123,8 @@ async function transformUnofficialBookmarks(data: CollectionInstance): Promise<B
         title: _title || __title,
         description: _description || __description,
         url,
-        coverUrl: _coverUrl || __coverUrl
+        coverUrl: _coverUrl || __coverUrl,
+        tags
       })
     })
   )

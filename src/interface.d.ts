@@ -58,6 +58,7 @@ export interface BookmarkItem {
   title?: string
   description?: string
   coverUrl?: string
+  tags?: string[]
 }
 
 export type NotionBookmarkItem = {
