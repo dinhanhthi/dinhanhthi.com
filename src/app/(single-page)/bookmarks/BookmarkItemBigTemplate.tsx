@@ -97,7 +97,7 @@ const ImagePlaceholder = () => (
   </div>
 )
 
-export function SkeletonBookmarkItemTemplate() {
+export function SkeletonBookmarkItemBigTemplate() {
   return (
     <div className="flex flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white">
       {/* Featured image */}

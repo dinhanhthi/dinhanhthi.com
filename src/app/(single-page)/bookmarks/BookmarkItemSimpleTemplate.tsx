@@ -74,7 +74,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
           </div>
         )}
         {!!mark.description && !!mark.description?.length && (
-          <div className="text-slate-600 text-[0.85rem] group-hover:text-slate-800">
+          <div className="text-slate-600 text-sm group-hover:text-slate-800">
             {mark.description}
           </div>
         )}

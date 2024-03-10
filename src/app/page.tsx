@@ -11,9 +11,9 @@ import { Suspense } from 'react'
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import me from '../data/me'
 import { BookmarkItem, Tool } from '../interface'
-import BookmarkItemBigTemplate, {
-  SkeletonBookmarkItemTemplate
-} from './(single-page)/bookmarks/BookmarkItemBigTemplate'
+import BookmarkItemSimpleTemplate, {
+  SkeletonBookmarkItemSimpleTemplate
+} from './(single-page)/bookmarks/BookmarkItemSimpleTemplate'
 import ToolItem from './(single-page)/tools/ToolItem'
 import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
@@ -208,9 +208,12 @@ export default async function Home() {
               href={bookmarks.length >= numBookmarks ? '/bookmarks/' : undefined}
             />
             <div className="grid grid-cols-1 gap-3">
-              {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem) => (
-                <Suspense key={mark.id} fallback={<SkeletonBookmarkItemTemplate />}>
-                  <BookmarkItemBigTemplate key={mark.id} mark={mark} />
+              {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem, index: number) => (
+                <Suspense
+                  key={mark.id}
+                  fallback={<SkeletonBookmarkItemSimpleTemplate index={index} />}
+                >
+                  <BookmarkItemSimpleTemplate key={mark.id} mark={mark} index={index} />
                 </Suspense>
               ))}
             </div>
