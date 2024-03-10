@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { BookmarkItem } from '../../../interface'
 import BsFillBookmarkHeartFill from '../../icons/BsFillBookmarkHeartFill'
 
-export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
+export default function BookmarkItemBigTemplate({ mark }: { mark: BookmarkItem }) {
   const [isNew, setIsNew] = useState(false)
 
   useEffect(() => {
@@ -29,8 +29,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white',
-        'hover:border-sky-300 group'
+        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white hover:border-sky-300 group'
       )}
     >
       {/* Featured image */}
@@ -50,8 +49,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
         {!mark?.coverUrl && (
           <div
             className={cn(
-              'flex items-center justify-center rounded-md w-full',
-              'h-full p-4',
+              'flex items-center justify-center rounded-md w-full h-full p-4',
               generateGradientBgClass(mark.url)
             )}
           >
@@ -67,8 +65,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
             {isNew && (
               <span
                 className={cn(
-                  'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md',
-                  'whitespace-nowrap mr-2'
+                  'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
                 )}
               >
                 new
@@ -93,8 +90,7 @@ export default function BookmarkItemTemplate({ mark }: { mark: BookmarkItem }) {
 const ImagePlaceholder = () => (
   <div
     className={cn(
-      'bg-gray-100 flex items-center justify-center animate-pulse rounded-md w-full',
-      'h-full p-4'
+      'bg-gray-100 flex items-center justify-center animate-pulse rounded-md w-full h-full p-4'
     )}
   >
     <AiOutlineLoading3Quarters className="text-[25px] text-slate-400 animate-spin" />
@@ -131,21 +127,18 @@ export function SkeletonBookmarkItemTemplate() {
   )
 }
 
-function generateGradientBgClass(url: string): string {
+export function generateGradientBgClass(url: string): string {
   const bgList = [
-    'bg-gradient-to-r from-yellow-200 via-green-200 to-green-500',
     'bg-gradient-to-r from-violet-500 to-fuchsia-500',
     'bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400',
     'bg-gradient-to-r from-sky-500 to-indigo-500',
-    'bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500',
     'bg-gradient-to-r from-green-200 to-green-500',
     'bg-gradient-to-r from-cyan-500 to-blue-500',
     'bg-gradient-to-r from-purple-500 to-pink-500',
     'bg-gradient-to-r from-yellow-200 to-yellow-500',
     'bg-gradient-to-r from-rose-300 to-rose-500',
     'bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800',
-    'bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-200 via-emerald-200 to-yellow-200',
-    'bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))] from-white via-sky-500 to-sky-500'
+    'bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-200 via-emerald-200 to-yellow-200'
   ]
   return bgList[url.length % bgList.length]
 }

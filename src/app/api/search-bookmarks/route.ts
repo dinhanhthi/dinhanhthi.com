@@ -7,6 +7,7 @@ const UNOFFICIAL_NOTION_KEYS = {
   url: process.env.BOOKMARKS_URL_KEY as string,
   description: process.env.BOOKMARKS_DESC_KEY as string,
   coverUrl: process.env.BOOKMARKS_COVER_URL_KEY as string,
+  tags: process.env.BOOKMARKS_TAGS_KEY as string,
   boldSearchKey: `<${process.env.SEARCH_BOLD_KEY}>`,
   boldSearchKeyClose: `</${process.env.SEARCH_BOLD_KEY}>`
 }
@@ -55,6 +56,7 @@ function parseSearchResults(data: any): SearchResult[] {
       if (!url) continue
 
       const description = _properties?.[UNOFFICIAL_NOTION_KEYS.description]?.[0]?.[0] || null
+      const tags = _properties?.[`${UNOFFICIAL_NOTION_KEYS.tags}`]?.[0]?.[0]?.split(',') || []
       const coverUrl = _properties?.[UNOFFICIAL_NOTION_KEYS.coverUrl]?.[0]?.[0] || null
       const createdTime = data.recordMap?.block?.[markId]?.value?.created_time || null
 
@@ -78,7 +80,8 @@ function parseSearchResults(data: any): SearchResult[] {
         textHighlighted,
         description,
         coverUrl,
-        createdTime
+        createdTime,
+        tags
       })
     }
   }

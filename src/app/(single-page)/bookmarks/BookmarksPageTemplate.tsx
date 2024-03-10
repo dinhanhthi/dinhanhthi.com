@@ -11,12 +11,13 @@ import useSWR from 'swr'
 
 import { BookmarkItem } from '../../../interface'
 import BsFillBookmarkHeartFill from '../../icons/BsFillBookmarkHeartFill'
-import BookmarkItemTemplate from './BookmarkItemTemplate'
+import BookmarkItemSimpleTemplate from './BookmarkItemSimpleTemplate'
 
 type BookmarksPageProps = {
   bookmarks: BookmarkItem[]
   totalPages: number
   currentPage: number
+  startIndex: number
 }
 
 export default function BookmarksPageTemplate(props: BookmarksPageProps) {
@@ -61,7 +62,7 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
         on Github.
       </div>
       {/* Search */}
-      <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
+      <div className={cn('flex items-center gap-3 p-4 bg-white rounded-md')}>
         <div className={cn('grid place-items-center text-slate-500')}>
           {(data || error || get(data, '[0].isFake')) && !isLoading && (
             <FiSearch className="text-2xl" />
@@ -97,25 +98,21 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
         {!query.length && (
           <>
             <div className="italic text-sm text-slate-600">
-              Remark: descriptions are fetched automatically from the bookmark!
+              Descriptions are sometimes fetched automatically from the bookmark!
             </div>
             <div className="grid grid-cols-1 gap-4">
-              {props.bookmarks.map((mark: BookmarkItem) => (
-                <BookmarkItemTemplate key={mark.id} mark={mark} />
+              {props.bookmarks.map((mark: BookmarkItem, index: number) => (
+                <BookmarkItemSimpleTemplate
+                  key={mark.id}
+                  mark={mark}
+                  index={props.startIndex + index}
+                />
               ))}
             </div>
           </>
         )}
         {query.length > 0 && (
           <div className="flex gap-8 flex-col">
-            {/* {isLoading && (
-              <div className={cn('flex items-center justify-center flex-row gap-2 text-slate-500')}>
-                <div className="animate-spin w-">
-                  <AiOutlineLoading3Quarters className="text-2xl" />
-                </div>
-                <div className="animate-pulse">Looking for bookmarks. Please wait...</div>
-              </div>
-            )} */}
             {!!data && !isLoading && (
               <>
                 {error && (
@@ -133,8 +130,8 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
                     )}
                     {data.length > 0 && (
                       <div className="grid grid-cols-1 gap-4">
-                        {data.map((mark: BookmarkItem) => (
-                          <BookmarkItemTemplate key={mark.id} mark={mark} />
+                        {data.map((mark: BookmarkItem, index: number) => (
+                          <BookmarkItemSimpleTemplate key={mark.id} mark={mark} index={index} />
                         ))}
                       </div>
                     )}
