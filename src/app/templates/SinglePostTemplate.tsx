@@ -45,29 +45,26 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
           </aside>
 
           <Container className={containerNormal}>
-            <article>
-              <PostBody
-                recordMap={props.recordMap}
-                blockOptions={{
-                  siteDomain: 'dinhanhthi.com',
-                  labelTocTitle: props.postProps?.blog ? 'In this post' : 'In this note',
-                  blockCodeCopiedText: 'Copied',
-                  blockCodeCopyText: 'Copy',
-                  headingScrollMarginTopClass: 'scroll-mt-[70px]',
-                  minNumHeadingsToShowToc: 4,
-                  maxDaysWinthin: get(defaultPostTypeOpts, 'maxDaysWinthin', 7),
-                  expandTocOnMobile: false
-                }}
-                useSimpleImage={true}
-                showUpdatedIndicator={true}
-                lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
-                createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
-                showBackToTopButton={true}
-                showUpdateButtonClassName="tooltip-auto before:!left-auto before:!right-[55px] before:!top-[15px] before:!content-[attr(data-title)]"
-                showUpdateButtonPositionClass="right-10 bottom-8"
-              />
-            </article>
-
+            <PostBody
+              recordMap={props.recordMap}
+              blockOptions={{
+                siteDomain: 'dinhanhthi.com',
+                labelTocTitle: props.postProps?.blog ? 'In this post' : 'In this note',
+                blockCodeCopiedText: 'Copied',
+                blockCodeCopyText: 'Copy',
+                headingScrollMarginTopClass: 'scroll-mt-[70px]',
+                minNumHeadingsToShowToc: 4,
+                maxDaysWinthin: get(defaultPostTypeOpts, 'maxDaysWinthin', 7),
+                expandTocOnMobile: false
+              }}
+              useSimpleImage={true}
+              showUpdatedIndicator={true}
+              lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
+              createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
+              showBackToTopButton={true}
+              showUpdateButtonClassName="tooltip-auto before:!left-auto before:!right-[55px] before:!top-[15px] before:!content-[attr(data-title)]"
+              showUpdateButtonPositionClass="right-10 bottom-8"
+            />
             <Comments />
           </Container>
 
