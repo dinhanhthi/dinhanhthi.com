@@ -6,7 +6,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'
 import PostHeader from '../components/PostHeader'
-import { bodyPadding } from '../lib/config'
+import { bodyPadding, containerNormal, discreteColsType } from '../lib/config'
 
 type DiscretePostTemplateType = {
   recordMap: ExtendedRecordMap
@@ -26,7 +26,12 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
           discreteStyle={true}
         />
         <div className={cn(bodyPadding)}>
-          <div className="mx-auto px-5">
+          <div
+            className={cn('mx-auto px-5', {
+              container: discreteColsType === 'single',
+              [containerNormal]: discreteColsType === 'single'
+            })}
+          >
             <PostBody
               recordMap={props.recordMap}
               blockOptions={{
@@ -40,6 +45,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               }}
               useSimpleImage={true}
               discreteStyle={true} // The big difference from SinglePostTemplate is here!
+              discreteColsType={discreteColsType}
               showUpdatedIndicator={true}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
               createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}

@@ -1,6 +1,7 @@
 import { PostTypeOpts } from '@notion-x/src/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
+import { DiscreteColsType } from '@notion-x/src/components/PostBody'
 import { poppins } from './fonts'
 
 export const defaultBlurDataURL =
@@ -17,6 +18,9 @@ export const containerWide = 'xl:max-w-6xl'
 export const bodyPadding = 'py-12'
 
 export const defaultPostTitle = 'Untitled'
+
+// Display the discrete notes in 1 column or 2-3 columns?
+export const discreteColsType: DiscreteColsType = 'single'
 
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 
