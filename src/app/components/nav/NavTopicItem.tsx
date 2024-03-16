@@ -31,6 +31,7 @@ export default function NavTopicItem(props: NavTopicItemProps) {
       )}
       aria-current={areSameUris(uri, currentRoute) ? 'page' : undefined}
       href={uri}
+      prefetch={false}
     >
       {label}
     </Link>
