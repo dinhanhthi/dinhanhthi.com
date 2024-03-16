@@ -52,12 +52,8 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
     <div className="flex flex-col gap-8">
       <div>
         👉{' '}
-        <a
-          className="m2it-link"
-          target="_blank"
-          href="https://github.com/stars/dinhanhthi/lists/favorites"
-        >
-          My favorite repositories
+        <a className="m2it-link" target="_blank" href="https://github.com/dinhanhthi?tab=stars">
+          My starred repositories
         </a>{' '}
         on Github.
       </div>
