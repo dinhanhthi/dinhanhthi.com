@@ -1,31 +1,24 @@
 import NotesIcon from '@/public/notes.svg'
-import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
-import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
-import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
-import BlogIcon from '../../../../notion-x/src/icons/BlogIcon'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
-import NoteTopicSection from '../../components/NoteTopicSection'
 import NotesToc from '../../components/NotesToc'
-import {
-  bodyPadding,
-  containerWide,
-  defaultBlurDataURL,
-  defaultPostTypeOpts
-} from '../../lib/config'
+import { bodyPadding, containerWide, defaultBlurDataURL } from '../../lib/config'
 import { getPosts, getTopics } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
+import NotesPageList from './NotesPageList'
 
 export const revalidate = 20
 
 const title = 'Notes'
 const description = 'When I learn something new, I write it down here.'
+
+export const numBlogPosts = 6
 
 export const metadata = getMetadata({
   title,
@@ -53,7 +46,6 @@ export default async function NotesPage() {
     }
   })
 
-  const numBlogPosts = 6
   const blogPosts = await getPosts({
     pageSize: numBlogPosts,
     filter: {
@@ -86,99 +78,12 @@ export default async function NotesPage() {
       <Container className={cn(bodyPadding, containerWide)}>
         <div className="flex flex-col md:flex-row gap-8">
           <Suspense fallback={<SkeletonNotesPageBody />}>
-            <div className="order-2 flex-1 flex flex-col gap-12">
-              {/* Blog posts */}
-              {blogPosts.length > 0 && (
-                <div className="flex flex-col gap-2">
-                  <HeadingWithMore
-                    title="Blog posts"
-                    href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
-                    className="scroll-mt-[70px]"
-                    icon={<BlogIcon className="h-6 w-6" />}
-                  />
-                  <div className="overflow-hidden">
-                    <Suspense
-                      fallback={
-                        <SkeletonPostList
-                          count={numBlogPosts}
-                          postType="PostCardWave"
-                          options={{
-                            className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4'
-                          }}
-                        />
-                      }
-                    >
-                      <PostList
-                        posts={blogPosts}
-                        postType="PostCardWave"
-                        postTypeOpts={defaultPostTypeOpts}
-                        options={{
-                          className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4'
-                        }}
-                      />
-                    </Suspense>
-                  </div>
-                </div>
-              )}
-
-              {/* pinned */}
-              <div className="flex flex-col gap-2">
-                <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
-                <div className="thi-box-code overflow-hidden">
-                  <Suspense
-                    fallback={
-                      <SkeletonPostList
-                        count={4}
-                        postType="PostSimple"
-                        options={{
-                          className: 'flex flex-col divide-y'
-                        }}
-                      />
-                    }
-                  >
-                    <PostList
-                      posts={pinnedPosts}
-                      postType="PostSimple"
-                      postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-                      options={{
-                        className: 'flex flex-col divide-y'
-                      }}
-                    />
-                  </Suspense>
-                </div>
-              </div>
-
-              {/* Recently updated notes */}
-              <div className="flex flex-col gap-2">
-                <HeadingWithMore title="Recently updated notes" className="scroll-mt-[70px]" />
-                <div className="thi-box-code overflow-hidden">
-                  <Suspense
-                    fallback={
-                      <SkeletonPostList
-                        count={4}
-                        postType="PostSimple"
-                        options={{
-                          className: 'flex flex-col divide-y'
-                        }}
-                      />
-                    }
-                  >
-                    <PostList
-                      posts={posts.filter(post => !post.pinned)}
-                      postType="PostSimple"
-                      postTypeOpts={defaultPostTypeOpts}
-                      options={{
-                        className: 'flex flex-col divide-y'
-                      }}
-                    />
-                  </Suspense>
-                </div>
-              </div>
-
-              {pinnedTags.map((tag: Tag) => (
-                <NoteTopicSection key={tag.id} tag={tag} />
-              ))}
-            </div>
+            <NotesPageList
+              blogPosts={blogPosts}
+              pinnedPosts={pinnedPosts}
+              posts={posts}
+              pinnedTags={pinnedTags}
+            />
           </Suspense>
 
           <NotesToc
@@ -196,11 +101,28 @@ export default async function NotesPage() {
 function SkeletonNotesPageBody() {
   return (
     <div className="flex-1 flex flex-col gap-12">
+      {/* Blog posts */}
+      <div className="flex flex-col gap-4">
+        <div className="flex gap-2 items-center animate-pulse">
+          <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
+          <div className="h-[26px] bg-slate-200 w-[250px] rounded-2xl"></div>
+        </div>
+        <SkeletonPostList
+          count={3}
+          postType="PostCardWave"
+          options={{
+            className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4',
+            postContainerClassName: 'thi-box-code'
+          }}
+        />
+      </div>
+
+      {/* Notes */}
       {Array.from({ length: 3 }).map((_, i) => (
-        <div key={i} className="flex flex-col gap-3">
+        <div key={i} className="flex flex-col gap-4">
           <div className="flex gap-2 items-center animate-pulse">
             <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-            <div className="h-[30px] bg-slate-200 w-[250px] rounded-md"></div>
+            <div className="h-[26px] bg-slate-200 w-[250px] rounded-2xl"></div>
           </div>
           <div className="thi-box-code overflow-hidden flex-1">
             <SkeletonPostList

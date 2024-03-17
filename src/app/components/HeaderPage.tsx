@@ -74,13 +74,11 @@ export function HeaderPageSkeleton(props: Partial<HeaderPageProps>) {
       headerType={props.headerType}
       headerWidth="wide"
     >
-      <div className="flex flex-col md:flex-row items-center gap-3 py-8">
-        <div>
-          <div className={cn(props.iconClassName, 'rounded-full bg-slate-400')}>
-            <div className="h-[45px] w-[45px]"></div>
-          </div>
+      <div className="flex flex-col md:flex-row items-center gap-3 py-8 w-full">
+        <div className={cn(props.iconClassName, 'rounded-full bg-slate-400')}>
+          <div className="h-[45px] w-[45px]"></div>
         </div>
-        <div className="h-[35px] bg-slate-400 w-[250px] rounded-lg"></div>
+        <div className="h-[35px] bg-slate-400 w-1/2 rounded-3xl"></div>
       </div>
     </Header>
   )
