@@ -4,19 +4,19 @@ import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
 import BlogIcon from '@notion-x/src/icons/BlogIcon'
 import { Post, Tag } from '@notion-x/src/interface'
 import { Suspense } from 'react'
-import NoteTopicSection from '../../components/NoteTopicSection'
 import { defaultPostTypeOpts } from '../../lib/config'
-import { numBlogPosts } from './page'
+import NoteTopicSection from './NoteTopicSection'
 
 type NotesPageListProps = {
   blogPosts: Post[]
   pinnedPosts: Post[]
   posts: Post[]
   pinnedTags: Tag[]
+  numBlogPosts: number
 }
 
 export default function NotesPageList(props: NotesPageListProps) {
-  const { blogPosts, pinnedPosts, posts, pinnedTags } = props
+  const { blogPosts, pinnedPosts, posts, pinnedTags, numBlogPosts } = props
   return (
     <div className="order-2 flex-1 flex flex-col gap-12">
       {/* Blog posts */}

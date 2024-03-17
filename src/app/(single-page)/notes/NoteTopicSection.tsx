@@ -4,10 +4,10 @@ import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { defaultPostTypeOpts } from '../lib/config'
-import { getPosts } from '../lib/fetcher'
-import { poppins } from '../lib/fonts'
-import { getFilterOf } from '../lib/helpers'
+import { defaultPostTypeOpts } from '../../lib/config'
+import { getPosts } from '../../lib/fetcher'
+import { poppins } from '../../lib/fonts'
+import { getFilterOf } from '../../lib/helpers'
 
 type NoteTopicSectionProps = {
   tag: Tag

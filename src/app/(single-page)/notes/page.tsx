@@ -18,8 +18,6 @@ export const revalidate = 20
 const title = 'Notes'
 const description = 'When I learn something new, I write it down here.'
 
-export const numBlogPosts = 6
-
 export const metadata = getMetadata({
   title,
   description,
@@ -27,6 +25,8 @@ export const metadata = getMetadata({
 })
 
 export default async function NotesPage() {
+  const numBlogPosts = 6
+
   const pinnedPosts = await getPosts({
     filter: {
       and: [
@@ -83,6 +83,7 @@ export default async function NotesPage() {
               pinnedPosts={pinnedPosts}
               posts={posts}
               pinnedTags={pinnedTags}
+              numBlogPosts={numBlogPosts}
             />
           </Suspense>
 
