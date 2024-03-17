@@ -6,11 +6,36 @@ import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
 import Fuse from 'fuse.js'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
 import { Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
+import TagAndroidIcon from '../../icons/TagAndroidIcon'
+import TagBrowserExtensionIcon from '../../icons/TagBrowserExtensionIcon'
+import TagDevIcon from '../../icons/TagDevIcon'
+import TagEducationIcon from '../../icons/TagEducationIcon'
+import TagIOSIcon from '../../icons/TagIOSIcon'
+import TagLinuxIcon from '../../icons/TagLinuxIcon'
+import TagMacOSIcon from '../../icons/TagMacOSIcon'
+import TagRelaxIcon from '../../icons/TagRelaxIcon'
+import TagVSCodeIcon from '../../icons/TagVSCodeIcon'
+import TagWebAppIcon from '../../icons/TagWebAppIcon'
+import TagWindowsIcon from '../../icons/TagWindowsIcon'
 import ToolItem from './ToolItem'
+
+const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
+  android: TagAndroidIcon,
+  'browser-extension': TagBrowserExtensionIcon,
+  dev: TagDevIcon,
+  ios: TagIOSIcon,
+  linux: TagLinuxIcon,
+  macos: TagMacOSIcon,
+  relax: TagRelaxIcon,
+  education: TagEducationIcon,
+  'vscode-extension': TagVSCodeIcon,
+  'web-app': TagWebAppIcon,
+  windows: TagWindowsIcon
+}
 
 export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -73,18 +98,6 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        👉{' '}
-        <a
-          className="m2it-link"
-          target="_blank"
-          href="https://github.com/stars/dinhanhthi/lists/favorites"
-        >
-          My favorite repositories
-        </a>{' '}
-        on Github.
-      </div>
-
       {/* Search */}
       <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
         <div className={cn('grid place-items-center text-slate-500')}>
@@ -116,22 +129,27 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
           'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
         )}
       >
-        <div className="flex gap-2 flex-wrap items-center">
-          {/* <TiTag className="text-gray-500 text-lg" /> */}
+        <div className="flex gap-2.5 flex-wrap items-center">
           {props.tags.map(tag => (
             <button
               onClick={() => toggleTypeToShow(tag)}
               key={makeSlugText(tag)}
               className={cn(
-                'whitespace-nowrap border px-2 text-base rounded-md',
-                'transition duration-200 ease-in-out',
+                'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
                 {
-                  'bg-white': !tagsToShow.includes(tag),
+                  'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
                   'bg-sky-600 text-white': tagsToShow.includes(tag)
                 }
               )}
             >
-              {tag}
+              {iconTagList[tag] && (
+                <>
+                  {createElement(iconTagList[tag], {
+                    className: 'h-5 w-5'
+                  })}
+                </>
+              )}
+              <div className="whitespace-nowrap text-base">{tag}</div>
             </button>
           ))}
         </div>

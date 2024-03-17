@@ -36,8 +36,7 @@ export default function ToolItem(props: ToolItemProps) {
       target="_blank"
       className={cn(
         className,
-        'p-2 bg-white rounded-lg border border-slate-150',
-        'transition duration-200 ease-in-out hover:-translate-y-1'
+        'p-2 bg-white rounded-lg border border-slate-150 transition duration-200 ease-in-out hover:-translate-y-1 group'
       )}
     >
       <div className={cn('flex flex-row h-full')}>
@@ -75,7 +74,13 @@ export default function ToolItem(props: ToolItemProps) {
         </div>
         <div className={cn('min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4')}>
           <div className="flex gap-3 flex-col">
-            <div className="text-[0.95rem] text-slate-700 leading-snug">{tool.name}</div>
+            <div
+              className={cn('text-base text-slate-700 group-hover:m2it-link-hover leading-snug', {
+                'font-medium': !compactMode
+              })}
+            >
+              {tool.name}
+            </div>
             <div className={cn('flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]')}>
               {isNew && (
                 <span
