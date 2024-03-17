@@ -145,7 +145,8 @@ export function SkeletonPageOfPostsListTemplate(props: {
             count={props.numPosts || 4}
             postType={props.postType || 'PostSimple'}
             options={{
-              className: props.postListContainerClassName || 'flex flex-col divide-y thi-box-code'
+              className: props.postListContainerClassName || 'flex flex-col divide-y thi-box-code',
+              postContainerClassName: 'bg-white'
             }}
           />
         </div>
