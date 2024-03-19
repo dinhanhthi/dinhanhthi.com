@@ -36,7 +36,9 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
     >
       {/* Index */}
       <div
-        className={cn('flex items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100')}
+        className={cn(
+          'items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100 hidden sm:flex'
+        )}
       >
         <span className={cn(textColorClasses[index % textColorClasses.length])}>{index + 1}</span>
       </div>
