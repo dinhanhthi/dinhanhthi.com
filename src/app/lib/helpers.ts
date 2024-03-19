@@ -132,7 +132,7 @@ export function getMetadata(opts: {
   }
 }
 
-export function getPostProperties(post: Block): Post {
+export function getPostProperties(post: Block, topics: Tag[] = []): Post {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
@@ -146,7 +146,7 @@ export function getPostProperties(post: Block): Post {
     new Date(post?.created_time).toISOString()
   const tags = properties?.[`${process.env.NEXT_PUBLIC_ID_TAGS}`]?.[0]?.[0]
     .split(',')
-    ?.map((tagName: string) => mapTag(tagName, 'tag'))
+    ?.map((tagName: string) => mapTag(tagName, 'tag', topics))
   const isPublished = properties?.[`${process.env.NEXT_PUBLIC_ID_PUBLISHED}`]?.[0]?.[0] === 'Yes'
   const isPage = properties?.[`${process.env.NEXT_PUBLIC_ID_IS_PAGE}`]?.[0]?.[0] === 'Yes'
   const isDraft = properties?.[`${process.env.NEXT_PUBLIC_ID_DRAFT}`]?.[0]?.[0] === 'Yes'

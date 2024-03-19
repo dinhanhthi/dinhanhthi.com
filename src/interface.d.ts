@@ -117,7 +117,11 @@ export type NotionHeader = {
 
 export type ImgurUrlType = 't' | 'm' | 'l' | 'h'
 
-export type Tag = TagNotionX & { iconUrl?: string; pinned?: boolean; hide?: boolean }
+export type Tag = TagNotionX & {
+  iconUrl?: string
+  pinned?: boolean
+  hide?: boolean
+}
 
 export type Tool = {
   id?: string

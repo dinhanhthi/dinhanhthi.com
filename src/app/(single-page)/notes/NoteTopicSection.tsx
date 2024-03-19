@@ -36,7 +36,9 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           id={tag.id}
           className={cn('font-heading text-2xl font-semibold text-slate-700 scroll-mt-[70px]')}
         >
-          <span>{tag.name}</span>
+          <span>
+            {tag.longName || tag.name} {tag.longName && <>({tag.name})</>}
+          </span>
           {notes.length >= numToDisplay && (
             <Link
               className={cn(

@@ -64,6 +64,10 @@ export default async function NotesPage() {
   }))
 
   const pinnedTags = tags.filter(tag => tag.pinned)
+  // Put "Others" at the end
+  const others = tags.find(tag => tag.name === 'Others')
+  const pinnedTagsSorted = pinnedTags.filter(tag => tag.name !== 'Others')
+  if (others) pinnedTagsSorted.push(others)
 
   return (
     <div className="thi-bg-stone flex flex-col">
@@ -82,14 +86,14 @@ export default async function NotesPage() {
               blogPosts={blogPosts}
               pinnedPosts={pinnedPosts}
               posts={posts}
-              pinnedTags={pinnedTags}
+              pinnedTags={pinnedTagsSorted}
               numBlogPosts={numBlogPosts}
             />
           </Suspense>
 
           <NotesToc
             className={'order-1 md:order-2 md:sticky top-[70px] h-fit md:w-fit w-full'}
-            tags={pinnedTags}
+            tags={pinnedTagsSorted}
           />
         </div>
       </Container>

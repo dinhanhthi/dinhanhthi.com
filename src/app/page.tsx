@@ -260,7 +260,7 @@ export default async function Home() {
                         />
                       </div>
                     )}
-                    <div>{topic.name}</div>
+                    <div>{topic.longName || topic.name}</div>
                   </Link>
                 ))}
             </div>
