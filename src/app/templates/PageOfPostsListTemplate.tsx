@@ -15,6 +15,7 @@ import { bodyPadding, containerWide, defaultPostTypeOpts } from '../lib/config'
 export type PageOfPostsListTemplateProps = {
   object: {
     name: string
+    longName?: string // first used for tag
     subtitle?: string
     icon: ImageType
     className: string
@@ -37,7 +38,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
       <HeaderPage
         headerType="gray"
         headerWidth="wide"
-        title={object.name}
+        title={object.longName ? `${object.longName} (${object.name})` : object.name}
         subtitle={object.subtitle}
         icon={
           object.icon?.sourceUrl || object.icon?.staticImageData

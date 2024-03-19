@@ -376,6 +376,7 @@ function transformTopics(data: CollectionInstance): Tag[] {
     const pinned = properties?.[`${process.env.TOPICS_PINNED_KEY}`]?.[0]?.[0] === 'Yes'
     const hide = properties?.[`${process.env.TOPICS_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
     const className = properties?.[`${process.env.TOPICS_CLASSNAME_KEY}`]?.[0]?.[0]
+    const longName = properties?.[`${process.env.TOPICS_LONG_NAME_KEY}`]?.[0]?.[0]
 
     topics.push({
       id: makeSlugText(name),
@@ -386,7 +387,8 @@ function transformTopics(data: CollectionInstance): Tag[] {
       iconUrl,
       pinned,
       hide,
-      className
+      className,
+      longName
     })
   }
 

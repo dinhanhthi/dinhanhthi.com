@@ -1,4 +1,4 @@
-import { getUnofficialPosts } from '@/src/app/lib/fetcher'
+import { getTopics, getUnofficialPosts } from '@/src/app/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
 import { DynamicSegmentParamsProps } from '@notion-x/src/interface'
 import { getJoinedRichText } from '@notion-x/src/lib/helpers'
@@ -42,6 +42,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
   try {
     const allPosts = await getUnofficialPosts()
+    const topics = await getTopics()
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
     console.log(`👉 pageIdwithDash: `, pageIdwithDash) // ###M
@@ -52,7 +53,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
-    const postProps = getPostProperties(block)
+    const postProps = getPostProperties(block, topics)
     if (postProps.discrete)
       return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 
