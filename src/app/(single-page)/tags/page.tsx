@@ -87,7 +87,7 @@ export default async function TagsPage() {
                       />
                     </div>
                   )}
-                  <div>{tag.name}</div>
+                  <div>{tag.longName || tag.name}</div>
                 </Link>
               ))}
             </div>
