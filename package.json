@@ -42,7 +42,7 @@
     "fs": "^0.0.1-security",
     "fuse.js": "^7.0.0",
     "geopattern": "1",
-    "katex": "^0.16.8",
+    "katex": "^0.16.10",
     "lodash": "^4.17.21",
     "mermaid": "^10.4.0",
     "moment": "^2.29.4",
