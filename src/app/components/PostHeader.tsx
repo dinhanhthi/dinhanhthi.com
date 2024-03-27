@@ -92,7 +92,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
       {/* Main header with infos */}
       <Header headerType={!props.discreteStyle ? 'white' : 'gray'} headerWidth="normal">
-        <div className="py-8 flex flex-col gap-5 overflow-hidden">
+        <div className="py-8 flex flex-col gap-5 w-full overflow-hidden md:overflow-visible">
           <div className={cn('flex flex-col items-center sm:flex-row sm:items-start gap-3')}>
             {/* icon */}
             {icon && (
@@ -122,10 +122,8 @@ export default function PostHeader(props: PostHeaderProps) {
           {/* Authors & Date & meta */}
           {!props.hideMeta && (
             <div
-              className={cn(
-                `flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center
-                justify-center sm:justify-start text-slate-100`
-              )}
+              className="flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center
+              justify-center sm:justify-start text-slate-100"
             >
               {/* Author */}
               <div className="flex items-center gap-2 text-base opacity-80">
