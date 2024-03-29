@@ -42,7 +42,7 @@ export default function HeaderIndex() {
             >
               <Image src={WavingHand} alt="Waving hand" width={36} height={36} />
             </span>
-            {"Hi! I'm Thi"}
+            {me.helloText || "Hi! I'm Thi"}
           </h1>
           <p
             className={cn(
