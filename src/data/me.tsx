@@ -10,6 +10,7 @@ export const me = {
   coursera: 'https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556',
   stackexchange: 'https://stackexchange.com/users/1344291/anh-thi-dinh?tab=accounts',
   // Used in the home page
+  helloText: 'Hi! I am Thi',
   shortIntro:
     'I am a guy with a curious mind. I would like to learn something new every day. I also have a PhD in Applied Mathematics and currently work as a <span class=" font-normal text-amber-200">Data Scientist</span> and <span class=" font-normal text-amber-200">Full Stack Developer</span>. On this page, you can find the notes I made when I discovered something new in the fields of <span class=" font-normal text-amber-200">Data Science</span> and <span class=" font-normal text-amber-200">Web Development</span>.',
   // Used in the about page
