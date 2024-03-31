@@ -6,6 +6,8 @@ Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.
 
 🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/). Thank you!
 
+> 🪖 I can duplicate my site for you at a cost of **\$20 + \$15/hour for any additional requests** (we can discuss this over a call if you prefer). Please be aware that this is a **one-time service** and does not include ongoing maintenance. If you're interested, please [email me](me@dinhanhthi.com).
+
 🚨 There are individuals who have forked my repository and published their confidential information directly in the `.env.local` or `example.env.local` files. I urge you to please **STOP DOING THIS**, as it will expose your secret information to the world!
 
 ## Previous versions
