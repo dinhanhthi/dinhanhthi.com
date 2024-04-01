@@ -85,7 +85,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
     setQuery(value)
     if (value.length) {
       const result = fuse.search(value)
-      setSearchResult(result.map(item => item.item))
+      setSearchResult(result?.map(item => item.item))
     } else {
       setSearchResult(props.tools)
     }
@@ -130,7 +130,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
         )}
       >
         <div className="flex gap-2.5 flex-wrap items-center">
-          {props.tags.map(tag => (
+          {props.tags?.map(tag => (
             <button
               onClick={() => toggleTypeToShow(tag)}
               key={makeSlugText(tag)}
@@ -163,7 +163,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
           means that I have to pay to use the features I need.
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {toolsToShow.map((tool: Tool) => (
+          {toolsToShow?.map((tool: Tool) => (
             <ToolItem key={tool.id} tool={tool} />
           ))}
         </div>
