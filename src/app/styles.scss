@@ -26,7 +26,6 @@
 
 @layer base {
   html {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-size: 14.5px;
   }
 }
@@ -115,37 +114,13 @@
     @apply text-3xl font-semibold text-[#f8fafc];
   }
 
-  /**
-    thi-prose
-    Reamark: There are styles in src/styles/_prism-vscode.scss
-  */
-
-  .thi-prose-code-bg {
-    @apply bg-stone-100;
+  // Override prose class
+  .m2it-strong {
+    @apply font-semibold text-gray-800;
   }
 
-  .thi-prose-code-main {
-    @apply prose-code:thi-prose-code-bg prose-code:font-mono prose-code:text-sm
-    prose-code:font-normal prose-code:text-stone-900 prose-code:before:content-none
-    prose-code:after:content-none;
-  }
-
-  .thi-prose-code-heading {
-    @apply prose-code:prose-h2:text-xl prose-code:prose-h3:text-lg
-    prose-code:prose-h4:text-base;
-  }
-
-  .thi-prose-code {
-    @apply thi-prose-code-main thi-prose-code-heading;
-  }
-
-  .thi-prose-pre {
-    @apply prose-pre:thi-prose-code-bg
-    prose-pre:font-mono prose-pre:prose-code:before:content-none;
-  }
-
-  .thi-prose {
-    @apply thi-prose-code thi-prose-pre prose prose-strong:font-medium;
+  .m2it-prose {
+    @apply prose-strong:m2it-strong;
   }
 }
 
