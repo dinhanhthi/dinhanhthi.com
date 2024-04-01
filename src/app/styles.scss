@@ -115,13 +115,6 @@
   }
 
   // Override prose class
-  .m2it-strong {
-    @apply font-semibold text-gray-800;
-  }
-
-  .m2it-prose {
-    @apply prose-strong:m2it-strong;
-  }
 }
 
 .m2it-prose {
