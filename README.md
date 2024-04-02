@@ -2,13 +2,11 @@
 
 Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.com/dinhanhthi/notion-x).
 
-🎉 The step-by-step tutorial to create a website like this is [HERE](https://dinhanhthi.com/note/how-to-create-a-site-like-this/) (🚨 This tut is corresponding to [**v6.1.3**](https://github.com/dinhanhthi/dinhanhthi.com/releases/tag/v6.1.3))! Feel free to mention my assistance when you embark on creating your unique site. Appreciate it!
+🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
 🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/). Thank you!
 
-> 🪖 I've created a post to guide you in creating your own. However, if you prefer not to spend time on it, I can duplicate my site for you at a **base cost of $25 + $20/hour for any additional requests**. We can discuss this over a call if you prefer. Please note that this is **a one-time service** and does not include ongoing maintenance. If you're interested, please [email me](me@dinhanhthi.com).
-
-🚨 There are individuals who have forked my repository and published their confidential information directly in the `.env.local` or `example.env.local` files. I urge you to please **STOP DOING THIS**, as it will expose your secret information to the world!
+> 🪖 If you prefer not to spend time on reading, I can duplicate my site for you at a **cost of $40**. We can discuss this over a call if you prefer. Please note that this is **a one-time service** and does not include ongoing maintenance. If you're interested, please [email me](me@dinhanhthi.com).
 
 ## Previous versions
 
