@@ -81,3 +81,7 @@ vercel --prod
   ```
 
 - If there are changes from notion-x, cannot merge branch from `main` to `dev` or vice verso. We have to force reset one branch to the other!
+
+## Vercel
+
+[Enable corepack](https://vercel.com/docs/deployments/configure-a-build#corepack) to use yarn newest version.
