@@ -3,7 +3,7 @@
   "description": "My personal website for taking notes.",
   "version": "6.2.0",
   "author": "Anh-Thi Dinh",
-  "private": true,
+  "packageManager": "yarn@4.1.1",
   "license": "MIT",
   "engines": {
     "npm": "^9.3.1",
@@ -103,6 +103,5 @@
     "sass": "^1.63.3",
     "tailwindcss": "3.3.2",
     "yargs": "^17.7.2"
-  },
-  "packageManager": "yarn@4.1.1"
+  }
 }
