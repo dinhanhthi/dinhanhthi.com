@@ -11,7 +11,7 @@ const skills: SkillGroupType[] = [
     name: 'AI & Data',
     list: [
       'airflow',
-      'detectron2',
+      // 'detectron2',
       'dialogflow',
       'huggingface',
       'jupyter',
