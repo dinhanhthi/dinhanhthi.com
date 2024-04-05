@@ -94,7 +94,8 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
         {!query.length && (
           <>
             <div className="italic text-sm text-slate-600">
-              Descriptions are sometimes fetched automatically from the bookmark!
+              Descriptions are sometimes fetched automatically from the bookmark! The recently added
+              ones come first.
             </div>
             <div className="grid grid-cols-1 gap-4">
               {props.bookmarks.map((mark: BookmarkItem, index: number) => (
