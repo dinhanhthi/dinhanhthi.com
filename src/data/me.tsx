@@ -1,42 +1,36 @@
 export const me = {
-  name: 'Anh-Thi Dinh',
-  email: 'me@dinhanhthi.com',
-  website: 'https://dinhanhthi.com',
-  quote: 'I fail my way to success.',
-  github: 'https://github.com/dinhanhthi',
-  linkedin: 'https://www.linkedin.com/in/dinhanhthi',
-  twitter: 'https://twitter.com/dinhanhthi',
-  goodreads: 'https://www.goodreads.com/user/show/19630622-thi-dinh',
-  coursera: 'https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556',
-  stackexchange: 'https://stackexchange.com/users/1344291/anh-thi-dinh?tab=accounts',
+  name: 'My-Ha Nguyen',
+  email: 'mynh.contactwork@gmail.com',
+  website: 'https://mynh-demo1.vercel.app',
+  quote: 'Hope my journey ignite a love for learning',
+  linkedin: 'https://www.linkedin.com/in/myhanguyen07/',
+  twitter: 'xxx',
+  goodreads: 'xxx',
+  tiktok: 'https://www.tiktok.com/@mitaplamnguoilon?is_from_webapp=1&sender_device=pc',
   // Used in the home page
-  helloText: 'Hi! I am Thi',
+  helloText: 'Hi! I am My, you can also call me Gin',
   shortIntro:
-    'I am a guy with a curious mind. I would like to learn something new every day. I also have a PhD in Applied Mathematics and currently work as a <span class=" font-normal text-amber-200">Data Scientist</span> and <span class=" font-normal text-amber-200">Full Stack Developer</span>. On this page, you can find the notes I made when I discovered something new in the fields of <span class=" font-normal text-amber-200">Data Science</span> and <span class=" font-normal text-amber-200">Web Development</span>.',
+    'I am always eager to learn new things and challenge myself in different domains and contexts. I have a passion for technology, data analytics. I aspire to become a versatile and innovative <span class=" font-normal text-amber-200">Business Consultant</span> and <span class=" font-normal text-amber-200"> who can leverage data and technology to create value and impact for businesses and society. On this page, you can find the notes I made when I discovered something new in the fields of <span class=" font-normal text-amber-200">Consultant</span> and <span class=" font-normal text-amber-200">Technological Knowledge</span>.',
   // Used in the about page
   longIntro:
-    'I am <span class="font-normal text-amber-200">Thi</span>, a Vietnamese <span class=" font-normal text-amber-200">Data Scientist</span> with a curious mind. As an ever-learning worm, I am interested in researching and sharing content about <span class=" font-normal text-amber-200">Applied Mathematics</span>, <span class=" font-normal text-amber-200">Web Dev</span> and <span class=" font-normal text-amber-200">Data Science</span>. I have a PhD in Applied Mathematics from U. Sorbonne Paris Nord and am an avid self-learner in Data Science.',
+    'I am <span class="font-normal text-amber-200">My</span>, a Vietnamese girl <span class=" font-normal text-amber-200">Data Scientist</span> with a curious mind. As an life-long learner, I am interested in researching and sharing content about <span class=" font-normal text-amber-200">Consultant</span>, <span class=" font-normal text-amber-200">Technological Knowledge</span> and <span class=" font-normal text-amber-200">Data Science</span>.',
   // Display a badge everywhere
   lookingForJob: false, // true if you are looking for a job. A badge will be displayed on the home page
   lookingForJobLabel: 'Looking for a job', // or 'Available for hire'
   coordinate: {
     from: {
-      label: 'Ben Tre, Vietnam'
+      label: 'Ha Noi, Vietnam'
     },
     location: {
-      label: 'Île-de-France, France'
-    },
-    github: {
-      label: 'github.com/dinhanhthi',
-      href: 'https://github.com/dinhanhthi'
+      label: 'Fille de curiosités, France'
     },
     linkedin: {
-      label: 'linkedin.com/in/dinhanhthi',
-      href: 'https://www.linkedin.com/in/dinhanhthi'
+      label: 'linkedin.com/in/myhanguyen07/',
+      href: 'https://www.linkedin.com/in/myhanguyen07/'
     },
     email: {
-      label: 'me@dinhanhthi.com',
-      href: 'mailto:me@dinhanhthi.com'
+      label: 'mynh.contactwork@gmail.com',
+      href: 'mailto:mynh.contactwork@gmail.com'
     }
   }
 }
