@@ -40,8 +40,7 @@ export default async function TagsPage() {
     return (
       <div
         className={cn(
-          'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center',
-          'flex flex-col h-[30px] w-[30px] rounded-full'
+          'bg-gray-400 items-center justify-center flex flex-col h-[30px] w-[30px] rounded-full'
         )}
       >
         <AiOutlineLoading3Quarters className="text-[30px] text-white animate-spin" />
@@ -70,8 +69,7 @@ export default async function TagsPage() {
                   href={tag.uri!}
                   key={tag.id}
                   className={cn(
-                    'thi-box-code flex items-center gap-2 p-4',
-                    'transition duration-200 ease-in-out hover:-translate-y-0.5',
+                    'thi-box-code flex items-center gap-2 p-4 transition duration-200 ease-in-out hover:-translate-y-0.5',
                     { 'tooltip-auto': tag.description }
                   )}
                   data-title={tag.description}
