@@ -49,6 +49,7 @@ export default async function BookmarksPage() {
         headerWidth="wide"
         icon={{ staticImageData: BookmarksIcon }}
         iconClassName="h-12 w-12"
+        number={bookmarks.length}
       />
       <Container className={cn('basis-auto grow shrink-0 z-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonBookmarkContainer />}>

@@ -58,6 +58,7 @@ export default async function TagsPage() {
           Data Science and Computer Science.`}
         icon={{ staticImageData: TopicIcon }}
         iconClassName="h-12 w-12"
+        number={tags.length}
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>

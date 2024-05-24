@@ -13,6 +13,7 @@ type HeaderPageProps = {
   childrenContainerClassName?: string
   icon?: ImageType
   iconClassName?: string
+  number?: number
 }
 
 export default function HeaderPage(props: HeaderPageProps) {
@@ -46,11 +47,15 @@ export default function HeaderPage(props: HeaderPageProps) {
           )}
           <h1
             className={cn(
-              `text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight
-            tracking-tight text-center md:text-left thi-text-rainbow`
+              'flex items-center gap-4 text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left thi-text-rainbow'
             )}
           >
-            {props.title}
+            <span>{props.title}</span>
+            {props.number && (
+              <span className="bg-[#565a6b] text-white font-medium text-[60%] rounded-lg px-2 py-0 leading-snug tracking-wide">
+                {props.number}
+              </span>
+            )}
           </h1>
         </div>
         {props.subtitle && (
