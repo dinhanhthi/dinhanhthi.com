@@ -48,7 +48,7 @@ export default async function Home() {
   const numPinnedPosts = 6
   const numPosts = 10
   const numProjects = 6
-  const numBookmarks = 5
+  const numBookmarks = 6
   const numTools = 6
   const numBlogPosts = 4
 
@@ -92,7 +92,7 @@ export default async function Home() {
   const projects = await getUnofficialProjects()
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
-  const bookmarks = await getUnofficialBookmarks()
+  const { bookmarks } = await getUnofficialBookmarks()
 
   const topics = _topics.map(topic => ({
     ...topic,
@@ -207,13 +207,13 @@ export default async function Home() {
               title="Recent bookmarks"
               href={bookmarks.length >= numBookmarks ? '/bookmarks/' : undefined}
             />
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem, index: number) => (
                 <Suspense
                   key={mark.id}
                   fallback={<SkeletonBookmarkItemSimpleTemplate index={index} />}
                 >
-                  <BookmarkItemSimpleTemplate key={mark.id} mark={mark} index={index} />
+                  <BookmarkItemSimpleTemplate key={mark.id} mark={mark} hidePinIcon={true} />
                 </Suspense>
               ))}
             </div>

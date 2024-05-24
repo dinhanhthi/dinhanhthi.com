@@ -59,6 +59,9 @@ export interface BookmarkItem {
   description?: string
   coverUrl?: string
   tags?: string[]
+  favorite?: boolean
+  pinned?: boolean
+  keySearch?: string
 }
 
 export type NotionBookmarkItem = {
