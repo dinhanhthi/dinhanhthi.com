@@ -8,6 +8,7 @@ import Fuse from 'fuse.js'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
+import Link from 'next/link'
 import { Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
 import TagAndroidIcon from '../../icons/TagAndroidIcon'
@@ -54,6 +55,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   }, [tag])
 
   const toggleTypeToShow = (tag: string) => {
+    /* ###Thi */ console.log(`👉👉👉 tagsToShow: `, tagsToShow)
     if (tagsToShow.includes(tag)) {
       if (tagsToShow.length === 1) {
         router.push('/tools', { scroll: false })
@@ -85,6 +87,8 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
     setQuery(value)
     if (value.length) {
       const result = fuse.search(value)
+      /* ###Thi */ console.log(`👉👉👉 result: `, result)
+      /* ###Thi */ console.log(`👉👉👉 tagsToShow: `, tagsToShow)
       setSearchResult(result?.map(item => item.item))
     } else {
       setSearchResult(props.tools)
@@ -153,6 +157,15 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="text-gray-800 border p-4 bg-green-100 rounded-md">
+        <span className="mr-2">👉</span> Beside the tools in this page, you can check out the other
+        useful tools{' '}
+        <Link className="m2it-link" href="/bookmarks/?tag=tools">
+          here
+        </Link>
+        !
       </div>
 
       {/* Tool list */}

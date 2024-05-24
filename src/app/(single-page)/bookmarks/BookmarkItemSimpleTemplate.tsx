@@ -1,12 +1,16 @@
 'use client'
 
+import BsPinAngleFill from '@notion-x/src/icons/BsPinAngleFill'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 import { BookmarkItem } from '../../../interface'
+import { StarIcon } from '../../icons/StarIcon'
 
 type BookmarkItemSimpleTemplateProps = {
   mark: BookmarkItem
   index?: number
+  showIndex?: boolean
+  hidePinIcon?: boolean
 }
 
 export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemplateProps) {
@@ -31,52 +35,74 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white hover:border-sky-300 group'
+        'flex flex-col sm:flex-row gap-4 border border-slate-200 py-4 px-5 rounded-md bg-white hover:border-sky-300 group',
+        { relative: mark.pinned || mark.favorite, 'pr-8': mark.favorite }
       )}
     >
+      {mark.pinned && !props.hidePinIcon && (
+        <div className="absolute left-2 -top-2 text-red-500">
+          <BsPinAngleFill className="text-xl" />
+        </div>
+      )}
+
+      {mark.favorite && (
+        <div
+          className="absolute right-4 top-4 text-amber-400 tooltip-auto"
+          data-title="My favorite"
+        >
+          <StarIcon className="text-xl" />
+        </div>
+      )}
+
       {/* Index */}
-      <div
-        className={cn(
-          'items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100 hidden sm:flex'
-        )}
-      >
-        <span className={cn(textColorClasses[index % textColorClasses.length])}>{index + 1}</span>
-      </div>
+      {props.showIndex && (
+        <div
+          className={cn(
+            'items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100 hidden sm:flex'
+          )}
+        >
+          <span className={cn(textColorClasses[index % textColorClasses.length])}>{index + 1}</span>
+        </div>
+      )}
 
       {/* Content */}
-      <div className="flex gap-1.5 flex-col justify-between">
-        <div>
-          {isNew && (
-            <span
-              className={cn(
-                'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
-              )}
-            >
-              new
-            </span>
-          )}
-          <span className="text-black group-hover:m2it-link-hover">{mark.title}</span>
-          <span className="text-[0.8rem] italic text-slate-500">
-            {' '}
-            — {mark.url.replace(/\/$/, '')}
-          </span>
-        </div>
-        {!!mark.tags?.length && (
-          <div className="flex gap-x-2 gap-y-0.5 items-center flex-row w-full flex-wrap">
-            {mark.tags.map((tag, index) => (
+      <div className="flex gap-3 flex-col justify-start">
+        <div className="flex flex-col gap-1.5">
+          <div>
+            {isNew && (
               <span
-                key={index}
                 className={cn(
-                  'text-xs border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap'
+                  'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
                 )}
               >
-                {tag}
+                new
               </span>
-            ))}
+            )}
+            <span className="m2it-link group-hover:m2it-link-hover text-[1.05rem]">
+              {mark.title}
+            </span>
+            <span className="text-[0.8rem] italic text-slate-500">
+              {' '}
+              — {mark.url.replace(/\/$/, '')}
+            </span>
           </div>
-        )}
+          {!!mark.tags?.length && (
+            <div className="flex gap-x-2 gap-y-0.5 items-center flex-row w-full flex-wrap">
+              {mark.tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className={cn(
+                    'text-[0.8rem] border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap'
+                  )}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
         {!!mark.description && !!mark.description?.length && (
-          <div className="text-slate-600 text-sm group-hover:text-slate-800">
+          <div className="text-slate-700 text-[0.95rem] group-hover:text-slate-900">
             {mark.description}
           </div>
         )}

@@ -79,11 +79,21 @@ export async function getUnofficialBookmarks() {
       notionActiveUser: process.env.NOTION_ACTIVE_USER,
       notionApiWeb: process.env.NOTION_API_WEB
     })
-    return await transformUnofficialBookmarks(data)
+    const bookmarks = await transformUnofficialBookmarks(data)
+    const tags = getAllBookmarksTags(data)
+    return { bookmarks, tags }
   } catch (error) {
     console.error('🚨 Error in getUnofficialBookmarks()', error)
-    return []
+    return { bookmarks: [], tags: [] }
   }
+}
+
+function getAllBookmarksTags(data: CollectionInstance): string[] {
+  return (
+    data?.recordMap?.collection?.[`${process.env.BOOKMARKS_SOURCE_ID}`]?.value?.schema?.[
+      `${process.env.BOOKMARKS_TAGS_KEY}`
+    ]?.options?.map((option: any) => option.value) ?? []
+  )
 }
 
 async function transformUnofficialBookmarks(data: CollectionInstance): Promise<BookmarkItem[]> {
@@ -105,6 +115,12 @@ async function transformUnofficialBookmarks(data: CollectionInstance): Promise<B
       const _coverUrl = properties?.[`${process.env.BOOKMARKS_COVER_URL_KEY}`]?.[0]?.[0] || null
 
       const tags = properties?.[`${process.env.BOOKMARKS_TAGS_KEY}`]?.[0]?.[0]?.split(',') || []
+      const pinned = properties?.[`${process.env.BOOKMARKS_PINNED_KEY}`]?.[0]?.[0] === 'Yes'
+      const favorite = properties?.[`${process.env.BOOKMARKS_FAVORITE_KEY}`]?.[0]?.[0] === 'Yes'
+      const keySearch = properties?.[`${process.env.BOOKMARKS_KEYSEARCH_KEY}`]?.[0]?.[0] || null
+
+      // Auto add tag "favorite" if it's marked as favorite
+      if (favorite && !tags.includes('favorite')) tags.push('favorite')
 
       let __title: string | undefined
       let __description: string | undefined
@@ -124,7 +140,10 @@ async function transformUnofficialBookmarks(data: CollectionInstance): Promise<B
         description: _description || __description,
         url,
         coverUrl: _coverUrl || __coverUrl,
-        tags
+        tags,
+        pinned,
+        favorite,
+        keySearch
       })
     })
   )
