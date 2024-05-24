@@ -87,7 +87,7 @@ export default async function BlogsPage({ params }: OptionalCatchAllProps) {
     <PageOfPostsListTemplate
       object={
         {
-          name: 'Notes',
+          name: 'Blog posts',
           subtitle: description,
           icon: { staticImageData: BlogsIcon },
           uri: 'blog'

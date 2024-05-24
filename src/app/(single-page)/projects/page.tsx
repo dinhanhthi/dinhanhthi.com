@@ -36,6 +36,7 @@ export default async function ProjectsPage() {
         headerWidth="wide"
         icon={{ staticImageData: ProjectIcon }}
         iconClassName="h-12 w-12"
+        number={projects.length}
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonProjectContainer />}>
