@@ -11,6 +11,7 @@ type BookmarkItemSimpleTemplateProps = {
   index?: number
   showIndex?: boolean
   hidePinIcon?: boolean
+  hideDescription?: boolean
 }
 
 export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemplateProps) {
@@ -101,7 +102,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
             </div>
           )}
         </div>
-        {!!mark.description && !!mark.description?.length && (
+        {!!mark.description && !!mark.description?.length && !props.hideDescription && (
           <div className="text-slate-700 text-[0.95rem] group-hover:text-slate-900">
             {mark.description}
           </div>

@@ -213,7 +213,12 @@ export default async function Home() {
                   key={mark.id}
                   fallback={<SkeletonBookmarkItemSimpleTemplate index={index} />}
                 >
-                  <BookmarkItemSimpleTemplate key={mark.id} mark={mark} hidePinIcon={true} />
+                  <BookmarkItemSimpleTemplate
+                    key={mark.id}
+                    mark={mark}
+                    hidePinIcon={true}
+                    hideDescription={true}
+                  />
                 </Suspense>
               ))}
             </div>
