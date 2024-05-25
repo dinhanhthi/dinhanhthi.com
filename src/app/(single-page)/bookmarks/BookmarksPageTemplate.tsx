@@ -195,11 +195,11 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
       </div>
 
       <div className="text-gray-800 border p-4 bg-green-100 rounded-md">
-        <span className="mr-2">👉</span> Beside the{' '}
+        <span className="mr-2">👉</span> In addition to the{' '}
         <span className="m2it-link cursor-pointer" onClick={() => toggleTypeToShow('tools')}>
           tools
         </span>{' '}
-        in this page, you can check out the tools I use{' '}
+        on this page, you can explore other tools I'm using{' '}
         <Link className="m2it-link" href="/tools/">
           here
         </Link>
