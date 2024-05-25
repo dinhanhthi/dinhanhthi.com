@@ -55,7 +55,6 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   }, [tag])
 
   const toggleTypeToShow = (tag: string) => {
-    /* ###Thi */ console.log(`👉👉👉 tagsToShow: `, tagsToShow)
     if (tagsToShow.includes(tag)) {
       if (tagsToShow.length === 1) {
         router.push('/tools', { scroll: false })
@@ -87,8 +86,6 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
     setQuery(value)
     if (value.length) {
       const result = fuse.search(value)
-      /* ###Thi */ console.log(`👉👉👉 result: `, result)
-      /* ###Thi */ console.log(`👉👉👉 tagsToShow: `, tagsToShow)
       setSearchResult(result?.map(item => item.item))
     } else {
       setSearchResult(props.tools)
@@ -160,8 +157,8 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
       </div>
 
       <div className="text-gray-800 border p-4 bg-green-100 rounded-md">
-        <span className="mr-2">👉</span> Beside the tools in this page, you can check out the other
-        useful tools{' '}
+        <span className="mr-2">👉</span> In addition to the tools on this page, you can explore
+        other useful tools{' '}
         <Link className="m2it-link" href="/bookmarks/?tag=tools">
           here
         </Link>
