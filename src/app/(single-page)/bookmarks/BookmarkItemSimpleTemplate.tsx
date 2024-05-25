@@ -88,7 +88,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
             </span>
           </div>
           {!!mark.tags?.length && (
-            <div className="flex gap-x-2 gap-y-0.5 items-center flex-row w-full flex-wrap">
+            <div className="flex gap-x-2 gap-y-1 items-center flex-row w-full flex-wrap">
               {mark.tags.map((tag, index) => (
                 <span
                   key={index}

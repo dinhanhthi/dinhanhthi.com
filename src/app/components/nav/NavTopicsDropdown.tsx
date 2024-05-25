@@ -1,9 +1,9 @@
 'use client'
 
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
 import FiChevronDown from '@notion-x/src/icons/FiChevronDown'
 import Link from 'next/link'
-import { Fragment, useRef } from 'react'
+import { useRef } from 'react'
 
 import { MENUS } from '../../../data/menus'
 import { menuItemCommonClass } from './NavTopicItem'
@@ -21,7 +21,7 @@ export default function NavTopicsDropdown() {
       <Popover className="relative">
         {({ open }) => (
           <>
-            <Popover.Button
+            <PopoverButton
               ref={btnRef}
               className={`
         ${open ? '!bg-slate-700 text-white' : 'text-opacity-90'}
@@ -33,9 +33,8 @@ export default function NavTopicsDropdown() {
               ml-1 h-6 w-6 transition duration-150 ease-in-out group-hover:text-opacity-80`}
                 aria-hidden="true"
               />
-            </Popover.Button>
+            </PopoverButton>
             <Transition
-              as={Fragment}
               enter="transition ease-out duration-200"
               enterFrom="opacity-0 translate-y-1"
               enterTo="opacity-100 translate-y-0"
@@ -43,7 +42,7 @@ export default function NavTopicsDropdown() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel
+              <PopoverPanel
                 className={`absolute left-0 z-10 mt-4 w-fit
               shadow-xl sm:px-0 lg:max-w-3xl`}
               >
@@ -67,7 +66,7 @@ export default function NavTopicsDropdown() {
                     ))}
                   </div>
                 </div>
-              </Popover.Panel>
+              </PopoverPanel>
             </Transition>
           </>
         )}
