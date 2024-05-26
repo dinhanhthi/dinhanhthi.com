@@ -7,6 +7,7 @@ import useReadingProgress from '../../hooks/useReadingProgress'
 import { containerWide } from '../../lib/config'
 import Container from '../Container'
 import NavAvatar from './NavAvatar'
+import NavHidden from './NavHidden'
 import NavSearch from './NavSearch'
 import NavTopicItem from './NavTopicItem'
 import NavTopicsDropdown from './NavTopicsDropdown'
@@ -14,7 +15,7 @@ import NavTopicsDropdown from './NavTopicsDropdown'
 const navHeight = 'h-14'
 export const paddingTopNav = 'pt-14' // Must be the same as navHeight!
 const navClasses = 'bg-nav-dark-bg shadow-transparent text-gray-300'
-export const textClass = 'md:hover:text-white md:hover:bg-gray-700'
+export const textClass = 'text-gray-300 md:hover:text-white md:hover:bg-gray-700'
 export const groupSpaceClass = 'ml-2 md:ml-4'
 
 export default function Nav() {
@@ -32,8 +33,7 @@ export default function Nav() {
               >
                 <div className="relative flex items-center justify-between">
                   <nav
-                    className={`flex flex-1 items-center justify-center
-                  gap-2 sm:gap-0 md:justify-start`}
+                    className="flex flex-1 items-center justify-center gap-2 sm:gap-0 md:justify-start"
                     aria-label="Menu"
                   >
                     <NavAvatar />
@@ -47,6 +47,7 @@ export default function Nav() {
                             customClass="hidden lg:flex"
                           />
                         ))}
+                        <NavHidden className="hidden lg:block" />
                         <NavTopicsDropdown />
                       </div>
                     </div>

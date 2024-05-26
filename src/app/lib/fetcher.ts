@@ -1,4 +1,5 @@
 import {
+  Book,
   BookmarkItem,
   NotionBookmarkItem,
   NotionPost,
@@ -295,6 +296,83 @@ async function updateBookmarkOnNotion(
   return Promise.all(promises)
 }
 
+export async function getUnofficialBooks() {
+  try {
+    const data = await getUnofficialDatabase({
+      spaceId: process.env.SPACE_ID,
+      sourceId: process.env.READING_SOURCE_ID,
+      collectionViewId: process.env.READING_COLLECTION_VIEW_ID,
+      notionTokenV2: process.env.NOTION_TOKEN_V2,
+      notionActiveUser: process.env.NOTION_ACTIVE_USER,
+      notionApiWeb: process.env.NOTION_API_WEB
+    })
+    const books = transformUnofficialBooks(data).sort(function (a, b) {
+      const keyA = new Date(a.readDate)
+      const keyB = new Date(b.readDate)
+      if (keyA < keyB) return 1
+      if (keyA > keyB) return -1
+      return 0
+    })
+    return { books }
+  } catch (error) {
+    console.error('🚨 Error in getUnofficialBooks()', error)
+    return { books: [], tags: [] }
+  }
+}
+
+function transformUnofficialBooks(data: CollectionInstance): Book[] {
+  const _block = data?.recordMap?.block
+  const bookIds = Object.keys(_block)
+  const books = [] as Book[]
+
+  for (const id of bookIds) {
+    const tool = _block[id]
+    const properties = tool?.value?.properties
+
+    const coverUrl = properties?.[`${process.env.READING_COVER_KEY}`]?.[0]?.[1]?.[0]?.[1]
+    if (!coverUrl) continue // because there are useless blocks in the database
+    const title = properties?.title?.[0]?.[0]
+    const author = properties?.[`${process.env.READING_AUTHOR_KEY}`]?.[0]?.[0]
+    const description = properties?.[`${process.env.READING_DESC_KEY}`]?.[0]?.[0]
+    const star = properties?.[`${process.env.READING_STAR_KEY}`]?.[0]?.[0]
+    const isReading = properties?.[`${process.env.READING_IS_READING_KEY}`]?.[0]?.[0] === 'Yes'
+    const tag = properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const goodreads = properties?.[`${process.env.READING_GOODREADS_KEY}`]?.[0]?.[0]
+    const createdTime = new Date(tool?.value?.created_time)?.toISOString()
+    const readDate =
+      properties?.[`${process.env.READING_READ_DATE_KEY}`]?.[0]?.[1]?.[0]?.[1]?.['start_date'] ??
+      createdTime
+    const block = tool?.value as Block
+    const favorite = star === '5'
+
+    if (star === '5') tag.unshift('favorite')
+
+    books.push({
+      id,
+      title,
+      author,
+      star,
+      description,
+      coverUrl,
+      tag,
+      goodreads,
+      createdTime,
+      readDate,
+      isReading,
+      block,
+      favorite
+    })
+  }
+
+  return books.sort(function (a, b) {
+    const keyA = new Date(a.createdTime)
+    const keyB = new Date(b.createdTime)
+    if (keyA < keyB) return 1
+    if (keyA > keyB) return -1
+    return 0
+  })
+}
+
 export async function getUnofficialTools() {
   try {
     const data = await getUnofficialDatabase({
@@ -308,7 +386,7 @@ export async function getUnofficialTools() {
     const allTags = getAllToolsTags(data)
     return { tools: transformUnofficialTools(data), tags: allTags }
   } catch (error) {
-    console.error('🚨 Error in getTools()', error)
+    console.error('🚨 Error in getUnofficialTools', error)
     return { tools: [], tags: [] }
   }
 }

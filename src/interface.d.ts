@@ -137,3 +137,19 @@ export type Tool = {
   createdTime: string
   block: Block // used to fetch icons
 }
+
+export type Book = {
+  id?: string
+  title: string
+  author: string
+  star: number
+  description: string
+  coverUrl: string
+  tag: string[]
+  goodreads: string
+  createdTime: string
+  readDate: string
+  isReading?: boolean
+  block: Block // used to fetch icons
+  favorite?: boolean
+}
