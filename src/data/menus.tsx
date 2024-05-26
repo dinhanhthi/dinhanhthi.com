@@ -1,8 +1,4 @@
 import FaGithub from '@notion-x/src/icons/FaGithub'
-import GrCircleInformation from '@notion-x/src/icons/GrCircleInformation'
-import ImPencil2 from '@notion-x/src/icons/ImPencil2'
-import RiHome2Line from '@notion-x/src/icons/RiHome2Line'
-import TiTag from '@notion-x/src/icons/TiTag'
 
 import me from './me'
 
@@ -14,21 +10,18 @@ export type MenuType = {
 
 export const MenuAbout = {
   name: 'About',
-  uri: '/about/',
-  icon: GrCircleInformation
+  uri: '/about/'
 }
 
 export const MENUS: MenuType[] = [
   {
     name: 'Home',
-    uri: '/',
-    icon: RiHome2Line
+    uri: '/'
   },
   MenuAbout,
   {
     name: 'Notes',
-    uri: '/notes/',
-    icon: ImPencil2
+    uri: '/notes/'
   },
   {
     name: 'Blog',
@@ -36,14 +29,15 @@ export const MENUS: MenuType[] = [
   },
   {
     name: 'Topics',
-    uri: '/tags/',
-    icon: TiTag
+    uri: '/tags/'
   },
   {
     name: 'Projects',
-    uri: '/projects/',
-    icon: FaGithub
-  },
+    uri: '/projects/'
+  }
+]
+
+export const HIDDEN_MENUS: MenuType[] = [
   {
     name: 'Tools',
     uri: '/tools/'
@@ -51,6 +45,10 @@ export const MENUS: MenuType[] = [
   {
     name: 'Bookmarks',
     uri: '/bookmarks/'
+  },
+  {
+    name: 'Reading',
+    uri: '/reading/'
   }
 ]
 

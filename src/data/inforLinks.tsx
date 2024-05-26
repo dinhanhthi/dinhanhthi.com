@@ -29,10 +29,9 @@ export const inforLinks: BadgeInfosProps[] = [
   },
   {
     id: 'reading',
-    url: 'https://www.goodreads.com/user/show/19630622-thi-dinh',
+    url: '/reading/',
     title: 'Reading list',
-    icon: '📚',
-    external: true
+    icon: '📚'
   },
   {
     id: 'cook',

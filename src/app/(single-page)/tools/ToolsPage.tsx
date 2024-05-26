@@ -9,7 +9,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
-import { Tool } from '../../../interface'
+import { Book, Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
 import TagAndroidIcon from '../../icons/TagAndroidIcon'
 import TagBrowserExtensionIcon from '../../icons/TagBrowserExtensionIcon'
@@ -174,7 +174,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {toolsToShow?.map((tool: Tool) => (
-            <ToolItem key={tool.id} tool={tool} />
+            <ToolItem key={tool.id} tool={tool as Tool & Book} />
           ))}
         </div>
         {!toolsToShow.length && (

@@ -73,7 +73,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
             {isNew && (
               <span
                 className={cn(
-                  'inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
+                  'align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
                 )}
               >
                 new
@@ -89,16 +89,18 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
           </div>
           {!!mark.tags?.length && (
             <div className="flex gap-x-2 gap-y-1 items-center flex-row w-full flex-wrap">
-              {mark.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className={cn(
-                    'text-[0.8rem] border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap'
-                  )}
-                >
-                  {tag}
-                </span>
-              ))}
+              {mark.tags
+                ?.filter(tag => tag !== 'favorite')
+                ?.map((tag, index) => (
+                  <span
+                    key={index}
+                    className={cn(
+                      'text-[0.8rem] border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap'
+                    )}
+                  >
+                    {tag}
+                  </span>
+                ))}
             </div>
           )}
         </div>

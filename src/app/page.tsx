@@ -10,7 +10,7 @@ import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import me from '../data/me'
-import { BookmarkItem, Tool } from '../interface'
+import { Book, BookmarkItem, Tool } from '../interface'
 import BookmarkItemSimpleTemplate, {
   SkeletonBookmarkItemSimpleTemplate
 } from './(single-page)/bookmarks/BookmarkItemSimpleTemplate'
@@ -25,6 +25,7 @@ import {
   getPosts,
   getTopics,
   getUnofficialBookmarks,
+  getUnofficialBooks,
   getUnofficialProjects,
   getUnofficialTools
 } from './lib/fetcher'
@@ -50,6 +51,7 @@ export default async function Home() {
   const numProjects = 6
   const numBookmarks = 6
   const numTools = 6
+  const numBooks = 3
   const numBlogPosts = 4
 
   const pinnedPosts = await getPosts({
@@ -93,6 +95,7 @@ export default async function Home() {
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
   const { bookmarks } = await getUnofficialBookmarks()
+  const { books } = await getUnofficialBooks()
 
   const topics = _topics.map(topic => ({
     ...topic,
@@ -233,7 +236,28 @@ export default async function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
               {tools.slice(0, numTools).map((tool: Tool) => (
                 <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem key={tool.id} tool={tool} compactMode={true} />
+                  <ToolItem key={tool.id} tool={tool as Tool & Book} compactMode={true} />
+                </Suspense>
+              ))}
+            </div>
+          </div>
+
+          {/* Reading */}
+          <div className="flex flex-col gap-4">
+            <HeadingWithMore
+              title="My reading list"
+              href={tools.length >= numTools ? '/reading/' : undefined}
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
+              {books.slice(0, numBooks).map((book: Book) => (
+                <Suspense key={book.id} fallback={<SkeletonToolItem />}>
+                  <ToolItem
+                    type="book"
+                    key={book.id}
+                    tool={book as Tool & Book}
+                    hideDescription={true}
+                    compactMode={true}
+                  />
                 </Suspense>
               ))}
             </div>

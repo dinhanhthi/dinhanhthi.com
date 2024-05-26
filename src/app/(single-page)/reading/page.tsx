@@ -1,4 +1,4 @@
-import ToolsIcon from '@/public/tools.webp'
+import ReadingIcon from '@/public/reading.svg'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
@@ -8,14 +8,15 @@ import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
-import { getUnofficialTools } from '../../lib/fetcher'
+import { getUnofficialBooks } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
-import ToolsPage, { SkeletonToolItem } from './ToolsPage'
+import { SkeletonToolItem } from '../tools/ToolsPage'
+import ReadingPage from './ReadingPage'
 
 export const revalidate = 20
 
-const title = 'Tools I use'
-const description = 'Apps, tools, websites I find useful.'
+const title = 'My reading list'
+const description = 'Read to know we are not alone and our knowledge is limited.'
 
 export const metadata = getMetadata({
   title,
@@ -24,22 +25,31 @@ export const metadata = getMetadata({
 })
 
 export default async function ProjectsPage() {
-  const { tools, tags } = await getUnofficialTools()
+  const { books } = await getUnofficialBooks()
+
+  // Make "isReading" book always at the beginning
+  books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
+
+  // all uniq tags from current books
+  const tags = Array.from(new Set(books.flatMap(book => book.tag)))
+
+  // Make sure the 'favorite' tag is always at the beginning
+  tags.sort((a, b) => (a === 'favorite' ? -1 : b === 'favorite' ? 1 : 0))
 
   return (
     <div className="thi-bg-stone flex flex-col">
       <HeaderPage
         headerType="gray"
         title={title}
-        subtitle={`I'm always on the lookout for new apps and websites that can help me learn and work more effectively. Here's a list of tools that I've found really useful so far.`}
+        subtitle={description}
         headerWidth="wide"
-        icon={{ staticImageData: ToolsIcon }}
+        icon={{ staticImageData: ReadingIcon }}
         iconClassName="h-12 w-12"
-        number={tools.length}
+        number={books.length}
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
-        <Suspense fallback={<SkeletonToolContainer />}>
-          <ToolsPage tools={tools} tags={tags} />
+        <Suspense fallback={<SkeletonReadingContainer />}>
+          <ReadingPage books={books} tags={tags} />
         </Suspense>
       </Container>
       <Footer footerType="gray" />
@@ -48,7 +58,7 @@ export default async function ProjectsPage() {
   )
 }
 
-function SkeletonToolContainer() {
+function SkeletonReadingContainer() {
   return (
     <div className="flex flex-col gap-6">
       <SkeletonSearchBar placeholder="Search tools..." />
