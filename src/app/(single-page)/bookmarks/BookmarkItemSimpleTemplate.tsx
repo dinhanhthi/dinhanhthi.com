@@ -12,6 +12,7 @@ type BookmarkItemSimpleTemplateProps = {
   showIndex?: boolean
   hidePinIcon?: boolean
   hideDescription?: boolean
+  hideTags?: boolean
 }
 
 export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemplateProps) {
@@ -87,7 +88,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
               — {mark.url.replace(/\/$/, '')}
             </span>
           </div>
-          {!!mark.tags?.length && (
+          {!!mark.tags?.length && !props.hideTags && (
             <div className="flex gap-x-2 gap-y-1 items-center flex-row w-full flex-wrap">
               {mark.tags
                 ?.filter(tag => tag !== 'favorite')
