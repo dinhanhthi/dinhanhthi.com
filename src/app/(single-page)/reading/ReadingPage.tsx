@@ -5,6 +5,7 @@ import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
 import Fuse from 'fuse.js'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 import { Book, Tool } from '../../../interface'
@@ -131,7 +132,11 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         <div className="text-sm text-gray-600 italic">
           <strong className="font-medium">Remark</strong>: Click here to see my reviews (in
           Vietnamese) on Goodreads. I mostly read the Vietnamese versions of books. If I can{"'"}t
-          find their English titles, I{"'"}ll use the Vietnamese titles instead.
+          find their English titles, I{"'"}ll use the Vietnamese titles instead. You can{' '}
+          <Link className="m2it-link" href="/note/my-taste-of-reading/">
+            read this article
+          </Link>{' '}
+          to know more about my taste in books.
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
