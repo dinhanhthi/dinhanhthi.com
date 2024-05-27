@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import { Book } from '../../../interface'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -31,7 +32,7 @@ export default async function ProjectsPage() {
   books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
 
   // all uniq tags from current books
-  const tags = Array.from(new Set(books.flatMap(book => book.tag)))
+  const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tag)))
 
   // Make sure the 'favorite' tag is always at the beginning
   tags.sort((a, b) => (a === 'favorite' ? -1 : b === 'favorite' ? 1 : 0))

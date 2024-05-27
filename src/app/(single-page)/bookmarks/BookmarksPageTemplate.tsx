@@ -199,7 +199,7 @@ export default function BookmarksPageTemplate(props: BookmarksPageProps) {
         <span className="m2it-link cursor-pointer" onClick={() => toggleTypeToShow('tools')}>
           tools
         </span>{' '}
-        on this page, you can explore other tools I'm using{' '}
+        on this page, you can explore other tools I{"'"}m using{' '}
         <Link className="m2it-link" href="/tools/">
           here
         </Link>

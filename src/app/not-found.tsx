@@ -42,8 +42,8 @@ export default function NotFoundPage() {
             </div>
             <div>
               Please change from <code className="text-pink-700">/something/</code> to{' '}
-              <code className="text-pink-700">/note/something/</code> because I've changed the route
-              of all notes to <code className="font-bold">/note/</code>.
+              <code className="text-pink-700">/note/something/</code> because I{"'"}ve changed the
+              route of all notes to <code className="font-bold">/note/</code>.
             </div>
           </div>
           <div className="flex items-baseline gap-2">
