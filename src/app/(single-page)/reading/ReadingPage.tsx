@@ -50,7 +50,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
   const fuseOptions = {
     includeScore: false,
-    keys: ['title', 'description', 'tag', 'author']
+    keys: ['title', 'description', 'tag', 'author', 'keySearch']
   }
 
   const fuse = new Fuse(props.books, fuseOptions)

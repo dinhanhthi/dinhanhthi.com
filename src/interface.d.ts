@@ -136,6 +136,7 @@ export type Tool = {
   isFree: boolean
   createdTime: string
   block: Block // used to fetch icons
+  keySearch?: string
 }
 
 export type Book = {
@@ -152,4 +153,5 @@ export type Book = {
   isReading?: boolean
   block: Block // used to fetch icons
   favorite?: boolean
+  keySearch?: string
 }
