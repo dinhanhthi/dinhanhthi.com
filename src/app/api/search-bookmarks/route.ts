@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { searchNotion } from '@notion-x/src/lib/db'
 
 import { BookmarkItem } from '../../../interface'

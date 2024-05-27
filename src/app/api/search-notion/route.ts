@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SearchResult } from '@notion-x/src/interface'
 import { searchNotion } from '@notion-x/src/lib/db'
 import { makeSlugText } from '@notion-x/src/lib/helpers'

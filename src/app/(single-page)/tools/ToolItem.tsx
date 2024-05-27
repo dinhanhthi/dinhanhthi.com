@@ -32,7 +32,7 @@ export default function ToolItem(props: ToolItemProps) {
     if (diffInDays <= 7) {
       setIsNew(true)
     }
-  }, [tool.readDate || tool.createdTime])
+  }, [tool.createdTime, tool.readDate])
 
   return (
     <a
@@ -131,7 +131,7 @@ export default function ToolItem(props: ToolItemProps) {
 
               {tool.isReading && (
                 <div className="flex flex-row gap-1 items-center">
-                  <div className="text-sm text-green-700 italic">I'm reading...</div>
+                  <div className="text-sm text-green-700 italic">I{"'"}m reading...</div>
                 </div>
               )}
             </div>
