@@ -13,13 +13,13 @@ type ToolItemProps = {
   type?: 'tool' | 'book'
   tool: Tool & Book
   className?: string
-  compactMode?: boolean
   showStar?: boolean
   hideDescription?: boolean
+  hideTags?: boolean
 }
 
 export default function ToolItem(props: ToolItemProps) {
-  const { type = 'tool', tool, className, compactMode } = props
+  const { type = 'tool', tool, className } = props
   const [isNew, setIsNew] = useState(false)
   const convertedIconUrl = defaultMapImageUrl(tool.iconUrl || tool.coverUrl, tool.block)!
 
@@ -101,9 +101,7 @@ export default function ToolItem(props: ToolItemProps) {
           <div className="flex gap-3 flex-col">
             <div className="flex flex-col gap-2">
               <div
-                className={cn('text-base text-slate-700 group-hover:m2it-link-hover leading-snug', {
-                  'font-medium': !compactMode
-                })}
+                className={cn('text-base text-slate-700 group-hover:m2it-link-hover leading-snug')}
               >
                 {isNew && (
                   <span
@@ -149,7 +147,7 @@ export default function ToolItem(props: ToolItemProps) {
                 </>
               )}
 
-              {!compactMode &&
+              {!props.hideTags &&
                 tool.tag
                   ?.filter(tag => tag !== 'favorite')
                   ?.map(t => (
@@ -159,7 +157,7 @@ export default function ToolItem(props: ToolItemProps) {
                   ))}
             </div>
           </div>
-          {!compactMode && !props.hideDescription && (
+          {!props.hideDescription && (
             <div className={cn('text-[0.83rem] text-slate-700 break-words overflow')}>
               {tool.description}
             </div>

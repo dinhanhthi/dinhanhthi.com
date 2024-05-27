@@ -220,7 +220,8 @@ export default async function Home() {
                     key={mark.id}
                     mark={mark}
                     hidePinIcon={true}
-                    hideDescription={true}
+                    hideDescription={false}
+                    hideTags={true}
                   />
                 </Suspense>
               ))}
@@ -236,7 +237,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
               {tools.slice(0, numTools).map((tool: Tool) => (
                 <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem key={tool.id} tool={tool as Tool & Book} compactMode={true} />
+                  <ToolItem key={tool.id} tool={tool as Tool & Book} hideTags={true} />
                 </Suspense>
               ))}
             </div>
@@ -256,7 +257,7 @@ export default async function Home() {
                     key={book.id}
                     tool={book as Tool & Book}
                     hideDescription={true}
-                    compactMode={true}
+                    hideTags={true}
                   />
                 </Suspense>
               ))}
