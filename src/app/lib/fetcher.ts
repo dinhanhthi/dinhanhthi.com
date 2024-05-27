@@ -339,6 +339,7 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
     const tag = properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',')
     const goodreads = properties?.[`${process.env.READING_GOODREADS_KEY}`]?.[0]?.[0]
     const createdTime = new Date(tool?.value?.created_time)?.toISOString()
+    const keySearch = properties?.[`${process.env.READING_KEYSEARCH_KEY}`]?.[0]?.[0]
     const readDate =
       properties?.[`${process.env.READING_READ_DATE_KEY}`]?.[0]?.[1]?.[0]?.[1]?.['start_date'] ??
       createdTime
@@ -360,7 +361,8 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
       readDate,
       isReading,
       block,
-      favorite
+      favorite,
+      keySearch
     })
   }
 
@@ -417,6 +419,7 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const url = properties?.[`${process.env.TOOLS_URL_KEY}`]?.[0]?.[0]
     const createdTime = new Date(tool?.value?.created_time)?.toISOString()
     const block = tool?.value as Block
+    const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
 
     tools.push({
       id,
@@ -427,7 +430,8 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
       isFree,
       tag,
       createdTime,
-      block
+      block,
+      keySearch
     })
   }
 

@@ -76,7 +76,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
 
   const fuseOptions = {
     includeScore: false,
-    keys: ['name', 'description', 'tag']
+    keys: ['name', 'description', 'tag', 'keySearch']
   }
 
   const fuse = new Fuse(props.tools, fuseOptions)
