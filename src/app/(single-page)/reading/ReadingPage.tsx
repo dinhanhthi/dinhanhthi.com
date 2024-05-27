@@ -129,8 +129,9 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
       {/* Tool list */}
       <div className="flex flex-col gap-4">
         <div className="text-sm text-gray-600 italic">
-          <strong className="font-medium">Remark</strong>: Click to see my reviews (in Vietnamese)
-          on Goodreads.
+          <strong className="font-medium">Remark</strong>: Click here to see my reviews (in
+          Vietnamese) on Goodreads. I mostly read the Vietnamese versions of books. If I can{"'"}t
+          find their English titles, I{"'"}ll use the Vietnamese titles instead.
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
