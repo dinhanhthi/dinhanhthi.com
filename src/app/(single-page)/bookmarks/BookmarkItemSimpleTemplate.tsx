@@ -37,7 +37,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        'flex flex-col sm:flex-row gap-4 border border-slate-200 py-4 px-5 rounded-md bg-white hover:border-sky-300 group',
+        'flex flex-col overflow-hidden sm:flex-row gap-4 border border-slate-200 py-4 px-5 rounded-md bg-white hover:border-sky-300 group',
         { relative: mark.pinned || mark.favorite, 'pr-8': mark.favorite }
       )}
     >
@@ -65,8 +65,8 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
 
       {/* Content */}
       <div className="flex gap-3 flex-col justify-start">
-        <div className="flex flex-col gap-1.5">
-          <div>
+        <div className="flex-col gap-1.5">
+          <div className="overflow-hidden text-ellipsis">
             {isNew && (
               <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2">
                 new
@@ -75,7 +75,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
             <span className="m2it-link group-hover:m2it-link-hover text-[1.05rem]">
               {mark.title}
             </span>
-            <span className="text-[0.8rem] italic text-slate-500">
+            <span className="text-[0.8rem] italic text-slate-500 whitespace-nowrap">
               {' '}
               — {mark.url.replace(/\/$/, '')}
             </span>
