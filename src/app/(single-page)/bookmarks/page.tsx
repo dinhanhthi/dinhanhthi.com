@@ -66,9 +66,10 @@ function SkeletonBookmarkContainer() {
   return (
     <div className="flex flex-col gap-8">
       <SkeletonSearchBar placeholder="Search bookmarks..." />
-      <div className="flex flex-col gap-4">
+      <div className=""></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {Array.from({ length: 6 }).map((_, i) => (
-          <SkeletonBookmarkItemSimpleTemplate index={i} key={i} />
+          <SkeletonBookmarkItemSimpleTemplate index={i} key={i} showIndex={false} />
         ))}
       </div>
     </div>
