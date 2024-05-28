@@ -18,7 +18,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
         <h4 className="text-slate-700 mt-2 text-center text-base font-semibold">
           {cv.url && (
             <a
-              className={'text-slate-700 thi-link-normal'}
+              className="text-slate-700 thi-link-normal"
               href={cv.url}
               target="_blank"
               rel="noopener noreferrer"

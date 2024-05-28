@@ -13,19 +13,11 @@ import Header from './Header'
 export default function HeaderAbout() {
   return (
     <Header headerType="gray" headerWidth="wide">
-      <div
-        className="mx-auto flex flex-col flex-wrap items-center justify-items-stretch
-  md:p-4 md:flex-row xl:max-w-6xl"
-      >
-        <div className={'mb-7 flex w-full flex-col items-center gap-4 md:flex-row md:gap-5'}>
+      <div className="mx-auto flex flex-col flex-wrap items-center justify-items-stretch md:p-4 md:flex-row xl:max-w-6xl">
+        <div className="mb-7 flex w-full flex-col items-center gap-4 md:flex-row md:gap-5">
           <div>
-            <h1
-              className={cn('thi-title flex w-full justify-center md:justify-start font-heading')}
-            >
-              <span
-                className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave
-            items-center justify-center"
-              >
+            <h1 className="thi-title flex w-full justify-center md:justify-start font-heading">
+              <span className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center">
                 <Image src={VictoryHand} alt="Waving hand" width={36} height={36} />
               </span>
               About me
@@ -34,11 +26,7 @@ export default function HeaderAbout() {
               className={'mt-4 flex-1 text-left text-main-dark'}
               dangerouslySetInnerHTML={{ __html: me.longIntro }}
             ></p>
-            <div
-              className={cn(
-                'mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden'
-              )}
-            >
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden">
               {socials.map(item => (
                 <BadgeSocial
                   key={item.id}
@@ -77,9 +65,7 @@ export default function HeaderAbout() {
             </ul>
           </div>
         </div>
-        <div
-          className={'flex w-full flex-wrap items-center justify-center gap-3 md:order-3 md:mt-8'}
-        >
+        <div className="flex w-full flex-wrap items-center justify-center gap-3 md:order-3 md:mt-8">
           {inforLinks
             .filter(item => item.id !== 'cv')
             .map(item => (

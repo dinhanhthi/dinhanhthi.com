@@ -33,12 +33,7 @@ type ProjectItemProps = {
 export default function ProjectItem({ project, className, grayScale }: ProjectItemProps) {
   const ImagePlaceholder = () => {
     return (
-      <div
-        className={cn(
-          'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center',
-          'flex flex-col h-[30px] w-[30px] rounded-full'
-        )}
-      >
+      <div className="bg-gradient-to-r from-sky-500 to-indigo-500 items-center justify-center flex flex-col h-[30px] w-[30px] rounded-full">
         <AiOutlineLoading3Quarters className="text-[30px] text-white animate-spin" />
       </div>
     )
@@ -117,7 +112,7 @@ type SkeletonProjectItemProps = {
 export function SkeletonProjectItem(props: SkeletonProjectItemProps) {
   return (
     <div className={props.className}>
-      <div className={cn('rounded-lg shadow-lg bg-slate-200 animate-pulse h-[200px]')}></div>
+      <div className="rounded-lg shadow-lg bg-slate-200 animate-pulse h-[200px]"></div>
     </div>
   )
 }

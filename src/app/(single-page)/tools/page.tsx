@@ -55,7 +55,7 @@ function SkeletonToolContainer() {
       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
         <div className="flex gap-x-2 gap-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className={cn('h-6 w-20 bg-white rounded-md animate-pulse')}></div>
+            <div key={i} className="h-6 w-20 bg-white rounded-md animate-pulse"></div>
           ))}
         </div>
       </div>

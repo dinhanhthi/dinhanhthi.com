@@ -18,12 +18,7 @@ type HeaderPageProps = {
 
 export default function HeaderPage(props: HeaderPageProps) {
   const ImagePlaceholder = () => (
-    <div
-      className={cn(
-        'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center w-full h-full',
-        'flex flex-col rounded-full'
-      )}
-    >
+    <div className="bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center w-full h-full flex-col rounded-full">
       <AiOutlineLoading3Quarters className="text-[60px] text-white animate-spin" />
     </div>
   )
@@ -45,25 +40,17 @@ export default function HeaderPage(props: HeaderPageProps) {
               />
             </div>
           )}
-          <h1
-            className={cn(
-              'flex items-center gap-4 text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left thi-text-rainbow'
-            )}
-          >
+          <h1 className="'flex items-center gap-4 text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left thi-text-rainbow'">
             <span>{props.title}</span>
             {props.number && (
-              <span className="bg-[#565a6b] text-white font-medium text-[60%] rounded-lg px-2 py-0 leading-snug tracking-wide">
+              <span className="bg-[#565a6b] text-white font-medium text-[60%] rounded-lg px-2 py-1 leading-snug tracking-wide">
                 {props.number}
               </span>
             )}
           </h1>
         </div>
         {props.subtitle && (
-          <div
-            className={cn(
-              'text-gray-100 mt-4 md:mt-0 md:pl-[60px] text-center md:text-left lg:w-4/5'
-            )}
-          >
+          <div className="text-gray-100 mt-4 md:mt-0 md:pl-[60px] text-center md:text-left lg:w-4/5">
             {props.subtitle}
           </div>
         )}

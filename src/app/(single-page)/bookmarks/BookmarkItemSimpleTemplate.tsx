@@ -58,11 +58,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
 
       {/* Index */}
       {props.showIndex && (
-        <div
-          className={cn(
-            'items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100 hidden sm:flex'
-          )}
-        >
+        <div className="items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100 hidden sm:flex">
           <span className={cn(textColorClasses[index % textColorClasses.length])}>{index + 1}</span>
         </div>
       )}
@@ -72,11 +68,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
         <div className="flex flex-col gap-1.5">
           <div>
             {isNew && (
-              <span
-                className={cn(
-                  'align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2'
-                )}
-              >
+              <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2">
                 new
               </span>
             )}
@@ -95,9 +87,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
                 ?.map((tag, index) => (
                   <span
                     key={index}
-                    className={cn(
-                      'text-[0.8rem] border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap'
-                    )}
+                    className="text-[0.8rem] border text-slate-700 px-2 py-0.5 rounded-md whitespace-nowrap"
                   >
                     {tag}
                   </span>
@@ -117,15 +107,9 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
 
 export function SkeletonBookmarkItemSimpleTemplate({ index }: { index: number }) {
   return (
-    <div
-      className={cn(
-        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white group'
-      )}
-    >
+    <div className="flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white group">
       {/* Index */}
-      <div
-        className={cn('flex items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100')}
-      >
+      <div className="flex items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100">
         {index + 1}
       </div>
 

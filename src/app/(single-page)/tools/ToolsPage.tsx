@@ -100,16 +100,13 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   return (
     <div className="flex flex-col gap-6">
       {/* Search */}
-      <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
-        <div className={cn('grid place-items-center text-slate-500')}>
+      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
+        <div className="grid place-items-center text-slate-500">
           <FiSearch className="text-2xl" />
         </div>
         <input
           ref={inputRef}
-          className={cn(
-            'peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none',
-            'm2it-hide-wscb'
-          )}
+          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
           id="search"
           type="search"
           placeholder={'Search tools...'}
@@ -125,11 +122,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
       </div>
 
       {/* Tags */}
-      <div
-        className={cn(
-          'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
-        )}
-      >
+      <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
         <div className="flex gap-2.5 flex-wrap items-center">
           {props.tags?.map(tag => (
             <button
@@ -191,13 +184,9 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
 export function SkeletonToolItem() {
   return (
     <div className="p-2 bg-white rounded-lg border border-slate-150">
-      <div className={cn('flex flex-row h-full')}>
-        <div
-          className={cn(
-            'w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100'
-          )}
-        >
-          <div className={cn('relative w-full h-full overflow-hidden')}>
+      <div className="flex flex-row h-full">
+        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
+          <div className="relative w-full h-full overflow-hidden">
             <div
               style={{
                 position: 'absolute',
@@ -214,26 +203,22 @@ export function SkeletonToolItem() {
                 transform: 'var(1.5) translate3d(0, 0, 0)'
               }}
             ></div>
-            <div className={cn('flex items-center justify-center p-8')}>
-              <div
-                className={cn(
-                  'animate-pulse w-[60px] h-[60px] max-w-[60px] absolute inset-0 m-auto rounded-full bg-slate-200'
-                )}
-              ></div>
+            <div className="flex items-center justify-center p-8">
+              <div className="animate-pulse w-[60px] h-[60px] max-w-[60px] absolute inset-0 m-auto rounded-full bg-slate-200"></div>
             </div>
           </div>
         </div>
-        <div className={cn('min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4 animate-pulse')}>
+        <div className="min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4 animate-pulse">
           <div className="flex gap-1.5 flex-col">
             <div className="font-semibold text-slate-700">
               <div className="w-1/2 h-5 bg-slate-100 rounded-md"></div>
             </div>
-            <div className={cn('flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]')}>
+            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
               <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
               <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
             </div>
           </div>
-          <div className={cn('text-[0.83rem] text-slate-700 break-words overflow')}>
+          <div className="text-[0.83rem] text-slate-700 break-words overflow">
             <div className="w-full h-3 bg-slate-100 rounded-md"></div>
             <div className="w-4/5 h-3 bg-slate-100 rounded-md mt-1"></div>
           </div>

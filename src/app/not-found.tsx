@@ -22,7 +22,7 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <Container className={cn('h-screen', containerNormal)}>
-      <div className={cn('flex flex-col gap-6 items-center justify-center w-full h-full')}>
+      <div className="flex flex-col gap-6 items-center justify-center w-full h-full">
         <h1 className="text-3xl text-slate-800">
           Page not found <span className="text-pink-700">but it may be my fault</span>!
         </h1>

@@ -1,5 +1,4 @@
 import BadgeTech from '@notion-x/src/components/BadgeTech'
-import cn from 'classnames'
 
 import techs from '../../data/techs'
 import HeadingAbout from './HeadingAbout'
@@ -19,7 +18,7 @@ export default function SkillGroup({ skillGroup, className }: SkillGroupProps) {
   return (
     <div className={className}>
       <HeadingAbout className="text-xl">{skillGroup.name}</HeadingAbout>
-      <div className={'thi-box-code flex flex-wrap gap-2.5 p-3'}>
+      <div className="thi-box-code flex flex-wrap gap-2.5 p-3">
         {skillGroup.list.map((id: string) => {
           const techItem = techs.find(tech => tech.id === id)
           if (!techItem) return null
@@ -37,7 +36,7 @@ export function SkeletonSkillGroup(props: SkillGroupProps) {
   return (
     <div className={props.className}>
       <HeadingAbout className="text-xl">{props.skillGroup.name}</HeadingAbout>
-      <div className={cn('rounded-lg shadow-lg bg-slate-200 animate-pulse h-[200px]')}></div>
+      <div className="rounded-lg shadow-lg bg-slate-200 animate-pulse h-[200px]"></div>
     </div>
   )
 }

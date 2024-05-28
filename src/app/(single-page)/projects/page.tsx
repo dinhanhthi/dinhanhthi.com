@@ -31,8 +31,7 @@ export default async function ProjectsPage() {
       <HeaderPage
         headerType="gray"
         title="Projects"
-        subtitle={`I love building things. Practicing is the best way to learn. Here are some of
-          my projects.`}
+        subtitle="I love building things. Practicing is the best way to learn. Here are some of my projects."
         headerWidth="wide"
         icon={{ staticImageData: ProjectIcon }}
         iconClassName="h-12 w-12"
@@ -52,8 +51,7 @@ export default async function ProjectsPage() {
 function SkeletonProjectContainer() {
   const buttonClassName = (type: ProjectType) =>
     cn(
-      'px-4 py-1.5 thi-box-code rounded-3xl border-l-4 flex gap-2',
-      'text-[0.95rem] flex items-center justify-center text-white',
+      'px-4 py-1.5 thi-box-code rounded-3xl border-l-4 flex gap-2 text-[0.95rem] flex items-center justify-center text-white',
       {
         'border-l-sky-600': type === 'ds',
         'border-l-amber-500': type === 'web',
@@ -65,10 +63,7 @@ function SkeletonProjectContainer() {
     )
 
   const numClass = () =>
-    cn(
-      'bg-[#ffffffb8] text-slate-800 rounded-full text-[0.8rem] flex items-center justify-center',
-      'h-5 w-6'
-    )
+    'bg-[#ffffffb8] text-slate-800 rounded-full text-[0.8rem] flex items-center justify-center h-5 w-6'
   return (
     <div className="flex flex-col gap-12">
       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">

@@ -108,23 +108,14 @@ export default function PostHeader(props: PostHeaderProps) {
             )}
 
             {/* Title */}
-            <h1
-              className={cn(
-                `inline items-baseline gap-2
-                text-2xl sm:text-3xl xl:text-4xl font-bold leading-tight
-                tracking-tight text-center md:text-left thi-text-rainbow`
-              )}
-            >
+            <h1 className="inline items-baseline gap-2  text-2xl sm:text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-center md:text-left thi-text-rainbow">
               <Text value={title} block={block} />
             </h1>
           </div>
 
           {/* Authors & Date & meta */}
           {!props.hideMeta && (
-            <div
-              className="flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center
-              justify-center sm:justify-start text-slate-100"
-            >
+            <div className="flex w-full flex-wrap gap-3 md:w-auto md:flex-nowrap items-center justify-center sm:justify-start text-slate-100">
               {/* Author */}
               <div className="flex items-center gap-2 text-base opacity-80">
                 <RiUser3Line className="-mr-1" />
@@ -154,12 +145,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
               {/* draft */}
               {isDraft && (
-                <div
-                  className={cn(
-                    'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
-                    'bg-slate-100 text-slate-700'
-                  )}
-                >
+                <div className="px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap bg-slate-100 text-slate-700">
                   draft
                 </div>
               )}
@@ -188,12 +174,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
                   {/* New */}
                   {status === 'new' && (
-                    <div
-                      className={cn(
-                        'px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap',
-                        'bg-amber-200 text-amber-900'
-                      )}
-                    >
+                    <div className="px-3 py-0.5 text-[0.8rem] rounded-xl whitespace-nowrap bg-amber-200 text-amber-900">
                       new
                     </div>
                   )}
@@ -205,9 +186,7 @@ export default function PostHeader(props: PostHeaderProps) {
                   className="tooltip-auto flex items-center justify-center"
                   data-title={'Well written, verified by me.'}
                 >
-                  <HiMiniCheckBadge
-                    className={cn('text-[#dadada] inline-block text-xl mt-[-3px]')}
-                  />
+                  <HiMiniCheckBadge className="text-[#dadada] inline-block text-xl mt-[-3px]" />
                 </div>
               )}
             </div>

@@ -57,12 +57,8 @@ export default function ToolItem(props: ToolItemProps) {
           </div>
         )} */}
 
-        <div
-          className={cn(
-            'w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100'
-          )}
-        >
-          <div className={cn('relative w-full h-full overflow-hidden')}>
+        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
+          <div className="relative w-full h-full overflow-hidden">
             <div
               style={{
                 position: 'absolute',
@@ -100,15 +96,9 @@ export default function ToolItem(props: ToolItemProps) {
         <div className={cn('min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4')}>
           <div className="flex gap-3 flex-col">
             <div className="flex flex-col gap-2">
-              <div
-                className={cn('text-base text-slate-700 group-hover:m2it-link-hover leading-snug')}
-              >
+              <div className="text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug">
                 {isNew && (
-                  <span
-                    className={cn(
-                      'align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1'
-                    )}
-                  >
+                  <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
                     new
                   </span>
                 )}
@@ -134,15 +124,13 @@ export default function ToolItem(props: ToolItemProps) {
               )}
             </div>
 
-            <div className={cn('flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]')}>
+            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
               {typeof tool.isFree !== 'undefined' && (
                 <>
                   {tool.isFree ? (
-                    <span className={cn('bg-emerald-100 text-emerald-800 px-2 rounded-md')}>
-                      free
-                    </span>
+                    <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
                   ) : (
-                    <span className={cn('bg-rose-100 text-rose-600 px-2 rounded-md')}>paid</span>
+                    <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
                   )}
                 </>
               )}
@@ -151,14 +139,14 @@ export default function ToolItem(props: ToolItemProps) {
                 tool.tag
                   ?.filter(tag => tag !== 'favorite')
                   ?.map(t => (
-                    <span className={cn('bg-gray-100 text-gray-600 px-2 rounded-md')} key={t}>
+                    <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
                       {t}
                     </span>
                   ))}
             </div>
           </div>
           {!props.hideDescription && (
-            <div className={cn('text-[0.83rem] text-slate-700 break-words overflow')}>
+            <div className="text-[0.83rem] text-slate-700 break-words overflow">
               {tool.description}
             </div>
           )}
