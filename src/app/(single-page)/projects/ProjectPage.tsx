@@ -16,8 +16,7 @@ export default function ProjectPage(props: { projects: Project[] }) {
   const [typesToShow, setTypesToShow] = useState<ProjectType[]>(['web', 'ds', 'other'])
   const buttonClassName = (type: ProjectType) =>
     cn(
-      'px-4 py-1.5 thi-box-code rounded-3xl border-l-4 flex gap-2',
-      'text-[0.95rem] flex items-center justify-center',
+      'px-4 py-1.5 thi-box-code rounded-3xl border-l-4 flex gap-2 text-[0.95rem] flex items-center justify-center',
       {
         'text-white': typesToShow.includes(type),
         'bg-white': !typesToShow.includes(type),
@@ -32,8 +31,7 @@ export default function ProjectPage(props: { projects: Project[] }) {
 
   const numClass = (type: ProjectType) =>
     cn(
-      'bg-[#ffffffb8] text-slate-800 rounded-full text-[0.8rem] flex items-center justify-center',
-      'h-5 w-6',
+      'bg-[#ffffffb8] text-slate-800 rounded-full text-[0.8rem] flex items-center justify-center h-5 w-6',
       {
         '!bg-slate-200': !typesToShow.includes(type)
       }
@@ -102,16 +100,13 @@ export default function ProjectPage(props: { projects: Project[] }) {
       </div>
 
       {/* Search */}
-      <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
-        <div className={cn('grid place-items-center text-slate-500')}>
+      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
+        <div className="grid place-items-center text-slate-500">
           <FiSearch className="text-2xl" />
         </div>
         <input
           ref={inputRef}
-          className={cn(
-            'peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none',
-            'm2it-hide-wscb'
-          )}
+          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
           id="search"
           type="search"
           placeholder={'Search projects...'}

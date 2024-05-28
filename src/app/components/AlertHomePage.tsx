@@ -7,12 +7,7 @@ import Container from './Container'
 export default async function AlertHomePage() {
   return (
     <Container className={cn('px-4 sm:px-6', containerWide)}>
-      <div
-        className={cn(
-          'flex flex-col sm:flex-row items-center sm:items-start gap-4',
-          'bg-amber-100 p-6 rounded-xl shadow-md text-slate-800'
-        )}
-      >
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 bg-amber-100 p-6 rounded-xl shadow-md text-slate-800">
         <div>
           <AiOutlineAlert className="text-6xl sm:text-5xl" />
         </div>

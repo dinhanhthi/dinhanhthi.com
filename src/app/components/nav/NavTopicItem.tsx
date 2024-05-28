@@ -6,10 +6,8 @@ import { usePathname } from 'next/navigation'
 
 import { textClass } from './Nav'
 
-export const menuItemCommonClass = cn(
-  'px-3 py-1.5 rounded-md text-base font-medium text-center h-full flex items-center justify-center',
-  'whitespace-nowrap whitespace-nowrap'
-)
+export const menuItemCommonClass =
+  'px-3 py-1.5 rounded-md text-base font-medium text-center h-full flex items-center justify-center whitespace-nowrap whitespace-nowrap'
 
 type NavTopicItemProps = {
   uri: string

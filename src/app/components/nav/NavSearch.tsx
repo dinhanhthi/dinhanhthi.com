@@ -32,11 +32,7 @@ export default function NavSearch() {
       <div className={cn('flex-1 flex justify-end')}>
         <button
           type="button"
-          className={cn(
-            'group h-full flex gap-2 items-center justify-center px-2 py-1.5 rounded-md',
-            'text-slate-300 hover:text-white hover:bg-gray-700',
-            'focus:outline-none'
-          )}
+          className="group h-full flex gap-2 items-center justify-center px-2 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-gray-700 focus:outline-none"
           onClick={() => setIsSearchOpen(true)}
         >
           <div>
@@ -45,12 +41,7 @@ export default function NavSearch() {
           <div className="flex items-center gap-2">
             <span className="hidden sm:inline whitespace-nowrap">Search for notes</span>
             <span className="inline sm:hidden whitespace-nowrap">Search</span>
-            <span
-              className={cn(
-                'text-[0.7rem] bg-[#65666b30] px-1 rounded-sm border-[#555] border-[0.5px]',
-                'hidden sm:inline-block whitespace-nowrap'
-              )}
-            >
+            <span className="text-[0.7rem] bg-[#65666b30] px-1 rounded-sm border-[#555] border-[0.5px] hidden sm:inline-block whitespace-nowrap">
               {searchKeyText}
             </span>
           </div>

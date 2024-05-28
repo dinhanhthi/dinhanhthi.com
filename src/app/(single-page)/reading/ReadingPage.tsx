@@ -75,16 +75,13 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   return (
     <div className="flex flex-col gap-6">
       {/* Search */}
-      <div className={cn('flex items-center gap-3 p-4 bg-white rounded-xl')}>
-        <div className={cn('grid place-items-center text-slate-500')}>
+      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
+        <div className="grid place-items-center text-slate-500">
           <FiSearch className="text-2xl" />
         </div>
         <input
           ref={inputRef}
-          className={cn(
-            'peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none',
-            'm2it-hide-wscb'
-          )}
+          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
           id="search"
           type="search"
           placeholder={'Search books...'}
@@ -100,11 +97,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
       </div>
 
       {/* Tags */}
-      <div
-        className={cn(
-          'flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start'
-        )}
-      >
+      <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
         <div className="flex gap-2.5 flex-wrap items-center">
           {props.tags?.map(tag => (
             <button

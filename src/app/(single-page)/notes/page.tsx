@@ -73,7 +73,7 @@ export default async function NotesPage() {
     <div className="thi-bg-stone flex flex-col">
       <HeaderPage
         title="Notes"
-        subtitle={`When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful.`}
+        subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
         headerType="gray"
         headerWidth="wide"
         icon={{ staticImageData: NotesIcon }}

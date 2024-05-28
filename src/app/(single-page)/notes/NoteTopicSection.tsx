@@ -34,7 +34,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
         </div>
         <h2
           id={tag.id}
-          className={cn('font-heading text-2xl font-semibold text-slate-700 scroll-mt-[70px]')}
+          className="font-heading text-2xl font-semibold text-slate-700 scroll-mt-[70px]"
         >
           <span>
             {tag.longName || tag.name} {tag.longName && <>({tag.name})</>}

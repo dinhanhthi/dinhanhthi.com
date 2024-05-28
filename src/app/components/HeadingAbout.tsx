@@ -15,9 +15,7 @@ export default function HeadingAbout(props: HeadingAboutProps) {
   return (
     <div
       className={cn(
-        `relative mb-2 inline-block after:absolute after:-bottom-0 after:-right-2
-          after:h-3 after:w-7 after:bg-repeating-dots after:bg-[length:4px_4px]
-          after:opacity-40 text-2xl`,
+        `relative mb-2 inline-block after:absolute after:-bottom-0 after:-right-2 after:h-3 after:w-7 after:bg-repeating-dots after:bg-[length:4px_4px] after:opacity-40 text-2xl`,
         props.className
       )}
     >

@@ -14,7 +14,7 @@ export default function PostAside(props: PostAsideRightProps) {
         'justify-end': props.position === 'left'
       })}
     >
-      <div className={cn('max-w-[400px] min-w-[256px]')}>{props.children}</div>
+      <div className="max-w-[400px] min-w-[256px]">{props.children}</div>
     </div>
   )
 }

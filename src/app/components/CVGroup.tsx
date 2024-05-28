@@ -1,5 +1,3 @@
-import cn from 'classnames'
-
 import CVSection from './CVSection'
 import HeadingAbout from './HeadingAbout'
 
@@ -43,7 +41,7 @@ export function SkeletonCVGroup(props: CVGroupProps) {
   return (
     <div className={props.className}>
       <HeadingAbout className="text-2xl mb-4">{props.cvGroup.name}</HeadingAbout>
-      <div className={cn('rounded-lg shadow-lg bg-slate-200 animate-pulse h-[500px]')}></div>
+      <div className="rounded-lg shadow-lg bg-slate-200 animate-pulse h-[500px]"></div>
     </div>
   )
 }

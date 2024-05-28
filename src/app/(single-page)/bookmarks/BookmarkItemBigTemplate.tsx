@@ -28,16 +28,10 @@ export default function BookmarkItemBigTemplate({ mark }: { mark: BookmarkItem }
       href={mark.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        'flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white hover:border-sky-300 group'
-      )}
+      className="flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white hover:border-sky-300 group"
     >
       {/* Featured image */}
-      <div
-        className={cn(
-          'rounded-md w-full sm:w-[100px] min-w-[100px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border'
-        )}
-      >
+      <div className="rounded-md w-full sm:w-[100px] min-w-[100px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border">
         {mark?.coverUrl && (
           <SimpleImage
             src={mark.coverUrl!}
@@ -88,11 +82,7 @@ export default function BookmarkItemBigTemplate({ mark }: { mark: BookmarkItem }
 }
 
 const ImagePlaceholder = () => (
-  <div
-    className={cn(
-      'bg-gray-100 flex items-center justify-center animate-pulse rounded-md w-full h-full p-4'
-    )}
-  >
+  <div className="bg-gray-100 flex items-center justify-center animate-pulse rounded-md w-full h-full p-4">
     <AiOutlineLoading3Quarters className="text-[25px] text-slate-400 animate-spin" />
   </div>
 )
@@ -101,24 +91,20 @@ export function SkeletonBookmarkItemBigTemplate() {
   return (
     <div className="flex flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white">
       {/* Featured image */}
-      <div
-        className={cn(
-          'rounded-md w-full sm:w-[100px] min-w-[100px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border'
-        )}
-      >
+      <div className="rounded-md w-full sm:w-[100px] min-w-[100px] max-h-[100px] sm:max-h-full overflow-hidden border-slate-100 border">
         <div className={cn('p-4', 'flex items-center justify-center bg-slate-100')}>
           <BsFillBookmarkHeartFill className="text-2xl text-slate-300" />
         </div>
       </div>
 
       {/* Content */}
-      <div className={cn('min-w-0 flex-1 flex flex-col gap-4 pl-4 animate-pulse')}>
+      <div className="min-w-0 flex-1 flex flex-col gap-4 pl-4 animate-pulse">
         <div className="flex gap-1.5 flex-col">
           <div className="font-semibold text-slate-700">
             <div className="w-1/2 h-4 bg-slate-100 rounded-md"></div>
           </div>
         </div>
-        <div className={cn('flex flex-col gap-1 text-slate-700')}>
+        <div className="flex flex-col gap-1 text-slate-700">
           <div className="w-full h-2 bg-slate-100 rounded-md"></div>
           <div className="w-4/5 h-2 bg-slate-100 rounded-md"></div>
         </div>

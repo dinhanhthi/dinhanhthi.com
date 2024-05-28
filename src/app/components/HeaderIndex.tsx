@@ -16,11 +16,7 @@ export default function HeaderIndex() {
   const ySpacingClass = 'mt-6 md:mt-4'
   return (
     <Header headerType="gray" headerWidth="wide">
-      <div
-        className={cn(
-          'flex flex-col md:flex-row md:gap-6 flex-wrap items-center justify-items-stretch'
-        )}
-      >
+      <div className="flex flex-col md:flex-row md:gap-6 flex-wrap items-center justify-items-stretch">
         <div className="h-28 md:order-2 md:h-60">
           <ImageComponent
             alt="Thi's avatar"
@@ -35,11 +31,7 @@ export default function HeaderIndex() {
               ySpacingClass
             )}
           >
-            <span
-              className={cn(
-                'mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center'
-              )}
-            >
+            <span className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center">
               <Image src={WavingHand} alt="Waving hand" width={36} height={36} />
             </span>
             {me.helloText || "Hi! I'm Thi"}
@@ -68,7 +60,7 @@ export default function HeaderIndex() {
             ))}
           </div>
         </div>
-        <div className={'mt-10 flex w-full flex-wrap items-center justify-center gap-3 md:order-3'}>
+        <div className="mt-10 flex w-full flex-wrap items-center justify-center gap-3 md:order-3">
           {inforLinks.map(item => (
             <BadgeInfos key={item.id} {...item} />
           ))}
