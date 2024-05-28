@@ -105,22 +105,37 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
   )
 }
 
-export function SkeletonBookmarkItemSimpleTemplate({ index }: { index: number }) {
+type SkeletonBookmarkItemSimpleTemplateProps = {
+  index?: number
+  showIndex?: boolean
+}
+
+export function SkeletonBookmarkItemSimpleTemplate(props: SkeletonBookmarkItemSimpleTemplateProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white group">
+    <div className="flex min-h-[100px] flex-col sm:flex-row gap-4 border border-slate-200 p-4 rounded-md bg-white group">
       {/* Index */}
-      <div className="flex items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100">
-        {index + 1}
-      </div>
+      {props.showIndex && props.index && (
+        <div className="flex items-center justify-center rounded-md h-full py-2 px-4 bg-stone-100">
+          {props.index + 1}
+        </div>
+      )}
 
       {/* Content */}
-      <div className="flex gap-2 min-w-0 flex-1 flex-col justify-between">
+      <div className="flex gap-4 min-w-0 flex-1 flex-col justify-start">
         <div className="flex flex-row gap-2 items-center">
           <div className="w-1/2 h-3 bg-slate-200 rounded-md"></div>
           <div className="bg-slate-200 h-0.5 w-2"></div>
           <div className="w-40 bg-slate-100 rounded-md h-2"></div>
         </div>
-        <div className="w-4/5 h-2.5 bg-slate-100 rounded-md"></div>
+        <div className="w-full flex flex-row gap-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="w-12 h-5 bg-slate-100 rounded-md"></div>
+          ))}
+        </div>
+        <div className="w-full flex flex-col gap-2">
+          <div className="w-4/5 h-2.5 bg-slate-100 rounded-md"></div>
+          <div className="w-3/5 h-2.5 bg-slate-100 rounded-md"></div>
+        </div>
       </div>
     </div>
   )
