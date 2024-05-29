@@ -246,27 +246,29 @@ export default async function Home() {
           {/* Reading */}
           <div className="flex flex-col gap-4">
             <HeadingWithMore
-              title="My reading list*"
+              title="My reading list"
               href={tools.length >= numTools ? '/reading/' : undefined}
             />
-            <Link
-              className="text-slate-600 hover:m2it-link-hover text-[0.9rem] italic"
-              href="/note/my-taste-of-reading/"
-            >
-              *My taste of reading
-            </Link>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
-              {books.slice(0, numBooks).map((book: Book) => (
-                <Suspense key={book.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem
-                    type="book"
-                    key={book.id}
-                    tool={book as Tool & Book}
-                    hideDescription={true}
-                    hideTags={true}
-                  />
-                </Suspense>
-              ))}
+            <div className="w-full flex flex-col gap-3">
+              <div className="italic text-[0.95rem]">
+                Read more:{' '}
+                <Link className="m2it-link" href="/note/my-taste-of-reading/">
+                  My taste of reading.
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
+                {books.slice(0, numBooks).map((book: Book) => (
+                  <Suspense key={book.id} fallback={<SkeletonToolItem />}>
+                    <ToolItem
+                      type="book"
+                      key={book.id}
+                      tool={book as Tool & Book}
+                      hideDescription={true}
+                      hideTags={true}
+                    />
+                  </Suspense>
+                ))}
+              </div>
             </div>
           </div>
 

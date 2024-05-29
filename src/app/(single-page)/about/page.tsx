@@ -27,7 +27,7 @@ export const metadata = getMetadata({
   ]
 })
 
-export default async function AboutPage() {
+export default async function AboutHomePage() {
   const sectionSpacing = 'pt-12'
   return (
     <div className="thi-bg-stone">

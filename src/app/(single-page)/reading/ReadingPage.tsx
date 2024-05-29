@@ -7,11 +7,43 @@ import cn from 'classnames'
 import Fuse from 'fuse.js'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, useEffect, useRef, useState } from 'react'
+import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 import { Book, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
+import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagBookIcon } from '../../icons/TagBookIcon'
+import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
+import TagEducationIcon from '../../icons/TagEducationIcon'
+import { TagFictionIcon } from '../../icons/TagFictionIcon'
+import { TagHistoryIcon } from '../../icons/TagHistoryIcon'
+import { TagMathIcon } from '../../icons/TagMathIcon'
+import { TagMemoirIcon } from '../../icons/TagMemoirIcon'
+import { TagPersonalSite } from '../../icons/TagPersonalSite'
+import { TagPhilosophyIcon } from '../../icons/TagPhilosophyIcon'
+import { TagPsychologyIcon } from '../../icons/TagPsychologyIcon'
+import { TagScienceIcon } from '../../icons/TagScienceIcon'
+import { TagSelfHelpIcon } from '../../icons/TagSelfHelpIcon'
+import { TagTechIcon } from '../../icons/TagTechIcon'
+import TagWebAppIcon from '../../icons/TagWebAppIcon'
 import ToolItem from '../tools/ToolItem'
+
+const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
+  favorite: StarIcon,
+  math: TagMathIcon,
+  economics: TagEconomicsIcon,
+  'AI-Data': TagAIIcon,
+  science: TagScienceIcon,
+  tech: TagTechIcon,
+  'web dev': TagWebAppIcon,
+  psychology: TagPsychologyIcon,
+  biography: TagPersonalSite,
+  memoir: TagMemoirIcon,
+  education: TagEducationIcon,
+  fiction: TagFictionIcon,
+  history: TagHistoryIcon,
+  philosophy: TagPhilosophyIcon,
+  'self help': TagSelfHelpIcon
+}
 
 export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -111,8 +143,14 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                 }
               )}
             >
-              {tag === 'favorite' && (
-                <StarIcon className="text-amber-400" style={{ fontSize: '1.25rem' }} />
+              {iconTagList[tag] && (
+                <>
+                  {createElement(iconTagList[tag], {
+                    className: cn('h-5 w-5', {
+                      'text-amber-400': tag === 'favorite'
+                    })
+                  })}
+                </>
               )}
               <div className="whitespace-nowrap text-base">{tag}</div>
             </button>
@@ -125,11 +163,12 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         <div className="text-base leading-normal text-gray-600 italic">
           <strong className="font-medium">Remark</strong>: Click here to see my reviews (in
           Vietnamese) on Goodreads. I mostly read the Vietnamese versions of books. If I can{"'"}t
-          find their English titles, I{"'"}ll use the Vietnamese titles instead. You can{' '}
+          find their English titles, I{"'"}ll use the Vietnamese titles instead.{' '}
+          <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
-            read this article
-          </Link>{' '}
-          to know more about my taste in books.
+            My taste of reading
+          </Link>
+          .
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

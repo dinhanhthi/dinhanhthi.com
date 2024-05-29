@@ -93,58 +93,62 @@ export default function ToolItem(props: ToolItemProps) {
             </div>
           </div>
         </div>
-        <div className={cn('min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4')}>
-          <div className="flex gap-3 flex-col">
-            <div className="flex flex-col gap-2">
-              <div className="text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug">
-                {isNew && (
-                  <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
-                    new
-                  </span>
-                )}
-                {tool.name || tool.title}
-              </div>
-              {tool.author && <div className="text-sm text-slate-600">{tool.author}</div>}
 
-              {tool.star && !tool.isReading && (
-                <div
-                  className="flex flex-row gap-1 items-center tooltip-auto"
-                  data-title="My rating"
-                >
-                  {Array.from({ length: +tool.star }).map((_, index) => (
-                    <StarIcon key={index} className="text-amber-400" />
-                  ))}
-                </div>
+        {/* title & author */}
+        <div className={cn('min-w-0 flex-1 flex flex-col gap-3 p-3 pl-4')}>
+          <div className="flex flex-col gap-1">
+            <div className="text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug">
+              {isNew && (
+                <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
+                  new
+                </span>
               )}
-
-              {tool.isReading && (
-                <div className="flex flex-row gap-1 items-center">
-                  <div className="text-sm text-green-700 italic">I{"'"}m reading...</div>
-                </div>
-              )}
+              {tool.name || tool.title}
             </div>
-
-            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
-              {typeof tool.isFree !== 'undefined' && (
-                <>
-                  {tool.isFree ? (
-                    <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
-                  ) : (
-                    <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
-                  )}
-                </>
-              )}
-
-              {!props.hideTags &&
-                tool.tag
-                  ?.filter(tag => tag !== 'favorite')
-                  ?.map(t => (
-                    <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
-                      {t}
-                    </span>
-                  ))}
-            </div>
+            {tool.author && (
+              <div className="text-sm text-slate-500 group-hover:text-slate-700">{tool.author}</div>
+            )}
           </div>
+
+          {/* star */}
+          {tool.star && !tool.isReading && (
+            <div className="flex flex-row gap-1 items-center tooltip-auto" data-title="My rating">
+              {Array.from({ length: +tool.star }).map((_, index) => (
+                <StarIcon key={index} className="text-amber-400" />
+              ))}
+            </div>
+          )}
+
+          {/* is reading */}
+          {tool.isReading && (
+            <div className="flex flex-row gap-1 items-center">
+              <div className="text-sm text-green-700 italic">I{"'"}m reading...</div>
+            </div>
+          )}
+
+          {/* tags */}
+          <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
+            {typeof tool.isFree !== 'undefined' && (
+              <>
+                {tool.isFree ? (
+                  <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
+                ) : (
+                  <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
+                )}
+              </>
+            )}
+
+            {!props.hideTags &&
+              tool.tag
+                ?.filter(tag => tag !== 'favorite')
+                ?.map(t => (
+                  <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
+                    {t}
+                  </span>
+                ))}
+          </div>
+
+          {/* description */}
           {!props.hideDescription && (
             <div className="text-[0.83rem] text-slate-700 break-words overflow">
               {tool.description}
