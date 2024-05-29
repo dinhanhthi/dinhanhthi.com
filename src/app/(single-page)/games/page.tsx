@@ -10,7 +10,8 @@ import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
 import { getUnofficialGames } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
-import GamesPage, { SkeletonToolItem } from './GamesPage'
+import { SkeletonToolItem } from '../tools/ToolsPage'
+import GamesPage from './GamesPage'
 
 export const revalidate = 20
 

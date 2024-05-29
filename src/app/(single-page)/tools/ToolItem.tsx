@@ -6,12 +6,12 @@ import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
-import { Book, Tool } from '../../../interface'
+import { Book, Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 
 type ToolItemProps = {
   type?: 'tool' | 'book'
-  tool: Tool & Book
+  tool: Tool & Book & Game
   className?: string
   showStar?: boolean
   hideDescription?: boolean
@@ -45,13 +45,13 @@ export default function ToolItem(props: ToolItemProps) {
       )}
     >
       <div
-        className={cn('flex flex-row h-full', {
+        className={cn('flex flex-row h-full overflow-hidden', {
           relative: tool.favorite
         })}
       >
         {tool.favorite && props.showFavoriteStar && (
           <div
-            className="absolute right-3 top-3 text-amber-400 tooltip-auto z-50"
+            className="absolute right-3 top-3 text-amber-400 tooltip-auto _from-right z-50"
             data-title="My favorite"
           >
             <StarIcon className="text-xl" />
