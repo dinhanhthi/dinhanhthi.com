@@ -1,23 +1,22 @@
-import ReadingIcon from '@/public/reading.svg'
+import ToolsIcon from '@/public/tools.webp'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
-import { Book } from '../../../interface'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
-import { getUnofficialBooks } from '../../lib/fetcher'
+import { getUnofficialGames } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
-import { SkeletonToolItem } from '../tools/ToolsPage'
-import ReadingPage from './ReadingPage'
+import GamesPage, { SkeletonToolItem } from './GamesPage'
 
 export const revalidate = 20
 
-const title = 'My reading list'
-const description = 'Read to know we are not alone and our knowledge is limited.'
+const title = 'Games I like'
+const description =
+  'Games make me happy and my life more balanced. Here are some of my favorite games.'
 
 export const metadata = getMetadata({
   title,
@@ -25,14 +24,11 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export default async function ReadingHomePage() {
-  const { books } = await getUnofficialBooks()
+export default async function GamesHomePage() {
+  const { games } = await getUnofficialGames()
 
-  // Make "isReading" book always at the beginning
-  books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
-
-  // all uniq tags from current books
-  const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tag)))
+  // Get all unique tags from current games
+  const tags: string[] = Array.from(new Set(games.flatMap(game => game.tag)))
 
   // Sort tags alphabetically
   tags.sort()
@@ -47,13 +43,13 @@ export default async function ReadingHomePage() {
         title={title}
         subtitle={description}
         headerWidth="wide"
-        icon={{ staticImageData: ReadingIcon }}
+        icon={{ staticImageData: ToolsIcon }}
         iconClassName="h-12 w-12"
-        number={books.length}
+        number={games.length}
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
-        <Suspense fallback={<SkeletonReadingContainer />}>
-          <ReadingPage books={books} tags={tags} />
+        <Suspense fallback={<SkeletonToolContainer />}>
+          <GamesPage games={games} tags={tags} />
         </Suspense>
       </Container>
       <Footer footerType="gray" />
@@ -62,7 +58,7 @@ export default async function ReadingHomePage() {
   )
 }
 
-function SkeletonReadingContainer() {
+function SkeletonToolContainer() {
   return (
     <div className="flex flex-col gap-6">
       <SkeletonSearchBar placeholder="Search tools..." />

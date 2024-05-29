@@ -51,7 +51,7 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
       >
         {mark.favorite && (
           <div
-            className="absolute right-4 top-4 text-amber-400 tooltip-auto"
+            className="absolute right-4 top-4 text-amber-400 tooltip-auto _from-right"
             data-title="My favorite"
           >
             <StarIcon className="text-xl" />

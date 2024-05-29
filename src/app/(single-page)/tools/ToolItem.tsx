@@ -16,6 +16,7 @@ type ToolItemProps = {
   showStar?: boolean
   hideDescription?: boolean
   hideTags?: boolean
+  showFavoriteStar?: boolean
 }
 
 export default function ToolItem(props: ToolItemProps) {
@@ -40,7 +41,7 @@ export default function ToolItem(props: ToolItemProps) {
       target="_blank"
       className={cn(
         className,
-        'p-2 bg-white rounded-lg border border-slate-150 transition duration-200 ease-in-out hover:-translate-y-1 group'
+        'bg-white rounded-lg border border-slate-150 transition duration-200 ease-in-out hover:-translate-y-1 group min-h-[120px]'
       )}
     >
       <div
@@ -48,14 +49,14 @@ export default function ToolItem(props: ToolItemProps) {
           relative: tool.favorite
         })}
       >
-        {/* {tool.favorite && (
+        {tool.favorite && props.showFavoriteStar && (
           <div
-            className="absolute left-0 top-0 text-amber-400 tooltip-auto z-50"
+            className="absolute right-3 top-3 text-amber-400 tooltip-auto z-50"
             data-title="My favorite"
           >
             <StarIcon className="text-xl" />
           </div>
-        )} */}
+        )}
 
         <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
           <div className="relative w-full h-full overflow-hidden">
@@ -95,9 +96,16 @@ export default function ToolItem(props: ToolItemProps) {
         </div>
 
         {/* title & author */}
-        <div className={cn('min-w-0 flex-1 flex flex-col gap-3 p-3 pl-4')}>
+        <div className={cn('min-w-0 flex-1 flex flex-col gap-3 px-3 py-4 pl-4')}>
           <div className="flex flex-col gap-1">
-            <div className="text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug">
+            <div
+              className={cn(
+                'text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug',
+                {
+                  'pr-3': tool.favorite && props.showFavoriteStar
+                }
+              )}
+            >
               {isNew && (
                 <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
                   new

@@ -139,6 +139,20 @@ export type Tool = {
   keySearch?: string
 }
 
+export type Game = {
+  id?: string
+  name: string
+  description: string
+  iconUrl: string
+  tag: string[]
+  url: string
+  isFree: boolean
+  createdTime: string
+  block: Block // used to fetch icons
+  keySearch?: string
+  favorite?: boolean
+}
+
 export type Book = {
   id?: string
   title: string
