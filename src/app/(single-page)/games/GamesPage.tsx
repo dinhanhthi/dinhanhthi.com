@@ -8,7 +8,7 @@ import Fuse from 'fuse.js'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
-import { Book, Game, Tool } from '../../../interface'
+import { Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagActionIcon } from '../../icons/TagActionIcon'
 import { TagAdventureIcon } from '../../icons/TagAdventureIcon'
@@ -26,6 +26,7 @@ import { TagPuzzleIcon } from '../../icons/TagPuzzleIcon'
 import { TagRPGIcon } from '../../icons/TagRpgIcon'
 import { TagSportsIcon } from '../../icons/TagSportIcon'
 import { TagStealthStrategyIcon } from '../../icons/TagStealthIcon'
+import { TagStrategyIcon } from '../../icons/TagStrategyIcon'
 import TagWindowsIcon from '../../icons/TagWindowsIcon'
 import ToolItem from '../tools/ToolItem'
 
@@ -46,6 +47,7 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
   rpg: TagRPGIcon,
   sports: TagSportsIcon,
   'stealth strategy': TagStealthStrategyIcon,
+  strategy: TagStrategyIcon,
   switch: TagSwitchIcon,
   windows: TagWindowsIcon
 }
@@ -82,8 +84,8 @@ export default function GamesPage(props: { games: Game[]; tags: string[] }) {
     }
   }
 
-  const toolsToShow = searchResult.filter(
-    tool => tagsToShow.every(type => tool.tag.includes(type)) || tagsToShow.length === 0
+  const gamesToShow = searchResult.filter(
+    game => tagsToShow.every(type => game.tag.includes(type)) || tagsToShow.length === 0
   )
 
   const fuseOptions = {
@@ -121,7 +123,7 @@ export default function GamesPage(props: { games: Game[]; tags: string[] }) {
           className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
           id="search"
           type="search"
-          placeholder={'Search tools...'}
+          placeholder={'Search games...'}
           autoComplete="off"
           value={query}
           onChange={e => handleOnchangeInput(e)}
@@ -161,66 +163,19 @@ export default function GamesPage(props: { games: Game[]; tags: string[] }) {
         </div>
       </div>
 
-      {/* Tool list */}
+      {/* Game list */}
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {toolsToShow?.map((tool: Tool) => (
-            <ToolItem key={tool.id} tool={tool as Tool & Book} showFavoriteStar={true} />
+          {gamesToShow?.map((game: Game) => (
+            <ToolItem key={game.id} tool={game as any} showFavoriteStar={true} />
           ))}
         </div>
-        {!toolsToShow.length && (
+        {!gamesToShow.length && (
           <div className="text-slate-500 flex gap-2 items-center justify-center w-full">
             <TagSwitchIcon className="text-2xl" />
             <div>No games found.</div>
           </div>
         )}
-      </div>
-    </div>
-  )
-}
-
-export function SkeletonToolItem() {
-  return (
-    <div className="p-2 bg-white rounded-lg border border-slate-150">
-      <div className="flex flex-row h-full">
-        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
-          <div className="relative w-full h-full overflow-hidden">
-            <div
-              style={{
-                position: 'absolute',
-                inset: '0px',
-                backgroundImage: `
-                  linear-gradient(#f0f0f0, #f0f0f0),
-                  linear-gradient(transparent, transparent),
-                  url()`,
-                backgroundBlendMode: 'luminosity, overlay, normal',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center top',
-                backgroundSize: '100% 100%',
-                filter: 'blur(25px) saturate(1)',
-                transform: 'var(1.5) translate3d(0, 0, 0)'
-              }}
-            ></div>
-            <div className="flex items-center justify-center p-8">
-              <div className="animate-pulse w-[60px] h-[60px] max-w-[60px] absolute inset-0 m-auto rounded-full bg-slate-200"></div>
-            </div>
-          </div>
-        </div>
-        <div className="min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4 animate-pulse">
-          <div className="flex gap-1.5 flex-col">
-            <div className="font-semibold text-slate-700">
-              <div className="w-1/2 h-5 bg-slate-100 rounded-md"></div>
-            </div>
-            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
-              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
-              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
-            </div>
-          </div>
-          <div className="text-[0.83rem] text-slate-700 break-words overflow">
-            <div className="w-full h-3 bg-slate-100 rounded-md"></div>
-            <div className="w-4/5 h-3 bg-slate-100 rounded-md mt-1"></div>
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -78,7 +78,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   }
 
   const booksToShow = searchResult.filter(
-    tool => tagsToShow.every(type => tool.tag.includes(type)) || tagsToShow.length === 0
+    book => tagsToShow.every(type => book.tag.includes(type)) || tagsToShow.length === 0
   )
 
   const fuseOptions = {
@@ -158,7 +158,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         </div>
       </div>
 
-      {/* Tool list */}
+      {/* Reading list */}
       <div className="flex flex-col gap-4">
         <div className="text-base leading-normal text-gray-600 italic">
           <strong className="font-medium">Remark</strong>: Click here to see my reviews (in
