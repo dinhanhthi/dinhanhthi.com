@@ -1,6 +1,7 @@
 import {
   Book,
   BookmarkItem,
+  Game,
   NotionBookmarkItem,
   NotionPost,
   NotionTagData,
@@ -367,6 +368,70 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
   }
 
   return books.sort(function (a, b) {
+    const keyA = new Date(a.createdTime)
+    const keyB = new Date(b.createdTime)
+    if (keyA < keyB) return 1
+    if (keyA > keyB) return -1
+    return 0
+  })
+}
+
+export async function getUnofficialGames() {
+  try {
+    const data = await getUnofficialDatabase({
+      spaceId: process.env.SPACE_ID,
+      sourceId: process.env.GAMES_SOURCE_ID,
+      collectionViewId: process.env.GAMES_COLLECTION_VIEW_ID,
+      notionTokenV2: process.env.NOTION_TOKEN_V2,
+      notionActiveUser: process.env.NOTION_ACTIVE_USER,
+      notionApiWeb: process.env.NOTION_API_WEB
+    })
+    return { games: transformUnofficialGames(data) }
+  } catch (error) {
+    console.error('🚨 Error in getUnofficialTools', error)
+    return { games: [] }
+  }
+}
+
+function transformUnofficialGames(data: CollectionInstance): Game[] {
+  const _block = data?.recordMap?.block
+  const toolIds = Object.keys(_block)
+  const tools = [] as Game[]
+
+  for (const id of toolIds) {
+    const tool = _block[id]
+    const properties = tool?.value?.properties
+
+    const iconUrl = properties?.[`${process.env.GAMES_ICON_KEY}`]?.[0]?.[1]?.[0]?.[1]
+    if (!iconUrl) continue // because there are useless blocks in the database
+    const name = properties?.title?.[0]?.[0]
+    const description = properties?.[`${process.env.GAMES_DESC_KEY}`]?.[0]?.[0]
+    const isFree = properties?.[`${process.env.GAMES_FREE_KEY}`]?.[0]?.[0] === 'Yes'
+    const favorite = properties?.[`${process.env.GAMES_FAVORITE_KEY}`]?.[0]?.[0] === 'Yes'
+    const tag = properties?.[`${process.env.GAMES_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const url = properties?.[`${process.env.GAMES_URL_KEY}`]?.[0]?.[0]
+    const createdTime = new Date(tool?.value?.created_time)?.toISOString()
+    const block = tool?.value as Block
+    const keySearch = properties?.[`${process.env.GAMES_KEYSEARCH_KEY}`]?.[0]?.[0]
+
+    if (favorite && !tag.includes('favorite')) tag.unshift('favorite')
+
+    tools.push({
+      id,
+      name,
+      description,
+      url,
+      iconUrl,
+      isFree,
+      tag,
+      createdTime,
+      block,
+      keySearch,
+      favorite
+    })
+  }
+
+  return tools.sort(function (a, b) {
     const keyA = new Date(a.createdTime)
     const keyB = new Date(b.createdTime)
     if (keyA < keyB) return 1
