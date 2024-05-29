@@ -24,7 +24,7 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export default async function NotesPage() {
+export default async function NotesHomePage() {
   const numBlogPosts = 6
 
   const pinnedPosts = await getPosts({

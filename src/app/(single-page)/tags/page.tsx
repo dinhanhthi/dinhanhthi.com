@@ -24,7 +24,7 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export default async function TagsPage() {
+export default async function TagsHomePage() {
   const _tags = await getTopics()
   const tags = _tags
     .filter(tag => !tag.hide)

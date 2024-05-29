@@ -65,7 +65,7 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
   math: TagMathIcon
 }
 
-export default function BookmarksPageTemplate(props: BookmarksPageProps) {
+export default function BookmarksPage(props: BookmarksPageProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [searchResult, setSearchResult] = useState<BookmarkItem[]>(props.bookmarks)
   const [query, setQuery] = useState('')

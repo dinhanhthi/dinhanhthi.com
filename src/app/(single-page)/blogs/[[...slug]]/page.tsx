@@ -45,7 +45,7 @@ export async function generateStaticParams() {
   return params
 }
 
-export default async function BlogsPage({ params }: OptionalCatchAllProps) {
+export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
   const currentPage = +(params?.slug?.[1] || 1)
 
   if (

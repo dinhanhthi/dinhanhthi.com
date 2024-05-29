@@ -25,7 +25,7 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export default async function ProjectsPage() {
+export default async function ReadingHomePage() {
   const { books } = await getUnofficialBooks()
 
   // Make "isReading" book always at the beginning

@@ -11,7 +11,7 @@ import { bodyPadding, containerWide } from '../../lib/config'
 import { getUnofficialBookmarks } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
 import { SkeletonBookmarkItemSimpleTemplate } from './BookmarkItemSimpleTemplate'
-import BookmarksPageTemplate from './BookmarksPageTemplate'
+import BookmarksPage from './BookmarksPage'
 
 export const revalidate = 20
 
@@ -24,7 +24,7 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export default async function BookmarksPage() {
+export default async function BookmarksHomePage() {
   const { bookmarks, tags } = await getUnofficialBookmarks()
 
   // Make "others" tag always at the end
@@ -53,7 +53,7 @@ export default async function BookmarksPage() {
       />
       <Container className={cn('basis-auto grow shrink-0 z-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonBookmarkContainer />}>
-          <BookmarksPageTemplate bookmarks={bookmarks} tags={tags}></BookmarksPageTemplate>
+          <BookmarksPage bookmarks={bookmarks} tags={tags}></BookmarksPage>
         </Suspense>
       </Container>
       <Footer footerType="gray" />
