@@ -9,9 +9,11 @@ import { useEffect, useState } from 'react'
 import { Book, Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 
+export type ToolItemInputType = Tool & Book & Game
+
 type ToolItemProps = {
   type?: 'tool' | 'book'
-  tool: Tool & Book & Game
+  tool: ToolItemInputType
   className?: string
   showStar?: boolean
   hideDescription?: boolean
@@ -22,22 +24,22 @@ type ToolItemProps = {
 export default function ToolItem(props: ToolItemProps) {
   const { type = 'tool', tool, className } = props
   const [isNew, setIsNew] = useState(false)
-  const convertedIconUrl = defaultMapImageUrl(tool.iconUrl || tool.coverUrl, tool.block)!
+  const convertedIconUrl = defaultMapImageUrl(tool.iconUrl, tool.block)!
 
   useEffect(() => {
     const now = new Date()
-    const markDate = new Date(tool.readDate || tool.createdTime)
+    const markDate = new Date(tool.date)
     const diff = now.getTime() - markDate.getTime()
     const diffInDays = diff / (1000 * 3600 * 24)
 
     if (diffInDays <= 7) {
       setIsNew(true)
     }
-  }, [tool.createdTime, tool.readDate])
+  }, [tool.date])
 
   return (
     <a
-      href={tool.url || tool.goodreads}
+      href={tool.url}
       target="_blank"
       className={cn(
         className,
@@ -111,7 +113,7 @@ export default function ToolItem(props: ToolItemProps) {
                   new
                 </span>
               )}
-              {tool.name || tool.title}
+              {tool.name}
             </div>
             {tool.author && (
               <div className="text-sm text-slate-500 group-hover:text-slate-700">{tool.author}</div>
@@ -147,7 +149,7 @@ export default function ToolItem(props: ToolItemProps) {
             )}
 
             {!props.hideTags &&
-              tool.tag
+              tool.tags
                 ?.filter(tag => tag !== 'favorite')
                 ?.map(t => (
                   <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>

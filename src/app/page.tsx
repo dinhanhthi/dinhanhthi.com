@@ -14,7 +14,7 @@ import { Book, BookmarkItem, Tool } from '../interface'
 import BookmarkItemSimpleTemplate, {
   SkeletonBookmarkItemSimpleTemplate
 } from './(single-page)/bookmarks/BookmarkItemSimpleTemplate'
-import ToolItem from './(single-page)/tools/ToolItem'
+import ToolItem, { ToolItemInputType } from './(single-page)/tools/ToolItem'
 import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
@@ -237,7 +237,7 @@ export default async function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
               {tools.slice(0, numTools).map((tool: Tool) => (
                 <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem key={tool.id} tool={tool as Tool & Book} hideTags={true} />
+                  <ToolItem key={tool.id} tool={tool as any} hideTags={true} />
                 </Suspense>
               ))}
             </div>
@@ -262,7 +262,7 @@ export default async function Home() {
                     <ToolItem
                       type="book"
                       key={book.id}
-                      tool={book as Tool & Book}
+                      tool={book as ToolItemInputType}
                       hideDescription={true}
                       hideTags={true}
                     />

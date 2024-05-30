@@ -8,7 +8,7 @@ import Fuse from 'fuse.js'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
-import { Book, Tool } from '../../../interface'
+import { Book } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagBookIcon } from '../../icons/TagBookIcon'
@@ -25,7 +25,7 @@ import { TagScienceIcon } from '../../icons/TagScienceIcon'
 import { TagSelfHelpIcon } from '../../icons/TagSelfHelpIcon'
 import { TagTechIcon } from '../../icons/TagTechIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
-import ToolItem from '../tools/ToolItem'
+import ToolItem, { ToolItemInputType } from '../tools/ToolItem'
 
 const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
   favorite: StarIcon,
@@ -78,7 +78,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   }
 
   const booksToShow = searchResult.filter(
-    book => tagsToShow.every(type => book.tag.includes(type)) || tagsToShow.length === 0
+    book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
 
   const fuseOptions = {
@@ -173,7 +173,12 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {booksToShow?.map((book: Book) => (
-            <ToolItem key={book.id} type="book" tool={book as Tool & Book} hideDescription={true} />
+            <ToolItem
+              key={book.id}
+              type="book"
+              tool={book as ToolItemInputType}
+              hideDescription={true}
+            />
           ))}
         </div>
         {!booksToShow.length && (
