@@ -9,7 +9,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
-import { Book, Tool } from '../../../interface'
+import { Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
 import TagAndroidIcon from '../../icons/TagAndroidIcon'
 import TagBrowserExtensionIcon from '../../icons/TagBrowserExtensionIcon'
@@ -22,7 +22,7 @@ import TagRelaxIcon from '../../icons/TagRelaxIcon'
 import TagVSCodeIcon from '../../icons/TagVSCodeIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
 import TagWindowsIcon from '../../icons/TagWindowsIcon'
-import ToolItem from './ToolItem'
+import ToolItem, { ToolItemInputType } from './ToolItem'
 
 const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
   android: TagAndroidIcon,
@@ -71,7 +71,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
   }
 
   const toolsToShow = searchResult.filter(
-    tool => tagsToShow.every(type => tool.tag.includes(type)) || tagsToShow.length === 0
+    tool => tagsToShow.every(type => tool.tags.includes(type)) || tagsToShow.length === 0
   )
 
   const fuseOptions = {
@@ -167,7 +167,7 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {toolsToShow?.map((tool: Tool) => (
-            <ToolItem key={tool.id} tool={tool as Tool & Book} />
+            <ToolItem key={tool.id} tool={tool as ToolItemInputType} />
           ))}
         </div>
         {!toolsToShow.length && (

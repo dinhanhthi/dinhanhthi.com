@@ -32,7 +32,7 @@ export default async function ReadingHomePage() {
   books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
 
   // all uniq tags from current books
-  const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tag)))
+  const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tags)))
 
   // Sort tags alphabetically
   tags.sort()

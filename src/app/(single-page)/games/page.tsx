@@ -29,7 +29,7 @@ export default async function GamesHomePage() {
   const { games } = await getUnofficialGames()
 
   // Get all unique tags from current games
-  const tags: string[] = Array.from(new Set(games.flatMap(game => game.tag)))
+  const tags: string[] = Array.from(new Set(games.flatMap(game => game.tags)))
 
   // Sort tags alphabetically
   tags.sort()

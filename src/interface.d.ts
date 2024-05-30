@@ -126,46 +126,29 @@ export type Tag = TagNotionX & {
   hide?: boolean
 }
 
-export type Tool = {
-  id?: string
+export interface ToolCommon {
+  id: string
   name: string
-  description: string
+  description?: string
   iconUrl: string
-  tag: string[]
+  tags: string[]
   url: string
-  isFree: boolean
-  createdTime: string
-  block: Block // used to fetch icons
-  keySearch?: string
-}
-
-export type Game = {
-  id?: string
-  name: string
-  description: string
-  iconUrl: string
-  tag: string[]
-  url: string
-  isFree: boolean
-  createdTime: string
+  date: string
   block: Block // used to fetch icons
   keySearch?: string
   favorite?: boolean
 }
 
-export type Book = {
-  id?: string
-  title: string
-  author: string
+export interface Tool extends ToolCommon {
+  isFree: boolean
+}
+
+export interface Book extends ToolCommon {
   star: number
-  description: string
-  coverUrl: string
-  tag: string[]
-  goodreads: string
-  createdTime: string
-  readDate: string
+  author: string
   isReading?: boolean
-  block: Block // used to fetch icons
-  favorite?: boolean
-  keySearch?: string
+}
+
+export interface Game extends ToolCommon {
+  isFree: boolean
 }

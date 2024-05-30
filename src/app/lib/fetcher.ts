@@ -307,17 +307,10 @@ export async function getUnofficialBooks() {
       notionActiveUser: process.env.NOTION_ACTIVE_USER,
       notionApiWeb: process.env.NOTION_API_WEB
     })
-    const books = transformUnofficialBooks(data).sort(function (a, b) {
-      const keyA = new Date(a.readDate)
-      const keyB = new Date(b.readDate)
-      if (keyA < keyB) return 1
-      if (keyA > keyB) return -1
-      return 0
-    })
-    return { books }
+    return { books: transformUnofficialBooks(data) }
   } catch (error) {
     console.error('🚨 Error in getUnofficialBooks()', error)
-    return { books: [], tags: [] }
+    return { books: [] }
   }
 }
 
@@ -330,36 +323,35 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
     const tool = _block[id]
     const properties = tool?.value?.properties
 
-    const coverUrl = properties?.[`${process.env.READING_COVER_KEY}`]?.[0]?.[1]?.[0]?.[1]
-    if (!coverUrl) continue // because there are useless blocks in the database
-    const title = properties?.title?.[0]?.[0]
+    const iconUrl = properties?.[`${process.env.READING_COVER_KEY}`]?.[0]?.[1]?.[0]?.[1]
+    if (!iconUrl) continue // because there are useless blocks in the database
+    const name = properties?.title?.[0]?.[0]
     const author = properties?.[`${process.env.READING_AUTHOR_KEY}`]?.[0]?.[0]
     const description = properties?.[`${process.env.READING_DESC_KEY}`]?.[0]?.[0]
     const star = properties?.[`${process.env.READING_STAR_KEY}`]?.[0]?.[0]
     const isReading = properties?.[`${process.env.READING_IS_READING_KEY}`]?.[0]?.[0] === 'Yes'
-    const tag = properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',')
-    const goodreads = properties?.[`${process.env.READING_GOODREADS_KEY}`]?.[0]?.[0]
+    const tags = properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const url = properties?.[`${process.env.READING_GOODREADS_KEY}`]?.[0]?.[0]
     const createdTime = new Date(tool?.value?.created_time)?.toISOString()
     const keySearch = properties?.[`${process.env.READING_KEYSEARCH_KEY}`]?.[0]?.[0]
-    const readDate =
+    const date =
       properties?.[`${process.env.READING_READ_DATE_KEY}`]?.[0]?.[1]?.[0]?.[1]?.['start_date'] ??
       createdTime
     const block = tool?.value as Block
     const favorite = star === '5'
 
-    if (star === '5') tag.unshift('favorite')
+    if (star === '5') tags.unshift('favorite')
 
     books.push({
       id,
-      title,
+      name,
       author,
       star,
       description,
-      coverUrl,
-      tag,
-      goodreads,
-      createdTime,
-      readDate,
+      iconUrl,
+      tags,
+      url,
+      date,
       isReading,
       block,
       favorite,
@@ -368,8 +360,8 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
   }
 
   return books.sort(function (a, b) {
-    const keyA = new Date(a.createdTime)
-    const keyB = new Date(b.createdTime)
+    const keyA = new Date(a.date)
+    const keyB = new Date(b.date)
     if (keyA < keyB) return 1
     if (keyA > keyB) return -1
     return 0
@@ -388,7 +380,7 @@ export async function getUnofficialGames() {
     })
     return { games: transformUnofficialGames(data) }
   } catch (error) {
-    console.error('🚨 Error in getUnofficialTools', error)
+    console.error('🚨 Error in getUnofficialGames', error)
     return { games: [] }
   }
 }
@@ -396,7 +388,7 @@ export async function getUnofficialGames() {
 function transformUnofficialGames(data: CollectionInstance): Game[] {
   const _block = data?.recordMap?.block
   const toolIds = Object.keys(_block)
-  const tools = [] as Game[]
+  const games = [] as Game[]
 
   for (const id of toolIds) {
     const tool = _block[id]
@@ -408,32 +400,35 @@ function transformUnofficialGames(data: CollectionInstance): Game[] {
     const description = properties?.[`${process.env.GAMES_DESC_KEY}`]?.[0]?.[0]
     const isFree = properties?.[`${process.env.GAMES_FREE_KEY}`]?.[0]?.[0] === 'Yes'
     const favorite = properties?.[`${process.env.GAMES_FAVORITE_KEY}`]?.[0]?.[0] === 'Yes'
-    const tag = properties?.[`${process.env.GAMES_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const tags = properties?.[`${process.env.GAMES_TAG_KEY}`]?.[0]?.[0]?.split(',')
     const url = properties?.[`${process.env.GAMES_URL_KEY}`]?.[0]?.[0]
     const createdTime = new Date(tool?.value?.created_time)?.toISOString()
+    const playedDate =
+      properties?.[`${process.env.GAMES_PLAYED_DATE_KEY}`]?.[0]?.[1]?.[0]?.[1]?.start_date
+    const date = playedDate || createdTime
     const block = tool?.value as Block
     const keySearch = properties?.[`${process.env.GAMES_KEYSEARCH_KEY}`]?.[0]?.[0]
 
-    if (favorite && !tag.includes('favorite')) tag.unshift('favorite')
+    if (favorite && !tags.includes('favorite')) tags.unshift('favorite')
 
-    tools.push({
+    games.push({
       id,
       name,
       description,
       url,
       iconUrl,
       isFree,
-      tag,
-      createdTime,
+      tags,
       block,
       keySearch,
-      favorite
+      favorite,
+      date
     })
   }
 
-  return tools.sort(function (a, b) {
-    const keyA = new Date(a.createdTime)
-    const keyB = new Date(b.createdTime)
+  return games.sort(function (a, b) {
+    const keyA = new Date(a.date)
+    const keyB = new Date(b.date)
     if (keyA < keyB) return 1
     if (keyA > keyB) return -1
     return 0
@@ -480,9 +475,9 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const name = properties?.title?.[0]?.[0]
     const description = properties?.[`${process.env.TOOLS_DESC_KEY}`]?.[0]?.[0]
     const isFree = properties?.[`${process.env.TOOLS_FREE_KEY}`]?.[0]?.[0] === 'Yes'
-    const tag = properties?.[`${process.env.TOOLS_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const tags = properties?.[`${process.env.TOOLS_TAG_KEY}`]?.[0]?.[0]?.split(',')
     const url = properties?.[`${process.env.TOOLS_URL_KEY}`]?.[0]?.[0]
-    const createdTime = new Date(tool?.value?.created_time)?.toISOString()
+    const date = new Date(tool?.value?.created_time)?.toISOString()
     const block = tool?.value as Block
     const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
 
@@ -493,16 +488,16 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
       url,
       iconUrl,
       isFree,
-      tag,
-      createdTime,
+      tags,
+      date,
       block,
       keySearch
     })
   }
 
   return tools.sort(function (a, b) {
-    const keyA = new Date(a.createdTime)
-    const keyB = new Date(b.createdTime)
+    const keyA = new Date(a.date)
+    const keyB = new Date(b.date)
     if (keyA < keyB) return 1
     if (keyA > keyB) return -1
     return 0

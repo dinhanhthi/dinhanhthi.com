@@ -28,7 +28,7 @@ import { TagSportsIcon } from '../../icons/TagSportIcon'
 import { TagStealthStrategyIcon } from '../../icons/TagStealthIcon'
 import { TagStrategyIcon } from '../../icons/TagStrategyIcon'
 import TagWindowsIcon from '../../icons/TagWindowsIcon'
-import ToolItem from '../tools/ToolItem'
+import ToolItem, { ToolItemInputType } from '../tools/ToolItem'
 
 const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
   favorite: StarIcon,
@@ -85,7 +85,7 @@ export default function GamesPage(props: { games: Game[]; tags: string[] }) {
   }
 
   const gamesToShow = searchResult.filter(
-    game => tagsToShow.every(type => game.tag.includes(type)) || tagsToShow.length === 0
+    game => tagsToShow.every(type => game.tags.includes(type)) || tagsToShow.length === 0
   )
 
   const fuseOptions = {
@@ -166,8 +166,8 @@ export default function GamesPage(props: { games: Game[]; tags: string[] }) {
       {/* Game list */}
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {gamesToShow?.map((game: Game) => (
-            <ToolItem key={game.id} tool={game as any} showFavoriteStar={true} />
+          {gamesToShow?.map(game => (
+            <ToolItem key={game.id} tool={game as ToolItemInputType} showFavoriteStar={true} />
           ))}
         </div>
         {!gamesToShow.length && (
