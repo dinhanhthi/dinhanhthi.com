@@ -184,7 +184,7 @@ export default function PostHeader(props: PostHeaderProps) {
               {wellWritten && (
                 <div
                   className="tooltip-auto flex items-center justify-center"
-                  data-title={'Well written, verified by me.'}
+                  data-title={'Well written, verified by the author.'}
                 >
                   <HiMiniCheckBadge className="text-[#dadada] inline-block text-xl mt-[-3px]" />
                 </div>
