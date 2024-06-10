@@ -1862,6 +1862,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@giscus/react@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@giscus/react@npm:3.0.0"
+  dependencies:
+    giscus: "npm:^1.5.0"
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: 10c0/134de49eb80d124a511fa33b38cbc00da24aa338caa37f32f5b89fe130365e6bc4c5583b0de3916b80ecd01cc2db27f904b3f8d633bb317fe8caad83baa125d0
+  languageName: node
+  linkType: hard
+
 "@headlessui/react@npm:^2.0.4":
   version: 2.0.4
   resolution: "@headlessui/react@npm:2.0.4"
@@ -1955,6 +1967,22 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 10c0/845e6c6efca621b2b85e4d13fd25c319b6e4ab1ea78d4385ff6c0f78322ea0fcdfec8ac763aa4b56e8378c96d7bef101a2638c7a1a076f7d62f6376230c940a7
+  languageName: node
+  linkType: hard
+
+"@lit-labs/ssr-dom-shim@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.2.0"
+  checksum: 10c0/016168cf6901ab343462c13fb168dda6d549f8b42680aa394e6b7cd0af7cce51271e00dbfa5bbbe388912bf89cbb8f941a21cc3ec9bf95d6a84b6241aa9e5a72
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "@lit/reactive-element@npm:2.0.4"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+  checksum: 10c0/359cc19ea9ee8b65e1417eb9c12f40dddba8f0a5ab32f0e5facaecee6060629e44eb4ca27d9af945fe6eda8c033aa636abaa5f0c4e6a529b224d78674acf47ba
   languageName: node
   linkType: hard
 
@@ -2547,6 +2575,13 @@ __metadata:
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
   checksum: 10c0/8663ff927234d1c5fcc04b33062cb2b9fcfbe0f5f351ed26c4d1e1581657deebd506b41ff7fdf89e787e3d33ce05854bc01686379b89e9c49b564c4cfa988efa
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
   languageName: node
   linkType: hard
 
@@ -4486,6 +4521,7 @@ __metadata:
     "@babel/plugin-syntax-flow": "npm:^7.14.5"
     "@babel/plugin-transform-react-jsx": "npm:^7.14.9"
     "@fisch0920/medium-zoom": "npm:^1.0.7"
+    "@giscus/react": "npm:^3.0.0"
     "@headlessui/react": "npm:^2.0.4"
     "@matejmazur/react-katex": "npm:^3.1.3"
     "@notionhq/client": "npm:2.2.11"
@@ -5647,6 +5683,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"giscus@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "giscus@npm:1.5.0"
+  dependencies:
+    lit: "npm:^3.1.2"
+  checksum: 10c0/2e94c0260128c402de16550d1ec1b5797dc2efbebed994371920fed1a7018f4b20377f147205c6e479e3e99d975a499db746ae813ca11e1a7d58009e6f059842
+  languageName: node
+  linkType: hard
+
 "github-from-package@npm:0.0.0":
   version: 0.0.0
   resolution: "github-from-package@npm:0.0.0"
@@ -6655,6 +6700,37 @@ __metadata:
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
   checksum: 10c0/3da6ee62d4cd9f03f5dc90b4df2540fb85b352081bee77fe4bbcd12c9000ead7f35e0a38b8d09a9bb99b13223446dd8689ff3c4959807620726d788701a83d2d
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^4.0.4":
+  version: 4.0.6
+  resolution: "lit-element@npm:4.0.6"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-html: "npm:^3.1.2"
+  checksum: 10c0/f96c0ac66eeb06d15b734f6eaf5ea2ff51356f88bde4d7058c29b1f60f542b092e579240082a3363c41e25b7a296d7d5f2a64165672b2adef5a413f49710b1f9
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.1.2":
+  version: 3.1.4
+  resolution: "lit-html@npm:3.1.4"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10c0/538c084ab1d39b59c5c094f7ad7a8bc5c41a17b46f375bb841b304263c1f2546065eeace6e330c20f1f15f2c285b66b46d140e2be618de2e65610c58b53a5af3
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.1.2":
+  version: 3.1.4
+  resolution: "lit@npm:3.1.4"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.0.4"
+    lit-element: "npm:^4.0.4"
+    lit-html: "npm:^3.1.2"
+  checksum: 10c0/afa4954638e80f627c60bcbd2d800af710b9b3394a36cee9865b5ea5de95b4ec6d33de43ac0bf256b5b7c981d45c7c8ac0c7ddba6fcbd0c67d65986b0279b960
   languageName: node
   linkType: hard
 

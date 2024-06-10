@@ -1,34 +1,30 @@
 'use client'
 
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import cn from 'classnames'
-import { useRef } from 'react'
 
-import useScript from '../hooks/useScript'
+import Giscus from '@giscus/react'
+import { containerNormal } from '../lib/config'
+import Container from './Container'
 
 const Comments = ({ className }: { className?: string }) => {
-  const comment = useRef(null)
-
-  const status = useScript({
-    url: 'https://utteranc.es/client.js',
-    theme: 'github-light',
-    issueTerm: 'title',
-    repo: 'dinhanhthi/dinhanhthi.com-comments',
-    ref: comment
-  })
-
   return (
-    <div className={cn(className, 'mt-8')}>
-      {status === 'loading' && (
-        <div className="flex mt-4 items-center justify-center gap-2 animate-pulse text-slate-700">
-          <div className="animate-spin">
-            <AiOutlineLoading3Quarters className="text-2xl" />
-          </div>
-          <div>Loading comments...</div>
-        </div>
-      )}
-      <div ref={comment}></div>
-    </div>
+    <Container className={cn(className, containerNormal, 'mt-8')}>
+      <Giscus
+        id="post-comments"
+        repo="dinhanhthi/dinhanhthi.com-comments"
+        repoId="R_kgDOKKrH3g"
+        category="Comments"
+        categoryId="DIC_kwDOKKrH3s4Cf_fv"
+        mapping="title"
+        term="Welcome!"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme="light"
+        lang="en"
+        loading="lazy"
+      />
+    </Container>
   )
 }
 
