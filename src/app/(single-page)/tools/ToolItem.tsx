@@ -108,11 +108,21 @@ export default function ToolItem(props: ToolItemProps) {
                 }
               )}
             >
-              {isNew && (
+              {/* NEW */}
+              {isNew && !tool.isReading && (
                 <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
                   new
                 </span>
               )}
+
+              {/* is reading */}
+              {tool.isReading && (
+                <span className="align-middle inline bg-green-100 font-normal text-green-700 px-2 py-0 text-[0.8rem] rounded-md whitespace-nowrap mr-1">
+                  reading
+                </span>
+              )}
+
+              {/* NAME */}
               {tool.name}
             </div>
             {tool.author && (
@@ -126,13 +136,6 @@ export default function ToolItem(props: ToolItemProps) {
               {Array.from({ length: +tool.star }).map((_, index) => (
                 <StarIcon key={index} className="text-amber-400" />
               ))}
-            </div>
-          )}
-
-          {/* is reading */}
-          {tool.isReading && (
-            <div className="flex flex-row gap-1 items-center">
-              <div className="text-sm text-green-700 italic">I{"'"}m reading...</div>
             </div>
           )}
 
