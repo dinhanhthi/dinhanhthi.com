@@ -45,6 +45,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               }}
               useSimpleImage={true}
               discreteStyle={true} // The big difference from SinglePostTemplate is here!
+              fontClass="font-post"
               discreteColsType={discreteColsType}
               showUpdatedIndicator={true}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
