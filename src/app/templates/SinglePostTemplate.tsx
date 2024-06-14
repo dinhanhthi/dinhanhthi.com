@@ -58,6 +58,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 expandTocOnMobile: false
               }}
               useSimpleImage={true}
+              fontClass="font-post"
               showUpdatedIndicator={true}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
               createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
