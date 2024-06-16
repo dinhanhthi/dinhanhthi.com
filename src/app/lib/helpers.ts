@@ -146,6 +146,7 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
     new Date(post?.created_time).toISOString()
   const tags = properties?.[`${process.env.NEXT_PUBLIC_ID_TAGS}`]?.[0]?.[0]
     .split(',')
+    ?.filter((tagName: string) => topics.map(topic => topic.name).includes(tagName))
     ?.map((tagName: string) => mapTag(tagName, 'tag', topics))
   const isPublished = properties?.[`${process.env.NEXT_PUBLIC_ID_PUBLISHED}`]?.[0]?.[0] === 'Yes'
   const isPage = properties?.[`${process.env.NEXT_PUBLIC_ID_IS_PAGE}`]?.[0]?.[0] === 'Yes'
