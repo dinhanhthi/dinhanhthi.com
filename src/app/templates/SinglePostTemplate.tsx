@@ -45,6 +45,14 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
           </aside>
 
           <Container className={containerNormal}>
+            {props.postProps.isDraft && (
+              <div className="flex rounded-md bg-amber-100 items-center gap-2">
+                <div className="text-2xl pl-4 py-2">⚠️</div>
+                <div className="pr-4 w-0 flex-1 text-slate-800">
+                  This is a quick &amp; dirty draft, for me only!
+                </div>
+              </div>
+            )}
             <PostBody
               recordMap={props.recordMap}
               blockOptions={{
