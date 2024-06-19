@@ -203,7 +203,7 @@ const cv: CVGroupType[] = [
         title: 'Master in Applied Maths',
         date: '2012 — 2013',
         activity: [
-          "My Master's degree was registered at this university, but I spent most of my time studying in Vietnam and completing an internship at Paris 13 University."
+          "My Master's degree was registered at this university, but I spent most of my time studying in Vietnam and completing an internship at U. Sorbonne Paris Nord."
         ]
       },
       {
