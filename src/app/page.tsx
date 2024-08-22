@@ -153,28 +153,30 @@ export default async function Home() {
 
             <div className="flex flex-col gap-2">
               {/* pinned */}
-              <div className="thi-box-code overflow-hidden mb-3">
-                <Suspense
-                  fallback={
-                    <SkeletonPostList
-                      count={6}
+              {pinnedPosts.length > 0 && (
+                <div className="thi-box-code overflow-hidden mb-3">
+                  <Suspense
+                    fallback={
+                      <SkeletonPostList
+                        count={6}
+                        postType="PostSimple"
+                        options={{
+                          className: 'flex flex-col divide-y'
+                        }}
+                      />
+                    }
+                  >
+                    <PostList
+                      posts={pinnedPosts}
                       postType="PostSimple"
+                      postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                       options={{
                         className: 'flex flex-col divide-y'
                       }}
                     />
-                  }
-                >
-                  <PostList
-                    posts={pinnedPosts}
-                    postType="PostSimple"
-                    postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-                    options={{
-                      className: 'flex flex-col divide-y'
-                    }}
-                  />
-                </Suspense>
-              </div>
+                  </Suspense>
+                </div>
+              )}
 
               {/* notes */}
               <div className="thi-box-code overflow-hidden">
