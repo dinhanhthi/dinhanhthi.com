@@ -9,6 +9,7 @@ import Link from 'next/link'
 type NotesTocProps = {
   tags: Tag[]
   className?: string
+  hidePinnedTags?: boolean
 }
 
 export default function NotesToc(props: NotesTocProps) {
@@ -41,16 +42,18 @@ export default function NotesToc(props: NotesTocProps) {
           >
             <div className="flex items-center gap-1">{blogPostsTitle}</div>
           </a>
-          <a
-            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
-              'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
-              'text-slate-900 bg-slate-200': activeId === makeSlugText(pinnedNotesTitle)
-            })}
-            key={makeSlugText(pinnedNotesTitle)}
-            href={`#${makeSlugText(pinnedNotesTitle)}`}
-          >
-            <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
-          </a>
+          {!props.hidePinnedTags && (
+            <a
+              className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
+                'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
+                'text-slate-900 bg-slate-200': activeId === makeSlugText(pinnedNotesTitle)
+              })}
+              key={makeSlugText(pinnedNotesTitle)}
+              href={`#${makeSlugText(pinnedNotesTitle)}`}
+            >
+              <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
+            </a>
+          )}
           <a
             className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
               'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
