@@ -54,31 +54,33 @@ export default function NotesPageList(props: NotesPageListProps) {
       )}
 
       {/* pinned */}
-      <div className="flex flex-col gap-2">
-        <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
-        <div className="thi-box-code overflow-hidden">
-          <Suspense
-            fallback={
-              <SkeletonPostList
-                count={4}
+      {pinnedPosts.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
+          <div className="thi-box-code overflow-hidden">
+            <Suspense
+              fallback={
+                <SkeletonPostList
+                  count={4}
+                  postType="PostSimple"
+                  options={{
+                    className: 'flex flex-col divide-y'
+                  }}
+                />
+              }
+            >
+              <PostList
+                posts={pinnedPosts}
                 postType="PostSimple"
+                postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                 options={{
                   className: 'flex flex-col divide-y'
                 }}
               />
-            }
-          >
-            <PostList
-              posts={pinnedPosts}
-              postType="PostSimple"
-              postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-              options={{
-                className: 'flex flex-col divide-y'
-              }}
-            />
-          </Suspense>
+            </Suspense>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Recently updated notes */}
       <div className="flex flex-col gap-2">

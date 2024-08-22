@@ -94,6 +94,7 @@ export default async function NotesHomePage() {
           <NotesToc
             className={'order-1 md:order-2 md:sticky top-[70px] h-fit md:w-fit w-full'}
             tags={pinnedTagsSorted}
+            hidePinnedTags={pinnedPosts.length === 0}
           />
         </div>
       </Container>
