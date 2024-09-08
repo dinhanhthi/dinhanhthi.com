@@ -6,9 +6,6 @@ Next.js 14+ 🤝 Tailwind CSS 🤝 Notion as CMS 🤝 [notion-x](https://github.
 
 🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/). Thank you!
 
-> [!NOTE]
-> If you’d rather not spend time reading and setting things up yourself, I can duplicate my site for you for **$50**. This fee just covers the time it takes me to do it—**I’m not making a profit from this**. I do encourage you to create your own site using [the blog post](https://dinhanhthi.com/note/how-i-create-this-site) and code in my repositories! It’s a great learning experience. Please note that this is a **one-time service** and doesn’t include ongoing maintenance. If you’re interested, feel free to [email me](me@dinhanhthi.com).
-
 ## Previous versions
 
 👉 Version 1 (Jekyll): [v1.dinhanhthi.com](https://v1.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v1).<br />
