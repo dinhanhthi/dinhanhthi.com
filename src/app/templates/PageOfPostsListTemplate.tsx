@@ -17,6 +17,7 @@ export type PageOfPostsListTemplateProps = {
     name: string
     longName?: string // first used for tag
     subtitle?: string
+    description?: string // alternative to subtitle
     icon: ImageType
     className: string
     uri: string
@@ -39,7 +40,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         headerType="gray"
         headerWidth="wide"
         title={object.longName ? `${object.longName} (${object.name})` : object.name}
-        subtitle={object.subtitle}
+        subtitle={object.subtitle || object.description}
         icon={
           object.icon?.sourceUrl || object.icon?.staticImageData
             ? object.icon
