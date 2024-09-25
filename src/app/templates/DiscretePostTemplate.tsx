@@ -33,9 +33,9 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
             })}
           >
             {props.postProps.isDraft && (
-              <div className="flex rounded-md bg-amber-100 items-center gap-2 mb-8">
-                <div className="text-2xl pl-4 py-2">⚠️</div>
-                <div className="pr-4 w-0 flex-1 text-slate-800">
+              <div className="flex bg-transparent items-center gap-2 mb-8 border-b-slate-300 border-b text-sm">
+                <div className="pl-2 py-2 text-base">⚠️</div>
+                <div className="pr-4 w-0 flex-1 text-slate-600">
                   This is a quick &amp; dirty draft, for me only!
                 </div>
               </div>
