@@ -59,7 +59,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
               createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
               showBackToTopButton={true}
-              showUpdateButtonClassName="tooltip-auto before:!left-auto before:!right-[55px] before:!top-[15px] before:!content-[attr(data-title)]"
+              showUpdateButtonClassName="before:!left-auto before:!right-[55px] before:!top-[15px]"
               showUpdateButtonPositionClass="right-10 bottom-8"
             />
           </div>

@@ -49,7 +49,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
-    console.log(`👉👉👉 recordMap: `, JSON.stringify(recordMap))
+    // console.log(`👉👉👉 recordMap: `, JSON.stringify(recordMap))
 
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value

@@ -1,5 +1,6 @@
 'use client'
 
+import TooltipX from '@notion-x/src/components/tooltip-x'
 import BsPinAngleFill from '@notion-x/src/icons/BsPinAngleFill'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
@@ -50,12 +51,12 @@ export default function BookmarkItemSimpleTemplate(props: BookmarkItemSimpleTemp
         )}
       >
         {mark.favorite && (
-          <div
-            className="absolute right-4 top-4 text-amber-400 tooltip-auto _from-right"
-            data-title="My favorite"
-          >
-            <StarIcon className="text-xl" />
-          </div>
+          <>
+            <div id={`bookmark-${mark.id}`} className="absolute right-4 top-4 text-amber-400">
+              <StarIcon className="text-xl" />
+            </div>
+            <TooltipX id={`#bookmark-${mark.id}`}>My favorite</TooltipX>
+          </>
         )}
 
         {/* Index */}
