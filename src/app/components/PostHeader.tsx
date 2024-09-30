@@ -17,6 +17,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import { getTextContent } from 'notion-utils'
 import { Suspense } from 'react'
 
+import TooltipX from '@notion-x/src/components/tooltip-x'
 import { Post } from '@notion-x/src/interface'
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
@@ -124,13 +125,14 @@ export default function PostHeader(props: PostHeaderProps) {
 
               {/* Edit link */}
               <a
+                id={`edit-${block.id}`}
                 href={`https://www.notion.so/thi-cs/${block.id.replace(/-/g, '')}`}
                 target="_blank"
-                className="tooltip-auto flex items-center justify-center"
-                data-title={'Edit this note (for me only)'}
+                className="flex items-center justify-center"
               >
                 <MdEditNote className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')} />
               </a>
+              <TooltipX id={`#edit-${block.id}`}>Edit this note (for me only)</TooltipX>
 
               {/* added */}
               <div className="flex items-center gap-1 text-base opacity-80">
@@ -182,12 +184,14 @@ export default function PostHeader(props: PostHeaderProps) {
               )}
               {/* Well written */}
               {wellWritten && (
-                <div
-                  className="tooltip-auto flex items-center justify-center"
-                  data-title={'Well written, verified by the author.'}
-                >
-                  <HiMiniCheckBadge className="text-[#dadada] inline-block text-xl mt-[-3px]" />
-                </div>
+                <>
+                  <div id={`well-written-${block.id}`} className="flex items-center justify-center">
+                    <HiMiniCheckBadge className="text-[#dadada] inline-block text-xl mt-[-3px]" />
+                  </div>
+                  <TooltipX id={`#well-written-${block.id}`}>
+                    Well written, verified by the author.
+                  </TooltipX>
+                </>
               )}
             </div>
           )}

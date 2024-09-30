@@ -1,9 +1,7 @@
 /* eslint-disable quotes */
 import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
-import ImageComponent from '@notion-x/src/components/ImageComponent'
 import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -20,6 +18,7 @@ import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
+import Topic from './components/Topic'
 import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
 import {
   getPosts,
@@ -29,7 +28,7 @@ import {
   getUnofficialProjects,
   getUnofficialTools
 } from './lib/fetcher'
-import { getMetadata, getUri } from './lib/helpers'
+import { getMetadata } from './lib/helpers'
 
 export const revalidate = 20
 
@@ -279,27 +278,7 @@ export default async function Home() {
               {topics
                 .filter(t => t.pinned)
                 .map(topic => (
-                  <Link
-                    href={getUri('tag', makeSlugText(topic.name))!}
-                    key={makeSlugText(topic.name)}
-                    className={cn(
-                      'flex items-center gap-1 p-2 thi-box-code',
-                      'transition duration-200 ease-in-out hover:-translate-y-0.5',
-                      { 'tooltip-auto': topic.description }
-                    )}
-                    data-title={topic.description}
-                  >
-                    {topic.icon && (
-                      <div>
-                        <ImageComponent
-                          image={topic.icon}
-                          alt={topic.name}
-                          imageProps={{ width: 20, height: 20, placeholder: 'empty' }}
-                        />
-                      </div>
-                    )}
-                    <div>{topic.longName || topic.name}</div>
-                  </Link>
+                  <Topic type="simple" key={topic.id} tag={topic} />
                 ))}
             </div>
           </div>

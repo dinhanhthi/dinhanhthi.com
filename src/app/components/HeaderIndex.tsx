@@ -51,6 +51,7 @@ export default function HeaderIndex() {
           >
             {socials.map(item => (
               <BadgeSocial
+                id={item.id}
                 key={item.id}
                 icon={{ staticImageData: item.icon } as ImageType}
                 url={item.url}
