@@ -6,6 +6,7 @@ import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
+import TooltipX from '@notion-x/src/components/tooltip-x'
 import { Book, Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 
@@ -52,12 +53,12 @@ export default function ToolItem(props: ToolItemProps) {
         })}
       >
         {tool.favorite && props.showFavoriteStar && (
-          <div
-            className="absolute right-3 top-3 text-amber-400 tooltip-auto _from-right z-50"
-            data-title="My favorite"
-          >
-            <StarIcon className="text-xl" />
-          </div>
+          <>
+            <div id={`bookmark-${tool.id}`} className="absolute right-3 top-3 text-amber-400 z-50">
+              <StarIcon className="text-xl" />
+            </div>
+            <TooltipX id={`#bookmark-${tool.id}`}>My favorite</TooltipX>
+          </>
         )}
 
         <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
@@ -132,11 +133,14 @@ export default function ToolItem(props: ToolItemProps) {
 
           {/* star */}
           {tool.star && !tool.isReading && (
-            <div className="flex flex-row gap-1 items-center tooltip-auto" data-title="My rating">
-              {Array.from({ length: +tool.star }).map((_, index) => (
-                <StarIcon key={index} className="text-amber-400" />
-              ))}
-            </div>
+            <>
+              <div id={`star-${tool.id}`} className="flex flex-row gap-1 items-center">
+                {Array.from({ length: +tool.star }).map((_, index) => (
+                  <StarIcon key={index} className="text-amber-400" />
+                ))}
+              </div>
+              <TooltipX id={`#star-${tool.id}`}>My rating</TooltipX>
+            </>
           )}
 
           {/* tags */}
