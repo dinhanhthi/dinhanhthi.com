@@ -1,14 +1,13 @@
 import TopicIcon from '@/public/topics.svg'
-import SimpleImage from '@notion-x/src/components/SimpleImage'
 import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
 import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
-import Link from 'next/link'
 import { Suspense } from 'react'
 
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
+import Topic from '../../components/Topic'
 import { bodyPadding, containerWide, defaultBlurDataURL } from '../../lib/config'
 import { getTopics } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
@@ -66,28 +65,12 @@ export default async function TagsHomePage() {
           {tags.length > 0 && (
             <div className={tagListContainerClass}>
               {tags.map((tag: Tag) => (
-                <Link
-                  href={tag.uri!}
+                <Topic
                   key={tag.id}
-                  className={cn(
-                    'thi-box-code flex items-center gap-2 p-4 transition duration-200 ease-in-out hover:-translate-y-0.5',
-                    { 'tooltip-auto': tag.description }
-                  )}
-                  data-title={tag.description}
-                >
-                  {tag.icon && (
-                    <div>
-                      <SimpleImage
-                        src={tag.icon.sourceUrl!}
-                        alt={tag.name}
-                        width={30}
-                        height={30}
-                        imagePlaceholder={ImagePlaceholder()}
-                      />
-                    </div>
-                  )}
-                  <div>{tag.longName || tag.name}</div>
-                </Link>
+                  type="detailed"
+                  tag={tag}
+                  imagePlaceholder={ImagePlaceholder()}
+                />
               ))}
             </div>
           )}
