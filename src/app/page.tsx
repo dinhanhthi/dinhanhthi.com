@@ -318,7 +318,7 @@ export default async function Home() {
                   </div>
                 )}
               </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3 overflow-hidden">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3 overflow-hidden md:overflow-visible">
                 {projects.slice(0, numProjects).map((project: Project) => (
                   <Suspense key={project.id} fallback={<SkeletonProjectItem />}>
                     <ProjectItem key={project.id} project={project} grayScale={true} />
