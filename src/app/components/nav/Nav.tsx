@@ -23,7 +23,7 @@ export default function Nav() {
 
   return (
     <>
-      <div className={`sticky left-0 top-0 z-50 w-full ${navClasses} ${navHeight}`}>
+      <div className={`sticky left-0 top-0 z-[9999] w-full ${navClasses} ${navHeight}`}>
         <Container className={cn('h-full', containerWide)}>
           <div className="flex h-full flex-wrap items-center justify-items-stretch">
             <div className="w-full">
