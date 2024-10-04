@@ -27,7 +27,7 @@ export default function NavHidden(props: NavHiddenProps) {
         >
           <MenuItems
             anchor="bottom end"
-            className="relative grid divide-y divide-slate-600 bg-nav-dark-bg z-50 border-[0.5px] border-slate-600 rounded-md"
+            className="relative grid divide-y divide-slate-600 bg-nav-dark-bg z-[1000] border-[0.5px] border-slate-600 rounded-md"
           >
             {HIDDEN_MENUS.map(item => (
               <MenuItem key={item.uri}>
