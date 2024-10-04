@@ -83,6 +83,9 @@ export default {
         '7xl': '4.5rem',
         '8xl': '6.25rem'
       },
+      fontWeight: {
+        inherit: 'inherit'
+      },
       fontFamily: {
         heading: ['Recoleta', 'Arial', 'Helvetica', 'sans-serif']
       },
