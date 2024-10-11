@@ -168,6 +168,13 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
           </Link>
+          ,{' '}
+          <a
+            href="https://www.goodreads.com/review/list/19630622-thi-dinh?ref=nav_mybooks&shelf=to-read"
+            target="_blank"
+          >
+            my want-to-read list on Goodreads
+          </a>
           .
         </div>
 
