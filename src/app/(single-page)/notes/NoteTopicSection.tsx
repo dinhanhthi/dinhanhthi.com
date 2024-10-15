@@ -4,7 +4,7 @@ import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { defaultPostTypeOpts } from '../../lib/config'
+import { defaultPostTypeOpts, numPostsToShow } from '../../lib/config'
 import { getPosts } from '../../lib/fetcher'
 import { poppins } from '../../lib/fonts'
 import { getFilterOf } from '../../lib/helpers'
@@ -15,11 +15,10 @@ type NoteTopicSectionProps = {
 }
 
 export default async function NoteTopicSection(props: NoteTopicSectionProps) {
-  const numToDisplay = 8
   const tag = props.tag
   const notes = await getPosts({
     filter: getFilterOf('tag', tag),
-    pageSize: numToDisplay
+    pageSize: numPostsToShow
   })
   if (notes.length === 0) return null
   return (
@@ -39,7 +38,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           <span>
             {tag.longName || tag.name} {tag.longName && <>({tag.name})</>}
           </span>
-          {notes.length >= numToDisplay && (
+          {notes.length >= numPostsToShow && (
             <Link
               className={cn(
                 'text-[70%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover',

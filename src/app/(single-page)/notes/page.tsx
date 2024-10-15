@@ -8,7 +8,7 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
-import { bodyPadding, containerWide, defaultBlurDataURL } from '../../lib/config'
+import { bodyPadding, containerWide, defaultBlurDataURL, numPostsToShow } from '../../lib/config'
 import { getPosts, getTopics } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
 import NotesPageList from './NotesPageList'
@@ -56,7 +56,7 @@ export default async function NotesHomePage() {
     }
   })
 
-  const posts = await getPosts({ pageSize: 8 + pinnedPosts.length })
+  const posts = await getPosts({ pageSize: numPostsToShow + pinnedPosts.length })
   const _tags = await getTopics()
   const tags = _tags.map(tag => ({
     ...tag,

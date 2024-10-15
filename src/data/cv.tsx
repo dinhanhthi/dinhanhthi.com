@@ -1,6 +1,6 @@
 import DataswatiLogo from '@/public/about/cv/dataswati.png'
 import DHSPLogo from '@/public/about/cv/dhsp.png'
-import IdetaLogo from '@/public/about/cv/ideta-single.png'
+import IdetaLogo from '@/public/about/cv/ideta_septeo.jpeg'
 import Math2ITLogo from '@/public/about/cv/math2it.png'
 import P13Logo from '@/public/about/cv/p13.png'
 import SelfLearnLogo from '@/public/about/cv/self-learn.webp'
