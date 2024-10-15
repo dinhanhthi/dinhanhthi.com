@@ -19,7 +19,13 @@ import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import Topic from './components/Topic'
-import { bodyPadding, containerWide, defaultBlurDataURL, defaultPostTypeOpts } from './lib/config'
+import {
+  bodyPadding,
+  containerWide,
+  defaultBlurDataURL,
+  defaultPostTypeOpts,
+  numPostsToShow
+} from './lib/config'
 import {
   getPosts,
   getTopics,
@@ -46,7 +52,6 @@ export const metadata = getMetadata({
 
 export default async function Home() {
   const numPinnedPosts = 6
-  const numPosts = 10
   const numProjects = 6
   const numBookmarks = 6
   const numTools = 6
@@ -82,7 +87,7 @@ export default async function Home() {
     }
   })
   const posts = await getPosts({
-    pageSize: numPosts,
+    pageSize: numPostsToShow,
     filter: {
       property: 'blog',
       checkbox: {
@@ -147,7 +152,7 @@ export default async function Home() {
           <div className="flex flex-col gap-4">
             <HeadingWithMore
               title="Recently updated notes"
-              href={posts.length >= numPosts ? '/notes/' : undefined}
+              href={posts.length >= numPostsToShow ? '/notes/' : undefined}
             />
 
             <div className="flex flex-col gap-2">
