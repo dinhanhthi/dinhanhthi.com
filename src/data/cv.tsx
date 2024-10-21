@@ -38,6 +38,7 @@ const cv: CVGroupType[] = [
         ],
         tech: [
           'angular',
+          'azure',
           'bash',
           'chrome-extension',
           'detectron2',
@@ -64,6 +65,7 @@ const cv: CVGroupType[] = [
           'react',
           'rxjs',
           'scikit-learn',
+          'sql',
           'tensorflow',
           'ts',
           'vertex-ai',
@@ -130,6 +132,7 @@ const cv: CVGroupType[] = [
           'react',
           'ruby',
           'scss',
+          'vercel',
           'wordpress'
         ]
       },

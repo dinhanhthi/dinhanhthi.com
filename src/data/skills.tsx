@@ -4,13 +4,14 @@ const skills: SkillGroupType[] = [
   {
     id: 'languages',
     name: 'Languages',
-    list: ['freefempp', 'js', 'matlab', 'php', 'python', 'ts']
+    list: ['freefempp', 'js', 'matlab', 'php', 'python', 'sql', 'ts']
   },
   {
     id: 'ai-data',
     name: 'AI & Data',
     list: [
       'airflow',
+      'aws',
       // 'detectron2',
       'dialogflow',
       'huggingface',
@@ -19,6 +20,7 @@ const skills: SkillGroupType[] = [
       'pytorch',
       'scikit-learn',
       'tensorflow',
+      'terraform',
       'vertex-ai'
     ]
   },
@@ -40,13 +42,16 @@ const skills: SkillGroupType[] = [
       'scss',
       'tailwindcss',
       'vite',
-      'wordpress'
+      'wordpress',
+      'vercel'
     ]
   },
   {
     id: 'backend',
     name: 'Backend',
     list: [
+      'aws',
+      'azure',
       'airflow',
       'docker',
       'firebase',
@@ -58,6 +63,9 @@ const skills: SkillGroupType[] = [
       'mysql',
       'nestjs',
       'nodejs',
+      'postgresql',
+      'supabase',
+      'vercel',
       'vertex-ai'
     ]
   },
@@ -65,6 +73,8 @@ const skills: SkillGroupType[] = [
     id: 'tools-services',
     name: 'Tools & Services',
     list: [
+      'aws',
+      'azure',
       'bash',
       'chrome-extension',
       'dialogflow',
@@ -80,6 +90,9 @@ const skills: SkillGroupType[] = [
       'openai',
       'postman',
       'sphinx',
+      'supabase',
+      'terraform',
+      'vercel',
       'vscode'
     ]
   }
