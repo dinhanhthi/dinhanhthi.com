@@ -1,6 +1,8 @@
 import EleventyIcon from '@/public/about/techs/11ty.svg'
 import AirflowIcon from '@/public/about/techs/airflow.svg'
 import AngularIcon from '@/public/about/techs/angular.svg'
+import AWSIcon from '@/public/about/techs/aws.svg'
+import AzureIcon from '@/public/about/techs/azure.svg'
 import BashIcon from '@/public/about/techs/bash.svg'
 import BootstrapIcon from '@/public/about/techs/bootstrap.svg'
 import ChromeIcon from '@/public/about/techs/chrome.svg'
@@ -39,6 +41,7 @@ import NotionIcon from '@/public/about/techs/notion.svg'
 import NunjucksIcon from '@/public/about/techs/nunjucks.svg'
 import OpenAIIcon from '@/public/about/techs/openai.svg'
 import PhpIcon from '@/public/about/techs/php.svg'
+import PostgreIcon from '@/public/about/techs/postgresql.svg'
 import PostmanIcon from '@/public/about/techs/postman.svg'
 import PythonIcon from '@/public/about/techs/python.svg'
 import PytorchIcon from '@/public/about/techs/pytorch.svg'
@@ -49,9 +52,13 @@ import RxjsIcon from '@/public/about/techs/rxjs.svg'
 import ScssIcon from '@/public/about/techs/sass.svg'
 import ScikitlearnIcon from '@/public/about/techs/scikit-learn.svg'
 import SphinxIcon from '@/public/about/techs/sphinx.svg'
+import SqlIcon from '@/public/about/techs/sql.svg'
+import SupabaseIcon from '@/public/about/techs/supabase.svg'
 import TailwindIcon from '@/public/about/techs/tailwindcss.svg'
+import TerraformIcon from '@/public/about/techs/terraform.svg'
 import TensorflowIcon from '@/public/about/techs/tf.svg'
 import TypescriptIcon from '@/public/about/techs/ts.svg'
+import VercelIcon from '@/public/about/techs/vercel.svg'
 import VertexAIIcon from '@/public/about/techs/vertex.png'
 import ViteIcon from '@/public/about/techs/vite.svg'
 import VscodeIcon from '@/public/about/techs/vscode.svg'
@@ -78,6 +85,18 @@ const techs: TechItem[] = [
     name: 'Angular',
     icon: AngularIcon,
     url: 'https://angular.io/'
+  },
+  {
+    id: 'aws',
+    name: 'AWS',
+    icon: AWSIcon,
+    url: 'https://aws.amazon.com/'
+  },
+  {
+    id: 'azure',
+    name: 'Azure',
+    icon: AzureIcon,
+    url: 'https://azure.microsoft.com/'
   },
   {
     id: 'bash',
@@ -314,6 +333,12 @@ const techs: TechItem[] = [
     url: 'https://www.php.net/'
   },
   {
+    id: 'postgresql',
+    name: 'PostgreSQL',
+    icon: PostgreIcon,
+    url: 'https://www.postgresql.org/'
+  },
+  {
     id: 'postman',
     name: 'Postman',
     icon: PostmanIcon,
@@ -374,6 +399,18 @@ const techs: TechItem[] = [
     url: 'https://www.sphinx-doc.org/'
   },
   {
+    id: 'sql',
+    name: 'SQL',
+    icon: SqlIcon,
+    url: 'https://en.wikipedia.org/wiki/SQL'
+  },
+  {
+    id: 'supabase',
+    name: 'Supabase',
+    icon: SupabaseIcon,
+    url: 'https://supabase.com/'
+  },
+  {
     id: 'tensorflow',
     name: 'TensorFlow',
     icon: TensorflowIcon,
@@ -390,6 +427,18 @@ const techs: TechItem[] = [
     name: 'Tailwind',
     icon: TailwindIcon,
     url: 'https://tailwindcss.com/'
+  },
+  {
+    id: 'terraform',
+    name: 'Terraform',
+    icon: TerraformIcon,
+    url: 'https://terraform.io/'
+  },
+  {
+    id: 'vercel',
+    name: 'Vercel',
+    icon: VercelIcon,
+    url: 'https://vercel.com/'
   },
   {
     id: 'vertex-ai',
