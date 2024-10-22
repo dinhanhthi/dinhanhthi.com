@@ -46,7 +46,7 @@
     "geopattern": "1",
     "katex": "^0.16.10",
     "lodash": "^4.17.21",
-    "mermaid": "^10.4.0",
+    "mermaid": "^10.9.3",
     "moment": "^2.29.4",
     "next": "^14.2.10",
     "next-sitemap": "^4.1.8",
