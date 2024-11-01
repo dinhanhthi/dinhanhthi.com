@@ -1,5 +1,5 @@
 import { ImgurUrlType } from '@/src/interface'
-import { Post, Tag } from '@notion-x/src/interface'
+import { Post, PostHeaderType, Tag } from '@notion-x/src/interface'
 import { mapTag } from '@notion-x/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { Metadata } from 'next'
@@ -135,6 +135,7 @@ export function getMetadata(opts: {
 export function getPostProperties(post: Block, topics: Tag[] = []): Post {
   const id = post.id
   const properties = post?.properties
+  /* ###Thi */ console.log(`👉👉👉 properties: ${JSON.stringify(properties)}`)
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
   const title = properties?.title?.[1]?.[0] || properties?.title?.[0]?.[0]
   const rawTitle = properties?.title
@@ -159,6 +160,13 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
   const discrete = properties?.[`${process.env.NEXT_PUBLIC_ID_DISCRETE}`]?.[0]?.[0] === 'Yes'
   const blog = properties?.[`${process.env.NEXT_PUBLIC_ID_BLOG}`]?.[0]?.[0] === 'Yes'
   const hide = properties?.[`${process.env.NEXT_PUBLIC_ID_HIDE}`]?.[0]?.[0] === 'Yes'
+  const language = properties?.[
+    `${process.env.NEXT_PUBLIC_ID_LANGUAGE}`
+  ]?.[0]?.[0] as PostHeaderType['language']
+  const vi = properties?.[`${process.env.NEXT_PUBLIC_ID_VI}`]?.[0]?.[0]
+  const en = properties?.[`${process.env.NEXT_PUBLIC_ID_EN}`]?.[0]?.[0]
+  const fr = properties?.[`${process.env.NEXT_PUBLIC_ID_FR}`]?.[0]?.[0]
+  const notionUrl = properties?.[`${process.env.NEXT_PUBLIC_NOTION_PUBLISHED_URL}`]?.[0]?.[0]
 
   return {
     id,
@@ -179,6 +187,11 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
     pinned,
     discrete,
     blog,
-    hide
+    hide,
+    language,
+    vi,
+    en,
+    fr,
+    notionUrl
   }
 }
