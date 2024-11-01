@@ -59,7 +59,8 @@ export default function PostHeader(props: PostHeaderProps) {
     isDraft,
     coverPosition,
     pageCover,
-    wellWritten
+    wellWritten,
+    language
   } = props.postProps
 
   const pageCoverObjectPosition = `center ${coverPosition}%`
@@ -205,6 +206,13 @@ export default function PostHeader(props: PostHeaderProps) {
                 TiTagClass="text-slate-100"
                 tagClass="text-slate-700 bg-slate-50"
               />
+            </div>
+          )}
+
+          {/* Language */}
+          {language && language !== 'en' && (
+            <div className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200">
+              {language === 'vi' ? 'Vietnamese' : 'French'}
             </div>
           )}
         </div>
