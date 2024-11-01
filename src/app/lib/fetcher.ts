@@ -707,6 +707,21 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // published
       const isPublished = get(post, 'properties.published.checkbox') || false
 
+      // language
+      const language = get(post, 'properties.language.select.name') || 'en'
+
+      // vi
+      const vi = get(post, 'properties.vi.rich_text[0].plain_text') || ''
+
+      // en
+      const en = get(post, 'properties.en.rich_text[0].plain_text') || ''
+
+      // fr
+      const fr = get(post, 'properties.fr.rich_text[0].plain_text') || ''
+
+      // notionUrl
+      const notionUrl = get(post, 'properties.notionURL.formula.string') || ''
+
       return {
         id,
         title,
@@ -720,7 +735,12 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
         pinned,
         blog,
         hide,
-        isPublished
+        isPublished,
+        language,
+        vi,
+        en,
+        fr,
+        notionUrl
       } as Post
     })
   )
