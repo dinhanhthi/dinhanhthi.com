@@ -9,6 +9,7 @@ const nextConfig = {
     // serverActions: true
     // esmExternals: 'loose' // https://nextjs.org/docs/messages/import-esm-externals
   },
+  staticPageGenerationTimeout: 180, // seconds
   modularizeImports: {
     lodash: {
       transform: 'lodash/{{member}}',
