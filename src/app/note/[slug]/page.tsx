@@ -54,7 +54,6 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = getPostProperties(block, topics)
-    /* ###Thi */ console.log(`👉👉👉 postProps: ${JSON.stringify(postProps)}`)
     if (postProps.discrete)
       return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 
