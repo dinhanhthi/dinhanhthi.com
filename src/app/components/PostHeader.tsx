@@ -211,9 +211,18 @@ export default function PostHeader(props: PostHeaderProps) {
 
           {/* Language */}
           {language && language !== 'en' && (
-            <div className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200">
-              {language === 'vi' ? 'Vietnamese' : 'French'}
-            </div>
+            <>
+              <div
+                id={`lang-${block.id}`}
+                className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200"
+              >
+                {language === 'vi' ? 'Vietnamese' : 'French'}
+              </div>
+              <TooltipX id={`#lang-${block.id}`}>
+                {language === 'vi' && 'This post is written in Vietnamese'}
+                {language === 'fr' && 'This post is written in French'}
+              </TooltipX>
+            </>
           )}
         </div>
       </Header>
