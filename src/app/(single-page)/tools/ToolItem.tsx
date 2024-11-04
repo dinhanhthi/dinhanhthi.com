@@ -54,10 +54,10 @@ export default function ToolItem(props: ToolItemProps) {
       >
         {tool.favorite && props.showFavoriteStar && (
           <>
-            <div id={`bookmark-${tool.id}`} className="absolute right-3 top-3 text-amber-400 z-50">
+            <div id={`tool-${tool.id}`} className="absolute right-3 top-3 text-amber-400 z-50">
               <StarIcon className="text-xl" />
             </div>
-            <TooltipX id={`#bookmark-${tool.id}`}>My favorite</TooltipX>
+            <TooltipX id={`#tool-${tool.id}`}>My favorite</TooltipX>
           </>
         )}
 
