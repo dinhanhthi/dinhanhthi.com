@@ -110,7 +110,12 @@ export default function PostHeader(props: PostHeaderProps) {
             )}
 
             {/* Title */}
-            <h1 className="inline items-baseline gap-2  text-2xl sm:text-3xl xl:text-4xl font-bold leading-tight tracking-tight text-center md:text-left thi-text-rainbow">
+            <h1
+              className={cn(
+                'inline items-baseline gap-2 text-2xl sm:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left thi-text-rainbow',
+                'font-family-base'
+              )}
+            >
               <Text value={title} block={block} />
             </h1>
           </div>
