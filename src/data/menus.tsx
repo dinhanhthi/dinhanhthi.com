@@ -30,14 +30,14 @@ export const MENUS: MenuType[] = [
   {
     name: 'Topics',
     uri: '/tags/'
-  },
-  {
-    name: 'Projects',
-    uri: '/projects/'
   }
 ]
 
 export const HIDDEN_MENUS: MenuType[] = [
+  {
+    name: 'Projects',
+    uri: '/projects/'
+  },
   {
     name: 'Tools',
     uri: '/tools/'
@@ -45,10 +45,6 @@ export const HIDDEN_MENUS: MenuType[] = [
   {
     name: 'Reading',
     uri: '/reading/'
-  },
-  {
-    name: 'Games',
-    uri: '/games/'
   }
 ]
 
