@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import TooltipX from '@notion-x/src/components/tooltip-x'
 import { Book, Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
+import { questrial } from '../../lib/fonts'
 
 export type ToolItemInputType = Tool & Book & Game
 
@@ -99,7 +100,9 @@ export default function ToolItem(props: ToolItemProps) {
         </div>
 
         {/* title & author */}
-        <div className={cn('min-w-0 flex-1 flex flex-col gap-3 px-3 py-4 pl-4')}>
+        <div
+          className={cn('min-w-0 flex-1 flex flex-col gap-3 px-3 py-4 pl-4', questrial.className)}
+        >
           <div className="flex flex-col gap-1">
             <div
               className={cn(
@@ -124,7 +127,7 @@ export default function ToolItem(props: ToolItemProps) {
               )}
 
               {/* NAME */}
-              {tool.name}
+              <span className="text-[1.05rem] leading-[1.35]">{tool.name}</span>
             </div>
             {tool.author && (
               <div className="text-sm text-slate-500 group-hover:text-slate-700">{tool.author}</div>

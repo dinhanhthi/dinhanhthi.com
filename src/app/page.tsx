@@ -132,7 +132,10 @@ export default async function Home() {
                   <PostList
                     posts={blogPosts}
                     postType="PostCardWave"
-                    postTypeOpts={defaultPostTypeOpts}
+                    postTypeOpts={{
+                      ...defaultPostTypeOpts,
+                      fontClassName: 'font-family-base text-base'
+                    }}
                     options={{
                       className: 'grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
                     }}
@@ -167,7 +170,10 @@ export default async function Home() {
                     <PostList
                       posts={pinnedPosts}
                       postType="PostSimple"
-                      postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
+                      postTypeOpts={{
+                        ...defaultPostTypeOpts,
+                        showPinned: true
+                      }}
                       options={{
                         className: 'flex flex-col divide-y'
                       }}

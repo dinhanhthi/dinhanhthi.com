@@ -2,7 +2,7 @@ import { PostTypeOpts } from '@notion-x/src/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
 import { DiscreteColsType } from '@notion-x/src/components/PostBody'
-import { poppins } from './fonts'
+import { questrial } from './fonts'
 
 export const numPostsToShow = 12
 
@@ -27,7 +27,7 @@ export const discreteColsType: DiscreteColsType = 'single'
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 
 export const defaultPostTypeOpts: PostTypeOpts = {
-  fontClassName: poppins.className,
+  fontClassName: `${questrial.className} leading-[1.35] !text-[1.05rem]`,
   newLabel: 'new',
   updatedLabel: 'updated',
   humanizeDate: true,
