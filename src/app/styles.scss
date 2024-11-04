@@ -24,11 +24,21 @@
   font-display: swap;
 }
 
+.font-family-base {
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell,
+    open sans, helvetica neue, sans-serif;
+}
+
 .font-post {
   font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell,
     open sans, helvetica neue, sans-serif;
   font-size: 16px;
   font-weight: 300;
+}
+
+strong,
+b {
+  font-weight: bold;
 }
 
 @layer base {
