@@ -43,10 +43,6 @@ export const HIDDEN_MENUS: MenuType[] = [
     uri: '/tools/'
   },
   {
-    name: 'Bookmarks',
-    uri: '/bookmarks/'
-  },
-  {
     name: 'Reading',
     uri: '/reading/'
   },

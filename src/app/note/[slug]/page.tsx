@@ -45,7 +45,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     const topics = await getTopics()
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
-    console.log(`👉 pageIdwithDash: `, pageIdwithDash) // ###M
+    console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
