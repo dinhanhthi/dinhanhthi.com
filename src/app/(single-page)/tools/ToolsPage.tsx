@@ -8,7 +8,6 @@ import Fuse from 'fuse.js'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
 
-import Link from 'next/link'
 import { Tool } from '../../../interface'
 import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
 import TagAndroidIcon from '../../icons/TagAndroidIcon'
@@ -147,15 +146,6 @@ export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
             </button>
           ))}
         </div>
-      </div>
-
-      <div className="text-gray-800 border p-4 bg-green-100 rounded-md">
-        <span className="mr-2">👉</span> In addition to the tools on this page, you can explore
-        other useful tools{' '}
-        <Link className="m2it-link" href="/bookmarks/?tag=tools">
-          here
-        </Link>
-        !
       </div>
 
       {/* Tool list */}
