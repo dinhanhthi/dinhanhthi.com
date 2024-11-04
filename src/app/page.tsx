@@ -8,10 +8,7 @@ import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import me from '../data/me'
-import { Book, BookmarkItem, Tool } from '../interface'
-import BookmarkItemSimpleTemplate, {
-  SkeletonBookmarkItemSimpleTemplate
-} from './(single-page)/bookmarks/BookmarkItemSimpleTemplate'
+import { Book, Tool } from '../interface'
 import ToolItem, { ToolItemInputType } from './(single-page)/tools/ToolItem'
 import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
@@ -29,7 +26,6 @@ import {
 import {
   getPosts,
   getTopics,
-  getUnofficialBookmarks,
   getUnofficialBooks,
   getUnofficialProjects,
   getUnofficialTools
@@ -53,7 +49,6 @@ export const metadata = getMetadata({
 export default async function Home() {
   const numPinnedPosts = 6
   const numProjects = 6
-  const numBookmarks = 6
   const numTools = 6
   const numBooks = 6
   const numBlogPosts = 4
@@ -98,7 +93,6 @@ export default async function Home() {
   const projects = await getUnofficialProjects()
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
-  const { bookmarks } = await getUnofficialBookmarks()
   const { books } = await getUnofficialBooks()
 
   const topics = _topics.map(topic => ({
@@ -205,30 +199,6 @@ export default async function Home() {
                   />
                 </Suspense>
               </div>
-            </div>
-          </div>
-
-          {/* Bookmarks */}
-          <div className="flex flex-col gap-4">
-            <HeadingWithMore
-              title="Recent bookmarks"
-              href={bookmarks.length >= numBookmarks ? '/bookmarks/' : undefined}
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {bookmarks.slice(0, numBookmarks).map((mark: BookmarkItem, index: number) => (
-                <Suspense
-                  key={mark.id}
-                  fallback={<SkeletonBookmarkItemSimpleTemplate index={index} />}
-                >
-                  <BookmarkItemSimpleTemplate
-                    key={mark.id}
-                    mark={mark}
-                    hidePinIcon={true}
-                    hideDescription={false}
-                    hideTags={true}
-                  />
-                </Suspense>
-              ))}
             </div>
           </div>
 
