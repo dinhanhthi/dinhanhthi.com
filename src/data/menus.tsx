@@ -35,10 +35,6 @@ export const MENUS: MenuType[] = [
 
 export const HIDDEN_MENUS: MenuType[] = [
   {
-    name: 'Projects',
-    uri: '/projects/'
-  },
-  {
     name: 'Tools',
     uri: '/tools/'
   },

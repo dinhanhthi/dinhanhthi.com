@@ -6,7 +6,6 @@ import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoint
 import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
 
-import { Project } from '../components/ProjectItem'
 import { defaultPostDate, defaultPostTitle } from './config'
 import { getFilter, getPostProperties, getUri } from './helpers'
 
@@ -252,73 +251,6 @@ function transformTopics(data: CollectionInstance): Tag[] {
   return topics.sort(function (a, b) {
     return a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   })
-}
-
-export async function getUnofficialProjects() {
-  try {
-    const data = await getUnofficialDatabase({
-      spaceId: process.env.SPACE_ID,
-      sourceId: process.env.PROJECTS_SOURCE_ID,
-      collectionViewId: process.env.PROJECTS_COLLECTION_VIEW_ID,
-      notionTokenV2: process.env.NOTION_TOKEN_V2,
-      notionActiveUser: process.env.NOTION_ACTIVE_USER,
-      notionApiWeb: process.env.NOTION_API_WEB
-    })
-    return transformUnofficialProjects(data)
-  } catch (error) {
-    console.error('🚨 Error in getProjects()', error)
-    return []
-  }
-}
-
-function transformUnofficialProjects(data: CollectionInstance): Project[] {
-  const _block = data?.recordMap?.block
-  const projectIds = Object.keys(_block)
-  const projects = [] as Project[]
-
-  for (const id of projectIds) {
-    const project = _block[id]
-    const properties = project?.value?.properties
-    const description = properties?.[`${process.env.PROJECTS_DESC_KEY}`]?.[0]?.[0]
-    if (!description) continue // because there are useless blocks in the database
-    const type = properties?.[`${process.env.PROJECTS_TYPE_KEY}`]?.[0]?.[0]?.split(',')
-    const title = properties?.title?.[0]?.[0]
-    const tech = properties?.[`${process.env.PROJECTS_TECH_KEY}`]?.[0]?.[0]?.split(',')
-    const source = properties?.[`${process.env.PROJECTS_SOURCE_KEY}`]?.[0]?.[0]
-    const url = properties?.[`${process.env.PROJECTS_URL_KEY}`]?.[0]?.[0]
-    const techText = properties?.[`${process.env.PROJECTS_TECH_TEXT_KEY}`]?.[0]?.[0]?.split(',')
-    const choice = properties?.[`${process.env.PROJECTS_CHOICE_KEY}`]?.[0]?.[0] === 'Yes'
-    const icon = project?.value?.format?.page_icon
-    const lastModified =
-      properties?.[`${process.env.PROJECTS_LAST_MODIFIED_KEY}`]?.[0]?.[1]?.[0]?.[1]?.start_date ??
-      new Date(project?.value?.last_edited_time).toISOString()
-    const block = project?.value as Block
-
-    projects.push({
-      id,
-      title,
-      description,
-      type,
-      tech,
-      source,
-      url,
-      techText,
-      choice,
-      icon,
-      lastModified,
-      block
-    })
-  }
-
-  projects.sort(function (a, b) {
-    const keyA = new Date(a.lastModified)
-    const keyB = new Date(b.lastModified)
-    if (keyA < keyB) return 1
-    if (keyA > keyB) return -1
-    return 0
-  })
-
-  return projects
 }
 
 function transformUnofficialPosts(data: CollectionInstance): Post[] {
