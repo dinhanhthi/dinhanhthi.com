@@ -161,21 +161,29 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
       {/* Reading list */}
       <div className="flex flex-col gap-4">
         <div className="text-base leading-normal text-gray-600 italic">
-          <strong className="font-medium">Remark</strong>: Click here to see my reviews (in
-          Vietnamese) on Goodreads. I mostly read the Vietnamese versions of books. If I can{"'"}t
-          find their English titles, I{"'"}ll use the Vietnamese titles instead.{' '}
-          <span className="font-medium">Read more:</span>{' '}
+          <strong className="font-medium">Remark</strong>:{' '}
+          <a
+            className="m2it-link"
+            href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
+            target="_blank"
+          >
+            Click here
+          </a>{' '}
+          to see my reviews (in Vietnamese) on Goodreads. I mostly read the Vietnamese versions of
+          books. If I can{"'"}t find their English titles, I{"'"}ll use the Vietnamese titles
+          instead. <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
           </Link>
-          ,{' '}
+          , my{' '}
           <a
+            className="m2it-link"
             href="https://www.goodreads.com/review/list/19630622-thi-dinh?ref=nav_mybooks&shelf=to-read"
             target="_blank"
           >
-            my want-to-read list on Goodreads
-          </a>
-          .
+            want-to-read list
+          </a>{' '}
+          on Goodreads.
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
