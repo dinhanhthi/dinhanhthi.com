@@ -24,10 +24,10 @@ export const metadata = getMetadata({
 })
 
 export default async function ToolsHomePage() {
-  const { tools, tags } = await getUnofficialTools()
+  const { tools, categories } = await getUnofficialTools()
 
   return (
-    <div className="thi-bg-stone flex flex-col">
+    <div className="flex flex-col">
       <HeaderPage
         headerType="gray"
         title={title}
@@ -39,7 +39,7 @@ export default async function ToolsHomePage() {
       />
       <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonToolContainer />}>
-          <ToolsPage tools={tools} tags={tags} />
+          <ToolsPage tools={tools} categories={categories} />
         </Suspense>
       </Container>
       <Footer footerType="gray" />

@@ -141,7 +141,8 @@ export async function getUnofficialTools() {
       notionApiWeb: process.env.NOTION_API_WEB
     })
     const allTags = getAllToolsTags(data)
-    return { tools: transformUnofficialTools(data), tags: allTags }
+    const allCategories = getAllToolsCategories(data)
+    return { tools: transformUnofficialTools(data), tags: allTags, categories: allCategories }
   } catch (error) {
     console.error('🚨 Error in getUnofficialTools', error)
     return { tools: [], tags: [] }
@@ -156,6 +157,14 @@ function getAllToolsTags(data: CollectionInstance): string[] {
   )
 }
 
+function getAllToolsCategories(data: CollectionInstance): string[] {
+  return (
+    data?.recordMap?.collection?.[`${process.env.TOOLS_SOURCE_ID}`]?.value?.schema?.[
+      `${process.env.TOOLS_CATEGORY_KEY}`
+    ]?.options?.map((option: any) => option.value) ?? []
+  )
+}
+
 function transformUnofficialTools(data: CollectionInstance): Tool[] {
   const _block = data?.recordMap?.block
   const toolIds = Object.keys(_block)
@@ -164,13 +173,14 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
   for (const id of toolIds) {
     const tool = _block[id]
     const properties = tool?.value?.properties
-
     const iconUrl = properties?.[`${process.env.TOOLS_ICON_KEY}`]?.[0]?.[1]?.[0]?.[1]
     if (!iconUrl) continue // because there are useless blocks in the database
     const name = properties?.title?.[0]?.[0]
     const description = properties?.[`${process.env.TOOLS_DESC_KEY}`]?.[0]?.[0]
+    const shortDescription = properties?.[`${process.env.TOOLS_SHORT_DESC_KEY}`]?.[0]?.[0]
     const isFree = properties?.[`${process.env.TOOLS_FREE_KEY}`]?.[0]?.[0] === 'Yes'
     const tags = properties?.[`${process.env.TOOLS_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const category = properties?.[`${process.env.TOOLS_CATEGORY_KEY}`]?.[0]?.[0]
     const url = properties?.[`${process.env.TOOLS_URL_KEY}`]?.[0]?.[0]
     const date = new Date(tool?.value?.created_time)?.toISOString()
     const block = tool?.value as Block
@@ -180,10 +190,12 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
       id,
       name,
       description,
+      shortDescription,
       url,
       iconUrl,
       isFree,
       tags,
+      category,
       date,
       block,
       keySearch
