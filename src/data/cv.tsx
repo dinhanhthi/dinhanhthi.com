@@ -17,7 +17,6 @@ const cv: CVGroupType[] = [
         id: 'self-employed',
         where: 'Self-working',
         logo: SelfLearnLogo,
-        url: 'https://dinhanhthi.com/projects/',
         title: 'Full-stack Developer',
         date: '2013 — current',
         activity: [
