@@ -130,8 +130,10 @@ export interface ToolCommon {
   id: string
   name: string
   description?: string
+  shortDescription?: string // max 6 words
   iconUrl: string
   tags: string[]
+  category?: string
   url: string
   date: string
   block: Block // used to fetch icons
