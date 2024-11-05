@@ -1,175 +1,62 @@
 'use client'
 
-import FiSearch from '@notion-x/src/icons/FiSearch'
-import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
-import cn from 'classnames'
-import Fuse from 'fuse.js'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
-
+import SimpleImage from '@notion-x/src/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
+import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
 import { Tool } from '../../../interface'
-import PiToolboxDuotone from '../../icons/PiToolboxDuotone'
-import TagAndroidIcon from '../../icons/TagAndroidIcon'
-import TagBrowserExtensionIcon from '../../icons/TagBrowserExtensionIcon'
-import TagDevIcon from '../../icons/TagDevIcon'
-import TagEducationIcon from '../../icons/TagEducationIcon'
-import TagIOSIcon from '../../icons/TagIOSIcon'
-import TagLinuxIcon from '../../icons/TagLinuxIcon'
-import TagMacOSIcon from '../../icons/TagMacOSIcon'
-import TagRelaxIcon from '../../icons/TagRelaxIcon'
-import TagVSCodeIcon from '../../icons/TagVSCodeIcon'
-import TagWebAppIcon from '../../icons/TagWebAppIcon'
-import TagWindowsIcon from '../../icons/TagWindowsIcon'
-import ToolItem, { ToolItemInputType } from './ToolItem'
 
-const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
-  android: TagAndroidIcon,
-  'browser-extension': TagBrowserExtensionIcon,
-  dev: TagDevIcon,
-  ios: TagIOSIcon,
-  linux: TagLinuxIcon,
-  macos: TagMacOSIcon,
-  relax: TagRelaxIcon,
-  education: TagEducationIcon,
-  'vscode-extension': TagVSCodeIcon,
-  'web-app': TagWebAppIcon,
-  windows: TagWindowsIcon
-}
-
-export default function ToolsPage(props: { tools: Tool[]; tags: string[] }) {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [searchResult, setSearchResult] = useState<Tool[]>(props.tools)
-  const [query, setQuery] = useState('')
-  const [tagsToShow, setTagsToShow] = useState<string[]>([])
-
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const tag = searchParams.get('tag')
-
-  useEffect(() => {
-    if (tag && tag.length) {
-      setTagsToShow(tag.split(','))
-    }
-  }, [tag])
-
-  const toggleTypeToShow = (tag: string) => {
-    if (tagsToShow.includes(tag)) {
-      if (tagsToShow.length === 1) {
-        router.push('/tools', { scroll: false })
-      } else {
-        router.push(`/tools?tag=${tagsToShow.filter(item => item !== tag).join(',')}`, {
-          scroll: false
-        })
-      }
-      setTagsToShow(tagsToShow.filter(item => item !== tag))
-    } else {
-      setTagsToShow([...tagsToShow, tag])
-      router.push(`/tools?tag=${[...tagsToShow, tag].join(',')}`, { scroll: false })
-    }
-  }
-
-  const toolsToShow = searchResult.filter(
-    tool => tagsToShow.every(type => tool.tags.includes(type)) || tagsToShow.length === 0
-  )
-
-  const fuseOptions = {
-    includeScore: false,
-    keys: ['name', 'description', 'tag', 'keySearch']
-  }
-
-  const fuse = new Fuse(props.tools, fuseOptions)
-
-  function handleOnchangeInput(e: ChangeEvent<HTMLInputElement>) {
-    const { value } = e.target
-    setQuery(value)
-    if (value.length) {
-      const result = fuse.search(value)
-      setSearchResult(result?.map(item => item.item))
-    } else {
-      setSearchResult(props.tools)
-    }
-  }
-
-  function clearQuery() {
-    setQuery('')
-    setSearchResult(props.tools)
-  }
-
+export default function ToolsPage(props: { tools: Tool[]; categories?: string[] }) {
+  const sortedCategories = props.categories?.sort((a, b) => a.localeCompare(b))
   return (
-    <div className="flex flex-col gap-6">
-      {/* Search */}
-      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
-        <div className="grid place-items-center text-slate-500">
-          <FiSearch className="text-2xl" />
-        </div>
-        <input
-          ref={inputRef}
-          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
-          id="search"
-          type="search"
-          placeholder={'Search tools...'}
-          autoComplete="off"
-          value={query}
-          onChange={e => handleOnchangeInput(e)}
-        />
-        {query && (
-          <button onClick={() => clearQuery()}>
-            <IoCloseCircle className="h-5 w-5 text-slate-500" />
-          </button>
-        )}
-      </div>
-
-      {/* Tags */}
-      <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
-        <div className="flex gap-2.5 flex-wrap items-center">
-          {props.tags?.map(tag => (
-            <button
-              onClick={() => toggleTypeToShow(tag)}
-              key={makeSlugText(tag)}
-              className={cn(
-                'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
-                {
-                  'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
-                  'bg-sky-600 text-white': tagsToShow.includes(tag)
-                }
-              )}
-            >
-              {iconTagList[tag] && (
-                <>
-                  {createElement(iconTagList[tag], {
-                    className: 'h-5 w-5'
-                  })}
-                </>
-              )}
-              <div className="whitespace-nowrap text-base">{tag}</div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Tool list */}
-      <div className="flex flex-col gap-4">
-        <div className="text-sm text-gray-600 italic">
-          <strong className="font-medium">Remark</strong>: &quot;free&quot; means that the free
-          features are enough for me to use, the tools may have paid features. &quot;paid&quot;
-          means that I have to pay to use the features I need.
-        </div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {toolsToShow?.map((tool: Tool) => (
-            <ToolItem key={tool.id} tool={tool as ToolItemInputType} />
-          ))}
-        </div>
-        {!toolsToShow.length && (
-          <div className="text-slate-500 flex gap-2 items-center justify-center w-full">
-            <PiToolboxDuotone className="text-2xl" />
-            <div>No tools found.</div>
+    <div className="flex flex-col gap-8">
+      {sortedCategories &&
+        sortedCategories.length > 0 &&
+        sortedCategories.map(category => (
+          <div key={category} className="bg-slate-100 flex flex-col p-1 rounded-xl">
+            <div className="p-2 font-medium text-base">{category}</div>
+            <div className="bg-white grid gap-x-2 p-2 sm:grid-cols-2 rounded-xl border-slate-200 border">
+              {props.tools
+                ?.filter(t => t.category === category)
+                ?.map(tool => {
+                  const convertedIconUrl = defaultMapImageUrl(tool.iconUrl, tool.block)!
+                  return (
+                    <a
+                      href={tool.url}
+                      key={tool.url}
+                      target="_blank"
+                      className="flex flex-row items-center p-4 gap-4 hover:bg-slate-100 rounded-lg text-[0.9rem]"
+                    >
+                      <SimpleImage
+                        src={convertedIconUrl}
+                        width={30}
+                        height={30}
+                        className="rounded-md h-auto z-20"
+                        imagePlaceholder={ImagePlaceholder()}
+                      />
+                      <div className="flex flex-col">
+                        <div className="font-normal">{tool.name}</div>
+                        <div className="opacity-70">{tool.shortDescription}</div>
+                      </div>
+                    </a>
+                  )
+                })}
+            </div>
           </div>
-        )}
-      </div>
+        ))}
     </div>
   )
 }
+
+const ImagePlaceholder = () => (
+  <div className="flex items-center justify-center h-full">
+    <div
+      style={{ width: 30, height: 30 }}
+      className="flex items-center justify-center absolute inset-0 m-auto rounded-full animate-pulse"
+    >
+      <AiOutlineLoading3Quarters className="text-[25px] text-slate-600 animate-spin" />
+    </div>
+  </div>
+)
 
 export function SkeletonToolItem() {
   return (
