@@ -14,7 +14,6 @@ import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
-import ProjectItem, { Project, SkeletonProjectItem } from './components/ProjectItem'
 import Topic from './components/Topic'
 import {
   bodyPadding,
@@ -23,13 +22,7 @@ import {
   defaultPostTypeOpts,
   numPostsToShow
 } from './lib/config'
-import {
-  getPosts,
-  getTopics,
-  getUnofficialBooks,
-  getUnofficialProjects,
-  getUnofficialTools
-} from './lib/fetcher'
+import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from './lib/fetcher'
 import { getMetadata } from './lib/helpers'
 
 export const revalidate = 20
@@ -48,7 +41,6 @@ export const metadata = getMetadata({
 
 export default async function Home() {
   const numPinnedPosts = 6
-  const numProjects = 6
   const numTools = 6
   const numBooks = 6
   const numBlogPosts = 4
@@ -90,7 +82,6 @@ export default async function Home() {
       }
     }
   })
-  const projects = await getUnofficialProjects()
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
   const { books } = await getUnofficialBooks()
@@ -99,11 +90,6 @@ export default async function Home() {
     ...topic,
     icon: { sourceUrl: topic.iconUrl, width: 20, height: 20, blurDataURL: defaultBlurDataURL }
   }))
-
-  const projectsToShow = projects.slice(0, numProjects)
-  const isThereDsProject = projectsToShow.some(project => project.type.includes('ds'))
-  const isThereWebProject = projectsToShow.some(project => project.type.includes('web'))
-  const isThereOtherProject = projectsToShow.some(project => project.type.includes('other'))
 
   return (
     <div className="thi-bg-stone">
@@ -261,51 +247,6 @@ export default async function Home() {
                 .map(topic => (
                   <Topic type="simple" key={topic.id} tag={topic} />
                 ))}
-            </div>
-          </div>
-
-          {/* Projects */}
-          <div className="flex flex-col gap-4">
-            <HeadingWithMore
-              title="Recent projects"
-              href={projects.length >= numProjects ? '/projects/' : undefined}
-            />
-            <div className="flex flex-col gap-x-3 gap-y-4">
-              <div className="flex gap-4 flex-wrap">
-                {isThereDsProject && (
-                  <div className="flex gap-2 items-center">
-                    <div className="h-1 rounded-xl w-8 sm:w-16 bg-sky-600"></div>
-                    <div className="text-slate-600 text-sm">
-                      <span className="hidden sm:inline whitespace-nowrap">Data Science</span>
-                      <span className="sm:hidden">DS</span>
-                    </div>
-                  </div>
-                )}
-
-                {isThereWebProject && (
-                  <div className="flex gap-2 items-center">
-                    <div className="h-1 rounded-xl w-8 sm:w-16 bg-amber-500"></div>
-                    <div className="text-slate-600 text-sm">
-                      <span className="hidden sm:inline whitespace-nowrap">Web Development</span>
-                      <span className="sm:hidden">Web</span>
-                    </div>
-                  </div>
-                )}
-
-                {isThereOtherProject && (
-                  <div className="flex gap-2 items-center">
-                    <div className="h-1 rounded-xl w-8 sm:w-16 bg-emerald-600"></div>
-                    <div className="text-slate-600 text-sm whitespace-nowrap">Others</div>
-                  </div>
-                )}
-              </div>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:gap-3 xl:grid-cols-3 overflow-hidden md:overflow-visible">
-                {projects.slice(0, numProjects).map((project: Project) => (
-                  <Suspense key={project.id} fallback={<SkeletonProjectItem />}>
-                    <ProjectItem key={project.id} project={project} grayScale={true} />
-                  </Suspense>
-                ))}
-              </div>
             </div>
           </div>
         </div>
