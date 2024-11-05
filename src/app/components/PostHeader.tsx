@@ -219,7 +219,7 @@ export default function PostHeader(props: PostHeaderProps) {
             <>
               <div
                 id={`lang-${block.id}`}
-                className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200"
+                className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200 mx-auto sm:ml-0"
               >
                 {language === 'vi' ? 'Vietnamese' : 'French'}
               </div>
