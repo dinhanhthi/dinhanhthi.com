@@ -11,7 +11,7 @@ import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
 import { getUnofficialBooks } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
-import { SkeletonToolItem } from '../tools/ToolsPage'
+import { SkeletonToolItem } from '../tools/ToolItem'
 import ReadingPage from './ReadingPage'
 
 export const revalidate = 20

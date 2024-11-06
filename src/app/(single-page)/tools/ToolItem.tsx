@@ -193,3 +193,50 @@ const ImagePlaceholder = () => (
     </div>
   </div>
 )
+
+export function SkeletonToolItem() {
+  return (
+    <div className="p-2 bg-white rounded-lg border border-slate-150">
+      <div className="flex flex-row h-full">
+        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
+          <div className="relative w-full h-full overflow-hidden">
+            <div
+              style={{
+                position: 'absolute',
+                inset: '0px',
+                backgroundImage: `
+                  linear-gradient(#f0f0f0, #f0f0f0),
+                  linear-gradient(transparent, transparent),
+                  url()`,
+                backgroundBlendMode: 'luminosity, overlay, normal',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center top',
+                backgroundSize: '100% 100%',
+                filter: 'blur(25px) saturate(1)',
+                transform: 'var(1.5) translate3d(0, 0, 0)'
+              }}
+            ></div>
+            <div className="flex items-center justify-center p-8">
+              <div className="animate-pulse w-[60px] h-[60px] max-w-[60px] absolute inset-0 m-auto rounded-full bg-slate-200"></div>
+            </div>
+          </div>
+        </div>
+        <div className="min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4 animate-pulse">
+          <div className="flex gap-1.5 flex-col">
+            <div className="font-semibold text-slate-700">
+              <div className="w-1/2 h-5 bg-slate-100 rounded-md"></div>
+            </div>
+            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
+              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
+              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
+            </div>
+          </div>
+          <div className="text-[0.83rem] text-slate-700 break-words overflow">
+            <div className="w-full h-3 bg-slate-100 rounded-md"></div>
+            <div className="w-4/5 h-3 bg-slate-100 rounded-md mt-1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
