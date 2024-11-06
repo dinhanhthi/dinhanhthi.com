@@ -1,7 +1,7 @@
 {
   "name": "dinhanhthi.com",
   "description": "My personal website for taking notes.",
-  "version": "6.4.7",
+  "version": "6.4.8",
   "author": "Anh-Thi Dinh",
   "packageManager": "yarn@4.1.1",
   "license": "MIT",

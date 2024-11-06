@@ -8,9 +8,9 @@ import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
 import me from '../data/me'
-import { Book, Tool } from '../interface'
-import ToolItem, { ToolItemInputType } from './(single-page)/tools/ToolItem'
-import { SkeletonToolItem } from './(single-page)/tools/ToolsPage'
+import { Book } from '../interface'
+import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
+import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
@@ -200,13 +200,9 @@ export default async function Home() {
               title="Recent tools I use"
               href={tools.length >= numTools ? '/tools/' : undefined}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
-              {tools.slice(0, numTools).map((tool: Tool) => (
-                <Suspense key={tool.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem key={tool.id} tool={tool as any} hideTags={true} />
-                </Suspense>
-              ))}
-            </div>
+            <Suspense fallback={<SkeletonToolPageSection />}>
+              <ToolSimpleSection tools={tools.slice(0, numTools)} />
+            </Suspense>
           </div>
 
           {/* Reading */}
