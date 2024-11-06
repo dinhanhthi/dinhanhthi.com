@@ -61,7 +61,7 @@ const ImagePlaceholder = () => (
   <div className="flex items-center justify-center h-full">
     <div
       style={{ width: 30, height: 30 }}
-      className="flex items-center justify-center absolute inset-0 m-auto rounded-full animate-pulse"
+      className="flex items-center justify-center m-auto rounded-full animate-pulse"
     >
       <AiOutlineLoading3Quarters className="text-[25px] text-slate-600 animate-spin" />
     </div>
