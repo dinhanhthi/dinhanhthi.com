@@ -30,10 +30,7 @@ export const MENUS: MenuType[] = [
   {
     name: 'Topics',
     uri: '/tags/'
-  }
-]
-
-export const HIDDEN_MENUS: MenuType[] = [
+  },
   {
     name: 'Tools',
     uri: '/tools/'
@@ -43,6 +40,8 @@ export const HIDDEN_MENUS: MenuType[] = [
     uri: '/reading/'
   }
 ]
+
+export const HIDDEN_MENUS: MenuType[] = []
 
 export const MenuGithub = {
   name: 'Github',
