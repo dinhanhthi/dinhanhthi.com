@@ -27,7 +27,7 @@ export const discreteColsType: DiscreteColsType = 'single'
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 
 export const defaultPostTypeOpts: PostTypeOpts = {
-  fontClassName: `${questrial.className} leading-[1.35] !text-[1.05rem]`,
+  fontClassName: `${questrial.className} leading-[1.35] !text-[1.03rem]`,
   newLabel: 'new',
   updatedLabel: 'updated',
   humanizeDate: true,
