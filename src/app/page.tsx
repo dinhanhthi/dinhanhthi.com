@@ -2,7 +2,6 @@ import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
 import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
 import cn from 'classnames'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
@@ -15,7 +14,6 @@ import Container from './components/Container'
 import Footer from './components/Footer'
 import HeaderIndex from './components/HeaderIndex'
 import Topic from './components/Topic'
-import { StreamlineApplicationAdd } from './icons/logs/LogsApp'
 import {
   bodyPadding,
   containerWide,
@@ -98,19 +96,16 @@ export default async function Home() {
       <Container className={cn(bodyPadding, containerWide)}>
         <div className="flex flex-col gap-14">
           {/* Logs */}
-          <div className="flex flex-col gap-4">
+          {/* <div className="flex flex-col gap-4">
             <HeadingWithMore
               title="Logs"
               href={posts.length >= numPostsToShow ? '/notes/' : undefined}
             />
             <div className={cn('thi-box-code flex flex-col gap-6 py-6 pr-6 pl-10')}>
-              {/* Day 1 */}
               <DemoLogDay dateText="today" />
-
-              {/* Day 2 */}
               <DemoLogDay dateText="6 days ago" />
             </div>
-          </div>
+          </div> */}
 
           {/* Notes */}
           <div className="flex flex-col gap-4">
@@ -266,52 +261,52 @@ export default async function Home() {
   )
 }
 
-function DemoLogDay(props: any) {
-  return (
-    <div className="flex flex-col gap-6 border-l border-dashed border-slate-300">
-      <div className="-ml-4 bg-white text-[1rem] text-sky-700">{props.dateText || 'today'}</div>
-      <div className="flex flex-col gap-6 -ml-4">
-        {/* Log 1 */}
-        <DemoLogItem />
+// function DemoLogDay(props: any) {
+//   return (
+//     <div className="flex flex-col gap-6 border-l border-dashed border-slate-300">
+//       <div className="-ml-4 bg-white text-[1rem] text-sky-700">{props.dateText || 'today'}</div>
+//       <div className="flex flex-col gap-6 -ml-4">
+//         {/* Log 1 */}
+//         <DemoLogItem />
 
-        {/* Log 2 */}
-        <DemoLogItem hidePhotos={true} />
-      </div>
-    </div>
-  )
-}
+//         {/* Log 2 */}
+//         <DemoLogItem hidePhotos={true} />
+//       </div>
+//     </div>
+//   )
+// }
 
-function DemoLogItem(props: any) {
-  return (
-    <div className="flex flex-row gap-2 items-start group">
-      <div className="bg-white rounded-full border border-slate-300 group-hover:border-slate-400 border-dashed shrink-0 flex items-center justify-center w-8 h-8 -mt-0.5">
-        <StreamlineApplicationAdd className="w-4 h-4 shrink-0 bg-white text-slate-500 group-hover:text-slate-600" />
-      </div>
-      <div className="flex flex-col gap-2 text-[0.95rem] leading-relaxed">
-        <div className="text-slate-800 group-hover:text-slate-950">
-          Để có thể save hình đã chụp trong clipboard thành một file riêng trên macOS, mở Preview
-          lên rồi nhấn cmd+N là xong. Để có thể save hình đã chụp trong clipboard thành một file
-          riêng trên macOS, mở Preview lên rồi nhấn cmd+N là xong.
-        </div>
-        {!props.hidePhotos && (
-          <div className="flex flex-row gap-4">
-            <Image
-              src="https://images.unsplash.com/photo-1730774487035-05673e0c5747?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              width={100}
-              height={100}
-              alt="Picture of the author"
-              className="rounded-xl"
-            />
-            <Image
-              src="https://plus.unsplash.com/premium_photo-1730156312766-e5ab6e27a993?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              width={100}
-              height={100}
-              alt="Picture of the author"
-              className="rounded-xl"
-            />
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+// function DemoLogItem(props: any) {
+//   return (
+//     <div className="flex flex-row gap-2 items-start group">
+//       <div className="bg-white rounded-full border border-slate-300 group-hover:border-slate-400 border-dashed shrink-0 flex items-center justify-center w-8 h-8 -mt-0.5">
+//         <StreamlineApplicationAdd className="w-4 h-4 shrink-0 bg-white text-slate-500 group-hover:text-slate-600" />
+//       </div>
+//       <div className="flex flex-col gap-2 text-[0.95rem] leading-relaxed">
+//         <div className="text-slate-800 group-hover:text-slate-950">
+//           Để có thể save hình đã chụp trong clipboard thành một file riêng trên macOS, mở Preview
+//           lên rồi nhấn cmd+N là xong. Để có thể save hình đã chụp trong clipboard thành một file
+//           riêng trên macOS, mở Preview lên rồi nhấn cmd+N là xong.
+//         </div>
+//         {!props.hidePhotos && (
+//           <div className="flex flex-row gap-4">
+//             <Image
+//               src="https://images.unsplash.com/photo-1730774487035-05673e0c5747?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+//               width={100}
+//               height={100}
+//               alt="Picture of the author"
+//               className="rounded-xl"
+//             />
+//             <Image
+//               src="https://plus.unsplash.com/premium_photo-1730156312766-e5ab6e27a993?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+//               width={100}
+//               height={100}
+//               alt="Picture of the author"
+//               className="rounded-xl"
+//             />
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   )
+// }
