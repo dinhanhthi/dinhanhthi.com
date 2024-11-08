@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   content: [
@@ -87,7 +88,9 @@ export default {
         inherit: 'inherit'
       },
       fontFamily: {
-        heading: ['Recoleta', 'Arial', 'Helvetica', 'sans-serif']
+        heading: ['Recoleta', 'Arial', 'Helvetica', 'sans-serif'],
+        sans: ['var(--font-open-sans)', ...defaultTheme.fontFamily.sans],
+        mono: [...defaultTheme.fontFamily.mono]
       },
       boxShadow: {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',

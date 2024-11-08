@@ -83,3 +83,7 @@ vercel --prod
 ## Vercel
 
 [Enable corepack](https://vercel.com/docs/deployments/configure-a-build#corepack) to use yarn newest version.
+
+## Troubleshooting
+
+- Problem with search? Check and update `NOTION_TOKEN_V2`. Don't forget to re-deploy on Vercel.
