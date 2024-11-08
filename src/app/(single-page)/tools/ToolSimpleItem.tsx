@@ -32,7 +32,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
       href={tool.url}
       key={tool.url}
       target="_blank"
-      className="flex flex-row items-center p-4 gap-4 hover:bg-slate-100 rounded-lg text-[0.9rem]"
+      className="flex flex-row items-center p-4 gap-4 hover:bg-slate-100 rounded-lg"
     >
       <SimpleImage
         src={convertedIconUrl}
@@ -41,7 +41,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
         className="rounded-md h-auto z-20"
         imagePlaceholder={ImagePlaceholder()}
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-1">
         <div className="font-normal">
           {tool.name}
           {/* NEW */}
@@ -51,7 +51,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
             </span>
           )}
         </div>
-        <div className="opacity-70">{tool.shortDescription}</div>
+        <div className="opacity-70 text-[0.9rem]">{tool.shortDescription}</div>
       </div>
     </a>
   )
