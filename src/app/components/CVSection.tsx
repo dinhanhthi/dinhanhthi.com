@@ -50,7 +50,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
           {cv.activity.map((activity: string, index: number) => (
             <div
               key={index}
-              className="opacity-95 text-sm"
+              className="opacity-95 text-[0.9rem]"
               dangerouslySetInnerHTML={{ __html: activity }}
             ></div>
           ))}
