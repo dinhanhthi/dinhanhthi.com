@@ -92,7 +92,9 @@ export default async function NotesHomePage() {
           </Suspense>
 
           <NotesToc
-            className={'order-1 md:order-2 md:sticky top-[70px] h-fit md:w-fit w-full'}
+            className={
+              'order-1 md:order-2 md:sticky top-[70px] h-fit md:h-[calc(100vh-110px)] md:w-fit w-full'
+            }
             tags={pinnedTagsSorted}
             hidePinnedTags={pinnedPosts.length === 0}
           />
