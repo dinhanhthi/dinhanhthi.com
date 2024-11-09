@@ -124,7 +124,7 @@ export default function ToolItem(props: ToolItemProps) {
               )}
 
               {/* NAME */}
-              <span className="text-[0.95rem]">{tool.name}</span>
+              <span className="text-[0.95rem] font-medium">{tool.name}</span>
             </div>
             {tool.author && (
               <div className="text-sm text-slate-500 group-hover:text-slate-700">{tool.author}</div>

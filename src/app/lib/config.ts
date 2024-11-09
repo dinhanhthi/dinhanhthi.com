@@ -26,7 +26,7 @@ export const discreteColsType: DiscreteColsType = 'single'
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 
 export const defaultPostTypeOpts: PostTypeOpts = {
-  fontClassName: 'font-sans',
+  fontClassName: 'font-sans text-[0.95rem]',
   newLabel: 'new',
   updatedLabel: 'updated',
   humanizeDate: true,

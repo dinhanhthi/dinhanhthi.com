@@ -15,10 +15,10 @@ export default function CVSection({ cv, className }: CVSectionProps) {
     <div className={cn('flex flex-wrap items-center', className)}>
       <div className={'hidden w-1/4 flex-col items-center py-4 px-2 md:flex'}>
         {logo(cv)}
-        <h4 className="text-slate-700 mt-2 text-center text-base font-semibold">
+        <h4 className="text-slate-900 mt-2 text-center text-base font-semibold">
           {cv.url && (
             <a
-              className="text-slate-700 thi-link-normal"
+              className="text-slate-900 thi-link-normal"
               href={cv.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -28,13 +28,13 @@ export default function CVSection({ cv, className }: CVSectionProps) {
           )}
           {!cv.url && <span>{cv.where}</span>}
         </h4>
-        <div className="mt-1 text-center text-sm opacity-70">{cv.date}</div>
+        <div className="mt-1 text-center text-sm opacity-80">{cv.date}</div>
       </div>
       <div className="flex-1 px-4 py-6">
         <div className="flex items-center gap-4">
           <div className="md:hidden">{logo(cv)}</div>
           <div>
-            <h3 className="text-lg font-semibold text-slate-700">{cv.title}</h3>
+            <h3 className="text-lg font-semibold text-slate-900">{cv.title}</h3>
             <h4 className="text-base md:hidden">
               {cv.url && (
                 <a className={'thi-link-normal'} href={cv.url}>

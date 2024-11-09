@@ -27,18 +27,18 @@ export default function HeaderIndex() {
         <div className="md:order-1 md:flex-1">
           <h1
             className={cn(
-              'flex thi-title justify-center md:justify-start font-heading',
+              'flex thi-title gap-1 justify-center md:justify-start font-heading',
               ySpacingClass
             )}
           >
             <span className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center">
-              <Image src={WavingHand} alt="Waving hand" width={36} height={36} />
+              <Image src={WavingHand} alt="Waving hand" width={30} height={30} />
             </span>
             {me.helloText || "Hi! I'm Thi"}
           </h1>
           <p
             className={cn(
-              'max-w-full text-base text-center text-main-dark md:text-left',
+              'max-w-full text-center text-main-dark md:text-left text-[0.95rem]',
               ySpacingClass
             )}
             dangerouslySetInnerHTML={{ __html: me.shortIntro }}
