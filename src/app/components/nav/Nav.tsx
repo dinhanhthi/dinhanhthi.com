@@ -18,6 +18,8 @@ const navClasses = 'bg-nav-dark-bg shadow-transparent text-gray-300'
 export const textClass = 'text-gray-300 md:hover:text-white md:hover:bg-gray-700'
 export const groupSpaceClass = 'ml-2 md:ml-4'
 
+export const navLabelClass = 'text-[0.9rem]'
+
 export default function Nav() {
   const completion = useReadingProgress()
 
@@ -28,10 +30,7 @@ export default function Nav() {
         <Container className={cn('h-full', containerWide)}>
           <div className="flex h-full flex-wrap items-center justify-items-stretch">
             <div className="w-full">
-              <div
-                className="mx-anav-
-            uto px-4 lg:px-2"
-              >
+              <div className="mx-auto px-4 lg:px-0">
                 <div className="relative flex items-center justify-between">
                   <nav
                     className="flex flex-1 items-center justify-center gap-2 sm:gap-0 md:justify-start"

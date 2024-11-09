@@ -4,6 +4,7 @@ import SearchModal from '@notion-x/src/components/SearchModal'
 import FiSearch from '@notion-x/src/icons/FiSearch'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
+import { navLabelClass } from './Nav'
 
 export default function NavSearch() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -38,7 +39,7 @@ export default function NavSearch() {
           <div>
             <FiSearch className="h-5 w-5" />
           </div>
-          <div className="flex items-center gap-2">
+          <div className={cn('flex items-center gap-2', navLabelClass)}>
             <span className="hidden sm:inline whitespace-nowrap">Search for notes</span>
             <span className="inline sm:hidden whitespace-nowrap">Search</span>
             <span className="text-[0.7rem] bg-[#65666b30] px-1 rounded-sm border-[#555] border-[0.5px] hidden sm:inline-block whitespace-nowrap">

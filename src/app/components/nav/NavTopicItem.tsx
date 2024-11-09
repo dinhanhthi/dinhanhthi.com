@@ -4,10 +4,10 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { textClass } from './Nav'
+import { navLabelClass, textClass } from './Nav'
 
 export const menuItemCommonClass =
-  'px-3 py-1.5 rounded-md text-base font-medium text-center h-full flex items-center justify-center whitespace-nowrap whitespace-nowrap'
+  'px-3 py-1.5 rounded-md font-medium text-center h-full flex items-center justify-center whitespace-nowrap whitespace-nowrap'
 
 type NavTopicItemProps = {
   uri: string
@@ -25,7 +25,8 @@ export default function NavTopicItem(props: NavTopicItemProps) {
       className={cn(
         isActiveClass(areSameUris(uri, currentRoute)),
         menuItemCommonClass,
-        customClass
+        customClass,
+        navLabelClass
       )}
       aria-current={areSameUris(uri, currentRoute) ? 'page' : undefined}
       href={uri}

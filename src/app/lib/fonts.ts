@@ -10,6 +10,6 @@ export const comfortaa = Comfortaa({
 export const openSans = Open_Sans({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  weight: ['400', '600'],
+  weight: ['400', '500'],
   variable: '--font-open-sans'
 })
