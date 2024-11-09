@@ -17,19 +17,19 @@ export default function NotesToc(props: NotesTocProps) {
 
   // Makre sure below is the same as the one in /notes/page/tsx
   // We cannot use export in this case!
-  const recentUpdatedNotesTitle = 'Recently updated notes'
-  const pinnedNotesTitle = 'Pinned notes'
+  // const recentUpdatedNotesTitle = 'Recently updated notes'
+  // const pinnedNotesTitle = 'Pinned notes'
   const blogPostsTitle = 'Blog posts'
 
   return (
     <div className={props.className}>
-      <div className="p-4 flex flex-col divide-y thi-box-code md:bg-transparent md:border-none md:shadow-none">
-        <div className="pb-1.5 px-2 font-heading text-lg font-semibold text-slate-800">
+      <div className="p-4 flex h-full flex-col divide-y thi-box-code md:bg-transparent md:border-none md:shadow-none">
+        <div className="pb-1.5 px-2 font-heading text-base font-semibold text-slate-800">
           Notes by topics
         </div>
         <div
           className={cn(
-            'grid grid-cols-2 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small text-[0.88rem]'
+            'grid grid-cols-2 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small text-[0.8rem]'
           )}
         >
           <a
@@ -42,7 +42,7 @@ export default function NotesToc(props: NotesTocProps) {
           >
             <div className="flex items-center gap-1">{blogPostsTitle}</div>
           </a>
-          {!props.hidePinnedTags && (
+          {/* {!props.hidePinnedTags && (
             <a
               className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
                 'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
@@ -53,8 +53,8 @@ export default function NotesToc(props: NotesTocProps) {
             >
               <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
             </a>
-          )}
-          <a
+          )} */}
+          {/* <a
             className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
               'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
               'text-slate-900 bg-slate-200': activeId === makeSlugText(recentUpdatedNotesTitle)
@@ -63,7 +63,7 @@ export default function NotesToc(props: NotesTocProps) {
             href={`#${makeSlugText(recentUpdatedNotesTitle)}`}
           >
             <div>{recentUpdatedNotesTitle}</div>
-          </a>
+          </a> */}
           {props.tags.map((tag: Tag) => {
             const anchor = makeSlugText(tag.name)
             return (
