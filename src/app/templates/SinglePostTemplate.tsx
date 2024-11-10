@@ -58,6 +58,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
               blockOptions={{
                 siteDomain: 'dinhanhthi.com',
                 labelTocTitle: props.postProps?.blog ? 'In this post' : 'In this note',
+                postTocClassName: 'text-[0.9rem]',
                 blockCodeCopiedText: 'Copied',
                 blockCodeCopyText: 'Copy',
                 headingScrollMarginTopClass: 'scroll-mt-[70px]',
@@ -84,6 +85,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 recordMap={props.recordMap}
                 tocs={tocs}
                 labelTocTitle="In this note"
+                postTocClassName="text-[0.95rem]"
               />
             </PostAside>
           </aside>
