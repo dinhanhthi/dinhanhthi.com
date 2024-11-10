@@ -45,6 +45,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               blockOptions={{
                 siteDomain: 'dinhanhthi.com',
                 labelTocTitle: 'In this note',
+                postTocClassName: 'text-[0.9rem]',
                 blockCodeCopiedText: 'Copied',
                 blockCodeCopyText: 'Copy',
                 headingScrollMarginTopClass: 'scroll-mt-[70px]',
