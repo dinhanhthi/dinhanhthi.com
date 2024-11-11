@@ -22,6 +22,7 @@ import { Post } from '@notion-x/src/interface'
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'
+import { quicksand } from '../lib/fonts'
 import Header from './Header'
 
 const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
@@ -112,7 +113,8 @@ export default function PostHeader(props: PostHeaderProps) {
             {/* Title */}
             <h1
               className={cn(
-                'inline items-baseline gap-2 text-2xl sm:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left thi-text-rainbow'
+                'inline items-baseline gap-2 text-2xl sm:text-3xl leading-tight text-center md:text-left thi-text-rainbow font-bold',
+                quicksand.className
               )}
             >
               <Text value={title} block={block} />
