@@ -3,6 +3,7 @@ import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quar
 import { ImageType } from '@notion-x/src/interface'
 import cn from 'classnames'
 
+import { quicksand } from '../lib/fonts'
 import Header from './Header'
 
 type HeaderPageProps = {
@@ -40,8 +41,10 @@ export default function HeaderPage(props: HeaderPageProps) {
               />
             </div>
           )}
-          <h1 className="flex items-center gap-4 text-2xl md:text-3xl xl:text-4xl font-semibold leading-tight tracking-tight text-center md:text-left">
-            <span className="thi-text-rainbow">{props.title}</span>
+          <h1 className="flex items-center gap-4 text-2xl md:text-3xl leading-tight tracking-tight text-center md:text-left">
+            <span className={cn('thi-text-rainbow font-bold', quicksand.className)}>
+              {props.title}
+            </span>
             {props.number && (
               <span className="bg-[#565a6b] text-white font-medium text-[60%] rounded-lg px-2 py-1 leading-snug tracking-wide">
                 {props.number}
