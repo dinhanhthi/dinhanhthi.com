@@ -39,7 +39,8 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
   biography: TagPersonalSite,
   memoir: TagMemoirIcon,
   education: TagEducationIcon,
-  fiction: TagFictionIcon,
+  fiction: TagFictionIcon, // back compatibility
+  novel: TagFictionIcon,
   history: TagHistoryIcon,
   philosophy: TagPhilosophyIcon,
   'self help': TagSelfHelpIcon
