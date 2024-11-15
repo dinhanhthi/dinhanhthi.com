@@ -1,12 +1,12 @@
 'use client'
 
 import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
-import FiChevronDown from '@notion-x/src/icons/FiChevronDown'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRef } from 'react'
 
 import { HIDDEN_MENUS, MENUS } from '../../../data/menus'
+import { MaterialSymbolsApps } from '../../icons/MaterialSymbolsApps'
 import { menuItemCommonClass } from './NavTopicItem'
 
 const dropdownItemClass = 'flex items-center p-3 whitespace-nowrap'
@@ -25,18 +25,13 @@ export default function NavTopicsDropdown() {
             <PopoverButton
               ref={btnRef}
               className={cn(
-                'flex lg:hidden !outline-none pr-1.5 group',
+                'flex lg:hidden !outline-none group p-0',
                 { '!bg-slate-700 text-white': open, 'text-opacity-90': !open },
-                menuItemCommonClass
+                menuItemCommonClass,
+                '!p-1.5 ml-2'
               )}
             >
-              <span>Menu</span>
-              <FiChevronDown
-                className={cn('ml-1 h-6 w-6 transition duration-150 ease-in-out', {
-                  'text-opacity-70': !open
-                })}
-                aria-hidden="true"
-              />
+              <MaterialSymbolsApps className="w-8 h-8" />
             </PopoverButton>
             <Transition
               enter="transition ease-out duration-200"
