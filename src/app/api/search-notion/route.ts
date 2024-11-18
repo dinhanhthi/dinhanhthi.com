@@ -64,14 +64,14 @@ function parseSearchResults(data: any): SearchResult[] {
         result?.highlight?.title
           ?.replaceAll(
             UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            '<span style="color: rgb(3 105 161); font-weight: 500;">'
+            '<span style="color: #0065bd; font-weight: 500;">'
           )
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || postTitle
       const postTextHighlighted =
         result.highlight?.text
           ?.replaceAll(
             UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            '<span style="color: rgb(3 105 161); font-weight: 500;">'
+            '<span style="color: #0065bd; font-weight: 500;">'
           )
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || null
 
