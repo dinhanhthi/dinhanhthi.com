@@ -54,6 +54,8 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               }}
               useSimpleImage={true}
               discreteStyle={true} // The big difference from SinglePostTemplate is here!
+              postCreatedDate={props.postProps.createdDate}
+              postLastModifiedDate={props.postProps.date}
               fontClass="font-sans"
               discreteColsType={discreteColsType}
               showUpdatedIndicator={true}

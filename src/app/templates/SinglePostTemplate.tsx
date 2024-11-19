@@ -69,6 +69,8 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
               useSimpleImage={true}
               fontClass="font-sans"
               showUpdatedIndicator={true}
+              postCreatedDate={props.postProps.createdDate}
+              postLastModifiedDate={props.postProps.date}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
               createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
               showBackToTopButton={true}
