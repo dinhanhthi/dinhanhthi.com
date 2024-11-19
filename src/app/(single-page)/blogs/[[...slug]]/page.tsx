@@ -98,7 +98,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       totalPages={totalPages}
       currentPage={currentPage}
       postType="PostCardWave"
-      postListContainerClassName="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4"
+      postListContainerClassName="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
     />
   )
 }

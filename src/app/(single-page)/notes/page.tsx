@@ -119,7 +119,7 @@ function SkeletonNotesPageBody() {
           count={3}
           postType="PostCardWave"
           options={{
-            className: 'grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 sm:gap-x-4',
+            className: 'grid grid-cols-2 lg:grid-cols-3 gap-4',
             postContainerClassName: 'thi-box-code'
           }}
         />
