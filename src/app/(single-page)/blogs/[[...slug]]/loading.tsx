@@ -3,9 +3,9 @@ import { SkeletonPageOfPostsListTemplate } from '../../../templates/PageOfPostsL
 export default function LoadingCategoryPage() {
   return (
     <SkeletonPageOfPostsListTemplate
-      postListContainerClassName="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
-      postType="PostCardWave"
-      numPosts={8}
+      postListContainerClassName="bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100"
+      postType="PostBlogSimple"
+      numPosts={4}
     />
   )
 }

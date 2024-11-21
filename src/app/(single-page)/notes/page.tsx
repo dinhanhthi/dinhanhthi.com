@@ -25,7 +25,7 @@ export const metadata = getMetadata({
 })
 
 export default async function NotesHomePage() {
-  const numBlogPosts = 6
+  const numBlogPosts = 3
 
   const pinnedPosts = await getPosts({
     filter: {
@@ -116,11 +116,10 @@ function SkeletonNotesPageBody() {
           <div className="h-[26px] bg-slate-200 w-[250px] rounded-2xl"></div>
         </div>
         <SkeletonPostList
-          count={3}
-          postType="PostCardWave"
+          count={2}
+          postType="PostBlogSimple"
           options={{
-            className: 'grid grid-cols-2 lg:grid-cols-3 gap-4',
-            postContainerClassName: 'thi-box-code'
+            className: 'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
           }}
         />
       </div>
