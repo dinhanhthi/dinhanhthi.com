@@ -98,7 +98,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       totalPages={totalPages}
       currentPage={currentPage}
       postType="PostBlogSimple"
-      postListContainerClassName="gap-3 flex flex-col"
+      postListContainerClassName="bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100"
     />
   )
 }
