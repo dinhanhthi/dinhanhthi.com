@@ -70,51 +70,61 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                     fallback={
                       <SkeletonPostList
                         count={4}
-                        postType="PostCardWave"
+                        postType="PostBlogSimple"
                         options={{
                           className:
-                            'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                            'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
                         }}
                       />
                     }
                   >
                     <PostList
                       posts={blogPosts}
-                      postType="PostCardWave"
+                      postType="PostBlogSimple"
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
                         className:
-                          'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                          'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
                       }}
                     />
                   </Suspense>
                 </div>
               )}
-              {pinnedPosts.length > 0 && (
-                <div className="thi-box-code overflow-hidden">
-                  <PostList
-                    posts={pinnedPosts}
-                    postType="PostSimple"
-                    postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-                    options={{
-                      className: 'flex flex-col divide-y'
-                    }}
-                  />
-                </div>
-              )}
-              {posts.length > 0 && (
-                <div className="overflow-hidden">
-                  <PostList
-                    posts={posts}
-                    postType={props.postType || 'PostSimple'}
-                    postTypeOpts={defaultPostTypeOpts}
-                    options={{
-                      className:
-                        props.postListContainerClassName || 'flex flex-col divide-y thi-box-code'
-                    }}
-                  />
-                </div>
-              )}
+
+              <div className='flex flex-col gap-2'>
+                {blogPosts && blogPosts.length > 0 && (
+                  <div className="flex flex-row gap-2 items-center">
+                    <h2 className="font-heading text-xl text-slate-700">Notes</h2>
+                  </div>
+                )}
+
+                {pinnedPosts.length > 0 && (
+                  <div className="thi-box-code overflow-hidden mb-2">
+                    <PostList
+                      posts={pinnedPosts}
+                      postType="PostSimple"
+                      postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
+                      options={{
+                        className: 'flex flex-col divide-y'
+                      }}
+                    />
+                  </div>
+                )}
+
+                {posts.length > 0 && (
+                  <div className="overflow-hidden">
+                    <PostList
+                      posts={posts}
+                      postType={props.postType || 'PostSimple'}
+                      postTypeOpts={defaultPostTypeOpts}
+                      options={{
+                        className:
+                          props.postListContainerClassName || 'flex flex-col divide-y thi-box-code'
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
             {totalPages > 1 && object.uri && (
               <Pagination
