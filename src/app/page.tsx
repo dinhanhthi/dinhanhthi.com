@@ -42,7 +42,7 @@ export default async function Home() {
   const numPinnedPosts = 6
   const numTools = 6
   const numBooks = 6
-  const numBlogPosts = 4
+  const numBlogPosts = 3
 
   const pinnedPosts = await getPosts({
     pageSize: numPinnedPosts,
@@ -181,20 +181,22 @@ export default async function Home() {
                 <Suspense
                   fallback={
                     <SkeletonPostList
-                      count={numBlogPosts}
-                      postType="PostCardWave"
+                      count={2}
+                      postType="PostBlogSimple"
                       options={{
-                        className: 'grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                        className:
+                          'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
                       }}
                     />
                   }
                 >
                   <PostList
                     posts={blogPosts}
-                    postType="PostCardWave"
+                    postType="PostBlogSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts }}
                     options={{
-                      className: 'grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+                      className:
+                        'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
                     }}
                   />
                 </Suspense>
