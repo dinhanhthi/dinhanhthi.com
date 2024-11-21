@@ -3,7 +3,7 @@ import { Post, PostHeaderType, Tag } from '@notion-x/src/interface'
 import { mapTag } from '@notion-x/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { Metadata } from 'next'
-import { Block } from 'notion-types'
+import { Block, ExtendedRecordMap } from 'notion-types'
 
 import me from '../../data/me'
 
@@ -132,7 +132,11 @@ export function getMetadata(opts: {
   }
 }
 
-export function getPostProperties(post: Block, topics: Tag[] = []): Post {
+export function transformUnofficialPostProps(
+  post: Block,
+  topics: Tag[] = [],
+  recordMap?: ExtendedRecordMap
+): Post {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
@@ -163,9 +167,22 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
   const language = properties?.[
     `${process.env.NEXT_PUBLIC_ID_LANGUAGE}`
   ]?.[0]?.[0] as PostHeaderType['language']
-  const vi = properties?.[`${process.env.NEXT_PUBLIC_ID_VI}`]?.[0]?.[0]
-  const en = properties?.[`${process.env.NEXT_PUBLIC_ID_EN}`]?.[0]?.[0]
-  const fr = properties?.[`${process.env.NEXT_PUBLIC_ID_FR}`]?.[0]?.[0]
+  // From the current post -> get the id of the corresponding language post -> get its slug
+  const vi_id = properties?.[`${process.env.NEXT_PUBLIC_ID_VI}`]?.[0]?.[1]?.[0]?.[1]
+  const vi =
+    recordMap && vi_id
+      ? recordMap.block[vi_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
+      : undefined
+  const en_id = properties?.[`${process.env.NEXT_PUBLIC_ID_EN}`]?.[0]?.[1]?.[0]?.[1]
+  const en =
+    recordMap && en_id
+      ? recordMap.block[en_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
+      : undefined
+  const fr_id = properties?.[`${process.env.NEXT_PUBLIC_ID_FR}`]?.[0]?.[1]?.[0]?.[1]
+  const fr =
+    recordMap && fr_id
+      ? recordMap.block[fr_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
+      : undefined
   const notionUrl = properties?.[`${process.env.NEXT_PUBLIC_NOTION_PUBLISHED_URL}`]?.[0]?.[0]
 
   return {
@@ -195,4 +212,18 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
     fr,
     notionUrl
   }
+}
+
+/**
+ * We don't want to show duplicated posts in different languages.
+ * The order of priority is: en > vi > fr
+ */
+export function filterDupLangPosts(posts: Post[]): Post[] {
+  return posts.filter(post => {
+    const lang = post.language
+    if (lang === 'en' || !lang) return true
+    if (lang === 'vi' && !post.en) return true 
+    if (lang === 'fr' && !post.en && !post.vi) return true
+    return false
+  })
 }
