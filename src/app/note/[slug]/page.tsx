@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getPage } from '@notion-x/src/lib/notionx'
-import { getMetadata, getPostProperties } from '../../lib/helpers'
+import { getMetadata, transformUnofficialPostProps } from '../../lib/helpers'
 import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
 export const revalidate = 20
@@ -53,7 +53,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
-    const postProps = getPostProperties(block, topics)
+    const postProps = transformUnofficialPostProps(block, topics, recordMap)
     if (postProps.discrete)
       return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 

@@ -19,10 +19,12 @@ import { Suspense } from 'react'
 
 import TooltipX from '@notion-x/src/components/tooltip-x'
 import { Post } from '@notion-x/src/interface'
+import Link from 'next/link'
 import me from '../../data/me'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'
 import { quicksand } from '../lib/fonts'
+import { getUri } from '../lib/helpers'
 import Header from './Header'
 
 const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
@@ -61,7 +63,10 @@ export default function PostHeader(props: PostHeaderProps) {
     coverPosition,
     pageCover,
     wellWritten,
-    language
+    language,
+    vi,
+    en,
+    fr
   } = props.postProps
 
   const pageCoverObjectPosition = `center ${coverPosition}%`
@@ -216,19 +221,47 @@ export default function PostHeader(props: PostHeaderProps) {
           )}
 
           {/* Language */}
-          {language && language !== 'en' && (
-            <>
-              <div
-                id={`lang-${block.id}`}
-                className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200 mx-auto sm:ml-0"
-              >
-                {language === 'vi' ? 'Vietnamese' : 'French'}
-              </div>
-              <TooltipX id={`#lang-${block.id}`}>
-                {language === 'vi' && 'This post is written in Vietnamese'}
-                {language === 'fr' && 'This post is written in French'}
-              </TooltipX>
-            </>
+          {((language && language !== 'en') || !!vi || !!en || !!fr) && (
+            <div className="flex items-center gap-2 flex-row">
+              {language && language !== 'en' && (
+                <>
+                  <div
+                    id={`lang-${block.id}`}
+                    className="text-slate-200 border rounded-md w-fit px-2 text-sm border-slate-200"
+                  >
+                    {language === 'vi' ? 'Vietnamese' : 'French'}
+                  </div>
+                  <TooltipX id={`#lang-${block.id}`}>
+                    {language === 'vi' && 'This post is written in Vietnamese'}
+                    {language === 'fr' && 'This post is written in French'}
+                  </TooltipX>
+                </>
+              )}
+              {!!vi && (
+                <Link
+                  className="bg-rose-200 text-sm rounded-md text-rose-900 px-2 border-rose-200 hover:-translate-y-0.5 transition-all duration-200"
+                  href={getUri('note', vi)!}
+                >
+                  Read in Vietnamese
+                </Link>
+              )}
+              {!!en && (
+                <Link
+                  className="bg-sky-200 text-sm rounded-md text-sky-900 px-2 border-sky-200 hover:-translate-y-0.5 transition-all duration-200"
+                  href={getUri('note', en)!}
+                >
+                  Read in English
+                </Link>
+              )}
+              {!!fr && (
+                <Link
+                  className="bg-green-200 text-sm rounded-md text-green-900 px-2 border-green-200 hover:-translate-y-0.5 transition-all duration-200"
+                  href={getUri('note', fr)!}
+                >
+                  Read in French
+                </Link>
+              )}
+            </div>
           )}
         </div>
       </Header>

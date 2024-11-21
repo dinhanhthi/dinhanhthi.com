@@ -22,7 +22,7 @@ import {
   numPostsToShow
 } from './lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from './lib/fetcher'
-import { getMetadata } from './lib/helpers'
+import { filterDupLangPosts, getMetadata } from './lib/helpers'
 
 export const revalidate = 20
 
@@ -44,8 +44,8 @@ export default async function Home() {
   const numBooks = 6
   const numBlogPosts = 3
 
-  const pinnedPosts = await getPosts({
-    pageSize: numPinnedPosts,
+  const _pinnedPosts = await getPosts({
+    pageSize: numPinnedPosts * 2,
     filter: {
       and: [
         {
@@ -63,8 +63,10 @@ export default async function Home() {
       ]
     }
   })
-  const blogPosts = await getPosts({
-    pageSize: numBlogPosts,
+  const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(0, numPinnedPosts)
+
+  const _blogPosts = await getPosts({
+    pageSize: numBlogPosts * 2, // *2 because we will splice the duplicated posts (post in diff languages)
     filter: {
       property: 'blog',
       checkbox: {
@@ -72,8 +74,10 @@ export default async function Home() {
       }
     }
   })
-  const posts = await getPosts({
-    pageSize: numPostsToShow,
+  const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
+
+  const _posts = await getPosts({
+    pageSize: numPostsToShow * 2,
     filter: {
       property: 'blog',
       checkbox: {
@@ -81,6 +85,8 @@ export default async function Home() {
       }
     }
   })
+  const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow)
+
   const _topics = await getTopics()
   const { tools } = await getUnofficialTools()
   const { books } = await getUnofficialBooks()

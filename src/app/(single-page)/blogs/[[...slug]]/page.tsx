@@ -6,6 +6,7 @@ import { getPosts } from '../../../lib/fetcher'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '../../../templates/PageOfPostsListTemplate'
+import { filterDupLangPosts } from '../../../lib/helpers'
 
 export const revalidate = 20
 
@@ -60,7 +61,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
 
   const notRootPage = !!params.slug
 
-  const allBlogs = await getPosts({
+  const _allBlogs = await getPosts({
     filter: {
       property: 'blog',
       checkbox: {
@@ -68,6 +69,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       }
     }
   })
+  const allBlogs = filterDupLangPosts(_allBlogs)
   const numBlogs = allBlogs?.length || 0
   const totalPages = Math.ceil(numBlogs / numPostsPerPage)
 
