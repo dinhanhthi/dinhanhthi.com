@@ -7,7 +7,7 @@ import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
 
 import { defaultPostDate, defaultPostTitle } from './config'
-import { getFilter, getPostProperties, getUri } from './helpers'
+import { getFilter, getUri, transformUnofficialPostProps } from './helpers'
 
 export async function getUnofficialPosts() {
   try {
@@ -275,7 +275,7 @@ function transformUnofficialPosts(data: CollectionInstance): Post[] {
     const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
     if (!slug) continue
 
-    posts.push(getPostProperties(post?.value))
+    posts.push(transformUnofficialPostProps(post?.value))
   }
 
   return posts

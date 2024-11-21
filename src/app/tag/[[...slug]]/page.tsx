@@ -1,5 +1,5 @@
 import { getPosts, getTopics } from '@/src/app/lib/fetcher'
-import { generateMetaTitle, getMetadata, getUri } from '@/src/app/lib/helpers'
+import { filterDupLangPosts, generateMetaTitle, getMetadata, getUri } from '@/src/app/lib/helpers'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
@@ -13,6 +13,7 @@ import { defaultBlurDataURL } from '../../lib/config'
 export const revalidate = 20
 
 const numPostsPerPage = 48
+const numBlogPosts = 4
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const slug = params.slug[0] || ''
@@ -90,7 +91,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
   }
 
   const startCursor = getStartCursorForCurrentPage(currentPage, allPosts, numPostsPerPage)
-  const postsOnThisPage = !allPosts.length
+  const _postsOnThisPage = !allPosts.length
     ? []
     : await getPosts({
         filter: {
@@ -110,11 +111,13 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
           ]
         },
         startCursor,
-        pageSize: numPostsPerPage
+        pageSize: numPostsPerPage * 2
       })
 
-  const blogPosts = await getPosts({
-    pageSize: 4,
+  const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
+
+  const _blogPosts = await getPosts({
+    pageSize: numBlogPosts * 2,
     filter: {
       and: [
         {
@@ -132,6 +135,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
       ]
     }
   })
+  const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
   return (
     <PageOfPostsListTemplate
