@@ -10,7 +10,7 @@ import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
 import { bodyPadding, containerWide, defaultBlurDataURL, numPostsToShow } from '../../lib/config'
 import { getPosts, getTopics } from '../../lib/fetcher'
-import { getMetadata } from '../../lib/helpers'
+import { filterDupLangPosts, getMetadata } from '../../lib/helpers'
 import NotesPageList from './NotesPageList'
 
 export const revalidate = 20
@@ -27,7 +27,7 @@ export const metadata = getMetadata({
 export default async function NotesHomePage() {
   const numBlogPosts = 3
 
-  const pinnedPosts = await getPosts({
+  const _pinnedPosts = await getPosts({
     filter: {
       and: [
         {
@@ -45,9 +45,10 @@ export default async function NotesHomePage() {
       ]
     }
   })
+  const pinnedPosts = filterDupLangPosts(_pinnedPosts)
 
-  const blogPosts = await getPosts({
-    pageSize: numBlogPosts,
+  const _blogPosts = await getPosts({
+    pageSize: numBlogPosts * 2,
     filter: {
       property: 'blog',
       checkbox: {
@@ -55,8 +56,11 @@ export default async function NotesHomePage() {
       }
     }
   })
+  const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
-  const posts = await getPosts({ pageSize: numPostsToShow + pinnedPosts.length })
+  const _posts = await getPosts({ pageSize: (numPostsToShow + pinnedPosts.length) * 2 })
+  const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow + pinnedPosts.length)
+
   const _tags = await getTopics()
   const tags = _tags.map(tag => ({
     ...tag,
@@ -119,7 +123,8 @@ function SkeletonNotesPageBody() {
           count={2}
           postType="PostBlogSimple"
           options={{
-            className: 'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
+            className:
+              'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
           }}
         />
       </div>
