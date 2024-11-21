@@ -307,6 +307,9 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // title
       const title = getJoinedRichText(get(post, 'properties.Name.title') as any) || defaultPostTitle
 
+      // description
+      const description = getJoinedRichText(get(post, 'properties.description.rich_text') as any)
+
       // date
       const gotDate = get(
         post,
@@ -365,6 +368,7 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       return {
         id,
         title,
+        description,
         slug,
         uri: getUri('note', slug),
         date,

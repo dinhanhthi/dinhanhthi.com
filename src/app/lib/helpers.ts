@@ -137,6 +137,7 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
   const title = properties?.title?.[1]?.[0] || properties?.title?.[0]?.[0]
+  const description = properties?.[`${process.env.NEXT_PUBLIC_ID_DESC}`]?.[0]?.[0]
   const rawTitle = properties?.title
   const date =
     properties?.[`${process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}`]?.[0]?.[1]?.[0]?.[1]?.start_date ??
@@ -172,6 +173,7 @@ export function getPostProperties(post: Block, topics: Tag[] = []): Post {
     slug,
     uri: `/note/${slug}/`,
     title,
+    description,
     rawTitle,
     date,
     createdDate,

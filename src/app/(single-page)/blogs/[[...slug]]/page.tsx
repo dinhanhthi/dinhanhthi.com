@@ -97,8 +97,8 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       pinnedPosts={[]}
       totalPages={totalPages}
       currentPage={currentPage}
-      postType="PostCardWave"
-      postListContainerClassName="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
+      postType="PostBlogSimple"
+      postListContainerClassName="gap-3 flex flex-col"
     />
   )
 }
