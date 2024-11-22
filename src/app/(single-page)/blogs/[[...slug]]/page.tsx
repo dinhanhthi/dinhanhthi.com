@@ -70,6 +70,8 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
     }
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
+  const test = allBlogs.filter(p => !!p.vi)
+  /* ###Thi */ console.log(`👉👉👉 test: `, JSON.stringify(test));
   const numBlogs = allBlogs?.length || 0
   const totalPages = Math.ceil(numBlogs / numPostsPerPage)
 
