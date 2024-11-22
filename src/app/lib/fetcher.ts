@@ -298,6 +298,7 @@ function mapTag(tag: NotionTagData): Tag {
 
 async function transformNotionPostsData(options: { data: NotionPost[] }): Promise<Post[]> {
   const { data } = options
+  // /* ###Thi */ console.log(`👉👉👉 data: `, JSON.stringify(data));
   if (!data || !data.length) return []
   return Promise.all(
     data?.map(async post => {
@@ -354,13 +355,19 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       const language = get(post, 'properties.language.select.name') || 'en'
 
       // vi
-      const vi = get(post, 'properties.vi.rich_text[0].plain_text') || ''
+      // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
+      // The slug is actually used in transformUnofficialPostProps() for the header of the post
+      const vi = get(post, 'properties.vi.rich_text[0]') || ''
 
       // en
-      const en = get(post, 'properties.en.rich_text[0].plain_text') || ''
+      // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
+      // The slug is actually used in transformUnofficialPostProps() for the header of the post
+      const en = get(post, 'properties.en.rich_text[0]') || ''
 
       // fr
-      const fr = get(post, 'properties.fr.rich_text[0].plain_text') || ''
+      // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
+      // The slug is actually used in transformUnofficialPostProps() for the header of the post
+      const fr = get(post, 'properties.fr.rich_text[0]') || ''
 
       // notionUrl
       const notionUrl = get(post, 'properties.notionURL.formula.string') || ''
