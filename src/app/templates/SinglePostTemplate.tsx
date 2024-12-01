@@ -31,7 +31,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   const tocs = getPageTableOfContents(block as PageBlock, props.recordMap)
   return (
     <>
-      <div className="animate-fadeIn">
+      <div className="animate-fadeIn bg-white">
         <PostHeader
           recordMap={props.recordMap}
           postProps={props.postProps}

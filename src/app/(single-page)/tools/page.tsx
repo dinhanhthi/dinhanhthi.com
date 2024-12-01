@@ -26,7 +26,7 @@ export default async function ToolsHomePage() {
   const { tools, categories } = await getUnofficialTools()
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       <HeaderPage
         headerType="white"
         title={title}
