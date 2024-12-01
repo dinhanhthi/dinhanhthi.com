@@ -43,7 +43,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
       />
       <div className="flex flex-col gap-1">
         <div className="font-normal">
-          <span className="font-medium text-[0.95rem]">{tool.name}</span>
+          <span className="font-medium text-[0.95rem] text-slate-800">{tool.name}</span>
           {/* NEW */}
           {isNew && (
             <span className="align-middle ml-2 inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">

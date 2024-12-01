@@ -228,7 +228,7 @@ export default async function Home() {
               href={tools.length >= numTools ? '/reading/' : undefined}
             />
             <div className="w-full flex flex-col gap-3">
-              <div className="italic text-[0.95rem]">
+              <div className="italic text-[0.95rem] text-slate-700">
                 Read more:{' '}
                 <Link className="m2it-link" href="/note/my-taste-of-reading/">
                   My taste of reading.
