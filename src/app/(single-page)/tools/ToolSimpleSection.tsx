@@ -9,7 +9,7 @@ export default function ToolSimpleSection(props: { tools: Tool[]; title?: string
         'bg-slate-100 p-1': !!props.title
       })}
     >
-      {props.title && <div className="p-2 text-base text-sky-800">{props.title}</div>}
+      {props.title && <div className="p-2 text-base text-sky-800 font-medium">{props.title}</div>}
       <div className="bg-white grid gap-x-2 p-2 sm:grid-cols-2 rounded-xl border-slate-200 border">
         {props.tools.map(tool => {
           return <ToolSimpleItem key={tool.url} tool={tool} />
