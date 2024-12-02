@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import Footer from '../components/Footer'
 import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
-import { bodyPadding, containerWide, defaultPostTypeOpts } from '../lib/config'
+import { bodyPadding, containerWide, defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '../lib/config'
 
 export type PageOfPostsListTemplateProps = {
   object: {
@@ -77,8 +77,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                         count={4}
                         postType="PostBlogSimple"
                         options={{
-                          className:
-                            'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                          className: postBlogSimpleListClass
                         }}
                       />
                     }
@@ -88,8 +87,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postType="PostBlogSimple"
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
-                        className:
-                          'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                        className: postBlogSimpleListClass
                       }}
                     />
                   </Suspense>
@@ -110,7 +108,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postType="PostSimple"
                       postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                       options={{
-                        className: 'flex flex-col divide-y'
+                        className: postSimpleListClass
                       }}
                     />
                   </div>
@@ -124,7 +122,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
                         className:
-                          props.postListContainerClassName || 'flex flex-col divide-y thi-box-code'
+                          props.postListContainerClassName || postSimpleListClass
                       }}
                     />
                   </div>

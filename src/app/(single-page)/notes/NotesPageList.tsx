@@ -4,7 +4,7 @@ import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
 import BlogIcon from '@notion-x/src/icons/BlogIcon'
 import { Post, Tag } from '@notion-x/src/interface'
 import { Suspense } from 'react'
-import { defaultPostTypeOpts } from '../../lib/config'
+import { defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '../../lib/config'
 import NoteTopicSection from './NoteTopicSection'
 
 type NotesPageListProps = {
@@ -35,8 +35,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                   count={2}
                   postType="PostBlogSimple"
                   options={{
-                    className:
-                      'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                    className: postBlogSimpleListClass
                   }}
                 />
               }
@@ -46,8 +45,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 postType="PostBlogSimple"
                 postTypeOpts={defaultPostTypeOpts}
                 options={{
-                  className:
-                    'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                  className: postBlogSimpleListClass
                 }}
               />
             </Suspense>
@@ -66,7 +64,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                   count={4}
                   postType="PostSimple"
                   options={{
-                    className: 'flex flex-col divide-y'
+                    className: postSimpleListClass
                   }}
                 />
               }
@@ -76,7 +74,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 postType="PostSimple"
                 postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                 options={{
-                  className: 'flex flex-col divide-y'
+                  className: postSimpleListClass
                 }}
               />
             </Suspense>
@@ -94,7 +92,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 count={4}
                 postType="PostSimple"
                 options={{
-                  className: 'flex flex-col divide-y'
+                  className: postSimpleListClass
                 }}
               />
             }
@@ -104,7 +102,7 @@ export default function NotesPageList(props: NotesPageListProps) {
               postType="PostSimple"
               postTypeOpts={defaultPostTypeOpts}
               options={{
-                className: 'flex flex-col divide-y'
+                className: postSimpleListClass
               }}
             />
           </Suspense>

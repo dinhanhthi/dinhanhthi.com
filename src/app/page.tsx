@@ -19,7 +19,9 @@ import {
   containerWide,
   defaultBlurDataURL,
   defaultPostTypeOpts,
-  numPostsToShow
+  numPostsToShow,
+  postBlogSimpleListClass,
+  postSimpleListClass
 } from './lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from './lib/fetcher'
 import { filterDupLangPosts, getMetadata } from './lib/helpers'
@@ -130,7 +132,7 @@ export default async function Home() {
                         count={6}
                         postType="PostSimple"
                         options={{
-                          className: 'flex flex-col divide-y'
+                          className: postSimpleListClass
                         }}
                       />
                     }
@@ -143,7 +145,7 @@ export default async function Home() {
                         showPinned: true
                       }}
                       options={{
-                        className: 'flex flex-col divide-y'
+                        className: postSimpleListClass
                       }}
                     />
                   </Suspense>
@@ -158,7 +160,7 @@ export default async function Home() {
                       count={8}
                       postType="PostSimple"
                       options={{
-                        className: 'flex flex-col divide-y'
+                        className: postSimpleListClass
                       }}
                     />
                   }
@@ -168,7 +170,7 @@ export default async function Home() {
                     postType="PostSimple"
                     postTypeOpts={defaultPostTypeOpts}
                     options={{
-                      className: 'flex flex-col divide-y'
+                      className: postSimpleListClass
                     }}
                   />
                 </Suspense>
@@ -190,8 +192,7 @@ export default async function Home() {
                       count={2}
                       postType="PostBlogSimple"
                       options={{
-                        className:
-                          'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                        className: postBlogSimpleListClass
                       }}
                     />
                   }
@@ -201,8 +202,7 @@ export default async function Home() {
                     postType="PostBlogSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts }}
                     options={{
-                      className:
-                        'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
+                      className: postBlogSimpleListClass
                     }}
                   />
                 </Suspense>
