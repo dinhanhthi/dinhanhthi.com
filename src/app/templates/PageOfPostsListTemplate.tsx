@@ -10,7 +10,13 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 import Footer from '../components/Footer'
 import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
-import { bodyPadding, containerWide, defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '../lib/config'
+import {
+  bodyPadding,
+  containerWide,
+  defaultPostTypeOpts,
+  postBlogSimpleListClass,
+  postSimpleListClass
+} from '../lib/config'
 
 export type PageOfPostsListTemplateProps = {
   object: {
@@ -102,16 +108,15 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                 )}
 
                 {pinnedPosts.length > 0 && (
-                  <div className="thi-box-code overflow-hidden mb-2">
-                    <PostList
-                      posts={pinnedPosts}
-                      postType="PostSimple"
-                      postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
-                      options={{
-                        className: postSimpleListClass
-                      }}
-                    />
-                  </div>
+                  <PostList
+                    className='mb-2'
+                    posts={pinnedPosts}
+                    postType="PostSimple"
+                    postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
+                    options={{
+                      className: postSimpleListClass
+                    }}
+                  />
                 )}
 
                 {posts.length > 0 && (
@@ -121,8 +126,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postType={props.postType || 'PostSimple'}
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
-                        className:
-                          props.postListContainerClassName || postSimpleListClass
+                        className: props.postListContainerClassName || postSimpleListClass
                       }}
                     />
                   </div>
@@ -160,7 +164,7 @@ export function SkeletonPageOfPostsListTemplate(props: {
             count={props.numPosts || 4}
             postType={props.postType || 'PostSimple'}
             options={{
-              className: props.postListContainerClassName || 'flex flex-col divide-y thi-box-code',
+              className: props.postListContainerClassName || postSimpleListClass,
               postContainerClassName: 'bg-white'
             }}
           />

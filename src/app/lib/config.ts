@@ -36,4 +36,4 @@ export const defaultPostTypeOpts: PostTypeOpts = {
 
 export const postBlogSimpleListClass = 'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
 
-export const postSimpleListClass = 'flex flex-col divide-y'
+export const postSimpleListClass = 'flex flex-col divide-y bg-white overflow-hidden rounded-lg border border-slate-200'

@@ -125,7 +125,7 @@ export default async function Home() {
             <div className="flex flex-col gap-2">
               {/* pinned */}
               {pinnedPosts.length > 0 && (
-                <div className="thi-box-code overflow-hidden mb-3">
+                <>
                   <Suspense
                     fallback={
                       <SkeletonPostList
@@ -149,11 +149,11 @@ export default async function Home() {
                       }}
                     />
                   </Suspense>
-                </div>
+                </>
               )}
 
               {/* notes */}
-              <div className="thi-box-code overflow-hidden">
+              <>
                 <Suspense
                   fallback={
                     <SkeletonPostList
@@ -174,7 +174,7 @@ export default async function Home() {
                     }}
                   />
                 </Suspense>
-              </div>
+              </>
             </div>
           </div>
 
