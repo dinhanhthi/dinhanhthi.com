@@ -18,7 +18,7 @@ const navClasses = 'bg-nav-dark-bg shadow-transparent text-gray-300'
 export const textClass = 'text-gray-300 md:hover:text-white md:hover:bg-gray-700'
 export const groupSpaceClass = 'ml-0 md:ml-4'
 
-export const navLabelClass = 'text-[0.9rem]'
+export const navLabelClass = 'text-[0.92rem]'
 
 export default function Nav() {
   const completion = useReadingProgress()
