@@ -8,7 +8,14 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
-import { bodyPadding, containerWide, defaultBlurDataURL, numPostsToShow, postSimpleListClass } from '../../lib/config'
+import {
+  bodyPadding,
+  containerWide,
+  defaultBlurDataURL,
+  numPostsToShow,
+  postBlogSimpleListClass,
+  postSimpleListClass
+} from '../../lib/config'
 import { getPosts, getTopics } from '../../lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '../../lib/helpers'
 import NotesPageList from './NotesPageList'
@@ -123,8 +130,7 @@ function SkeletonNotesPageBody() {
           count={2}
           postType="PostBlogSimple"
           options={{
-            className:
-              'bg-white rounded-xl overflow-hidden border boder-slate-200 flex flex-col divide-y divide-slate-100'
+            className: postBlogSimpleListClass
           }}
         />
       </div>

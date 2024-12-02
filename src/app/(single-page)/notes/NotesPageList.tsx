@@ -57,7 +57,7 @@ export default function NotesPageList(props: NotesPageListProps) {
       {pinnedPosts.length > 0 && (
         <div className="flex flex-col gap-2">
           <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
-          <div className="thi-box-code overflow-hidden">
+          <>
             <Suspense
               fallback={
                 <SkeletonPostList
@@ -78,14 +78,14 @@ export default function NotesPageList(props: NotesPageListProps) {
                 }}
               />
             </Suspense>
-          </div>
+          </>
         </div>
       )}
 
       {/* Recently updated notes */}
       <div className="flex flex-col gap-2">
         <HeadingWithMore title="Recently updated notes" className="scroll-mt-[70px]" />
-        <div className="thi-box-code overflow-hidden">
+        <>
           <Suspense
             fallback={
               <SkeletonPostList
@@ -106,7 +106,7 @@ export default function NotesPageList(props: NotesPageListProps) {
               }}
             />
           </Suspense>
-        </div>
+        </>
       </div>
 
       {pinnedTags.map((tag: Tag) => (
