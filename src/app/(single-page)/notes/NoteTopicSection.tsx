@@ -4,7 +4,7 @@ import { Tag } from '@notion-x/src/interface'
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { defaultPostTypeOpts, numPostsToShow } from '../../lib/config'
+import { defaultPostTypeOpts, numPostsToShow, postSimpleListClass } from '../../lib/config'
 import { getPosts } from '../../lib/fetcher'
 import { getFilterOf } from '../../lib/helpers'
 
@@ -55,7 +55,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           postType="PostSimple"
           postTypeOpts={defaultPostTypeOpts}
           options={{
-            className: 'flex flex-col divide-y'
+            className: postSimpleListClass
           }}
         />
       </div>
