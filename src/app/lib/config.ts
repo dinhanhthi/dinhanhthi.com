@@ -33,3 +33,7 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   maxDaysWinthin: 14,
   autoHideAddedDate: true
 }
+
+export const postBlogSimpleListClass = 'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100'
+
+export const postSimpleListClass = 'flex flex-col divide-y'

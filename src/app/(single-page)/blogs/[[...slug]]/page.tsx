@@ -2,11 +2,12 @@ import BlogsIcon from '@/public/blogs.svg'
 import { OptionalCatchAllParams, OptionalCatchAllProps } from '@notion-x/src/interface'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
+import { postBlogSimpleListClass } from '../../../lib/config'
 import { getPosts } from '../../../lib/fetcher'
+import { filterDupLangPosts } from '../../../lib/helpers'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '../../../templates/PageOfPostsListTemplate'
-import { filterDupLangPosts } from '../../../lib/helpers'
 
 export const revalidate = 20
 
@@ -71,7 +72,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
   const test = allBlogs.filter(p => !!p.vi)
-  /* ###Thi */ console.log(`👉👉👉 test: `, JSON.stringify(test));
+  /* ###Thi */ console.log(`👉👉👉 test: `, JSON.stringify(test))
   const numBlogs = allBlogs?.length || 0
   const totalPages = Math.ceil(numBlogs / numPostsPerPage)
 
@@ -102,7 +103,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       totalPages={totalPages}
       currentPage={currentPage}
       postType="PostBlogSimple"
-      postListContainerClassName="bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100"
+      postListContainerClassName={postBlogSimpleListClass}
     />
   )
 }
