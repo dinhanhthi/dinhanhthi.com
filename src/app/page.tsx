@@ -2,7 +2,6 @@ import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
 import PostList from '@notion-x/src/components/PostsList'
 import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
 import cn from 'classnames'
-import Link from 'next/link'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@notion-x/src/components/ScrollToTop'
@@ -228,12 +227,12 @@ export default async function Home() {
               href={tools.length >= numTools ? '/reading/' : undefined}
             />
             <div className="w-full flex flex-col gap-3">
-              <div className="italic text-[0.95rem] text-slate-700">
+              {/* <div className="italic text-[0.95rem] text-slate-700">
                 Read more:{' '}
                 <Link className="m2it-link" href="/note/my-taste-of-reading/">
                   My taste of reading.
                 </Link>
-              </div>
+              </div> */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
                 {books.slice(0, numBooks).map((book: Book) => (
                   <Suspense key={book.id} fallback={<SkeletonToolItem />}>
