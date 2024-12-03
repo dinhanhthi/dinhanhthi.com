@@ -161,7 +161,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-base leading-normal text-gray-600 italic">
+        <div className="text-[0.95rem] leading-normal text-gray-600 italic">
           <strong className="font-medium">Remark</strong>:{' '}
           <a
             className="m2it-link"
