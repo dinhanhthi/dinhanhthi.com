@@ -130,49 +130,41 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
       </div>
 
       {/* Tags */}
-      <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
-        <div className="flex gap-2.5 flex-wrap items-center">
-          {props.tags?.map(tag => (
-            <button
-              onClick={() => toggleTypeToShow(tag)}
-              key={makeSlugText(tag)}
-              className={cn(
-                'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
-                {
-                  'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
-                  'bg-sky-600 text-white': tagsToShow.includes(tag)
-                }
-              )}
-            >
-              {iconTagList[tag] && (
-                <>
-                  {createElement(iconTagList[tag], {
-                    className: cn('h-5 w-5', {
-                      'text-amber-400': tag === 'favorite'
-                    })
-                  })}
-                </>
-              )}
-              <div className="whitespace-nowrap text-base">{tag}</div>
-            </button>
-          ))}
+      {false && (
+        <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
+          <div className="flex gap-2.5 flex-wrap items-center">
+            {props.tags?.map(tag => (
+              <button
+                onClick={() => toggleTypeToShow(tag)}
+                key={makeSlugText(tag)}
+                className={cn(
+                  'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
+                  {
+                    'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
+                    'bg-sky-600 text-white': tagsToShow.includes(tag)
+                  }
+                )}
+              >
+                {iconTagList[tag] && (
+                  <>
+                    {createElement(iconTagList[tag], {
+                      className: cn('h-5 w-5', {
+                        'text-amber-400': tag === 'favorite'
+                      })
+                    })}
+                  </>
+                )}
+                <div className="whitespace-nowrap text-base">{tag}</div>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-[0.95rem] leading-normal text-gray-600 italic">
-          <strong className="font-medium">Remark</strong>:{' '}
-          <a
-            className="m2it-link"
-            href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
-            target="_blank"
-          >
-            Click here
-          </a>{' '}
-          to see my reviews (in Vietnamese) on Goodreads. I mostly read the Vietnamese versions of
-          books. If I can{"'"}t find their English titles, I{"'"}ll use the Vietnamese titles
-          instead. <span className="font-medium">Read more:</span>{' '}
+        <div className="text-[0.9rem] leading-normal text-gray-600 italic">
+          <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
           </Link>
@@ -184,6 +176,14 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
           >
             want-to-read list
           </a>{' '}
+          and{' '}
+          <a
+            className="m2it-link"
+            href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
+            target="_blank"
+          >
+            reviews
+          </a>
           on Goodreads.
         </div>
 
