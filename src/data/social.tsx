@@ -24,9 +24,15 @@ const socials: BadgeSocialProps[] = [
   },
   {
     id: 'twitter',
-    title: 'Twitter',
+    title: 'X (dinhanhthi)',
     icon: TwitterIcon,
-    url: 'https://twitter.com/dinhanhthi'
+    url: 'https://x.com/dinhanhthi'
+  },
+  {
+    id: 'twitter-2',
+    title: 'X (spider_learn)',
+    icon: TwitterIcon,
+    url: 'https://x.com/spider_learn'
   },
   {
     id: 'goodreads',
