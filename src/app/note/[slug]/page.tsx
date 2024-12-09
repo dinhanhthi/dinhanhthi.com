@@ -1,4 +1,4 @@
-import { getTopics, getUnofficialPosts } from '@/src/app/lib/fetcher'
+import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/app/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
 import { DynamicSegmentParamsProps } from '@notion-x/src/interface'
 import { getJoinedRichText } from '@notion-x/src/lib/helpers'
@@ -49,11 +49,21 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
-    // console.log(`👉👉👉 recordMap: `, JSON.stringify(recordMap))
+    // saveObjectToFile(recordMap, 'output.txt').catch(console.error);
 
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = transformUnofficialPostProps(block, topics, recordMap)
+
+    // for new custom emoji
+    if (postProps?.icon?.startsWith('notion://custom_emoji')) {
+      const customEmojiId = postProps.icon.split('/').pop()
+      if (customEmojiId) {
+        const customEmojiUrl = await getCustomEmojiUrl(customEmojiId)
+        postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
+      }
+    }
+
     if (postProps.discrete)
       return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 

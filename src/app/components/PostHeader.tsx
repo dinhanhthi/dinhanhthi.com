@@ -18,9 +18,9 @@ import { getTextContent } from 'notion-utils'
 import { Suspense } from 'react'
 
 import TooltipX from '@notion-x/src/components/tooltip-x'
-import { Post } from '@notion-x/src/interface'
 import Link from 'next/link'
 import me from '../../data/me'
+import { exPost } from '../../interface'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'
 import { quicksand } from '../lib/fonts'
@@ -37,7 +37,7 @@ export const gapHeaderItems = 'mb-3'
 
 type PostHeaderProps = {
   recordMap: ExtendedRecordMap
-  postProps: Post
+  postProps: exPost
   hideMeta?: boolean
   discreteStyle?: boolean
 }
@@ -59,6 +59,7 @@ export default function PostHeader(props: PostHeaderProps) {
     date: modifiedDate,
     tags,
     icon,
+    customEmojiUrl,
     isDraft,
     coverPosition,
     pageCover,
@@ -111,7 +112,7 @@ export default function PostHeader(props: PostHeaderProps) {
                   />
                 }
               >
-                <PageIcon block={block} inline={false} />
+                <PageIcon block={block} inline={false} inputIcon={customEmojiUrl} />
               </Suspense>
             )}
 

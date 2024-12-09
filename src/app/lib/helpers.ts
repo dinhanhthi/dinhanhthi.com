@@ -1,9 +1,12 @@
-import { ImgurUrlType } from '@/src/interface'
+import { exPost, ImgurUrlType } from '@/src/interface'
 import { Post, PostHeaderType, Tag } from '@notion-x/src/interface'
 import { mapTag } from '@notion-x/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { Metadata } from 'next'
 import { Block, ExtendedRecordMap } from 'notion-types'
+
+import * as fs from 'fs'
+import * as path from 'path'
 
 import me from '../../data/me'
 
@@ -136,7 +139,7 @@ export function transformUnofficialPostProps(
   post: Block,
   topics: Tag[] = [],
   recordMap?: ExtendedRecordMap
-): Post {
+): exPost {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
@@ -222,8 +225,13 @@ export function filterDupLangPosts(posts: Post[]): Post[] {
   return posts.filter(post => {
     const lang = post.language
     if (lang === 'en' || !lang) return true
-    if (lang === 'vi' && !post.en) return true 
+    if (lang === 'vi' && !post.en) return true
     if (lang === 'fr' && !post.en && !post.vi) return true
     return false
   })
+}
+
+export async function saveObjectToFile(obj: any, filename: string): Promise<void> {
+  const downloadsPath = path.join(process.env.HOME!, 'Downloads', filename)
+  fs.writeFileSync(downloadsPath, JSON.stringify(obj, null, 2))
 }

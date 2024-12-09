@@ -9,6 +9,11 @@
     "npm": "^10.0.8",
     "node": "^20.10.0"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "dev": "next dev -p 3004",
     "build": "next build",
