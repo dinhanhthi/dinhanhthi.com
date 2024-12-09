@@ -1,4 +1,4 @@
-import { Tag as TagNotionX } from '@notion-x/src/interface'
+import { Tag as TagNotionX, Post } from '@notion-x/src/interface'
 import { Block } from 'notion-types'
 
 export type SiteTheme = 'dark' | 'light'
@@ -12,6 +12,10 @@ export type HeaderIcon = {
 
 export type SlugTypeLabels = 'about' | 'blog'
 export type GroupTypeReturn = { categories: Category[] } | { tags: Tag[] } | { authors: Author[] }
+
+export interface exPost extends Post {
+  customEmojiUrl?: string
+}
 
 export type NotionPost = {
   id: string
