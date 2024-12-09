@@ -1,6 +1,6 @@
 import { Book, NotionPost, NotionTagData, Tag, Tool } from '@/src/interface'
 import { NotionSorts, Post } from '@notion-x/src/interface'
-import { getUnofficialDatabase, queryDatabase } from '@notion-x/src/lib/db'
+import { getCustomEmojiBlock, getUnofficialDatabase, queryDatabase } from '@notion-x/src/lib/db'
 import { getJoinedRichText, makeSlugText } from '@notion-x/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { get } from 'lodash'
@@ -56,6 +56,21 @@ export async function getPosts(options: {
   } catch (error) {
     console.error('🚨 Error in getPosts()', error)
     return []
+  }
+}
+
+export async function getCustomEmojiUrl(customEmojiId:string) {
+  try {
+    const data = await getCustomEmojiBlock({
+      customEmojiId,
+      apiUrl: process.env.NOTION_API_WEB,
+      tokenV2: process.env.NOTION_TOKEN_V2,
+      activeUser: process.env.NOTION_ACTIVE_USER
+    })
+    return data?.url ?? ''
+  } catch (error) {
+    console.error('🚨 Error in getCustomEmojiUrl()', error)
+    return ''
   }
 }
 
@@ -298,7 +313,6 @@ function mapTag(tag: NotionTagData): Tag {
 
 async function transformNotionPostsData(options: { data: NotionPost[] }): Promise<Post[]> {
   const { data } = options
-  // /* ###Thi */ console.log(`👉👉👉 data: `, JSON.stringify(data));
   if (!data || !data.length) return []
   return Promise.all(
     data?.map(async post => {
