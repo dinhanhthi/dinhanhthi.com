@@ -50,6 +50,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
     const recordMap = await getPage(pageIdwithDash)
     // saveObjectToFile(recordMap, 'output.txt').catch(console.error);
+    // const recordMap = await loadObjectFromFile('output.txt')
 
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value

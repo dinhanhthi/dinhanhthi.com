@@ -235,3 +235,8 @@ export async function saveObjectToFile(obj: any, filename: string): Promise<void
   const downloadsPath = path.join(process.env.HOME!, 'Downloads', filename)
   fs.writeFileSync(downloadsPath, JSON.stringify(obj, null, 2))
 }
+
+export async function loadObjectFromFile(filename: string): Promise<any> {
+  const downloadsPath = path.join(process.env.HOME!, 'Downloads', filename)
+  return JSON.parse(fs.readFileSync(downloadsPath, 'utf8'))
+}
