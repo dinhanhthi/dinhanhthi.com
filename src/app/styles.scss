@@ -130,6 +130,35 @@ b {
     font-family: 'Recoleta', 'Arial', 'Helvetica', 'sans-serif' !important;
     font-weight: normal !important;
   }
+
+  // There is a strange problem where ul inside ol or ol inside ul:
+  // normally, we should have ol > ul but rendered as ol > ol > ul
+  // -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given
+  // by prose class
+  ol > ol > ul, ul > ul > ol {
+    margin-left: -1.625em;
+  }
+
+  ul, ol {
+    & > *:not(ul):not(ol) {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+  }
+  
+  // ul, ol {
+  //   & > * {
+  //     line-height: 1.2;
+  //   }
+  // }
+
+  // .toggle-button {
+  //   line-height: 1.2;
+  // }
+
+  ul > li::marker {
+    font-size: 1rem;
+  }
 }
 
 ol,
@@ -138,4 +167,8 @@ ul {
   ul > .button-indicator {
     display: none !important;
   }
+}
+
+.katex {
+  font-size: 1rem;
 }
