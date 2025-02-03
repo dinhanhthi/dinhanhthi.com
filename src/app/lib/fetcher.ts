@@ -59,7 +59,7 @@ export async function getPosts(options: {
   }
 }
 
-export async function getCustomEmojiUrl(customEmojiId:string) {
+export async function getCustomEmojiUrl(customEmojiId: string) {
   try {
     const data = await getCustomEmojiBlock({
       customEmojiId,
@@ -116,24 +116,28 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
       createdTime
     const block = tool?.value as Block
     const favorite = star === '5'
+    const hide = properties?.[`${process.env.READING_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
 
     if (star === '5') tags.unshift('favorite')
 
-    books.push({
-      id,
-      name,
-      author,
-      star,
-      description,
-      iconUrl,
-      tags,
-      url,
-      date,
-      isReading,
-      block,
-      favorite,
-      keySearch
-    })
+    if (!hide) {
+      books.push({
+        id,
+        name,
+        author,
+        star,
+        description,
+        iconUrl,
+        tags,
+        url,
+        date,
+        isReading,
+        block,
+        favorite,
+        keySearch,
+        hide
+      })
+    }
   }
 
   return books.sort(function (a, b) {
