@@ -143,6 +143,7 @@ export interface ToolCommon {
   block: Block // used to fetch icons
   keySearch?: string
   favorite?: boolean
+  hide?: boolean
 }
 
 export interface Tool extends ToolCommon {
