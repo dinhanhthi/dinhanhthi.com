@@ -183,7 +183,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
             target="_blank"
           >
             reviews
-          </a>
+          </a>{' '}
           on Goodreads.
         </div>
 
