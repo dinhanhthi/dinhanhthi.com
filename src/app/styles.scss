@@ -30,6 +30,10 @@ b {
 }
 
 @layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+
   html {
     font-family: 'font-sans';
     font-size: 16px;
@@ -135,17 +139,19 @@ b {
   // normally, we should have ol > ul but rendered as ol > ol > ul
   // -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given
   // by prose class
-  ol > ol > ul, ul > ul > ol {
+  ol > ol > ul,
+  ul > ul > ol {
     margin-left: -1.625em;
   }
 
-  ul, ol {
+  ul,
+  ol {
     & > *:not(ul):not(ol) {
       margin-top: 0.5rem !important;
       margin-bottom: 0.5rem !important;
     }
   }
-  
+
   // ul, ol {
   //   & > * {
   //     line-height: 1.2;
