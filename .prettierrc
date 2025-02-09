@@ -1,8 +1,8 @@
 {
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",
-    "prettier-plugin-tailwindcss",
-    "prettier-plugin-organize-imports"
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
   ],
   "arrowParens": "avoid",
   "semi": false,
@@ -13,5 +13,8 @@
   "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "tailwindConfig": "./tailwind.config.ts",
+  "tailwindAttributes": ["textClassName", "overlayClassName"],
+  "tailwindFunctions": ["cn", "clsx", "cva"]
 }
