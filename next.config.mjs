@@ -4,8 +4,8 @@ const nextConfig = {
   poweredByHeader: false, // remove "Powered by Next.js" from the header
   // transpilePackages: ['react-syntax-highlighter'],
   experimental: {
-    scrollRestoration: true, // not supported yet by --turbo,
-    esmExternals: false
+    scrollRestoration: true // not supported yet by --turbo,
+    // esmExternals: false
     // serverActions: true
     // esmExternals: 'loose' // https://nextjs.org/docs/messages/import-esm-externals
   },
@@ -15,6 +15,9 @@ const nextConfig = {
       transform: 'lodash/{{member}}',
       preventFullImport: true
     }
+  },
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api']
   },
   headers: async () => {
     const headers = []
