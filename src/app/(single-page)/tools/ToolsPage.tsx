@@ -7,6 +7,13 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
   const sortedCategories = props.categories?.sort((a, b) => a.localeCompare(b))
   return (
     <div className="flex flex-col gap-8">
+      {props.tools.length > 0 && (
+        <ToolSimpleSection
+          title="Recently added"
+          tools={props.tools.slice(0, 6)}
+          isSpecial={true}
+        />
+      )}
       {sortedCategories &&
         sortedCategories.length > 0 &&
         sortedCategories.map(category => {
