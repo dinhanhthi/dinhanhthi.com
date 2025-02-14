@@ -204,21 +204,24 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const date = new Date(tool?.value?.created_time)?.toISOString()
     const block = tool?.value as Block
     const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
+    const hide = properties?.[`${process.env.READING_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
 
-    tools.push({
-      id,
-      name,
-      description,
-      shortDescription,
-      url,
-      iconUrl,
-      isFree,
-      tags,
-      category,
-      date,
-      block,
-      keySearch
-    })
+    if (!hide) {
+      tools.push({
+        id,
+        name,
+        description,
+        shortDescription,
+        url,
+        iconUrl,
+        isFree,
+        tags,
+        category,
+        date,
+        block,
+        keySearch
+      })
+    }
   }
 
   return tools.sort(function (a, b) {
