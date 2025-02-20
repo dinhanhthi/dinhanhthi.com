@@ -5,15 +5,18 @@ import ToolSimpleItem, { SkeletonToolSimpleItem } from './ToolSimpleItem'
 export default function ToolSimpleSection(props: {
   tools: Tool[]
   title?: string
-  isSpecial?: boolean
+  className?: string
 }) {
   return (
     <div
-      className={cn('flex flex-col rounded-xl', {
-        'p-1': !!props.title,
-        'bg-slate-100': !!props.title && !props.isSpecial,
-        'bg-orange-100': props.isSpecial
-      })}
+      className={cn(
+        'flex flex-col rounded-xl',
+        {
+          'p-1': !!props.title,
+          'bg-slate-100': !!props.title
+        },
+        props.className
+      )}
     >
       {props.title && <div className="p-2 text-base font-medium text-sky-800">{props.title}</div>}
       <div className="grid gap-x-2 rounded-xl border border-slate-200 bg-white p-2 sm:grid-cols-2">

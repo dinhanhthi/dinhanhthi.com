@@ -144,6 +144,7 @@ export interface ToolCommon {
   keySearch?: string
   favorite?: boolean
   hide?: boolean
+  favorite?: boolean
 }
 
 export interface Tool extends ToolCommon {
