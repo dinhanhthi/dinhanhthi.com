@@ -5,13 +5,23 @@ import ToolSimpleSection, { SkeletonToolPageSection } from './ToolSimpleSection'
 
 export default function ToolsPage(props: { tools: Tool[]; categories?: string[] }) {
   const sortedCategories = props.categories?.sort((a, b) => a.localeCompare(b))
+  const favoriteTools = props.tools.filter(tool => tool.favorite)
   return (
     <div className="flex flex-col gap-8">
       {props.tools.length > 0 && (
         <ToolSimpleSection
+          key={'recently-added'}
           title="Recently added"
           tools={props.tools.slice(0, 6)}
-          isSpecial={true}
+          className='!bg-green-100'
+        />
+      )}
+      {favoriteTools.length > 0 && (
+        <ToolSimpleSection
+          key={'favorites'}
+          title="Favorites"
+          tools={favoriteTools}
+          className='!bg-orange-100'
         />
       )}
       {sortedCategories &&
