@@ -204,7 +204,8 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const date = new Date(tool?.value?.created_time)?.toISOString()
     const block = tool?.value as Block
     const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
-    const hide = properties?.[`${process.env.READING_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
+    const hide = properties?.[`${process.env.TOOLS_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
+    const favorite = properties?.[`${process.env.TOOLS_FAVORITE_KEY}`]?.[0]?.[0] === 'Yes'
 
     if (!hide) {
       tools.push({
@@ -219,7 +220,8 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
         category,
         date,
         block,
-        keySearch
+        keySearch,
+        favorite
       })
     }
   }
