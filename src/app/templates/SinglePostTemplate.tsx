@@ -23,7 +23,7 @@ type SinglePostTemplateProps = {
 
 // Note: If we change the breakpoint here, we have to change the breakpoint of showing TOC on
 // small screens in component post-toc.tsx too.
-const asideClass = cn('hidden 2xl:block flex-1', 'h-[calc(100vh-130px)] sticky top-[70px] pt-8')
+const asideClass = cn('hidden flex-1 2xl:block', 'sticky top-[70px] h-[calc(100vh-130px)] pt-8')
 
 export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   const id = Object.keys(props.recordMap.block)[0]
@@ -46,14 +46,17 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
 
           <Container className={containerNormal}>
             {props.postProps.isDraft && (
-              <div className="flex bg-transparent items-center gap-2 mb-8 border-b-slate-200 border-b text-sm">
-                <div className="pl-2 py-2 text-base">⚠️</div>
-                <div className="pr-4 w-0 flex-1 text-slate-600">
+              <div className="mb-8 flex items-center gap-2 border-b border-b-slate-200 bg-transparent text-sm">
+                <div className="py-2 pl-2 text-base">⚠️</div>
+                <div className="w-0 flex-1 pr-4 text-slate-600">
                   This is a quick &amp; dirty draft, for me only!
                 </div>
               </div>
             )}
             <PostBody
+              className={cn({
+                vietnamese: props.postProps?.language === 'vi'
+              })}
               recordMap={props.recordMap}
               blockOptions={{
                 siteDomain: 'dinhanhthi.com',

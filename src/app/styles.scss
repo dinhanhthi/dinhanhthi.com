@@ -38,6 +38,16 @@ b {
     font-family: 'font-sans';
     font-size: 16px;
   }
+
+  .vietnamese {
+    .m2it-prose {
+      h1, h2, h3, h4 {
+        font-family: theme('fontFamily.sans') !important;
+        font-weight: 500 !important;
+        opacity: 0.9;
+      }
+    }
+  }
 }
 
 @layer utilities {
