@@ -8,7 +8,7 @@ import Script from 'next/script'
 import '../fontello/css/fontello.css'
 
 import me from '../data/me'
-import { openSans } from './lib/fonts'
+import { openSans, quicksand } from './lib/fonts'
 import './styles.scss'
 
 export const revalidate = 20
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable} font-sans`}>
+    <html lang="en" className={`${openSans.variable} font-sans ${quicksand.variable}`}>
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>
           <Script

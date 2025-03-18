@@ -91,7 +91,8 @@ export default {
       fontFamily: {
         heading: ['Recoleta', 'Arial', 'Helvetica', 'sans-serif'],
         sans: ['var(--font-open-sans)', ...defaultTheme.fontFamily.sans],
-        mono: [...defaultTheme.fontFamily.mono]
+        mono: [...defaultTheme.fontFamily.mono],
+        quicksand: ['var(--font-quicksand)', ...defaultTheme.fontFamily.sans]
       },
       boxShadow: {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
