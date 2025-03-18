@@ -6,7 +6,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'
 import PostHeader from '../components/PostHeader'
-import { bodyPadding, containerNormal, discreteColsType } from '../lib/config'
+import { bodyPadding, containerNormal, discreteColsType, postFontClassName } from '../lib/config'
 
 type DiscretePostTemplateType = {
   recordMap: ExtendedRecordMap
@@ -18,7 +18,7 @@ type DiscretePostTemplateType = {
 export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
   return (
     <>
-      <div className="animate-fadeIn thi-bg-stone">
+      <div className="thi-bg-stone animate-fadeIn">
         <PostHeader
           recordMap={props.recordMap}
           hideMeta={props.hideMeta}
@@ -33,9 +33,9 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
             })}
           >
             {props.postProps.isDraft && (
-              <div className="flex bg-transparent items-center gap-2 mb-8 border-b-slate-300 border-b text-sm">
-                <div className="pl-2 py-2 text-base">⚠️</div>
-                <div className="pr-4 w-0 flex-1 text-slate-600">
+              <div className="mb-8 flex items-center gap-2 border-b border-b-slate-300 bg-transparent text-sm">
+                <div className="py-2 pl-2 text-base">⚠️</div>
+                <div className="w-0 flex-1 pr-4 text-slate-600">
                   This is a quick &amp; dirty draft, for me only!
                 </div>
               </div>
@@ -56,7 +56,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
               discreteStyle={true} // The big difference from SinglePostTemplate is here!
               postCreatedDate={props.postProps.createdDate}
               postLastModifiedDate={props.postProps.date}
-              fontClass="font-sans"
+              fontClass={postFontClassName}
               discreteColsType={discreteColsType}
               showUpdatedIndicator={true}
               lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}

@@ -12,7 +12,7 @@ import { get } from 'lodash'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
-import { bodyPadding, containerNormal, defaultPostTypeOpts } from '../lib/config'
+import { bodyPadding, containerNormal, defaultPostTypeOpts, postFontClassName } from '../lib/config'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap
@@ -70,7 +70,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
                 expandTocOnMobile: false
               }}
               useSimpleImage={true}
-              fontClass="font-sans"
+              fontClass={postFontClassName}
               showUpdatedIndicator={true}
               postCreatedDate={props.postProps.createdDate}
               postLastModifiedDate={props.postProps.date}

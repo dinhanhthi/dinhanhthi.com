@@ -11,5 +11,6 @@ export const openSans = Open_Sans({
 export const quicksand = Quicksand({
   subsets: ['latin', 'vietnamese'],
   display: 'swap',
-  weight: ['700']
+  weight: ['500', '600', '700'],
+  variable: '--font-quicksand'
 })
