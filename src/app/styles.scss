@@ -26,7 +26,7 @@
 
 strong,
 b {
-  font-weight: bold !important;
+  font-weight: 600 !important;
 }
 
 @layer base {
@@ -39,15 +39,15 @@ b {
     font-size: 16px;
   }
 
-  .vietnamese {
-    .m2it-prose {
-      h1, h2, h3, h4 {
-        font-family: theme('fontFamily.quicksand') !important;
-        font-weight: 600 !important;
-        opacity: 0.9;
-      }
-    }
-  }
+  // .vietnamese {
+  //   .m2it-prose {
+  //     h1, h2, h3, h4 {
+  //       font-family: theme('fontFamily.quicksand') !important;
+  //       font-weight: 600 !important;
+  //       opacity: 0.9;
+  //     }
+  //   }
+  // }
 }
 
 @layer utilities {
@@ -141,8 +141,9 @@ b {
   h1,
   h2,
   h3 {
-    font-family: 'Recoleta', 'Arial', 'Helvetica', 'sans-serif' !important;
-    font-weight: normal !important;
+    font-family: theme('fontFamily.quicksand') !important;
+    font-weight: 600 !important;
+    opacity: 0.9;
   }
 
   // There is a strange problem where ul inside ol or ol inside ul:
