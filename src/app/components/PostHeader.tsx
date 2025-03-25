@@ -17,14 +17,17 @@ import { ExtendedRecordMap } from 'notion-types'
 import { getTextContent } from 'notion-utils'
 import { Suspense } from 'react'
 
+import FR from '@/public/lang/fr.svg'
+import EN from '@/public/lang/us.svg'
+import VN from '@/public/lang/vn.svg'
 import TooltipX from '@notion-x/src/components/tooltip-x'
-import Link from 'next/link'
 import me from '../../data/me'
 import { exPost } from '../../interface'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '../lib/config'
 import { quicksand } from '../lib/fonts'
 import { getUri } from '../lib/helpers'
+import BadgeLanguage from './BadgeLanguage'
 import Header from './Header'
 
 const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
@@ -239,28 +242,28 @@ export default function PostHeader(props: PostHeaderProps) {
                 </>
               )}
               {!!vi && (
-                <Link
-                  className="rounded-md border-rose-200 bg-rose-200 px-2 text-sm text-rose-900 transition-all duration-200 hover:-translate-y-0.5"
-                  href={getUri('note', vi)!}
-                >
-                  Read in Vietnamese
-                </Link>
+                <BadgeLanguage
+                  id="lang-vn"
+                  icon={VN}
+                  url={getUri('note', vi)!}
+                  title="Read in Vietnamese"
+                />
               )}
               {!!en && (
-                <Link
-                  className="rounded-md border-sky-200 bg-sky-200 px-2 text-sm text-sky-900 transition-all duration-200 hover:-translate-y-0.5"
-                  href={getUri('note', en)!}
-                >
-                  Read in English
-                </Link>
+                <BadgeLanguage
+                  id="lang-en"
+                  icon={EN}
+                  url={getUri('note', en)!}
+                  title="Read in English"
+                />
               )}
               {!!fr && (
-                <Link
-                  className="rounded-md border-green-200 bg-green-200 px-2 text-sm text-green-900 transition-all duration-200 hover:-translate-y-0.5"
-                  href={getUri('note', fr)!}
-                >
-                  Read in French
-                </Link>
+                <BadgeLanguage
+                  id="lang-fr"
+                  icon={FR}
+                  url={getUri('note', fr)!}
+                  title="Read in French"
+                />
               )}
             </div>
           )}
