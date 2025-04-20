@@ -186,13 +186,3 @@ ul {
     display: none !important;
   }
 }
-
-/* Prevent layout shift when dialog opens */
-.overflow-y-auto {
-  scrollbar-gutter: stable;
-}
-
-/* Optional: if you still see shift, force the scrollbar to always show */
-html {
-  overflow-y: scroll;
-}
