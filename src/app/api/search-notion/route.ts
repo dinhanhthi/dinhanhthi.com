@@ -76,7 +76,7 @@ function parseSearchResults(data: any): SearchResult[] {
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || null
 
       if (isPostHide) continue
-      if (process.env.ENV_MODE === 'prod' && !isPostPublished) continue
+      if (process.env.NEXT_PUBLIC_ENV_MODE !== 'dev' && !isPostPublished) continue
 
       results.push({
         id: postId,
