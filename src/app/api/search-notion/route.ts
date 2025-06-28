@@ -1,5 +1,6 @@
-import { SearchParams, SearchResult } from '@notion-x/src/interface'
-import { idToUuid, makeSlugText } from '@notion-x/src/lib/helpers'
+import { SearchResult } from '@notion-x/src/interface'
+import { searchNotionPersonal } from '@notion-x/src/lib/db'
+import { makeSlugText } from '@notion-x/src/lib/helpers'
 
 const UNOFFICIAL_NOTION_KEYS = {
   slug: process.env.NEXT_PUBLIC_ID_SLUG as string,
@@ -38,55 +39,6 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json'
     }
   })
-}
-
-async function searchNotionPersonal(
-  params: SearchParams,
-  apiUrl: string,
-  dbId: string
-): Promise<any> {
-  if (!apiUrl) throw new Error('apiUrl is not defined')
-
-  const headers: any = {
-    'Content-Type': 'application/json'
-  }
-
-  if (!dbId) {
-    throw new Error('dbId is not defined')
-  }
-
-  const body = {
-    type: 'BlocksInAncestor',
-    query: params.query,
-    ancestorId: idToUuid(dbId),
-    source: 'quick_find_input_change',
-    sort: {
-      field: 'relevance'
-    },
-    limit: params.limit || 100,
-    filters: {
-      isDeletedOnly: false,
-      excludeTemplates: false,
-      navigableBlockContentOnly: false,
-      requireEditPermissions: false,
-      includePublicPagesWithoutExplicitAccess: true,
-      ancestors: [],
-      createdBy: [],
-      editedBy: [],
-      lastEditedTime: {},
-      createdTime: {},
-      inTeams: [],
-      ...params.filters
-    }
-  }
-
-  const url = `${apiUrl}/search`
-
-  return fetch(url, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(body)
-  }).then(response => response.json())
 }
 
 /**
