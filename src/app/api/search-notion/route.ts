@@ -1,6 +1,5 @@
-import { SearchResult } from '@notion-x/src/interface'
-import { searchNotion } from '@notion-x/src/lib/db'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
+import { SearchParams, SearchResult } from '@notion-x/src/interface'
+import { idToUuid, makeSlugText } from '@notion-x/src/lib/helpers'
 
 const UNOFFICIAL_NOTION_KEYS = {
   slug: process.env.NEXT_PUBLIC_ID_SLUG as string,
@@ -27,11 +26,9 @@ export async function OPTIONS(_request: Request) {
 export async function POST(request: Request) {
   const searchParams = await request.json()
 
-  const results = await searchNotion(
+  const results = await searchNotionPersonal(
     searchParams,
-    process.env.NOTION_API_WEB as string,
-    process.env.NOTION_TOKEN_V2 as string,
-    process.env.NOTION_ACTIVE_USER as string,
+    process.env.NOTION_API_PERSONAL as string,
     process.env.NOTION_DB_POSTS as string
   )
   const postResults = parseSearchResults(results)
@@ -43,11 +40,61 @@ export async function POST(request: Request) {
   })
 }
 
+async function searchNotionPersonal(
+  params: SearchParams,
+  apiUrl: string,
+  dbId: string
+): Promise<any> {
+  if (!apiUrl) throw new Error('apiUrl is not defined')
+
+  const headers: any = {
+    'Content-Type': 'application/json'
+  }
+
+  if (!dbId) {
+    throw new Error('dbId is not defined')
+  }
+
+  const body = {
+    type: 'BlocksInAncestor',
+    query: params.query,
+    ancestorId: idToUuid(dbId),
+    source: 'quick_find_input_change',
+    sort: {
+      field: 'relevance'
+    },
+    limit: params.limit || 100,
+    filters: {
+      isDeletedOnly: false,
+      excludeTemplates: false,
+      navigableBlockContentOnly: false,
+      requireEditPermissions: false,
+      includePublicPagesWithoutExplicitAccess: true,
+      ancestors: [],
+      createdBy: [],
+      editedBy: [],
+      lastEditedTime: {},
+      createdTime: {},
+      inTeams: [],
+      ...params.filters
+    }
+  }
+
+  const url = `${apiUrl}/search`
+
+  return fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(body)
+  }).then(response => response.json())
+}
+
 /**
  * We convert the format of search results got from /api/search-notion to the format we want
  * Note that: /api/search-notin uses an unofficial notion api, so the format is a little bit different
  */
 function parseSearchResults(data: any): SearchResult[] {
+  // /* ###Thi ### */ console.log(`👉👉👉 data`, data)
   let results = [] as SearchResult[]
   if (!data || !data.results || data.results.length === 0) results = []
   else {
