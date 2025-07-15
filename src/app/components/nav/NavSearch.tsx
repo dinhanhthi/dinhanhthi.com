@@ -77,7 +77,7 @@ export default function NavSearch() {
                 <span className="hidden whitespace-nowrap sm:inline">Search for notes</span>
                 <span className="inline whitespace-nowrap sm:hidden">Search</span>
                 <span className="hidden whitespace-nowrap rounded-sm border-[0.5px] border-[#555] bg-[#65666b30] px-1 text-[0.7rem] sm:inline-block">
-                  {`${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
+                  {`${os === 'mac' ? '⌘' : 'Ctrl'}+K`}
                 </span>
               </div>
             </button>
