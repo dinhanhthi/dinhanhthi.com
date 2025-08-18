@@ -7,7 +7,6 @@ import { Book } from '../../../interface'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
-import { SkeletonSearchBar } from '../../components/SkeletonSearchBar'
 import { bodyPadding, containerWide } from '../../lib/config'
 import { getUnofficialBooks } from '../../lib/fetcher'
 import { getMetadata } from '../../lib/helpers'
@@ -65,7 +64,6 @@ export default async function ReadingHomePage() {
 function SkeletonReadingContainer() {
   return (
     <div className="flex flex-col gap-6">
-      <SkeletonSearchBar placeholder="Search tools..." />
       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
         <div className="flex gap-x-2 gap-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
