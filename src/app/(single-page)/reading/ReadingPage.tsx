@@ -1,13 +1,10 @@
 'use client'
 
-import FiSearch from '@notion-x/src/icons/FiSearch'
-import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
-import Fuse from 'fuse.js'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
+import { createElement, useEffect, useState } from 'react'
 import { Book } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
@@ -47,9 +44,6 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
 }
 
 export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [searchResult, setSearchResult] = useState<Book[]>(props.books)
-  const [query, setQuery] = useState('')
   const [tagsToShow, setTagsToShow] = useState<string[]>([])
 
   const router = useRouter()
@@ -78,57 +72,12 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
     }
   }
 
-  const booksToShow = searchResult.filter(
+  const booksToShow = props.books.filter(
     book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
 
-  const fuseOptions = {
-    includeScore: false,
-    keys: ['title', 'description', 'tag', 'author', 'keySearch']
-  }
-
-  const fuse = new Fuse(props.books, fuseOptions)
-
-  function handleOnchangeInput(e: ChangeEvent<HTMLInputElement>) {
-    const { value } = e.target
-    setQuery(value)
-    if (value.length) {
-      const result = fuse.search(value)
-      setSearchResult(result?.map(item => item.item))
-    } else {
-      setSearchResult(props.books)
-    }
-  }
-
-  function clearQuery() {
-    setQuery('')
-    setSearchResult(props.books)
-  }
-
   return (
     <div className="flex flex-col gap-6">
-      {/* Search */}
-      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
-        <div className="grid place-items-center text-slate-500">
-          <FiSearch className="text-2xl" />
-        </div>
-        <input
-          ref={inputRef}
-          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
-          id="search"
-          type="search"
-          placeholder={'Search books...'}
-          autoComplete="off"
-          value={query}
-          onChange={e => handleOnchangeInput(e)}
-        />
-        {query && (
-          <button onClick={() => clearQuery()}>
-            <IoCloseCircle className="h-5 w-5 text-slate-500" />
-          </button>
-        )}
-      </div>
-
       {/* Tags */}
       {false && (
         <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
