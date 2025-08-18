@@ -8,7 +8,6 @@ import { createElement, useEffect, useState } from 'react'
 import { Book } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
-import { TagBookIcon } from '../../icons/TagBookIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
 import TagEducationIcon from '../../icons/TagEducationIcon'
 import { TagFictionIcon } from '../../icons/TagFictionIcon'
@@ -75,6 +74,8 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   const booksToShow = props.books.filter(
     book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
+  const notOthersToShow = booksToShow.filter(book => !book.isOthers)
+  const othersToShow = booksToShow.filter(book => book.isOthers)
 
   return (
     <div className="flex flex-col gap-6">
@@ -135,33 +136,37 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {booksToShow
-            ?.filter(book => !book.isOthers)
-            .map((book: Book) => (
-              <ToolItem
-                key={book.id}
-                type="book"
-                tool={book as ToolItemInputType}
-                hideDescription={true}
-              />
-            ))}
+          {notOthersToShow.map((book: Book) => (
+            <ToolItem
+              key={book.id}
+              type="book"
+              tool={book as ToolItemInputType}
+              hideDescription={true}
+            />
+          ))}
         </div>
-        {!booksToShow.length && (
-          <div className="flex w-full items-center justify-center gap-2 text-slate-500">
-            <TagBookIcon className="text-2xl" />
-            <div>No books found.</div>
-          </div>
-        )}
       </div>
 
       <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {booksToShow
-          ?.filter(book => book.isOthers)
-          .map((book: Book) => (
-            <ToolItem key={book.id} type="book" tool={book as ToolItemInputType} isSimple={true} />
-          ))}
-      </div>
+      <ul className="list-disc rounded-lg bg-white p-4 pl-10 leading-8">
+        {othersToShow.map((book: Book) => (
+          <li key={book.id}>
+            <a href={book.url} target="_blank" className="group">
+              <span className="group-hover:m2it-link-hover font-medium text-slate-700">
+                {book.name}
+              </span>{' '}
+              <span className="inline-flex items-center text-slate-400">
+                (
+                {Array.from({ length: +book.star }).map((_, index) => (
+                  <StarIcon key={index} className="text-sm" />
+                ))}
+                )
+              </span>{' '}
+              - <span className="text-sm text-slate-500">{book.author}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
