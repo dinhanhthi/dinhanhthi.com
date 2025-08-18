@@ -184,32 +184,36 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         </div>
       </div>
 
-      <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
-      <ul className="list-disc rounded-lg bg-white p-4 pl-10 leading-8">
-        {othersToShow.map((book: Book) => (
-          <li key={book.id}>
-            <a href={book.url} target="_blank" className="group">
-              {/* NEW badge */}
-              {isBookNew(book) && (
-                <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2">
-                  new
-                </span>
-              )}
-              <span className="group-hover:m2it-link-hover font-medium text-slate-700">
-                {book.name}
-              </span>{' '}
-              <span className="inline-flex items-center text-slate-400">
-                (
-                {Array.from({ length: +book.star }).map((_, index) => (
-                  <StarIcon key={index} className="text-sm" />
-                ))}
-                )
-              </span>{' '}
-              - <span className="text-sm text-slate-500">{book.author}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
+      {othersToShow.length > 0 && (
+        <>
+          <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
+          <ol className="list-decimal rounded-lg bg-white p-4 pl-11 leading-8">
+            {othersToShow.map((book: Book) => (
+              <li key={book.id}>
+                <a href={book.url} target="_blank" className="group">
+                  {/* NEW badge */}
+                  {isBookNew(book) && (
+                    <span className="mr-2 inline whitespace-nowrap rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] text-amber-900">
+                      new
+                    </span>
+                  )}
+                  <span className="group-hover:m2it-link-hover font-medium text-slate-700">
+                    {book.name}
+                  </span>{' '}
+                  <span className="inline-flex items-center text-slate-400">
+                    (
+                    {Array.from({ length: +book.star }).map((_, index) => (
+                      <StarIcon key={index} className="text-sm" />
+                    ))}
+                    )
+                  </span>{' '}
+                  - <span className="text-sm text-slate-500">{book.author}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
     </div>
   )
 }
