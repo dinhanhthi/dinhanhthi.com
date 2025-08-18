@@ -79,40 +79,38 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   return (
     <div className="flex flex-col gap-6">
       {/* Tags */}
-      {false && (
-        <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
-          <div className="flex gap-2.5 flex-wrap items-center">
-            {props.tags?.map(tag => (
-              <button
-                onClick={() => toggleTypeToShow(tag)}
-                key={makeSlugText(tag)}
-                className={cn(
-                  'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
-                  {
-                    'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
-                    'bg-sky-600 text-white': tagsToShow.includes(tag)
-                  }
-                )}
-              >
-                {iconTagList[tag] && (
-                  <>
-                    {createElement(iconTagList[tag], {
-                      className: cn('h-5 w-5', {
-                        'text-amber-400': tag === 'favorite'
-                      })
-                    })}
-                  </>
-                )}
-                <div className="whitespace-nowrap text-base">{tag}</div>
-              </button>
-            ))}
-          </div>
+      <div className="flex flex-wrap items-center justify-start gap-3 sm:justify-start md:flex-nowrap md:items-baseline">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {props.tags?.map(tag => (
+            <button
+              onClick={() => toggleTypeToShow(tag)}
+              key={makeSlugText(tag)}
+              className={cn(
+                'flex flex-row items-center gap-2 rounded-sm border px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
+                {
+                  'hover:m2it-link-hover bg-white': !tagsToShow.includes(tag),
+                  'bg-sky-600 text-white': tagsToShow.includes(tag)
+                }
+              )}
+            >
+              {iconTagList[tag] && (
+                <>
+                  {createElement(iconTagList[tag], {
+                    className: cn('h-4 w-4', {
+                      'text-amber-400': tag === 'favorite'
+                    })
+                  })}
+                </>
+              )}
+              <div className="whitespace-nowrap text-sm">{tag}</div>
+            </button>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-[0.9rem] leading-normal text-gray-600 italic">
+        <div className="text-[0.9rem] italic leading-normal text-gray-600">
           <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
@@ -147,7 +145,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
           ))}
         </div>
         {!booksToShow.length && (
-          <div className="text-slate-500 flex gap-2 items-center justify-center w-full">
+          <div className="flex w-full items-center justify-center gap-2 text-slate-500">
             <TagBookIcon className="text-2xl" />
             <div>No books found.</div>
           </div>
