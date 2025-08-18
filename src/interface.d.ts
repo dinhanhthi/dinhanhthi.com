@@ -155,6 +155,7 @@ export interface Book extends ToolCommon {
   star: number
   author: string
   isReading?: boolean
+  isOthers?: boolean
 }
 
 export interface Game extends ToolCommon {
