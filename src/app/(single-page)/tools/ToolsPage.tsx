@@ -1,5 +1,6 @@
 'use client'
 
+import { Fragment } from 'react'
 import { Tool } from '../../../interface'
 import ToolSimpleSection, { SkeletonToolPageSection } from './ToolSimpleSection'
 
@@ -30,11 +31,11 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
           const tools = props.tools.filter(t => t.category === category)
           const sortedTools = tools.sort((a, b) => a.name.localeCompare(b.name))
           return (
-            <>
+            <Fragment key={category}>
               {sortedTools.length > 0 && (
                 <ToolSimpleSection key={category} title={category} tools={sortedTools} />
               )}
-            </>
+            </Fragment>
           )
         })}
     </div>
