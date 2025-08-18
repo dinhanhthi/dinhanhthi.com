@@ -117,6 +117,7 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
     const block = tool?.value as Block
     const favorite = star === '5'
     const hide = properties?.[`${process.env.READING_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
+    const isOthers = properties?.[`${process.env.READING_OTHERS_KEY}`]?.[0]?.[0] === 'Yes'
 
     if (star === '5') tags.unshift('favorite')
 
@@ -135,7 +136,8 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
         block,
         favorite,
         keySearch,
-        hide
+        hide,
+        isOthers
       })
     }
   }

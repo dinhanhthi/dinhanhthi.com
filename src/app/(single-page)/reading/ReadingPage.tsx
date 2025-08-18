@@ -1,17 +1,13 @@
 'use client'
 
-import FiSearch from '@notion-x/src/icons/FiSearch'
-import IoCloseCircle from '@notion-x/src/icons/IoCloseCircle'
 import { makeSlugText } from '@notion-x/src/lib/helpers'
 import cn from 'classnames'
-import Fuse from 'fuse.js'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { ChangeEvent, createElement, useEffect, useRef, useState } from 'react'
+import { createElement, useEffect, useState } from 'react'
 import { Book } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
-import { TagBookIcon } from '../../icons/TagBookIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
 import TagEducationIcon from '../../icons/TagEducationIcon'
 import { TagFictionIcon } from '../../icons/TagFictionIcon'
@@ -46,10 +42,16 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
   'self help': TagSelfHelpIcon
 }
 
+// Helper function to determine if a book is new (within 7 days)
+const isBookNew = (book: Book): boolean => {
+  const now = new Date()
+  const markDate = new Date(book.date)
+  const diff = now.getTime() - markDate.getTime()
+  const diffInDays = diff / (1000 * 3600 * 24)
+  return diffInDays <= 7 && !book.isReading
+}
+
 export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [searchResult, setSearchResult] = useState<Book[]>(props.books)
-  const [query, setQuery] = useState('')
   const [tagsToShow, setTagsToShow] = useState<string[]>([])
 
   const router = useRouter()
@@ -78,92 +80,75 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
     }
   }
 
-  const booksToShow = searchResult.filter(
+  const booksToShow = props.books.filter(
     book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
 
-  const fuseOptions = {
-    includeScore: false,
-    keys: ['title', 'description', 'tag', 'author', 'keySearch']
-  }
+  // Sort books: new books first, then alphabetically by name
+  const notOthersToShow = booksToShow
+    .filter(book => !book.isOthers)
+    .sort((a, b) => {
+      const aIsNew = isBookNew(a)
+      const bIsNew = isBookNew(b)
 
-  const fuse = new Fuse(props.books, fuseOptions)
+      // If one is new and the other isn't, prioritize the new one
+      if (aIsNew && !bIsNew) return -1
+      if (!aIsNew && bIsNew) return 1
 
-  function handleOnchangeInput(e: ChangeEvent<HTMLInputElement>) {
-    const { value } = e.target
-    setQuery(value)
-    if (value.length) {
-      const result = fuse.search(value)
-      setSearchResult(result?.map(item => item.item))
-    } else {
-      setSearchResult(props.books)
-    }
-  }
+      // If both are new or both are not new, sort alphabetically by name
+      return a.name.localeCompare(b.name)
+    })
 
-  function clearQuery() {
-    setQuery('')
-    setSearchResult(props.books)
-  }
+  // Sort "Others" books: new books first, then alphabetically by name
+  const othersToShow = booksToShow
+    .filter(book => book.isOthers)
+    .sort((a, b) => {
+      const aIsNew = isBookNew(a)
+      const bIsNew = isBookNew(b)
+
+      // If one is new and the other isn't, prioritize the new one
+      if (aIsNew && !bIsNew) return -1
+      if (!aIsNew && bIsNew) return 1
+
+      // If both are new or both are not new, sort alphabetically by name
+      return a.name.localeCompare(b.name)
+    })
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Search */}
-      <div className="flex items-center gap-3 p-4 bg-white rounded-xl">
-        <div className="grid place-items-center text-slate-500">
-          <FiSearch className="text-2xl" />
-        </div>
-        <input
-          ref={inputRef}
-          className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
-          id="search"
-          type="search"
-          placeholder={'Search books...'}
-          autoComplete="off"
-          value={query}
-          onChange={e => handleOnchangeInput(e)}
-        />
-        {query && (
-          <button onClick={() => clearQuery()}>
-            <IoCloseCircle className="h-5 w-5 text-slate-500" />
-          </button>
-        )}
-      </div>
-
       {/* Tags */}
-      {false && (
-        <div className="flex items-center gap-3 flex-wrap md:flex-nowrap md:items-baseline justify-start sm:justify-start">
-          <div className="flex gap-2.5 flex-wrap items-center">
-            {props.tags?.map(tag => (
-              <button
-                onClick={() => toggleTypeToShow(tag)}
-                key={makeSlugText(tag)}
-                className={cn(
-                  'border px-3 py-1.5 rounded-sm transition duration-200 ease-in-out flex flex-row gap-2 items-center text-slate-700',
-                  {
-                    'bg-white hover:m2it-link-hover': !tagsToShow.includes(tag),
-                    'bg-sky-600 text-white': tagsToShow.includes(tag)
-                  }
-                )}
-              >
-                {iconTagList[tag] && (
-                  <>
-                    {createElement(iconTagList[tag], {
-                      className: cn('h-5 w-5', {
-                        'text-amber-400': tag === 'favorite'
-                      })
-                    })}
-                  </>
-                )}
-                <div className="whitespace-nowrap text-base">{tag}</div>
-              </button>
-            ))}
-          </div>
+      <div className="flex flex-wrap items-center justify-start gap-3 sm:justify-start md:flex-nowrap md:items-baseline">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {props.tags?.map(tag => (
+            <button
+              onClick={() => toggleTypeToShow(tag)}
+              key={makeSlugText(tag)}
+              className={cn(
+                'flex flex-row items-center gap-2 rounded-sm border px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
+                {
+                  'hover:m2it-link-hover bg-white': !tagsToShow.includes(tag),
+                  'bg-sky-600 text-white': tagsToShow.includes(tag)
+                }
+              )}
+            >
+              {iconTagList[tag] && (
+                <>
+                  {createElement(iconTagList[tag], {
+                    className: cn('h-4 w-4', {
+                      'text-amber-400': tag === 'favorite'
+                    })
+                  })}
+                </>
+              )}
+              <div className="whitespace-nowrap text-sm">{tag}</div>
+            </button>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-[0.9rem] leading-normal text-gray-600 italic">
+        <div className="text-[0.9rem] italic leading-normal text-gray-600">
           <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
@@ -188,7 +173,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {booksToShow?.map((book: Book) => (
+          {notOthersToShow.map((book: Book) => (
             <ToolItem
               key={book.id}
               type="book"
@@ -197,13 +182,28 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
             />
           ))}
         </div>
-        {!booksToShow.length && (
-          <div className="text-slate-500 flex gap-2 items-center justify-center w-full">
-            <TagBookIcon className="text-2xl" />
-            <div>No books found.</div>
-          </div>
-        )}
       </div>
+
+      <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
+      <ul className="list-disc rounded-lg bg-white p-4 pl-10 leading-8">
+        {othersToShow.map((book: Book) => (
+          <li key={book.id}>
+            <a href={book.url} target="_blank" className="group">
+              <span className="group-hover:m2it-link-hover font-medium text-slate-700">
+                {book.name}
+              </span>{' '}
+              <span className="inline-flex items-center text-slate-400">
+                (
+                {Array.from({ length: +book.star }).map((_, index) => (
+                  <StarIcon key={index} className="text-sm" />
+                ))}
+                )
+              </span>{' '}
+              - <span className="text-sm text-slate-500">{book.author}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
