@@ -42,6 +42,15 @@ const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.
   'self help': TagSelfHelpIcon
 }
 
+// Helper function to determine if a book is new (within 7 days)
+const isBookNew = (book: Book): boolean => {
+  const now = new Date()
+  const markDate = new Date(book.date)
+  const diff = now.getTime() - markDate.getTime()
+  const diffInDays = diff / (1000 * 3600 * 24)
+  return diffInDays <= 7 && !book.isReading
+}
+
 export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   const [tagsToShow, setTagsToShow] = useState<string[]>([])
 
@@ -74,8 +83,36 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   const booksToShow = props.books.filter(
     book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
-  const notOthersToShow = booksToShow.filter(book => !book.isOthers)
-  const othersToShow = booksToShow.filter(book => book.isOthers)
+
+  // Sort books: new books first, then alphabetically by name
+  const notOthersToShow = booksToShow
+    .filter(book => !book.isOthers)
+    .sort((a, b) => {
+      const aIsNew = isBookNew(a)
+      const bIsNew = isBookNew(b)
+
+      // If one is new and the other isn't, prioritize the new one
+      if (aIsNew && !bIsNew) return -1
+      if (!aIsNew && bIsNew) return 1
+
+      // If both are new or both are not new, sort alphabetically by name
+      return a.name.localeCompare(b.name)
+    })
+
+  // Sort "Others" books: new books first, then alphabetically by name
+  const othersToShow = booksToShow
+    .filter(book => book.isOthers)
+    .sort((a, b) => {
+      const aIsNew = isBookNew(a)
+      const bIsNew = isBookNew(b)
+
+      // If one is new and the other isn't, prioritize the new one
+      if (aIsNew && !bIsNew) return -1
+      if (!aIsNew && bIsNew) return 1
+
+      // If both are new or both are not new, sort alphabetically by name
+      return a.name.localeCompare(b.name)
+    })
 
   return (
     <div className="flex flex-col gap-6">
