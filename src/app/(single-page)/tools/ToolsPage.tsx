@@ -12,16 +12,16 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
         <ToolSimpleSection
           key={'recently-added'}
           title="Recently added"
-          tools={props.tools.slice(0, 6)}
-          className='!bg-green-100'
+          tools={props.tools.slice(0, 6).sort((a, b) => a.name.localeCompare(b.name))}
+          className="!bg-green-100"
         />
       )}
       {favoriteTools.length > 0 && (
         <ToolSimpleSection
           key={'favorites'}
           title="Favorites"
-          tools={favoriteTools}
-          className='!bg-orange-100'
+          tools={favoriteTools.sort((a, b) => a.name.localeCompare(b.name))}
+          className="!bg-orange-100"
         />
       )}
       {sortedCategories &&
