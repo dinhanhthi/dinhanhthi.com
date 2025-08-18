@@ -135,14 +135,16 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {booksToShow?.map((book: Book) => (
-            <ToolItem
-              key={book.id}
-              type="book"
-              tool={book as ToolItemInputType}
-              hideDescription={true}
-            />
-          ))}
+          {booksToShow
+            ?.filter(book => !book.isOthers)
+            .map((book: Book) => (
+              <ToolItem
+                key={book.id}
+                type="book"
+                tool={book as ToolItemInputType}
+                hideDescription={true}
+              />
+            ))}
         </div>
         {!booksToShow.length && (
           <div className="flex w-full items-center justify-center gap-2 text-slate-500">
@@ -150,6 +152,15 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
             <div>No books found.</div>
           </div>
         )}
+      </div>
+
+      <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {booksToShow
+          ?.filter(book => book.isOthers)
+          .map((book: Book) => (
+            <ToolItem key={book.id} type="book" tool={book as ToolItemInputType} isSimple={true} />
+          ))}
       </div>
     </div>
   )
