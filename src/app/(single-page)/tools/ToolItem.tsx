@@ -20,6 +20,7 @@ type ToolItemProps = {
   hideDescription?: boolean
   hideTags?: boolean
   showFavoriteStar?: boolean
+  isSimple?: boolean // hide image, description, tags
 }
 
 export default function ToolItem(props: ToolItemProps) {
@@ -61,42 +62,44 @@ export default function ToolItem(props: ToolItemProps) {
           </>
         )}
 
-        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
-          <div className="relative w-full h-full overflow-hidden">
-            <div
-              style={{
-                position: 'absolute',
-                inset: '0px',
-                backgroundImage: `
-                  linear-gradient(#f0f0f0, #f0f0f0),
-                  linear-gradient(transparent, transparent),
-                  url(${convertedIconUrl})`,
-                backgroundBlendMode: 'luminosity, overlay, normal',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center top',
-                backgroundSize: '100% 100%',
-                filter: 'blur(25px) saturate(1)',
-                transform: 'var(1.5) translate3d(0, 0, 0)',
-                zIndex: 10
-              }}
-            ></div>
-            <div
-              className={cn('flex items-center justify-center', {
-                'p-8': type === 'tool',
-                'p-4 relative z-20 min-h-[122.75px] h-full': type === 'book'
-              })}
-            >
-              <SimpleImage
-                src={convertedIconUrl}
-                width={60}
-                className={cn({
-                  'absolute inset-0 m-auto rounded-md h-auto z-20': type === 'tool'
+        {!props.isSimple && (
+          <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
+            <div className="relative w-full h-full overflow-hidden">
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: '0px',
+                  backgroundImage: `
+                    linear-gradient(#f0f0f0, #f0f0f0),
+                    linear-gradient(transparent, transparent),
+                    url(${convertedIconUrl})`,
+                  backgroundBlendMode: 'luminosity, overlay, normal',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center top',
+                  backgroundSize: '100% 100%',
+                  filter: 'blur(25px) saturate(1)',
+                  transform: 'var(1.5) translate3d(0, 0, 0)',
+                  zIndex: 10
+                }}
+              ></div>
+              <div
+                className={cn('flex items-center justify-center', {
+                  'p-8': type === 'tool',
+                  'p-4 relative z-20 min-h-[122.75px] h-full': type === 'book'
                 })}
-                imagePlaceholder={ImagePlaceholder()}
-              />
+              >
+                <SimpleImage
+                  src={convertedIconUrl}
+                  width={60}
+                  className={cn({
+                    'absolute inset-0 m-auto rounded-md h-auto z-20': type === 'tool'
+                  })}
+                  imagePlaceholder={ImagePlaceholder()}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* title & author */}
         <div className={cn('min-w-0 flex-1 flex flex-col gap-3 px-3 py-4 pl-4')}>
@@ -144,29 +147,31 @@ export default function ToolItem(props: ToolItemProps) {
           )}
 
           {/* tags */}
-          <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
-            {typeof tool.isFree !== 'undefined' && (
-              <>
-                {tool.isFree ? (
-                  <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
-                ) : (
-                  <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
-                )}
-              </>
-            )}
+          {!props.isSimple && (
+            <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
+              {typeof tool.isFree !== 'undefined' && (
+                <>
+                  {tool.isFree ? (
+                    <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
+                  ) : (
+                    <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
+                  )}
+                </>
+              )}
 
-            {!props.hideTags &&
-              tool.tags
-                ?.filter(tag => tag !== 'favorite')
-                ?.map(t => (
-                  <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
-                    {t}
-                  </span>
-                ))}
-          </div>
+              {!props.hideTags &&
+                tool.tags
+                  ?.filter(tag => tag !== 'favorite')
+                  ?.map(t => (
+                    <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
+                      {t}
+                    </span>
+                  ))}
+            </div>
+          )}
 
           {/* description */}
-          {!props.hideDescription && (
+          {!props.hideDescription && !props.isSimple && (
             <div className="text-[0.83rem] text-slate-700 break-words overflow">
               {tool.description}
             </div>
