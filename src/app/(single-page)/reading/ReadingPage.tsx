@@ -189,6 +189,12 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         {othersToShow.map((book: Book) => (
           <li key={book.id}>
             <a href={book.url} target="_blank" className="group">
+              {/* NEW badge */}
+              {isBookNew(book) && (
+                <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-2">
+                  new
+                </span>
+              )}
               <span className="group-hover:m2it-link-hover font-medium text-slate-700">
                 {book.name}
               </span>{' '}
