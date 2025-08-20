@@ -20,7 +20,11 @@ export const metadata = getMetadata({
 
 export default async function SupportThiPage() {
   try {
-    const recordMap = await notionX.getPage(parsePageId(process.env.SUPPORT_ME as string))
+    const supportMeId = parsePageId(process.env.SUPPORT_ME)
+    if (!supportMeId) {
+      throw new Error('SUPPORT_ME environment variable is not set')
+    }
+    const recordMap = await notionX.getPage(supportMeId)
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = transformUnofficialPostProps(block)
