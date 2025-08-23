@@ -200,14 +200,18 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                   <span className="group-hover:m2it-link-hover font-medium text-slate-700">
                     {book.name}
                   </span>{' '}
-                  <span className="inline-flex items-center text-slate-400">
-                    (
-                    {Array.from({ length: +book.star }).map((_, index) => (
-                      <StarIcon key={index} className="text-sm" />
-                    ))}
-                    )
-                  </span>{' '}
-                  - <span className="text-sm text-slate-500">{book.author}</span>
+                  {book.star && (
+                    <>
+                      <span className="inline-flex items-center text-slate-400">
+                        (
+                        {Array.from({ length: +book.star }).map((_, index) => (
+                          <StarIcon key={index} className="text-sm" />
+                        ))}
+                        )
+                      </span>{' '}
+                    </>
+                  )}
+                  — <span className="text-sm text-slate-500">{book.author}</span>
                 </a>
               </li>
             ))}
