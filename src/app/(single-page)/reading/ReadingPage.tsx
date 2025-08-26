@@ -84,9 +84,18 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
     book => tagsToShow.every(type => book.tags.includes(type)) || tagsToShow.length === 0
   )
 
-  // Sort books: new books first, then alphabetically by name
+  // Get recently read books (last 6 read books, excluding currently reading and others)
+  const recentlyReadBooks = booksToShow
+    .filter(book => !book.isReading && !book.isOthers)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 6)
+
+  // Get IDs of recently read books to exclude from main list
+  const recentlyReadIds = new Set(recentlyReadBooks.map(book => book.id))
+
+  // Sort books: new books first, then alphabetically by name (excluding recently read)
   const notOthersToShow = booksToShow
-    .filter(book => !book.isOthers)
+    .filter(book => !book.isOthers && !recentlyReadIds.has(book.id))
     .sort((a, b) => {
       const aIsNew = isBookNew(a)
       const bIsNew = isBookNew(b)
@@ -171,6 +180,25 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
           </a>{' '}
           on Goodreads.
         </div>
+
+        {/* Recently Read Section */}
+        {recentlyReadBooks.length > 0 && (
+          <div className="mb-6">
+            <div className="rounded-lg border border-gray-200 bg-white p-4">
+              <h3 className="mb-4 font-heading text-xl font-bold text-slate-700">Recently Read</h3>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {recentlyReadBooks.map((book: Book) => (
+                  <ToolItem
+                    key={book.id}
+                    type="book"
+                    tool={book as ToolItemInputType}
+                    hideDescription={true}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {notOthersToShow.map((book: Book) => (
