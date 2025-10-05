@@ -1,5 +1,5 @@
 import NotesIcon from '@/public/notes.svg'
-import SkeletonPostList from '@/src/app/components/SkeletonPostList'
+import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
