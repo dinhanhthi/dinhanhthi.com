@@ -1,6 +1,6 @@
 'use client'
 
-import { makeSlugText } from '@/src/lib/notion/helpers'
+import { makeSlugText } from '@/src/lib/helpers'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'

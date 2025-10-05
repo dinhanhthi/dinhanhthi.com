@@ -8,7 +8,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { AnnotationIgnoreField, TextIgnoreField } from '@/src/lib/notion/interface'
-import { generateTextAnnotationClasses } from '@/src/lib/notion/helpers'
+import { generateTextAnnotationClasses } from '@/src/lib/helpers'
 
 type TextProps = {
   richText: TextRichTextItemResponse | MentionRichTextItemResponse

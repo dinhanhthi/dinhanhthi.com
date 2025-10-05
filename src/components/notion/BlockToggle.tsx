@@ -6,7 +6,7 @@ import React from 'react'
 
 import { basicBlockGap, blockMargin } from '@/src/components/notion/block'
 import BsFillCaretRightFill from '@/src/components/icons/BsFillCaretRightFill'
-import { mapColorClass } from '@/src/lib/notion/helpers'
+import { mapColorClass } from '@/src/lib/helpers'
 
 export default function BlockToggle(props: {
   text: React.ReactNode

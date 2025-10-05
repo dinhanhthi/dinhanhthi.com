@@ -1,6 +1,6 @@
 import { SearchResult } from '@/src/lib/notion/interface'
 import { searchNotionPersonal } from '@/src/lib/notion/db'
-import { makeSlugText } from '@/src/lib/notion/helpers'
+import { makeSlugText } from '@/src/lib/helpers'
 
 const UNOFFICIAL_NOTION_KEYS = {
   slug: process.env.NEXT_PUBLIC_ID_SLUG as string,

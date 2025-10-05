@@ -7,7 +7,7 @@ import { TableOfContentsEntry } from 'notion-utils'
 import React, { useState } from 'react'
 
 import IoIosArrowDown from '@/src/components/icons/IoIosArrowDown'
-import { generateAnchor } from '@/src/lib/notion/helpers'
+import { generateAnchor } from '@/src/lib/helpers'
 import { useHeadsObserver } from '@/src/lib/notion/hooks'
 import { Text } from './text'
 

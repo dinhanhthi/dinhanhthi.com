@@ -8,7 +8,7 @@ import { ImageProps, StaticImageData } from 'next/image'
 import React from 'react'
 
 import { ImageType } from '@/src/lib/notion/interface'
-import { defaultBlurData } from '@/src/lib/notion/helpers'
+import { defaultBlurData } from '@/src/lib/helpers'
 import ImageComponent from './ImageComponent'
 
 type PostFeaturedImageProps = {

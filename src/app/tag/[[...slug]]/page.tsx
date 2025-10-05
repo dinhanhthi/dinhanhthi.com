@@ -4,7 +4,7 @@ import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
 import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/notion/interface'
-import { getStartCursorForCurrentPage } from '@/src/lib/notion/helpers'
+import { getStartCursorForCurrentPage } from '@/src/lib/helpers'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
