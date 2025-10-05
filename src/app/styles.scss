@@ -9,7 +9,8 @@
   font-weight: 500;
   font-style: normal;
   src: url('./fonts/recoleta/Recoleta-Medium.eot');
-  src: url('./fonts/recoleta/Recoleta-Medium.woff2') format('woff2'),
+  src:
+    url('./fonts/recoleta/Recoleta-Medium.woff2') format('woff2'),
     url('./fonts/recoleta/Recoleta-Medium.woff') format('woff'),
     url('./fonts/recoleta/Recoleta-Medium.ttf') format('truetype');
   font-display: swap;
@@ -18,7 +19,8 @@
 @font-face {
   font-family: 'Recoleta';
   src: url('./fonts/recoleta/Recoleta-SemiBold.eot');
-  src: url('./fonts/recoleta/Recoleta-SemiBold.woff2') format('woff2'),
+  src:
+    url('./fonts/recoleta/Recoleta-SemiBold.woff2') format('woff2'),
     url('./fonts/recoleta/Recoleta-SemiBold.woff') format('woff'),
     url('./fonts/recoleta/Recoleta-SemiBold.ttf') format('truetype');
   font-weight: 600;
@@ -69,12 +71,11 @@
   }
 
   .m2it-blockquote {
-    @apply my-3 border border-y-0 border-l-4 border-r-0 border-slate-500 py-3 font-inherit not-italic text-inherit;
+    @apply font-inherit my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
   }
 
   .m2it-code {
-    @apply break-words rounded-md bg-gray-100 p-[1px_4px_2px_4px]
-    font-mono text-[90%] font-normal before:content-[''] after:content-[''];
+    @apply rounded-md bg-gray-100 p-[1px_4px_2px_4px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''];
   }
 
   .m2it-li {
@@ -104,7 +105,12 @@
       @apply font-inherit text-[#015caa] no-underline hover:text-pink-600;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       @apply my-0 font-semibold text-[#111];
       font-family: theme('fontFamily.quicksand') !important;
       font-weight: 600 !important;
@@ -128,11 +134,11 @@
     }
 
     blockquote {
-      @apply my-3 border border-y-0 border-l-4 border-r-0 border-slate-500 py-3 font-inherit not-italic text-inherit;
+      @apply font-inherit my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
     }
 
     code {
-      @apply break-words rounded-md bg-gray-100 p-[1px_4px_2px_4px] font-mono text-[90%] font-normal before:content-[''] after:content-[''];
+      @apply rounded-md bg-gray-100 p-[1px_4px_2px_4px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''];
     }
 
     li {
@@ -206,7 +212,9 @@
   }
 
   .m2it-box-shadow {
-    box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+    box-shadow:
+      8px 14px 38px #272c310f,
+      1px 3px 8px #272c3108;
   }
 
   .m2it-scrollbar {
@@ -259,16 +267,16 @@
     text-shadow: none;
   }
   .bg-wave-top-white {
-    @apply after:block after:h-8 after:w-full after:bg-wave;
+    @apply after:bg-wave after:block after:h-8 after:w-full;
   }
   .bg-wave-bottom-white {
-    @apply before:block before:h-8 before:w-full before:bg-wave-footer;
+    @apply before:bg-wave-footer before:block before:h-8 before:w-full;
   }
   .bg-wave-top-stone {
-    @apply after:block after:h-8 after:w-full after:bg-wave-stone;
+    @apply after:bg-wave-stone after:block after:h-8 after:w-full;
   }
   .bg-wave-bottom-stone {
-    @apply before:block before:h-8 before:w-full before:bg-wave-footer-stone;
+    @apply before:bg-wave-footer-stone before:block before:h-8 before:w-full;
   }
 }
 
@@ -294,7 +302,7 @@
   }
 
   .thi-link-normal {
-    @apply w-fit text-link md:text-main md:hover:text-pink-500;
+    @apply text-link md:text-main w-fit md:hover:text-pink-500;
   }
 
   .thi-link-normal-always-dark {
@@ -302,8 +310,7 @@
   }
 
   .thi-link {
-    @apply text-link transition-colors duration-150
-    hover:text-pink-500;
+    @apply text-link transition-colors duration-150 hover:text-pink-500;
   }
   .thi-link-always-dark {
     @apply text-[#ffd479] transition-colors duration-150 hover:text-pink-300;
@@ -314,20 +321,17 @@
   }
 
   .thi-box-code {
-    @apply transition-colors duration-200 ease-in-out bg-white text-main rounded-lg shadow-lg;
+    @apply text-main rounded-lg bg-white shadow-lg transition-colors duration-200 ease-in-out;
   }
 
   .thi-badge-code {
-    @apply transition-colors duration-200 ease-in-out text-main flex h-6 w-fit items-center
-    justify-center rounded-md border bg-stone-100 px-1 align-baseline text-base
-    shadow-sm hover:-translate-y-0.5;
+    @apply text-main flex h-6 w-fit items-center justify-center rounded-md border bg-stone-100 px-1 align-baseline text-base shadow-sm transition-colors duration-200 ease-in-out hover:-translate-y-0.5;
   }
 
   .thi-title {
     @apply text-3xl font-semibold text-[#f8fafc];
   }
 }
-
 
 ol,
 ul {
@@ -649,7 +653,9 @@ pre > code::before {
 
 .post-card-wave {
   background: #fff;
-  box-shadow: 8px 14px 38px #272c310f, 1px 3px 8px #272c3108;
+  box-shadow:
+    8px 14px 38px #272c310f,
+    1px 3px 8px #272c3108;
   height: 100%;
   min-height: 8rem;
   display: flex;

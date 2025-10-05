@@ -5,9 +5,9 @@ import { CodeBlock } from 'notion-types'
 import { getBlockTitle } from 'notion-utils'
 import * as React from 'react'
 import { useState } from 'react'
-import CopyToClipboard from "react-copy-to-clipboard";
+import CopyToClipboard from 'react-copy-to-clipboard'
+import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter'
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import {Prism, SyntaxHighlighterProps} from 'react-syntax-highlighter';
 
 import FiCheck from '@/src/app/icons/FiCheck'
 import RxCopy from '@/src/app/icons/RxCopy'
@@ -16,7 +16,7 @@ import Mermaid from './Mermaid'
 import { Text } from './text'
 import TooltipX from './tooltip-x'
 
-const SyntaxHighlighter = (Prism as any) as React.FC<SyntaxHighlighterProps>;
+const SyntaxHighlighter = Prism as any as React.FC<SyntaxHighlighterProps>
 
 type BlockCodeProps = {
   block: CodeBlock
@@ -65,7 +65,7 @@ export default function BlockCode(props: BlockCodeProps) {
       language={formatCodeLang(language)}
       style={prism}
       className={cn(
-        '!my-0 syntax-highlighter-pre m2it-scrollbar m2it-scrollbar-small border !bg-slate-50 max-h-[300px]'
+        'syntax-highlighter-pre m2it-scrollbar m2it-scrollbar-small !my-0 max-h-[300px] border !bg-slate-50'
       )}
       showLineNumbers={true}
     >
@@ -79,7 +79,7 @@ export default function BlockCode(props: BlockCodeProps) {
       <div
         id={`copy-${block.id}`}
         className={cn(
-          '!z-10 _from-right !absolute right-2 top-2 duration-100 hover:cursor-pointer group-hover:opacity-100'
+          '_from-right !absolute top-2 right-2 !z-10 duration-100 group-hover:opacity-100 hover:cursor-pointer'
         )}
       >
         {copyBtnWrapper}
@@ -88,13 +88,13 @@ export default function BlockCode(props: BlockCodeProps) {
       <div
         className={`language-${formatCodeLang(
           language
-        )} syntax-highlighter text-[14px] relative overflow-hidden`}
+        )} syntax-highlighter relative overflow-hidden text-[14px]`}
       >
         <div className="w-full overflow-hidden">{syntaxWraper}</div>
       </div>
 
       {caption && (
-        <div className="italic opacity-80 text-[0.9em]">
+        <div className="text-[0.9em] italic opacity-80">
           <Text value={caption} block={block} />
         </div>
       )}

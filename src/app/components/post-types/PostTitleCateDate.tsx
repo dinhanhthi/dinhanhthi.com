@@ -2,7 +2,6 @@ import cn from 'classnames'
 import { ImageProps } from 'next/image'
 import Link from 'next/link'
 import { getTextContent } from 'notion-utils'
-import React from 'react'
 
 import DateComponent from '@/src/app/components/DateComponent'
 import PostFeaturedImage from '@/src/app/components/PostFeaturedImage'
@@ -10,9 +9,9 @@ import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import { LazyImage } from '@/src/app/components/lazy-image'
 import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
 import IoBookOutline from '@/src/app/icons/IoBookOutline'
-import { Post } from '@/src/lib/types'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { defaultMapImageUrl } from '@/src/lib/notion/map-image-url'
+import { Post } from '@/src/lib/types'
 
 export type PostTitleCateDateOpts = {
   hideCategory?: boolean
@@ -52,7 +51,7 @@ export default function PostTitleCateDate(props: PostTitleCateDateProps) {
             {(status === 'new' || status === 'updatedWithin') && (
               <div
                 className={cn(
-                  'absolute bottom-4 left-0 z-10 text-[0.8rem] py-[1px] pl-2 pr-4',
+                  'absolute bottom-4 left-0 z-10 py-[1px] pr-4 pl-2 text-[0.8rem]',
                   'rounded-r-md',
                   {
                     'bg-green-200 text-green-900': status === 'updatedWithin',
@@ -100,7 +99,7 @@ export default function PostTitleCateDate(props: PostTitleCateDateProps) {
         </div>
         <div
           className={cn(
-            'group-hover:m2it-link-hover p-2 text-[0.95rem] font-semibold leading-[1.35]'
+            'group-hover:m2it-link-hover p-2 text-[0.95rem] leading-[1.35] font-semibold'
           )}
         >
           {title}
@@ -109,7 +108,7 @@ export default function PostTitleCateDate(props: PostTitleCateDateProps) {
           )}
         </div>
         {!options?.hideDate && (
-          <div className="text-sm opacity-80 flex gap-1 items-center justify-center">
+          <div className="flex items-center justify-center gap-1 text-sm opacity-80">
             <AiOutlineClockCircle />
             {date && <DateComponent dateString={date} />}
           </div>

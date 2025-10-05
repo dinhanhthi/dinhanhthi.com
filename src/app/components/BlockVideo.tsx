@@ -17,7 +17,7 @@ export default function BlockVideo(props: BlockVideoProps) {
   const videoId = getYoutubeId(props.videoUrl)
   if (!videoId) return null
   return (
-    <div className={cn(props.className, 'flex flex-col justify-center items-center gap-2')}>
+    <div className={cn(props.className, 'flex flex-col items-center justify-center gap-2')}>
       {props.updatedBlock}
       <div className="w-full">
         <YoutubeEmbed id={videoId} title={'Youtube video'} className="aspect-video w-full" />

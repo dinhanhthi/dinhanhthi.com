@@ -1,7 +1,6 @@
 'use client'
 
 import cn from 'classnames'
-import React from 'react'
 
 import { Carousel, CarouselItem } from '@/src/app/components/Carousel'
 import { PostListStyle, PostType, postListGridCLass } from '@/src/app/components/PostsList'

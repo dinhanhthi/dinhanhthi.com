@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import React from 'react'
 
 import CgChevronLeft from '@/src/app/icons/CgChevronLeft'
 import CgChevronRight from '@/src/app/icons/CgChevronRight'

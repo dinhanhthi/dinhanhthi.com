@@ -14,7 +14,15 @@ export const PageAside: React.FC<{
   hasAside: boolean
   pageAside?: React.ReactNode
   className?: string
-}> = ({ toc, activeSection, setActiveSection, pageAside, hasToc, hasAside, className }) => {
+}> = ({
+  toc,
+  activeSection /* used in line 95 */,
+  setActiveSection,
+  pageAside,
+  hasToc,
+  hasAside,
+  className
+}) => {
   const throttleMs = 100
   const actionSectionScrollSpy = React.useMemo(
     () =>

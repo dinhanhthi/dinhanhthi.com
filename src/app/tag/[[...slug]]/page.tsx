@@ -1,10 +1,15 @@
-import { getPosts, getTopics } from '@/src/lib/fetcher'
-import { filterDupLangPosts, generateMetaTitle, getMetadata, getUri } from '@/src/lib/helpers'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
+import { getPosts, getTopics } from '@/src/lib/fetcher'
+import {
+  filterDupLangPosts,
+  generateMetaTitle,
+  getMetadata,
+  getStartCursorForCurrentPage,
+  getUri
+} from '@/src/lib/helpers'
 import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
-import { getStartCursorForCurrentPage } from '@/src/lib/helpers'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 

@@ -5,10 +5,9 @@ import {
 import cn from 'classnames'
 import { get } from 'lodash'
 import Link from 'next/link'
-import React from 'react'
 
-import { AnnotationIgnoreField, TextIgnoreField } from '@/src/lib/types'
 import { generateTextAnnotationClasses } from '@/src/lib/helpers'
+import { AnnotationIgnoreField, TextIgnoreField } from '@/src/lib/types'
 
 type TextProps = {
   richText: TextRichTextItemResponse | MentionRichTextItemResponse

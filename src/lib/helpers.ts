@@ -1,14 +1,13 @@
-import { ImgurUrlType } from '@/src/lib/types'
-import { Post, PostHeaderType, Tag, AnnotationIgnoreField } from '@/src/lib/types'
+import { AnnotationIgnoreField, ImgurUrlType, Post, PostHeaderType, Tag } from '@/src/lib/types'
 import {
   QueryDatabaseParameters,
   RichTextItemResponse,
   TextRichTextItemResponse
 } from '@notionhq/client/build/src/api-endpoints'
-import { Metadata } from 'next'
-import { Block, ExtendedRecordMap } from 'notion-types'
 import cn from 'classnames'
+import { Metadata } from 'next'
 import * as types from 'notion-types'
+import { Block, ExtendedRecordMap } from 'notion-types'
 import slugify from 'slugify'
 
 import * as fs from 'fs'
@@ -248,7 +247,7 @@ export function generateTextAnnotationClasses(
     italic: annotations.italic && !ignore?.includes('italic'),
     'underline underline-offset-4': annotations.underline && !ignore?.includes('underline'),
     'line-through': annotations.strikethrough && !ignore?.includes('strikethrough'),
-    'font-mono text-[85%] bg-[#ececec] text-[#067b26] p-[1px_4px_2px_4px] rounded break-words border-[1px_solid_#ddd]':
+    'rounded border-[1px_solid_#ddd] bg-[#ececec] p-[1px_4px_2px_4px] font-mono text-[85%] break-words text-[#067b26]':
       annotations.code && !ignore?.includes('code'),
     [mapColorClass(annotations.color) as any]: !ignore?.includes('color') && annotations.color
   })

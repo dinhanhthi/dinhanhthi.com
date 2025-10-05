@@ -7,7 +7,7 @@ import FaChevronRight from '@/src/app/icons/FaChevronRight'
 
 interface CarouselProps<T> {
   readonly items: T[]
-  readonly renderItem: (props: CarouselRenderItemProps<T>) => React.ReactElement<CarouselItemProps>
+  readonly renderItem: (_props: CarouselRenderItemProps<T>) => React.ReactElement<CarouselItemProps>
 }
 
 interface CarouselRenderItemProps<T> {
@@ -21,17 +21,17 @@ export const Carousel = <T,>({ items, renderItem }: CarouselProps<T>) => {
     useSnapCarousel()
 
   const arrowBtnClasses = cn(
-    'absolute top-14 bg-white rounded-full p-1 shadow-md hover:shadow-lg transition-all'
+    'absolute top-14 rounded-full bg-white p-1 shadow-md transition-all hover:shadow-lg'
   )
   const arrowClasses = cn(
-    'text-2xl hover:text-3xl transition-all text-slate-400 hover:text-slate-600'
+    'text-2xl text-slate-400 transition-all hover:text-3xl hover:text-slate-600'
   )
 
   return (
     <div className="relative">
       <div
         ref={scrollRef}
-        className={cn('no-scrollbar relative flex overflow-auto snap-mandatory gap-4 pb-4')}
+        className={cn('no-scrollbar relative flex snap-mandatory gap-4 overflow-auto pb-4')}
       >
         {items.map((item, i) =>
           renderItem({
@@ -60,12 +60,12 @@ export const Carousel = <T,>({ items, renderItem }: CarouselProps<T>) => {
         <FaChevronRight className={arrowClasses} />
       </button>
 
-      <div aria-hidden className="flex items-center justify-center gap-2 mt-4">
+      <div aria-hidden className="mt-4 flex items-center justify-center gap-2">
         {pages.map((_, i) => (
           <button
             key={i}
             className={cn('h-2.5 rounded-full bg-slate-600 transition-all hover:opacity-60', {
-              'opacity-40 w-2.5 hover:w-3.5': activePageIndex !== i,
+              'w-2.5 opacity-40 hover:w-3.5': activePageIndex !== i,
               'w-5 opacity-70': activePageIndex === i
             })}
             onClick={() => goTo(i)}

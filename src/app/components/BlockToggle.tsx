@@ -29,12 +29,12 @@ export default function BlockToggle(props: {
         {({ open }) => (
           <>
             <DisclosureButton
-              className={cn('toggle-button flex gap-1.5 w-full items-start rounded-md group')}
+              className={cn('toggle-button group flex w-full items-start gap-1.5 rounded-md')}
             >
-              <div className="group-hover:bg-slate-200 rounded-md z-20 p-[2px] mt-[2px]">
+              <div className="z-20 mt-[2px] rounded-md p-[2px] group-hover:bg-slate-200">
                 <BsFillCaretRightFill
                   className={cn(
-                    ' shrink-0 text-base transform ease-in-out transition-all duration-300',
+                    'shrink-0 transform text-base transition-all duration-300 ease-in-out',
                     {
                       'rotate-90': open,
                       'rotate-0': !open
@@ -55,7 +55,7 @@ export default function BlockToggle(props: {
                 leaveTo="transform scale-y-95 opacity-0"
                 className={'pl-2'}
               >
-                <DisclosurePanel className={'px-4 pt-[0.1px] inside-toggle-container'}>
+                <DisclosurePanel className={'inside-toggle-container px-4 pt-[0.1px]'}>
                   <div className={cn(basicBlockGap)}></div>
                   {props.children}
                   <div className={cn(basicBlockGap)}></div>
@@ -64,7 +64,7 @@ export default function BlockToggle(props: {
             )}
             <div
               className={cn(
-                'absolute h-[calc(100%-8px)] top-0 left-0 w-1 border-l ml-[10px] mt-[8px] z-10',
+                'absolute top-0 left-0 z-10 mt-[8px] ml-[10px] h-[calc(100%-8px)] w-1 border-l',
                 {
                   hidden: !open
                 }

@@ -1,14 +1,13 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import React from 'react'
 
 import DateComponent from '@/src/app/components/DateComponent'
 import DraftBadgeComponent from '@/src/app/components/DraftBadge'
 import LangBadgeComponent from '@/src/app/components/LangBadge'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
-import { Post } from '@/src/lib/types'
-import { getColorIndex, waveColors } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { getColorIndex, waveColors } from '@/src/lib/helpers'
+import { Post } from '@/src/lib/types'
 
 export type PostCardWaveOpts = {
   colorIndex?: number
@@ -33,7 +32,7 @@ export default function PostCardWave(props: PostCardWaveProps) {
           className={cn(
             options?.fontClassName,
             'card-title group-hover:m2it-link-hover text-slate-800',
-            'leading-[1.35] text-[0.95rem]'
+            'text-[0.95rem] leading-[1.35]'
           )}
         >
           {/* title */}
@@ -51,11 +50,11 @@ export default function PostCardWave(props: PostCardWaveProps) {
           />
         </div>
         {(post.createdDate || post.date) && (
-          <div className="gap-2 items-center">
+          <div className="items-center gap-2">
             {['updated', 'updatedWithin'].includes(status) && post.date && (
               <div
                 className={cn(
-                  'px-3 py-0.5 text-[0.7rem] rounded-md whitespace-nowrap gap-1 items-center',
+                  'items-center gap-1 rounded-md px-3 py-0.5 text-[0.7rem] whitespace-nowrap',
                   {
                     'bg-slate-200 text-slate-800': status === 'updated',
                     'bg-green-200 text-green-900': status === 'updatedWithin',
@@ -72,7 +71,7 @@ export default function PostCardWave(props: PostCardWaveProps) {
               </div>
             )}
             {status === 'new' && (
-              <div className="px-3 py-0.5 text-[0.7rem] rounded-md whitespace-nowrap bg-amber-200 text-amber-900">
+              <div className="rounded-md bg-amber-200 px-3 py-0.5 text-[0.7rem] whitespace-nowrap text-amber-900">
                 {options?.newLabel || 'new'}
               </div>
             )}
@@ -129,11 +128,11 @@ export default function PostCardWave(props: PostCardWaveProps) {
 export const PostCardWaveSkeleton = (props: { postContainerClassName?: string }) => (
   <div
     className={cn(
-      'flex items-center justify-center w-full rounded-[12px] h-32 shadow-sm',
+      'flex h-32 w-full items-center justify-center rounded-[12px] shadow-sm',
       props.postContainerClassName
     )}
   >
-    <div className="w-full flex flex-col items-center gap-2 p-3">
+    <div className="flex w-full flex-col items-center gap-2 p-3">
       <div className="h-4 w-full rounded-xl bg-slate-200"></div>
       <div className="h-4 w-3/4 rounded-xl bg-slate-200"></div>
     </div>

@@ -102,6 +102,7 @@ This site uses **Notion as a headless CMS**. Content is fetched from multiple No
 - **Topics DB**: Topic taxonomy with icons and metadata
 
 Environment variables (see `example.env.local`) define:
+
 - Notion API credentials (`NOTION_TOKEN`, `NOTION_TOKEN_V2`, `NOTION_ACTIVE_USER`)
 - Database IDs and property keys (e.g., `NEXT_PUBLIC_ID_TAGS`, `NEXT_PUBLIC_ID_SLUG`)
 - Feature flags (`ENV_MODE`, `NEXT_PUBLIC_ENV_MODE`)

@@ -1,7 +1,7 @@
 'use client'
 
 import Moment from 'moment'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import BiDotsHorizontalRounded from '@/src/app/icons/BiDotsHorizontalRounded'
 
@@ -54,7 +54,7 @@ export default function DateComponent(props: DateProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (!hydrated) return <BiDotsHorizontalRounded className="opacity-70 animate-ping" />
+  if (!hydrated) return <BiDotsHorizontalRounded className="animate-ping opacity-70" />
 
   return (
     <span className={props.className}>

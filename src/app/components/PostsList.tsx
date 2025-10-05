@@ -3,14 +3,22 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Post } from '@/src/lib/types'
 import PostBlogSimple, { PostBlogSimpleOpts } from '@/src/app/components/post-types/PostBlogSimple'
 import PostCardWave, { PostCardWaveOpts } from '@/src/app/components/post-types/PostCardWave'
-import PostCardWhiteBg, { PostCardWhiteBgOpts } from '@/src/app/components/post-types/PostCardWhiteBg'
-import PostCardWhiteBgBig, { PostCardWhiteBgBigOpts } from '@/src/app/components/post-types/PostCardWhiteBgBig'
-import PostImageBackground, { PostImageBackgroundOpts } from '@/src/app/components/post-types/PostImageBackground'
+import PostCardWhiteBg, {
+  PostCardWhiteBgOpts
+} from '@/src/app/components/post-types/PostCardWhiteBg'
+import PostCardWhiteBgBig, {
+  PostCardWhiteBgBigOpts
+} from '@/src/app/components/post-types/PostCardWhiteBgBig'
+import PostImageBackground, {
+  PostImageBackgroundOpts
+} from '@/src/app/components/post-types/PostImageBackground'
 import PostSimple, { PostSimpleOpts } from '@/src/app/components/post-types/PostSimple'
-import PostTitleCateDate, { PostTitleCateDateOpts } from '@/src/app/components/post-types/PostTitleCateDate'
+import PostTitleCateDate, {
+  PostTitleCateDateOpts
+} from '@/src/app/components/post-types/PostTitleCateDate'
+import { Post } from '@/src/lib/types'
 import { Carousel, CarouselItem } from './Carousel'
 
 export type PostType =
@@ -55,7 +63,7 @@ type PostListProps = {
 }
 
 export const postListGridCLass = cn(
-  'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 sm:gap-x-4'
+  'grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-x-4 md:grid-cols-3 xl:grid-cols-4'
 )
 
 export default function PostList(props: PostListProps) {

@@ -24,7 +24,7 @@ export default function PostHeaderTopics(props: PostHeaderTopicsProps) {
   const { categories, tags, className, selectedUri, selectedName } = props
   const usedTags = tags?.filter(tag => tag.uri !== props.selectedUri) || []
   return (
-    <div className={cn('flex flex-wrap gap-2 items-center', className)}>
+    <div className={cn('flex flex-wrap items-center gap-2', className)}>
       {!!selectedUri && !!categories && (
         <Link
           className={`${topTagClass} border border-amber-300 bg-amber-50 !text-amber-600`}
@@ -55,7 +55,7 @@ export default function PostHeaderTopics(props: PostHeaderTopicsProps) {
               {category!.name}
             </Link>
           ))}
-      {usedTags.length > 0 && <TiTag className={props.TiTagClass ?? 'text-gray-600 text-lg'} />}
+      {usedTags.length > 0 && <TiTag className={props.TiTagClass ?? 'text-lg text-gray-600'} />}
       {usedTags.length > 0 &&
         usedTags.map(tag => (
           <React.Fragment key={tag.id}>
@@ -63,7 +63,7 @@ export default function PostHeaderTopics(props: PostHeaderTopicsProps) {
               id={`tag-${tag.id}`}
               className={cn(
                 topTagClass,
-                props.tagClass ?? 'boder-slate-300 border text-slate-600 bg-white'
+                props.tagClass ?? 'boder-slate-300 border bg-white text-slate-600'
               )}
               key={tag.uri}
               href={tag.uri || '/'}

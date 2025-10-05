@@ -13,20 +13,20 @@ import Header from './Header'
 export default function HeaderAbout() {
   return (
     <Header headerType="gray" headerWidth="wide">
-      <div className="mx-auto flex flex-col flex-wrap items-center justify-items-stretch md:p-4 md:flex-row xl:max-w-6xl">
+      <div className="mx-auto flex flex-col flex-wrap items-center justify-items-stretch md:flex-row md:p-4 xl:max-w-6xl">
         <div className="mb-7 flex w-full flex-col items-center gap-4 md:flex-row md:gap-5">
           <div>
-            <h1 className="thi-title flex w-full justify-center md:justify-start font-heading">
-              <span className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center">
+            <h1 className="thi-title font-heading flex w-full justify-center md:justify-start">
+              <span className="animate-wave mr-2 inline-flex h-9 origin-[70%_70%] items-center justify-center">
                 <Image src={VictoryHand} alt="Waving hand" width={36} height={36} />
               </span>
               About me
             </h1>
             <p
-              className={'mt-4 flex-1 text-left text-main-dark'}
+              className={'text-main-dark mt-4 flex-1 text-left'}
               dangerouslySetInnerHTML={{ __html: me.longIntro }}
             ></p>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden">
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 overflow-hidden md:justify-start">
               {socials.map(item => (
                 <BadgeSocial
                   key={item.id}
@@ -47,7 +47,7 @@ export default function HeaderAbout() {
                 }
                 return (
                   <li key={key} className="whitespace-nowrap">
-                    <span className="mr-3 font-semibold capitalize text-sky-300">{key}</span>
+                    <span className="mr-3 font-semibold text-sky-300 capitalize">{key}</span>
                     {!item.href && <span className="text-slate-200">{item.label}</span>}
                     {item.href && (
                       <a

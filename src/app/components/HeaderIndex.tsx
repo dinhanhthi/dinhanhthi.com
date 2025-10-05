@@ -16,7 +16,7 @@ export default function HeaderIndex() {
   const ySpacingClass = 'mt-6 md:mt-4'
   return (
     <Header headerType="gray" headerWidth="wide">
-      <div className="flex flex-col md:flex-row md:gap-6 flex-wrap items-center justify-items-stretch">
+      <div className="flex flex-col flex-wrap items-center justify-items-stretch md:flex-row md:gap-6">
         <div className="h-28 md:order-2 md:h-60">
           <ImageComponent
             alt="Thi's avatar"
@@ -27,25 +27,25 @@ export default function HeaderIndex() {
         <div className="md:order-1 md:flex-1">
           <h1
             className={cn(
-              'flex thi-title gap-1 justify-center md:justify-start font-heading',
+              'thi-title font-heading flex justify-center gap-1 md:justify-start',
               ySpacingClass
             )}
           >
-            <span className="mr-2 inline-flex h-9 origin-[70%_70%] animate-wave items-center justify-center">
+            <span className="animate-wave mr-2 inline-flex h-9 origin-[70%_70%] items-center justify-center">
               <Image src={WavingHand} alt="Waving hand" width={30} height={30} />
             </span>
             {me.helloText || "Hi! I'm Thi"}
           </h1>
           <p
             className={cn(
-              'max-w-full text-center text-main-dark md:text-left text-[0.95rem]',
+              'text-main-dark max-w-full text-center text-[0.95rem] md:text-left',
               ySpacingClass
             )}
             dangerouslySetInnerHTML={{ __html: me.shortIntro }}
           ></p>
           <div
             className={cn(
-              'flex flex-wrap items-center justify-center gap-3 md:justify-start overflow-hidden',
+              'flex flex-wrap items-center justify-center gap-3 overflow-hidden md:justify-start',
               ySpacingClass
             )}
           >

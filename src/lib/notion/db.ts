@@ -10,8 +10,8 @@ import { CollectionInstance, SearchParams } from 'notion-types'
 import ogs from 'open-graph-scraper'
 import pMemoize from 'p-memoize'
 
-import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
+import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
 
@@ -120,7 +120,7 @@ export async function queryDatabaseImpl(opts: {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${notionToken || process.env.NOTION_TOKEN}`,
-        'Notion-Version': notionVersion || process.env.NOTION_VERSION as string,
+        'Notion-Version': notionVersion || (process.env.NOTION_VERSION as string),
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestBody)
@@ -190,7 +190,7 @@ export const retrieveDatabaseImpl = async (
     method: 'GET',
     headers: {
       Authorization: `Bearer ${notionToken || process.env.NOTION_TOKEN}`,
-      'Notion-Version': notionVersion || process.env.NOTION_VERSION as string,
+      'Notion-Version': notionVersion || (process.env.NOTION_VERSION as string),
       'Content-Type': 'application/json'
     }
   })
@@ -214,7 +214,7 @@ export const retrievePageImpl = async (
     method: 'GET',
     headers: {
       Authorization: `Bearer ${notionToken || process.env.NOTION_TOKEN}`,
-      'Notion-Version': notionVersion || process.env.NOTION_VERSION as string,
+      'Notion-Version': notionVersion || (process.env.NOTION_VERSION as string),
       'Content-Type': 'application/json'
     }
   })
@@ -245,7 +245,7 @@ export const retrieveBlockChildren = async (
     method: 'GET',
     headers: {
       Authorization: `Bearer ${notionToken || process.env.NOTION_TOKEN}`,
-      'Notion-Version': notionVersion || process.env.NOTION_VERSION as string
+      'Notion-Version': notionVersion || (process.env.NOTION_VERSION as string)
     }
   })
   return res.json()
@@ -300,8 +300,8 @@ export async function getCustomEmojiBlock(opts: {
 export async function getBlocks(
   blockId: string,
   initNumbering?: string,
-  getPageUri?: (pageId: string) => Promise<string | undefined>,
-  parseImgurUrl?: (url: string) => string,
+  getPageUri?: (_pageId: string) => Promise<string | undefined>,
+  parseImgurUrl?: (_url: string) => string,
   notionToken?: string,
   notionVersion?: string
 ): Promise<ListBlockChildrenResponse['results']> {
@@ -321,7 +321,13 @@ export async function getBlocks(
   if (data && data['has_more']) {
     while (data!['has_more']) {
       const startCursor = data!['next_cursor'] as string
-      data = await retrieveBlockChildren(blockId, undefined, startCursor, notionToken, notionVersion)
+      data = await retrieveBlockChildren(
+        blockId,
+        undefined,
+        startCursor,
+        notionToken,
+        notionVersion
+      )
       if (get(data, 'results') && get(data, 'results').length) {
         const lst = data!['results'] as any[]
         blocks = [...blocks, ...lst]
@@ -371,7 +377,14 @@ export async function getBlocks(
     }
 
     if (block.has_children) {
-      const children = await getBlocks(block.id, block['list_item'], getPageUri, parseImgurUrl, notionToken, notionVersion)
+      const children = await getBlocks(
+        block.id,
+        block['list_item'],
+        getPageUri,
+        parseImgurUrl,
+        notionToken,
+        notionVersion
+      )
       block['children'] = children
     }
 
@@ -400,8 +413,8 @@ export async function getBlocks(
           favicon: result.favicon?.includes('http')
             ? result.favicon
             : result?.ogUrl && result?.favicon
-            ? result?.ogUrl + result?.favicon?.replace('/', '')
-            : undefined,
+              ? result?.ogUrl + result?.favicon?.replace('/', '')
+              : undefined,
           imageSrc: result.ogImage?.[0]?.url ?? null
         }
         block['bookmark'] = bookmark as any
@@ -414,7 +427,7 @@ export async function getBlocks(
 
 async function parseMention(
   richText: RichTextItemResponse[] | [],
-  getPageUri?: (pageId: string) => Promise<string | undefined>
+  getPageUri?: (_pageId: string) => Promise<string | undefined>
 ): Promise<any> {
   if (!richText?.length) return []
   const newRichText = [] as RichTextItemResponse[]

@@ -3,12 +3,12 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
-import Container from '../../components/Container'
-import Footer from '../../components/Footer'
-import HeaderPage from '../../components/HeaderPage'
 import { bodyPadding, containerWide } from '@/src/lib/config'
 import { getUnofficialTools } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
+import Container from '../../components/Container'
+import Footer from '../../components/Footer'
+import HeaderPage from '../../components/HeaderPage'
 import ToolsPage, { SkeletonToolPage } from './ToolsPage'
 
 export const revalidate = 20
@@ -36,7 +36,7 @@ export default async function ToolsHomePage() {
         iconClassName="h-12 w-12"
         number={tools.length}
       />
-      <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonToolPage />}>
           <ToolsPage tools={tools} categories={categories} />
         </Suspense>

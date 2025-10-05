@@ -4,6 +4,7 @@ import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters
 import FiSearch from '@/src/app/icons/FiSearch'
 import IoBookOutline from '@/src/app/icons/IoBookOutline'
 import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
+import { useOperatingSystem } from '@/src/hooks/useOperatingSystem'
 import { SearchResult } from '@/src/lib/types'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
@@ -13,7 +14,6 @@ import { X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
-import { useOperatingSystem } from '@/src/hooks/useOperatingSystem'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../ui/dialog'
 import { navLabelClass } from './Nav'
@@ -76,7 +76,7 @@ export default function NavSearch() {
               <div className={cn('flex items-center gap-2', navLabelClass)}>
                 <span className="hidden whitespace-nowrap sm:inline">Search for notes</span>
                 <span className="inline whitespace-nowrap sm:hidden">Search</span>
-                <span className="hidden whitespace-nowrap rounded-sm border-[0.5px] border-[#555] bg-[#65666b30] px-1 text-[0.7rem] sm:inline-block">
+                <span className="hidden rounded-sm border-[0.5px] border-[#555] bg-[#65666b30] px-1 text-[0.7rem] whitespace-nowrap sm:inline-block">
                   {`${os === 'mac' ? '⌘' : 'Ctrl'}+K`}
                 </span>
               </div>
@@ -85,7 +85,7 @@ export default function NavSearch() {
         </DialogTrigger>
         <DialogContent
           className={cn(
-            'h-[min(80svh,440px)] max-w-[80%] overflow-hidden rounded-lg border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:min-w-[680px] md:max-w-[680px]'
+            'h-[min(80svh,440px)] max-w-[80%] overflow-hidden rounded-lg border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
           )}
           hideCloseBtn={true}
         >
@@ -99,7 +99,7 @@ export default function NavSearch() {
             shouldFilter={false}
             loop
           >
-            <div className="min-h-14 flex items-center justify-between gap-3 border-none p-3">
+            <div className="flex min-h-14 items-center justify-between gap-3 border-none p-3">
               <div className={cn('grid place-items-center text-slate-500')}>
                 {(data || error || get(data, '[0].isFake')) && !isLoading && (
                   <FiSearch className="text-2xl" />
@@ -112,7 +112,7 @@ export default function NavSearch() {
               </div>
               <Command.Input
                 ref={inputRef}
-                className="placeholder:text-token-text-tertiary w-full border-none bg-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                className="placeholder:text-token-text-tertiary w-full border-none bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
                 placeholder="Search for notes..."
                 onValueChange={value => {
                   debounceSearch(value)
@@ -155,7 +155,7 @@ export default function NavSearch() {
                             <div
                               className={cn(
                                 {
-                                  'border-b border-dashed pb-1 pr-4': item.textHighlighted
+                                  'border-b border-dashed pr-4 pb-1': item.textHighlighted
                                 },
                                 'text-[0.9rem] font-medium text-black'
                               )}

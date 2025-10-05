@@ -1,7 +1,7 @@
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { StaticImageData } from 'next/image'
-import { Block } from 'notion-types'
 import * as types from 'notion-types'
+import { Block } from 'notion-types'
 import * as React from 'react'
 
 export type OptionalCatchAllProps = { params: Promise<OptionalCatchAllParams> }
@@ -163,13 +163,13 @@ export type SearchParams = {
 
 // Types from types.ts
 export type MapPageUrlFn = (
-  pageId: string,
-  recordMap?: types.ExtendedRecordMap | undefined
+  _pageId: string,
+  _recordMap?: types.ExtendedRecordMap | undefined
 ) => string
-export type MapImageUrlFn = (url: string, block: types.Block) => string
-export type SearchNotionFn = (params: types.SearchParams) => Promise<types.SearchResults>
+export type MapImageUrlFn = (_url: string, _block: types.Block) => string
+export type SearchNotionFn = (_params: types.SearchParams) => Promise<types.SearchResults>
 
-export type ComponentOverrideFn = (props: any, defaultValueFn: () => React.ReactNode) => any
+export type ComponentOverrideFn = (_props: any, _defaultValueFn: () => React.ReactNode) => any
 
 export interface NotionComponents {
   // TODO: better typing for arbitrary react components

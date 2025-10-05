@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import * as React from 'react'
 import isEqual from 'react-fast-compare'
 

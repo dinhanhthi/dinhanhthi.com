@@ -45,17 +45,17 @@ export default function ToolItem(props: ToolItemProps) {
       target="_blank"
       className={cn(
         className,
-        'bg-white rounded-lg border border-slate-150 transition duration-200 ease-in-out hover:-translate-y-1 group min-h-[120px]'
+        'border-slate-150 group min-h-[120px] rounded-lg border bg-white transition duration-200 ease-in-out hover:-translate-y-1'
       )}
     >
       <div
-        className={cn('flex flex-row h-full overflow-hidden', {
+        className={cn('flex h-full flex-row overflow-hidden', {
           relative: tool.favorite
         })}
       >
         {tool.favorite && props.showFavoriteStar && (
           <>
-            <div id={`tool-${tool.id}`} className="absolute right-3 top-3 text-amber-400 z-50">
+            <div id={`tool-${tool.id}`} className="absolute top-3 right-3 z-50 text-amber-400">
               <StarIcon className="text-xl" />
             </div>
             <TooltipX id={`#tool-${tool.id}`}>My favorite</TooltipX>
@@ -63,8 +63,8 @@ export default function ToolItem(props: ToolItemProps) {
         )}
 
         {!props.isSimple && (
-          <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
-            <div className="relative w-full h-full overflow-hidden">
+          <div className="relative h-full w-[90px] shrink-0 overflow-hidden rounded-l-lg border-[0.5px] border-slate-100">
+            <div className="relative h-full w-full overflow-hidden">
               <div
                 style={{
                   position: 'absolute',
@@ -85,14 +85,14 @@ export default function ToolItem(props: ToolItemProps) {
               <div
                 className={cn('flex items-center justify-center', {
                   'p-8': type === 'tool',
-                  'p-4 relative z-20 min-h-[122.75px] h-full': type === 'book'
+                  'relative z-20 h-full min-h-[122.75px] p-4': type === 'book'
                 })}
               >
                 <SimpleImage
                   src={convertedIconUrl}
                   width={60}
                   className={cn({
-                    'absolute inset-0 m-auto rounded-md h-auto z-20': type === 'tool'
+                    'absolute inset-0 z-20 m-auto h-auto rounded-md': type === 'tool'
                   })}
                   imagePlaceholder={ImagePlaceholder()}
                 />
@@ -102,11 +102,11 @@ export default function ToolItem(props: ToolItemProps) {
         )}
 
         {/* title & author */}
-        <div className={cn('min-w-0 flex-1 flex flex-col gap-3 px-3 py-4 pl-4')}>
+        <div className={cn('flex min-w-0 flex-1 flex-col gap-3 px-3 py-4 pl-4')}>
           <div className="flex flex-col gap-1">
             <div
               className={cn(
-                'text-base text-slate-700 font-medium group-hover:m2it-link-hover leading-snug',
+                'group-hover:m2it-link-hover text-base leading-snug font-medium text-slate-700',
                 {
                   'pr-3': tool.favorite && props.showFavoriteStar
                 }
@@ -114,14 +114,14 @@ export default function ToolItem(props: ToolItemProps) {
             >
               {/* NEW */}
               {isNew && !tool.isReading && (
-                <span className="align-middle inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
+                <span className="mr-1 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
                   new
                 </span>
               )}
 
               {/* is reading */}
               {tool.isReading && (
-                <span className="align-middle inline bg-green-100 font-normal text-green-700 px-2 py-0 text-[0.8rem] rounded-md whitespace-nowrap mr-1">
+                <span className="mr-1 inline rounded-md bg-green-100 px-2 py-0 align-middle text-[0.8rem] font-normal whitespace-nowrap text-green-700">
                   reading
                 </span>
               )}
@@ -137,7 +137,7 @@ export default function ToolItem(props: ToolItemProps) {
           {/* star */}
           {tool.star && !tool.isReading && (
             <>
-              <div id={`star-${tool.id}`} className="flex flex-row gap-1 items-center">
+              <div id={`star-${tool.id}`} className="flex flex-row items-center gap-1">
                 {Array.from({ length: +tool.star }).map((_, index) => (
                   <StarIcon key={index} className="text-amber-400" />
                 ))}
@@ -152,9 +152,9 @@ export default function ToolItem(props: ToolItemProps) {
               {typeof tool.isFree !== 'undefined' && (
                 <>
                   {tool.isFree ? (
-                    <span className="bg-emerald-100 text-emerald-800 px-2 rounded-md">free</span>
+                    <span className="rounded-md bg-emerald-100 px-2 text-emerald-800">free</span>
                   ) : (
-                    <span className="bg-rose-100 text-rose-600 px-2 rounded-md">paid</span>
+                    <span className="rounded-md bg-rose-100 px-2 text-rose-600">paid</span>
                   )}
                 </>
               )}
@@ -163,7 +163,7 @@ export default function ToolItem(props: ToolItemProps) {
                 tool.tags
                   ?.filter(tag => tag !== 'favorite')
                   ?.map(t => (
-                    <span className="bg-gray-100 text-gray-600 px-2 rounded-md" key={t}>
+                    <span className="rounded-md bg-gray-100 px-2 text-gray-600" key={t}>
                       {t}
                     </span>
                   ))}
@@ -172,7 +172,7 @@ export default function ToolItem(props: ToolItemProps) {
 
           {/* description */}
           {!props.hideDescription && !props.isSimple && (
-            <div className="text-[0.83rem] text-slate-700 break-words overflow">
+            <div className="overflow text-[0.83rem] break-words text-slate-700">
               {tool.description}
             </div>
           )}
@@ -183,25 +183,25 @@ export default function ToolItem(props: ToolItemProps) {
 }
 
 const ImagePlaceholder = () => (
-  <div className="flex items-center justify-center h-full">
+  <div className="flex h-full items-center justify-center">
     <div
       style={{ width: 60, height: 60 }}
       className={cn(
-        'flex items-center justify-center absolute inset-0 m-auto',
-        'rounded-full animate-pulse'
+        'absolute inset-0 m-auto flex items-center justify-center',
+        'animate-pulse rounded-full'
       )}
     >
-      <AiOutlineLoading3Quarters className="text-[25px] text-slate-600 animate-spin" />
+      <AiOutlineLoading3Quarters className="animate-spin text-[25px] text-slate-600" />
     </div>
   </div>
 )
 
 export function SkeletonToolItem() {
   return (
-    <div className="p-2 bg-white rounded-lg border border-slate-150">
-      <div className="flex flex-row h-full">
-        <div className="w-[90px] h-full rounded-l-lg relative overflow-hidden shrink-0 border-[0.5px] border-slate-100">
-          <div className="relative w-full h-full overflow-hidden">
+    <div className="border-slate-150 rounded-lg border bg-white p-2">
+      <div className="flex h-full flex-row">
+        <div className="relative h-full w-[90px] shrink-0 overflow-hidden rounded-l-lg border-[0.5px] border-slate-100">
+          <div className="relative h-full w-full overflow-hidden">
             <div
               style={{
                 position: 'absolute',
@@ -219,23 +219,23 @@ export function SkeletonToolItem() {
               }}
             ></div>
             <div className="flex items-center justify-center p-8">
-              <div className="animate-pulse w-[60px] h-[60px] max-w-[60px] absolute inset-0 m-auto rounded-full bg-slate-200"></div>
+              <div className="absolute inset-0 m-auto h-[60px] w-[60px] max-w-[60px] animate-pulse rounded-full bg-slate-200"></div>
             </div>
           </div>
         </div>
-        <div className="min-w-0 flex-1 flex flex-col gap-4 p-3 pl-4 animate-pulse">
-          <div className="flex gap-1.5 flex-col">
+        <div className="flex min-w-0 flex-1 animate-pulse flex-col gap-4 p-3 pl-4">
+          <div className="flex flex-col gap-1.5">
             <div className="font-semibold text-slate-700">
-              <div className="w-1/2 h-5 bg-slate-100 rounded-md"></div>
+              <div className="h-5 w-1/2 rounded-md bg-slate-100"></div>
             </div>
             <div className="flex flex-wrap gap-x-1 gap-y-2 text-[0.75rem]">
-              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
-              <div className="w-8 h-3 bg-slate-100 rounded-md"></div>
+              <div className="h-3 w-8 rounded-md bg-slate-100"></div>
+              <div className="h-3 w-8 rounded-md bg-slate-100"></div>
             </div>
           </div>
-          <div className="text-[0.83rem] text-slate-700 break-words overflow">
-            <div className="w-full h-3 bg-slate-100 rounded-md"></div>
-            <div className="w-4/5 h-3 bg-slate-100 rounded-md mt-1"></div>
+          <div className="overflow text-[0.83rem] break-words text-slate-700">
+            <div className="h-3 w-full rounded-md bg-slate-100"></div>
+            <div className="mt-1 h-3 w-4/5 rounded-md bg-slate-100"></div>
           </div>
         </div>
       </div>

@@ -13,11 +13,11 @@ type HeaderProps = {
 export default function Header(props: HeaderProps) {
   return (
     <>
-      <div className="bg-gradient-to-b from-main-dark-bg to-nav-dark-bg">
+      <div className="from-main-dark-bg to-nav-dark-bg bg-gradient-to-b">
         <Container className={props.headerWidth === 'wide' ? containerWide : containerNormal}>
           <div
             className={cn(
-              'mx-auto py-8 px-0 flex flex-col flex-wrap items-center justify-items-stretch md:flex-row',
+              'mx-auto flex flex-col flex-wrap items-center justify-items-stretch px-0 py-8 md:flex-row',
               props.childrenContainerClassName
             )}
           >

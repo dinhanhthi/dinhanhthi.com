@@ -17,7 +17,7 @@ export const GoogleDrive: React.FC<{
   try {
     const url = new URL(properties.url)
     domain = url.hostname
-  } catch (err) {
+  } catch (_err) {
     // ignore invalid urls for robustness
   }
 

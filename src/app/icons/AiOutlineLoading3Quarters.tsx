@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function AiOutlineLoading3Quarters(props: { className?: string }) {
   return (
     <svg

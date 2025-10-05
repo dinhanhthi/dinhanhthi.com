@@ -7,8 +7,12 @@ import * as React from 'react'
 import { DiscreteColsType } from '@/src/app/components/PostBody'
 import { SimpleImageProps } from '@/src/app/components/SimpleImage'
 import { Block } from '@/src/app/components/block'
+import {
+  BlockOptionsContextType,
+  NotionContextProvider,
+  useNotionContext
+} from '@/src/lib/notion/context'
 import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
-import { BlockOptionsContextType, NotionContextProvider, useNotionContext } from '@/src/lib/notion/context'
 
 export const NotionRenderer: React.FC<{
   recordMap: ExtendedRecordMap

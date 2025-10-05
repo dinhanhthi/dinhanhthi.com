@@ -6,10 +6,6 @@ import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { ImageType, Post } from '@/src/lib/types'
 import cn from 'classnames'
 
-import Link from 'next/link'
-import { Suspense } from 'react'
-import Footer from '../components/Footer'
-import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
 import {
   bodyPadding,
   containerWide,
@@ -17,6 +13,10 @@ import {
   postBlogSimpleListClass,
   postSimpleListClass
 } from '@/src/lib/config'
+import Link from 'next/link'
+import { Suspense } from 'react'
+import Footer from '../components/Footer'
+import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
 
 export type PageOfPostsListTemplateProps = {
   object: {
@@ -62,14 +62,14 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
           <>
             <div className="flex flex-col gap-8">
               {blogPosts && blogPosts.length > 0 && (
-                <div className="overflow-hidden flex flex-col gap-2">
+                <div className="flex flex-col gap-2 overflow-hidden">
                   {pinnedPosts.length + posts.length > 0 && (
-                    <div className="flex flex-row gap-2 items-center">
+                    <div className="flex flex-row items-center gap-2">
                       <h2 className="font-heading text-xl text-slate-700">Blog posts</h2>
                       {blogPosts.length >= 4 && (
                         <Link
                           href="/blogs/"
-                          className="italic text-slate-600 hover:m2it-link-hover"
+                          className="hover:m2it-link-hover text-slate-600 italic"
                         >
                           ...more
                         </Link>
@@ -102,14 +102,14 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
 
               <div className="flex flex-col gap-2">
                 {blogPosts && blogPosts.length > 0 && pinnedPosts.length + posts.length > 0 && (
-                  <div className="flex flex-row gap-2 items-center">
+                  <div className="flex flex-row items-center gap-2">
                     <h2 className="font-heading text-xl text-slate-700">Notes</h2>
                   </div>
                 )}
 
                 {pinnedPosts.length > 0 && (
                   <PostList
-                    className='mb-2'
+                    className="mb-2"
                     posts={pinnedPosts}
                     postType="PostSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}

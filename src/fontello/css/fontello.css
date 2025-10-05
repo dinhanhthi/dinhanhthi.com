@@ -1,7 +1,8 @@
 @font-face {
   font-family: 'fontello';
   src: url('../font/fontello.eot?86346489');
-  src: url('../font/fontello.eot?86346489#iefix') format('embedded-opentype'),
+  src:
+    url('../font/fontello.eot?86346489#iefix') format('embedded-opentype'),
     url('../font/fontello.woff2?86346489') format('woff2'),
     url('../font/fontello.woff?86346489') format('woff'),
     url('../font/fontello.ttf?86346489') format('truetype'),

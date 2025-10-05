@@ -1,11 +1,11 @@
 'use client'
 
 import { makeSlugText } from '@/src/lib/helpers'
+import { Book } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createElement, useEffect, useState } from 'react'
-import { Book } from '@/src/lib/types'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
@@ -23,24 +23,25 @@ import { TagTechIcon } from '../../icons/TagTechIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
 import ToolItem, { ToolItemInputType } from '../tools/ToolItem'
 
-const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement } = {
-  favorite: StarIcon,
-  math: TagMathIcon,
-  economics: TagEconomicsIcon,
-  'AI-Data': TagAIIcon,
-  science: TagScienceIcon,
-  tech: TagTechIcon,
-  'web dev': TagWebAppIcon,
-  psychology: TagPsychologyIcon,
-  biography: TagPersonalSite,
-  memoir: TagMemoirIcon,
-  education: TagEducationIcon,
-  fiction: TagFictionIcon, // back compatibility
-  novel: TagFictionIcon,
-  history: TagHistoryIcon,
-  philosophy: TagPhilosophyIcon,
-  'self help': TagSelfHelpIcon
-}
+const iconTagList: { [x: string]: (_props: React.SVGProps<SVGSVGElement>) => React.ReactElement } =
+  {
+    favorite: StarIcon,
+    math: TagMathIcon,
+    economics: TagEconomicsIcon,
+    'AI-Data': TagAIIcon,
+    science: TagScienceIcon,
+    tech: TagTechIcon,
+    'web dev': TagWebAppIcon,
+    psychology: TagPsychologyIcon,
+    biography: TagPersonalSite,
+    memoir: TagMemoirIcon,
+    education: TagEducationIcon,
+    fiction: TagFictionIcon, // back compatibility
+    novel: TagFictionIcon,
+    history: TagHistoryIcon,
+    philosophy: TagPhilosophyIcon,
+    'self help': TagSelfHelpIcon
+  }
 
 // Helper function to determine if a book is new (within 7 days)
 const isBookNew = (book: Book): boolean => {
@@ -149,7 +150,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                   })}
                 </>
               )}
-              <div className="whitespace-nowrap text-sm">{tag}</div>
+              <div className="text-sm whitespace-nowrap">{tag}</div>
             </button>
           ))}
         </div>
@@ -157,7 +158,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-[0.9rem] italic leading-normal text-gray-600">
+        <div className="text-[0.9rem] leading-normal text-gray-600 italic">
           <span className="font-medium">Read more:</span>{' '}
           <Link className="m2it-link" href="/note/my-taste-of-reading/">
             My taste of reading
@@ -185,7 +186,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
         {recentlyReadBooks.length > 0 && (
           <div className="mb-6">
             <div className="rounded-lg border border-gray-200 bg-white p-4">
-              <h3 className="mb-4 font-heading text-xl font-bold text-slate-700">Recently Read</h3>
+              <h3 className="font-heading mb-4 text-xl font-bold text-slate-700">Recently Read</h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {recentlyReadBooks.map((book: Book) => (
                   <ToolItem
@@ -221,7 +222,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                 <a href={book.url} target="_blank" className="group">
                   {/* NEW badge */}
                   {isBookNew(book) && (
-                    <span className="mr-2 inline whitespace-nowrap rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] text-amber-900">
+                    <span className="mr-2 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
                       new
                     </span>
                   )}

@@ -8,24 +8,24 @@ export const notionX = new NotionAPI({
     hooks: {
       beforeRequest: [
         (request, options) => {
-          const url = request.url.toString();
+          const url = request.url.toString()
 
           if (url.includes('/api/v3/syncRecordValues')) {
             return new Request(
               url.replace('/api/v3/syncRecordValues', '/api/v3/syncRecordValuesMain'),
-              options,
-            );
+              options
+            )
           }
 
-          return request;
-        },
-      ],
-    },
-  },
+          return request
+        }
+      ]
+    }
+  }
 })
 
 export async function getPage(pageId: string) {
-  const recordMap = await notionX.getPage(pageId, )
+  const recordMap = await notionX.getPage(pageId)
   const newRecordMap = await fixMissingBlocks(recordMap)
   return newRecordMap
 }

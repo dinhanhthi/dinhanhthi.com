@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function BsFillCaretRightFill(props: { className?: string }) {
   return (
     <svg
