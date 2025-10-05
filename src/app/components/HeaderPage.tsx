@@ -1,4 +1,4 @@
-import SimpleImage from '@/src/components/notion/SimpleImage'
+import SimpleImage from '@/src/app/components/SimpleImage'
 import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'

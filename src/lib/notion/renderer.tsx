@@ -4,9 +4,9 @@ import mediumZoom from '@fisch0920/medium-zoom'
 import { ExtendedRecordMap, PreviewImage } from 'notion-types'
 import * as React from 'react'
 
-import { DiscreteColsType } from '@/src/components/notion/PostBody'
-import { SimpleImageProps } from '@/src/components/notion/SimpleImage'
-import { Block } from '@/src/components/notion/block'
+import { DiscreteColsType } from '@/src/app/components/PostBody'
+import { SimpleImageProps } from '@/src/app/components/SimpleImage'
+import { Block } from '@/src/app/components/block'
 import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
 import { BlockOptionsContextType, NotionContextProvider, useNotionContext } from '@/src/lib/notion/context'
 

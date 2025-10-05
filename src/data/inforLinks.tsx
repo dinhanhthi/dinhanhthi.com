@@ -1,4 +1,4 @@
-import { BadgeInfosProps } from '@/src/components/notion/BadgeInfos'
+import { BadgeInfosProps } from '@/src/app/components/BadgeInfos'
 import cn from 'classnames'
 
 import me from './me'

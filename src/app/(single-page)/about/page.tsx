@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/components/notion/ScrollToTop'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import cv from '../../../data/cv'
 import me from '../../../data/me'
 import skills from '../../../data/skills'

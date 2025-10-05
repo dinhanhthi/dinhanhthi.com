@@ -1,8 +1,8 @@
 'use client'
 
-import ImageComponent from '@/src/components/notion/ImageComponent'
-import SimpleImage from '@/src/components/notion/SimpleImage'
-import TooltipX from '@/src/components/notion/tooltip-x'
+import ImageComponent from '@/src/app/components/ImageComponent'
+import SimpleImage from '@/src/app/components/SimpleImage'
+import TooltipX from '@/src/app/components/tooltip-x'
 import { makeSlugText } from '@/src/lib/helpers'
 import cn from 'classnames'
 import Link from 'next/link'

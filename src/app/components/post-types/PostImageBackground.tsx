@@ -3,8 +3,8 @@ import { ImageProps } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import PostFeaturedImage from '@/src/components/notion/PostFeaturedImage'
-import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
+import PostFeaturedImage from '@/src/app/components/PostFeaturedImage'
+import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import { Post } from '@/src/lib/types'
 
 export type PostImageBackgroundOpts = {

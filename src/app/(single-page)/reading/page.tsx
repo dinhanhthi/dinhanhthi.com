@@ -2,7 +2,7 @@ import ReadingIcon from '@/public/reading.svg'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/components/notion/ScrollToTop'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import { Book } from '@/src/lib/types'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'

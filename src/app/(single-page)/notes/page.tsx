@@ -1,9 +1,9 @@
 import NotesIcon from '@/public/notes.svg'
-import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
+import SkeletonPostList from '@/src/app/components/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/components/notion/ScrollToTop'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'

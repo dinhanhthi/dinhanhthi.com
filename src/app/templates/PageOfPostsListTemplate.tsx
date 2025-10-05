@@ -1,8 +1,8 @@
 import TagIcon from '@/public/tag.svg'
 import Container from '@/src/app/components/Container'
-import Pagination from '@/src/components/notion/Pagination'
-import PostList, { PostType } from '@/src/components/notion/PostsList'
-import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
+import Pagination from '@/src/app/components/Pagination'
+import PostList, { PostType } from '@/src/app/components/PostsList'
+import SkeletonPostList from '@/src/app/components/SkeletonPostList'
 import { ImageType, Post } from '@/src/lib/types'
 import cn from 'classnames'
 
