@@ -11,7 +11,7 @@ import PostFeaturedImage from '@/src/components/notion/PostFeaturedImage'
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
 import AiOutlineClockCircle from '@/src/components/icons/AiOutlineClockCircle'
 import { Post } from '@/src/lib/notion/interface'
-import { usePostDateStatus } from '@/src/lib/notion/hooks'
+import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 
 export type PostCardWhiteBgBigOpts = {
   hideDate?: boolean

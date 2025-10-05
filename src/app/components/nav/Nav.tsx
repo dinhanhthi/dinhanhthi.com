@@ -3,7 +3,7 @@
 import cn from 'classnames'
 
 import { MENUS, MenuType } from '../../../data/menus'
-import useReadingProgress from '../../hooks/useReadingProgress'
+import useReadingProgress from '@/src/hooks/useReadingProgress'
 import { containerWide } from '@/src/lib/config'
 import Container from '../Container'
 import NavAvatar from './NavAvatar'
