@@ -7,7 +7,7 @@ import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
 import TooltipX from '@/src/components/notion/tooltip-x'
-import { Book, Game, Tool } from '../../../interface'
+import { Book, Game, Tool } from '@/src/lib/types'
 import { StarIcon } from '../../icons/StarIcon'
 
 export type ToolItemInputType = Tool & Book & Game

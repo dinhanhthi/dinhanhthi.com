@@ -22,7 +22,7 @@ import FiSearch from '@/src/components/icons/FiSearch'
 import IoBookOutline from '@/src/components/icons/IoBookOutline'
 import IoCloseCircle from '@/src/components/icons/IoCloseCircle'
 import IoDocumentTextOutline from '@/src/components/icons/IoDocumentTextOutline'
-import { SearchResult } from '@/src/lib/notion/interface'
+import { SearchResult } from '@/src/lib/types'
 
 type SearchModalProps = {
   url: string // Cannot use process.env because it will be undefined in the client side

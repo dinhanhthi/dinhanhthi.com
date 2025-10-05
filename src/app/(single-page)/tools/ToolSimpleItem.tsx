@@ -4,7 +4,7 @@ import SimpleImage from '@/src/components/notion/SimpleImage'
 import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
 import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import { useEffect, useState } from 'react'
-import { Tool } from '../../../interface'
+import { Tool } from '@/src/lib/types'
 
 type ToolSimpleItemProps = {
   tool: Tool

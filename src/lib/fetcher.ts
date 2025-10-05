@@ -1,5 +1,5 @@
-import { Book, NotionPost, NotionTagData, Tag, Tool } from '@/src/interface'
-import { NotionSorts, Post } from '@/src/lib/notion/interface'
+import { Book, NotionPost, NotionTagData, Tag, Tool } from '@/src/lib/types'
+import { NotionSorts, Post } from '@/src/lib/types'
 import { getCustomEmojiBlock, getUnofficialDatabase, queryDatabase } from '@/src/lib/notion/db'
 import { getJoinedRichText, makeSlugText } from '@/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'

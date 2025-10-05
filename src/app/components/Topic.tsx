@@ -6,7 +6,7 @@ import TooltipX from '@/src/components/notion/tooltip-x'
 import { makeSlugText } from '@/src/lib/helpers'
 import cn from 'classnames'
 import Link from 'next/link'
-import { Tag } from '../../interface'
+import { Tag } from '@/src/lib/types'
 import { getUri } from '@/src/lib/helpers'
 
 type TopicProps = {

@@ -4,7 +4,7 @@ import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Q
 import FiSearch from '@/src/components/icons/FiSearch'
 import IoBookOutline from '@/src/components/icons/IoBookOutline'
 import IoDocumentTextOutline from '@/src/components/icons/IoDocumentTextOutline'
-import { SearchResult } from '@/src/lib/notion/interface'
+import { SearchResult } from '@/src/lib/types'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
 import { Command } from 'cmdk'

@@ -3,7 +3,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { ImageType } from '@/src/lib/notion/interface'
+import { ImageType } from '@/src/lib/types'
 import ImageComponent from './ImageComponent'
 import TooltipX from './tooltip-x'
 

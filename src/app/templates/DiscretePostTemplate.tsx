@@ -1,5 +1,5 @@
 import PostBody from '@/src/components/notion/PostBody'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import cn from 'classnames'
 import { ExtendedRecordMap } from 'notion-types'

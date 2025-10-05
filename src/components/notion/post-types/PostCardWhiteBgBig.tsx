@@ -10,7 +10,7 @@ import Excerpt from '@/src/components/notion/Excerpt'
 import PostFeaturedImage from '@/src/components/notion/PostFeaturedImage'
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
 import AiOutlineClockCircle from '@/src/components/icons/AiOutlineClockCircle'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 
 export type PostCardWhiteBgBigOpts = {

@@ -1,5 +1,5 @@
 import ImageComponent from '@/src/components/notion/ImageComponent'
-import { ImageType } from '@/src/lib/notion/interface'
+import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'
 
 type HeadingAboutProps = {

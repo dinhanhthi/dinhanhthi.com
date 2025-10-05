@@ -5,7 +5,7 @@ import DateComponent from '@/src/components/notion/DateComponent'
 import DraftBadgeComponent from '@/src/components/notion/DraftBadge'
 import { default as LangBadgeComponent } from '@/src/components/notion/LangBadge'
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import { getColorIndex, waveColors } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 

@@ -13,7 +13,7 @@ import BlogIcon from '@/src/components/icons/BlogIcon'
 import BsPinAngleFill from '@/src/components/icons/BsPinAngleFill'
 import HiMiniCheckBadge from '@/src/components/icons/HiMiniCheckBadge'
 import HiOutlineDocumentText from '@/src/components/icons/HiOutlineDocumentText'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 
 export type PostSimpleOpts = {

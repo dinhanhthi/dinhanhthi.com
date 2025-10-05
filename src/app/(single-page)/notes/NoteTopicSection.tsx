@@ -1,6 +1,6 @@
 import ImageComponent from '@/src/components/notion/ImageComponent'
 import PostList from '@/src/components/notion/PostsList'
-import { Tag } from '@/src/lib/notion/interface'
+import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
 

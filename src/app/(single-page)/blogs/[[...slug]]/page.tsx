@@ -1,5 +1,5 @@
 import BlogsIcon from '@/public/blogs.svg'
-import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/notion/interface'
+import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import { postBlogSimpleListClass } from '@/src/lib/config'

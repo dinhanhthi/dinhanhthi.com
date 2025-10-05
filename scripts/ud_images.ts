@@ -7,7 +7,7 @@ import cloudinary from 'cloudinary'
 import { get } from 'lodash'
 import yargs, * as yargsType from 'yargs'
 
-import { NotionHeader, NotionPost } from '../src/interface'
+import { NotionHeader, NotionPost } from '../src/lib/types'
 
 // --------------------------------------------------------------------------------------------
 // How to use?

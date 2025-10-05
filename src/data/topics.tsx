@@ -32,7 +32,7 @@ import ToolsIcon from '@/public/topics/tools.webp'
 import WebDevIcon from '@/public/topics/web-dev.svg'
 import WindowsIcon from '@/public/topics/windows.svg'
 import WordpressIcon from '@/public/topics/wordpress.svg'
-import { Tag } from '@/src/lib/notion/interface'
+import { Tag } from '@/src/lib/types'
 
 const topics: Tag[] = [
   {

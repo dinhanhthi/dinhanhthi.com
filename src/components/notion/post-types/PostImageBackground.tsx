@@ -5,7 +5,7 @@ import React from 'react'
 
 import PostFeaturedImage from '@/src/components/notion/PostFeaturedImage'
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 
 export type PostImageBackgroundOpts = {
   imageProps?: Partial<ImageProps>

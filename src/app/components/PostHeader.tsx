@@ -22,7 +22,7 @@ import EN from '@/public/lang/us.svg'
 import VN from '@/public/lang/vn.svg'
 import TooltipX from '@/src/components/notion/tooltip-x'
 import me from '../../data/me'
-import { exPost } from '../../interface'
+import { Post } from '@/src/lib/types'
 import MdEditNote from '../icons/MdEditNote'
 import { defaultPostTypeOpts } from '@/src/lib/config'
 import { quicksand } from '@/src/lib/fonts'
@@ -40,7 +40,7 @@ export const gapHeaderItems = 'mb-3'
 
 type PostHeaderProps = {
   recordMap: ExtendedRecordMap
-  postProps: exPost
+  postProps: Post
   hideMeta?: boolean
   discreteStyle?: boolean
 }

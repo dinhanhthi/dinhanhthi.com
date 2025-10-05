@@ -1,6 +1,6 @@
 'use client'
 
-import { Tag } from '@/src/lib/notion/interface'
+import { Tag } from '@/src/lib/types'
 import { makeSlugText } from '@/src/lib/helpers'
 import { useHeadsObserver } from '@/src/hooks/useHeadsObserver'
 import cn from 'classnames'

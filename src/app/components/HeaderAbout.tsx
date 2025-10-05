@@ -4,7 +4,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 
 import BadgeSocial from '@/src/components/notion/BadgeSocial'
-import { ImageType } from '@/src/lib/notion/interface'
+import { ImageType } from '@/src/lib/types'
 import inforLinks from '../../data/inforLinks'
 import me from '../../data/me'
 import socials from '../../data/social'
