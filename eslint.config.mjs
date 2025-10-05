@@ -16,7 +16,7 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended
 })
 
-export default [
+const config = [
   {
     ignores: ['next-env.d.ts', 'graphql/**/*.ts', '.next/**', 'node_modules/**']
   },
@@ -91,3 +91,5 @@ export default [
     }
   }
 ]
+
+export default config
