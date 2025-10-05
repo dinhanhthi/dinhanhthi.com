@@ -3,7 +3,7 @@ import WavingHand from '@/public/waving_hand.webp'
 import BadgeInfos from '@/src/components/notion/BadgeInfos'
 import BadgeSocial from '@/src/components/notion/BadgeSocial'
 import ImageComponent from '@/src/components/notion/ImageComponent'
-import { ImageType } from '@/src/lib/notion/interface'
+import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'
 import Image from 'next/image'
 

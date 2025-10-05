@@ -1,6 +1,6 @@
 import SimpleImage from '@/src/components/notion/SimpleImage'
 import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
-import { ImageType } from '@/src/lib/notion/interface'
+import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'
 
 import { quicksand } from '@/src/lib/fonts'

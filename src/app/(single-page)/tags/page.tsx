@@ -1,6 +1,6 @@
 import TopicIcon from '@/public/topics.svg'
 import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
-import { Tag } from '@/src/lib/notion/interface'
+import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import { Suspense } from 'react'
 

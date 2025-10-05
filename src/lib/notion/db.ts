@@ -10,7 +10,7 @@ import { CollectionInstance, SearchParams } from 'notion-types'
 import ogs from 'open-graph-scraper'
 import pMemoize from 'p-memoize'
 
-import { BookmarkPreview, NotionSorts } from '@/src/lib/notion/interface'
+import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
 
 export const notionMaxRequest = 100

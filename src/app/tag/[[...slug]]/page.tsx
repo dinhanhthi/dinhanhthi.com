@@ -3,7 +3,7 @@ import { filterDupLangPosts, generateMetaTitle, getMetadata, getUri } from '@/sr
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
-import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/notion/interface'
+import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
 import { getStartCursorForCurrentPage } from '@/src/lib/helpers'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'

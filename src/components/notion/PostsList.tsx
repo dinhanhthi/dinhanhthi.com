@@ -3,7 +3,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import PostBlogSimple, { PostBlogSimpleOpts } from '@/src/components/notion/post-types/PostBlogSimple'
 import PostCardWave, { PostCardWaveOpts } from '@/src/components/notion/post-types/PostCardWave'
 import PostCardWhiteBg, { PostCardWhiteBgOpts } from '@/src/components/notion/post-types/PostCardWhiteBg'

@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/components/notion/ScrollToTop'
 import me from '../data/me'
-import { Book } from '../interface'
+import { Book } from '@/src/lib/types'
 import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import Container from './components/Container'

@@ -7,7 +7,7 @@ import * as React from 'react'
 import { DiscreteColsType } from '@/src/components/notion/PostBody'
 import { SimpleImageProps } from '@/src/components/notion/SimpleImage'
 import { Block } from '@/src/components/notion/block'
-import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/notion/types'
+import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
 import { BlockOptionsContextType, NotionContextProvider, useNotionContext } from '@/src/lib/notion/context'
 
 export const NotionRenderer: React.FC<{

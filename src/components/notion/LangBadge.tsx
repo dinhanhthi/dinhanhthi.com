@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import { Language, Post } from '@/src/lib/notion/interface'
+import { Language, Post } from '@/src/lib/types'
 import TooltipX from './tooltip-x'
 
 type LangBadgeComponentProps = {

@@ -3,7 +3,7 @@ import Container from '@/src/app/components/Container'
 import Pagination from '@/src/components/notion/Pagination'
 import PostList, { PostType } from '@/src/components/notion/PostsList'
 import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
-import { ImageType, Post } from '@/src/lib/notion/interface'
+import { ImageType, Post } from '@/src/lib/types'
 import cn from 'classnames'
 
 import Link from 'next/link'

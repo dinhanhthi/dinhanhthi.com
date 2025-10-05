@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/components/notion/ScrollToTop'
-import { Book } from '../../../interface'
+import { Book } from '@/src/lib/types'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import TiTag from '@/src/components/icons/TiTag'
-import { Category, Tag } from '@/src/lib/notion/interface'
+import { Category, Tag } from '@/src/lib/types'
 import TooltipX from './tooltip-x'
 
 type PostHeaderTopicsProps = {

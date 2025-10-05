@@ -10,7 +10,7 @@ import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
 import { LazyImage } from '@/src/components/notion/lazy-image'
 import AiOutlineClockCircle from '@/src/components/icons/AiOutlineClockCircle'
 import IoBookOutline from '@/src/components/icons/IoBookOutline'
-import { Post } from '@/src/lib/notion/interface'
+import { Post } from '@/src/lib/types'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { defaultMapImageUrl } from '@/src/lib/notion/map-image-url'
 

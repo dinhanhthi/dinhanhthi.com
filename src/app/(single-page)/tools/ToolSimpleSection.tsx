@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { Tool } from '../../../interface'
+import { Tool } from '@/src/lib/types'
 import ToolSimpleItem, { SkeletonToolSimpleItem } from './ToolSimpleItem'
 
 export default function ToolSimpleSection(props: {

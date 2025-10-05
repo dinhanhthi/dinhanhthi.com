@@ -8,7 +8,7 @@ import * as React from 'react'
 import { DiscreteColsType } from '@/src/components/notion/PostBody'
 import { SimpleImageProps } from '@/src/components/notion/SimpleImage'
 import { AssetWrapper } from '@/src/components/notion/asset-wrapper'
-import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/notion/types'
+import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
 import { wrapNextImage, wrapNextLink } from '@/src/lib/notion/next'
 import { defaultMapImageUrl, defaultMapPageUrl } from '@/src/lib/notion/utils'
 

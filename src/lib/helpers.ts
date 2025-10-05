@@ -1,5 +1,5 @@
-import { exPost, ImgurUrlType } from '@/src/interface'
-import { Post, PostHeaderType, Tag, AnnotationIgnoreField } from '@/src/lib/notion/interface'
+import { ImgurUrlType } from '@/src/lib/types'
+import { Post, PostHeaderType, Tag, AnnotationIgnoreField } from '@/src/lib/types'
 import {
   QueryDatabaseParameters,
   RichTextItemResponse,
@@ -413,7 +413,7 @@ export function transformUnofficialPostProps(
   post: Block,
   topics: Tag[] = [],
   recordMap?: ExtendedRecordMap
-): exPost {
+): Post {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
@@ -487,7 +487,8 @@ export function transformUnofficialPostProps(
     vi,
     en,
     fr,
-    notionUrl
+    notionUrl,
+    customEmojiUrl: undefined // This will be populated if needed
   }
 }
 

@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic'
 import React from 'react'
 
 import SigmaIcon from '@/src/components/icons/SigmaIcon'
-import { TextIgnoreField } from '@/src/lib/notion/interface'
+import { TextIgnoreField } from '@/src/lib/types'
 import BlockText from './BlockText'
 
 const DynamicInlineEquation = dynamic(() => import('./BlockInlineEquation'), {

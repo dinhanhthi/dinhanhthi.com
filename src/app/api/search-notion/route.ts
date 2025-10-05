@@ -1,4 +1,4 @@
-import { SearchResult } from '@/src/lib/notion/interface'
+import { SearchResult } from '@/src/lib/types'
 import { searchNotionPersonal } from '@/src/lib/notion/db'
 import { makeSlugText } from '@/src/lib/helpers'
 
