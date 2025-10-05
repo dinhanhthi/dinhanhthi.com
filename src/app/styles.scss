@@ -27,12 +27,6 @@
   font-display: swap;
 }
 
-
-strong,
-b {
-  font-weight: 600 !important;
-}
-
 @layer base {
   :root {
     --radius: 0.5rem;
@@ -41,6 +35,11 @@ b {
   html {
     font-family: 'font-sans';
     font-size: 16px;
+  }
+
+  strong,
+  b {
+    font-weight: 600 !important;
   }
 
   .m2it-inside-box {
@@ -62,12 +61,21 @@ b {
     @apply my-0 font-semibold text-[#111];
   }
 
+  .m2it-strong {
+    @apply font-medium text-[#111];
+  }
+
   .m2it-prose-img {
     @apply my-0;
   }
 
   .m2it-blockquote {
     @apply my-3 border border-y-0 border-l-4 border-r-0 border-slate-500 py-3 font-inherit not-italic text-inherit;
+  }
+
+  .m2it-code {
+    @apply break-words rounded-md bg-gray-100 p-[1px_4px_2px_4px]
+    font-mono text-[90%] font-normal before:content-[''] after:content-[''];
   }
 
   .m2it-li {
@@ -84,15 +92,6 @@ b {
 
   .m2it-td {
     @apply px-[10px] py-[5px];
-  }
-
-  .m2it-code {
-    @apply break-words rounded-md bg-gray-100 p-[1px_4px_2px_4px]
-    font-mono text-[90%] font-normal before:content-[''] after:content-[''];
-  }
-
-  .m2it-strong {
-    @apply font-medium text-[#111];
   }
 
   .m2it-table {
@@ -252,12 +251,11 @@ b {
     @apply bg-gradient-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
   }
 
-  /* Display as normal text except hoving or on small screen */
   .thi-link-normal {
     @apply md:thi-text-color w-fit text-link
     md:hover:text-pink-500;
   }
-  /* For bg always in dark mode */
+
   .thi-link-normal-always-dark {
     @apply w-fit text-[#ffd479] md:text-[#f8fafc] md:hover:text-[#ffd479];
   }
@@ -298,11 +296,6 @@ ul {
   }
 }
 
-// Additional styles from notion-x.scss
-strong {
-  font-weight: 600;
-}
-
 code {
   .linenumber {
     font-size: 0.7rem;
@@ -323,7 +316,7 @@ code {
   }
 }
 
-// Background
+// Notion background colors
 .notion-gray_background {
   @apply bg-gray-100;
 }
@@ -429,7 +422,7 @@ code {
   }
 }
 
-// List
+// List styling enhancements
 ul > ul > li,
 ol > ul > li {
   list-style-type: circle;
@@ -480,7 +473,6 @@ ul > li {
   }
 }
 
-// Quote
 .quote-children {
   & > * {
     margin-top: 0.75rem !important;
@@ -499,7 +491,6 @@ ul > li {
   }
 }
 
-// Icon
 .notion-page-icon-inline {
   width: 26px;
 
@@ -539,7 +530,6 @@ ul > li {
   font-size: 115%;
 }
 
-// First used for tech badge tooltip in about page
 .tooltip-auto {
   position: relative;
 
@@ -587,7 +577,6 @@ ul > li {
   }
 }
 
-// For headings next to each other
 .heading-container + .heading-container {
   margin-top: 1.25rem;
 }
@@ -713,7 +702,6 @@ pre > code::before {
   }
 }
 
-// Discrete style
 .discrete-content-container {
   & > * {
     &:first-child {
