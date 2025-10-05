@@ -5,7 +5,7 @@ import { Book } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { createElement, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
@@ -141,15 +141,17 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                 }
               )}
             >
-              {iconTagList[tag] && (
-                <>
-                  {createElement(iconTagList[tag], {
-                    className: cn('h-4 w-4', {
-                      'text-amber-400': tag === 'favorite'
-                    })
-                  })}
-                </>
-              )}
+              {iconTagList[tag] &&
+                (() => {
+                  const IconComponent = iconTagList[tag]
+                  return (
+                    <IconComponent
+                      className={cn('h-4 w-4', {
+                        'text-amber-400': tag === 'favorite'
+                      })}
+                    />
+                  )
+                })()}
               <div className="text-sm whitespace-nowrap">{tag}</div>
             </button>
           ))}
