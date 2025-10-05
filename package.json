@@ -26,7 +26,6 @@
     "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
     "clean-build": "yarn run clean && yarn run build",
     "reinstall": "yarn run clean && rm -rf node_modules 2>/dev/null && rm yarn.lock 2>/dev/null && yarn install",
-    "ud-fontello": "rimraf .fontello-session && fontello-cli --config src/fontello/config.json --css src/fontello/css --font src/fontello/font install",
     "ud-cover": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover --pid",
     "ud-icon": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon --pid",
     "ud-cover-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover-all",

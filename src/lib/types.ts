@@ -88,7 +88,6 @@ export type Category = {
     titleColor?: string // Used in header of category page
   }
   featuredImage?: ImageType
-  fontello?: string
   backgroundClassName?: string // used for index page
 }
 

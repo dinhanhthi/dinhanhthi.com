@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { Star } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -31,7 +32,7 @@ export default function PostHeaderTopics(props: PostHeaderTopicsProps) {
           key={'selected'}
           href={selectedUri}
         >
-          <i className="icon-star-circled mr-1"></i> {selectedName || 'Selected'}
+          <Star className="mr-1 h-4 w-4" /> {selectedName || 'Selected'}
         </Link>
       )}
       {!!categories?.length &&
@@ -51,7 +52,6 @@ export default function PostHeaderTopics(props: PostHeaderTopicsProps) {
               key={category!.uri}
               href={category!.uri || '/'}
             >
-              {category!.fontello && <i className={`${category!.fontello} mr-1 text-sm`}></i>}
               {category!.name}
             </Link>
           ))}

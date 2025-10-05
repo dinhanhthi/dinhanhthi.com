@@ -1,6 +1,7 @@
 'use client'
 
 import cn from 'classnames'
+import { User, Users } from 'lucide-react'
 import { ImageProps } from 'next/image'
 import Link from 'next/link'
 
@@ -79,13 +80,13 @@ export default function PostCardWhiteBgBig(props: PostCardWhiteBgBigProps) {
                 <div className="flex gap-1 text-sm text-emerald-800 opacity-80">
                   {authors?.length > 1 && (
                     <>
-                      <i className="icon-users-outline"></i>
+                      <Users className="h-4 w-4" />
                       <span>Nhiều tác giả</span>
                     </>
                   )}
                   {authors?.length <= 1 && (
                     <>
-                      <i className="icon-user-outline -mr-1"></i>
+                      <User className="h-4 w-4" />
                       <span>{authors[0].name}</span>
                     </>
                   )}
