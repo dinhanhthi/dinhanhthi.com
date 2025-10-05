@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 
 import IoIosArrowDown from '@/src/components/icons/IoIosArrowDown'
 import { generateAnchor } from '@/src/lib/helpers'
-import { useHeadsObserver } from '@/src/lib/notion/hooks'
+import { useHeadsObserver } from '@/src/hooks/useHeadsObserver'
 import { Text } from './text'
 
 type PostTocProps = {

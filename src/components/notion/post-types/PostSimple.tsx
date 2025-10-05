@@ -14,7 +14,7 @@ import BsPinAngleFill from '@/src/components/icons/BsPinAngleFill'
 import HiMiniCheckBadge from '@/src/components/icons/HiMiniCheckBadge'
 import HiOutlineDocumentText from '@/src/components/icons/HiOutlineDocumentText'
 import { Post } from '@/src/lib/notion/interface'
-import { usePostDateStatus } from '@/src/lib/notion/hooks'
+import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 
 export type PostSimpleOpts = {
   hideDate?: boolean

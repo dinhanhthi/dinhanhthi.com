@@ -7,7 +7,7 @@ import { default as LangBadgeComponent } from '@/src/components/notion/LangBadge
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
 import { Post } from '@/src/lib/notion/interface'
 import { getColorIndex, waveColors } from '@/src/lib/helpers'
-import { usePostDateStatus } from '@/src/lib/notion/hooks'
+import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 
 export type PostBlogSimpleOpts = {
   colorIndex?: number

@@ -2,7 +2,7 @@
 
 import { Tag } from '@/src/lib/notion/interface'
 import { makeSlugText } from '@/src/lib/helpers'
-import { useHeadsObserver } from '@/src/lib/notion/hooks'
+import { useHeadsObserver } from '@/src/hooks/useHeadsObserver'
 import cn from 'classnames'
 import Link from 'next/link'
 
