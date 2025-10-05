@@ -3,7 +3,7 @@ import { parsePageId } from 'notion-utils'
 import * as React from 'react'
 
 import { useNotionContext } from '@/src/lib/notion/context'
-import { mapNoteUri, removeBaseUrl } from '@/src/lib/notion/helpers'
+import { mapNoteUri, removeBaseUrl } from '@/src/lib/helpers'
 import { formatDate, getHashFragmentValue } from '@/src/lib/notion/utils'
 import { NotionComponents } from '@/src/lib/notion/types'
 import BlockEquation from './BlockEquation'

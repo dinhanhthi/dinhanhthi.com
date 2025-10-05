@@ -1,13 +1,13 @@
 import { Book, NotionPost, NotionTagData, Tag, Tool } from '@/src/interface'
 import { NotionSorts, Post } from '@/src/lib/notion/interface'
 import { getCustomEmojiBlock, getUnofficialDatabase, queryDatabase } from '@/src/lib/notion/db'
-import { getJoinedRichText, makeSlugText } from '@/src/lib/notion/helpers'
+import { getJoinedRichText, makeSlugText } from '@/src/lib/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
 
 import { defaultPostDate, defaultPostTitle } from './config'
-import { getFilter, getUri, transformUnofficialPostProps } from './helpers'
+import { getFilter, getUri, transformUnofficialPostProps } from '@/src/lib/helpers'
 
 export async function getUnofficialPosts() {
   try {

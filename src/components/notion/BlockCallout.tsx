@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { mapColorClass } from '@/src/lib/notion/helpers'
+import { mapColorClass } from '@/src/lib/helpers'
 import { blockMargin } from './block'
 
 export default function BlockCallout(props: {

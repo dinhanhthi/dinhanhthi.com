@@ -1,7 +1,7 @@
 import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
 import { DynamicSegmentParamsProps } from '@/src/lib/notion/interface'
-import { getJoinedRichText } from '@/src/lib/notion/helpers'
+import { getJoinedRichText } from '@/src/lib/helpers'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 

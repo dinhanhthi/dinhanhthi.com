@@ -6,7 +6,7 @@ import DraftBadgeComponent from '@/src/components/notion/DraftBadge'
 import { default as LangBadgeComponent } from '@/src/components/notion/LangBadge'
 import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
 import { Post } from '@/src/lib/notion/interface'
-import { getColorIndex, waveColors } from '@/src/lib/notion/helpers'
+import { getColorIndex, waveColors } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/lib/notion/hooks'
 
 export type PostBlogSimpleOpts = {

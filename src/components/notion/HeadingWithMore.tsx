@@ -2,7 +2,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import React from 'react'
 
-import { makeSlugText } from '@/src/lib/notion/helpers'
+import { makeSlugText } from '@/src/lib/helpers'
 
 type HeadingWithMoreProps = {
   title: string

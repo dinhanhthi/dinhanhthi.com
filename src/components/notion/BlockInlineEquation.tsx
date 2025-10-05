@@ -4,7 +4,7 @@ import Katex from '@matejmazur/react-katex'
 import { EquationRichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import React from 'react'
 
-import { generateTextAnnotationClasses } from '@/src/lib/notion/helpers'
+import { generateTextAnnotationClasses } from '@/src/lib/helpers'
 
 type BlockInlineEquationProps = {
   equation: EquationRichTextItemResponse

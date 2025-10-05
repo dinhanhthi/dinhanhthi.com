@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import { mapColorClass } from '@/src/lib/notion/helpers'
+import { mapColorClass } from '@/src/lib/helpers'
 
 export default function BlockToggleDiscrete(props: {
   text: React.ReactNode | null
