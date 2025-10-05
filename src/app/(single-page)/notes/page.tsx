@@ -1,9 +1,9 @@
 import NotesIcon from '@/public/notes.svg'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
+import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import ScrollToTop from '@/src/components/notion/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
@@ -15,9 +15,9 @@ import {
   numPostsToShow,
   postBlogSimpleListClass,
   postSimpleListClass
-} from '../../lib/config'
-import { getPosts, getTopics } from '../../lib/fetcher'
-import { filterDupLangPosts, getMetadata } from '../../lib/helpers'
+} from '@/src/lib/config'
+import { getPosts, getTopics } from '@/src/lib/fetcher'
+import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import NotesPageList from './NotesPageList'
 
 export const revalidate = 20

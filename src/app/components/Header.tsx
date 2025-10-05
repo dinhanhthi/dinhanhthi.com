@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-import { containerNormal, containerWide } from '../lib/config'
+import { containerNormal, containerWide } from '@/src/lib/config'
 import Container from './Container'
 
 type HeaderProps = {

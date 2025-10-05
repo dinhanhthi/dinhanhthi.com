@@ -30,8 +30,7 @@
     "ud-icon": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon --pid",
     "ud-cover-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover-all",
     "ud-icon-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon-all",
-    "ud-images-post": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a images-in-post --pid",
-    "getlib": "git submodule update --recursive --remote"
+    "ud-images-post": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a images-in-post --pid"
   },
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",

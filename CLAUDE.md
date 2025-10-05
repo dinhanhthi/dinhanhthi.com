@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Framework**: Next.js 14+ (App Router)
 - **Styling**: Tailwind CSS v3
-- **CMS**: Notion (using custom [notion-x](https://github.com/dinhanhthi/notion-x) submodule)
+- **CMS**: Notion (using custom Notion renderer integrated into the project)
 - **Language**: TypeScript
 - **Package Manager**: Yarn v4 (Plug'n'Play mode)
 - **Deployment**: Vercel
@@ -37,23 +37,25 @@ yarn clean-build
 
 # Reinstall dependencies
 yarn reinstall
-
-# Update notion-x submodule
-yarn getlib
-# or: git submodule update --recursive --remote
 ```
 
 ## Architecture Overview
 
-### notion-x Submodule
+### Notion Renderer Components
 
-This project uses a **custom fork of react-notion-x as a Git submodule** located in `/notion-x`. This is a custom Notion renderer with project-specific modifications.
+This project uses a **custom Notion renderer** integrated directly into the codebase (previously a git submodule, now fully migrated):
 
-- **Key principle**: Modify notion-x components directly in this repo, but DO NOT commit them to the submodule
-- To discard changes: `cd notion-x && git checkout <file-path>`
-- The submodule must be initialized on first clone: `git submodule update --init --recursive`
-- Components from notion-x are imported using the `@notion-x/*` alias
-- Tailwind must scan notion-x files: `./notion-x/**/*.{js,ts,jsx,tsx,mdx,css,scss}`
+- **Location**:
+  - Components: `src/components/notion/` - React components for rendering Notion blocks
+  - Icons: `src/components/icons/` - Custom icon components
+  - Utilities: `src/lib/notion/` - Notion-specific helper functions, hooks, context, and database utilities
+  - Shared utilities: `src/lib/` - General utilities (config, fetcher, helpers, fonts, utils)
+  - Styles: `src/components/notion/styles/` - SCSS styles for Notion rendering
+- **Import pattern**:
+  - Notion utilities: `@/src/lib/notion/*`
+  - General utilities: `@/src/lib/*` (e.g., `@/src/lib/config`, `@/src/lib/utils`)
+  - Components: `@/src/components/notion/*` or `@/src/components/icons/*`
+- **Architecture principle**: All utilities live in `src/lib/`, NOT in `src/app/lib/`
 
 ### Project Structure
 
@@ -62,17 +64,30 @@ src/
 ├── app/                      # Next.js App Router
 │   ├── (single-page)/       # Route group for static pages (about, tools, reading, etc.)
 │   ├── api/                 # API routes (og, search-notion)
-│   ├── components/          # Shared React components
+│   ├── components/          # App-specific React components
 │   ├── hooks/               # Custom React hooks
-│   ├── lib/                 # Utilities and configuration
-│   │   ├── config.ts       # Site-wide constants and settings
-│   │   ├── fetcher.ts      # Data fetching utilities
-│   │   ├── helpers.ts      # Helper functions
-│   │   ├── fonts.ts        # Font configurations
-│   │   └── utils.ts        # General utilities
 │   ├── note/[slug]/        # Dynamic note pages
 │   ├── tag/[[...slug]]/    # Tag pages with optional catch-all
 │   └── templates/           # Page templates
+├── components/              # Shared components
+│   ├── icons/              # Icon components
+│   └── notion/             # Notion renderer components
+│       ├── post-types/     # Post card component variants
+│       └── styles/         # Notion rendering styles
+├── lib/                     # All utilities and business logic
+│   ├── notion/             # Notion-specific utilities
+│   │   ├── context.tsx     # Notion context provider
+│   │   ├── db.ts          # Notion database utilities
+│   │   ├── helpers.ts     # Notion helper functions
+│   │   ├── hooks.ts       # Notion custom hooks
+│   │   ├── interface.ts   # TypeScript interfaces
+│   │   ├── renderer.tsx   # Main renderer component
+│   │   └── ...            # Other Notion utilities
+│   ├── config.ts           # Site-wide constants and settings
+│   ├── fetcher.ts          # Data fetching utilities
+│   ├── helpers.ts          # General helper functions
+│   ├── fonts.ts            # Font configurations
+│   └── utils.ts            # General utilities (cn, etc.)
 ├── data/                    # Static data files (menus, skills, topics, etc.)
 └── fontello/                # Custom icon fonts
 ```
@@ -93,9 +108,9 @@ Environment variables (see `example.env.local`) define:
 
 ### TypeScript Configuration
 
-- Path aliases: `@/*` (root), `@notion-x/*` (submodule)
+- Path alias: `@/*` (root - maps to project root)
 - Strict mode enabled with unused variable checks
-- Custom type declarations in `src/interface.d.ts` and `src/react-copy-to-clipboard.d.ts`
+- Custom type declarations in `src/interface.d.ts` and `src/lib/notion/react-copy-to-clipboard.d.ts`
 
 ## Special Scripts
 
@@ -138,6 +153,5 @@ yarn ud-fontello
 
 ## Important Constraints
 
-- **Branch merging with submodule**: If notion-x has changes, cannot merge between branches normally - must force reset one branch to another
 - **VSCode Yarn PnP setup**: Follow [official guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) for editor SDK support
 - **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy

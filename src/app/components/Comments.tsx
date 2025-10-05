@@ -3,7 +3,7 @@
 import cn from 'classnames'
 
 import Giscus from '@giscus/react'
-import { containerNormal } from '../lib/config'
+import { containerNormal } from '@/src/lib/config'
 import Container from './Container'
 
 const Comments = ({ className }: { className?: string }) => {

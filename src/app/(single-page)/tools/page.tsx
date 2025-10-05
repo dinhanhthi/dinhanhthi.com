@@ -2,13 +2,13 @@ import ToolsIcon from '@/public/tools.webp'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import ScrollToTop from '@/src/components/notion/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
-import { bodyPadding, containerWide } from '../../lib/config'
-import { getUnofficialTools } from '../../lib/fetcher'
-import { getMetadata } from '../../lib/helpers'
+import { bodyPadding, containerWide } from '@/src/lib/config'
+import { getUnofficialTools } from '@/src/lib/fetcher'
+import { getMetadata } from '@/src/lib/helpers'
 import ToolsPage, { SkeletonToolPage } from './ToolsPage'
 
 export const revalidate = 20

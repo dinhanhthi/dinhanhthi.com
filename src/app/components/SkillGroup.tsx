@@ -1,4 +1,4 @@
-import BadgeTech from '@notion-x/src/components/BadgeTech'
+import BadgeTech from '@/src/components/notion/BadgeTech'
 
 import techs from '../../data/techs'
 import HeadingAbout from './HeadingAbout'

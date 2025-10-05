@@ -3,8 +3,8 @@ import cn from 'classnames'
 import Link from 'next/link'
 
 import Container from './components/Container'
-import { containerNormal } from './lib/config'
-import { generateMetaTitle } from './lib/helpers'
+import { containerNormal } from '@/src/lib/config'
+import { generateMetaTitle } from '@/src/lib/helpers'
 
 export const metadata = {
   title: generateMetaTitle('Page not found!'),

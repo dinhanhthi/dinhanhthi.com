@@ -24,8 +24,7 @@
     ],
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["./*"],
-      "@notion-x/*": ["./notion-x/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [

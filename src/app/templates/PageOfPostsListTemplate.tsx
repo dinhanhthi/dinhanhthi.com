@@ -1,9 +1,9 @@
 import TagIcon from '@/public/tag.svg'
 import Container from '@/src/app/components/Container'
-import Pagination from '@notion-x/src/components/Pagination'
-import PostList, { PostType } from '@notion-x/src/components/PostsList'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
-import { ImageType, Post } from '@notion-x/src/interface'
+import Pagination from '@/src/components/notion/Pagination'
+import PostList, { PostType } from '@/src/components/notion/PostsList'
+import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
+import { ImageType, Post } from '@/src/lib/notion/interface'
 import cn from 'classnames'
 
 import Link from 'next/link'
@@ -16,7 +16,7 @@ import {
   defaultPostTypeOpts,
   postBlogSimpleListClass,
   postSimpleListClass
-} from '../lib/config'
+} from '@/src/lib/config'
 
 export type PageOfPostsListTemplateProps = {
   object: {

@@ -1,4 +1,4 @@
-import BadgeTech from '@notion-x/src/components/BadgeTech'
+import BadgeTech from '@/src/components/notion/BadgeTech'
 import cn from 'classnames'
 import Image from 'next/image'
 

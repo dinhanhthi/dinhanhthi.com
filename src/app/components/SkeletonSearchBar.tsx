@@ -1,4 +1,4 @@
-import FiSearch from '@notion-x/src/icons/FiSearch'
+import FiSearch from '@/src/components/icons/FiSearch'
 
 type SkeletonSearchBarProps = {
   placeholder?: string

@@ -1,6 +1,6 @@
 import Nav from '@/src/app/components/nav/Nav'
-import LocalRouteChange from '@notion-x/src/components/LocalRouteChange'
-import '@notion-x/src/style/notion-x.scss'
+import LocalRouteChange from '@/src/components/notion/LocalRouteChange'
+import '@/src/components/notion/styles/notion-x.scss'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
@@ -8,7 +8,7 @@ import Script from 'next/script'
 import '../fontello/css/fontello.css'
 
 import me from '../data/me'
-import { openSans, quicksand } from './lib/fonts'
+import { openSans, quicksand } from '@/src/lib/fonts'
 import './styles.scss'
 
 export const revalidate = 20

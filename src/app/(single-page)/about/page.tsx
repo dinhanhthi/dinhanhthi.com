@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import ScrollToTop from '@/src/components/notion/ScrollToTop'
 import cv from '../../../data/cv'
 import me from '../../../data/me'
 import skills from '../../../data/skills'
@@ -10,8 +10,8 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderAbout from '../../components/HeaderAbout'
 import SkillGroup, { SkeletonSkillGroup, SkillGroupType } from '../../components/SkillGroup'
-import { bodyPadding, containerWide } from '../../lib/config'
-import { getMetadata } from '../../lib/helpers'
+import { bodyPadding, containerWide } from '@/src/lib/config'
+import { getMetadata } from '@/src/lib/helpers'
 
 export const revalidate = 20
 

@@ -1,10 +1,10 @@
 import VictoryHand from '@/public/victory_hand.webp'
-import BadgeInfos from '@notion-x/src/components/BadgeInfos'
+import BadgeInfos from '@/src/components/notion/BadgeInfos'
 import cn from 'classnames'
 import Image from 'next/image'
 
-import BadgeSocial from '@notion-x/src/components/BadgeSocial'
-import { ImageType } from '@notion-x/src/interface'
+import BadgeSocial from '@/src/components/notion/BadgeSocial'
+import { ImageType } from '@/src/lib/notion/interface'
 import inforLinks from '../../data/inforLinks'
 import me from '../../data/me'
 import socials from '../../data/social'

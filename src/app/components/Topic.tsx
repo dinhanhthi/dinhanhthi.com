@@ -1,13 +1,13 @@
 'use client'
 
-import ImageComponent from '@notion-x/src/components/ImageComponent'
-import SimpleImage from '@notion-x/src/components/SimpleImage'
-import TooltipX from '@notion-x/src/components/tooltip-x'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
+import ImageComponent from '@/src/components/notion/ImageComponent'
+import SimpleImage from '@/src/components/notion/SimpleImage'
+import TooltipX from '@/src/components/notion/tooltip-x'
+import { makeSlugText } from '@/src/lib/notion/helpers'
 import cn from 'classnames'
 import Link from 'next/link'
 import { Tag } from '../../interface'
-import { getUri } from '../lib/helpers'
+import { getUri } from '@/src/lib/helpers'
 
 type TopicProps = {
   type?: 'simple' | 'detailed'

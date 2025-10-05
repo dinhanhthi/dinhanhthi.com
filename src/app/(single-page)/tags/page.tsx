@@ -1,6 +1,6 @@
 import TopicIcon from '@/public/topics.svg'
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
-import { Tag } from '@notion-x/src/interface'
+import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import { Tag } from '@/src/lib/notion/interface'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
@@ -8,9 +8,9 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
-import { bodyPadding, containerWide, defaultBlurDataURL } from '../../lib/config'
-import { getTopics } from '../../lib/fetcher'
-import { getMetadata } from '../../lib/helpers'
+import { bodyPadding, containerWide, defaultBlurDataURL } from '@/src/lib/config'
+import { getTopics } from '@/src/lib/fetcher'
+import { getMetadata } from '@/src/lib/helpers'
 
 export const revalidate = 20
 

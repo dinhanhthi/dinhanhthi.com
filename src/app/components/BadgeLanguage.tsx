@@ -1,4 +1,4 @@
-import TooltipX from '@notion-x/src/components/tooltip-x'
+import TooltipX from '@/src/components/notion/tooltip-x'
 import Image from 'next/image'
 import Link from 'next/link'
 

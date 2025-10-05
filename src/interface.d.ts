@@ -1,4 +1,4 @@
-import { Tag as TagNotionX, Post } from '@notion-x/src/interface'
+import { Tag as TagNotionX, Post } from '@/src/lib/notion/interface'
 import { Block } from 'notion-types'
 
 export type SiteTheme = 'dark' | 'light'

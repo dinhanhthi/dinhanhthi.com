@@ -1,4 +1,4 @@
-import FaGithub from '@notion-x/src/icons/FaGithub'
+import FaGithub from '@/src/components/icons/FaGithub'
 
 import me from './me'
 

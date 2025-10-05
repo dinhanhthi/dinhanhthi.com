@@ -1,5 +1,5 @@
-import { getBlocks, queryDatabase, retrievePage } from '@notion-x/src/lib/db'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
+import { getBlocks, queryDatabase, retrievePage } from '@/src/lib/notion/db'
+import { makeSlugText } from '@/src/lib/notion/helpers'
 import { Client } from '@notionhq/client'
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import chalk from 'chalk'
