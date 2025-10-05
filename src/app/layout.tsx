@@ -4,7 +4,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import '../fontello/css/fontello.css'
 
 import { openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
