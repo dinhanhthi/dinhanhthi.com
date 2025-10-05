@@ -1,12 +1,12 @@
-import ImageComponent from '@notion-x/src/components/ImageComponent'
-import PostList from '@notion-x/src/components/PostsList'
-import { Tag } from '@notion-x/src/interface'
+import ImageComponent from '@/src/components/notion/ImageComponent'
+import PostList from '@/src/components/notion/PostsList'
+import { Tag } from '@/src/lib/notion/interface'
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { defaultPostTypeOpts, numPostsToShow, postSimpleListClass } from '../../lib/config'
-import { getPosts } from '../../lib/fetcher'
-import { getFilterOf } from '../../lib/helpers'
+import { defaultPostTypeOpts, numPostsToShow, postSimpleListClass } from '@/src/lib/config'
+import { getPosts } from '@/src/lib/fetcher'
+import { getFilterOf } from '@/src/lib/helpers'
 
 type NoteTopicSectionProps = {
   tag: Tag

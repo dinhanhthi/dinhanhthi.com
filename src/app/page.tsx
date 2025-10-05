@@ -1,10 +1,10 @@
-import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
-import PostList from '@notion-x/src/components/PostsList'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
+import HeadingWithMore from '@/src/components/notion/HeadingWithMore'
+import PostList from '@/src/components/notion/PostsList'
+import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import ScrollToTop from '@/src/components/notion/ScrollToTop'
 import me from '../data/me'
 import { Book } from '../interface'
 import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
@@ -21,9 +21,9 @@ import {
   numPostsToShow,
   postBlogSimpleListClass,
   postSimpleListClass
-} from './lib/config'
-import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from './lib/fetcher'
-import { filterDupLangPosts, getMetadata } from './lib/helpers'
+} from '@/src/lib/config'
+import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
+import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 
 export const revalidate = 20
 

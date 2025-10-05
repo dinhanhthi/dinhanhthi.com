@@ -1,12 +1,12 @@
-import PostBody from '@notion-x/src/components/PostBody'
-import { Post } from '@notion-x/src/interface'
-import { BlockOptionsContextType } from '@notion-x/src/lib/context'
+import PostBody from '@/src/components/notion/PostBody'
+import { Post } from '@/src/lib/notion/interface'
+import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import cn from 'classnames'
 import { ExtendedRecordMap } from 'notion-types'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'
 import PostHeader from '../components/PostHeader'
-import { bodyPadding, containerNormal, discreteColsType, postFontClassName } from '../lib/config'
+import { bodyPadding, containerNormal, discreteColsType, postFontClassName } from '@/src/lib/config'
 
 type DiscretePostTemplateType = {
   recordMap: ExtendedRecordMap

@@ -1,8 +1,8 @@
 'use client'
 
-import { Tag } from '@notion-x/src/interface'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
-import { useHeadsObserver } from '@notion-x/src/lib/hooks'
+import { Tag } from '@/src/lib/notion/interface'
+import { makeSlugText } from '@/src/lib/notion/helpers'
+import { useHeadsObserver } from '@/src/lib/notion/hooks'
 import cn from 'classnames'
 import Link from 'next/link'
 

@@ -1,6 +1,6 @@
 import CafeIcon from '@/public/cafe.svg'
-import { containerWide } from '@/src/app/lib/config'
-import TbExternalLink from '@notion-x/src/icons/TbExternalLink'
+import { containerWide } from '@/src/lib/config'
+import TbExternalLink from '@/src/components/icons/TbExternalLink'
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'

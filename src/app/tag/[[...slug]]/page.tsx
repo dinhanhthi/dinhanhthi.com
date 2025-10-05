@@ -1,14 +1,14 @@
-import { getPosts, getTopics } from '@/src/app/lib/fetcher'
-import { filterDupLangPosts, generateMetaTitle, getMetadata, getUri } from '@/src/app/lib/helpers'
+import { getPosts, getTopics } from '@/src/lib/fetcher'
+import { filterDupLangPosts, generateMetaTitle, getMetadata, getUri } from '@/src/lib/helpers'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
-import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@notion-x/src/interface'
-import { getStartCursorForCurrentPage } from '@notion-x/src/lib/helpers'
+import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/notion/interface'
+import { getStartCursorForCurrentPage } from '@/src/lib/notion/helpers'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
-import { defaultBlurDataURL } from '../../lib/config'
+import { defaultBlurDataURL } from '@/src/lib/config'
 
 export const revalidate = 20
 

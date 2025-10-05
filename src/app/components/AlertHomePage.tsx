@@ -1,7 +1,7 @@
-import AiOutlineAlert from '@notion-x/src/icons/AiOutlineAlert'
+import AiOutlineAlert from '@/src/components/icons/AiOutlineAlert'
 import cn from 'classnames'
 
-import { containerWide } from '../lib/config'
+import { containerWide } from '@/src/lib/config'
 import Container from './Container'
 
 export default async function AlertHomePage() {

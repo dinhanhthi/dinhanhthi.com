@@ -1,9 +1,9 @@
-import SimpleImage from '@notion-x/src/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
-import { ImageType } from '@notion-x/src/interface'
+import SimpleImage from '@/src/components/notion/SimpleImage'
+import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import { ImageType } from '@/src/lib/notion/interface'
 import cn from 'classnames'
 
-import { quicksand } from '../lib/fonts'
+import { quicksand } from '@/src/lib/fonts'
 import Header from './Header'
 
 type HeaderPageProps = {

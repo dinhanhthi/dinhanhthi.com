@@ -1,10 +1,10 @@
-import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
-import PostList from '@notion-x/src/components/PostsList'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
-import BlogIcon from '@notion-x/src/icons/BlogIcon'
-import { Post, Tag } from '@notion-x/src/interface'
+import HeadingWithMore from '@/src/components/notion/HeadingWithMore'
+import PostList from '@/src/components/notion/PostsList'
+import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
+import BlogIcon from '@/src/components/icons/BlogIcon'
+import { Post, Tag } from '@/src/lib/notion/interface'
 import { Suspense } from 'react'
-import { defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '../../lib/config'
+import { defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '@/src/lib/config'
 import NoteTopicSection from './NoteTopicSection'
 
 type NotesPageListProps = {

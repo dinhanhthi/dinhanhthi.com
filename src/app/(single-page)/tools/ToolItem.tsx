@@ -1,12 +1,12 @@
 'use client'
 
-import SimpleImage from '@notion-x/src/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
-import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
+import SimpleImage from '@/src/components/notion/SimpleImage'
+import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
-import TooltipX from '@notion-x/src/components/tooltip-x'
+import TooltipX from '@/src/components/notion/tooltip-x'
 import { Book, Game, Tool } from '../../../interface'
 import { StarIcon } from '../../icons/StarIcon'
 

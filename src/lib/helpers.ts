@@ -1,6 +1,6 @@
 import { exPost, ImgurUrlType } from '@/src/interface'
-import { Post, PostHeaderType, Tag } from '@notion-x/src/interface'
-import { mapTag } from '@notion-x/src/lib/helpers'
+import { Post, PostHeaderType, Tag } from '@/src/lib/notion/interface'
+import { mapTag } from '@/src/lib/notion/helpers'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { Metadata } from 'next'
 import { Block, ExtendedRecordMap } from 'notion-types'
@@ -8,7 +8,7 @@ import { Block, ExtendedRecordMap } from 'notion-types'
 import * as fs from 'fs'
 import * as path from 'path'
 
-import me from '../../data/me'
+import me from '@/src/data/me'
 
 export function getUri(type: 'tag' | 'note', slug?: string): string | undefined {
   if (!slug) return undefined
