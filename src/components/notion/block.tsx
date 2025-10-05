@@ -10,9 +10,9 @@ import {
 } from 'notion-utils'
 import * as React from 'react'
 
-import BsCheckSquare from '@/src/components/icons/BsCheckSquare'
-import BsSquare from '@/src/components/icons/BsSquare'
-import CiLink from '@/src/components/icons/CiLink'
+import BsCheckSquare from '@/src/app/icons/BsCheckSquare'
+import BsSquare from '@/src/app/icons/BsSquare'
+import CiLink from '@/src/app/icons/CiLink'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { generateAnchor } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'

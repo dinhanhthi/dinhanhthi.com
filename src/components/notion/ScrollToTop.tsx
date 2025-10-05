@@ -2,7 +2,7 @@
 
 import cn from 'classnames'
 import React, { useEffect, useRef } from 'react'
-import { BackToTopIcon } from '@/src/components/icons/BackToTopIcon'
+import { BackToTopIcon } from '@/src/app/icons/BackToTopIcon'
 
 type ScrollToTopProps = {
   className?: string

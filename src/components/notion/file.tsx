@@ -1,7 +1,7 @@
 import { FileBlock } from 'notion-types'
 import * as React from 'react'
 
-import { FileIcon } from '@/src/components/icons/file-icon'
+import { FileIcon } from '@/src/app/icons/file-icon'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs } from '@/src/lib/notion/utils'
 import { Text } from './text'

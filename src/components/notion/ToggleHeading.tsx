@@ -4,7 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import cn from 'classnames'
 import React from 'react'
 
-import BsFillCaretRightFill from '@/src/components/icons/BsFillCaretRightFill'
+import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
 
 type BlockHeadingToggleProps = {
   className?: string

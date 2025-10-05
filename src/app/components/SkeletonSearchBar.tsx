@@ -1,4 +1,4 @@
-import FiSearch from '@/src/components/icons/FiSearch'
+import FiSearch from '@/src/app/icons/FiSearch'
 
 type SkeletonSearchBarProps = {
   placeholder?: string

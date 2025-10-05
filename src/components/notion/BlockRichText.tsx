@@ -6,7 +6,7 @@ import {
 import dynamic from 'next/dynamic'
 import React from 'react'
 
-import SigmaIcon from '@/src/components/icons/SigmaIcon'
+import SigmaIcon from '@/src/app/icons/SigmaIcon'
 import { TextIgnoreField } from '@/src/lib/types'
 import BlockText from './BlockText'
 

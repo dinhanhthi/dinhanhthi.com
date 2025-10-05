@@ -2,8 +2,8 @@ import cn from 'classnames'
 import Link from 'next/link'
 import React from 'react'
 
-import CgChevronLeft from '@/src/components/icons/CgChevronLeft'
-import CgChevronRight from '@/src/components/icons/CgChevronRight'
+import CgChevronLeft from '@/src/app/icons/CgChevronLeft'
+import CgChevronRight from '@/src/app/icons/CgChevronRight'
 
 type PaginationProps = {
   path: string

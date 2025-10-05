@@ -4,7 +4,7 @@ import mediumZoom from '@fisch0920/medium-zoom'
 import cn from 'classnames'
 import React, { useEffect, useState } from 'react'
 
-import PiImageSquareDuotone from '@/src/components/icons/PiImageSquareDuotone'
+import PiImageSquareDuotone from '@/src/app/icons/PiImageSquareDuotone'
 
 /* eslint-disable @next/next/no-img-element */
 

@@ -8,7 +8,7 @@ import { normalizeUrl } from 'notion-utils'
 import * as React from 'react'
 import { ImageState, LazyImageFull } from 'react-lazy-images'
 
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs } from '@/src/lib/notion/utils'
 import SimpleImage, { SimpleImageProps } from './SimpleImage'
