@@ -4,6 +4,7 @@ export { formatDate, formatNotionDateTime, isUrl } from 'notion-utils'
 export * from './map-image-url'
 export * from './map-page-url'
 
+// This util is used only for notion-x related codes. Use `cn` from `src/lib/helpers.ts` instead.
 export const cs = (...classes: Array<string | undefined | false>) =>
   classes.filter(a => !!a).join(' ')
 
