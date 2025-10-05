@@ -2,6 +2,7 @@
   "name": "dinhanhthi.com",
   "description": "My personal website for taking notes.",
   "version": "7.0.0",
+  "type": "module",
   "author": "Anh-Thi Dinh",
   "packageManager": "yarn@4.10.3",
   "license": "MIT",
