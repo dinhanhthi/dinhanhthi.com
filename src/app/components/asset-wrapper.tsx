@@ -16,7 +16,7 @@ export const AssetWrapper: React.FC<{
   customPreviewImage?: PreviewImage
   useSimpleImage?: boolean
   simpleImageProps?: SimpleImageProps
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
   className?: string
 }> = ({
   blockId,

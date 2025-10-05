@@ -10,7 +10,7 @@ type BlockVideoProps = {
   caption: React.ReactNode
   videoUrl: string
   className?: string
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
 }
 
 export default function BlockVideo(props: BlockVideoProps) {

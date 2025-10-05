@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
 
 @import 'katex/dist/katex.min.css';
 @import 'prismjs/themes/prism-tomorrow.css';
@@ -54,7 +53,7 @@
   }
 
   .m2it-link {
-    @apply hover:m2it-link-hover font-inherit text-[#015caa] no-underline;
+    @apply font-inherit text-[#015caa] no-underline hover:text-pink-600;
   }
 
   .m2it-headings {
@@ -100,29 +99,72 @@
 
   .m2it-prose {
     @apply prose max-w-none leading-normal;
-    @apply prose-a:m2it-link;
-    @apply prose-headings:m2it-headings;
-    @apply prose-img:m2it-prose-img;
-    @apply prose-blockquote:m2it-blockquote;
-    @apply prose-h1:text-[1.55rem];
-    @apply prose-h2:text-[1.45rem];
-    @apply prose-h3:text-[1.35rem];
-    @apply prose-li:m2it-li;
-    @apply prose-ol:m2it-ol;
-    @apply prose-ul:m2it-ul;
-    @apply prose-td:m2it-td;
-    @apply prose-hr:my-6;
-    @apply prose-code:m2it-code;
-    @apply prose-figure:my-3;
-    @apply prose-strong:m2it-strong;
-    @apply prose-table:m2it-table;
 
-    h1,
-    h2,
-    h3 {
+    a {
+      @apply font-inherit text-[#015caa] no-underline hover:text-pink-600;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      @apply my-0 font-semibold text-[#111];
       font-family: theme('fontFamily.quicksand') !important;
       font-weight: 600 !important;
       opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 1.55rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    img {
+      @apply my-0;
+    }
+
+    blockquote {
+      @apply my-3 border border-y-0 border-l-4 border-r-0 border-slate-500 py-3 font-inherit not-italic text-inherit;
+    }
+
+    code {
+      @apply break-words rounded-md bg-gray-100 p-[1px_4px_2px_4px] font-mono text-[90%] font-normal before:content-[''] after:content-[''];
+    }
+
+    li {
+      @apply my-1.5;
+    }
+
+    ol {
+      @apply my-0;
+    }
+
+    ul {
+      @apply my-0;
+    }
+
+    td {
+      @apply px-[10px] py-[5px];
+    }
+
+    hr {
+      @apply my-6;
+    }
+
+    figure {
+      margin: 0.75rem 0;
+    }
+
+    strong {
+      @apply font-medium text-[#111];
+    }
+
+    table {
+      @apply my-0;
     }
 
     // There is a strange problem where ul inside ol or ol inside ul:
@@ -252,8 +294,7 @@
   }
 
   .thi-link-normal {
-    @apply md:thi-text-color w-fit text-link
-    md:hover:text-pink-500;
+    @apply w-fit text-link md:text-main md:hover:text-pink-500;
   }
 
   .thi-link-normal-always-dark {
@@ -273,13 +314,13 @@
   }
 
   .thi-box-code {
-    @apply thi-transition-dark thi-bg thi-text-color rounded-lg shadow-lg;
+    @apply transition-colors duration-200 ease-in-out bg-white text-main rounded-lg shadow-lg;
   }
 
   .thi-badge-code {
-    @apply thi-transition-dark thi-text-color flex h-6 w-fit items-center
+    @apply transition-colors duration-200 ease-in-out text-main flex h-6 w-fit items-center
     justify-center rounded-md border bg-stone-100 px-1 align-baseline text-base
-    shadow-sm transition duration-200 ease-in-out hover:-translate-y-0.5;
+    shadow-sm hover:-translate-y-0.5;
   }
 
   .thi-title {

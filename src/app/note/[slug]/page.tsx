@@ -12,7 +12,8 @@ import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 export const revalidate = 20
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
-  const slug = params.slug || ''
+  const resolvedParams = await params
+  const slug = resolvedParams.slug || ''
   const untitled = 'Unknown note | Site of Thi'
   if (!slug) return { title: untitled }
   const allPosts = await getUnofficialPosts()
@@ -36,7 +37,8 @@ export async function generateStaticParams() {
 }
 
 export default async function SingleNotePage({ params }: DynamicSegmentParamsProps) {
-  const slug = params.slug || ''
+  const resolvedParams = await params
+  const slug = resolvedParams.slug || ''
   console.debug(`\n👉 slug:  ${slug}`)
   if (!slug) notFound()
 

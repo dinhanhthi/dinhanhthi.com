@@ -13,6 +13,6 @@ declare module "react-copy-to-clipboard" {
       children?: ReactNode
   }
 
-  class CopyToClipboard extends React.Component<Props, {}> {}
+  class CopyToClipboard extends React.Component<Props, object> {}
   export default CopyToClipboard;
 }

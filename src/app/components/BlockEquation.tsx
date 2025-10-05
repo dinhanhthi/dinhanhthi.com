@@ -16,7 +16,7 @@ export default function BlockEquation(props: {
   math?: string
   inline?: boolean
   className?: string
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
   blurBlockClassName?: string
 }) {
   const { block, math, inline = false, className } = props

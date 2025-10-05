@@ -23,7 +23,7 @@ import { TagTechIcon } from '../../icons/TagTechIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
 import ToolItem, { ToolItemInputType } from '../tools/ToolItem'
 
-const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => JSX.Element } = {
+const iconTagList: { [x: string]: (props: React.SVGProps<SVGSVGElement>) => React.ReactElement } = {
   favorite: StarIcon,
   math: TagMathIcon,
   economics: TagEconomicsIcon,
