@@ -155,3 +155,4 @@ yarn ud-fontello
 
 - **VSCode Yarn PnP setup**: Follow [official guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) for editor SDK support
 - **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy
+- **ALways run `yarn build`** to make sure the modifications are good to go.

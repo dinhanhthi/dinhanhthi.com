@@ -5,12 +5,12 @@ import React from 'react'
 
 import { Carousel, CarouselItem } from '@/src/components/notion/Carousel'
 import { PostListStyle, PostType, postListGridCLass } from '@/src/components/notion/PostsList'
-import { PostBlogSimpleSkeleton } from '@/src/components/notion/post-types/PostBlogSimple'
-import { PostCardWaveSkeleton } from '@/src/components/notion/post-types/PostCardWave'
-import { PostCardWhiteBgBigSkeleton } from '@/src/components/notion/post-types/PostCardWhiteBgBig'
-import { PostImageBackgroundSkeleton } from '@/src/components/notion/post-types/PostImageBackground'
-import { PostSimpleSkeleton } from '@/src/components/notion/post-types/PostSimple'
-import { PostTitleCateDateSkeleton } from '@/src/components/notion/post-types/PostTitleCateDate'
+import { PostBlogSimpleSkeleton } from '@/src/app/components/post-types/PostBlogSimple'
+import { PostCardWaveSkeleton } from '@/src/app/components/post-types/PostCardWave'
+import { PostCardWhiteBgBigSkeleton } from '@/src/app/components/post-types/PostCardWhiteBgBig'
+import { PostImageBackgroundSkeleton } from '@/src/app/components/post-types/PostImageBackground'
+import { PostSimpleSkeleton } from '@/src/app/components/post-types/PostSimple'
+import { PostTitleCateDateSkeleton } from '@/src/app/components/post-types/PostTitleCateDate'
 
 type SkeletonPostListProps = {
   count: number
