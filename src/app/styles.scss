@@ -1,8 +1,88 @@
 @use 'tailwindcss';
-@config '../../tailwind.config.ts';
+@plugin "@tailwindcss/typography";
 
 @import 'katex/dist/katex.min.css';
 @import 'prismjs/themes/prism-tomorrow.css';
+
+@theme {
+  /* Typography */
+  --font-heading: Recoleta, Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-quicksand: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Colors */
+  --color-main: #1e293b;
+  --color-main-dark: #f8fafc;
+  --color-main-dark-bg: #282a36;
+  --color-nav-dark-bg: #323541;
+  --color-code-dark-bg: #343e4c;
+  --color-dark-border: #3b3e54;
+  --color-link: #2563eb;
+  --color-link-dark: #ffd479;
+
+  /* Background Images */
+  --background-image-repeating-dots: -webkit-repeating-radial-gradient(center center,#777,#777 1px,transparent 0,transparent 100%);
+  --background-image-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23ffffff;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23323541;'%3E%3C/path%3E%3C/svg%3E");
+  --background-image-wave-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23f6f6f6;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23323541;'%3E%3C/path%3E%3C/svg%3E");
+  --background-image-wave-footer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23323541;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23ffffff;'%3E%3C/path%3E%3C/svg%3E");
+  --background-image-wave-footer-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23323541;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23f6f6f6;'%3E%3C/path%3E%3C/svg%3E");
+
+  /* Animations */
+  --animate-fadeIn: fadeIn 500ms;
+  --animate-wave: wave 2s linear infinite;
+  --animate-toTop: toTop 0.3s alternate ease infinite;
+
+  /* Keyframes */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes toTop {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(0, -3px); }
+  }
+
+  /* Spacing */
+  --spacing-28: 7rem;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.04em;
+
+  /* Line Height */
+  --line-height-tight: 1.2;
+
+  /* Font Sizes */
+  --font-size-5xl: 2.5rem;
+  --font-size-6xl: 2.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6.25rem;
+
+  /* Box Shadow */
+  --box-shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --box-shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Typography Plugin Colors */
+  --color-prose-body: #4d4d4d;
+}
 
 @font-face {
   font-family: 'Recoleta';
@@ -55,7 +135,8 @@
   }
 
   .m2it-link {
-    @apply font-inherit text-[#015caa] no-underline hover:text-pink-600;
+    font-family: inherit;
+    @apply text-[#015caa] no-underline hover:text-pink-600;
   }
 
   .m2it-headings {
@@ -71,7 +152,8 @@
   }
 
   .m2it-blockquote {
-    @apply font-inherit my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
+    font-family: inherit;
+    @apply my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
   }
 
   .m2it-code {
@@ -102,7 +184,8 @@
     @apply prose max-w-none leading-normal;
 
     a {
-      @apply font-inherit text-[#015caa] no-underline hover:text-pink-600;
+      font-family: inherit;
+      @apply text-[#015caa] no-underline hover:text-pink-600;
     }
 
     h1,
@@ -112,7 +195,7 @@
     h5,
     h6 {
       @apply my-0 font-semibold text-[#111];
-      font-family: theme('fontFamily.quicksand') !important;
+      font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
       font-weight: 600 !important;
       opacity: 0.9;
     }
@@ -134,7 +217,8 @@
     }
 
     blockquote {
-      @apply font-inherit my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
+      font-family: inherit;
+      @apply my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
     }
 
     code {
