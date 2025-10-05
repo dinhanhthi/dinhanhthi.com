@@ -5,10 +5,9 @@
  */
 import cn from 'classnames'
 import { ImageProps, StaticImageData } from 'next/image'
-import React from 'react'
 
-import { ImageType } from '@/src/lib/types'
 import { defaultBlurData } from '@/src/lib/helpers'
+import { ImageType } from '@/src/lib/types'
 import ImageComponent from './ImageComponent'
 
 type PostFeaturedImageProps = {

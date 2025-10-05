@@ -13,12 +13,12 @@ type CVSectionProps = {
 export default function CVSection({ cv, className }: CVSectionProps) {
   return (
     <div className={cn('flex flex-wrap items-center', className)}>
-      <div className={'hidden w-1/4 flex-col items-center py-4 px-2 md:flex'}>
+      <div className={'hidden w-1/4 flex-col items-center px-2 py-4 md:flex'}>
         {logo(cv)}
-        <h4 className="text-slate-900 mt-2 text-center text-base font-semibold">
+        <h4 className="mt-2 text-center text-base font-semibold text-slate-900">
           {cv.url && (
             <a
-              className="text-slate-900 thi-link-normal"
+              className="thi-link-normal text-slate-900"
               href={cv.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -50,7 +50,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
           {cv.activity.map((activity: string, index: number) => (
             <div
               key={index}
-              className="opacity-95 text-[0.9rem]"
+              className="text-[0.9rem] opacity-95"
               dangerouslySetInnerHTML={{ __html: activity }}
             ></div>
           ))}

@@ -2,7 +2,7 @@
 
 import cn from 'classnames'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import HiSwitchHorizontal from '@/src/app/icons/HiSwitchHorizontal'
 
@@ -28,7 +28,7 @@ export default function LocalRouteChange(props: LocalRouteChangeProps) {
         <button
           className={cn(
             'flex items-center justify-center',
-            'fixed bottom-4 left-4 h-10 w-10 p-2 bg-gray-200 hover:bg-gray-300 rounded-full'
+            'fixed bottom-4 left-4 h-10 w-10 rounded-full bg-gray-200 p-2 hover:bg-gray-300'
           )}
           onClick={() => {
             const newHostname =

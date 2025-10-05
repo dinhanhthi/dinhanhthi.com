@@ -1,7 +1,6 @@
 'use client'
 
 import cn from 'classnames'
-import React from 'react'
 
 import { ImageType } from '@/src/lib/types'
 import ImageComponent from './ImageComponent'
@@ -19,10 +18,7 @@ export default function BadgeSocial(props: BadgeSocialProps) {
   return (
     <>
       <a
-        className={`
-        group block h-12 w-12 rounded-2xl bg-gray-700 p-2
-        shadow-none md:h-10 md:w-10 md:p-1.5
-      `}
+        className={`group block h-12 w-12 rounded-2xl bg-gray-700 p-2 shadow-none md:h-10 md:w-10 md:p-1.5`}
         href={props.url}
         target="_blank"
         rel="noopener noreferrer"
@@ -32,7 +28,7 @@ export default function BadgeSocial(props: BadgeSocialProps) {
           image={props.icon}
           alt={props.title}
           className={cn(
-            'w-16 h-16 rounded-full transition-transform duration-200 group-hover:-translate-y-0.5',
+            'h-16 w-16 rounded-full transition-transform duration-200 group-hover:-translate-y-0.5',
             props.imgClass
           )}
           imageProps={{ width: 64, height: 64 }}

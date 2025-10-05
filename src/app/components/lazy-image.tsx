@@ -46,8 +46,8 @@ export const LazyImage: React.FC<{
   const previewImage = customPreviewImage
     ? customPreviewImage
     : previewImages
-    ? recordMap?.preview_images?.[src as any] ?? recordMap?.preview_images?.[normalizeUrl(src)]
-    : null
+      ? (recordMap?.preview_images?.[src as any] ?? recordMap?.preview_images?.[normalizeUrl(src)])
+      : null
 
   const onLoad = React.useCallback(
     (e: any) => {
@@ -222,10 +222,10 @@ const ImagePlaceholder = (props: {
   const heightToUse = isNumber(height)
     ? height
     : props.style?.height
-    ? props.style?.height
-    : widthToUse && isNumber(widthToUse)
-    ? (widthToUse * 2) / 3
-    : '200px'
+      ? props.style?.height
+      : widthToUse && isNumber(widthToUse)
+        ? (widthToUse * 2) / 3
+        : '200px'
   return (
     <div
       style={{
@@ -233,12 +233,12 @@ const ImagePlaceholder = (props: {
         height: heightToUse
       }}
       className={cn(
-        'bg-gray-100 flex items-center justify-center animate-pulse rounded-lg mx-auto',
-        'flex items-center flex-col gap-1',
+        'mx-auto flex animate-pulse items-center justify-center rounded-lg bg-gray-100',
+        'flex flex-col items-center gap-1',
         props.className
       )}
     >
-      <AiOutlineLoading3Quarters className="text-[30px] text-slate-400 animate-spin" />
+      <AiOutlineLoading3Quarters className="animate-spin text-[30px] text-slate-400" />
     </div>
   )
 }

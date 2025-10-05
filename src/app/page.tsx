@@ -5,14 +5,6 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
-import me from '../data/me'
-import { Book } from '@/src/lib/types'
-import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
-import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
-import Container from './components/Container'
-import Footer from './components/Footer'
-import HeaderIndex from './components/HeaderIndex'
-import Topic from './components/Topic'
 import {
   bodyPadding,
   containerWide,
@@ -24,6 +16,14 @@ import {
 } from '@/src/lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { Book } from '@/src/lib/types'
+import me from '../data/me'
+import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
+import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
+import Container from './components/Container'
+import Footer from './components/Footer'
+import HeaderIndex from './components/HeaderIndex'
+import Topic from './components/Topic'
 
 export const revalidate = 20
 
@@ -226,14 +226,14 @@ export default async function Home() {
               title="My reading list"
               href={tools.length >= numTools ? '/reading/' : undefined}
             />
-            <div className="w-full flex flex-col gap-3">
+            <div className="flex w-full flex-col gap-3">
               {/* <div className="italic text-[0.95rem] text-slate-700">
                 Read more:{' '}
                 <Link className="m2it-link" href="/note/my-taste-of-reading/">
                   My taste of reading.
                 </Link>
               </div> */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {books.slice(0, numBooks).map((book: Book) => (
                   <Suspense key={book.id} fallback={<SkeletonToolItem />}>
                     <ToolItem

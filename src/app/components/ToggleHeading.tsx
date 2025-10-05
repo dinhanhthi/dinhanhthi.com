@@ -22,9 +22,9 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
         <div className="relative">
           <div className={cn('flex w-full items-start gap-1', props.className)}>
             {props.updatedBlock}
-            <DisclosureButton className="rounded-md p-1 hover:bg-slate-200 z-20">
+            <DisclosureButton className="z-20 rounded-md p-1 hover:bg-slate-200">
               <BsFillCaretRightFill
-                className={cn('text-lg transform ease-in-out transition-all duration-300', {
+                className={cn('transform text-lg transition-all duration-300 ease-in-out', {
                   'rotate-90': open,
                   'rotate-0': !open
                 })}
@@ -34,11 +34,11 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
             {props.anchorRight}
           </div>
           <DisclosurePanel>
-            <div className="pl-8 toggle-heading-content-container">{props.children}</div>
+            <div className="toggle-heading-content-container pl-8">{props.children}</div>
           </DisclosurePanel>
           <div
             className={cn(
-              'absolute h-[calc(100%-8px)] top-0 left-0 w-0 border-sky-100 border-l-2 mt-[14px] z-10',
+              'absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2 border-sky-100',
               {
                 hidden: !open,
                 'ml-[12.5px]':

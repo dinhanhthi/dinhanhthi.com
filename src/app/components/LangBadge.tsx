@@ -1,6 +1,5 @@
-import cn from 'classnames'
-import React from 'react'
 import { Language, Post } from '@/src/lib/types'
+import cn from 'classnames'
 import TooltipX from './tooltip-x'
 
 type LangBadgeComponentProps = {
@@ -77,8 +76,8 @@ export function LangBadge(props: LangBadgeProps) {
     <>
       <span
         id={`lang-${props.id}-${props.language}-${props.available ? 'available' : ''}`}
-        className={cn('text-xs rounded-md px-1.5 ml-1.5', {
-          'text-slate-600 border-slate-300 border': props.available,
+        className={cn('ml-1.5 rounded-md px-1.5 text-xs', {
+          'border border-slate-300 text-slate-600': props.available,
           'bg-slate-500 text-white': !props.available
         })}
       >

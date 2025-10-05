@@ -1,6 +1,5 @@
-import cn from 'classnames'
-import React from 'react'
 import { Post } from '@/src/lib/types'
+import cn from 'classnames'
 import TooltipX from './tooltip-x'
 
 type DraftBadgeComponentProps = {
@@ -18,7 +17,7 @@ export default function DraftBadgeComponent(props: DraftBadgeComponentProps) {
           <span
             id={`draft-${post.id}`}
             className={cn(
-              'bg-slate-100 text-slate-500 px-2 py-0 text-xs border border-slate-200 rounded-md ml-1.5'
+              'ml-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-0 text-xs text-slate-500'
             )}
           >
             {draftLabel || 'draft'}

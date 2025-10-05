@@ -1,6 +1,6 @@
 import CafeIcon from '@/public/cafe.svg'
-import { containerWide } from '@/src/lib/config'
 import TbExternalLink from '@/src/app/icons/TbExternalLink'
+import { containerWide } from '@/src/lib/config'
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'

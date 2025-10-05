@@ -1,8 +1,8 @@
 'use client'
 
-import { Tag } from '@/src/lib/types'
-import { makeSlugText } from '@/src/lib/helpers'
 import { useHeadsObserver } from '@/src/hooks/useHeadsObserver'
+import { makeSlugText } from '@/src/lib/helpers'
+import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
 
@@ -23,13 +23,13 @@ export default function NotesToc(props: NotesTocProps) {
 
   return (
     <div className={props.className}>
-      <div className="p-4 flex h-full flex-col divide-y thi-box-code md:bg-transparent md:border-none md:shadow-none">
-        <div className="pb-1.5 px-2 font-heading text-base font-semibold text-slate-800">
+      <div className="thi-box-code flex h-full flex-col divide-y p-4 md:border-none md:bg-transparent md:shadow-none">
+        <div className="font-heading px-2 pb-1.5 text-base font-semibold text-slate-800">
           Notes by topics
         </div>
         <div
           className={cn(
-            'grid grid-cols-2 md:grid-cols-1 pt-2 overflow-auto m2it-scrollbar m2it-scrollbar-small text-[0.8rem]'
+            'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-[0.8rem] md:grid-cols-1'
           )}
         >
           {/* <a
@@ -69,10 +69,10 @@ export default function NotesToc(props: NotesTocProps) {
             return (
               <a
                 className={cn(
-                  'hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2',
+                  'hover:m2it-link group flex items-center gap-2 rounded-lg px-2 py-1',
                   {
                     'text-slate-600': activeId !== anchor,
-                    'text-slate-900 bg-slate-200': activeId === anchor
+                    'bg-slate-200 text-slate-900': activeId === anchor
                   }
                 )}
                 key={anchor}
@@ -82,7 +82,7 @@ export default function NotesToc(props: NotesTocProps) {
               </a>
             )
           })}
-          <Link className="italic text-[0.9rem] pt-2 text-slate-700 hover:m2it-link" href="/tags/">
+          <Link className="hover:m2it-link pt-2 text-[0.9rem] text-slate-700 italic" href="/tags/">
             👉 See all topics...
           </Link>
         </div>

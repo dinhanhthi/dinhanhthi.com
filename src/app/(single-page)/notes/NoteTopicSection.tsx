@@ -22,7 +22,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
   if (notes.length === 0) return null
   return (
     <div className="group flex flex-col gap-3">
-      <div className="flex gap-2 items-center">
+      <div className="flex items-center gap-2">
         <div>
           <ImageComponent
             image={tag.icon}
@@ -32,7 +32,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
         </div>
         <h2
           id={tag.id}
-          className="font-heading text-2xl font-semibold text-slate-700 scroll-mt-[70px]"
+          className="font-heading scroll-mt-[70px] text-2xl font-semibold text-slate-700"
         >
           <span>
             {tag.longName || tag.name} {tag.longName && <>({tag.name})</>}
@@ -40,7 +40,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           {notes.length >= numPostsToShow && (
             <Link
               className={cn(
-                'text-[70%] ml-2 italic text-slate-600 font-normal hover:m2it-link-hover'
+                'hover:m2it-link-hover ml-2 text-[70%] font-normal text-slate-600 italic'
               )}
               href={tag.uri!}
             >

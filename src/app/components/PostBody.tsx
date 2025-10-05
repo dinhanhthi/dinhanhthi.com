@@ -11,8 +11,8 @@ import { CodeIcon } from '@/src/app/icons/CodeIcon'
 import SigmaIcon from '@/src/app/icons/SigmaIcon'
 import { ToggleOffIcon } from '@/src/app/icons/ToggleOffIcon'
 import { ToggleOnIcon } from '@/src/app/icons/ToggleOnIcon'
-import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import { NotionRenderer } from '@/src/lib/notion/renderer'
 import ScrollToTop from './ScrollToTop'
 import { SimpleImageProps } from './SimpleImage'
@@ -42,15 +42,15 @@ type PostBodyProps = {
 
 const Equation = dynamic(() => import('./BlockEquation'), {
   loading: () => (
-    <div className="w-1/2 mx-auto my-4 h-14 bg-slate-200 animate-pulse rounded-md flex items-center justify-center">
-      <SigmaIcon className="w-7 h-7 text-slate-500" />
+    <div className="mx-auto my-4 flex h-14 w-1/2 animate-pulse items-center justify-center rounded-md bg-slate-200">
+      <SigmaIcon className="h-7 w-7 text-slate-500" />
     </div>
   )
 })
 const Code = dynamic(() => import('./BlockCode'), {
   loading: () => (
-    <div className="w-full h-14 my-4 bg-slate-200 animate-pulse rounded-md flex items-center justify-center">
-      <CodeIcon className="w-7 h-7 text-slate-500" />
+    <div className="my-4 flex h-14 w-full animate-pulse items-center justify-center rounded-md bg-slate-200">
+      <CodeIcon className="h-7 w-7 text-slate-500" />
     </div>
   )
 })
@@ -120,7 +120,7 @@ export default function PostBody(props: PostBodyProps) {
         <button
           onClick={() => setShowOnlyUpdatedBlocks(!showOnlyUpdatedBlocks)}
           className={cn(
-            'fixed hidden md:block bg-slate-200 hover:bg-slate-300 w-12 h-12 rounded-full z-50 hover:cursor-pointer',
+            'fixed z-50 hidden h-12 w-12 rounded-full bg-slate-200 hover:cursor-pointer hover:bg-slate-300 md:block',
             props.showUpdateButtonPositionClass
               ? props.showUpdateButtonPositionClass
               : 'right-10 bottom-24'
@@ -129,14 +129,14 @@ export default function PostBody(props: PostBodyProps) {
           <div
             id="updated-blocks-toggle"
             className={cn(
-              'h-full w-full flex items-center justify-center',
+              'flex h-full w-full items-center justify-center',
               props.showUpdateButtonClassName
                 ? props.showUpdateButtonClassName
-                : 'before:!right-[55px] before:!top-[15px] before:!left-auto'
+                : 'before:!top-[15px] before:!right-[55px] before:!left-auto'
             )}
           >
-            {!showOnlyUpdatedBlocks && <ToggleOffIcon className="w-7 h-7 text-green-700" />}
-            {showOnlyUpdatedBlocks && <ToggleOnIcon className="w-7 h-7 text-green-700" />}
+            {!showOnlyUpdatedBlocks && <ToggleOffIcon className="h-7 w-7 text-green-700" />}
+            {showOnlyUpdatedBlocks && <ToggleOnIcon className="h-7 w-7 text-green-700" />}
           </div>
           <TooltipX id={'#updated-blocks-toggle'}>
             {!showOnlyUpdatedBlocks ? 'Highlight only updated blocks' : 'Back to default display'}

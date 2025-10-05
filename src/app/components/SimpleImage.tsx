@@ -87,7 +87,7 @@ export default function SimpleImage(props: SimpleImageProps) {
                 height: props.height || props.style?.height || 'auto'
               }}
               className={cn(
-                'bg-gray-100 flex items-center justify-center animate-pulse',
+                'flex animate-pulse items-center justify-center bg-gray-100',
                 props.className
               )}
             >

@@ -14,7 +14,7 @@ export default function TooltipX(props: TooltipXProps) {
     <Tooltip
       anchorSelect={props.id}
       place="bottom"
-      className={cn('!text-xs !px-2 !py-0.5 !rounded-md !z-[9999]', props.className)}
+      className={cn('!z-[9999] !rounded-md !px-2 !py-0.5 !text-xs', props.className)}
       noArrow={true}
       defaultIsOpen={props.defaultIsOpen}
     >

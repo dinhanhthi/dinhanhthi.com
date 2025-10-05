@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import { StaticImageData } from 'next/image'
-import React from 'react'
 
 import { ImageType } from '@/src/lib/types'
 import ImageComponent from './ImageComponent'
@@ -28,11 +27,11 @@ export default function PostHeaderCover(props: PostHeaderCoverProps) {
           defaultImage={props.defaultCover}
           image={props.cover}
           alt={props.alt}
-          className={cn('object-cover group-hover:scale-105 duration-500', {
+          className={cn('object-cover duration-500 group-hover:scale-105', {
             'blur-sm': !!props.bookCover,
             // Fix: blur image problem on the edge of the image
             'w-full': !props.bookCover,
-            '!w-[calc(100%+10px)] !max-w-[calc(100%+10px)] !h-[calc(100%+10px)] !left-[-5px] !top-[-5px]':
+            '!top-[-5px] !left-[-5px] !h-[calc(100%+10px)] !w-[calc(100%+10px)] !max-w-[calc(100%+10px)]':
               !!props.bookCover
           })}
           imageProps={{
@@ -41,12 +40,12 @@ export default function PostHeaderCover(props: PostHeaderCoverProps) {
         />
         {props.bookCover && (
           <div
-            className={cn('absolute left-0 top-0 flex h-full w-full items-center justify-center')}
+            className={cn('absolute top-0 left-0 flex h-full w-full items-center justify-center')}
           >
             <ImageComponent
               image={props.bookCover}
               alt={props.altBookCover || `Book cover of ${props.alt}`}
-              className={cn('rounded-md shadow-xl h-4/5 w-auto')}
+              className={cn('h-4/5 w-auto rounded-md shadow-xl')}
               imageProps={{
                 width: props.bookCover.width,
                 height: props.bookCover.height

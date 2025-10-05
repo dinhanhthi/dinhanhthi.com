@@ -7,8 +7,8 @@ import { TableOfContentsEntry } from 'notion-utils'
 import React, { useState } from 'react'
 
 import IoIosArrowDown from '@/src/app/icons/IoIosArrowDown'
-import { generateAnchor } from '@/src/lib/helpers'
 import { useHeadsObserver } from '@/src/hooks/useHeadsObserver'
+import { generateAnchor } from '@/src/lib/helpers'
 import { Text } from './text'
 
 type PostTocProps = {
@@ -47,12 +47,12 @@ export default function PostToc(props: PostTocProps) {
   return (
     <nav
       className={cn(
-        'h-fit w-full flex gap-2 flex-col px-2 py-3 bg-slate-50 rounded-xl m2it-box-shadow',
+        'm2it-box-shadow flex h-fit w-full flex-col gap-2 rounded-xl bg-slate-50 px-2 py-3',
         {
           '2xl:hidden': props.inPost, // hide on large screens
           'max-h-full p-3': !props.inPost,
           'border-[0.5px]': !props.inPost,
-          'max-h-[350px] mb-10': props.inPost,
+          'mb-10 max-h-[350px]': props.inPost,
           border: props.inPost
         },
         props.postTocClassName
@@ -60,13 +60,13 @@ export default function PostToc(props: PostTocProps) {
       aria-label="Table of contents"
     >
       <button
-        className={cn('text-slate-700 flex items-center justify-between font-semibold pb-0 px-2')}
+        className={cn('flex items-center justify-between px-2 pb-0 font-semibold text-slate-700')}
         onClick={() => setShowContent(!showContent)}
       >
         <div className={cn('text-[0.95em]')}>{props.labelTocTitle || 'In this post'}</div>
         <div>
           <IoIosArrowDown
-            className={cn('text-xl ease-in-out transition-all duration-300', {
+            className={cn('text-xl transition-all duration-300 ease-in-out', {
               'rotate-0': showContent,
               'rotate-[-90deg]': !showContent
             })}
@@ -76,7 +76,7 @@ export default function PostToc(props: PostTocProps) {
       {showContent && (
         <div
           className={cn(
-            'not-prose pt-3 pl-1 overflow-auto m2it-scrollbar m2it-scrollbar-small border-t',
+            'not-prose m2it-scrollbar m2it-scrollbar-small overflow-auto border-t pt-3 pl-1',
             {
               'columns-1 md:columns-2': props.inPost
             }
@@ -94,12 +94,13 @@ export default function PostToc(props: PostTocProps) {
                 key={toc.id}
                 href={`#${anchor}`}
                 className={cn(
-                  'flex items-baseline gap-2 hover:m2it-link text-[0.88em] py-1 px-2 break-inside-avoid',
+                  'hover:m2it-link flex break-inside-avoid items-baseline gap-2 px-2 py-1 text-[0.88em]',
                   {
-                    'border-l pl-2 ml-2': isH3,
+                    'ml-2 border-l pl-2': isH3,
                     '-ml-1': isH2,
-                    'bg-slate-200 text-black hover:m2it-link-hover': activeId === anchor && !props.inPost,
-                    'text-slate-700 hover:m2it-link-hover': activeId !== anchor || props.inPost
+                    'hover:m2it-link-hover bg-slate-200 text-black':
+                      activeId === anchor && !props.inPost,
+                    'hover:m2it-link-hover text-slate-700': activeId !== anchor || props.inPost
                   }
                 )}
               >

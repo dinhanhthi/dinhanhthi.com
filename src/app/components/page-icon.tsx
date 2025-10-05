@@ -43,8 +43,8 @@ export const PageIconImpl: React.FC<{
     return (
       <div
         className={cn(
-          'bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center rounded-full mx-auto',
-          'flex items-center justify-center h-full w-full animate-pulse'
+          'mx-auto flex items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-indigo-500',
+          'flex h-full w-full animate-pulse items-center justify-center'
         )}
       >
         <AiOutlineLoading3Quarters className={cn('animate-spin text-[20px] text-white')} />

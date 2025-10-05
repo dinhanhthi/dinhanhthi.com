@@ -4,14 +4,13 @@ import {
   TextRichTextItemResponse
 } from '@notionhq/client/build/src/api-endpoints'
 import dynamic from 'next/dynamic'
-import React from 'react'
 
 import SigmaIcon from '@/src/app/icons/SigmaIcon'
 import { TextIgnoreField } from '@/src/lib/types'
 import BlockText from './BlockText'
 
 const DynamicInlineEquation = dynamic(() => import('./BlockInlineEquation'), {
-  loading: () => <SigmaIcon className="w-4 h-4 text-slate-500 animate-pulse" />
+  loading: () => <SigmaIcon className="h-4 w-4 animate-pulse text-slate-500" />
 })
 
 type BlockRichTextProps = {

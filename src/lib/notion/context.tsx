@@ -1,6 +1,5 @@
 'use client'
 
-/* eslint-disable jsx-a11y/anchor-has-content */
 // import dynamic from 'next/dynamic'
 import { ExtendedRecordMap, PreviewImage } from 'notion-types'
 import * as React from 'react'
@@ -8,9 +7,9 @@ import * as React from 'react'
 import { DiscreteColsType } from '@/src/app/components/PostBody'
 import { SimpleImageProps } from '@/src/app/components/SimpleImage'
 import { AssetWrapper } from '@/src/app/components/asset-wrapper'
-import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
 import { wrapNextImage, wrapNextLink } from '@/src/lib/notion/next'
 import { defaultMapImageUrl, defaultMapPageUrl } from '@/src/lib/notion/utils'
+import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from '@/src/lib/types'
 
 export type BlockOptionsContextType = {
   headingScrollMarginTopClass?: string // anchor scroll margin top class, depend on the height of nav
@@ -104,7 +103,13 @@ const DefaultPageLinkMemo = React.memo(DefaultPageLink)
 
 const DefaultEmbed = (props: any) => <AssetWrapper {...props} />
 
-export const dummyLink = ({ href, rel, target, title, ...rest }: any) => <span {...rest} />
+export const dummyLink = ({
+  href: _href,
+  rel: _rel,
+  target: _target,
+  title: _title,
+  ...rest
+}: any) => <span {...rest} />
 
 const dummyComponent = (name: string) => () => {
   console.warn(

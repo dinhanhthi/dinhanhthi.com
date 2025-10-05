@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 export const FileIcon = (props: any) => {
   const { className, ...rest } = props
   return (

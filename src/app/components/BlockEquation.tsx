@@ -21,7 +21,7 @@ export default function BlockEquation(props: {
 }) {
   const { block, math, inline = false, className } = props
   const { recordMap } = useNotionContext()
-  const math2Use = math ?? (!!block ? getBlockTitle(block, recordMap) : null)
+  const math2Use = math ?? (block ? getBlockTitle(block, recordMap) : null)
   if (!math2Use) return null
 
   return (
@@ -31,7 +31,7 @@ export default function BlockEquation(props: {
         'notion-equation',
         inline
           ? 'notion-equation-inline'
-          : 'block text-center overflow-x-auto overflow-y-hidden m2it-scrollbar m2it-scrollbar-small relative',
+          : 'm2it-scrollbar m2it-scrollbar-small relative block overflow-x-auto overflow-y-hidden text-center',
         className,
         props.blurBlockClassName
       )}

@@ -1,12 +1,12 @@
-import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
-import { DynamicSegmentParamsProps } from '@/src/lib/types'
+import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
 import { getJoinedRichText } from '@/src/lib/helpers'
+import { DynamicSegmentParamsProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { getPage } from '@/src/lib/notion/notionx'
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
+import { getPage } from '@/src/lib/notion/notionx'
 import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
 export const revalidate = 20

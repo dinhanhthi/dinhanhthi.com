@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ImPencil2(props: { className?: string }) {
   return (
     <svg

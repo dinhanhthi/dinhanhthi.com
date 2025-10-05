@@ -3,11 +3,10 @@
 import ImageComponent from '@/src/app/components/ImageComponent'
 import SimpleImage from '@/src/app/components/SimpleImage'
 import TooltipX from '@/src/app/components/tooltip-x'
-import { makeSlugText } from '@/src/lib/helpers'
+import { getUri, makeSlugText } from '@/src/lib/helpers'
+import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
-import { Tag } from '@/src/lib/types'
-import { getUri } from '@/src/lib/helpers'
 
 type TopicProps = {
   type?: 'simple' | 'detailed'
@@ -48,7 +47,7 @@ export default function Topic(props: TopicProps) {
           href={getUri('tag', makeSlugText(tag.name))!}
           key={makeSlugText(tag.name)}
           className={cn(
-            'flex items-center gap-1 p-2 thi-box-code',
+            'thi-box-code flex items-center gap-1 p-2',
             'transition duration-200 ease-in-out hover:-translate-y-0.5'
           )}
         >

@@ -13,9 +13,9 @@ import * as React from 'react'
 import BsCheckSquare from '@/src/app/icons/BsCheckSquare'
 import BsSquare from '@/src/app/icons/BsSquare'
 import CiLink from '@/src/app/icons/CiLink'
-import { useNotionContext } from '@/src/lib/notion/context'
-import { generateAnchor } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { generateAnchor } from '@/src/lib/helpers'
+import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, getListNumber, isUrl } from '@/src/lib/notion/utils'
 import BlockCallout from './BlockCallout'
 import BlockToggle from './BlockToggle'
@@ -158,12 +158,12 @@ export const Block: React.FC<BlockProps> = props => {
                 id={`updated-block-${block.id}`}
                 onClick={() => props.setShowOnlyUpdatedBlocks(!props.showOnlyUpdatedBlocks)}
                 className={cn(
-                  'hidden md:block !absolute -left-4 top-0 shrink-0 min-h-full h-full w-2 !my-0 group button-indicator updated-block'
+                  'group button-indicator updated-block !absolute top-0 -left-4 !my-0 hidden h-full min-h-full w-2 shrink-0 md:block'
                 )}
               >
                 <div
                   className={cn(
-                    'group-hover:w-full w-[0.25px] h-full transition-all duration-100 bg-green-400'
+                    'h-full w-[0.25px] bg-green-400 transition-all duration-100 group-hover:w-full'
                   )}
                 ></div>
               </button>
@@ -256,7 +256,7 @@ export const Block: React.FC<BlockProps> = props => {
                         <article
                           className={cn(fontClass, 'notion-page-content-inner', {
                             'discrete-container': discreteStyle,
-                            'columns-1 lg:columns-2 2xl:columns-[450px] max-w-[1700px] gap-8 [&>*:not(:first-child)]:mt-8 page-discrete mx-auto':
+                            'page-discrete mx-auto max-w-[1700px] columns-1 gap-8 lg:columns-2 2xl:columns-[450px] [&>*:not(:first-child)]:mt-8':
                               discreteStyle && discreteColsType === 'multiple',
                             'flex flex-col gap-8': discreteStyle && discreteColsType === 'single'
                           })}
@@ -394,7 +394,7 @@ export const Block: React.FC<BlockProps> = props => {
       let headerBlock = <></>
 
       const headingCommonClasss = cn(
-        '!my-0 flex items-center gap-2 group',
+        'group !my-0 flex items-center gap-2',
         blockOptions?.headingScrollMarginTopClass ?? 'scroll-mt-[70px]'
       )
 
@@ -422,7 +422,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <BlockHeadingToggle
             className={cn('heading-container relative', blurBlockClassName, {
-              'border-l-[2px] rounded-l-sm py-1 border-sky-300 from-sky-50 to-white bg-gradient-to-r':
+              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -438,7 +438,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <div
             className={cn('heading-container relative mb-4', blurBlockClassName, {
-              'pl-2 border-l-[2px] rounded-l-sm py-1 border-sky-300 from-sky-50 to-white bg-gradient-to-r':
+              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 pl-2':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -484,7 +484,7 @@ export const Block: React.FC<BlockProps> = props => {
     case 'numbered_list': {
       const wrapList = (content: React.ReactNode, start?: number) =>
         block.type === 'bulleted_list' ? (
-          <ul className={cs('notion-list relative notion-list-disc', blurBlockClassName, blockId)}>
+          <ul className={cs('notion-list notion-list-disc relative', blurBlockClassName, blockId)}>
             {updatedBlock}
             {content}
           </ul>
@@ -610,7 +610,7 @@ export const Block: React.FC<BlockProps> = props => {
       return (
         <div
           className={cn(
-            'md:flex md:flex-nowrap md:gap-4 relative block-column-list',
+            'block-column-list relative md:flex md:flex-nowrap md:gap-4',
             blockMarginMinus,
             blurBlockClassName,
             blockId
@@ -701,7 +701,7 @@ export const Block: React.FC<BlockProps> = props => {
           try {
             const url = new URL(title)
             title = url.hostname
-          } catch (err) {
+          } catch (_err) {
             // ignore invalid links
           }
         }
@@ -711,7 +711,7 @@ export const Block: React.FC<BlockProps> = props => {
         <div className={cn(basicBlockGapBigger, blurBlockClassName)}>
           <a
             className={cn(
-              'flex gap-4 w-full rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm',
+              'flex w-full gap-4 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm',
               blurBlockClassName
             )}
             href={link[0][0]}
@@ -743,7 +743,7 @@ export const Block: React.FC<BlockProps> = props => {
                     />
                   </div>
                 )}
-                <div className="text-[0.9em] font-normal text-slate-500 truncate">
+                <div className="truncate text-[0.9em] font-normal text-slate-500">
                   <Text value={link} block={block} />
                 </div>
               </div>
@@ -836,7 +836,7 @@ export const Block: React.FC<BlockProps> = props => {
         <div className={cs('notion-to-do relative', blurBlockClassName, blockId)}>
           {updatedBlock}
           <div className={cn('flex items-start gap-2', blockMargin)}>
-            <div className="w-4 h-4 mt-[3px]">
+            <div className="mt-[3px] h-4 w-4">
               {isChecked && <BsCheckSquare className="text-slate-500" />}
               {!isChecked && <BsSquare className="mt-0.5" />}
             </div>
@@ -885,11 +885,11 @@ export const Block: React.FC<BlockProps> = props => {
           className={cn(
             basicBlockGapBigger,
             blurBlockClassName,
-            'overflow-auto m2it-scrollbar relative'
+            'm2it-scrollbar relative overflow-auto'
           )}
         >
           {updatedBlock}
-          <table className={cs('notion-simple-table table-auto my-0', blockId)}>
+          <table className={cs('notion-simple-table my-0 table-auto', blockId)}>
             <tbody
               className={cn({
                 table_block_column_header: block?.format?.table_block_column_header,

@@ -3,15 +3,14 @@
 import cn from 'classnames'
 import { ImageProps } from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 import DateComponent from '@/src/app/components/DateComponent'
 import Excerpt from '@/src/app/components/Excerpt'
 import PostFeaturedImage from '@/src/app/components/PostFeaturedImage'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
-import { Post } from '@/src/lib/types'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { Post } from '@/src/lib/types'
 
 export type PostCardWhiteBgBigOpts = {
   hideDate?: boolean
@@ -38,14 +37,14 @@ export default function PostCardWhiteBgBig(props: PostCardWhiteBgBigProps) {
   )
 
   return (
-    <div className="group overflow-hidden rounded-md bg-white shadow-lg h-full">
+    <div className="group h-full overflow-hidden rounded-md bg-white shadow-lg">
       <Link className={cn(options?.fontClassName, 'text-center')} href={uri || '/'}>
         <div className="flex flex-col justify-center">
           <div className={cn('relative w-full overflow-hidden', CWBBHeightClass)}>
             {(status === 'new' || status === 'updatedWithin') && (
               <div
                 className={cn(
-                  'absolute bottom-4 left-0 z-10 text-[0.8rem] py-[1px] pl-2 pr-4',
+                  'absolute bottom-4 left-0 z-10 py-[1px] pr-4 pl-2 text-[0.8rem]',
                   'rounded-r-md',
                   {
                     'bg-green-200 text-green-900': status === 'updatedWithin',
@@ -65,19 +64,19 @@ export default function PostCardWhiteBgBig(props: PostCardWhiteBgBigProps) {
           </div>
         </div>
         <div className="p-4">
-          <div className="group-hover:m2it-link-hover text-base font-bold leading-[1.35]">
+          <div className="group-hover:m2it-link-hover text-base leading-[1.35] font-bold">
             {title}
           </div>
           {(!options?.hideDate || !options?.hideAuthor) && !!authors?.length && (
             <div className="flex justify-center gap-2 p-2">
               {!options?.hideDate && date && (
-                <div className="text-[0.8rem] opacity-80 flex flex-row items-center gap-2 justify-center">
+                <div className="flex flex-row items-center justify-center gap-2 text-[0.8rem] opacity-80">
                   <AiOutlineClockCircle />
                   <DateComponent dateString={date} />
                 </div>
               )}
               {!options?.hideAuthor && authors?.length && (
-                <div className="flex gap-1 text-sm opacity-80 text-emerald-800">
+                <div className="flex gap-1 text-sm text-emerald-800 opacity-80">
                   {authors?.length > 1 && (
                     <>
                       <i className="icon-users-outline"></i>
@@ -112,7 +111,7 @@ export const PostCardWhiteBgBigSkeleton = (props: { postContainerClassName?: str
       <div className="h-4 w-full rounded-xl bg-slate-200"></div>
 
       {/* excerpt */}
-      <div className="w-full mt-2 px-2 flex flex-col items-center gap-1">
+      <div className="mt-2 flex w-full flex-col items-center gap-1 px-2">
         <div className="h-2 w-full rounded-xl bg-slate-200"></div>
         <div className="h-2 w-full rounded-xl bg-slate-200"></div>
         <div className="h-2 w-3/4 rounded-xl bg-slate-200"></div>

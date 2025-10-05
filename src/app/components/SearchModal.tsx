@@ -161,7 +161,7 @@ export default function SearchModal(props: SearchModalProps) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="flex flex-col gap-0 w-full transform rounded-md divide-y md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw] max-h-[80vh] bg-white text-left align-middle shadow-xl transition-all text-slate-800">
+              <DialogPanel className="flex max-h-[80vh] w-full transform flex-col gap-0 divide-y rounded-md bg-white text-left align-middle text-slate-800 shadow-xl transition-all md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw]">
                 {/* Search bar */}
                 <div className={cn('flex items-center gap-3 p-4')}>
                   <div className={cn('grid place-items-center text-slate-500')}>
@@ -176,7 +176,7 @@ export default function SearchModal(props: SearchModalProps) {
                   </div>
                   <input
                     ref={inputRef}
-                    className="peer h-full w-full text-ellipsis bg-transparent pr-2 outline-none m2it-hide-wscb"
+                    className="peer m2it-hide-wscb h-full w-full bg-transparent pr-2 text-ellipsis outline-none"
                     id="search"
                     type="search"
                     placeholder={props.placeholder || 'Search...'}
@@ -210,7 +210,7 @@ export default function SearchModal(props: SearchModalProps) {
                         <div
                           ref={containerRef}
                           className={cn(
-                            'flex flex-col divide-y divide-slate-150 overflow-auto m2it-scrollbar'
+                            'divide-slate-150 m2it-scrollbar flex flex-col divide-y overflow-auto'
                           )}
                         >
                           {data.map((item, index) => {
@@ -222,7 +222,7 @@ export default function SearchModal(props: SearchModalProps) {
                                 onClick={props.closeModal}
                                 href={uri}
                                 key={item.id}
-                                className={cn('flex gap-3 py-4 px-4 w-full', {
+                                className={cn('flex w-full gap-3 px-4 py-4', {
                                   'bg-gray-100': selected === index
                                 })}
                                 onMouseMoveCapture={() => handleMouseMoveCapture(index)}
@@ -235,18 +235,18 @@ export default function SearchModal(props: SearchModalProps) {
                                     <IoBookOutline className="text-xl opacity-80" />
                                   )}
                                 </div>
-                                <div className={cn('w-full flex flex-col text-slate-900 gap-1')}>
+                                <div className={cn('flex w-full flex-col gap-1 text-slate-900')}>
                                   <div
                                     className={cn(
-                                      'w-full text-base flex items-center justify-between'
+                                      'flex w-full items-center justify-between text-base'
                                     )}
                                   >
                                     <div
                                       className={cn(
                                         {
-                                          'pr-4 pb-1 border-b border-dashed': item.textHighlighted
+                                          'border-b border-dashed pr-4 pb-1': item.textHighlighted
                                         },
-                                        'text-black font-medium'
+                                        'font-medium text-black'
                                       )}
                                     >
                                       {item.titleHighlighted && (

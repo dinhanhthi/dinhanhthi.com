@@ -1,7 +1,6 @@
 import cn from 'classnames'
 import { ImageProps } from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 import DateComponent from '@/src/app/components/DateComponent'
 import PostFeaturedImage from '@/src/app/components/PostFeaturedImage'
@@ -23,8 +22,8 @@ export default function PostCardWhiteBg(props: PostTitleCateDateProps) {
   return (
     <div className="group overflow-hidden rounded-md bg-white shadow-lg">
       <Link className={cn(props.options?.fontClassName, 'text-center')} href={uri || '/'}>
-        <div className="flex flex-col justify-center ">
-          <div className="relative h-28 w-full overflow-hidden ">
+        <div className="flex flex-col justify-center">
+          <div className="relative h-28 w-full overflow-hidden">
             <PostFeaturedImage
               featuredImage={featuredImage}
               title={title}

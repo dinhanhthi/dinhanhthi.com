@@ -1,13 +1,12 @@
-import cn from 'classnames'
-import Link from 'next/link'
-import React from 'react'
 import DateComponent from '@/src/app/components/DateComponent'
 import DraftBadgeComponent from '@/src/app/components/DraftBadge'
 import { default as LangBadgeComponent } from '@/src/app/components/LangBadge'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
-import { Post } from '@/src/lib/types'
-import { getColorIndex, waveColors } from '@/src/lib/helpers'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { getColorIndex, waveColors } from '@/src/lib/helpers'
+import { Post } from '@/src/lib/types'
+import cn from 'classnames'
+import Link from 'next/link'
 
 export type PostBlogSimpleOpts = {
   colorIndex?: number
@@ -29,8 +28,8 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
   const status = usePostDateStatus(post.createdDate!, post.date!, options?.maxDaysWinthin || 7)
   return (
     <Link href={post.uri || '/'}>
-      <div className="group flex gap-4 items-center p-4 hover:bg-slate-50">
-        <div className="circle-wave w-12 h-12 flex-shrink-0 rounded-full">
+      <div className="group flex items-center gap-4 p-4 hover:bg-slate-50">
+        <div className="circle-wave h-12 w-12 flex-shrink-0 rounded-full">
           <div className="bottom-wave">
             <svg
               className="waves !h-[45px] !min-h-[50px]"
@@ -75,14 +74,14 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
             </svg>
           </div>
         </div>
-        <div className="flex flex-col gap-1 flex-1">
-          <div className="flex flex-1 items-start justify-between gap-x-3 gap-y-1.5 flex-col md:flex-row">
+        <div className="flex flex-1 flex-col gap-1">
+          <div className="flex flex-1 flex-col items-start justify-between gap-x-3 gap-y-1.5 md:flex-row">
             <h3 className="flex-1">
               {/* date status on mobile size */}
               {post.date && (status === 'updatedWithin' || status === 'new') && (
                 <span
                   className={cn(
-                    'inline-flex md:hidden mr-1.5 px-2 py-0.5 text-[0.7rem] rounded-md whitespace-nowrap gap-1 items-center',
+                    'mr-1.5 inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[0.7rem] whitespace-nowrap md:hidden',
                     {
                       'bg-green-200 text-green-900': status === 'updatedWithin',
                       'bg-amber-200 text-amber-900': status === 'new'
@@ -109,15 +108,15 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
             </h3>
             {/* date status on big screen */}
             {(post.createdDate || post.date) && (status !== 'updated' || !options?.hideOldDate) && (
-              <div className="gap-2 items-center hidden md:flex">
+              <div className="hidden items-center gap-2 md:flex">
                 {['updated', 'updatedWithin'].includes(status) && post.date && (
                   <div
-                    className={cn('px-3 py-0.5 rounded-md whitespace-nowrap gap-1 items-center', {
-                      'bg-slate-200 text-slate-800 text-[0.75rem]':
+                    className={cn('items-center gap-1 rounded-md px-3 py-0.5 whitespace-nowrap', {
+                      'bg-slate-200 text-[0.75rem] text-slate-800':
                         status === 'updated' && !options?.autoHideAddedDate,
-                      'text-slate-500 text-[0.8rem]':
+                      'text-[0.8rem] text-slate-500':
                         status === 'updated' && options?.autoHideAddedDate,
-                      'bg-green-200 text-green-900 text-[0.75rem]': status === 'updatedWithin'
+                      'bg-green-200 text-[0.75rem] text-green-900': status === 'updatedWithin'
                     })}
                   >
                     <DateComponent
@@ -129,7 +128,7 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
                   </div>
                 )}
                 {status === 'new' && (
-                  <div className="px-3 py-0.5 text-[0.75rem] rounded-md whitespace-nowrap bg-amber-200 text-amber-900">
+                  <div className="rounded-md bg-amber-200 px-3 py-0.5 text-[0.75rem] whitespace-nowrap text-amber-900">
                     {options?.newLabel || 'new'}
                   </div>
                 )}
@@ -137,7 +136,7 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
                   post.createdDate &&
                   !options?.hideOldDate && (
                     <DateComponent
-                      className="text-[0.8rem] text-slate-500 group-hover:text-slate-700 hidden md:flex"
+                      className="hidden text-[0.8rem] text-slate-500 group-hover:text-slate-700 md:flex"
                       dateString={post.createdDate}
                       format="MMM DD, YYYY"
                       humanize={options?.humanizeDate}
@@ -155,9 +154,9 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
 }
 
 export const PostBlogSimpleSkeleton = (props: { postContainerClassName?: string }) => (
-  <div className={cn('flex gap-4 items-center p-4', props.postContainerClassName)}>
-    <div className="w-12 h-12 flex-shrink-0 rounded-full bg-slate-200"></div>
-    <div className="flex flex-col gap-2 w-full">
+  <div className={cn('flex items-center gap-4 p-4', props.postContainerClassName)}>
+    <div className="h-12 w-12 flex-shrink-0 rounded-full bg-slate-200"></div>
+    <div className="flex w-full flex-col gap-2">
       <div className="h-4 w-1/2 rounded-xl bg-slate-200"></div>
       <div className="h-3 w-3/4 rounded-xl bg-slate-200"></div>
     </div>

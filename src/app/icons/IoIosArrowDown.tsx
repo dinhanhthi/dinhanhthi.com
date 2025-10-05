@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function IoIosArrowDown(props: { className?: string }) {
   return (
     <svg

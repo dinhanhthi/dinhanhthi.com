@@ -1,7 +1,6 @@
 'use client'
 
 import Image, { ImageProps, StaticImageData } from 'next/image'
-import React from 'react'
 
 import { ImageType } from '@/src/lib/types'
 

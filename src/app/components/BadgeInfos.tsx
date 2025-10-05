@@ -1,6 +1,5 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import React from 'react'
 
 export type BadgeInfosProps = {
   id?: string
@@ -14,8 +13,8 @@ export type BadgeInfosProps = {
 
 export default function BadgeInfos(props: BadgeInfosProps) {
   const aLinkClass = cn(
-    'block py-2.5 text-main-dark rounded-3xl border-gray-600 text-sm uppercase',
-    'tracking-widest transition duration-300 shadow-md md:shadow-none',
+    'text-main-dark block rounded-3xl border-gray-600 py-2.5 text-sm uppercase',
+    'tracking-widest shadow-md transition duration-300 md:shadow-none',
     {
       'bg-transparent px-5 hover:bg-gray-700': !props?.className,
       [`${props?.className}`]: !!props?.className

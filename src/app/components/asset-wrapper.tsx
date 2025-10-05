@@ -113,7 +113,7 @@ function extractHostname(url: string) {
   try {
     const hostname = new URL(url).hostname
     return hostname
-  } catch (err) {
+  } catch (_err) {
     return ''
   }
 }

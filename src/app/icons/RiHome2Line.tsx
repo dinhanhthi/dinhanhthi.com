@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function RiHome2Line(props: { className?: string }) {
   return (
     <svg

@@ -1,5 +1,4 @@
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import React from 'react'
 
 import BlockRichText from './BlockRichText'
 

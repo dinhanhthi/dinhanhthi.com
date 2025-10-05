@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function MdKeyboardDoubleArrowRight(props: { className?: string }) {
   return (
     <svg
