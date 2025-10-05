@@ -2,7 +2,7 @@ import TagIcon from '@/public/tag.svg'
 import Container from '@/src/app/components/Container'
 import Pagination from '@/src/app/components/Pagination'
 import PostList, { PostType } from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/SkeletonPostList'
+import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { ImageType, Post } from '@/src/lib/types'
 import cn from 'classnames'
 

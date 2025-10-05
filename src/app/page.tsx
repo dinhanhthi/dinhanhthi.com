@@ -1,6 +1,6 @@
 import HeadingWithMore from '@/src/app/components/HeadingWithMore'
 import PostList from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/SkeletonPostList'
+import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
