@@ -12,7 +12,7 @@ mermaid.initialize({
 
 export default class Mermaid extends React.Component<{
   chart: string
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
   className?: string
 }> {
   componentDidMount() {

@@ -4,9 +4,9 @@ import { Block } from 'notion-types'
 import * as types from 'notion-types'
 import * as React from 'react'
 
-export type OptionalCatchAllProps = { params: OptionalCatchAllParams }
+export type OptionalCatchAllProps = { params: Promise<OptionalCatchAllParams> }
 export type OptionalCatchAllParams = { slug: string[] }
-export type DynamicSegmentParamsProps = { params: DynamicSegmentParams }
+export type DynamicSegmentParamsProps = { params: Promise<DynamicSegmentParams> }
 export type DynamicSegmentParams = { slug: string }
 
 export type ImageType = {

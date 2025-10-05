@@ -10,7 +10,7 @@ export default function BlockCallout(props: {
   color?: string
   className?: string
   children?: React.ReactNode
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
 }) {
   return (
     <div className={cn(props.className, 'block-callout relative')}>

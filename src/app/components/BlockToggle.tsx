@@ -13,7 +13,7 @@ export default function BlockToggle(props: {
   color?: string
   children?: React.ReactNode
   className?: string
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
 }) {
   return (
     <div

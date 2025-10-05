@@ -16,8 +16,9 @@ const numPostsPerPage = 48
 const numBlogPosts = 4
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
-  const slug = params.slug[0] || ''
-  const currentPage = +(params?.slug?.[2] || 1)
+  const resolvedParams = await params
+  const slug = resolvedParams.slug[0] || ''
+  const currentPage = +(resolvedParams?.slug?.[2] || 1)
   console.debug(`\n👉 slug:  ${slug}, currentPage: ${currentPage}\n`)
   const [totalPages] = await getTotalPages({ slug } as Tag)
   const tags = await getTopics()
@@ -55,19 +56,20 @@ export async function generateStaticParams() {
 }
 
 export default async function TagPage({ params }: OptionalCatchAllProps) {
-  const currentPage = +(params?.slug?.[2] || 1)
+  const resolvedParams = await params
+  const currentPage = +(resolvedParams?.slug?.[2] || 1)
 
   if (
-    !params ||
-    !params?.slug ||
-    (params.slug.length > 1 && params.slug[1] !== 'page') ||
-    params.slug.length > 3
+    !resolvedParams ||
+    !resolvedParams?.slug ||
+    (resolvedParams.slug.length > 1 && resolvedParams.slug[1] !== 'page') ||
+    resolvedParams.slug.length > 3
   ) {
     notFound()
   }
 
-  const notRootPage = params.slug.length > 1
-  const slug = params.slug[0] || ''
+  const notRootPage = resolvedParams.slug.length > 1
+  const slug = resolvedParams.slug[0] || ''
 
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
 

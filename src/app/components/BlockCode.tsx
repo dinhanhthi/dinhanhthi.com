@@ -22,7 +22,7 @@ type BlockCodeProps = {
   block: CodeBlock
   className?: string
   defaultLanguage?: string
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
   blurBlockClassName?: string
 }
 

@@ -8,10 +8,10 @@ import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
 
 type BlockHeadingToggleProps = {
   className?: string
-  headingElement: JSX.Element
-  anchorRight?: JSX.Element
+  headingElement: React.ReactElement
+  anchorRight?: React.ReactElement
   children: React.ReactNode
-  updatedBlock?: React.JSX.Element
+  updatedBlock?: React.ReactElement
   headingType?: 'h1' | 'h2' | 'h3'
 }
 
