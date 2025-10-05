@@ -1,5 +1,5 @@
-import ImageComponent from '@/src/components/notion/ImageComponent'
-import PostList from '@/src/components/notion/PostsList'
+import ImageComponent from '@/src/app/components/ImageComponent'
+import PostList from '@/src/app/components/PostsList'
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'

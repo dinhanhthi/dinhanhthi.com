@@ -1,4 +1,4 @@
-import ImageComponent from '@/src/components/notion/ImageComponent'
+import ImageComponent from '@/src/app/components/ImageComponent'
 import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'
 

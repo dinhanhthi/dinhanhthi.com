@@ -1,4 +1,4 @@
-import PostBody from '@/src/components/notion/PostBody'
+import PostBody from '@/src/app/components/PostBody'
 import { Post } from '@/src/lib/types'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import cn from 'classnames'

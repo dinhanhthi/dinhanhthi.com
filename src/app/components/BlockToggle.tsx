@@ -4,7 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@head
 import cn from 'classnames'
 import React from 'react'
 
-import { basicBlockGap, blockMargin } from '@/src/components/notion/block'
+import { basicBlockGap, blockMargin } from '@/src/app/components/block'
 import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
 import { mapColorClass } from '@/src/lib/helpers'
 

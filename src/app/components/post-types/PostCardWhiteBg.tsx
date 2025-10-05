@@ -3,9 +3,9 @@ import { ImageProps } from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import DateComponent from '@/src/components/notion/DateComponent'
-import PostFeaturedImage from '@/src/components/notion/PostFeaturedImage'
-import { CommonPostTypeOpts } from '@/src/components/notion/PostsList'
+import DateComponent from '@/src/app/components/DateComponent'
+import PostFeaturedImage from '@/src/app/components/PostFeaturedImage'
+import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import { Post } from '@/src/lib/types'
 
 export type PostCardWhiteBgOpts = {

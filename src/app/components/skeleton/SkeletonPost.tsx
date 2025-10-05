@@ -1,4 +1,4 @@
-import SkeletonPostHeaderTopics from '@/src/components/notion/SkeletonPostHeaderTopics'
+import SkeletonPostHeaderTopics from '@/src/app/components/SkeletonPostHeaderTopics'
 import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
 import RiUser3Line from '@/src/app/icons/RiUser3Line'
 import cn from 'classnames'

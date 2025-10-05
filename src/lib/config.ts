@@ -1,7 +1,7 @@
-import { PostTypeOpts } from '@/src/components/notion/PostsList'
+import { PostTypeOpts } from '@/src/app/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
-import { DiscreteColsType } from '@/src/components/notion/PostBody'
+import { DiscreteColsType } from '@/src/app/components/PostBody'
 
 export const numPostsToShow = 12
 

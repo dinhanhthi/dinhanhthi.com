@@ -2,7 +2,7 @@ import ToolsIcon from '@/public/tools.webp'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/components/notion/ScrollToTop'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'

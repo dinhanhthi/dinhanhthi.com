@@ -1,10 +1,10 @@
 'use client'
 
-import PostHeaderTopics from '@/src/components/notion/PostHeaderTopics'
-import SimpleImage from '@/src/components/notion/SimpleImage'
-import { ImagePlaceholderPostHeader } from '@/src/components/notion/image-placeholders'
-import { PageIcon } from '@/src/components/notion/page-icon'
-import { Text } from '@/src/components/notion/text'
+import PostHeaderTopics from '@/src/app/components/PostHeaderTopics'
+import SimpleImage from '@/src/app/components/SimpleImage'
+import { ImagePlaceholderPostHeader } from '@/src/app/components/image-placeholders'
+import { PageIcon } from '@/src/app/components/page-icon'
+import { Text } from '@/src/app/components/text'
 import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
 import HiMiniCheckBadge from '@/src/app/icons/HiMiniCheckBadge'
 import RiUser3Line from '@/src/app/icons/RiUser3Line'
@@ -20,7 +20,7 @@ import { Suspense } from 'react'
 import FR from '@/public/lang/fr.svg'
 import EN from '@/public/lang/us.svg'
 import VN from '@/public/lang/vn.svg'
-import TooltipX from '@/src/components/notion/tooltip-x'
+import TooltipX from '@/src/app/components/tooltip-x'
 import me from '../../data/me'
 import { Post } from '@/src/lib/types'
 import MdEditNote from '../icons/MdEditNote'
@@ -30,7 +30,7 @@ import { getUri } from '@/src/lib/helpers'
 import BadgeLanguage from './BadgeLanguage'
 import Header from './Header'
 
-const DateComponent = dynamic(() => import('@/src/components/notion/DateComponent'), {
+const DateComponent = dynamic(() => import('@/src/app/components/DateComponent'), {
   ssr: false,
   loading: () => <div className="h-4 w-36 animate-pulse rounded-md bg-slate-200" />
 })

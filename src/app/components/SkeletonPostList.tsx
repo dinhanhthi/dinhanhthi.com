@@ -3,8 +3,8 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Carousel, CarouselItem } from '@/src/components/notion/Carousel'
-import { PostListStyle, PostType, postListGridCLass } from '@/src/components/notion/PostsList'
+import { Carousel, CarouselItem } from '@/src/app/components/Carousel'
+import { PostListStyle, PostType, postListGridCLass } from '@/src/app/components/PostsList'
 import { PostBlogSimpleSkeleton } from '@/src/app/components/post-types/PostBlogSimple'
 import { PostCardWaveSkeleton } from '@/src/app/components/post-types/PostCardWave'
 import { PostCardWhiteBgBigSkeleton } from '@/src/app/components/post-types/PostCardWhiteBgBig'

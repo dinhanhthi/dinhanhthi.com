@@ -54,7 +54,7 @@ This project uses a **custom Notion renderer** integrated directly into the code
 - **Import pattern**:
   - Notion utilities: `@/src/lib/notion/*`
   - General utilities: `@/src/lib/*` (e.g., `@/src/lib/config`, `@/src/lib/utils`)
-  - Components: `@/src/components/notion/*` or `@/src/app/icons/*`
+  - Components: `@/src/app/components/*` or `@/src/app/icons/*`
 - **Architecture principle**: All utilities live in `src/lib/`, NOT in `src/app/lib/`
 
 ### Project Structure

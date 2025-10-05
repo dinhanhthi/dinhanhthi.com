@@ -1,8 +1,8 @@
-import BadgeTech from '@/src/components/notion/BadgeTech'
+import BadgeTech from '@/src/app/components/BadgeTech'
 import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import cn from 'classnames'
 
-import SimpleImage from '@/src/components/notion/SimpleImage'
+import SimpleImage from '@/src/app/components/SimpleImage'
 import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { Block } from 'notion-types'
 import techs from '../../data/techs'
