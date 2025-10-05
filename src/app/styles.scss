@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@use 'tailwindcss';
 @config '../../tailwind.config.ts';
 
 @import 'katex/dist/katex.min.css';
