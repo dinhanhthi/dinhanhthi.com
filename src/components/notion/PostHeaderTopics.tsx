@@ -2,7 +2,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import React from 'react'
 
-import TiTag from '@/src/components/icons/TiTag'
+import TiTag from '@/src/app/icons/TiTag'
 import { Category, Tag } from '@/src/lib/types'
 import TooltipX from './tooltip-x'
 

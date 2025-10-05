@@ -16,12 +16,12 @@ import React, {
 } from 'react'
 import useSWR from 'swr'
 
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
-import BsArrowReturnLeft from '@/src/components/icons/BsArrowReturnLeft'
-import FiSearch from '@/src/components/icons/FiSearch'
-import IoBookOutline from '@/src/components/icons/IoBookOutline'
-import IoCloseCircle from '@/src/components/icons/IoCloseCircle'
-import IoDocumentTextOutline from '@/src/components/icons/IoDocumentTextOutline'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
+import BsArrowReturnLeft from '@/src/app/icons/BsArrowReturnLeft'
+import FiSearch from '@/src/app/icons/FiSearch'
+import IoBookOutline from '@/src/app/icons/IoBookOutline'
+import IoCloseCircle from '@/src/app/icons/IoCloseCircle'
+import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
 import { SearchResult } from '@/src/lib/types'
 
 type SearchModalProps = {

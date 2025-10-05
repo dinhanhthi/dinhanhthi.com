@@ -1,7 +1,7 @@
 'use client'
 
 import SimpleImage from '@/src/components/notion/SimpleImage'
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import { useEffect, useState } from 'react'
 import { Tool } from '@/src/lib/types'

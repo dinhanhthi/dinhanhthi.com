@@ -3,7 +3,7 @@ import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import cn from 'classnames'
 
 import SimpleImage from '@/src/components/notion/SimpleImage'
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { Block } from 'notion-types'
 import techs from '../../data/techs'
 

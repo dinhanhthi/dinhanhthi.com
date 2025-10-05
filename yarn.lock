@@ -5794,13 +5794,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"destr@npm:^2.0.3":
-  version: 2.0.5
-  resolution: "destr@npm:2.0.5"
-  checksum: 10c0/efabffe7312a45ad90d79975376be958c50069f1156b94c181199763a7f971e113bd92227c26b94a169c71ca7dbc13583b7e96e5164743969fc79e1ff153e646
-  languageName: node
-  linkType: hard
-
 "detect-libc@npm:^1.0.3":
   version: 1.0.3
   resolution: "detect-libc@npm:1.0.3"
@@ -5811,9 +5804,9 @@ __metadata:
   linkType: hard
 
 "detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.2":
-  version: 2.1.1
-  resolution: "detect-libc@npm:2.1.1"
-  checksum: 10c0/97053299c1f68c7c4adf7b78c8d506e1d5f3a3fbc775920aaa0ecf7f8fcc6dfa46338a6ca82fe4500b4a51937def314584265a4ec9d565577485c4496aa7d64e
+  version: 2.1.2
+  resolution: "detect-libc@npm:2.1.2"
+  checksum: 10c0/acc675c29a5649fa1fb6e255f993b8ee829e510b6b56b0910666949c80c364738833417d0edb5f90e4e46be17228b0f2b66a010513984e18b15deeeac49369c4
   languageName: node
   linkType: hard
 
@@ -5889,9 +5882,9 @@ __metadata:
     moment: "npm:^2.29.4"
     next: "npm:^14.2.32"
     next-sitemap: "npm:^4.1.8"
-    notion-client: "npm:^7.4.3"
-    notion-types: "npm:^7.4.3"
-    notion-utils: "npm:^7.4.3"
+    notion-client: "npm:~7.4.3"
+    notion-types: "npm:~7.4.3"
+    notion-utils: "npm:~7.4.3"
     open-graph-scraper: "npm:^6.2.2"
     p-memoize: "npm:^7.1.1"
     postcss: "npm:8.4.24"
@@ -8101,6 +8094,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ky@npm:^1.8.1":
+  version: 1.11.0
+  resolution: "ky@npm:1.11.0"
+  checksum: 10c0/ce656988aa19ee20eaca55f0a84304a529cc222ef66dfb46f8b7cc1ec6b3c2c31065ce125b2d408ce16a0bcb148e6d7b01778128f7482bb44f506e0b1b8b8829
+  languageName: node
+  linkType: hard
+
 "langium@npm:3.3.1":
   version: 3.3.1
   resolution: "langium@npm:3.3.1"
@@ -8742,13 +8742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch-native@npm:^1.6.4":
-  version: 1.6.7
-  resolution: "node-fetch-native@npm:1.6.7"
-  checksum: 10c0/8b748300fb053d21ca4d3db9c3ff52593d5e8f8a2d9fe90cbfad159676e324b954fdaefab46aeca007b5b9edab3d150021c4846444e4e8ab1f4e44cd3807be87
-  languageName: node
-  linkType: hard
-
 "node-fetch@npm:^2.6.1":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -8845,35 +8838,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"notion-client@npm:^7.4.3":
-  version: 7.6.0
-  resolution: "notion-client@npm:7.6.0"
+"notion-client@npm:~7.4.3":
+  version: 7.4.3
+  resolution: "notion-client@npm:7.4.3"
   dependencies:
-    notion-types: "npm:7.6.0"
-    notion-utils: "npm:7.6.0"
-    ofetch: "npm:^1.4.1"
+    ky: "npm:^1.8.1"
+    notion-types: "npm:7.4.3"
+    notion-utils: "npm:7.4.3"
     p-map: "npm:^7.0.3"
-  checksum: 10c0/0919b0a21fa1e45ab57b608dba77f0b2cad959c02f09b5126d69cd7b6b24d8e0491f5ee2ff4cc96166f4300a340ceccea1b877caa21317ce67fdfe820e48f501
+  checksum: 10c0/07a4cc20dbcaf02caa6fd3aff8f20097b1de30176b395afa1dc9dd3fb92d1b582b1f8fa6ccc2fb570f2afd46fe9eff56886fa322a315dd25ec918c10fd3f665a
   languageName: node
   linkType: hard
 
-"notion-types@npm:7.6.0, notion-types@npm:^7.4.3":
-  version: 7.6.0
-  resolution: "notion-types@npm:7.6.0"
-  checksum: 10c0/70798ee3360c3b0719a0118adf3c987440fe8ba8fa00f85ad507cef3503ce070acd467d9a59f2b0cabda17b7e834708ee550030681a6c4ee851f9de58adde9ab
+"notion-types@npm:7.4.3, notion-types@npm:~7.4.3":
+  version: 7.4.3
+  resolution: "notion-types@npm:7.4.3"
+  checksum: 10c0/08d1e5419d1edf09921ceb91b388f4dcf21f17694515d4fdcc3da68d9ab6fb42280601aa03ec4d312879d09e6f83ee3778c6d284d71e1d22986d812bb0c81eb5
   languageName: node
   linkType: hard
 
-"notion-utils@npm:7.6.0, notion-utils@npm:^7.4.3":
-  version: 7.6.0
-  resolution: "notion-utils@npm:7.6.0"
+"notion-utils@npm:7.4.3, notion-utils@npm:~7.4.3":
+  version: 7.4.3
+  resolution: "notion-utils@npm:7.4.3"
   dependencies:
     is-url-superb: "npm:^6.1.0"
     memoize: "npm:^10.1.0"
     normalize-url: "npm:^8.0.1"
-    notion-types: "npm:7.6.0"
+    notion-types: "npm:7.4.3"
     p-queue: "npm:^8.1.0"
-  checksum: 10c0/e1fb3d8e96aef43bc81921a7292834c8ef400420e8ac1ba8eb0b99148c38b7cac839f51296203c70be44df688527d83bca8231dd538f6ec259111fec9284af08
+  checksum: 10c0/2ae61ea6db419f4b57f2344a81b606dba1918f4555f91b3a183de232eda5fc80375e7fa8abf2781d32179538b6bcde80b6278835790c291815e1151505107590
   languageName: node
   linkType: hard
 
@@ -8972,17 +8965,6 @@ __metadata:
     define-properties: "npm:^1.2.1"
     es-object-atoms: "npm:^1.0.0"
   checksum: 10c0/3c47814fdc64842ae3d5a74bc9d06bdd8d21563c04d9939bf6716a9c00596a4ebc342552f8934013d1ec991c74e3671b26710a0c51815f0b603795605ab6b2c9
-  languageName: node
-  linkType: hard
-
-"ofetch@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "ofetch@npm:1.4.1"
-  dependencies:
-    destr: "npm:^2.0.3"
-    node-fetch-native: "npm:^1.6.4"
-    ufo: "npm:^1.5.4"
-  checksum: 10c0/fd712e84058ad5058a5880fe805e9bb1c2084fb7f9c54afa99a2c7e84065589b4312fa6e2dcca4432865e44ad1ec13fcd055c1bf7977ced838577a45689a04fa
   languageName: node
   linkType: hard
 
@@ -11201,7 +11183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ufo@npm:^1.5.4, ufo@npm:^1.6.1":
+"ufo@npm:^1.6.1":
   version: 1.6.1
   resolution: "ufo@npm:1.6.1"
   checksum: 10c0/5a9f041e5945fba7c189d5410508cbcbefef80b253ed29aa2e1f8a2b86f4bd51af44ee18d4485e6d3468c92be9bf4a42e3a2b72dcaf27ce39ce947ec994f1e6b

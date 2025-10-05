@@ -1,4 +1,4 @@
-import AiOutlineAlert from '@/src/components/icons/AiOutlineAlert'
+import AiOutlineAlert from '@/src/app/icons/AiOutlineAlert'
 import cn from 'classnames'
 
 import { containerWide } from '@/src/lib/config'

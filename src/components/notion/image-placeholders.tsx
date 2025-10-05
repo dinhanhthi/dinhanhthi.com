@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 
 export function ImagePlaceholderPostHeader() {
   return (

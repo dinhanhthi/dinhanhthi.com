@@ -47,14 +47,14 @@ This project uses a **custom Notion renderer** integrated directly into the code
 
 - **Location**:
   - Components: `src/components/notion/` - React components for rendering Notion blocks
-  - Icons: `src/components/icons/` - Custom icon components
+  - Icons: `src/app/icons/` - Custom icon components
   - Utilities: `src/lib/notion/` - Notion-specific helper functions, hooks, context, and database utilities
   - Shared utilities: `src/lib/` - General utilities (config, fetcher, helpers, fonts, utils)
   - Styles: `src/components/notion/styles/` - SCSS styles for Notion rendering
 - **Import pattern**:
   - Notion utilities: `@/src/lib/notion/*`
   - General utilities: `@/src/lib/*` (e.g., `@/src/lib/config`, `@/src/lib/utils`)
-  - Components: `@/src/components/notion/*` or `@/src/components/icons/*`
+  - Components: `@/src/components/notion/*` or `@/src/app/icons/*`
 - **Architecture principle**: All utilities live in `src/lib/`, NOT in `src/app/lib/`
 
 ### Project Structure
@@ -66,11 +66,11 @@ src/
 │   ├── api/                 # API routes (og, search-notion)
 │   ├── components/          # App-specific React components
 │   ├── hooks/               # Custom React hooks
+│   ├── icons/               # Icon components
 │   ├── note/[slug]/        # Dynamic note pages
 │   ├── tag/[[...slug]]/    # Tag pages with optional catch-all
 │   └── templates/           # Page templates
 ├── components/              # Shared components
-│   ├── icons/              # Icon components
 │   └── notion/             # Notion renderer components
 │       ├── post-types/     # Post card component variants
 │       └── styles/         # Notion rendering styles

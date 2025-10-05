@@ -1,4 +1,4 @@
-import FaGithub from '@/src/components/icons/FaGithub'
+import FaGithub from '@/src/app/icons/FaGithub'
 
 import me from './me'
 

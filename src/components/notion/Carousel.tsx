@@ -2,8 +2,8 @@ import cn from 'classnames'
 import React from 'react'
 import { useSnapCarousel } from 'react-snap-carousel'
 
-import FaChevronLeft from '@/src/components/icons/FaChevronLeft'
-import FaChevronRight from '@/src/components/icons/FaChevronRight'
+import FaChevronLeft from '@/src/app/icons/FaChevronLeft'
+import FaChevronRight from '@/src/app/icons/FaChevronRight'
 
 interface CarouselProps<T> {
   readonly items: T[]

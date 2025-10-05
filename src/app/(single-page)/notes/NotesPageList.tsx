@@ -1,7 +1,7 @@
 import HeadingWithMore from '@/src/components/notion/HeadingWithMore'
 import PostList from '@/src/components/notion/PostsList'
 import SkeletonPostList from '@/src/components/notion/SkeletonPostList'
-import BlogIcon from '@/src/components/icons/BlogIcon'
+import BlogIcon from '@/src/app/icons/BlogIcon'
 import { Post, Tag } from '@/src/lib/types'
 import { Suspense } from 'react'
 import { defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '@/src/lib/config'

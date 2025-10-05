@@ -9,8 +9,8 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import {Prism, SyntaxHighlighterProps} from 'react-syntax-highlighter';
 
-import FiCheck from '@/src/components/icons/FiCheck'
-import RxCopy from '@/src/components/icons/RxCopy'
+import FiCheck from '@/src/app/icons/FiCheck'
+import RxCopy from '@/src/app/icons/RxCopy'
 import { useNotionContext } from '@/src/lib/notion/context'
 import Mermaid from './Mermaid'
 import { Text } from './text'

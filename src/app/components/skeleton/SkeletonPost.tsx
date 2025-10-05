@@ -1,6 +1,6 @@
 import SkeletonPostHeaderTopics from '@/src/components/notion/SkeletonPostHeaderTopics'
-import AiOutlineClockCircle from '@/src/components/icons/AiOutlineClockCircle'
-import RiUser3Line from '@/src/components/icons/RiUser3Line'
+import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
+import RiUser3Line from '@/src/app/icons/RiUser3Line'
 import cn from 'classnames'
 
 import MdEditNote from '../../icons/MdEditNote'

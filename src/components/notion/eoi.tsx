@@ -2,8 +2,8 @@ import cn from 'classnames'
 import { Block } from 'notion-types'
 import * as React from 'react'
 
-import FaGithub from '@/src/components/icons/FaGithub'
-import RxDotFilled from '@/src/components/icons/RxDotFilled'
+import FaGithub from '@/src/app/icons/FaGithub'
+import RxDotFilled from '@/src/app/icons/RxDotFilled'
 import { formatNotionDateTime } from '@/src/lib/notion/utils'
 
 // External Object Instance

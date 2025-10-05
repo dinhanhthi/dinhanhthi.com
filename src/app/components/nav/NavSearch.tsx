@@ -1,9 +1,9 @@
 'use client'
 
-import AiOutlineLoading3Quarters from '@/src/components/icons/AiOutlineLoading3Quarters'
-import FiSearch from '@/src/components/icons/FiSearch'
-import IoBookOutline from '@/src/components/icons/IoBookOutline'
-import IoDocumentTextOutline from '@/src/components/icons/IoDocumentTextOutline'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
+import FiSearch from '@/src/app/icons/FiSearch'
+import IoBookOutline from '@/src/app/icons/IoBookOutline'
+import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
 import { SearchResult } from '@/src/lib/types'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
