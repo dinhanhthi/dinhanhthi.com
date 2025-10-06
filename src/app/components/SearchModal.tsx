@@ -161,7 +161,7 @@ export default function SearchModal(props: SearchModalProps) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="flex max-h-[80vh] w-full transform flex-col gap-0 divide-y rounded-md bg-white text-left align-middle text-slate-800 shadow-xl transition-all md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw]">
+              <DialogPanel className="flex max-h-[80vh] w-full transform flex-col gap-0 divide-y divide-slate-200 rounded-md bg-white text-left align-middle text-slate-800 shadow-xl transition-all md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw]">
                 {/* Search bar */}
                 <div className={cn('flex items-center gap-3 p-4')}>
                   <div className={cn('grid place-items-center text-slate-500')}>
@@ -206,11 +206,13 @@ export default function SearchModal(props: SearchModalProps) {
                       </div>
                     )}
                     {data.length > 0 && (
-                      <div className={cn('flex flex-col divide-y overflow-hidden')}>
+                      <div
+                        className={cn('flex flex-col divide-y divide-slate-200 overflow-hidden')}
+                      >
                         <div
                           ref={containerRef}
                           className={cn(
-                            'divide-slate-150 m2it-scrollbar flex flex-col divide-y overflow-auto'
+                            'm2it-scrollbar flex flex-col divide-y divide-slate-200 overflow-auto'
                           )}
                         >
                           {data.map((item, index) => {
@@ -244,7 +246,8 @@ export default function SearchModal(props: SearchModalProps) {
                                     <div
                                       className={cn(
                                         {
-                                          'border-b border-dashed pr-4 pb-1': item.textHighlighted
+                                          'border-b border-dashed border-slate-300 pr-4 pb-1':
+                                            item.textHighlighted
                                         },
                                         'font-medium text-black'
                                       )}

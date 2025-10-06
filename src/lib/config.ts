@@ -35,10 +35,7 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   hideOldDate: true
 }
 
-export const postBlogSimpleListClass =
-  'bg-white rounded-lg border boder-slate-200 flex flex-col divide-y divide-slate-100 overflow-hidden'
-
-export const postSimpleListClass =
-  'flex flex-col divide-y bg-white overflow-hidden rounded-lg border border-slate-200'
+export const postSimpleListContainerClass =
+  'flex flex-col divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white'
 
 export const postFontClassName = 'font-quicksand'

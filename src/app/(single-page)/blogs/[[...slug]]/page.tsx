@@ -1,5 +1,5 @@
 import BlogsIcon from '@/public/blogs.svg'
-import { postBlogSimpleListClass } from '@/src/lib/config'
+import { postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
 import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
@@ -103,7 +103,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       totalPages={totalPages}
       currentPage={currentPage}
       postType="PostBlogSimple"
-      postListContainerClassName={postBlogSimpleListClass}
+      postListContainerClassName={postSimpleListContainerClass}
     />
   )
 }

@@ -65,7 +65,7 @@ export default function BlockCode(props: BlockCodeProps) {
       language={formatCodeLang(language)}
       style={prism}
       className={cn(
-        'syntax-highlighter-pre m2it-scrollbar m2it-scrollbar-small !my-0 max-h-[300px] border !bg-slate-50'
+        'syntax-highlighter-pre m2it-scrollbar m2it-scrollbar-small !my-0 max-h-[300px] border !border-slate-300 !bg-slate-50'
       )}
       showLineNumbers={true}
     >

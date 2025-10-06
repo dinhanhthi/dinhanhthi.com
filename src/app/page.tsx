@@ -11,8 +11,7 @@ import {
   defaultBlurDataURL,
   defaultPostTypeOpts,
   numPostsToShow,
-  postBlogSimpleListClass,
-  postSimpleListClass
+  postSimpleListContainerClass
 } from '@/src/lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
@@ -131,7 +130,7 @@ export default async function Home() {
                         count={6}
                         postType="PostSimple"
                         options={{
-                          className: postSimpleListClass
+                          className: postSimpleListContainerClass
                         }}
                       />
                     }
@@ -144,7 +143,7 @@ export default async function Home() {
                         showPinned: true
                       }}
                       options={{
-                        className: postSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   </Suspense>
@@ -159,7 +158,7 @@ export default async function Home() {
                       count={8}
                       postType="PostSimple"
                       options={{
-                        className: postSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   }
@@ -169,7 +168,7 @@ export default async function Home() {
                     postType="PostSimple"
                     postTypeOpts={defaultPostTypeOpts}
                     options={{
-                      className: postSimpleListClass
+                      className: postSimpleListContainerClass
                     }}
                   />
                 </Suspense>
@@ -191,7 +190,7 @@ export default async function Home() {
                       count={2}
                       postType="PostBlogSimple"
                       options={{
-                        className: postBlogSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   }
@@ -201,7 +200,7 @@ export default async function Home() {
                     postType="PostBlogSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts }}
                     options={{
-                      className: postBlogSimpleListClass
+                      className: postSimpleListContainerClass
                     }}
                   />
                 </Suspense>

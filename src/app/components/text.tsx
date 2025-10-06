@@ -163,7 +163,11 @@ export const Text: React.FC<{
 
               case '_': {
                 if (ignoreMarkup?.includes('_')) return element
-                return <span className="underline underline-offset-4">{element}</span>
+                return (
+                  <span className="underline decoration-slate-500 underline-offset-4">
+                    {element}
+                  </span>
+                )
               }
 
               case 'e':
@@ -285,7 +289,7 @@ export const Text: React.FC<{
                 const iconUrl = (decorator[1] as any)?.icon_url
                 return (
                   <a
-                    className="not-prose group inline-flex flex-row items-start gap-1.5 px-1 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm"
+                    className="not-prose group inline-flex flex-row items-start gap-1.5 px-1 hover:cursor-pointer hover:border-sky-300"
                     target="_blank"
                     href={href}
                     rel="noopener noreferrer"
@@ -299,7 +303,7 @@ export const Text: React.FC<{
                         alt={'URL icon'}
                       />
                     )}
-                    <div className="m2it-link group-hover:m2it-link-hover border-b border-slate-200 text-[1em] leading-[1.1]">
+                    <div className="m2it-link group-hover:m2it-link-hover border-b border-slate-300 text-[1em] leading-[1.1]">
                       {title}
                     </div>
                   </a>

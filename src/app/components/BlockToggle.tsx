@@ -64,7 +64,7 @@ export default function BlockToggle(props: {
             )}
             <div
               className={cn(
-                'absolute top-0 left-0 z-10 mt-[8px] ml-[10px] h-[calc(100%-8px)] w-1 border-l',
+                'absolute top-0 left-0 z-10 mt-[8px] ml-[10px] h-[calc(100%-8px)] w-1 border-l border-slate-300',
                 {
                   hidden: !open
                 }

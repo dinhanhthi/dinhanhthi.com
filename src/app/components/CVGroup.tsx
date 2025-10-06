@@ -28,7 +28,7 @@ export default function CVGroup({ cvGroup, className }: CVGroupProps) {
   return (
     <div className={className ? className : ''}>
       <HeadingAbout className="mb-4">{cvGroup.name}</HeadingAbout>
-      <div className={'thi-box-code divide-y px-4'}>
+      <div className={'thi-box-code divide-y divide-slate-200 px-4'}>
         {cvGroup.list.map((cvItem: CVItem) => (
           <CVSection key={cvItem.id} cv={cvItem} />
         ))}

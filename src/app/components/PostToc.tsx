@@ -47,7 +47,7 @@ export default function PostToc(props: PostTocProps) {
   return (
     <nav
       className={cn(
-        'm2it-box-shadow flex h-fit w-full flex-col gap-2 rounded-xl bg-slate-50 px-2 py-3',
+        'm2it-box-shadow flex h-fit w-full flex-col gap-2 rounded-xl border-slate-200 bg-slate-50 px-2 py-3',
         {
           '2xl:hidden': props.inPost, // hide on large screens
           'max-h-full p-3': !props.inPost,
@@ -76,7 +76,7 @@ export default function PostToc(props: PostTocProps) {
       {showContent && (
         <div
           className={cn(
-            'not-prose m2it-scrollbar m2it-scrollbar-small overflow-auto border-t pt-3 pl-1',
+            'not-prose m2it-scrollbar m2it-scrollbar-small overflow-auto border-t border-slate-300 pt-3 pl-1',
             {
               'columns-1 md:columns-2': props.inPost
             }
@@ -94,7 +94,7 @@ export default function PostToc(props: PostTocProps) {
                 key={toc.id}
                 href={`#${anchor}`}
                 className={cn(
-                  'hover:m2it-link flex break-inside-avoid items-baseline gap-2 px-2 py-1 text-[0.88em]',
+                  'hover:m2it-link flex break-inside-avoid items-baseline gap-2 border-slate-300 px-2 py-1 text-[0.88em]',
                   {
                     'ml-2 border-l pl-2': isH3,
                     '-ml-1': isH2,

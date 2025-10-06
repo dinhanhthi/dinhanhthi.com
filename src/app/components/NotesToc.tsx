@@ -23,7 +23,7 @@ export default function NotesToc(props: NotesTocProps) {
 
   return (
     <div className={props.className}>
-      <div className="thi-box-code flex h-full flex-col divide-y p-4 md:border-none md:bg-transparent md:shadow-none">
+      <div className="thi-box-code flex h-full flex-col divide-y divide-slate-300 p-4 md:border-none md:bg-transparent md:shadow-none">
         <div className="font-heading px-2 pb-1.5 text-base font-semibold text-slate-800">
           Notes by topics
         </div>

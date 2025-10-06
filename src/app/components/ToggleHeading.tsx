@@ -38,12 +38,12 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
           </DisclosurePanel>
           <div
             className={cn(
-              'absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2 border-sky-100',
+              'absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2 border-slate-300',
               {
                 hidden: !open,
-                'ml-[12.5px]':
+                'ml-[13.5px]':
                   !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
-                'ml-[10.8px]': props.headingType === 'h3'
+                'ml-[12px]': props.headingType === 'h3'
               }
             )}
           ></div>
