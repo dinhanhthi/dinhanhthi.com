@@ -4,7 +4,7 @@
   "version": "7.0.0",
   "type": "module",
   "author": "Anh-Thi Dinh",
-  "packageManager": "yarn@4.10.3",
+  "packageManager": "yarn@4.5.3",
   "license": "MIT",
   "engines": {
     "npm": "^10.0.8",
