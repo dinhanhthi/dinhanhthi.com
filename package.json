@@ -19,7 +19,7 @@
     "dev": "next dev -p 3004",
     "build": "next build",
     "postbuild": "next-sitemap",
-    "postinstall": "pnpm rebuild sharp --ignore-scripts=false",
+    "postinstall": "pnpm rebuild sharp",
     "start": "next start -p 3004",
     "lint": "next lint",
     "check": "pnpm run prettier && pnpm run build",

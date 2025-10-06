@@ -148,6 +148,8 @@ pnpm run ud-fontello
 ## Deployment Notes
 
 - Deployed on Vercel with pnpm (automatically detected via `packageManager` field)
+- pnpm configuration in `.npmrc` handles peer dependencies and hoisting
+- Build script warnings for native packages (sharp, @tailwindcss/oxide) are expected and non-breaking
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
