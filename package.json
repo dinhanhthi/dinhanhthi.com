@@ -7,8 +7,8 @@
   "packageManager": "yarn@4.5.3",
   "license": "MIT",
   "engines": {
-    "npm": "^10.0.8",
-    "node": "^20.10.0"
+    "npm": "^10.9.3",
+    "node": "^22.19.0"
   },
   "browser": {
     "fs": false,
