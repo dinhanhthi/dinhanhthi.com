@@ -1,18 +1,23 @@
 import PostAside from '@/src/app/components/PostAside'
+import PostBody from '@/src/app/components/PostBody'
 import PostHeader from '@/src/app/components/PostHeader'
-import PostBody from '@notion-x/src/components/PostBody'
-import PostToc from '@notion-x/src/components/PostToc'
-import { BlockOptionsContextType } from '@notion-x/src/lib/context'
+import PostToc from '@/src/app/components/PostToc'
+import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
 import { getPageTableOfContents } from 'notion-utils'
 
-import { Post } from '@notion-x/src/interface'
+import {
+  bodyPadding,
+  containerNormal,
+  defaultPostTypeOpts,
+  postFontClassName
+} from '@/src/lib/config'
+import { Post } from '@/src/lib/types'
 import { get } from 'lodash'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
-import { bodyPadding, containerNormal, defaultPostTypeOpts, postFontClassName } from '../lib/config'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap

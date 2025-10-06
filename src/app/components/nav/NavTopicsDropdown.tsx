@@ -25,13 +25,13 @@ export default function NavTopicsDropdown() {
             <PopoverButton
               ref={btnRef}
               className={cn(
-                'flex lg:hidden !outline-none group p-0',
+                'group flex p-0 !outline-none lg:hidden',
                 { '!bg-slate-700 text-white': open, 'text-opacity-90': !open },
                 menuItemCommonClass,
-                '!p-1.5 ml-2'
+                'ml-2 !p-1.5'
               )}
             >
-              <MaterialSymbolsApps className="w-8 h-8" />
+              <MaterialSymbolsApps className="h-8 w-8" />
             </PopoverButton>
             <Transition
               enter="transition ease-out duration-200"
@@ -43,7 +43,7 @@ export default function NavTopicsDropdown() {
             >
               <PopoverPanel className="absolute left-0 z-10 mt-4 w-fit shadow-xl sm:px-0 lg:max-w-3xl">
                 <div className="overflow-hidden rounded-lg shadow-lg">
-                  <div className="relative grid divide-y divide-slate-600 bg-nav-dark-bg px-3 py-1">
+                  <div className="bg-nav-dark-bg relative grid divide-y divide-slate-600 px-3 py-1">
                     {MENUS.concat(HIDDEN_MENUS).map(item => (
                       <Link
                         onClick={() => onClickOpt(open)}

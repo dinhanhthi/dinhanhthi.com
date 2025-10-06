@@ -9,7 +9,7 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noUnusedLocals": true,
@@ -24,8 +24,7 @@
     ],
     "strictNullChecks": true,
     "paths": {
-      "@/*": ["./*"],
-      "@notion-x/*": ["./notion-x/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [

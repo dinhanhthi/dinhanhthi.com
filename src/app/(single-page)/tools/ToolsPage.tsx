@@ -1,7 +1,7 @@
 'use client'
 
+import { Tool } from '@/src/lib/types'
 import { Fragment } from 'react'
-import { Tool } from '../../../interface'
 import ToolSimpleSection, { SkeletonToolPageSection } from './ToolSimpleSection'
 
 export default function ToolsPage(props: { tools: Tool[]; categories?: string[] }) {

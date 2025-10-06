@@ -9,7 +9,7 @@ type PostAsideRightProps = {
 export default function PostAside(props: PostAsideRightProps) {
   return (
     <div
-      className={cn(props.className, 'flex h-full pl-8 pr-4', {
+      className={cn(props.className, 'flex h-full pr-4 pl-8', {
         'justify-start': props.position === 'right',
         'justify-end': props.position === 'left'
       })}

@@ -1,4 +1,4 @@
-import BadgeTech from '@notion-x/src/components/BadgeTech'
+import BadgeTech from '@/src/app/components/BadgeTech'
 
 import techs from '../../data/techs'
 import HeadingAbout from './HeadingAbout'
@@ -36,7 +36,7 @@ export function SkeletonSkillGroup(props: SkillGroupProps) {
   return (
     <div className={props.className}>
       <HeadingAbout className="text-xl">{props.skillGroup.name}</HeadingAbout>
-      <div className="rounded-lg shadow-lg bg-slate-200 animate-pulse h-[200px]"></div>
+      <div className="h-[200px] animate-pulse rounded-lg bg-slate-200 shadow-lg"></div>
     </div>
   )
 }

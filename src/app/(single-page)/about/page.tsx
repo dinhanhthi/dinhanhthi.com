@@ -1,7 +1,9 @@
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
+import { bodyPadding, containerWide } from '@/src/lib/config'
+import { getMetadata } from '@/src/lib/helpers'
 import cv from '../../../data/cv'
 import me from '../../../data/me'
 import skills from '../../../data/skills'
@@ -10,8 +12,6 @@ import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderAbout from '../../components/HeaderAbout'
 import SkillGroup, { SkeletonSkillGroup, SkillGroupType } from '../../components/SkillGroup'
-import { bodyPadding, containerWide } from '../../lib/config'
-import { getMetadata } from '../../lib/helpers'
 
 export const revalidate = 20
 
@@ -45,7 +45,7 @@ export default async function AboutHomePage() {
             </Suspense>
           ))}
         </div>
-        <div className={cn('flex flex-wrap gap-10 lg:gap-4 overflow-hidden', sectionSpacing)}>
+        <div className={cn('flex flex-wrap gap-10 overflow-hidden lg:gap-4', sectionSpacing)}>
           {cv.map((cvGroup: CVGroupType) => (
             <Suspense
               fallback={<SkeletonCVGroup cvGroup={cvGroup} className="flex-1" />}
