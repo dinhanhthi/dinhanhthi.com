@@ -2,9 +2,9 @@
 
 import cn from 'classnames'
 
+import useReadingProgress from '@/src/hooks/useReadingProgress'
+import { containerWide } from '@/src/lib/config'
 import { MENUS, MenuType } from '../../../data/menus'
-import useReadingProgress from '../../hooks/useReadingProgress'
-import { containerWide } from '../../lib/config'
 import Container from '../Container'
 import NavAvatar from './NavAvatar'
 import NavHidden from './NavHidden'
@@ -26,7 +26,7 @@ export default function Nav() {
   return (
     <>
       {/* Make sure the z-index in NavHidden is bigger than this  */}
-      <div className={`sticky left-0 top-0 z-[999] w-full ${navClasses} ${navHeight}`}>
+      <div className={`sticky top-0 left-0 z-[999] w-full ${navClasses} ${navHeight}`}>
         <Container className={cn('h-full', containerWide)}>
           <div className="flex h-full flex-wrap items-center justify-items-stretch">
             <div className="w-full">
@@ -60,7 +60,7 @@ export default function Nav() {
         </Container>
         <span
           style={{ transform: `translateX(${completion - 100}%)` }}
-          className="absolute bg-[#ffa541] h-[3px] w-full bottom-0"
+          className="absolute bottom-0 h-[3px] w-full bg-[#ffa541]"
         />
       </div>
     </>

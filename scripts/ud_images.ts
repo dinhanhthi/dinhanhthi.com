@@ -1,5 +1,5 @@
-import { getBlocks, queryDatabase, retrievePage } from '@notion-x/src/lib/db'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
+import { makeSlugText } from '@/src/lib/helpers'
+import { getBlocks, queryDatabase, retrievePage } from '@/src/lib/notion/db'
 import { Client } from '@notionhq/client'
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import chalk from 'chalk'
@@ -7,7 +7,7 @@ import cloudinary from 'cloudinary'
 import { get } from 'lodash'
 import yargs, * as yargsType from 'yargs'
 
-import { NotionHeader, NotionPost } from '../src/interface'
+import { NotionHeader, NotionPost } from '../src/lib/types'
 
 // --------------------------------------------------------------------------------------------
 // How to use?

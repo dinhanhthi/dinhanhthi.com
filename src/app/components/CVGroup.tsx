@@ -28,7 +28,7 @@ export default function CVGroup({ cvGroup, className }: CVGroupProps) {
   return (
     <div className={className ? className : ''}>
       <HeadingAbout className="mb-4">{cvGroup.name}</HeadingAbout>
-      <div className={'thi-box-code divide-y px-4'}>
+      <div className={'thi-box-code divide-y divide-slate-200 px-4'}>
         {cvGroup.list.map((cvItem: CVItem) => (
           <CVSection key={cvItem.id} cv={cvItem} />
         ))}
@@ -40,8 +40,8 @@ export default function CVGroup({ cvGroup, className }: CVGroupProps) {
 export function SkeletonCVGroup(props: CVGroupProps) {
   return (
     <div className={props.className}>
-      <HeadingAbout className="text-2xl mb-4">{props.cvGroup.name}</HeadingAbout>
-      <div className="rounded-lg shadow-lg bg-slate-200 animate-pulse h-[500px]"></div>
+      <HeadingAbout className="mb-4 text-2xl">{props.cvGroup.name}</HeadingAbout>
+      <div className="h-[500px] animate-pulse rounded-lg bg-slate-200 shadow-lg"></div>
     </div>
   )
 }
