@@ -21,34 +21,34 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 Notion as CMS 🤝 Custom Notion Renderer.
 
 ```bash
 # install
-npm install
+pnpm install
 
 # dev
-npm run dev # port 3004
+pnpm run dev # port 3004
 
 # build
-npm run build
+pnpm run build
 
 # serve (need to build first)
-npm start # port 3004
+pnpm start # port 3004
 
 # reinstall all
-npm run reinstall
+pnpm run reinstall
 
 # clean
-npm run clean
+pnpm run clean
 
 # prettier
-npm run prettier
+pnpm run prettier
 
-# clear npm cache (helpful sometimes)
-npm cache clean --force
+# clear pnpm cache (helpful sometimes)
+pnpm store prune
 ```
 
 Deploy to vercel,
 
 ```bash
-vercel dev # like npm run dev
+vercel dev # like pnpm run dev
 
 vercel build
 
@@ -63,7 +63,7 @@ vercel --prod
 
 ## Vercel
 
-The project uses npm with `--legacy-peer-deps` flag (configured in `.npmrc`) for React 19 compatibility. No special configuration needed on Vercel - it will use npm by default.
+The project uses pnpm as the package manager. Vercel automatically detects this via the `packageManager` field in `package.json`. No additional configuration needed.
 
 ## Troubleshooting
 
