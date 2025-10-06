@@ -4,12 +4,12 @@
   "version": "7.0.0",
   "type": "module",
   "author": "Anh-Thi Dinh",
-  "packageManager": "yarn@4.5.3",
   "license": "MIT",
   "engines": {
-    "npm": "^10.9.3",
+    "pnpm": "^10.18.0",
     "node": "^22.19.0"
   },
+  "packageManager": "pnpm@10.18.0",
   "browser": {
     "fs": false,
     "os": false,
@@ -19,13 +19,14 @@
     "dev": "next dev -p 3004",
     "build": "next build",
     "postbuild": "next-sitemap",
+    "postinstall": "pnpm rebuild sharp",
     "start": "next start -p 3004",
     "lint": "next lint",
-    "check": "yarn prettier && yarn build",
+    "check": "pnpm run prettier && pnpm run build",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,scss}\"",
     "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
-    "clean-build": "yarn run clean && yarn run build",
-    "reinstall": "yarn run clean && rm -rf node_modules 2>/dev/null && rm yarn.lock 2>/dev/null && yarn install",
+    "clean-build": "pnpm run clean && pnpm run build",
+    "reinstall": "pnpm run clean && rm -rf node_modules 2>/dev/null && rm pnpm-lock.yaml 2>/dev/null && pnpm install",
     "ud-cover": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover --pid",
     "ud-icon": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon --pid",
     "ud-cover-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover-all",
@@ -123,5 +124,8 @@
     "rimraf": "^5.0.1",
     "tailwindcss": "^4.1.14",
     "yargs": "^17.7.2"
+  },
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "^1.30.2"
   }
 }

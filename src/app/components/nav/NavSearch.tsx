@@ -45,7 +45,6 @@ export default function NavSearch() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [setIsOpen])
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearch = useCallback(
     debounce(value => triggerSearch(value), 300),
     [query]

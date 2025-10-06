@@ -5,38 +5,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Tech Stack
 
 - **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS v3
+- **Styling**: Tailwind CSS v4
 - **CMS**: Notion (using custom Notion renderer integrated into the project)
 - **Language**: TypeScript
-- **Package Manager**: Yarn v4 (Plug'n'Play mode)
+- **Package Manager**: pnpm
 - **Deployment**: Vercel
 
 ## Development Commands
 
 ```bash
 # Development server (port 3004)
-yarn dev
+pnpm run dev
 
 # Build
-yarn build
+pnpm run build
 
 # Production server (port 3004)
-yarn start
+pnpm start
 
 # Linting
-yarn lint
+pnpm run lint
 
 # Format code
-yarn prettier
+pnpm run prettier
 
 # Clean build artifacts
-yarn clean
+pnpm run clean
 
 # Full rebuild
-yarn clean-build
+pnpm run clean-build
 
 # Reinstall dependencies
-yarn reinstall
+pnpm run reinstall
 ```
 
 ## Architecture Overview
@@ -117,18 +117,18 @@ Environment variables (see `example.env.local`) define:
 
 ```bash
 # Update Notion page cover images
-yarn ud-cover --pid <page-id>       # Single page
-yarn ud-cover-all                   # All pages
+pnpm run ud-cover --pid <page-id>    # Single page
+pnpm run ud-cover-all                # All pages
 
 # Update Notion page icons
-yarn ud-icon --pid <page-id>        # Single page
-yarn ud-icon-all                    # All pages
+pnpm run ud-icon --pid <page-id>     # Single page
+pnpm run ud-icon-all                 # All pages
 
 # Update images within posts
-yarn ud-images-post --pid <page-id>
+pnpm run ud-images-post --pid <page-id>
 
 # Update custom icon font
-yarn ud-fontello
+pnpm run ud-fontello
 ```
 
 ## Environment Setup
@@ -147,13 +147,15 @@ yarn ud-fontello
 
 ## Deployment Notes
 
-- Deployed on Vercel with [corepack enabled](https://vercel.com/docs/deployments/configure-a-build#corepack) for Yarn v4
+- Deployed on Vercel with pnpm (automatically detected via `packageManager` field)
+- pnpm configuration in `.npmrc` handles peer dependencies and hoisting
+- Build script warnings for native packages (sharp, @tailwindcss/oxide) are expected and non-breaking
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
 
 ## Important Constraints
 
-- **VSCode Yarn PnP setup**: Follow [official guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) for editor SDK support
+- **Git operations**: NEVER use git commands in this project - user handles all git operations manually
 - **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy
-- **ALways run `yarn build`** to make sure the modifications are good to go.
+- **Always run `pnpm run build`** to make sure the modifications are good to go

@@ -1,6 +1,6 @@
 # dinhanhthi.com
 
-Next.js 15+ 🤝 Tailwind CSS v4 🤝 Notion as CMS 🤝 Custom Notion Renderer.
+Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer.
 
 🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
@@ -17,40 +17,44 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 Notion as CMS 🤝 Custom Notion Renderer.
 
 ## Dev
 
-🚨 You have to install **globally** [Nodejs >=18](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) and [Yarn](https://yarnpkg.com/) first.
+🚨 You have to install **globally** [Nodejs >=20](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) first.
 
 ```bash
 # install
-yarn
+pnpm install
 
 # dev
-yarn dev # port 3004
+pnpm run dev # port 3004
 
 # build
-yarn build
+pnpm run build
 
 # serve (need to build first)
-yarn start # port 3004
+pnpm start # port 3004
 
 # reinstall all
-yarn reinstall
+pnpm run reinstall
 
 # clean
-yarn clean
+pnpm run clean
 
 # prettier
-yarn prettier
+pnpm run prettier
 
-# clear yarn cache (helpful sometimes)
-yarn cache clean
+# clear pnpm cache (helpful sometimes)
+pnpm store prune
 ```
 
 Deploy to vercel,
 
+You have to add `ENABLE_EXPERIMENTAL_COREPACK` to `1` on Vercel.
+
 ```bash
-vercel dev # like yarn dev
+vercel dev # like pnpm run dev
 
 vercel build
+
+vercel build --prod
 
 # preview only
 vercel deploy
@@ -61,7 +65,7 @@ vercel --prod
 
 ## Vercel
 
-[Enable corepack](https://vercel.com/docs/deployments/configure-a-build#corepack) to use yarn newest version.
+The project uses pnpm as the package manager. Vercel automatically detects this via the `packageManager` field in `package.json`. No additional configuration needed.
 
 ## Troubleshooting
 
