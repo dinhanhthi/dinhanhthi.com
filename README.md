@@ -17,40 +17,42 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 Notion as CMS 🤝 Custom Notion Renderer.
 
 ## Dev
 
-🚨 You have to install **globally** [Nodejs >=18](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) and [Yarn](https://yarnpkg.com/) first.
+🚨 You have to install **globally** [Nodejs >=20](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) first.
 
 ```bash
 # install
-yarn
+npm install
 
 # dev
-yarn dev # port 3004
+npm run dev # port 3004
 
 # build
-yarn build
+npm run build
 
 # serve (need to build first)
-yarn start # port 3004
+npm start # port 3004
 
 # reinstall all
-yarn reinstall
+npm run reinstall
 
 # clean
-yarn clean
+npm run clean
 
 # prettier
-yarn prettier
+npm run prettier
 
-# clear yarn cache (helpful sometimes)
-yarn cache clean
+# clear npm cache (helpful sometimes)
+npm cache clean --force
 ```
 
 Deploy to vercel,
 
 ```bash
-vercel dev # like yarn dev
+vercel dev # like npm run dev
 
 vercel build
+
+vercel build --prod
 
 # preview only
 vercel deploy
@@ -61,7 +63,7 @@ vercel --prod
 
 ## Vercel
 
-[Enable corepack](https://vercel.com/docs/deployments/configure-a-build#corepack) to use yarn newest version.
+The project uses npm with `--legacy-peer-deps` flag (configured in `.npmrc`) for React 19 compatibility. No special configuration needed on Vercel - it will use npm by default.
 
 ## Troubleshooting
 

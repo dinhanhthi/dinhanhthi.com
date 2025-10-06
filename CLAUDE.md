@@ -5,38 +5,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Tech Stack
 
 - **Framework**: Next.js 14+ (App Router)
-- **Styling**: Tailwind CSS v3
+- **Styling**: Tailwind CSS v4
 - **CMS**: Notion (using custom Notion renderer integrated into the project)
 - **Language**: TypeScript
-- **Package Manager**: Yarn v4 (Plug'n'Play mode)
+- **Package Manager**: npm (with legacy-peer-deps)
 - **Deployment**: Vercel
 
 ## Development Commands
 
 ```bash
 # Development server (port 3004)
-yarn dev
+npm run dev
 
 # Build
-yarn build
+npm run build
 
 # Production server (port 3004)
-yarn start
+npm start
 
 # Linting
-yarn lint
+npm run lint
 
 # Format code
-yarn prettier
+npm run prettier
 
 # Clean build artifacts
-yarn clean
+npm run clean
 
 # Full rebuild
-yarn clean-build
+npm run clean-build
 
 # Reinstall dependencies
-yarn reinstall
+npm run reinstall
 ```
 
 ## Architecture Overview
@@ -117,18 +117,18 @@ Environment variables (see `example.env.local`) define:
 
 ```bash
 # Update Notion page cover images
-yarn ud-cover --pid <page-id>       # Single page
-yarn ud-cover-all                   # All pages
+npm run ud-cover --pid <page-id>    # Single page
+npm run ud-cover-all                # All pages
 
 # Update Notion page icons
-yarn ud-icon --pid <page-id>        # Single page
-yarn ud-icon-all                    # All pages
+npm run ud-icon --pid <page-id>     # Single page
+npm run ud-icon-all                 # All pages
 
 # Update images within posts
-yarn ud-images-post --pid <page-id>
+npm run ud-images-post --pid <page-id>
 
 # Update custom icon font
-yarn ud-fontello
+npm run ud-fontello
 ```
 
 ## Environment Setup
@@ -147,13 +147,14 @@ yarn ud-fontello
 
 ## Deployment Notes
 
-- Deployed on Vercel with [corepack enabled](https://vercel.com/docs/deployments/configure-a-build#corepack) for Yarn v4
+- Deployed on Vercel with npm (no Corepack needed)
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
 
 ## Important Constraints
 
-- **VSCode Yarn PnP setup**: Follow [official guide](https://yarnpkg.com/getting-started/editor-sdks#vscode) for editor SDK support
+- **Git operations**: NEVER use git commands in this project - user handles all git operations manually
 - **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy
-- **ALways run `yarn build`** to make sure the modifications are good to go.
+- **Always run `npm run build`** to make sure the modifications are good to go
+- **Package installation**: Uses `--legacy-peer-deps` flag (configured in `.npmrc`) for React 19 compatibility

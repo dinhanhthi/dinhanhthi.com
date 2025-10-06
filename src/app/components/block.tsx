@@ -645,7 +645,7 @@ export const Block: React.FC<BlockProps> = props => {
       return (
         <blockquote
           className={cn(
-            'notion-quote relative',
+            'notion-quote border-t-none border-b-none relative',
             blurBlockClassName,
             {
               [`notion-${blockColor}`]: blockColor,
