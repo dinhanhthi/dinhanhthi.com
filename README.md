@@ -1,6 +1,6 @@
 # dinhanhthi.com
 
-Next.js 15+ 🤝 Tailwind CSS v4 🤝 Notion as CMS 🤝 Custom Notion Renderer.
+Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer.
 
 🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
@@ -46,6 +46,8 @@ pnpm store prune
 ```
 
 Deploy to vercel,
+
+You have to add `ENABLE_EXPERIMENTAL_COREPACK` to `1` on Vercel.
 
 ```bash
 vercel dev # like pnpm run dev
