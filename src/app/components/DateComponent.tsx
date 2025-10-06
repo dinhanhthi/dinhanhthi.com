@@ -51,7 +51,6 @@ export default function DateComponent(props: DateProps) {
     }
 
     setHydrated(true)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (!hydrated) return <BiDotsHorizontalRounded className="animate-ping opacity-70" />
