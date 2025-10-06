@@ -155,7 +155,8 @@ export default function NavSearch() {
                             <div
                               className={cn(
                                 {
-                                  'border-b border-dashed pr-4 pb-1': item.textHighlighted
+                                  'border-b border-dashed border-slate-300 pr-4 pb-1':
+                                    item.textHighlighted
                                 },
                                 'text-[0.9rem] font-medium text-black'
                               )}

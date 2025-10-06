@@ -67,9 +67,9 @@ export default function SkeletonPost(props: SkeletonPostProps) {
       {/* Content */}
       <Container className={cn(containerNormal, bodyPadding, 'h-[400px]')}>
         <div className={cn('container mx-auto pt-4 pb-8')}>
-          <div className="mt-4 mb-2 h-5 w-100 rounded-2xl bg-slate-200"></div>
-          <div className="mb-2 h-5 w-100 rounded-2xl bg-slate-200"></div>
-          <div className="mb-2 h-5 w-100 rounded-2xl bg-slate-200"></div>
+          <div className="mt-4 mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
+          <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
+          <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
           <div className="mb-1 h-5 w-1/2 rounded-2xl bg-slate-200"></div>
         </div>
       </Container>

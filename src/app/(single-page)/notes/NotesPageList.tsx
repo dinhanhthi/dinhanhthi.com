@@ -2,7 +2,7 @@ import HeadingWithMore from '@/src/app/components/HeadingWithMore'
 import PostList from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import BlogIcon from '@/src/app/icons/BlogIcon'
-import { defaultPostTypeOpts, postBlogSimpleListClass, postSimpleListClass } from '@/src/lib/config'
+import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { Post, Tag } from '@/src/lib/types'
 import { Suspense } from 'react'
 import NoteTopicSection from './NoteTopicSection'
@@ -35,7 +35,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                   count={2}
                   postType="PostBlogSimple"
                   options={{
-                    className: postBlogSimpleListClass
+                    className: postSimpleListContainerClass
                   }}
                 />
               }
@@ -45,7 +45,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 postType="PostBlogSimple"
                 postTypeOpts={defaultPostTypeOpts}
                 options={{
-                  className: postBlogSimpleListClass
+                  className: postSimpleListContainerClass
                 }}
               />
             </Suspense>
@@ -64,7 +64,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                   count={4}
                   postType="PostSimple"
                   options={{
-                    className: postSimpleListClass
+                    className: postSimpleListContainerClass
                   }}
                 />
               }
@@ -74,7 +74,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 postType="PostSimple"
                 postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                 options={{
-                  className: postSimpleListClass
+                  className: postSimpleListContainerClass
                 }}
               />
             </Suspense>
@@ -92,7 +92,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 count={4}
                 postType="PostSimple"
                 options={{
-                  className: postSimpleListClass
+                  className: postSimpleListContainerClass
                 }}
               />
             }
@@ -102,7 +102,7 @@ export default function NotesPageList(props: NotesPageListProps) {
               postType="PostSimple"
               postTypeOpts={defaultPostTypeOpts}
               options={{
-                className: postSimpleListClass
+                className: postSimpleListContainerClass
               }}
             />
           </Suspense>

@@ -711,7 +711,7 @@ export const Block: React.FC<BlockProps> = props => {
         <div className={cn(basicBlockGapBigger, blurBlockClassName)}>
           <a
             className={cn(
-              'flex w-full gap-4 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm',
+              'flex w-full gap-4 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300',
               blurBlockClassName
             )}
             href={link[0][0]}

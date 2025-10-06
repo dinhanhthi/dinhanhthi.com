@@ -4,7 +4,7 @@ import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { defaultPostTypeOpts, numPostsToShow, postSimpleListClass } from '@/src/lib/config'
+import { defaultPostTypeOpts, numPostsToShow, postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { getFilterOf } from '@/src/lib/helpers'
 
@@ -55,7 +55,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           postType="PostSimple"
           postTypeOpts={defaultPostTypeOpts}
           options={{
-            className: postSimpleListClass
+            className: postSimpleListContainerClass
           }}
         />
       </div>

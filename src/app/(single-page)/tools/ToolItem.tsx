@@ -45,7 +45,7 @@ export default function ToolItem(props: ToolItemProps) {
       target="_blank"
       className={cn(
         className,
-        'border-slate-150 group min-h-[120px] rounded-lg border bg-white transition duration-200 ease-in-out hover:-translate-y-1'
+        'group min-h-[120px] rounded-lg border border-slate-200 bg-white transition duration-200 ease-in-out hover:-translate-y-1'
       )}
     >
       <div
@@ -198,7 +198,7 @@ const ImagePlaceholder = () => (
 
 export function SkeletonToolItem() {
   return (
-    <div className="border-slate-150 rounded-lg border bg-white p-2">
+    <div className="rounded-lg border border-slate-200 bg-white p-2">
       <div className="flex h-full flex-row">
         <div className="relative h-full w-[90px] shrink-0 overflow-hidden rounded-l-lg border-[0.5px] border-slate-100">
           <div className="relative h-full w-full overflow-hidden">

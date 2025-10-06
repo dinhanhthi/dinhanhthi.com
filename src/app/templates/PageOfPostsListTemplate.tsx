@@ -10,8 +10,7 @@ import {
   bodyPadding,
   containerWide,
   defaultPostTypeOpts,
-  postBlogSimpleListClass,
-  postSimpleListClass
+  postSimpleListContainerClass
 } from '@/src/lib/config'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -83,7 +82,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                         count={4}
                         postType="PostBlogSimple"
                         options={{
-                          className: postBlogSimpleListClass
+                          className: postSimpleListContainerClass
                         }}
                       />
                     }
@@ -93,7 +92,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postType="PostBlogSimple"
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
-                        className: postBlogSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   </Suspense>
@@ -114,7 +113,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                     postType="PostSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts, showPinned: true }}
                     options={{
-                      className: postSimpleListClass
+                      className: postSimpleListContainerClass
                     }}
                   />
                 )}
@@ -126,7 +125,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       postType={props.postType || 'PostSimple'}
                       postTypeOpts={defaultPostTypeOpts}
                       options={{
-                        className: props.postListContainerClassName || postSimpleListClass
+                        className: props.postListContainerClassName || postSimpleListContainerClass
                       }}
                     />
                   </div>
@@ -164,7 +163,7 @@ export function SkeletonPageOfPostsListTemplate(props: {
             count={props.numPosts || 4}
             postType={props.postType || 'PostSimple'}
             options={{
-              className: props.postListContainerClassName || postSimpleListClass,
+              className: props.postListContainerClassName || postSimpleListContainerClass,
               postContainerClassName: 'bg-white'
             }}
           />

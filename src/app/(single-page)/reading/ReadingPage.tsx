@@ -134,7 +134,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
               onClick={() => toggleTypeToShow(tag)}
               key={makeSlugText(tag)}
               className={cn(
-                'flex flex-row items-center gap-2 rounded-sm border px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
+                'flex flex-row items-center gap-2 rounded-sm border border-slate-200 px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
                 {
                   'hover:m2it-link-hover bg-white': !tagsToShow.includes(tag),
                   'bg-sky-600 text-white': tagsToShow.includes(tag)

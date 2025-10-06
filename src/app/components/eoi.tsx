@@ -51,7 +51,7 @@ export const EOI: React.FC<{
           <a
             className={cn(
               className,
-              'not-prose flex flex-row items-center gap-3 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm'
+              'not-prose flex flex-row items-center gap-3 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300'
             )}
             target="_blank"
             href={original_url}
@@ -71,13 +71,13 @@ export const EOI: React.FC<{
       )}
       {inline && (
         <a
-          className="not-prose group inline-flex flex-row items-baseline gap-1 px-1 hover:cursor-pointer hover:border-sky-300 hover:shadow-sm"
+          className="not-prose group inline-flex flex-row items-baseline gap-1 px-1 hover:cursor-pointer hover:border-sky-300"
           target="_blank"
           href={original_url}
           rel="noopener noreferrer"
         >
           <FaGithub className="text-[0.9em]" />
-          <div className="m2it-link group-hover:m2it-link-hover border-b border-slate-200 text-[1em] leading-[1.1]">
+          <div className="m2it-link group-hover:m2it-link-hover border-b border-slate-300 text-[1em] leading-[1.1]">
             {title}
           </div>
         </a>

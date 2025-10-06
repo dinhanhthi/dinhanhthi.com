@@ -9,8 +9,7 @@ import {
   containerWide,
   defaultBlurDataURL,
   numPostsToShow,
-  postBlogSimpleListClass,
-  postSimpleListClass
+  postSimpleListContainerClass
 } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
@@ -130,7 +129,7 @@ function SkeletonNotesPageBody() {
           count={2}
           postType="PostBlogSimple"
           options={{
-            className: postBlogSimpleListClass
+            className: postSimpleListContainerClass
           }}
         />
       </div>
@@ -147,7 +146,7 @@ function SkeletonNotesPageBody() {
               count={2}
               postType="PostSimple"
               options={{
-                className: postSimpleListClass
+                className: postSimpleListContainerClass
               }}
             />
           </div>
