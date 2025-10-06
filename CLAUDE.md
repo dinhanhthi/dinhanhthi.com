@@ -8,35 +8,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Styling**: Tailwind CSS v4
 - **CMS**: Notion (using custom Notion renderer integrated into the project)
 - **Language**: TypeScript
-- **Package Manager**: npm (with legacy-peer-deps)
+- **Package Manager**: pnpm
 - **Deployment**: Vercel
 
 ## Development Commands
 
 ```bash
 # Development server (port 3004)
-npm run dev
+pnpm run dev
 
 # Build
-npm run build
+pnpm run build
 
 # Production server (port 3004)
-npm start
+pnpm start
 
 # Linting
-npm run lint
+pnpm run lint
 
 # Format code
-npm run prettier
+pnpm run prettier
 
 # Clean build artifacts
-npm run clean
+pnpm run clean
 
 # Full rebuild
-npm run clean-build
+pnpm run clean-build
 
 # Reinstall dependencies
-npm run reinstall
+pnpm run reinstall
 ```
 
 ## Architecture Overview
@@ -117,18 +117,18 @@ Environment variables (see `example.env.local`) define:
 
 ```bash
 # Update Notion page cover images
-npm run ud-cover --pid <page-id>    # Single page
-npm run ud-cover-all                # All pages
+pnpm run ud-cover --pid <page-id>    # Single page
+pnpm run ud-cover-all                # All pages
 
 # Update Notion page icons
-npm run ud-icon --pid <page-id>     # Single page
-npm run ud-icon-all                 # All pages
+pnpm run ud-icon --pid <page-id>     # Single page
+pnpm run ud-icon-all                 # All pages
 
 # Update images within posts
-npm run ud-images-post --pid <page-id>
+pnpm run ud-images-post --pid <page-id>
 
 # Update custom icon font
-npm run ud-fontello
+pnpm run ud-fontello
 ```
 
 ## Environment Setup
@@ -147,7 +147,7 @@ npm run ud-fontello
 
 ## Deployment Notes
 
-- Deployed on Vercel with npm (no Corepack needed)
+- Deployed on Vercel with pnpm (automatically detected via `packageManager` field)
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
@@ -156,5 +156,4 @@ npm run ud-fontello
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
 - **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy
-- **Always run `npm run build`** to make sure the modifications are good to go
-- **Package installation**: Uses `--legacy-peer-deps` flag (configured in `.npmrc`) for React 19 compatibility
+- **Always run `pnpm run build`** to make sure the modifications are good to go
