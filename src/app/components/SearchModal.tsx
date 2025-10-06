@@ -57,7 +57,6 @@ export default function SearchModal(props: SearchModalProps) {
 
   if (error) console.log('🐞 Error in search modal: ', error)
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearch = useCallback(
     debounce(value => triggerSearch(value), 1000),
     [queryToSearch]

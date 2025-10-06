@@ -58,7 +58,6 @@ export const PageAside: React.FC<{
 
         setActiveSection(currentSectionId)
       }, throttleMs),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       // explicitly not taking a dependency on activeSection
       setActiveSection
