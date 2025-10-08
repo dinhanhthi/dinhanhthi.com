@@ -1,23 +1,22 @@
 import NotesIcon from '@/public/notes.svg'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
+import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
-import Container from '../../components/Container'
-import Footer from '../../components/Footer'
-import HeaderPage from '../../components/HeaderPage'
-import NotesToc from '../../components/NotesToc'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import {
   bodyPadding,
   containerWide,
   defaultBlurDataURL,
   numPostsToShow,
-  postBlogSimpleListClass,
-  postSimpleListClass
-} from '../../lib/config'
-import { getPosts, getTopics } from '../../lib/fetcher'
-import { filterDupLangPosts, getMetadata } from '../../lib/helpers'
+  postSimpleListContainerClass
+} from '@/src/lib/config'
+import { getPosts, getTopics } from '@/src/lib/fetcher'
+import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import Container from '../../components/Container'
+import Footer from '../../components/Footer'
+import HeaderPage from '../../components/HeaderPage'
+import NotesToc from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
 
 export const revalidate = 20
@@ -91,7 +90,7 @@ export default async function NotesHomePage() {
         iconClassName="h-12 w-12"
       />
       <Container className={cn(bodyPadding, containerWide)}>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col gap-8 md:flex-row">
           <Suspense fallback={<SkeletonNotesPageBody />}>
             <NotesPageList
               blogPosts={blogPosts}
@@ -104,7 +103,7 @@ export default async function NotesHomePage() {
 
           <NotesToc
             className={
-              'order-1 md:order-2 md:sticky top-[70px] h-fit md:h-[calc(100vh-110px)] md:w-fit w-full'
+              'top-[70px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
             }
             tags={pinnedTagsSorted}
             hidePinnedTags={pinnedPosts.length === 0}
@@ -119,18 +118,18 @@ export default async function NotesHomePage() {
 
 function SkeletonNotesPageBody() {
   return (
-    <div className="flex-1 flex flex-col gap-12">
+    <div className="flex flex-1 flex-col gap-12">
       {/* Blog posts */}
       <div className="flex flex-col gap-4">
-        <div className="flex gap-2 items-center animate-pulse">
+        <div className="flex animate-pulse items-center gap-2">
           <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-          <div className="h-[26px] bg-slate-200 w-[250px] rounded-2xl"></div>
+          <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
         </div>
         <SkeletonPostList
           count={2}
           postType="PostBlogSimple"
           options={{
-            className: postBlogSimpleListClass
+            className: postSimpleListContainerClass
           }}
         />
       </div>
@@ -138,16 +137,16 @@ function SkeletonNotesPageBody() {
       {/* Notes */}
       {Array.from({ length: 3 }).map((_, i) => (
         <div key={i} className="flex flex-col gap-4">
-          <div className="flex gap-2 items-center animate-pulse">
+          <div className="flex animate-pulse items-center gap-2">
             <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-            <div className="h-[26px] bg-slate-200 w-[250px] rounded-2xl"></div>
+            <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
           </div>
-          <div className="thi-box-code overflow-hidden flex-1">
+          <div className="thi-box-code flex-1 overflow-hidden">
             <SkeletonPostList
               count={2}
               postType="PostSimple"
               options={{
-                className: postSimpleListClass
+                className: postSimpleListContainerClass
               }}
             />
           </div>

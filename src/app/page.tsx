@@ -1,29 +1,28 @@
-import HeadingWithMore from '@notion-x/src/components/HeadingWithMore'
-import PostList from '@notion-x/src/components/PostsList'
-import SkeletonPostList from '@notion-x/src/components/SkeletonPostList'
+import HeadingWithMore from '@/src/app/components/HeadingWithMore'
+import PostList from '@/src/app/components/PostsList'
+import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
-import me from '../data/me'
-import { Book } from '../interface'
-import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
-import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
-import Container from './components/Container'
-import Footer from './components/Footer'
-import HeaderIndex from './components/HeaderIndex'
-import Topic from './components/Topic'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
 import {
   bodyPadding,
   containerWide,
   defaultBlurDataURL,
   defaultPostTypeOpts,
   numPostsToShow,
-  postBlogSimpleListClass,
-  postSimpleListClass
-} from './lib/config'
-import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from './lib/fetcher'
-import { filterDupLangPosts, getMetadata } from './lib/helpers'
+  postSimpleListContainerClass
+} from '@/src/lib/config'
+import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
+import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { Book } from '@/src/lib/types'
+import me from '../data/me'
+import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
+import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
+import Container from './components/Container'
+import Footer from './components/Footer'
+import HeaderIndex from './components/HeaderIndex'
+import Topic from './components/Topic'
 
 export const revalidate = 20
 
@@ -131,7 +130,7 @@ export default async function Home() {
                         count={6}
                         postType="PostSimple"
                         options={{
-                          className: postSimpleListClass
+                          className: postSimpleListContainerClass
                         }}
                       />
                     }
@@ -144,7 +143,7 @@ export default async function Home() {
                         showPinned: true
                       }}
                       options={{
-                        className: postSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   </Suspense>
@@ -159,7 +158,7 @@ export default async function Home() {
                       count={8}
                       postType="PostSimple"
                       options={{
-                        className: postSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   }
@@ -169,7 +168,7 @@ export default async function Home() {
                     postType="PostSimple"
                     postTypeOpts={defaultPostTypeOpts}
                     options={{
-                      className: postSimpleListClass
+                      className: postSimpleListContainerClass
                     }}
                   />
                 </Suspense>
@@ -191,7 +190,7 @@ export default async function Home() {
                       count={2}
                       postType="PostBlogSimple"
                       options={{
-                        className: postBlogSimpleListClass
+                        className: postSimpleListContainerClass
                       }}
                     />
                   }
@@ -201,7 +200,7 @@ export default async function Home() {
                     postType="PostBlogSimple"
                     postTypeOpts={{ ...defaultPostTypeOpts }}
                     options={{
-                      className: postBlogSimpleListClass
+                      className: postSimpleListContainerClass
                     }}
                   />
                 </Suspense>
@@ -226,14 +225,14 @@ export default async function Home() {
               title="My reading list"
               href={tools.length >= numTools ? '/reading/' : undefined}
             />
-            <div className="w-full flex flex-col gap-3">
+            <div className="flex w-full flex-col gap-3">
               {/* <div className="italic text-[0.95rem] text-slate-700">
                 Read more:{' '}
                 <Link className="m2it-link" href="/note/my-taste-of-reading/">
                   My taste of reading.
                 </Link>
               </div> */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {books.slice(0, numBooks).map((book: Book) => (
                   <Suspense key={book.id} fallback={<SkeletonToolItem />}>
                     <ToolItem

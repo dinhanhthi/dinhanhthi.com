@@ -1,10 +1,10 @@
-import SkeletonPostHeaderTopics from '@notion-x/src/components/SkeletonPostHeaderTopics'
-import AiOutlineClockCircle from '@notion-x/src/icons/AiOutlineClockCircle'
-import RiUser3Line from '@notion-x/src/icons/RiUser3Line'
+import SkeletonPostHeaderTopics from '@/src/app/components/skeleton/SkeletonPostHeaderTopics'
+import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
+import RiUser3Line from '@/src/app/icons/RiUser3Line'
 import cn from 'classnames'
 
+import { bodyPadding, containerNormal } from '@/src/lib/config'
 import MdEditNote from '../../icons/MdEditNote'
-import { bodyPadding, containerNormal } from '../../lib/config'
 import Container from '../Container'
 import Footer from '../Footer'
 import Header from '../Header'
@@ -37,7 +37,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
           headerType={'white'}
           headerWidth="normal"
         >
-          <div className="py-8 flex flex-col gap-4 w-full items-center sm:items-start">
+          <div className="flex w-full flex-col items-center gap-4 py-8 sm:items-start">
             {/* Icon (mobile) */}
             <div className="h-8 w-8 rounded-full bg-slate-200 sm:hidden"></div>
 
@@ -51,7 +51,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
                   <RiUser3Line className="text-slate-400" />
                   <div className="h-5 w-16 rounded-2xl bg-slate-200"></div>
                 </div>
-                <MdEditNote className={cn('text-[#dadada] inline-block text-[1.3rem] mt-[-3px]')} />
+                <MdEditNote className={cn('mt-[-3px] inline-block text-[1.3rem] text-[#dadada]')} />
                 <div className="flex items-center gap-1">
                   <AiOutlineClockCircle className="text-slate-400" />
                   <div className="h-5 w-28 rounded-2xl bg-slate-200"></div>
@@ -60,16 +60,16 @@ export default function SkeletonPost(props: SkeletonPostProps) {
             )}
 
             {/* Tags */}
-            {!props.hideTags && <SkeletonPostHeaderTopics className="pb-2 pt-0" />}
+            {!props.hideTags && <SkeletonPostHeaderTopics className="pt-0 pb-2" />}
           </div>
         </Header>
       </div>
       {/* Content */}
       <Container className={cn(containerNormal, bodyPadding, 'h-[400px]')}>
-        <div className={cn('mx-auto container pb-8 pt-4')}>
-          <div className="w-100 mt-4 mb-2 h-5 rounded-2xl bg-slate-200"></div>
-          <div className="w-100 mb-2 h-5 rounded-2xl bg-slate-200"></div>
-          <div className="w-100 mb-2 h-5 rounded-2xl bg-slate-200"></div>
+        <div className={cn('container mx-auto pt-4 pb-8')}>
+          <div className="mt-4 mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
+          <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
+          <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
           <div className="mb-1 h-5 w-1/2 rounded-2xl bg-slate-200"></div>
         </div>
       </Container>

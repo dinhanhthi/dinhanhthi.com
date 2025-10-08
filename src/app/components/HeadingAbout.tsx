@@ -1,5 +1,5 @@
-import ImageComponent from '@notion-x/src/components/ImageComponent'
-import { ImageType } from '@notion-x/src/interface'
+import ImageComponent from '@/src/app/components/ImageComponent'
+import { ImageType } from '@/src/lib/types'
 import cn from 'classnames'
 
 type HeadingAboutProps = {
@@ -15,7 +15,7 @@ export default function HeadingAbout(props: HeadingAboutProps) {
   return (
     <div
       className={cn(
-        `relative mb-2 inline-block after:absolute after:-bottom-0 after:-right-2 after:h-3 after:w-7 after:bg-repeating-dots after:bg-[length:4px_4px] after:opacity-40 text-2xl`,
+        `after:bg-repeating-dots relative mb-2 inline-block text-2xl after:absolute after:-right-2 after:-bottom-0 after:h-3 after:w-7 after:bg-[length:4px_4px] after:opacity-40`,
         props.className
       )}
     >
@@ -32,7 +32,7 @@ export default function HeadingAbout(props: HeadingAboutProps) {
         )}
         <h2
           id={props.headingId}
-          className={cn('text-slate-800 font-heading font-semibold', props.headingClassName)}
+          className={cn('font-heading font-semibold text-slate-800', props.headingClassName)}
         >
           {props.children}
         </h2>

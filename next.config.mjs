@@ -1,14 +1,8 @@
 const nextConfig = {
   // output: 'export',
-  trailingSlash: true, // use "/about/" instead of "/about" (not supported yet by --turbo)
+  trailingSlash: true, // use "/about/" instead of "/about"
   poweredByHeader: false, // remove "Powered by Next.js" from the header
   // transpilePackages: ['react-syntax-highlighter'],
-  experimental: {
-    scrollRestoration: true // not supported yet by --turbo,
-    // esmExternals: false
-    // serverActions: true
-    // esmExternals: 'loose' // https://nextjs.org/docs/messages/import-esm-externals
-  },
   staticPageGenerationTimeout: 180, // seconds
   modularizeImports: {
     lodash: {

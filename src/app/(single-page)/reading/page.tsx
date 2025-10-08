@@ -2,14 +2,14 @@ import ReadingIcon from '@/public/reading.svg'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@notion-x/src/components/ScrollToTop'
-import { Book } from '../../../interface'
+import ScrollToTop from '@/src/app/components/ScrollToTop'
+import { bodyPadding, containerWide } from '@/src/lib/config'
+import { getUnofficialBooks } from '@/src/lib/fetcher'
+import { getMetadata } from '@/src/lib/helpers'
+import { Book } from '@/src/lib/types'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
-import { bodyPadding, containerWide } from '../../lib/config'
-import { getUnofficialBooks } from '../../lib/fetcher'
-import { getMetadata } from '../../lib/helpers'
 import { SkeletonToolItem } from '../tools/ToolItem'
 import ReadingPage from './ReadingPage'
 
@@ -50,7 +50,7 @@ export default async function ReadingHomePage() {
         iconClassName="h-12 w-12"
         number={books.length}
       />
-      <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonReadingContainer />}>
           <ReadingPage books={books} tags={tags} />
         </Suspense>
@@ -64,10 +64,10 @@ export default async function ReadingHomePage() {
 function SkeletonReadingContainer() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center gap-x-4 gap-y-2 flex-wrap justify-center sm:justify-start">
+      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-start">
         <div className="flex gap-x-2 gap-y-3">
           {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="h-6 w-20 bg-white rounded-md animate-pulse"></div>
+            <div key={i} className="h-6 w-20 animate-pulse rounded-md bg-white"></div>
           ))}
         </div>
       </div>
