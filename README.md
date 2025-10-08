@@ -68,5 +68,3 @@ vercel --prod
 The project uses pnpm as the package manager. Vercel automatically detects this via the `packageManager` field in `package.json`. No additional configuration needed.
 
 ## Troubleshooting
-
-- Problem with search? Check and update `NOTION_TOKEN_V2`. Don't forget to re-deploy on Vercel.

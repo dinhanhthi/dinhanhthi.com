@@ -22,24 +22,13 @@ export async function getUnofficialDatabaseImpl(opts: {
   spaceId?: string
   sourceId?: string
   collectionViewId?: string
-  notionTokenV2?: string
-  notionActiveUser?: string
   notionApiWeb?: string
 }): Promise<CollectionInstance> {
-  const { spaceId, sourceId, collectionViewId, notionTokenV2, notionActiveUser, notionApiWeb } =
-    opts
+  const { spaceId, sourceId, collectionViewId, notionApiWeb } = opts
   if (!spaceId) throw new Error('spaceId is not defined')
   if (!sourceId) throw new Error('sourceId is not defined')
   if (!collectionViewId) throw new Error('collectionViewId is not defined')
-  if (!notionTokenV2) throw new Error('notionTokenV2 is not defined')
-  if (!notionActiveUser) throw new Error('notionActiveUser is not defined')
   if (!notionApiWeb) throw new Error('notionApiWeb is not defined')
-
-  const headers: any = {
-    'Content-Type': 'application/json',
-    cookie: `token_v2=${notionTokenV2}`,
-    'x-notion-active-user-header': notionActiveUser
-  }
 
   const body = {
     collectionView: {
@@ -52,11 +41,6 @@ export async function getUnofficialDatabaseImpl(opts: {
       spaceId
     },
     loader: {
-      filter: {
-        operator: 'and',
-        filters: []
-      },
-      type: 'reducer',
       reducers: {
         collection_group_results: {
           type: 'results',
@@ -69,8 +53,7 @@ export async function getUnofficialDatabaseImpl(opts: {
             aggregator: 'count'
           }
         }
-      },
-      sort: []
+      }
     }
   }
 
@@ -78,7 +61,9 @@ export async function getUnofficialDatabaseImpl(opts: {
 
   return await fetch(url, {
     method: 'POST',
-    headers,
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(body)
   }).then(res => res.json())
 }
@@ -252,37 +237,27 @@ export const retrieveBlockChildren = async (
 }
 
 export async function getCustomEmojiBlock(opts: {
+  pageWithDash?: string
   customEmojiId?: string
   apiUrl?: string
-  tokenV2?: string
-  activeUser?: string
 }) {
-  const { customEmojiId, apiUrl, tokenV2, activeUser } = opts
+  const { pageWithDash, customEmojiId, apiUrl } = opts
 
+  if (!pageWithDash) throw new Error('pageWithDash is not defined')
   if (!customEmojiId) throw new Error('customEmojiId is not defined')
   if (!apiUrl) throw new Error('apiUrl is not defined')
-  if (!tokenV2) throw new Error('tokenV2 is not defined')
-  if (!activeUser) throw new Error('activeUser is not defined')
 
   try {
     const headers: any = {
-      'Content-Type': 'application/json',
-      cookie: `token_v2=${tokenV2}`,
-      'x-notion-active-user-header': activeUser
+      'Content-Type': 'application/json'
     }
     const body = {
-      requests: [
-        {
-          pointer: {
-            table: 'custom_emoji',
-            id: customEmojiId,
-            spaceId: process.env.SPACE_ID
-          },
-          version: -1
-        }
-      ]
+      page: {
+        id: pageWithDash
+      },
+      verticalColumns: false
     }
-    const data = await fetch(`${apiUrl}/syncRecordValuesSpace`, {
+    const data = await fetch(`${apiUrl}/loadCachedPageChunkV2`, {
       method: 'POST',
       headers,
       body: JSON.stringify(body)

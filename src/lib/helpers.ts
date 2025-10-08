@@ -509,6 +509,11 @@ export function filterDupLangPosts(posts: Post[]): Post[] {
 // File I/O Utilities
 // ============================================================================
 
+/**
+ * Just input the file name (with extension), this file will be saved to Downloads folder!
+ * @param obj
+ * @param filename
+ */
 export async function saveObjectToFile(obj: any, filename: string): Promise<void> {
   const downloadsPath = path.join(process.env.HOME!, 'Downloads', filename)
   fs.writeFileSync(downloadsPath, JSON.stringify(obj, null, 2))
