@@ -2,9 +2,9 @@
 import cn from 'classnames'
 import Link from 'next/link'
 
+import { containerNormal } from '@/src/lib/config'
+import { generateMetaTitle } from '@/src/lib/helpers'
 import Container from './components/Container'
-import { containerNormal } from './lib/config'
-import { generateMetaTitle } from './lib/helpers'
 
 export const metadata = {
   title: generateMetaTitle('Page not found!'),
@@ -22,13 +22,13 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <Container className={cn('h-screen', containerNormal)}>
-      <div className="flex flex-col gap-6 items-center justify-center w-full h-full">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-6">
         <h1 className="text-3xl text-slate-800">
           Page not found <span className="text-pink-700">but it may be my fault</span>!
         </h1>
-        <div className="text-lg text-slate-800 flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-lg text-slate-800">
           <div className="flex items-baseline gap-2">
-            <div className="bg-pink-700 text-white p-2 rounded-full w-6 h-6 flex shrink-0 items-center justify-center">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
               1
             </div>
             <div>
@@ -37,7 +37,7 @@ export default function NotFoundPage() {
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="bg-pink-700 text-white p-2 rounded-full w-6 h-6 flex shrink-0 items-center justify-center">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
               2
             </div>
             <div>
@@ -47,7 +47,7 @@ export default function NotFoundPage() {
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="bg-pink-700 text-white p-2 rounded-full w-6 h-6 flex shrink-0 items-center justify-center">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
               3
             </div>
             <div>
@@ -55,7 +55,7 @@ export default function NotFoundPage() {
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="bg-pink-700 text-white p-2 rounded-full w-6 h-6 flex shrink-0 items-center justify-center">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
               4
             </div>
             <div>

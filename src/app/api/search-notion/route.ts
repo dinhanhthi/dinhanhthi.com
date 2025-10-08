@@ -1,6 +1,6 @@
-import { SearchResult } from '@notion-x/src/interface'
-import { searchNotionPersonal } from '@notion-x/src/lib/db'
-import { makeSlugText } from '@notion-x/src/lib/helpers'
+import { makeSlugText } from '@/src/lib/helpers'
+import { searchNotionPersonal } from '@/src/lib/notion/db'
+import { SearchResult } from '@/src/lib/types'
 
 const UNOFFICIAL_NOTION_KEYS = {
   slug: process.env.NEXT_PUBLIC_ID_SLUG as string,
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
   const results = await searchNotionPersonal(
     searchParams,
-    process.env.NOTION_API_PERSONAL as string,
+    process.env.NOTION_API_PUBLISHED as string,
     process.env.NOTION_DB_POSTS as string
   )
   const postResults = parseSearchResults(results)

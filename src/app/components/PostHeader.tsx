@@ -1,15 +1,15 @@
 'use client'
 
-import PostHeaderTopics from '@notion-x/src/components/PostHeaderTopics'
-import SimpleImage from '@notion-x/src/components/SimpleImage'
-import { ImagePlaceholderPostHeader } from '@notion-x/src/components/image-placeholders'
-import { PageIcon } from '@notion-x/src/components/page-icon'
-import { Text } from '@notion-x/src/components/text'
-import AiOutlineClockCircle from '@notion-x/src/icons/AiOutlineClockCircle'
-import HiMiniCheckBadge from '@notion-x/src/icons/HiMiniCheckBadge'
-import RiUser3Line from '@notion-x/src/icons/RiUser3Line'
-import { useNotionContext } from '@notion-x/src/lib/context'
-import { usePostDateStatus } from '@notion-x/src/lib/hooks'
+import PostHeaderTopics from '@/src/app/components/PostHeaderTopics'
+import SimpleImage from '@/src/app/components/SimpleImage'
+import { ImagePlaceholderPostHeader } from '@/src/app/components/image-placeholders'
+import { PageIcon } from '@/src/app/components/page-icon'
+import { Text } from '@/src/app/components/text'
+import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
+import HiMiniCheckBadge from '@/src/app/icons/HiMiniCheckBadge'
+import RiUser3Line from '@/src/app/icons/RiUser3Line'
+import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
+import { useNotionContext } from '@/src/lib/notion/context'
 import cn from 'classnames'
 import { get } from 'lodash'
 import dynamic from 'next/dynamic'
@@ -20,17 +20,17 @@ import { Suspense } from 'react'
 import FR from '@/public/lang/fr.svg'
 import EN from '@/public/lang/us.svg'
 import VN from '@/public/lang/vn.svg'
-import TooltipX from '@notion-x/src/components/tooltip-x'
+import TooltipX from '@/src/app/components/tooltip-x'
+import { defaultPostTypeOpts } from '@/src/lib/config'
+import { quicksand } from '@/src/lib/fonts'
+import { getUri } from '@/src/lib/helpers'
+import { Post } from '@/src/lib/types'
 import me from '../../data/me'
-import { exPost } from '../../interface'
 import MdEditNote from '../icons/MdEditNote'
-import { defaultPostTypeOpts } from '../lib/config'
-import { quicksand } from '../lib/fonts'
-import { getUri } from '../lib/helpers'
 import BadgeLanguage from './BadgeLanguage'
 import Header from './Header'
 
-const DateComponent = dynamic(() => import('@notion-x/src/components/DateComponent'), {
+const DateComponent = dynamic(() => import('@/src/app/components/DateComponent'), {
   ssr: false,
   loading: () => <div className="h-4 w-36 animate-pulse rounded-md bg-slate-200" />
 })
@@ -40,7 +40,7 @@ export const gapHeaderItems = 'mb-3'
 
 type PostHeaderProps = {
   recordMap: ExtendedRecordMap
-  postProps: exPost
+  postProps: Post
   hideMeta?: boolean
   discreteStyle?: boolean
 }
@@ -122,7 +122,7 @@ export default function PostHeader(props: PostHeaderProps) {
             {/* Title */}
             <h1
               className={cn(
-                'thi-text-rainbow inline items-baseline gap-2 text-center text-2xl font-bold leading-tight sm:text-3xl md:text-left',
+                'thi-text-rainbow inline items-baseline gap-2 text-center text-2xl leading-tight font-bold sm:text-3xl md:text-left',
                 quicksand.className
               )}
             >
@@ -163,7 +163,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
               {/* draft */}
               {isDraft && (
-                <div className="whitespace-nowrap rounded-xl bg-slate-100 px-3 py-0.5 text-[0.8rem] text-slate-700">
+                <div className="rounded-xl bg-slate-100 px-3 py-0.5 text-[0.8rem] whitespace-nowrap text-slate-700">
                   draft
                 </div>
               )}
@@ -174,7 +174,7 @@ export default function PostHeader(props: PostHeaderProps) {
                   {['updated', 'updatedWithin'].includes(status) && (
                     <div
                       className={cn(
-                        'items-start whitespace-nowrap rounded-xl px-3 py-0.5 text-sm',
+                        'items-start rounded-xl px-3 py-0.5 text-sm whitespace-nowrap',
                         {
                           'bg-slate-100 text-slate-700': status === 'updated',
                           'bg-green-200 text-green-900': status === 'updatedWithin'
@@ -192,7 +192,7 @@ export default function PostHeader(props: PostHeaderProps) {
 
                   {/* New */}
                   {status === 'new' && (
-                    <div className="whitespace-nowrap rounded-xl bg-amber-200 px-3 py-0.5 text-[0.8rem] text-amber-900">
+                    <div className="rounded-xl bg-amber-200 px-3 py-0.5 text-[0.8rem] whitespace-nowrap text-amber-900">
                       new
                     </div>
                   )}

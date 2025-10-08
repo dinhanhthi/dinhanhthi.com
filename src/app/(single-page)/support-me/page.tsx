@@ -1,8 +1,8 @@
-import { notionX } from '@notion-x/src/lib/notionx'
+import { notionX } from '@/src/lib/notion/notionx'
 import { notFound } from 'next/navigation'
 import { parsePageId } from 'notion-utils'
 
-import { getMetadata, transformUnofficialPostProps } from '../../lib/helpers'
+import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 import SinglePostTemplate from '../../templates/SinglePostTemplate'
 
 export const revalidate = 20

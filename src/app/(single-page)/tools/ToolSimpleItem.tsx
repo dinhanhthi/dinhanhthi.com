@@ -1,10 +1,10 @@
 'use client'
 
-import SimpleImage from '@notion-x/src/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
-import { defaultMapImageUrl } from '@notion-x/src/lib/utils'
+import SimpleImage from '@/src/app/components/SimpleImage'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
+import { defaultMapImageUrl } from '@/src/lib/notion/utils'
+import { Tool } from '@/src/lib/types'
 import { useEffect, useState } from 'react'
-import { Tool } from '../../../interface'
 
 type ToolSimpleItemProps = {
   tool: Tool
@@ -32,48 +32,48 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
       href={tool.url}
       key={tool.url}
       target="_blank"
-      className="flex flex-row items-center p-4 gap-4 hover:bg-slate-100 rounded-lg"
+      className="flex flex-row items-center gap-4 rounded-lg p-4 hover:bg-slate-100"
     >
       <SimpleImage
         src={convertedIconUrl}
         width={30}
         height={30}
-        className="rounded-md h-auto z-20"
+        className="z-20 h-auto rounded-md"
         imagePlaceholder={ImagePlaceholder()}
       />
       <div className="flex flex-col gap-1">
         <div className="font-normal">
-          <span className="font-medium text-[0.95rem] text-slate-800">{tool.name}</span>
+          <span className="text-[0.95rem] font-medium text-slate-800">{tool.name}</span>
           {/* NEW */}
           {isNew && (
-            <span className="align-middle ml-2 inline bg-amber-200 text-amber-900 px-2 py-0 text-[0.75rem] rounded-md whitespace-nowrap mr-1">
+            <span className="mr-1 ml-2 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
               new
             </span>
           )}
         </div>
-        <div className="text-slate-500 text-[0.9rem]">{tool.shortDescription}</div>
+        <div className="text-[0.9rem] text-slate-500">{tool.shortDescription}</div>
       </div>
     </a>
   )
 }
 
 const ImagePlaceholder = () => (
-  <div className="flex items-center justify-center h-full">
+  <div className="flex h-full items-center justify-center">
     <div
       style={{ width: 30, height: 30 }}
-      className="flex items-center justify-center m-auto rounded-full animate-pulse"
+      className="m-auto flex animate-pulse items-center justify-center rounded-full"
     >
-      <AiOutlineLoading3Quarters className="text-[25px] text-slate-600 animate-spin" />
+      <AiOutlineLoading3Quarters className="animate-spin text-[25px] text-slate-600" />
     </div>
   </div>
 )
 
 export const SkeletonToolSimpleItem = () => (
-  <div className="flex flex-row items-center p-4 gap-4 rounded-lg text-[0.9rem]">
-    <div className="w-8 h-8 bg-slate-200 rounded-md animate-pulse"></div>
+  <div className="flex flex-row items-center gap-4 rounded-lg p-4 text-[0.9rem]">
+    <div className="h-8 w-8 animate-pulse rounded-md bg-slate-200"></div>
     <div className="flex flex-col gap-2">
-      <div className="w-40 h-3 bg-slate-200 rounded-md animate-pulse"></div>
-      <div className="w-64 h-3 bg-slate-200 rounded-md animate-pulse"></div>
+      <div className="h-3 w-40 animate-pulse rounded-md bg-slate-200"></div>
+      <div className="h-3 w-64 animate-pulse rounded-md bg-slate-200"></div>
     </div>
   </div>
 )

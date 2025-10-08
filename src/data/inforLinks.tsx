@@ -1,4 +1,4 @@
-import { BadgeInfosProps } from '@notion-x/src/components/BadgeInfos'
+import { BadgeInfosProps } from '@/src/app/components/BadgeInfos'
 import cn from 'classnames'
 
 import me from './me'
@@ -10,7 +10,7 @@ export const inforLinks: BadgeInfosProps[] = [
     title: 'Contact',
     external: true,
     className: cn(
-      'px-7 md:shadow-sky-100 font-normal bg-sky-500 border-none hover:bg-sky-600 text-white'
+      'border-none bg-sky-500 px-7 font-normal text-white hover:bg-sky-600 md:shadow-sky-100'
     ),
     targetSelf: true
   },

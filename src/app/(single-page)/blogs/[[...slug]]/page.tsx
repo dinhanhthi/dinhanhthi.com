@@ -1,10 +1,10 @@
 import BlogsIcon from '@/public/blogs.svg'
-import { OptionalCatchAllParams, OptionalCatchAllProps } from '@notion-x/src/interface'
+import { postSimpleListContainerClass } from '@/src/lib/config'
+import { getPosts } from '@/src/lib/fetcher'
+import { filterDupLangPosts } from '@/src/lib/helpers'
+import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import { postBlogSimpleListClass } from '../../../lib/config'
-import { getPosts } from '../../../lib/fetcher'
-import { filterDupLangPosts } from '../../../lib/helpers'
 import PageOfPostsListTemplate, {
   PageOfPostsListTemplateProps
 } from '../../../templates/PageOfPostsListTemplate'
@@ -17,7 +17,8 @@ const description =
   'A list of blog posts that I have written. These blogs are not personal notes, but rather intended for you, the reader.'
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
-  const currentPage = +(params?.slug?.[1] || 1)
+  const resolvedParams = await params
+  const currentPage = +(resolvedParams?.slug?.[1] || 1)
   const title = currentPage === 1 ? 'Blog posts' : `Blog posts - page ${currentPage}`
   return {
     title,
@@ -48,19 +49,20 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
-  const currentPage = +(params?.slug?.[1] || 1)
+  const resolvedParams = await params
+  const currentPage = +(resolvedParams?.slug?.[1] || 1)
 
   if (
-    !params ||
-    (params.slug?.length > 0 && params.slug?.[0] !== 'page') ||
-    params.slug?.length > 2
+    !resolvedParams ||
+    (resolvedParams.slug?.length > 0 && resolvedParams.slug?.[0] !== 'page') ||
+    resolvedParams.slug?.length > 2
   ) {
     notFound()
   }
 
   console.log(`\n👉 uri: /blogs/page/${currentPage}/`)
 
-  const notRootPage = !!params.slug
+  const notRootPage = !!resolvedParams.slug
 
   const _allBlogs = await getPosts({
     filter: {
@@ -101,7 +103,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       totalPages={totalPages}
       currentPage={currentPage}
       postType="PostBlogSimple"
-      postListContainerClassName={postBlogSimpleListClass}
+      postListContainerClassName={postSimpleListContainerClass}
     />
   )
 }

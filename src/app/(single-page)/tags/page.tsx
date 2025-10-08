@@ -1,16 +1,16 @@
 import TopicIcon from '@/public/topics.svg'
-import AiOutlineLoading3Quarters from '@notion-x/src/icons/AiOutlineLoading3Quarters'
-import { Tag } from '@notion-x/src/interface'
+import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
+import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
+import { bodyPadding, containerWide, defaultBlurDataURL } from '@/src/lib/config'
+import { getTopics } from '@/src/lib/fetcher'
+import { getMetadata } from '@/src/lib/helpers'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
-import { bodyPadding, containerWide, defaultBlurDataURL } from '../../lib/config'
-import { getTopics } from '../../lib/fetcher'
-import { getMetadata } from '../../lib/helpers'
 
 export const revalidate = 20
 
@@ -39,10 +39,10 @@ export default async function TagsHomePage() {
     return (
       <div
         className={cn(
-          'bg-gray-400 items-center justify-center flex flex-col h-[30px] w-[30px] rounded-full'
+          'flex h-[30px] w-[30px] flex-col items-center justify-center rounded-full bg-gray-400'
         )}
       >
-        <AiOutlineLoading3Quarters className="text-[30px] text-white animate-spin" />
+        <AiOutlineLoading3Quarters className="animate-spin text-[30px] text-white" />
       </div>
     )
   }
@@ -59,7 +59,7 @@ export default async function TagsHomePage() {
         iconClassName="h-12 w-12"
         number={tags.length}
       />
-      <Container className={cn('basis-auto grow shrink-0', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
         <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>
           {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
           {tags.length > 0 && (
@@ -85,7 +85,7 @@ function SkeletonTags(props: { className?: string }) {
   return (
     <div className={props.className}>
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="thi-box-code w-full h-[62px] animate-pulse bg-white"></div>
+        <div key={i} className="thi-box-code h-[62px] w-full animate-pulse bg-white"></div>
       ))}
     </div>
   )

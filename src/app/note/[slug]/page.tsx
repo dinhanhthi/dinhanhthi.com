@@ -1,18 +1,19 @@
-import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/app/lib/fetcher'
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
-import { DynamicSegmentParamsProps } from '@notion-x/src/interface'
-import { getJoinedRichText } from '@notion-x/src/lib/helpers'
+import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
+import { getJoinedRichText } from '@/src/lib/helpers'
+import { DynamicSegmentParamsProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import { getPage } from '@notion-x/src/lib/notionx'
-import { getMetadata, transformUnofficialPostProps } from '../../lib/helpers'
+import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
+import { getPage } from '@/src/lib/notion/notionx'
 import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
 export const revalidate = 20
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
-  const slug = params.slug || ''
+  const resolvedParams = await params
+  const slug = resolvedParams.slug || ''
   const untitled = 'Unknown note | Site of Thi'
   if (!slug) return { title: untitled }
   const allPosts = await getUnofficialPosts()
@@ -36,7 +37,8 @@ export async function generateStaticParams() {
 }
 
 export default async function SingleNotePage({ params }: DynamicSegmentParamsProps) {
-  const slug = params.slug || ''
+  const resolvedParams = await params
+  const slug = resolvedParams.slug || ''
   console.debug(`\n👉 slug:  ${slug}`)
   if (!slug) notFound()
 
@@ -49,7 +51,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
-    // saveObjectToFile(recordMap, 'output.txt').catch(console.error);
+    // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
 
     const id = Object.keys(recordMap.block)[0]
@@ -60,7 +62,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
-        const customEmojiUrl = await getCustomEmojiUrl(customEmojiId)
+        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId)
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }
