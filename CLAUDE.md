@@ -103,7 +103,7 @@ This site uses **Notion as a headless CMS**. Content is fetched from multiple No
 
 Environment variables (see `example.env.local`) define:
 
-- Notion API credentials (`NOTION_TOKEN`, `NOTION_TOKEN_V2`, `NOTION_ACTIVE_USER`)
+- Notion API credentials (`NOTION_TOKEN`)
 - Database IDs and property keys (e.g., `NEXT_PUBLIC_ID_TAGS`, `NEXT_PUBLIC_ID_SLUG`)
 - Feature flags (`ENV_MODE`, `NEXT_PUBLIC_ENV_MODE`)
 
@@ -136,7 +136,6 @@ pnpm run ud-fontello
 1. Copy `example.env.local` to `.env.local`
 2. Configure Notion credentials and database IDs
 3. Set `ENV_MODE=dev` for local development
-4. Update `NOTION_TOKEN_V2` if search functionality breaks
 
 ## Code Style
 
@@ -157,5 +156,4 @@ pnpm run ud-fontello
 ## Important Constraints
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
-- **Search issues**: Usually caused by expired `NOTION_TOKEN_V2` - update and redeploy
 - **Always run `pnpm run build`** to make sure the modifications are good to go
