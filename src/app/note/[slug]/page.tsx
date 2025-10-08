@@ -51,7 +51,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getPage(pageIdwithDash)
-    // saveObjectToFile(recordMap, 'output.txt').catch(console.error);
+    // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
 
     const id = Object.keys(recordMap.block)[0]
@@ -62,7 +62,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
-        const customEmojiUrl = await getCustomEmojiUrl(customEmojiId)
+        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId)
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }

@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
   const results = await searchNotionPersonal(
     searchParams,
-    process.env.NOTION_API_PERSONAL as string,
+    process.env.NOTION_API_PUBLISHED as string,
     process.env.NOTION_DB_POSTS as string
   )
   const postResults = parseSearchResults(results)

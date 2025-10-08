@@ -33,5 +33,8 @@
   "editor.stablePeek": false,
   "editor.wordWrap": "off",
   "editor.minimap.enabled": false,
-  "editor.stickyScroll.enabled": true
+  "editor.stickyScroll.enabled": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
