@@ -14,9 +14,7 @@ export async function getUnofficialPosts() {
       spaceId: process.env.SPACE_ID,
       sourceId: process.env.SOURCE_ID,
       collectionViewId: process.env.COLLECTION_VIEW_ID,
-      notionTokenV2: process.env.NOTION_TOKEN_V2,
-      notionActiveUser: process.env.NOTION_ACTIVE_USER,
-      notionApiWeb: process.env.NOTION_API_WEB
+      notionApiWeb: process.env.NOTION_API_PUBLISHED
     })
     return transformUnofficialPosts(data)
   } catch (error) {
@@ -58,13 +56,12 @@ export async function getPosts(options: {
   }
 }
 
-export async function getCustomEmojiUrl(customEmojiId: string) {
+export async function getCustomEmojiUrl(pageWithDash: string, customEmojiId: string) {
   try {
     const data = await getCustomEmojiBlock({
+      pageWithDash,
       customEmojiId,
-      apiUrl: process.env.NOTION_API_WEB,
-      tokenV2: process.env.NOTION_TOKEN_V2,
-      activeUser: process.env.NOTION_ACTIVE_USER
+      apiUrl: process.env.NOTION_API_PUBLISHED
     })
     return data?.url ?? ''
   } catch (error) {
@@ -79,9 +76,7 @@ export async function getUnofficialBooks() {
       spaceId: process.env.SPACE_ID,
       sourceId: process.env.READING_SOURCE_ID,
       collectionViewId: process.env.READING_COLLECTION_VIEW_ID,
-      notionTokenV2: process.env.NOTION_TOKEN_V2,
-      notionActiveUser: process.env.NOTION_ACTIVE_USER,
-      notionApiWeb: process.env.NOTION_API_WEB
+      notionApiWeb: process.env.NOTION_API_PUBLISHED
     })
     return { books: transformUnofficialBooks(data) }
   } catch (error) {
@@ -156,9 +151,7 @@ export async function getUnofficialTools() {
       spaceId: process.env.SPACE_ID,
       sourceId: process.env.TOOLS_SOURCE_ID,
       collectionViewId: process.env.TOOLS_COLLECTION_VIEW_ID,
-      notionTokenV2: process.env.NOTION_TOKEN_V2,
-      notionActiveUser: process.env.NOTION_ACTIVE_USER,
-      notionApiWeb: process.env.NOTION_API_WEB
+      notionApiWeb: process.env.NOTION_API_PUBLISHED
     })
     const allTags = getAllToolsTags(data)
     const allCategories = getAllToolsCategories(data)
@@ -242,9 +235,7 @@ export async function getTopics() {
       spaceId: process.env.SPACE_ID,
       sourceId: process.env.TOPICS_SOURCE_ID,
       collectionViewId: process.env.TOPICS_COLLECTION_VIEW_ID,
-      notionTokenV2: process.env.NOTION_TOKEN_V2,
-      notionActiveUser: process.env.NOTION_ACTIVE_USER,
-      notionApiWeb: process.env.NOTION_API_WEB
+      notionApiWeb: process.env.NOTION_API_PUBLISHED
     })
     return transformTopics(data)
   } catch (error) {

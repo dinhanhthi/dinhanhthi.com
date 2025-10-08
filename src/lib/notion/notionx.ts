@@ -1,10 +1,7 @@
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
 
-export const notionX = new NotionAPI({
-  activeUser: process.env.NOTION_ACTIVE_USER,
-  authToken: process.env.NOTION_TOKEN_V2
-})
+export const notionX = new NotionAPI()
 
 export async function getPage(pageId: string) {
   const recordMap = await notionX.getPage(pageId)
