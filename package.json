@@ -1,7 +1,7 @@
 {
   "name": "dinhanhthi.com",
   "description": "My personal website for taking notes.",
-  "version": "6.8.0",
+  "version": "7.0.0",
   "type": "module",
   "author": "Anh-Thi Dinh",
   "license": "MIT",
@@ -50,7 +50,7 @@
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.3.2",
     "clsx": "^2.1.1",
-    "cmdk": "1.0.0",
+    "cmdk": "1.1.1",
     "eslint": "^9.37.0",
     "eslint-config-next": "^15.5.4",
     "fs": "^0.0.1-security",
