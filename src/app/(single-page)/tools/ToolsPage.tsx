@@ -13,7 +13,7 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
         <ToolSimpleSection
           key={'recently-added'}
           title="Recently added"
-          tools={props.tools.slice(0, 6).sort((a, b) => a.name.localeCompare(b.name))}
+          tools={props.tools.slice(0, 6)} // We don't sort alphabetically here
           className="!bg-green-100"
         />
       )}
