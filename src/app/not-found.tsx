@@ -2,7 +2,6 @@
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { containerNormal } from '@/src/lib/config'
 import { generateMetaTitle } from '@/src/lib/helpers'
 import Container from './components/Container'
 
@@ -21,7 +20,7 @@ export const metadata = {
 
 export default function NotFoundPage() {
   return (
-    <Container className={cn('h-screen', containerNormal)}>
+    <Container className={cn('h-screen')}>
       <div className="flex h-full w-full flex-col items-center justify-center gap-6">
         <h1 className="text-3xl text-slate-800">
           Page not found <span className="text-pink-700">but it may be my fault</span>!

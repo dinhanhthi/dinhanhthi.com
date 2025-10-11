@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
-import { bodyPadding, containerWide } from '@/src/lib/config'
+import { bodyPadding } from '@/src/lib/config'
 import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
@@ -50,7 +50,7 @@ export default async function ReadingHomePage() {
         iconClassName="h-12 w-12"
         number={books.length}
       />
-      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding)}>
         <Suspense fallback={<SkeletonReadingContainer />}>
           <ReadingPage books={books} tags={tags} />
         </Suspense>

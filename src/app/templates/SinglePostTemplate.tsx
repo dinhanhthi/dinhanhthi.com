@@ -7,12 +7,7 @@ import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
 import { getPageTableOfContents } from 'notion-utils'
 
-import {
-  bodyPadding,
-  containerNormal,
-  defaultPostTypeOpts,
-  postFontClassName
-} from '@/src/lib/config'
+import { bodyPadding, defaultPostTypeOpts, postFontClassName } from '@/src/lib/config'
 import { Post } from '@/src/lib/types'
 import { get } from 'lodash'
 import Comments from '../components/Comments'
@@ -49,7 +44,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
             </PostAside>
           </aside>
 
-          <Container className={containerNormal}>
+          <Container>
             {props.postProps.isDraft && (
               <div className="mb-8 flex items-center gap-2 border-b border-b-slate-200 bg-transparent text-sm">
                 <div className="py-2 pl-2 text-base">⚠️</div>

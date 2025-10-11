@@ -4,7 +4,7 @@ import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import { bodyPadding, containerWide, defaultBlurDataURL } from '@/src/lib/config'
+import { bodyPadding, defaultBlurDataURL } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import Container from '../../components/Container'
@@ -59,7 +59,7 @@ export default async function TagsHomePage() {
         iconClassName="h-12 w-12"
         number={tags.length}
       />
-      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding)}>
         <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>
           {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
           {tags.length > 0 && (

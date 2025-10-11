@@ -1,13 +1,11 @@
 import HeadingWithMore from '@/src/app/components/HeadingWithMore'
 import PostList from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
 import {
   bodyPadding,
-  containerWide,
   defaultBlurDataURL,
   defaultPostTypeOpts,
   numPostsToShow,
@@ -99,7 +97,7 @@ export default async function Home() {
   return (
     <div className="thi-bg-stone">
       <HeaderIndex />
-      <Container className={cn(bodyPadding, containerWide)}>
+      <Container className={bodyPadding}>
         <div className="flex flex-col gap-14">
           {/* Logs */}
           {/* <div className="flex flex-col gap-4">

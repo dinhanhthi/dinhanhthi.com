@@ -1,5 +1,5 @@
 import PostBody from '@/src/app/components/PostBody'
-import { bodyPadding, containerNormal, discreteColsType, postFontClassName } from '@/src/lib/config'
+import { bodyPadding, discreteColsType, postFontClassName } from '@/src/lib/config'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import { Post } from '@/src/lib/types'
 import cn from 'classnames'
@@ -28,8 +28,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
         <div className={cn(bodyPadding)}>
           <div
             className={cn('mx-auto px-5', {
-              container: discreteColsType === 'single',
-              [containerNormal]: discreteColsType === 'single'
+              container: discreteColsType === 'single'
             })}
           >
             {props.postProps.isDraft && (

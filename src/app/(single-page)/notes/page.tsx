@@ -1,12 +1,10 @@
 import NotesIcon from '@/public/notes.svg'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
 import {
   bodyPadding,
-  containerWide,
   defaultBlurDataURL,
   numPostsToShow,
   postSimpleListContainerClass
@@ -89,7 +87,7 @@ export default async function NotesHomePage() {
         icon={{ staticImageData: NotesIcon }}
         iconClassName="h-12 w-12"
       />
-      <Container className={cn(bodyPadding, containerWide)}>
+      <Container className={bodyPadding}>
         <div className="flex flex-col gap-8 md:flex-row">
           <Suspense fallback={<SkeletonNotesPageBody />}>
             <NotesPageList

@@ -3,7 +3,7 @@ import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
 import RiUser3Line from '@/src/app/icons/RiUser3Line'
 import cn from 'classnames'
 
-import { bodyPadding, containerNormal } from '@/src/lib/config'
+import { bodyPadding } from '@/src/lib/config'
 import MdEditNote from '../../icons/MdEditNote'
 import Container from '../Container'
 import Footer from '../Footer'
@@ -65,7 +65,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
         </Header>
       </div>
       {/* Content */}
-      <Container className={cn(containerNormal, bodyPadding, 'h-[400px]')}>
+      <Container className={cn(bodyPadding, 'h-[400px]')}>
         <div className={cn('container mx-auto pt-4 pb-8')}>
           <div className="mt-4 mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
           <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
