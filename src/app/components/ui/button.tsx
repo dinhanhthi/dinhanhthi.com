@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 
 import { cn } from '@/src/lib/utils'
-import { TooltipContent } from './tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap ring-offset-white transition-colors focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-300 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
@@ -48,10 +48,42 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      tooltip,
+      tooltipPosition = 'bottom',
+      delayDuration = 200,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : 'button'
-    return (
+    const button = (
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+    )
+
+    if (!tooltip) {
+      return button
+    }
+
+    const tooltipContent =
+      typeof tooltip === 'string' ? (
+        <TooltipContent side={tooltipPosition}>{tooltip}</TooltipContent>
+      ) : (
+        <TooltipContent side={tooltipPosition} {...tooltip} />
+      )
+
+    return (
+      <TooltipProvider delayDuration={delayDuration}>
+        <Tooltip>
+          <TooltipTrigger asChild>{button}</TooltipTrigger>
+          {tooltipContent}
+        </Tooltip>
+      </TooltipProvider>
     )
   }
 )
