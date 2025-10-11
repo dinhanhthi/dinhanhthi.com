@@ -103,7 +103,7 @@ export default function PostHeader(props: PostHeaderProps) {
       )}
 
       {/* Main header with infos */}
-      <Header headerType={!props.discreteStyle ? 'white' : 'gray'} headerWidth="normal">
+      <Header>
         <div className="flex w-full flex-col gap-5 overflow-hidden py-8 md:overflow-visible">
           <div className={cn('flex flex-col items-center gap-3 sm:flex-row sm:items-start')}>
             {/* icon */}

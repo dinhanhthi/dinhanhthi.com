@@ -27,7 +27,7 @@ export default function HeadingWithMore(props: HeadingWithMoreProps) {
       </div>
       {href && (
         <Link
-          className="hover:m2it-link-hover text-[60%] font-normal text-slate-600 italic"
+          className="hover:m2it-link-hover text-[65%] font-normal text-slate-500 italic hover:text-slate-600"
           href={href}
         >
           ...more

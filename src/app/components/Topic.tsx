@@ -7,6 +7,7 @@ import { getUri, makeSlugText } from '@/src/lib/helpers'
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
+import { sectionOuterClass } from '../../lib/config'
 
 type TopicProps = {
   type?: 'simple' | 'detailed'
@@ -24,7 +25,8 @@ export default function Topic(props: TopicProps) {
           href={tag.uri!}
           key={tag.id}
           className={cn(
-            'thi-box-code flex items-center gap-2 p-4 transition duration-200 ease-in-out hover:-translate-y-0.5'
+            'flex items-center gap-2 p-4 transition duration-200 ease-in-out hover:-translate-y-0.5',
+            sectionOuterClass
           )}
         >
           {tag.icon && (
@@ -47,8 +49,8 @@ export default function Topic(props: TopicProps) {
           href={getUri('tag', makeSlugText(tag.name))!}
           key={makeSlugText(tag.name)}
           className={cn(
-            'thi-box-code flex items-center gap-1 p-2',
-            'transition duration-200 ease-in-out hover:-translate-y-0.5'
+            'flex items-center gap-1 p-2 transition duration-200 ease-in-out hover:-translate-y-0.5',
+            sectionOuterClass
           )}
         >
           {tag.icon && (

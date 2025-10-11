@@ -1,18 +1,9 @@
-import NotesIcon from '@/public/notes.svg'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/app/components/ScrollToTop'
-import {
-  bodyPadding,
-  defaultBlurDataURL,
-  numPostsToShow,
-  postSimpleListContainerClass
-} from '@/src/lib/config'
+import { defaultBlurDataURL, numPostsToShow, postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
-import Container from '../../components/Container'
-import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
@@ -78,39 +69,32 @@ export default async function NotesHomePage() {
   if (others) pinnedTagsSorted.push(others)
 
   return (
-    <div className="thi-bg-stone flex flex-col">
+    <>
       <HeaderPage
         title="Notes"
         subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
-        headerType="gray"
-        headerWidth="wide"
-        icon={{ staticImageData: NotesIcon }}
-        iconClassName="h-12 w-12"
+        iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
-      <Container className={bodyPadding}>
-        <div className="flex flex-col gap-8 md:flex-row">
-          <Suspense fallback={<SkeletonNotesPageBody />}>
-            <NotesPageList
-              blogPosts={blogPosts}
-              pinnedPosts={pinnedPosts}
-              posts={posts}
-              pinnedTags={pinnedTagsSorted}
-              numBlogPosts={numBlogPosts}
-            />
-          </Suspense>
-
-          <NotesToc
-            className={
-              'top-[70px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
-            }
-            tags={pinnedTagsSorted}
-            hidePinnedTags={pinnedPosts.length === 0}
+      <div className="flex flex-col gap-8 md:flex-row">
+        <Suspense fallback={<SkeletonNotesPageBody />}>
+          <NotesPageList
+            blogPosts={blogPosts}
+            pinnedPosts={pinnedPosts}
+            posts={posts}
+            pinnedTags={pinnedTagsSorted}
+            numBlogPosts={numBlogPosts}
           />
-        </div>
-      </Container>
-      <Footer />
-      <ScrollToTop />
-    </div>
+        </Suspense>
+
+        <NotesToc
+          className={
+            'top-[70px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
+          }
+          tags={pinnedTagsSorted}
+          hidePinnedTags={pinnedPosts.length === 0}
+        />
+      </div>
+    </>
   )
 }
 

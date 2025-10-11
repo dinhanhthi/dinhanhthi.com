@@ -32,7 +32,7 @@ export default function HeadingAbout(props: HeadingAboutProps) {
         )}
         <h2
           id={props.headingId}
-          className={cn('font-heading font-semibold text-slate-800', props.headingClassName)}
+          className={cn('font-heading font-semibold text-slate-700', props.headingClassName)}
         >
           {props.children}
         </h2>

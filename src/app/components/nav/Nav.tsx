@@ -3,7 +3,6 @@
 import useReadingProgress from '@/src/hooks/useReadingProgress'
 import { MENUS, MenuType } from '../../../data/menus'
 import Container from '../Container'
-import NavAvatar from './NavAvatar'
 import NavHidden from './NavHidden'
 import NavSearch from './NavSearch'
 import NavTopicItem from './NavTopicItem'
@@ -30,21 +29,16 @@ export default function Nav() {
                   <nav className="flex w-full items-center" aria-label="Menu">
                     {/* Left side: Avatar + Thi Notes */}
                     <div className="flex items-center gap-2 sm:gap-0">
-                      <NavAvatar />
+                      {/* <NavAvatar /> */}
                       <div className={'ml-0 md:ml-2'}>
-                        <NavTopicItem uri="/" label="Thi Notes" customClass="flex" />
+                        <NavTopicItem uri="/" label="Thi Notes" className="!text-lg !text-white" />
                       </div>
                     </div>
 
                     {/* Right side: Other menu items + search (desktop) */}
                     <div className="hidden flex-1 items-center justify-end gap-2 md:flex">
                       {MENUS?.filter((item: MenuType) => item.uri !== '/').map((item: MenuType) => (
-                        <NavTopicItem
-                          uri={item.uri as string}
-                          label={item.name}
-                          key={item.uri}
-                          customClass="flex"
-                        />
+                        <NavTopicItem uri={item.uri as string} label={item.name} key={item.uri} />
                       ))}
                       <NavHidden />
                       <NavSearch />

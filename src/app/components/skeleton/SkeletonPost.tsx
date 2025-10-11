@@ -32,11 +32,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
             <div className={cn('w-full bg-slate-200', fullWidthPostCoverHeight)}></div>
           </div>
         )}
-        <Header
-          childrenContainerClassName={cn('animate-pulse')}
-          headerType={'white'}
-          headerWidth="normal"
-        >
+        <Header className="animate-pulse">
           <div className="flex w-full flex-col items-center gap-4 py-8 sm:items-start">
             {/* Icon (mobile) */}
             <div className="h-8 w-8 rounded-full bg-slate-200 sm:hidden"></div>

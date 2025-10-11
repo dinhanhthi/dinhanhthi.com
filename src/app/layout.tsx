@@ -8,6 +8,9 @@ import Script from 'next/script'
 
 import { openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
+import Container from './components/Container'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 import './styles.scss'
 
 export const revalidate = 20
@@ -47,11 +50,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       )}
       <body suppressHydrationWarning={true}>
         <ScrollToTopOnMount />
-        <div className="flex min-h-screen flex-col justify-between">
+        <div className="flex min-h-screen flex-col bg-stone-100">
           <Nav />
-          <div className="mb-auto">
-            <main>{children}</main>
-          </div>
+          <main className="min-h-0 flex-1">
+            <Container className="pt-8 pb-12">{children}</Container>
+          </main>
+          <Footer />
+          <ScrollToTop />
         </div>
         <Analytics />
         {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}

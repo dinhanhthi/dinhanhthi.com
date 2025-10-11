@@ -1,3 +1,5 @@
+import { sectionOuterClass } from '../../lib/config'
+import { cn } from '../../lib/utils'
 import CVSection from './CVSection'
 import HeadingAbout from './HeadingAbout'
 
@@ -26,9 +28,9 @@ type CVGroupProps = {
 
 export default function CVGroup({ cvGroup, className }: CVGroupProps) {
   return (
-    <div className={className ? className : ''}>
+    <div className={className}>
       <HeadingAbout className="mb-4">{cvGroup.name}</HeadingAbout>
-      <div className={'thi-box-code divide-y divide-slate-200 px-4'}>
+      <div className={cn('divide-y divide-slate-200 p-4', sectionOuterClass)}>
         {cvGroup.list.map((cvItem: CVItem) => (
           <CVSection key={cvItem.id} cv={cvItem} />
         ))}

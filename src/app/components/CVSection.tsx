@@ -13,7 +13,7 @@ type CVSectionProps = {
 export default function CVSection({ cv, className }: CVSectionProps) {
   return (
     <div className={cn('flex flex-wrap items-center', className)}>
-      <div className={'hidden w-1/4 flex-col items-center px-2 py-4 md:flex'}>
+      <div className={'hidden w-[200px] flex-col items-center py-4 md:flex'}>
         {logo(cv)}
         <h4 className="mt-2 text-center text-base font-semibold text-slate-900">
           {cv.url && (

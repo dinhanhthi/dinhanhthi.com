@@ -1,14 +1,8 @@
-import ReadingIcon from '@/public/reading.svg'
-import cn from 'classnames'
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/app/components/ScrollToTop'
-import { bodyPadding } from '@/src/lib/config'
 import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
-import Container from '../../components/Container'
-import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import { SkeletonToolItem } from '../tools/ToolItem'
 import ReadingPage from './ReadingPage'
@@ -40,24 +34,17 @@ export default async function ReadingHomePage() {
   tags.sort((a, b) => (a === 'favorite' ? -1 : b === 'favorite' ? 1 : 0))
 
   return (
-    <div className="thi-bg-stone flex flex-col">
+    <>
       <HeaderPage
-        headerType="gray"
         title={title}
         subtitle={description}
-        headerWidth="wide"
-        icon={{ staticImageData: ReadingIcon }}
-        iconClassName="h-12 w-12"
+        iconPath="/logo_sketches/sketch_reading_nobg.png"
         number={books.length}
       />
-      <Container className={cn('shrink-0 grow basis-auto', bodyPadding)}>
-        <Suspense fallback={<SkeletonReadingContainer />}>
-          <ReadingPage books={books} tags={tags} />
-        </Suspense>
-      </Container>
-      <Footer />
-      <ScrollToTop />
-    </div>
+      <Suspense fallback={<SkeletonReadingContainer />}>
+        <ReadingPage books={books} tags={tags} />
+      </Suspense>
+    </>
   )
 }
 

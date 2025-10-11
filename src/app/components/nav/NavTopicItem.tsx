@@ -12,11 +12,11 @@ export const menuItemCommonClass =
 type NavTopicItemProps = {
   uri: string
   label: string
-  customClass?: string
+  className?: string
 }
 
 export default function NavTopicItem(props: NavTopicItemProps) {
-  const { uri, label, customClass } = props
+  const { uri, label, className } = props
   const pathname = usePathname()
   const currentRoute = pathname.split('trang/')[0]
 
@@ -25,8 +25,8 @@ export default function NavTopicItem(props: NavTopicItemProps) {
       className={cn(
         isActiveClass(areSameUris(uri, currentRoute)),
         menuItemCommonClass,
-        customClass,
-        'text-[0.92rem]'
+        'flex text-sm',
+        className
       )}
       aria-current={areSameUris(uri, currentRoute) ? 'page' : undefined}
       href={uri}

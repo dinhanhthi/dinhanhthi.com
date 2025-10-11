@@ -372,14 +372,6 @@
     @apply bg-white;
   }
 
-  /*
-  Don't forget to change manually for "wave-stone" and "wave-footer-stone"
-  classes in tailwind.config.js
-  */
-  .thi-bg-stone {
-    @apply bg-stone-100;
-  }
-
   .thi-text-color {
     @apply text-main;
   }

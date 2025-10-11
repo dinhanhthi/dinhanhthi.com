@@ -12,8 +12,7 @@ export default function ToolSimpleSection(props: {
       className={cn(
         'flex flex-col rounded-xl',
         {
-          'p-1': !!props.title,
-          'bg-slate-100': !!props.title
+          'border border-slate-200 bg-slate-100 p-1': !!props.title
         },
         props.className
       )}
