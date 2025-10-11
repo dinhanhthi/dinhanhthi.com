@@ -14,13 +14,7 @@ export default function HeaderThiCard() {
     <Header>
       <div className={cn('flex flex-col lg:flex-row lg:gap-4', sectionOuterClass)}>
         <div className="flex shrink-0 flex-row items-center gap-4">
-          <Image
-            src="/avatar_nobg.png"
-            alt={me.name}
-            height={200}
-            width={200}
-            className="rounded-full"
-          />
+          <Image src="/avatar_nobg.png" alt={me.name} height={200} width={200} />
           <h1 className="font-heading -mb-2 text-3xl lg:hidden">Hi! I&apos;m Thi</h1>
         </div>
         <div className="flex flex-col gap-4 py-4">
