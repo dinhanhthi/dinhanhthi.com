@@ -56,7 +56,7 @@ export default async function AboutHomePage() {
           ))}
         </div>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
       <ScrollToTop />
     </div>
   )

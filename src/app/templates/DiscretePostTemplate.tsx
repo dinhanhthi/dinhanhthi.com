@@ -68,7 +68,7 @@ export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
           <Comments />
         </div>
 
-        <Footer footerType="gray" />
+        <Footer />
       </div>
     </>
   )

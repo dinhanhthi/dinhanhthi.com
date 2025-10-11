@@ -76,7 +76,7 @@ export default async function TagsHomePage() {
           )}
         </Suspense>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
     </div>
   )
 }

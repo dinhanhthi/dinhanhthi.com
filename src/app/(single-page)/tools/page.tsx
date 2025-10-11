@@ -41,7 +41,7 @@ export default async function ToolsHomePage() {
           <ToolsPage tools={tools} categories={categories} />
         </Suspense>
       </Container>
-      <Footer footerType="white" />
+      <Footer />
       <ScrollToTop />
     </div>
   )
