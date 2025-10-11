@@ -4,7 +4,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { navLabelClass, textClass } from './Nav'
+import { textClass } from './Nav'
 
 export const menuItemCommonClass =
   'px-3 py-1.5 rounded-md font-medium text-center h-full flex items-center justify-center whitespace-nowrap whitespace-nowrap'
@@ -26,7 +26,7 @@ export default function NavTopicItem(props: NavTopicItemProps) {
         isActiveClass(areSameUris(uri, currentRoute)),
         menuItemCommonClass,
         customClass,
-        navLabelClass
+        'text-[0.92rem]'
       )}
       aria-current={areSameUris(uri, currentRoute) ? 'page' : undefined}
       href={uri}

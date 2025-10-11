@@ -1,5 +1,6 @@
 import LocalRouteChange from '@/src/app/components/LocalRouteChange'
 import Nav from '@/src/app/components/nav/Nav'
+import ScrollToTopOnMount from '@/src/app/components/ScrollToTopOnMount'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </>
       )}
       <body suppressHydrationWarning={true}>
+        <ScrollToTopOnMount />
         <div className="flex min-h-screen flex-col justify-between">
           <Nav />
           <div className="mb-auto">

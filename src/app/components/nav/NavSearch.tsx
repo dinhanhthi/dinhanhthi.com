@@ -16,7 +16,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../ui/dialog'
-import { navLabelClass } from './Nav'
 
 export default function NavSearch() {
   const router = useRouter()
@@ -63,24 +62,14 @@ export default function NavSearch() {
     <>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogTrigger asChild>
-          <div className={cn('flex flex-1 justify-end')}>
-            <button
-              type="button"
-              className="group flex h-full items-center justify-center gap-2 rounded-md px-2 py-1.5 text-slate-300 hover:bg-gray-700 hover:text-white focus:outline-none"
-              onClick={() => setIsOpen(true)}
-            >
-              <div>
-                <FiSearch className="h-5 w-5" />
-              </div>
-              <div className={cn('flex items-center gap-2', navLabelClass)}>
-                <span className="hidden whitespace-nowrap sm:inline">Search for notes</span>
-                <span className="inline whitespace-nowrap sm:hidden">Search</span>
-                <span className="hidden rounded-sm border-[0.5px] border-[#555] bg-[#65666b30] px-1 text-[0.7rem] whitespace-nowrap sm:inline-block">
-                  {`${os === 'mac' ? '⌘' : 'Ctrl'}+K`}
-                </span>
-              </div>
-            </button>
-          </div>
+          <button
+            type="button"
+            className="group flex h-full items-center justify-center rounded-md p-2 text-slate-300 hover:cursor-pointer hover:bg-gray-700 hover:text-white focus:outline-none"
+            onClick={() => setIsOpen(true)}
+            aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
+          >
+            <FiSearch className="h-5 w-5" />
+          </button>
         </DialogTrigger>
         <DialogContent
           className={cn(
