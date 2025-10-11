@@ -2,6 +2,7 @@ import { PostTypeOpts } from '@/src/app/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
 import { DiscreteColsType } from '@/src/app/components/PostBody'
+import { cn } from './utils'
 
 export const numPostsToShow = 12
 
@@ -33,7 +34,13 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   hideOldDate: true
 }
 
-export const postSimpleListContainerClass =
-  'flex flex-col divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white'
+export const sectionOuterClass = cn(
+  'overflow-hidden rounded-lg border border-slate-200 bg-white p-4'
+)
+
+export const postSimpleListContainerClass = cn(
+  'flex flex-col divide-y divide-slate-200 overflow-hidden',
+  sectionOuterClass
+)
 
 export const postFontClassName = 'font-quicksand'

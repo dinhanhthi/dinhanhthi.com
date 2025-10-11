@@ -1,62 +1,34 @@
-import CouseraIcon from '@/public/social/coursera.png'
-import DuolingoIcon from '@/public/social/duolingo.svg'
-import GithubIcon from '@/public/social/github.svg'
-import GoodreadsIcon from '@/public/social/goodreads.svg'
-import LinkedInIcon from '@/public/social/linkedin.svg'
-import Math2ITIcon from '@/public/social/math2it.png'
-import SOIcon from '@/public/social/so.svg'
-import TwitterIcon from '@/public/social/twitter.png'
-import { BadgeSocialProps } from '@/src/app/components/BadgeSocial'
+export type SocialItem = {
+  id: string
+  title: string
+  url: string
+  lucideIcon?: string
+}
 
-const socials: BadgeSocialProps[] = [
+const socials: SocialItem[] = [
   {
     id: 'github',
     title: 'Github',
-    icon: GithubIcon,
-    url: 'https://github.com/dinhanhthi',
-    imgClass: 'invert'
+    lucideIcon: 'GithubIcon',
+    url: 'https://github.com/dinhanhthi'
   },
   {
     id: 'linkedin',
     title: 'LinkedIn',
-    icon: LinkedInIcon,
+    lucideIcon: 'LinkedinIcon',
     url: 'https://www.linkedin.com/in/dinhanhthi/'
   },
   {
     id: 'twitter',
     title: 'X',
-    icon: TwitterIcon,
+    lucideIcon: 'TwitterIcon',
     url: 'https://x.com/dinhanhthi'
   },
   {
     id: 'goodreads',
     title: 'Goodreads',
-    icon: GoodreadsIcon,
+    lucideIcon: 'BookOpen',
     url: 'https://www.goodreads.com/user/show/19630622-thi-dinh'
-  },
-  {
-    id: 'stackexchange',
-    title: 'StackExchange',
-    icon: SOIcon,
-    url: 'https://stackexchange.com/users/1344291/anh-thi-dinh'
-  },
-  {
-    id: 'coursera',
-    title: 'Coursera',
-    icon: CouseraIcon,
-    url: 'https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556'
-  },
-  {
-    id: 'math2it',
-    title: 'Math2IT',
-    icon: Math2ITIcon,
-    url: 'https://math2it.com'
-  },
-  {
-    id: 'duolingo',
-    title: 'Duolingo',
-    icon: DuolingoIcon,
-    url: 'https://www.duolingo.com/profile/mr.Thi'
   }
 ]
 
