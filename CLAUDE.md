@@ -156,4 +156,4 @@ pnpm run ud-fontello
 ## Important Constraints
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
-- **Always run `pnpm run build`** to make sure the modifications are good to go
+<!-- - **Always run `pnpm run build`** to make sure the modifications are good to go -->

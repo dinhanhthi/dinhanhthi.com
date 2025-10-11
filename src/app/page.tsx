@@ -99,18 +99,6 @@ export default async function Home() {
       <HeaderIndex />
       <Container className={bodyPadding}>
         <div className="flex flex-col gap-14">
-          {/* Logs */}
-          {/* <div className="flex flex-col gap-4">
-            <HeadingWithMore
-              title="Logs"
-              href={posts.length >= numPostsToShow ? '/notes/' : undefined}
-            />
-            <div className={cn('thi-box-code flex flex-col gap-6 py-6 pr-6 pl-10')}>
-              <DemoLogDay dateText="today" />
-              <DemoLogDay dateText="6 days ago" />
-            </div>
-          </div> */}
-
           {/* Notes */}
           <div className="flex flex-col gap-4">
             <HeadingWithMore
