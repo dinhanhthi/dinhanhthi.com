@@ -1,4 +1,3 @@
-import BlogsIcon from '@/public/blogs.svg'
 import { postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
@@ -94,7 +93,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
         {
           name: 'Blog posts',
           subtitle: description,
-          icon: { staticImageData: BlogsIcon },
+          iconPath: '/logo_sketches/sketch_blog_nobg.png',
           uri: 'blog'
         } as PageOfPostsListTemplateProps['object']
       }

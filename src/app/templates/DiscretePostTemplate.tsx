@@ -18,7 +18,7 @@ type DiscretePostTemplateType = {
 export default function DiscretePostTemplate(props: DiscretePostTemplateType) {
   return (
     <>
-      <div className="thi-bg-stone animate-fadeIn">
+      <div className="animate-fadeIn">
         <PostHeader
           recordMap={props.recordMap}
           hideMeta={props.hideMeta}

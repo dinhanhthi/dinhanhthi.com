@@ -1,24 +1,22 @@
 import cn from 'classnames'
-
-import Container from './Container'
+import { sectionOuterClass } from '../../lib/config'
 
 type HeaderProps = {
   children: React.ReactNode
-  containerClassName?: string
-  childrenContainerClassName?: string
+  className?: string
 }
 
 export default function Header(props: HeaderProps) {
   return (
-    <Container className={props.containerClassName}>
-      <div
-        className={cn(
-          'mx-auto flex flex-col flex-wrap items-center justify-items-stretch px-0 py-8 md:flex-row',
-          props.childrenContainerClassName
-        )}
-      >
-        {props.children}
-      </div>
-    </Container>
+    <div
+      className={cn(
+        'mx-auto mb-12 p-4',
+        sectionOuterClass,
+        'border-4 border-double border-slate-300',
+        props.className
+      )}
+    >
+      {props.children}
+    </div>
   )
 }

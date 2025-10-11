@@ -1,14 +1,11 @@
-import TopicIcon from '@/public/topics.svg'
 import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import { Suspense } from 'react'
 
-import { bodyPadding, defaultBlurDataURL } from '@/src/lib/config'
+import { defaultBlurDataURL, sectionOuterClass } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
-import Container from '../../components/Container'
-import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
 
@@ -48,44 +45,38 @@ export default async function TagsHomePage() {
   }
 
   return (
-    <div className="thi-bg-stone flex flex-col">
+    <>
       <HeaderPage
-        headerType="gray"
-        headerWidth="wide"
         title="List of topics"
         subtitle={`A list of topics I write about. They are mainly about Web Development,
           Data Science and Computer Science.`}
-        icon={{ staticImageData: TopicIcon }}
-        iconClassName="h-12 w-12"
+        iconPath="/logo_sketches/sketch_topics_nobg.png"
         number={tags.length}
       />
-      <Container className={cn('shrink-0 grow basis-auto', bodyPadding)}>
-        <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>
-          {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
-          {tags.length > 0 && (
-            <div className={tagListContainerClass}>
-              {tags.map((tag: Tag) => (
-                <Topic
-                  key={tag.id}
-                  type="detailed"
-                  tag={tag}
-                  imagePlaceholder={ImagePlaceholder()}
-                />
-              ))}
-            </div>
-          )}
-        </Suspense>
-      </Container>
-      <Footer />
-    </div>
+      <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>
+        {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
+        {tags.length > 0 && (
+          <div className={tagListContainerClass}>
+            {tags.map((tag: Tag) => (
+              <Topic
+                key={tag.id}
+                type="detailed"
+                tag={tag}
+                imagePlaceholder={<ImagePlaceholder />}
+              />
+            ))}
+          </div>
+        )}
+      </Suspense>
+    </>
   )
 }
 
 function SkeletonTags(props: { className?: string }) {
   return (
     <div className={props.className}>
-      {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="thi-box-code h-[62px] w-full animate-pulse bg-white"></div>
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div key={i} className={cn('h-[62px] w-full animate-pulse', sectionOuterClass)}></div>
       ))}
     </div>
   )

@@ -1,15 +1,11 @@
-import TagIcon from '@/public/tag.svg'
-import Container from '@/src/app/components/Container'
 import Pagination from '@/src/app/components/Pagination'
 import PostList, { PostType } from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { ImageType, Post } from '@/src/lib/types'
-import cn from 'classnames'
 
-import { bodyPadding, defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
+import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import Footer from '../components/Footer'
 import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
 
 export type PageOfPostsListTemplateProps = {
@@ -19,6 +15,7 @@ export type PageOfPostsListTemplateProps = {
     subtitle?: string
     description?: string // alternative to subtitle
     icon: ImageType
+    iconPath?: string
     className: string
     uri: string
   }
@@ -35,20 +32,14 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
   const { object, posts, pinnedPosts, blogPosts, totalPages, currentPage } = props
 
   return (
-    <div className="thi-bg-stone">
+    <>
       <HeaderPage
-        headerType="gray"
-        headerWidth="wide"
         title={object.longName ? `${object.longName} (${object.name})` : object.name}
         subtitle={object.subtitle || object.description}
-        icon={
-          object.icon?.sourceUrl || object.icon?.staticImageData
-            ? object.icon
-            : { staticImageData: TagIcon }
-        }
-        iconClassName={object.className}
+        iconPath={object.iconPath}
+        icon={object.icon}
       />
-      <Container className={cn(bodyPadding)}>
+      <>
         {posts.length + pinnedPosts.length === 0 && blogPosts && blogPosts.length === 0 && (
           <div className="my-4 text-xl">There is no post yet!</div>
         )}
@@ -138,9 +129,8 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
             )}
           </>
         )}
-      </Container>
-      <Footer />
-    </div>
+      </>
+    </>
   )
 }
 
@@ -150,21 +140,18 @@ export function SkeletonPageOfPostsListTemplate(props: {
   postListContainerClassName?: string
 }) {
   return (
-    <div className="thi-bg-stone">
-      <HeaderPageSkeleton headerType="gray" />
-      <Container className={cn(bodyPadding)}>
-        <div className={'overflow-hidden'}>
-          <SkeletonPostList
-            count={props.numPosts || 4}
-            postType={props.postType || 'PostSimple'}
-            options={{
-              className: props.postListContainerClassName || postSimpleListContainerClass,
-              postContainerClassName: 'bg-white'
-            }}
-          />
-        </div>
-      </Container>
-      <Footer />
-    </div>
+    <>
+      <HeaderPageSkeleton />
+      <div className={'overflow-hidden'}>
+        <SkeletonPostList
+          count={props.numPosts || 4}
+          postType={props.postType || 'PostSimple'}
+          options={{
+            className: props.postListContainerClassName || postSimpleListContainerClass,
+            postContainerClassName: 'bg-white'
+          }}
+        />
+      </div>
+    </>
   )
 }

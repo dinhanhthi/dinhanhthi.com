@@ -6,6 +6,7 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { sectionOuterClass } from '../../../lib/config'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
@@ -125,7 +126,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
     })
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-8">
       {/* Tags */}
       <div className="flex flex-wrap items-center justify-start gap-3 sm:justify-start md:flex-nowrap md:items-baseline">
         <div className="flex flex-wrap items-center gap-1.5">
@@ -134,7 +135,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
               onClick={() => toggleTypeToShow(tag)}
               key={makeSlugText(tag)}
               className={cn(
-                'flex flex-row items-center gap-2 rounded-sm border border-slate-200 px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
+                'flex cursor-pointer flex-row items-center gap-2 rounded-sm border border-slate-200 px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
                 {
                   'hover:m2it-link-hover bg-white': !tagsToShow.includes(tag),
                   'bg-sky-600 text-white': tagsToShow.includes(tag)
@@ -186,19 +187,19 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
         {/* Recently Read Section */}
         {recentlyReadBooks.length > 0 && (
-          <div className="mb-6">
-            <div className="rounded-lg border border-gray-200 bg-white p-4">
-              <h3 className="font-heading mb-4 text-xl font-bold text-slate-700">Recently Read</h3>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {recentlyReadBooks.map((book: Book) => (
-                  <ToolItem
-                    key={book.id}
-                    type="book"
-                    tool={book as ToolItemInputType}
-                    hideDescription={true}
-                  />
-                ))}
-              </div>
+          <div
+            className={cn('mb-6 rounded-lg border border-gray-200 bg-white p-4', sectionOuterClass)}
+          >
+            <h3 className="font-heading mb-4 text-xl font-bold text-slate-700">Recently Read</h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {recentlyReadBooks.map((book: Book) => (
+                <ToolItem
+                  key={book.id}
+                  type="book"
+                  tool={book as ToolItemInputType}
+                  hideDescription={true}
+                />
+              ))}
             </div>
           </div>
         )}
@@ -216,9 +217,14 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
       </div>
 
       {othersToShow.length > 0 && (
-        <>
-          <h3 className="font-heading text-2xl font-bold text-slate-700">Others</h3>
-          <ol className="list-decimal rounded-lg bg-white p-4 pl-11 leading-8">
+        <div>
+          <h3 className="font-heading mb-4 text-2xl font-bold text-slate-700">Others</h3>
+          <ol
+            className={cn(
+              'list-decimal rounded-lg bg-white p-4 pl-11 leading-8',
+              sectionOuterClass
+            )}
+          >
             {othersToShow.map((book: Book) => (
               <li key={book.id}>
                 <a href={book.url} target="_blank" className="group">
@@ -247,7 +253,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
               </li>
             ))}
           </ol>
-        </>
+        </div>
       )}
     </div>
   )
