@@ -247,7 +247,7 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
       <ScrollToTop />
     </div>
   )

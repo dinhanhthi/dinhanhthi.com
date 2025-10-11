@@ -74,7 +74,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
         </div>
       </Container>
 
-      <Footer footerType="white" />
+      <Footer />
     </>
   )
 }

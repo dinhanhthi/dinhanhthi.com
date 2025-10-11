@@ -55,7 +55,7 @@ export default async function ReadingHomePage() {
           <ReadingPage books={books} tags={tags} />
         </Suspense>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
       <ScrollToTop />
     </div>
   )

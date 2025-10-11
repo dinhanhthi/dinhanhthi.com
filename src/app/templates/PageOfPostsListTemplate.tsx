@@ -139,7 +139,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
           </>
         )}
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
     </div>
   )
 }
@@ -164,7 +164,7 @@ export function SkeletonPageOfPostsListTemplate(props: {
           />
         </div>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
     </div>
   )
 }

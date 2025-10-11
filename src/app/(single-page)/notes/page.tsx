@@ -108,7 +108,7 @@ export default async function NotesHomePage() {
           />
         </div>
       </Container>
-      <Footer footerType="gray" />
+      <Footer />
       <ScrollToTop />
     </div>
   )

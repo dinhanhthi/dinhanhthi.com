@@ -96,7 +96,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
           </aside>
         </div>
 
-        <Footer footerType="white" />
+        <Footer />
       </div>
     </>
   )
