@@ -1,9 +1,6 @@
 'use client'
 
-import cn from 'classnames'
-
 import useReadingProgress from '@/src/hooks/useReadingProgress'
-import { containerWide } from '@/src/lib/config'
 import { MENUS, MenuType } from '../../../data/menus'
 import Container from '../Container'
 import NavAvatar from './NavAvatar'
@@ -27,7 +24,7 @@ export default function Nav() {
     <>
       {/* Make sure the z-index in NavHidden is bigger than this  */}
       <div className={`sticky top-0 left-0 z-[999] w-full ${navClasses} ${navHeight}`}>
-        <Container className={cn('h-full', containerWide)}>
+        <Container className="h-full">
           <div className="flex h-full flex-wrap items-center justify-items-stretch">
             <div className="w-full">
               <div className="mx-auto px-0">

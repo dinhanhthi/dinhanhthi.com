@@ -1,12 +1,10 @@
 import AiOutlineAlert from '@/src/app/icons/AiOutlineAlert'
-import cn from 'classnames'
 
-import { containerWide } from '@/src/lib/config'
 import Container from './Container'
 
 export default async function AlertHomePage() {
   return (
-    <Container className={cn('px-4 sm:px-6', containerWide)}>
+    <Container className="px-4 sm:px-6">
       <div className="flex flex-col items-center gap-4 rounded-xl bg-amber-100 p-6 text-slate-800 shadow-md sm:flex-row sm:items-start">
         <div>
           <AiOutlineAlert className="text-6xl sm:text-5xl" />

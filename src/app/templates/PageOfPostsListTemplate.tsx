@@ -6,12 +6,7 @@ import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { ImageType, Post } from '@/src/lib/types'
 import cn from 'classnames'
 
-import {
-  bodyPadding,
-  containerWide,
-  defaultPostTypeOpts,
-  postSimpleListContainerClass
-} from '@/src/lib/config'
+import { bodyPadding, defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import Footer from '../components/Footer'
@@ -53,7 +48,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         }
         iconClassName={object.className}
       />
-      <Container className={cn(bodyPadding, containerWide)}>
+      <Container className={cn(bodyPadding)}>
         {posts.length + pinnedPosts.length === 0 && blogPosts && blogPosts.length === 0 && (
           <div className="my-4 text-xl">There is no post yet!</div>
         )}
@@ -157,7 +152,7 @@ export function SkeletonPageOfPostsListTemplate(props: {
   return (
     <div className="thi-bg-stone">
       <HeaderPageSkeleton headerType="gray" />
-      <Container className={cn(bodyPadding, containerWide)}>
+      <Container className={cn(bodyPadding)}>
         <div className={'overflow-hidden'}>
           <SkeletonPostList
             count={props.numPosts || 4}

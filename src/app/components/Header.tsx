@@ -1,6 +1,5 @@
 import cn from 'classnames'
 
-import { containerNormal, containerWide } from '@/src/lib/config'
 import Container from './Container'
 
 type HeaderProps = {
@@ -14,7 +13,7 @@ export default function Header(props: HeaderProps) {
   return (
     <>
       <div className="from-main-dark-bg to-nav-dark-bg bg-gradient-to-b">
-        <Container className={props.headerWidth === 'wide' ? containerWide : containerNormal}>
+        <Container>
           <div
             className={cn(
               'mx-auto flex flex-col flex-wrap items-center justify-items-stretch px-0 py-8 md:flex-row',

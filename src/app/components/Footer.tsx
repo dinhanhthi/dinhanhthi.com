@@ -1,6 +1,5 @@
 import CafeIcon from '@/public/cafe.svg'
 import TbExternalLink from '@/src/app/icons/TbExternalLink'
-import { containerWide } from '@/src/lib/config'
 import cn from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,7 +21,7 @@ export default function Footer(props: FooterProps) {
           'bg-wave-bottom-stone': props.footerType === 'gray'
         })}
       ></div>
-      <Container className={cn('!mt-0 py-6', containerWide)}>
+      <Container className="!mt-0 py-6">
         <div className="flex flex-row flex-wrap items-center justify-center gap-2 pt-2 pb-1 lg:flex-row">
           <Link className={cn(aClass)} href={'/about/'}>
             About

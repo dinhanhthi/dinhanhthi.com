@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
-import { bodyPadding, containerWide } from '@/src/lib/config'
+import { bodyPadding } from '@/src/lib/config'
 import { getUnofficialTools } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import Container from '../../components/Container'
@@ -36,7 +36,7 @@ export default async function ToolsHomePage() {
         iconClassName="h-12 w-12"
         number={tools.length}
       />
-      <Container className={cn('shrink-0 grow basis-auto', bodyPadding, containerWide)}>
+      <Container className={cn('shrink-0 grow basis-auto', bodyPadding)}>
         <Suspense fallback={<SkeletonToolPage />}>
           <ToolsPage tools={tools} categories={categories} />
         </Suspense>

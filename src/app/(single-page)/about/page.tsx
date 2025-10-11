@@ -2,7 +2,7 @@ import cn from 'classnames'
 import { Suspense } from 'react'
 
 import ScrollToTop from '@/src/app/components/ScrollToTop'
-import { bodyPadding, containerWide } from '@/src/lib/config'
+import { bodyPadding } from '@/src/lib/config'
 import { getMetadata } from '@/src/lib/helpers'
 import cv from '../../../data/cv'
 import me from '../../../data/me'
@@ -32,7 +32,7 @@ export default async function AboutHomePage() {
   return (
     <div className="thi-bg-stone">
       <HeaderAbout />
-      <Container className={cn(bodyPadding, containerWide)}>
+      <Container className={bodyPadding}>
         <div className={'flex flex-wrap gap-4'}>
           {skills.map((skillGroup: SkillGroupType) => (
             <Suspense
