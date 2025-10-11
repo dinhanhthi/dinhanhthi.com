@@ -27,7 +27,7 @@ const socials: SocialItem[] = [
   {
     id: 'goodreads',
     title: 'Goodreads',
-    lucideIcon: 'BookOpen',
+    lucideIcon: 'Goodreads',
     url: 'https://www.goodreads.com/user/show/19630622-thi-dinh'
   }
 ]
