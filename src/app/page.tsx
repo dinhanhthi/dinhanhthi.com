@@ -19,7 +19,7 @@ import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/t
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import Container from './components/Container'
 import Footer from './components/Footer'
-import HeaderIndex from './components/HeaderIndex'
+import HeaderThiCard from './components/HeaderThiCard'
 import Topic from './components/Topic'
 
 export const revalidate = 20
@@ -96,7 +96,7 @@ export default async function Home() {
 
   return (
     <div className="thi-bg-stone">
-      <HeaderIndex />
+      <HeaderThiCard />
       <Container className={bodyPadding}>
         <div className="flex flex-col gap-14">
           {/* Notes */}

@@ -10,7 +10,7 @@ import skills from '../../../data/skills'
 import CVGroup, { CVGroupType, SkeletonCVGroup } from '../../components/CVGroup'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
-import HeaderAbout from '../../components/HeaderAbout'
+import HeaderThiCard from '../../components/HeaderThiCard'
 import SkillGroup, { SkeletonSkillGroup, SkillGroupType } from '../../components/SkillGroup'
 
 export const revalidate = 20
@@ -31,7 +31,7 @@ export default async function AboutHomePage() {
   const sectionSpacing = 'pt-12'
   return (
     <div className="thi-bg-stone">
-      <HeaderAbout />
+      <HeaderThiCard />
       <Container className={bodyPadding}>
         <div className={'flex flex-wrap gap-4'}>
           {skills.map((skillGroup: SkillGroupType) => (
