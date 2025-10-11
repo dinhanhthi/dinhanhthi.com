@@ -241,102 +241,107 @@
   }
 }
 
-// Custom m2it-prose class that extends and customizes the base prose utility
-// This allows using either 'prose' (default Tailwind) or 'm2it-prose' (our customized version)
-.m2it-prose {
-  @apply prose max-w-none leading-normal;
+@layer utilities {
+  // Custom m2it-prose class that extends and customizes the base prose utility
+  // Placed in @layer utilities to ensure it always comes after base prose styles
+  .m2it-prose {
+    @apply prose max-w-none leading-normal;
 
-  :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-family: inherit;
-    @apply text-[#015caa] no-underline hover:text-pink-600;
-  }
+    :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-family: inherit;
+      @apply text-[#015caa] no-underline hover:text-pink-600;
+    }
 
-  :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-0 font-semibold text-[#111];
-    font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
-    font-weight: 600 !important;
-    opacity: 0.9;
-  }
+    :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-0 font-semibold text-[#111];
+      font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
+      font-weight: 600 !important;
+      opacity: 0.9;
+    }
 
-  :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-size: 1.55rem;
-  }
+    :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-size: 1.55rem;
+    }
 
-  :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-size: 1.45rem;
-  }
+    :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-size: 1.45rem;
+    }
 
-  :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-size: 1.35rem;
-  }
+    :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-size: 1.35rem;
+    }
 
-  :where(img):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-0;
-  }
+    :where(img):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-0;
+    }
 
-  :where(blockquote):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-family: inherit;
-    @apply my-3 border border-y-0 border-r-0 border-l-4 border-slate-500 py-3 text-inherit not-italic;
-  }
+    :where(blockquote):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-family: inherit;
+      @apply my-3 py-3 text-inherit not-italic;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      border-right: 0 !important;
+      border-left: 4px solid rgb(100 116 139) !important; /* slate-500 */
+    }
 
-  :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply rounded-md bg-gray-100 p-[1px_4px_2px_2px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''];
-  }
+    :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply rounded-md bg-gray-100 p-[1px_4px_2px_2px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''];
+    }
 
-  :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-1.5;
-  }
+    :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-1.5;
+    }
 
-  :where(ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-0;
-  }
+    :where(ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-0;
+    }
 
-  :where(ul):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-0;
-  }
+    :where(ul):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-0;
+    }
 
-  :where(td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply px-[10px] py-[5px];
-  }
+    :where(td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply px-[10px] py-[5px];
+    }
 
-  :where(hr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-6;
-  }
+    :where(hr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-6;
+    }
 
-  :where(figure):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    margin: 0.75rem 0;
-  }
+    :where(figure):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      margin: 0.75rem 0;
+    }
 
-  :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply font-medium text-[#111];
-  }
+    :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply font-medium text-[#111];
+    }
 
-  :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    @apply my-0;
-  }
+    :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply my-0;
+    }
 
-  // There is a strange problem where ul inside ol or ol inside ul:
-  // normally, we should have ol > ul but rendered as ol > ol > ul
-  // -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given
-  // by prose class
-  :where(ol > ol > ul):not(:where([class~='not-prose'], [class~='not-prose'] *)),
-  :where(ul > ul > ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    margin-left: -1.625em;
-  }
+    // There is a strange problem where ul inside ol or ol inside ul:
+    // normally, we should have ol > ul but rendered as ol > ol > ul
+    // -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given
+    // by prose class
+    :where(ol > ol > ul):not(:where([class~='not-prose'], [class~='not-prose'] *)),
+    :where(ul > ul > ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      margin-left: -1.625em;
+    }
 
-  :where(ul, ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    & > *:not(ul):not(ol) {
-      margin-top: 0.5rem !important;
-      margin-bottom: 0.5rem !important;
+    :where(ul, ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      & > *:not(ul):not(ol) {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+    }
+
+    :where(ul > li::marker):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      font-size: 1rem;
     }
   }
 
-  :where(ul > li::marker):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    font-size: 1rem;
-  }
-}
 
-@layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px black;
   }
