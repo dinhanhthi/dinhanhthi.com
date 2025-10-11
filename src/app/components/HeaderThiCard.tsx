@@ -17,8 +17,8 @@ export default function HeaderThiCard() {
           <Image
             src="/avatar_nobg.png"
             alt={me.name}
-            width={200}
             height={200}
+            width={200}
             className="rounded-full"
           />
           <h1 className="font-heading -mb-2 text-3xl lg:hidden">Hi! I&apos;m Thi</h1>
