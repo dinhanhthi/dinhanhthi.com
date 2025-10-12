@@ -4,31 +4,11 @@ import cn from 'classnames'
 import React from 'react'
 
 import PostBlogSimple, { PostBlogSimpleOpts } from '@/src/app/components/post-types/PostBlogSimple'
-import PostCardWave, { PostCardWaveOpts } from '@/src/app/components/post-types/PostCardWave'
-import PostCardWhiteBg, {
-  PostCardWhiteBgOpts
-} from '@/src/app/components/post-types/PostCardWhiteBg'
-import PostCardWhiteBgBig, {
-  PostCardWhiteBgBigOpts
-} from '@/src/app/components/post-types/PostCardWhiteBgBig'
-import PostImageBackground, {
-  PostImageBackgroundOpts
-} from '@/src/app/components/post-types/PostImageBackground'
 import PostSimple, { PostSimpleOpts } from '@/src/app/components/post-types/PostSimple'
-import PostTitleCateDate, {
-  PostTitleCateDateOpts
-} from '@/src/app/components/post-types/PostTitleCateDate'
 import { Post } from '@/src/lib/types'
 import { Carousel, CarouselItem } from './Carousel'
 
-export type PostType =
-  | 'PostTitleCateDate'
-  | 'PostCardWhiteBg'
-  | 'PostCardWhiteBgBig'
-  | 'PostImageBackground'
-  | 'PostCardWave'
-  | 'PostSimple'
-  | 'PostBlogSimple'
+export type PostType = 'PostSimple' | 'PostBlogSimple'
 
 export type PostListStyle = 'default' | 'carousel'
 
@@ -41,14 +21,7 @@ export type CommonPostTypeOpts = {
   addedOnLabel?: string
 }
 
-export type PostTypeOpts =
-  | PostTitleCateDateOpts
-  | PostCardWhiteBgOpts
-  | PostCardWhiteBgBigOpts
-  | PostImageBackgroundOpts
-  | PostCardWaveOpts
-  | PostSimpleOpts
-  | PostBlogSimpleOpts
+export type PostTypeOpts = PostSimpleOpts | PostBlogSimpleOpts
 
 type PostListProps = {
   className?: string
@@ -99,16 +72,6 @@ function getPostTypeElement(
   index?: number
 ) {
   switch (postType) {
-    case 'PostTitleCateDate':
-      return <PostTitleCateDate post={post} options={postTypeOpts} />
-    case 'PostCardWhiteBg':
-      return <PostCardWhiteBg post={post} options={postTypeOpts} />
-    case 'PostCardWhiteBgBig':
-      return <PostCardWhiteBgBig post={post} options={postTypeOpts} />
-    case 'PostImageBackground':
-      return <PostImageBackground post={post} options={postTypeOpts} />
-    case 'PostCardWave':
-      return <PostCardWave post={post} options={{ ...postTypeOpts, colorIndex: index }} />
     case 'PostSimple':
       return <PostSimple post={post} options={postTypeOpts} />
     case 'PostBlogSimple':

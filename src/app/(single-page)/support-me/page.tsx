@@ -28,7 +28,7 @@ export default async function SupportThiPage() {
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = transformUnofficialPostProps(block)
-    return <SinglePostTemplate hideMeta={true} recordMap={recordMap} postProps={postProps} />
+    return <SinglePostTemplate recordMap={recordMap} postProps={postProps} />
   } catch (error) {
     console.log('🚨Error when loading Support Thi page', error)
     notFound()

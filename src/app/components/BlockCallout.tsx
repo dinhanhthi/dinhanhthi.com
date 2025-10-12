@@ -21,7 +21,7 @@ export default function BlockCallout(props: {
         {props.icon && <div className="py-2 pl-4 text-2xl text-amber-500">{props.icon}</div>}
         <div className="w-0 flex-1 pr-4 pl-2">
           <div className={blockMargin}>{props.text}</div>
-          {!!props.children && <div className="m2it-inside-box">{props.children}</div>}
+          {!!props.children && <div className="[&>*]:!my-3">{props.children}</div>}
           <div className={blockMargin}></div>
         </div>
       </div>

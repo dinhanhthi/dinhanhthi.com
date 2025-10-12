@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
+import Link from 'next/link'
 import HeaderPage from '../../components/HeaderPage'
 import { SkeletonToolItem } from '../tools/ToolItem'
 import ReadingPage from './ReadingPage'
@@ -20,24 +21,40 @@ export const metadata = getMetadata({
 
 export default async function ReadingHomePage() {
   const { books } = await getUnofficialBooks()
-
-  // Make "isReading" book always at the beginning
   books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
-
-  // all uniq tags from current books
   const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tags)))
-
-  // Sort tags alphabetically
   tags.sort()
-
-  // Make sure the 'favorite' tag is always at the beginning
   tags.sort((a, b) => (a === 'favorite' ? -1 : b === 'favorite' ? 1 : 0))
 
   return (
     <>
       <HeaderPage
         title={title}
-        subtitle={description}
+        subtitle={
+          <>
+            {description} Read more about{' '}
+            <Link className="m2it-link" href="/note/my-taste-of-reading/">
+              my taste of reading
+            </Link>
+            , my{' '}
+            <a
+              className="m2it-link"
+              href="https://www.goodreads.com/review/list/19630622-thi-dinh?ref=nav_mybooks&shelf=to-read"
+              target="_blank"
+            >
+              want-to-read list
+            </a>{' '}
+            and{' '}
+            <a
+              className="m2it-link"
+              href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
+              target="_blank"
+            >
+              reviews
+            </a>{' '}
+            on Goodreads.
+          </>
+        }
         iconPath="/logo_sketches/sketch_reading_nobg.png"
         number={books.length}
       />

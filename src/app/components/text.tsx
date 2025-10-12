@@ -148,7 +148,7 @@ export const Text: React.FC<{
                 return <span className={`notion-${decorator[1]}`}>{element}</span>
 
               case 'c':
-                return <code className="notion-inline-code">{element}</code>
+                return <code className="border border-gray-200">{element}</code>
 
               case 'b': {
                 if (ignoreMarkup?.includes('b')) return element

@@ -49,16 +49,14 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
           )}
         </h2>
       </div>
-      <div className="thi-box-code overflow-hidden">
-        <PostList
-          posts={notes}
-          postType="PostSimple"
-          postTypeOpts={defaultPostTypeOpts}
-          options={{
-            className: postSimpleListContainerClass
-          }}
-        />
-      </div>
+      <PostList
+        posts={notes}
+        postType="PostSimple"
+        postTypeOpts={defaultPostTypeOpts}
+        options={{
+          className: postSimpleListContainerClass
+        }}
+      />
     </div>
   )
 }
