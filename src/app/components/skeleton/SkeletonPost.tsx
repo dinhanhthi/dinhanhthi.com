@@ -1,18 +1,13 @@
 import SkeletonPostHeaderTopics from '@/src/app/components/skeleton/SkeletonPostHeaderTopics'
-import AiOutlineClockCircle from '@/src/app/icons/AiOutlineClockCircle'
-import RiUser3Line from '@/src/app/icons/RiUser3Line'
 import cn from 'classnames'
 
-import { bodyPadding } from '@/src/lib/config'
-import MdEditNote from '../../icons/MdEditNote'
+import { Calendar, UserRound } from 'lucide-react'
 import Container from '../Container'
-import Footer from '../Footer'
 import Header from '../Header'
-import { fullWidthPostCoverHeight } from '../PostHeader'
+import { fullWidthPostCoverHeight } from '../HeaderPost'
 
 type SkeletonPostProps = {
   hideCover?: boolean
-  hideMeta?: boolean
   hideTags?: boolean
 }
 
@@ -41,19 +36,16 @@ export default function SkeletonPost(props: SkeletonPostProps) {
             <div className={cn('h-8 w-3/4 rounded-2xl bg-slate-200')}></div>
 
             {/* Meta */}
-            {!props.hideMeta && (
-              <div className={cn('flex flex-wrap justify-start gap-3 md:flex-nowrap')}>
-                <div className="flex items-center gap-1">
-                  <RiUser3Line className="text-slate-400" />
-                  <div className="h-5 w-16 rounded-2xl bg-slate-200"></div>
-                </div>
-                <MdEditNote className={cn('mt-[-3px] inline-block text-[1.3rem] text-[#dadada]')} />
-                <div className="flex items-center gap-1">
-                  <AiOutlineClockCircle className="text-slate-400" />
-                  <div className="h-5 w-28 rounded-2xl bg-slate-200"></div>
-                </div>
+            <div className={cn('flex flex-wrap justify-start gap-3 md:flex-nowrap')}>
+              <div className="flex items-center gap-1">
+                <UserRound size={14} />
+                <div className="h-5 w-16 rounded-2xl bg-slate-200"></div>
               </div>
-            )}
+              <div className="flex items-center gap-1">
+                <Calendar size={14} />
+                <div className="h-5 w-28 rounded-2xl bg-slate-200"></div>
+              </div>
+            </div>
 
             {/* Tags */}
             {!props.hideTags && <SkeletonPostHeaderTopics className="pt-0 pb-2" />}
@@ -61,7 +53,7 @@ export default function SkeletonPost(props: SkeletonPostProps) {
         </Header>
       </div>
       {/* Content */}
-      <Container className={cn(bodyPadding, 'h-[400px]')}>
+      <Container className="h-[400px]">
         <div className={cn('container mx-auto pt-4 pb-8')}>
           <div className="mt-4 mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
           <div className="mb-2 h-5 w-full rounded-2xl bg-slate-200"></div>
@@ -69,8 +61,6 @@ export default function SkeletonPost(props: SkeletonPostProps) {
           <div className="mb-1 h-5 w-1/2 rounded-2xl bg-slate-200"></div>
         </div>
       </Container>
-
-      <Footer />
     </>
   )
 }

@@ -261,17 +261,17 @@ export const Block: React.FC<BlockProps> = props => {
                             'flex flex-col gap-8': discreteStyle && discreteColsType === 'single'
                           })}
                         >
-                          {!discreteStyle && (
+                          {/* {!discreteStyle && (
                             <PostToc
                               recordMap={recordMap}
                               tocs={tocs}
                               inPost={true}
                               labelTocTitle={blockOptions?.labelTocTitle ?? 'In this note'}
-                              postTocClassName={blockOptions?.postTocClassName}
+                              className={blockOptions?.postTocClassName}
                               minNumHeadingsToShowToc={blockOptions?.minNumHeadingsToShowToc}
                               defaultOpenToc={blockOptions?.expandTocOnMobile}
                             />
-                          )}
+                          )} */}
                           {children}
                         </article>
 
@@ -926,7 +926,7 @@ export const Block: React.FC<BlockProps> = props => {
             return (
               <td
                 key={column}
-                className={cn('border border-slate-300', {
+                className={cn('border border-slate-300 !p-2', {
                   [`notion-${color}`]: color
                 })}
               >

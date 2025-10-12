@@ -21,7 +21,7 @@ export default function Pagination(props: PaginationProps) {
   const sizeCurrentClass = 'h-12 w-12'
   const classNumber = `${hClass} ${wClass} hidden cursor-pointer items-center
     justify-center rounded-full leading-5 transition duration-150 ease-in !flex`
-  const classCurrent = `${sizeCurrentClass} rounded-full bg-main text-white shadow-md
+  const classCurrent = `${sizeCurrentClass} rounded-full text-white shadow-md
     items-center justify-center leading-5 transition duration-150 ease-in !flex`
   const classSeparated = `h-10 w-10 flex cursor-pointer items-center
     justify-center rounded-full bg-gray-200 hover:shadow-md`

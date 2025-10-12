@@ -11,10 +11,10 @@ import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import TooltipX from '@/src/app/components/tooltip-x'
 import BlogIcon from '@/src/app/icons/BlogIcon'
 import BsPinAngleFill from '@/src/app/icons/BsPinAngleFill'
-import HiMiniCheckBadge from '@/src/app/icons/HiMiniCheckBadge'
 import HiOutlineDocumentText from '@/src/app/icons/HiOutlineDocumentText'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { Post } from '@/src/lib/types'
+import { BadgeCheck } from 'lucide-react'
 
 export type PostSimpleOpts = {
   hideDate?: boolean
@@ -56,7 +56,7 @@ export default function PostSimple(props: PostSimpleProps) {
           {options?.showPinned && post.pinned && <BsPinAngleFill className="text-xl" />}
           {post.wellWritten && !post.blog && (
             <span className="absolute right-[-5px] bottom-[-5px] bg-transparent">
-              <HiMiniCheckBadge className={cn('text-sm text-gray-400')} />
+              <BadgeCheck className="fill-muted text-white" size={12} />
             </span>
           )}
         </div>

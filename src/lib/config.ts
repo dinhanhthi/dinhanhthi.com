@@ -15,8 +15,6 @@ export const defaultCustomPreviewImage: PreviewImage = {
   dataURIBase64: defaultBlurDataURL
 }
 
-export const bodyPadding = 'pb-12 pt-8'
-
 export const defaultPostTitle = 'Untitled'
 
 // Display the discrete notes in 1 column or 2-3 columns?
@@ -34,10 +32,12 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   hideOldDate: true
 }
 
-export const sectionOuterClass = cn('overflow-hidden rounded-lg border border-slate-200 bg-white')
+export const sectionOuterClass = cn(
+  'border-border-muted overflow-hidden rounded-lg border bg-white'
+)
 
 export const postSimpleListContainerClass = cn(
-  'flex flex-col divide-y divide-slate-200 overflow-hidden',
+  'divide-border-muted flex flex-col divide-y overflow-hidden',
   sectionOuterClass
 )
 

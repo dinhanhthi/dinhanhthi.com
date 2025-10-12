@@ -5,11 +5,7 @@ import cn from 'classnames'
 import { Carousel, CarouselItem } from '@/src/app/components/Carousel'
 import { PostListStyle, PostType, postListGridCLass } from '@/src/app/components/PostsList'
 import { PostBlogSimpleSkeleton } from '@/src/app/components/post-types/PostBlogSimple'
-import { PostCardWaveSkeleton } from '@/src/app/components/post-types/PostCardWave'
-import { PostCardWhiteBgBigSkeleton } from '@/src/app/components/post-types/PostCardWhiteBgBig'
-import { PostImageBackgroundSkeleton } from '@/src/app/components/post-types/PostImageBackground'
 import { PostSimpleSkeleton } from '@/src/app/components/post-types/PostSimple'
-import { PostTitleCateDateSkeleton } from '@/src/app/components/post-types/PostTitleCateDate'
 
 type SkeletonPostListProps = {
   count: number
@@ -47,18 +43,6 @@ export default function SkeletonPostList(props: SkeletonPostListProps) {
 
 function getSkeleton(key: number | string, postType?: PostType, postContainerClassName?: string) {
   switch (postType) {
-    case 'PostTitleCateDate':
-      return <PostTitleCateDateSkeleton key={key} />
-
-    case 'PostCardWhiteBgBig':
-      return <PostCardWhiteBgBigSkeleton key={key} />
-
-    case 'PostImageBackground':
-      return <PostImageBackgroundSkeleton key={key} />
-
-    case 'PostCardWave':
-      return <PostCardWaveSkeleton key={key} postContainerClassName={postContainerClassName} />
-
     case 'PostSimple':
       return <PostSimpleSkeleton key={key} />
 
@@ -66,6 +50,6 @@ function getSkeleton(key: number | string, postType?: PostType, postContainerCla
       return <PostBlogSimpleSkeleton key={key} postContainerClassName={postContainerClassName} />
 
     default:
-      return <PostTitleCateDateSkeleton key={key} />
+      return <PostSimpleSkeleton key={key} />
   }
 }

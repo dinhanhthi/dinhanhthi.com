@@ -12,7 +12,7 @@ export default function Header(props: HeaderProps) {
       className={cn(
         'mx-auto mb-12 p-4',
         sectionOuterClass,
-        'border-4 border-double border-slate-300',
+        'border-4 border-double',
         props.className
       )}
     >

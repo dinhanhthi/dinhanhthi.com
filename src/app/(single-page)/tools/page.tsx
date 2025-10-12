@@ -1,6 +1,5 @@
 import { Suspense } from 'react'
 
-import ScrollToTop from '@/src/app/components/ScrollToTop'
 import { getUnofficialTools } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import HeaderPage from '../../components/HeaderPage'
@@ -31,7 +30,6 @@ export default async function ToolsHomePage() {
       <Suspense fallback={<SkeletonToolPage />}>
         <ToolsPage tools={tools} categories={categories} />
       </Suspense>
-      <ScrollToTop />
     </>
   )
 }

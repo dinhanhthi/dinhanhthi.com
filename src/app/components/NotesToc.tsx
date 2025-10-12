@@ -40,16 +40,17 @@ export default function NotesToc(props: NotesTocProps) {
   }
 
   return (
-    <div className={props.className}>
+    <div className={cn('flex flex-col gap-1', props.className)}>
+      <div className="text-muted pl-1 text-base italic md:hidden">In this page</div>
       <div
         className={cn(
-          'flex h-full flex-col divide-y divide-slate-300 p-4 md:border-none md:bg-transparent md:shadow-none',
+          'flex h-full flex-col divide-y divide-slate-300 p-2 md:border-none md:bg-transparent md:p-0 md:shadow-none',
           sectionOuterClass
         )}
       >
         <div
           className={cn(
-            'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-[0.8rem] md:grid-cols-1'
+            'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1'
           )}
         >
           {anchorA('blog-posts', 'Blog posts', activeId)}

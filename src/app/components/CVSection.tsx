@@ -18,7 +18,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
         <h4 className="mt-2 text-center text-base font-semibold text-slate-900">
           {cv.url && (
             <a
-              className="thi-link-normal text-slate-900"
+              className="text-link text-slate-900"
               href={cv.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -37,7 +37,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
             <h3 className="text-lg font-semibold text-slate-900">{cv.title}</h3>
             <h4 className="text-base md:hidden">
               {cv.url && (
-                <a className={'thi-link-normal'} href={cv.url}>
+                <a className="text-link" href={cv.url}>
                   {cv.where}
                 </a>
               )}

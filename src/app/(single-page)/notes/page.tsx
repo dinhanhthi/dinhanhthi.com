@@ -75,9 +75,10 @@ export default async function NotesHomePage() {
         subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
         iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-col gap-12 md:flex-row md:gap-4">
         <Suspense fallback={<SkeletonNotesPageBody />}>
           <NotesPageList
+            className="order-2"
             blogPosts={blogPosts}
             pinnedPosts={pinnedPosts}
             posts={posts}
@@ -88,7 +89,7 @@ export default async function NotesHomePage() {
 
         <NotesToc
           className={
-            'top-[70px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
+            'top-[60px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
           }
           tags={pinnedTagsSorted}
           hidePinnedTags={pinnedPosts.length === 0}
@@ -123,15 +124,13 @@ function SkeletonNotesPageBody() {
             <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
             <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
           </div>
-          <div className="thi-box-code flex-1 overflow-hidden">
-            <SkeletonPostList
-              count={2}
-              postType="PostSimple"
-              options={{
-                className: postSimpleListContainerClass
-              }}
-            />
-          </div>
+          <SkeletonPostList
+            count={2}
+            postType="PostSimple"
+            options={{
+              className: postSimpleListContainerClass
+            }}
+          />
         </div>
       ))}
     </div>

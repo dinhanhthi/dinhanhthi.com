@@ -3,7 +3,6 @@
 import { makeSlugText } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import cn from 'classnames'
-import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { sectionOuterClass } from '../../../lib/config'
@@ -161,30 +160,6 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
 
       {/* Reading list */}
       <div className="flex flex-col gap-4">
-        <div className="text-[0.9rem] leading-normal text-gray-600 italic">
-          <span className="font-medium">Read more:</span>{' '}
-          <Link className="m2it-link" href="/note/my-taste-of-reading/">
-            My taste of reading
-          </Link>
-          , my{' '}
-          <a
-            className="m2it-link"
-            href="https://www.goodreads.com/review/list/19630622-thi-dinh?ref=nav_mybooks&shelf=to-read"
-            target="_blank"
-          >
-            want-to-read list
-          </a>{' '}
-          and{' '}
-          <a
-            className="m2it-link"
-            href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
-            target="_blank"
-          >
-            reviews
-          </a>{' '}
-          on Goodreads.
-        </div>
-
         {/* Recently Read Section */}
         {recentlyReadBooks.length > 0 && (
           <div

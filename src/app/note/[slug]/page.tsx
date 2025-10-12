@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation'
 
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 import { getPage } from '@/src/lib/notion/notionx'
-import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
 export const revalidate = 20
 
@@ -66,9 +65,6 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }
-
-    if (postProps.discrete)
-      return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 
     return <SinglePostTemplate recordMap={recordMap} postProps={postProps} />
   } catch (error) {
