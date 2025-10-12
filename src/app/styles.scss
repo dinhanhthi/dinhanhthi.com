@@ -166,15 +166,6 @@
     }
   }
 
-  .m2it-link-hover {
-    @apply text-pink-600;
-  }
-
-  .m2it-link {
-    font-family: inherit;
-    @apply text-[#015caa] no-underline hover:text-pink-600;
-  }
-
   .m2it-headings {
     @apply my-0 font-semibold text-[#111];
   }
@@ -368,6 +359,15 @@
 }
 
 @layer components {
+  .m2it-link-hover {
+    @apply text-pink-600;
+  }
+
+  .m2it-link {
+    font-family: inherit;
+    @apply text-[#015caa] no-underline hover:text-pink-600;
+  }
+
   .thi-bg {
     @apply bg-white;
   }

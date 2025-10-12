@@ -75,7 +75,7 @@ export default async function NotesHomePage() {
         subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
         iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
-      <div className="flex flex-col gap-8 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row">
         <Suspense fallback={<SkeletonNotesPageBody />}>
           <NotesPageList
             blogPosts={blogPosts}

@@ -16,6 +16,29 @@ type NotesTocProps = {
 export default function NotesToc(props: NotesTocProps) {
   const { activeId } = useHeadsObserver(['h2'])
 
+  const anchorA = (anchor?: string, name?: string, activeId?: string) => {
+    return (
+      <a
+        className={cn('group flex items-center gap-1 px-2 py-1 hover:text-sky-600', {
+          'border-transparent text-slate-600': activeId !== anchor,
+          'text-sky-600': activeId === anchor
+        })}
+        key={anchor}
+        href={`#${anchor}`}
+      >
+        <span
+          className={cn({
+            'text-transparent': activeId !== anchor,
+            'text-sky-600': activeId === anchor
+          })}
+        >
+          ◆
+        </span>
+        <span className="whitespace-nowrap">{name}</span>
+      </a>
+    )
+  }
+
   return (
     <div className={props.className}>
       <div
@@ -24,34 +47,24 @@ export default function NotesToc(props: NotesTocProps) {
           sectionOuterClass
         )}
       >
-        <div className="font-heading px-2 pb-1.5 text-base font-semibold text-slate-800">
-          Notes by topics
-        </div>
         <div
           className={cn(
             'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-[0.8rem] md:grid-cols-1'
           )}
         >
+          {anchorA('blog-posts', 'Blog posts', activeId)}
+          {anchorA('pinned-notes', 'Pinned notes', activeId)}
+          {anchorA('recently-updated-notes', 'Recently updated', activeId)}
           {props.tags.map((tag: Tag) => {
             const anchor = makeSlugText(tag.name)
-            return (
-              <a
-                className={cn(
-                  'hover:m2it-link group flex items-center gap-2 rounded-lg px-2 py-1',
-                  {
-                    'text-slate-600': activeId !== anchor,
-                    'bg-slate-200 text-slate-900': activeId === anchor
-                  }
-                )}
-                key={anchor}
-                href={`#${anchor}`}
-              >
-                <div>{tag.name}</div>
-              </a>
-            )
+            return anchorA(anchor, tag.name, activeId)
           })}
-          <Link className="hover:m2it-link pt-2 text-[0.9rem] text-slate-700 italic" href="/tags/">
-            👉 See all topics...
+          <Link
+            className="group flex items-center gap-1 px-2 py-1 text-slate-600 hover:text-sky-600"
+            href="/tags/"
+          >
+            <span className="text-transparent">◆</span>
+            ...
           </Link>
         </div>
       </div>
