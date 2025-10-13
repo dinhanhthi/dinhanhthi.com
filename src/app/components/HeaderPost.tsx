@@ -33,7 +33,6 @@ export const gapHeaderItems = 'mb-3'
 type HeaderPostProps = {
   recordMap: ExtendedRecordMap
   postProps: Post
-  discreteStyle?: boolean
 }
 
 const pageCoverStyleCache: Record<string, object> = {}

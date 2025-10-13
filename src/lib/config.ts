@@ -1,7 +1,6 @@
 import { PostTypeOpts } from '@/src/app/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
-import { DiscreteColsType } from '@/src/app/components/PostBody'
 import { cn } from './utils'
 
 export const numPostsToShow = 12
@@ -16,9 +15,6 @@ export const defaultCustomPreviewImage: PreviewImage = {
 }
 
 export const defaultPostTitle = 'Untitled'
-
-// Display the discrete notes in 1 column or 2-3 columns?
-export const discreteColsType: DiscreteColsType = 'single'
 
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 

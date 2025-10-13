@@ -19,7 +19,6 @@ import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, getListNumber, isUrl } from '@/src/lib/notion/utils'
 import BlockCallout from './BlockCallout'
 import BlockToggle from './BlockToggle'
-import BlockToggleDiscrete from './BlockToggleDiscrete'
 import BlockVideo from './BlockVideo'
 import BlockHeadingToggle from './ToggleHeading'
 import { AssetWrapper } from './asset-wrapper'
@@ -56,8 +55,6 @@ interface BlockProps {
   disableHeader?: boolean
 
   children?: React.ReactNode
-
-  insideSync?: boolean
 }
 
 export const blockMargin = 'my-3'
@@ -92,12 +89,10 @@ export const Block: React.FC<BlockProps> = props => {
     blockOptions,
     customPreviewImage,
     useSimpleImage,
-    discreteStyle,
     postCreatedDate,
     postLastModifiedDate,
-    discreteColsType,
-    showUpdatedIndicator,
     simpleImageProps,
+    showUpdatedIndicator,
     fontClass
   } = ctx
 
@@ -114,8 +109,7 @@ export const Block: React.FC<BlockProps> = props => {
     pageFooter,
     pageAside,
     hideBlockId,
-    disableHeader,
-    insideSync
+    disableHeader
   } = props
 
   const blockCreatedDate = postCreatedDate
@@ -147,8 +141,6 @@ export const Block: React.FC<BlockProps> = props => {
       {
         // show only for top level blocks or a synced block
         (level === 1 || block.type === 'transclusion_container') &&
-          // Don't show update block in the discrete mode
-          !discreteStyle &&
           showUpdated &&
           // Only show update indicator when toggle is true
           showUpdatedIndicator && (
@@ -252,18 +244,11 @@ export const Block: React.FC<BlockProps> = props => {
                           hasToc && 'notion-page-content-has-toc'
                         )}
                       >
-                        <article
-                          className={cn(fontClass, 'notion-page-content-inner', {
-                            'discrete-container': discreteStyle,
-                            'page-discrete mx-auto max-w-[1700px] columns-1 gap-8 lg:columns-2 2xl:columns-[450px] [&>*:not(:first-child)]:mt-8':
-                              discreteStyle && discreteColsType === 'multiple',
-                            'flex flex-col gap-8': discreteStyle && discreteColsType === 'single'
-                          })}
-                        >
+                        <article className={cn(fontClass, 'notion-page-content-inner')}>
                           {children}
                         </article>
 
-                        {hasAside && !discreteStyle && (
+                        {hasAside && (
                           <PageAside
                             toc={tocs}
                             activeSection={activeSection}
@@ -660,9 +645,7 @@ export const Block: React.FC<BlockProps> = props => {
       } else {
         return (
           <BlockCallout
-            className={cn(blockMargin, blurBlockClassName, {
-              'shadow-lg': discreteStyle
-            })}
+            className={cn(blockMargin, blurBlockClassName)}
             icon={<PageIcon block={block} />}
             text={<Text value={block.properties?.title} block={block} />}
             color={block.format?.block_color}
@@ -755,25 +738,6 @@ export const Block: React.FC<BlockProps> = props => {
     }
 
     case 'toggle':
-      if ((discreteStyle && level === 1) || (discreteStyle && level === 2 && insideSync)) {
-        return (
-          <BlockToggleDiscrete
-            className={cn('relative')}
-            text={
-              block.properties?.title ? (
-                <Text value={block.properties?.title} block={block} />
-              ) : null
-            }
-            color={get(block, 'format.block_color')}
-            updateStatus={
-              status === 'updatedWithin' ? 'updated' : status === 'new' ? 'new' : undefined
-            }
-          >
-            {children}
-          </BlockToggleDiscrete>
-        )
-      }
-
       return (
         <BlockToggle
           className={cn('relative', blurBlockClassName)}
