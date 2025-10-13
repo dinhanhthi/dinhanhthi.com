@@ -18,17 +18,13 @@ import ScrollToTop from './ScrollToTop'
 import { SimpleImageProps } from './SimpleImage'
 import TooltipX from './tooltip-x'
 
-export type DiscreteColsType = 'single' | 'multiple'
-
 type PostBodyProps = {
   recordMap: ExtendedRecordMap
   className?: string
   blockOptions?: BlockOptionsContextType
   customPreviewImage?: PreviewImage
   useSimpleImage?: boolean
-  discreteStyle?: boolean // active the style of discrete notes (toggle has different styles)
   fontClass?: string // used for a custom font in the post, it's a class name
-  discreteColsType?: DiscreteColsType // Display the discrete notes in 1 column or 2-3 columns?
   simpleImageProps?: SimpleImageProps
   showUpdatedIndicator?: boolean
   lastModifiedIdKey?: string // used as NEXT_PUBLIC_ID_LAST_MODIFIED
@@ -105,11 +101,9 @@ export default function PostBody(props: PostBodyProps) {
           blockOptions={props.blockOptions}
           customPreviewImage={props.customPreviewImage}
           useSimpleImage={props.useSimpleImage}
-          discreteStyle={props.discreteStyle}
           postCreatedDate={props.postCreatedDate}
           postLastModifiedDate={props.postLastModifiedDate}
           fontClass={props.fontClass}
-          discreteColsType={props.discreteColsType}
           showUpdatedIndicator={showUpdatedIndicator}
           simpleImageProps={props.simpleImageProps}
           showOnlyUpdatedBlocks={showOnlyUpdatedBlocks}

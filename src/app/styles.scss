@@ -637,16 +637,6 @@ pre > code::before {
   margin-left: -5px !important;
 }
 
-.discrete-header-container {
-  &.font-medium,
-  &.font-semibold,
-  &.font-bold {
-    a {
-      font-weight: inherit !important;
-    }
-  }
-}
-
 .post-card-wave {
   background: #fff;
   box-shadow:
