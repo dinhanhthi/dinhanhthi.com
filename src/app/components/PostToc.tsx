@@ -44,7 +44,7 @@ export default function PostToc(props: PostTocProps) {
       <div className="text-muted pl-1 text-base italic lg:hidden">In this post</div>
       <div
         className={cn(
-          'not-prose m2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto p-4 text-sm lg:grid-cols-1 lg:rounded-none lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
+          'not-prose thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto p-4 text-sm lg:grid-cols-1 lg:rounded-none lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
           sectionOuterClass
         )}
       >
@@ -60,12 +60,12 @@ export default function PostToc(props: PostTocProps) {
               key={toc.id}
               href={`#${anchor}`}
               className={cn(
-                'hover:text-link flex break-inside-avoid items-baseline gap-2 border-slate-300 px-2 py-1',
+                'hover:text-link border-border-muted flex break-inside-avoid items-baseline gap-2 px-2 py-1',
                 {
                   'ml-2 border-l pl-2': isH3,
                   '-ml-1': isH2,
                   'hover:text-link lg:text-link': activeId === anchor && !props.inPost,
-                  'hover:text-link text-slate-700': activeId !== anchor || props.inPost
+                  'hover:text-link text-muted': activeId !== anchor || props.inPost
                 }
               )}
             >

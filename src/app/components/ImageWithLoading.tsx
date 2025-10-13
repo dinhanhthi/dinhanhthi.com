@@ -1,6 +1,7 @@
 'use client'
 
 import cn from 'classnames'
+import { LoaderCircle } from 'lucide-react'
 import Image, { ImageProps } from 'next/image'
 import { useState } from 'react'
 
@@ -22,8 +23,8 @@ export default function ImageWithLoading(props: ImageProps) {
       }}
     >
       {!imageLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center rounded bg-gray-100">
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-gray-400"></div>
+        <div className="dark:bg-bg-hover absolute inset-0 flex animate-pulse items-center justify-center rounded bg-gray-100">
+          <LoaderCircle size={48} className="animate-spin text-gray-300 dark:text-gray-500" />
         </div>
       )}
       <Image

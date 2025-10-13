@@ -27,7 +27,9 @@ export default async function AboutHomePage() {
       <div className="flex flex-col gap-12">
         {cv.map((cvGroup: CVGroupType) => (
           <Suspense
-            fallback={<SkeletonCVGroup cvGroup={cvGroup} className="flex-auto lg:flex-1" />}
+            fallback={
+              <SkeletonCVGroup cvGroup={cvGroup} className="flex-auto animate-pulse lg:flex-1" />
+            }
             key={cvGroup.id}
           >
             <CVGroup className="flex-auto lg:flex-1" key={cvGroup.id} cvGroup={cvGroup} />

@@ -1,4 +1,4 @@
-import HeadingWithMore from '@/src/app/components/HeadingWithMore'
+import HeadingPage from '@/src/app/components/HeadingPage'
 import PostList from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { Suspense } from 'react'
@@ -13,7 +13,7 @@ import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/s
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import me from '../data/me'
-import ToolItem, { SkeletonToolItem, ToolItemInputType } from './(single-page)/tools/ToolItem'
+import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import HeaderThiCard from './components/HeaderThiCard'
 import Topic from './components/Topic'
@@ -96,7 +96,7 @@ export default async function Home() {
       <div className="flex flex-col gap-12">
         {/* Notes */}
         <div className="flex flex-col gap-4">
-          <HeadingWithMore
+          <HeadingPage
             title="Recently updated notes"
             href={posts.length >= numPostsToShow ? '/notes/' : undefined}
           />
@@ -160,7 +160,7 @@ export default async function Home() {
         {/* Blog */}
         {blogPosts.length > 0 && (
           <div className="flex flex-col gap-4">
-            <HeadingWithMore
+            <HeadingPage
               title="Recent blog posts"
               href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
             />
@@ -191,32 +191,26 @@ export default async function Home() {
 
         {/* Tools */}
         <div className="flex flex-col gap-4">
-          <HeadingWithMore
+          <HeadingPage
             title="Recent tools I use"
             href={tools.length >= numTools ? '/tools/' : undefined}
           />
-          <Suspense fallback={<SkeletonToolPageSection />}>
+          <Suspense fallback={<SkeletonToolPageSection numTools={numTools} />}>
             <ToolSimpleSection tools={tools.slice(0, numTools)} />
           </Suspense>
         </div>
 
         {/* Reading */}
         <div className="flex flex-col gap-4">
-          <HeadingWithMore
+          <HeadingPage
             title="My reading list"
             href={tools.length >= numTools ? '/reading/' : undefined}
           />
           <div className="flex w-full flex-col gap-3">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {books.slice(0, numBooks).map((book: Book) => (
-                <Suspense key={book.id} fallback={<SkeletonToolItem />}>
-                  <ToolItem
-                    type="book"
-                    key={book.id}
-                    tool={book as ToolItemInputType}
-                    hideDescription={true}
-                    hideTags={true}
-                  />
+                <Suspense key={book.id} fallback={<SkeletonBookItem />}>
+                  <BookItem key={book.id} book={book} hideDescription={true} hideTags={true} />
                 </Suspense>
               ))}
             </div>
@@ -225,8 +219,8 @@ export default async function Home() {
 
         {/* Topics */}
         <div className="flex flex-col gap-4">
-          <HeadingWithMore title="Main topics" href="/tags/" />
-          <div className="flex flex-wrap gap-4 overflow-hidden">
+          <HeadingPage title="Main topics" href="/tags/" />
+          <div className="flex flex-wrap gap-4">
             {topics
               .filter(t => t.pinned)
               .map(topic => (

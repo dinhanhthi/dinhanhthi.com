@@ -24,12 +24,12 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   return (
     <>
       <HeaderPost recordMap={props.recordMap} postProps={props.postProps} />
-      <div className="flex flex-col gap-4 lg:flex-row">
-        <div className={cn('order-2 bg-white p-4 lg:p-6', sectionOuterClass)}>
+      <div className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
+        <div className={cn('text-text order-2 flex-1 p-4 lg:p-6', sectionOuterClass)}>
           {props.postProps.isDraft && (
-            <div className="mb-8 flex items-center gap-2 border-b border-b-slate-200 bg-transparent text-sm">
+            <div className="border-border-muted mb-8 flex items-center gap-2 border-b bg-transparent text-sm">
               <div className="py-2 pl-2 text-base">⚠️</div>
-              <div className="w-0 flex-1 pr-4 text-slate-600">
+              <div className="text-muted w-0 flex-1 pr-4">
                 This is a quick &amp; dirty draft, for me only!
               </div>
             </div>

@@ -20,7 +20,7 @@ export default function NotesToc(props: NotesTocProps) {
     return (
       <a
         className={cn('group hover:text-link flex items-center gap-1 px-2 py-1', {
-          'border-transparent text-slate-600': activeId !== anchor,
+          'text-muted border-transparent': activeId !== anchor,
           'text-link': activeId === anchor
         })}
         key={anchor}
@@ -50,7 +50,7 @@ export default function NotesToc(props: NotesTocProps) {
       >
         <div
           className={cn(
-            'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1'
+            'thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1'
           )}
         >
           {anchorA('blog-posts', 'Blog posts', activeId)}
@@ -61,12 +61,40 @@ export default function NotesToc(props: NotesTocProps) {
             return anchorA(anchor, tag.name, activeId)
           })}
           <Link
-            className="group flex items-center gap-1 px-2 py-1 text-slate-600 hover:text-sky-600"
+            className="group text-muted hover:text-link flex items-center gap-1 px-2 py-1"
             href="/tags/"
           >
             <span className="text-transparent">◆</span>
             ...
           </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+type SkeletonNotesTocProps = {
+  className?: string
+  itemCount?: number
+}
+
+export function SkeletonNotesToc({ className, itemCount = 8 }: SkeletonNotesTocProps) {
+  return (
+    <div className={cn('flex flex-col gap-1', className)}>
+      <div className="text-skeleton-bg pl-1 text-base italic md:hidden">In this page</div>
+      <div
+        className={cn(
+          'flex h-full flex-col divide-y divide-slate-300 p-2 md:border-none md:bg-transparent md:p-0 md:shadow-none',
+          sectionOuterClass
+        )}
+      >
+        <div className="thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1">
+          {Array.from({ length: itemCount }).map((_, index) => (
+            <div key={index} className="flex items-center gap-1 px-2 py-1">
+              <span className="text-transparent">◆</span>
+              <div className="bg-skeleton-bg h-4 w-24 animate-pulse rounded" />
+            </div>
+          ))}
         </div>
       </div>
     </div>

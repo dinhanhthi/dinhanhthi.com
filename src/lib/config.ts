@@ -28,9 +28,7 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   hideOldDate: true
 }
 
-export const sectionOuterClass = cn(
-  'border-border-muted overflow-hidden rounded-lg border bg-white'
-)
+export const sectionOuterClass = cn('border-border-muted bg-bg overflow-hidden rounded-lg border')
 
 export const postSimpleListContainerClass = cn(
   'divide-border-muted flex flex-col divide-y overflow-hidden',

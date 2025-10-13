@@ -9,10 +9,10 @@ import DraftBadgeComponent from '@/src/app/components/DraftBadge'
 import LangBadgeComponent from '@/src/app/components/LangBadge'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import TooltipX from '@/src/app/components/tooltip-x'
-import HiOutlineDocumentText from '@/src/app/icons/HiOutlineDocumentText'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { Post } from '@/src/lib/types'
-import { BadgeCheck, Feather, Pin } from 'lucide-react'
+import { BadgeCheck, Feather, FileText, Pin } from 'lucide-react'
+import { Badge } from '../ui/badge'
 
 export type PostSimpleOpts = {
   hideDate?: boolean
@@ -38,23 +38,26 @@ export default function PostSimple(props: PostSimpleProps) {
   const status = usePostDateStatus(post.createdDate!, post.date!, options?.maxDaysWinthin || 7)
 
   return (
-    <div className="group hover:bg-slate-50">
+    <div className="group hover:bg-bg-hover">
       <Link
         className={cn(options?.fontClassName, 'flex items-start gap-3 px-4 py-3.5')}
         href={post.uri || '/'}
       >
-        <div className={cn('relative text-slate-600')} id={`well-blog-${post.id}`}>
+        <div
+          className={cn('text-muted group-hover:text-text relative')}
+          id={`well-blog-${post.id}`}
+        >
           {!!options?.customIcon && (!options.showPinned || !post.pinned) && options.customIcon}
           {!options?.customIcon && (!options?.showPinned || !post.pinned) && (
             <>
-              {!post.blog && <HiOutlineDocumentText className="text-xl" />}
-              {post.blog && <Feather size={20} className="text-slate-600" />}
+              {!post.blog && <FileText size={20} />}
+              {post.blog && <Feather size={20} />}
             </>
           )}
           {options?.showPinned && post.pinned && <Pin size={18} className="rotate-45" />}
           {post.wellWritten && !post.blog && (
             <span className="absolute right-[-5px] bottom-[-5px] bg-transparent">
-              <BadgeCheck className="fill-muted text-white" size={12} />
+              <BadgeCheck className="fill-muted text-bg group-hover:fill-text" size={12} />
             </span>
           )}
         </div>
@@ -72,44 +75,42 @@ export default function PostSimple(props: PostSimpleProps) {
           <h3 className="flex-1">
             {/* date status on mobile size */}
             {post.date && (status === 'updatedWithin' || status === 'new') && (
-              <span
-                className={cn(
-                  'mr-1.5 inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[0.7rem] whitespace-nowrap md:hidden',
-                  {
-                    'bg-green-200 text-green-900': status === 'updatedWithin',
-                    'bg-amber-200 text-amber-900': status === 'new'
-                  }
-                )}
+              <Badge
+                variant="secondary"
+                className={cn('mr-1.5 !border-none whitespace-nowrap md:hidden', {
+                  '!bg-green-bg !text-green-text': status === 'updatedWithin',
+                  '!bg-yellow-bg !text-yellow-text': status === 'new'
+                })}
               >
                 {status === 'updatedWithin' && <>updated</>}
                 {status === 'new' && <>new</>}
-              </span>
+              </Badge>
             )}
             {/* title */}
             {post.title}
 
             {/* languages */}
-            <LangBadgeComponent post={post} type="written" />
-            <LangBadgeComponent post={post} type="available" />
+            <LangBadgeComponent post={post} type="written" className="ml-1.5" />
+            <LangBadgeComponent post={post} type="available" className="ml-1.5" />
 
             {/* draft */}
-            <DraftBadgeComponent
-              post={post}
-              draftLabel={options?.draftLabel}
-              tooltipDraftLabel={options?.tooltipDraftLabel}
-            />
+            {post?.isDraft && (
+              <DraftBadgeComponent
+                className="ml-1.5"
+                postId={post.id!}
+                draftLabel={options?.draftLabel}
+                tooltipDraftLabel={options?.tooltipDraftLabel}
+              />
+            )}
           </h3>
           {/* date status on big screen */}
           {(post.createdDate || post.date) && (status !== 'updated' || !options?.hideOldDate) && (
             <div className="hidden items-center gap-2 md:flex">
               {['updated', 'updatedWithin'].includes(status) && post.date && (
-                <div
-                  className={cn('items-center gap-1 rounded-md px-3 py-0.5 whitespace-nowrap', {
-                    'bg-slate-200 text-[0.75rem] text-slate-800':
-                      status === 'updated' && !options?.autoHideAddedDate,
-                    'text-[0.8rem] text-slate-500':
-                      status === 'updated' && options?.autoHideAddedDate,
-                    'bg-green-200 text-[0.75rem] text-green-900': status === 'updatedWithin'
+                <Badge
+                  variant="secondary"
+                  className={cn('!border-none whitespace-nowrap', {
+                    '!bg-green-bg !text-green-text': status === 'updatedWithin'
                   })}
                 >
                   <DateComponent
@@ -118,12 +119,12 @@ export default function PostSimple(props: PostSimpleProps) {
                     humanize={options?.humanizeDate}
                     dateLabel={options?.updatedOnLabel || 'updated'}
                   />
-                </div>
+                </Badge>
               )}
               {status === 'new' && (
-                <div className="rounded-md bg-amber-200 px-3 py-0.5 text-[0.75rem] whitespace-nowrap text-amber-900">
+                <Badge variant="secondary" className="!bg-yellow-bg !text-yellow-text !border-none">
                   {options?.newLabel || 'new'}
-                </div>
+                </Badge>
               )}
               {!(options?.autoHideAddedDate && status !== 'normal') &&
                 post.createdDate &&
@@ -146,12 +147,10 @@ export default function PostSimple(props: PostSimpleProps) {
 
 export const PostSimpleSkeleton = (props: { postContainerClassName?: string }) => (
   <div className={cn('flex items-center gap-3 px-2 py-3', props.postContainerClassName)}>
-    <div>
-      <HiOutlineDocumentText className="text-xl text-slate-700" />
-    </div>
+    <FileText className="text-skeleton-bg" size={20} />
     <div className="flex flex-1 justify-start">
-      <div className="h-6 w-3/4 rounded-xl bg-slate-200"></div>
+      <div className="bg-skeleton-bg h-6 w-3/4 rounded-xl"></div>
     </div>
-    <div className="h-4 w-[150px] rounded-xl bg-slate-200"></div>
+    <div className="bg-skeleton-bg h-4 w-[150px] rounded-xl"></div>
   </div>
 )

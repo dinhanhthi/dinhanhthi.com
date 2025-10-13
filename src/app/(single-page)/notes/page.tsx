@@ -1,7 +1,4 @@
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import { Suspense } from 'react'
-
-import { defaultBlurDataURL, numPostsToShow, postSimpleListContainerClass } from '@/src/lib/config'
+import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import HeaderPage from '../../components/HeaderPage'
@@ -76,16 +73,14 @@ export default async function NotesHomePage() {
         iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
       <div className="flex flex-col gap-12 md:flex-row md:gap-4">
-        <Suspense fallback={<SkeletonNotesPageBody />}>
-          <NotesPageList
-            className="order-2"
-            blogPosts={blogPosts}
-            pinnedPosts={pinnedPosts}
-            posts={posts}
-            pinnedTags={pinnedTagsSorted}
-            numBlogPosts={numBlogPosts}
-          />
-        </Suspense>
+        <NotesPageList
+          className="order-2"
+          blogPosts={blogPosts}
+          pinnedPosts={pinnedPosts}
+          posts={posts}
+          pinnedTags={pinnedTagsSorted}
+          numBlogPosts={numBlogPosts}
+        />
 
         <NotesToc
           className={
@@ -96,43 +91,5 @@ export default async function NotesHomePage() {
         />
       </div>
     </>
-  )
-}
-
-function SkeletonNotesPageBody() {
-  return (
-    <div className="flex flex-1 flex-col gap-12">
-      {/* Blog posts */}
-      <div className="flex flex-col gap-4">
-        <div className="flex animate-pulse items-center gap-2">
-          <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-          <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
-        </div>
-        <SkeletonPostList
-          count={2}
-          postType="PostBlogSimple"
-          options={{
-            className: postSimpleListContainerClass
-          }}
-        />
-      </div>
-
-      {/* Notes */}
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div key={i} className="flex flex-col gap-4">
-          <div className="flex animate-pulse items-center gap-2">
-            <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-            <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
-          </div>
-          <SkeletonPostList
-            count={2}
-            postType="PostSimple"
-            options={{
-              className: postSimpleListContainerClass
-            }}
-          />
-        </div>
-      ))}
-    </div>
   )
 }

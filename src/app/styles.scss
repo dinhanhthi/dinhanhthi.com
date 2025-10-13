@@ -7,25 +7,93 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); // use data-theme=dark to target dark mode
 
 :root {
-  --muted-color: var(--color-slate-500);
+  --bg-color: var(--color-white);
+  --bg-hover-color: var(--color-slate-100);
   --border-muted-color: var(--color-slate-200);
+  --green-bg-color: var(--color-green-200);
+  --green-text-color: var(--color-green-800);
   --link-color: var(--color-sky-600);
   --link-hover-color: var(--color-pink-600);
+  --muted-color: var(--color-slate-500);
+  --text-color: var(--color-slate-800);
+  --text-heading-color: var(--color-slate-700);
+  --yellow-bg-color: var(--color-amber-200);
+  --yellow-text-color: #6b5b1c;
+
+  // Skeletons
+  --skeleton-bg-color: var(--color-slate-200);
+
+  /* Wave colors - light mode (RGB values only, will be used with rgba()) */
+  --wave-color-0: 0, 0, 255;
+  --wave-color-1: 255, 0, 166;
+  --wave-color-2: 0, 0, 0;
+  --wave-color-3: 166, 82, 0;
+  --wave-color-4: 0, 120, 0;
+  --wave-color-5: 166, 0, 82;
+  --wave-color-6: 166, 0, 255;
+  --wave-color-7: 0, 139, 139;
+  --wave-color-8: 0, 200, 255;
+  --wave-color-9: 0, 200, 166;
+  --wave-color-10: 180, 200, 0;
+
+  --wave-color-alpha-0: 0.2;
+  --wave-color-alpha-1: 0.1;
+  --wave-color-alpha-2: 0.02;
+  --wave-color-alpha-3: 0.03;
 }
 
 [data-theme='dark'] {
-  --muted-color: var(--color-slate-300);
-  --border-muted-color: var(--color-slate-200);
+  --bg-color: var(--color-slate-800);
+  --bg-hover-color: var(--color-slate-700);
+  --border-muted-color: var(--color-slate-700);
+  --green-bg-color: #245833;
+  --green-text-color: var(--color-white);
   --link-color: var(--color-sky-400);
-  --link-hover-color: var(--color-pink-400);
+  --link-hover-color: var(--color-pink-300);
+  --muted-color: var(--color-slate-400);
+  --text-color: var(--color-slate-50);
+  --text-heading-color: var(--color-slate-50);
+  --yellow-bg-color: #9f821c;
+  --yellow-text-color: var(--color-white);
+
+  // Skeletons
+  --skeleton-bg-color: var(--color-slate-700);
+
+  /* Wave colors - dark mode (lighter/more visible colors - RGB values only) */
+  --wave-color-0: 125, 211, 252; /* sky-300 */
+  --wave-color-1: 249, 168, 212; /* pink-300 */
+  --wave-color-2: 203, 213, 225; /* slate-300 */
+  --wave-color-3: 253, 186, 116; /* orange-300 */
+  --wave-color-4: 134, 239, 172; /* green-300 */
+  --wave-color-5: 253, 164, 175; /* rose-300 */
+  --wave-color-6: 216, 180, 254; /* purple-300 */
+  --wave-color-7: 94, 234, 212; /* teal-300 */
+  --wave-color-8: 147, 197, 253; /* blue-300 */
+  --wave-color-9: 110, 231, 183; /* emerald-300 */
+  --wave-color-10: 190, 242, 100; /* lime-300 */
+
+  --wave-color-alpha-0: 0.5;
+  --wave-color-alpha-1: 0.2;
+  --wave-color-alpha-2: 0.05;
+  --wave-color-alpha-3: 0.07;
 }
 
 @theme inline {
-  /* Colors */
-  --color-muted: var(--muted-color);
+  --color-bg: var(--bg-color);
+  --color-bg-hover: var(--bg-hover-color);
   --color-border-muted: var(--border-muted-color);
+  --color-green-bg: var(--green-bg-color);
+  --color-green-text: var(--green-text-color);
   --color-link: var(--link-color);
   --color-link-hover: var(--link-hover-color);
+  --color-muted: var(--muted-color);
+  --color-text: var(--text-color);
+  --color-text-heading: var(--text-heading-color);
+  --color-yellow-bg: var(--yellow-bg-color);
+  --color-yellow-text: var(--yellow-text-color);
+
+  // Skeletons
+  --color-skeleton-bg: var(--skeleton-bg-color);
 }
 
 @theme {
@@ -109,9 +177,6 @@
     }
   }
 
-  /* Spacing */
-  --spacing-28: 7rem;
-
   /* Letter Spacing */
   --letter-spacing-tighter: -0.04em;
 
@@ -133,9 +198,6 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-
-  /* Typography Plugin Colors */
-  --color-prose-body: #4d4d4d;
 }
 
 @font-face {
@@ -163,21 +225,12 @@
 }
 
 @layer base {
-  :root {
-    --radius: 0.5rem;
-  }
-
   html {
     font-family: 'font-sans';
     font-size: 16px;
   }
 
-  strong,
-  b {
-    font-weight: 600 !important;
-  }
-
-  .m2it-scrollbar {
+  .thi-scrollbar {
     &::-webkit-scrollbar {
       width: 10px;
       height: 10px;
@@ -193,7 +246,7 @@
       background: transparent;
     }
 
-    &.m2it-scrollbar-small {
+    &.thi-scrollbar-small {
       &::-webkit-scrollbar {
         width: 7px;
         height: 7px;
@@ -205,7 +258,7 @@
   }
 
   // Hide webkit search cancel button
-  .m2it-hide-wscb {
+  .thi-hide-wscb {
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
       display: none;
@@ -213,19 +266,23 @@
   }
 }
 
+@utility prose-pink {
+  --tw-prose-body: var(--text-color);
+}
+
 @layer utilities {
-  // Custom m2it-prose class that extends and customizes the base prose utility
+  // Custom thi-prose class that extends and customizes the base prose utility
   // Placed in @layer utilities to ensure it always comes after base prose styles
-  .m2it-prose {
-    @apply prose max-w-none leading-normal;
+  .thi-prose {
+    @apply prose prose-pink max-w-none leading-normal;
 
     :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
       font-family: inherit;
-      @apply text-[#015caa] no-underline hover:text-pink-600;
+      @apply text-link hover:text-link-hover no-underline;
     }
 
     :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply my-0 font-semibold text-[#111];
+      @apply text-text-heading my-0 font-semibold;
       font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
       font-weight: 600 !important;
       opacity: 0.9;
@@ -257,7 +314,7 @@
     }
 
     :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply rounded-md bg-gray-100 p-[1px_4px_2px_2px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''];
+      @apply dark:text-text rounded-md bg-gray-200 p-[1px_8px_2px_6px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''] dark:bg-gray-900/70;
     }
 
     :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -277,7 +334,7 @@
     }
 
     :where(hr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply my-6;
+      @apply border-border-muted my-6;
     }
 
     :where(figure):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -285,7 +342,7 @@
     }
 
     :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply font-medium text-[#111];
+      @apply font-medium text-inherit;
     }
 
     :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -315,15 +372,6 @@
 }
 
 @layer components {
-  .m2it-link-hover {
-    @apply text-pink-600;
-  }
-
-  .m2it-link {
-    font-family: inherit;
-    @apply text-[#015caa] no-underline hover:text-pink-600;
-  }
-
   .thi-text-rainbow {
     @apply bg-gradient-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
   }
@@ -345,121 +393,120 @@ code {
 
 .table_block_column_header {
   tr:first-child {
-    @apply bg-gray-100 font-semibold;
+    @apply bg-gray-100 font-semibold dark:bg-gray-900;
   }
 }
 
 .table_block_row_header {
   tr {
     td:first-child {
-      @apply bg-gray-100 font-semibold;
+      @apply bg-gray-100 font-semibold dark:bg-gray-900;
     }
   }
 }
 
 // Notion background colors
-.notion-gray_background {
-  @apply bg-gray-100;
-}
-
-.notion-gray_background,
-.bg-gray-100 {
-  code {
-    background-color: #e5e5e5;
+@layer base {
+  .notion-gray_background {
+    @apply bg-gray-100 dark:bg-gray-600/70;
   }
 
-  .toggle-container {
-    background-color: rgb(249 250 251); // bg-gray-50
-  }
+  .notion-gray_background,
+  .bg-gray-100 {
+    .toggle-container {
+      background-color: rgb(249 250 251); // bg-gray-50
+    }
 
-  .toggle-button {
-    &.toggle-open,
-    &:hover {
-      background-color: rgb(229 231 235); // bg-gray-200
+    .toggle-button {
+      &.toggle-open,
+      &:hover {
+        background-color: rgb(229 231 235); // bg-gray-200
+      }
     }
   }
-}
 
-.notion-brown_background {
-  @apply bg-[#f4eeee];
-}
+  .notion-brown_background {
+    @apply bg-[#ebc79e] dark:bg-[#7b5e3c];
+  }
 
-.notion-orange_background {
-  @apply bg-orange-100;
-}
+  .notion-orange_background {
+    @apply bg-orange-200 dark:bg-orange-400/70;
+  }
 
-.notion-yellow_background {
-  @apply bg-amber-100;
-}
+  .notion-yellow_background {
+    @apply bg-yellow-200 dark:bg-yellow-500/70;
+  }
 
-.notion-teal_background {
-  @apply bg-[#deffdb];
-}
+  .notion-teal_background,
+  .notion-green_background {
+    @apply bg-[#deffdb] dark:bg-green-700/30;
+  }
 
-.notion-blue_background {
-  @apply bg-sky-100;
-}
+  .notion-blue_background {
+    @apply bg-sky-100 dark:bg-blue-400/70;
+  }
 
-.notion-purple_background {
-  @apply bg-purple-100;
-}
+  .notion-purple_background {
+    @apply bg-purple-100 dark:bg-purple-400/70;
+  }
 
-.notion-pink_background {
-  @apply bg-pink-100;
-}
+  .notion-pink_background {
+    @apply bg-pink-100 dark:bg-pink-400/70;
+  }
 
-.notion-red_background {
-  @apply bg-red-100;
-}
+  .notion-red_background {
+    @apply bg-red-100 dark:bg-red-400/70;
+  }
 
-// Text
-.notion-gray {
-  @apply text-gray-500;
-}
+  // Text
+  .notion-gray {
+    @apply text-gray-500 dark:text-gray-400;
+  }
 
-.notion-brown {
-  @apply text-[#9f6b53];
-}
+  .notion-brown {
+    @apply text-[#9f6b53];
+  }
 
-.notion-orange {
-  @apply text-orange-500;
-}
+  .notion-orange {
+    @apply text-orange-500;
+  }
 
-.notion-yellow {
-  @apply text-amber-500;
-}
+  .notion-yellow {
+    @apply text-amber-500;
+  }
 
-.notion-teal {
-  @apply text-teal-600;
-}
+  .notion-teal {
+    @apply text-teal-600;
+  }
 
-.notion-blue {
-  @apply text-blue-500;
-}
+  .notion-blue {
+    @apply text-blue-500;
+  }
 
-.notion-purple {
-  @apply text-purple-500;
-}
+  .notion-purple {
+    @apply text-purple-500;
+  }
 
-.notion-pink {
-  @apply text-pink-500;
-}
+  .notion-pink {
+    @apply text-pink-500 dark:text-pink-400;
+  }
 
-.notion-red {
-  @apply text-red-500;
-}
+  .notion-red {
+    @apply text-red-500;
+  }
 
-.notion-gray,
-.notion-brown,
-.notion-orange,
-.notion-yellow,
-.notion-teal,
-.notion-blue,
-.notion-purple,
-.notion-pink,
-.notion-red {
-  strong {
-    color: inherit;
+  .notion-gray,
+  .notion-brown,
+  .notion-orange,
+  .notion-yellow,
+  .notion-teal,
+  .notion-blue,
+  .notion-purple,
+  .notion-pink,
+  .notion-red {
+    strong {
+      color: inherit;
+    }
   }
 }
 
@@ -501,10 +548,6 @@ ul > ul {
 // fix overflow auto numbering from \begin{equation}
 .katex .vlist-t2 {
   margin-right: 0 !important;
-}
-
-li::marker {
-  color: #444 !important;
 }
 
 ul > li {
@@ -624,11 +667,11 @@ ul > li {
 
 .notion-link {
   strong {
-    color: rgb(1 92 170) !important;
+    color: var(--link-color) !important;
   }
   &:hover {
     strong {
-      color: rgb(219 39 119) !important;
+      color: var(--link-hover-color) !important;
     }
   }
 }
