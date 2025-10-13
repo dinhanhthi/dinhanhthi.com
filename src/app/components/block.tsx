@@ -21,7 +21,6 @@ import BlockCallout from './BlockCallout'
 import BlockToggle from './BlockToggle'
 import BlockToggleDiscrete from './BlockToggleDiscrete'
 import BlockVideo from './BlockVideo'
-import PostToc from './PostToc'
 import BlockHeadingToggle from './ToggleHeading'
 import { AssetWrapper } from './asset-wrapper'
 import { Audio } from './audio'
@@ -261,17 +260,6 @@ export const Block: React.FC<BlockProps> = props => {
                             'flex flex-col gap-8': discreteStyle && discreteColsType === 'single'
                           })}
                         >
-                          {/* {!discreteStyle && (
-                            <PostToc
-                              recordMap={recordMap}
-                              tocs={tocs}
-                              inPost={true}
-                              labelTocTitle={blockOptions?.labelTocTitle ?? 'In this note'}
-                              className={blockOptions?.postTocClassName}
-                              minNumHeadingsToShowToc={blockOptions?.minNumHeadingsToShowToc}
-                              defaultOpenToc={blockOptions?.expandTocOnMobile}
-                            />
-                          )} */}
                           {children}
                         </article>
 
