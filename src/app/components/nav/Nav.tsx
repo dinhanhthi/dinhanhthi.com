@@ -5,6 +5,7 @@ import { MENUS, MenuType } from '../../../data/menus'
 import Container from '../Container'
 import NavHidden from './NavHidden'
 import NavSearch from './NavSearch'
+import NavThemeToggle from './NavThemeToggle'
 import NavTopicItem from './NavTopicItem'
 import NavTopicsDropdown from './NavTopicsDropdown'
 
@@ -41,12 +42,14 @@ export default function Nav() {
                         <NavTopicItem uri={item.uri as string} label={item.name} key={item.uri} />
                       ))}
                       <NavHidden />
+                      <NavThemeToggle />
                       <NavSearch />
                     </div>
 
                     {/* Mobile menu (dropdown + search) */}
                     <div className="flex flex-1 items-center justify-end gap-2 md:hidden">
                       <NavTopicsDropdown />
+                      <NavThemeToggle />
                       <NavSearch />
                     </div>
                   </nav>

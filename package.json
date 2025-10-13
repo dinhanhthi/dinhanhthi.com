@@ -9,7 +9,7 @@
     "pnpm": "^10.18.0",
     "node": "^22.19.0"
   },
-  "packageManager": "pnpm@10.18.0",
+  "packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
   "browser": {
     "fs": false,
     "os": false,
@@ -64,6 +64,7 @@
     "moment": "^2.29.4",
     "next": "^15.5.4",
     "next-sitemap": "^4.1.8",
+    "next-themes": "^0.4.6",
     "notion-client": "~7.6.0",
     "notion-types": "~7.6.0",
     "notion-utils": "~7.6.0",

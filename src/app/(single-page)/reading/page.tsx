@@ -1,11 +1,8 @@
-import { Suspense } from 'react'
-
 import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import Link from 'next/link'
 import HeaderPage from '../../components/HeaderPage'
-import { SkeletonToolItem } from '../tools/ToolItem'
 import ReadingPage from './ReadingPage'
 
 export const revalidate = 20
@@ -33,12 +30,12 @@ export default async function ReadingHomePage() {
         subtitle={
           <>
             {description} Read more about{' '}
-            <Link className="m2it-link" href="/note/my-taste-of-reading/">
+            <Link className="text-link hover:text-link-hover" href="/note/my-taste-of-reading/">
               my taste of reading
             </Link>
             , my{' '}
             <a
-              className="m2it-link"
+              className="text-link hover:text-link-hover"
               href="https://www.goodreads.com/review/list/19630622-thi-dinh?ref=nav_mybooks&shelf=to-read"
               target="_blank"
             >
@@ -46,7 +43,7 @@ export default async function ReadingHomePage() {
             </a>{' '}
             and{' '}
             <a
-              className="m2it-link"
+              className="text-link hover:text-link-hover"
               href="https://www.goodreads.com/review/list/19630622-thi-dinh?shelf=read"
               target="_blank"
             >
@@ -58,28 +55,7 @@ export default async function ReadingHomePage() {
         iconPath="/logo_sketches/sketch_reading_nobg.png"
         number={books.length}
       />
-      <Suspense fallback={<SkeletonReadingContainer />}>
-        <ReadingPage books={books} tags={tags} />
-      </Suspense>
+      <ReadingPage books={books} tags={tags} />
     </>
-  )
-}
-
-function SkeletonReadingContainer() {
-  return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-start">
-        <div className="flex gap-x-2 gap-y-3">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="h-6 w-20 animate-pulse rounded-md bg-white"></div>
-          ))}
-        </div>
-      </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <SkeletonToolItem key={i} />
-        ))}
-      </div>
-    </div>
   )
 }

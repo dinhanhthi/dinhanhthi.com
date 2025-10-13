@@ -64,7 +64,7 @@ export default function NotFoundPage() {
           </div>
         </div>
         <p className="text-xl">
-          <Link className="m2it-link hover:m2it-link-hover font-semibold" href="/">
+          <Link className="text-link hover:text-link-hover font-semibold" href="/">
             Back to home
           </Link>
         </p>

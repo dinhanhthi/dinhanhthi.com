@@ -6,6 +6,9 @@ import cn from 'classnames'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { sectionOuterClass } from '../../../lib/config'
+import HeadingPage from '../../components/HeadingPage'
+import { Badge } from '../../components/ui/badge'
+import { Button } from '../../components/ui/button'
 import { StarIcon } from '../../icons/StarIcon'
 import { TagAIIcon } from '../../icons/TagAIIcon'
 import { TagEconomicsIcon } from '../../icons/TagEconomicsIcon'
@@ -21,7 +24,7 @@ import { TagScienceIcon } from '../../icons/TagScienceIcon'
 import { TagSelfHelpIcon } from '../../icons/TagSelfHelpIcon'
 import { TagTechIcon } from '../../icons/TagTechIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
-import ToolItem, { ToolItemInputType } from '../tools/ToolItem'
+import BookItem from './BookItem'
 
 const iconTagList: { [x: string]: (_props: React.SVGProps<SVGSVGElement>) => React.ReactElement } =
   {
@@ -127,76 +130,65 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
   return (
     <div className="flex flex-col gap-8">
       {/* Tags */}
-      <div className="flex flex-wrap items-center justify-start gap-3 sm:justify-start md:flex-nowrap md:items-baseline">
-        <div className="flex flex-wrap items-center gap-1.5">
-          {props.tags?.map(tag => (
-            <button
-              onClick={() => toggleTypeToShow(tag)}
-              key={makeSlugText(tag)}
-              className={cn(
-                'flex cursor-pointer flex-row items-center gap-2 rounded-sm border border-slate-200 px-3 py-1.5 text-slate-700 transition duration-200 ease-in-out',
-                {
-                  'hover:m2it-link-hover bg-white': !tagsToShow.includes(tag),
-                  'bg-sky-600 text-white': tagsToShow.includes(tag)
-                }
-              )}
-            >
-              {iconTagList[tag] &&
-                (() => {
-                  const IconComponent = iconTagList[tag]
-                  return (
-                    <IconComponent
-                      className={cn('h-4 w-4', {
-                        'text-amber-400': tag === 'favorite'
-                      })}
-                    />
-                  )
-                })()}
-              <div className="text-sm whitespace-nowrap">{tag}</div>
-            </button>
-          ))}
-        </div>
+      <div className={cn('flex flex-wrap items-center justify-start gap-3 p-2', sectionOuterClass)}>
+        {props.tags?.map(tag => (
+          <Button
+            className={cn('flex flex-nowrap items-center gap-2 whitespace-nowrap', {
+              '!border-border-muted': !tagsToShow.includes(tag),
+              '!bg-link !text-bg hover:!bg-link hover:!text-bg': tagsToShow.includes(tag)
+            })}
+            size="sm"
+            variant={tagsToShow.includes(tag) ? 'secondary' : 'outline'}
+            onClick={() => toggleTypeToShow(tag)}
+            key={makeSlugText(tag)}
+          >
+            {iconTagList[tag] &&
+              (() => {
+                const IconComponent = iconTagList[tag]
+                return (
+                  <IconComponent
+                    className={cn('h-4 w-4', {
+                      'text-amber-400': tag === 'favorite'
+                    })}
+                  />
+                )
+              })()}
+            <div className="text-sm whitespace-nowrap">{tag}</div>
+          </Button>
+        ))}
       </div>
 
       {/* Reading list */}
-      <div className="flex flex-col gap-4">
-        {/* Recently Read Section */}
-        {recentlyReadBooks.length > 0 && (
-          <div
-            className={cn('mb-6 rounded-lg border border-gray-200 bg-white p-4', sectionOuterClass)}
-          >
-            <h3 className="font-heading mb-4 text-xl font-bold text-slate-700">Recently Read</h3>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {recentlyReadBooks.map((book: Book) => (
-                <ToolItem
-                  key={book.id}
-                  type="book"
-                  tool={book as ToolItemInputType}
-                  hideDescription={true}
-                />
-              ))}
-            </div>
+      {recentlyReadBooks.length > 0 && (
+        <div>
+          <HeadingPage className="mb-2" title="Recently Read" />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {recentlyReadBooks.map((book: Book) => (
+              <BookItem key={book.id} book={book} hideDescription={true} />
+            ))}
           </div>
-        )}
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {notOthersToShow.map((book: Book) => (
-            <ToolItem
-              key={book.id}
-              type="book"
-              tool={book as ToolItemInputType}
-              hideDescription={true}
-            />
-          ))}
         </div>
-      </div>
+      )}
 
+      {/* Read */}
+      {notOthersToShow.length > 0 && (
+        <div>
+          <HeadingPage className="mb-2" title="Read" />
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {notOthersToShow.map((book: Book) => (
+              <BookItem key={book.id} book={book} hideDescription={true} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Others */}
       {othersToShow.length > 0 && (
         <div>
-          <h3 className="font-heading mb-4 text-2xl font-bold text-slate-700">Others</h3>
+          <HeadingPage className="mb-2" title="Others" />
           <ol
             className={cn(
-              'list-decimal rounded-lg bg-white p-4 pl-11 leading-8',
+              'bg-bg marker:text-muted list-decimal rounded-lg p-4 pl-11 leading-8',
               sectionOuterClass
             )}
           >
@@ -205,16 +197,19 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                 <a href={book.url} target="_blank" className="group">
                   {/* NEW badge */}
                   {isBookNew(book) && (
-                    <span className="mr-2 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
+                    <Badge
+                      variant="secondary"
+                      className="!bg-yellow-bg !text-yellow-text !border-none"
+                    >
                       new
-                    </span>
+                    </Badge>
                   )}
-                  <span className="group-hover:m2it-link-hover font-medium text-slate-700">
+                  <span className="text-text-heading group-hover:text-link-hover font-medium">
                     {book.name}
                   </span>{' '}
                   {book.star && (
                     <>
-                      <span className="inline-flex items-center text-slate-400">
+                      <span className="text-muted inline-flex items-center">
                         (
                         {Array.from({ length: +book.star }).map((_, index) => (
                           <StarIcon key={index} className="text-sm" />
@@ -223,7 +218,7 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
                       </span>{' '}
                     </>
                   )}
-                  — <span className="text-sm text-slate-500">{book.author}</span>
+                  — <span className="text-muted text-sm">{book.author}</span>
                 </a>
               </li>
             ))}

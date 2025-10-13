@@ -228,7 +228,7 @@ export const Block: React.FC<BlockProps> = props => {
                 <div className="notion-page-scroller">
                   <main
                     className={cs(
-                      'notion-page m2it-prose',
+                      'notion-page thi-prose',
                       isPageIconUrl ? 'notion-page-has-image-icon' : 'notion-page-has-text-icon',
                       'notion-full-page',
                       page_full_width && 'notion-full-width',
@@ -395,7 +395,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <BlockHeadingToggle
             className={cn('heading-container relative', blurBlockClassName, {
-              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1':
+              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -411,7 +411,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <div
             className={cn('heading-container relative mb-4', blurBlockClassName, {
-              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 pl-2':
+              'from-bg-hover to-bg rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r py-1 pl-2 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -682,7 +682,7 @@ export const Block: React.FC<BlockProps> = props => {
         <div className={cn(basicBlockGapBigger, blurBlockClassName)}>
           <a
             className={cn(
-              'flex w-full gap-4 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300',
+              'hover:border-link border-border-muted flex w-full gap-4 rounded-md border p-3 hover:cursor-pointer',
               blurBlockClassName
             )}
             href={link[0][0]}
@@ -693,12 +693,12 @@ export const Block: React.FC<BlockProps> = props => {
             <div className="flex flex-[4_1_180px] flex-col justify-between gap-4 overflow-hidden">
               <div className="flex flex-col gap-1.5">
                 {title && (
-                  <div className="truncate font-normal">
+                  <div className="text-text truncate font-normal">
                     <Text value={[[title]]} block={block} />
                   </div>
                 )}
                 {block.properties?.description && (
-                  <div className="truncate text-[0.9em] font-normal text-slate-600">
+                  <div className="!text-muted truncate text-[0.9em] font-normal">
                     <Text value={block.properties?.description} block={block} />
                   </div>
                 )}
@@ -714,7 +714,7 @@ export const Block: React.FC<BlockProps> = props => {
                     />
                   </div>
                 )}
-                <div className="truncate text-[0.9em] font-normal text-slate-500">
+                <div className="!text-muted truncate text-[0.9em] font-normal">
                   <Text value={link} block={block} />
                 </div>
               </div>
@@ -789,7 +789,7 @@ export const Block: React.FC<BlockProps> = props => {
           {updatedBlock}
           <div className={cn('flex items-start gap-2', blockMargin)}>
             <div className="mt-[3px] h-4 w-4">
-              {isChecked && <BsCheckSquare className="text-slate-500" />}
+              {isChecked && <BsCheckSquare className="text-slate-500 dark:text-slate-300" />}
               {!isChecked && <BsSquare className="mt-0.5" />}
             </div>
             <div>
@@ -837,7 +837,7 @@ export const Block: React.FC<BlockProps> = props => {
           className={cn(
             basicBlockGapBigger,
             blurBlockClassName,
-            'm2it-scrollbar relative overflow-auto'
+            'thi-scrollbar relative overflow-auto'
           )}
         >
           {updatedBlock}

@@ -29,8 +29,7 @@ export default async function TagsHomePage() {
       icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }
     }))
 
-  const tagListContainerClass =
-    'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 overflow-hidden w-full'
+  const tagListContainerClass = 'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 w-full'
 
   const ImagePlaceholder = () => {
     return (
@@ -75,7 +74,7 @@ export default async function TagsHomePage() {
 function SkeletonTags(props: { className?: string }) {
   return (
     <div className={props.className}>
-      {Array.from({ length: 8 }).map((_, i) => (
+      {Array.from({ length: 12 }).map((_, i) => (
         <div key={i} className={cn('h-[62px] w-full animate-pulse', sectionOuterClass)}></div>
       ))}
     </div>

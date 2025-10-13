@@ -17,6 +17,7 @@ import Link from 'next/link'
 import React from 'react'
 import me from '../../data/me'
 import { getUri } from '../../lib/helpers'
+import DraftBadgeComponent from './DraftBadge'
 import Header from './Header'
 import ImageWithLoading from './ImageWithLoading'
 import { Badge } from './ui/badge'
@@ -84,33 +85,32 @@ export default function HeaderPost(props: HeaderPostProps) {
           />
         )}
         {!!icon && (
-          <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded bg-gray-100 lg:h-[150px] lg:w-[150px]">
+          <div className="bg-bg-hover flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
             <Suspense
               fallback={
-                <div className={cn('h-[45px] w-[45px] animate-pulse rounded-full bg-slate-600')} />
+                <div
+                  className={cn('bg-skeleton-bg h-[45px] w-[45px] animate-pulse rounded-full')}
+                />
               }
             >
               <PageIcon block={block} inline={false} inputIcon={customEmojiUrl} />
             </Suspense>
           </div>
         )}
-        <h1 className="font-heading baseline -mb-2 gap-2 text-2xl text-slate-700 lg:hidden">
+        <h1 className="font-heading baseline text-text-heading -mb-2 gap-2 text-2xl lg:hidden">
           <Text value={title} block={block} />
         </h1>
       </div>
 
       <div className="flex w-full flex-col gap-4">
-        <h1 className="font-heading baseline -mb-2 hidden gap-2 text-3xl text-slate-700 lg:block">
+        <h1 className="font-heading baseline text-text-heading -mb-2 hidden gap-2 text-3xl lg:block">
           <Text value={title} block={block} />
         </h1>
 
         {/* Authors & Date & meta */}
         <div className="text-muted flex w-full flex-wrap items-center gap-3 text-sm sm:justify-start md:w-auto md:flex-nowrap">
-          {/* draft */}
-          {isDraft && <Badge variant="secondary">draft</Badge>}
-
           {/* Author */}
-          <div className="flex flex-nowrap items-center gap-1 font-medium text-slate-700">
+          <div className="flex flex-nowrap items-center gap-1 font-medium">
             <UserRound size={14} />
             {me.name}
           </div>
@@ -132,7 +132,7 @@ export default function HeaderPost(props: HeaderPostProps) {
               {['updated', 'updatedWithin'].includes(status) && (
                 <div
                   className={cn('flex flex-row flex-nowrap items-center gap-1', {
-                    'text-green-700': status === 'updatedWithin'
+                    'text-green-700 dark:text-green-300': status === 'updatedWithin'
                   })}
                 >
                   <RefreshCcw size={14} />
@@ -147,7 +147,10 @@ export default function HeaderPost(props: HeaderPostProps) {
 
               {/* New */}
               {status === 'new' && (
-                <Badge variant="secondary" className="bg-amber-200 text-amber-900">
+                <Badge
+                  variant="secondary"
+                  className="!bg-yellow-bg !text-yellow-text ml-1.5 !border-none"
+                >
                   new
                 </Badge>
               )}
@@ -156,15 +159,19 @@ export default function HeaderPost(props: HeaderPostProps) {
         </div>
 
         {/* Tags */}
-        {tags && !!tags.length && (
+        {((tags && !!tags.length) || isDraft) && (
           <div className="flex flex-wrap items-center gap-2">
-            {tags.map(tag => (
+            {/* draft */}
+            {isDraft && (
+              <DraftBadgeComponent
+                className="ml-1.5 border-orange-500/50 bg-orange-500/10 text-orange-500 dark:border-orange-500/50 dark:bg-orange-500/10 dark:text-orange-500"
+                postId="is-draft"
+              />
+            )}
+            {tags?.map(tag => (
               <React.Fragment key={tag.id}>
                 <Link id={`tag-${tag.id}`} key={tag.uri} href={tag.uri || '/'}>
-                  <Badge
-                    className="font-normal hover:bg-sky-100 hover:text-sky-900"
-                    variant="secondary"
-                  >
+                  <Badge className="font-normal" variant="secondary">
                     {tag.name}
                   </Badge>
                 </Link>

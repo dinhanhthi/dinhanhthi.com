@@ -22,9 +22,8 @@ type BadgeTechProps = {
 }
 
 export default function BadgeTech(props: BadgeTechProps) {
-  const containerClass = cn(
-    `flex h-6 w-fit items-center justify-center rounded-md border border-slate-200 bg-slate-100 px-1 align-baseline text-base text-[#1e293b] transition duration-200 ease-in-out hover:-translate-y-0.5`
-  )
+  const containerClass =
+    'border-border-muted bg-bg-hover text-text-heading flex h-6 w-fit items-center justify-center rounded-md border px-1 align-baseline text-base transition duration-200 ease-in-out hover:-translate-y-0.5'
 
   const children = () => (
     <>

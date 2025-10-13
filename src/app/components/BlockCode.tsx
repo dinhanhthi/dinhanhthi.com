@@ -7,11 +7,12 @@ import * as React from 'react'
 import { useState } from 'react'
 import CopyToClipboard from 'react-copy-to-clipboard'
 import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter'
-import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { prism, vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import FiCheck from '@/src/app/icons/FiCheck'
 import RxCopy from '@/src/app/icons/RxCopy'
 import { useNotionContext } from '@/src/lib/notion/context'
+import { useTheme } from 'next-themes'
 import Mermaid from './Mermaid'
 import { Text } from './text'
 import TooltipX from './tooltip-x'
@@ -28,6 +29,8 @@ type BlockCodeProps = {
 
 export default function BlockCode(props: BlockCodeProps) {
   const { block, className, defaultLanguage, updatedBlock, blurBlockClassName } = props
+
+  const { theme } = useTheme()
 
   const { recordMap, blockOptions } = useNotionContext()
   const content = getBlockTitle(block, recordMap)
@@ -63,9 +66,12 @@ export default function BlockCode(props: BlockCodeProps) {
   const syntaxWraper = (
     <SyntaxHighlighter
       language={formatCodeLang(language)}
-      style={prism}
+      style={theme === 'dark' ? vscDarkPlus : prism}
       className={cn(
-        'syntax-highlighter-pre m2it-scrollbar m2it-scrollbar-small !my-0 max-h-[300px] border !border-slate-300 !bg-slate-50'
+        'syntax-highlighter-pre thi-scrollbar thi-scrollbar-small !border-border-muted !my-0 max-h-[300px] border',
+        {
+          '!bg-slate-50': theme === 'light'
+        }
       )}
       showLineNumbers={true}
     >

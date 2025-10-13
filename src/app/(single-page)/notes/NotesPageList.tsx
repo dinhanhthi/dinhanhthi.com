@@ -1,4 +1,4 @@
-import HeadingWithMore from '@/src/app/components/HeadingWithMore'
+import HeadingPage from '@/src/app/components/HeadingPage'
 import PostList from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
@@ -24,11 +24,11 @@ export default function NotesPageList(props: NotesPageListProps) {
       {/* Blog posts */}
       {blogPosts.length > 0 && (
         <div className="flex flex-col gap-2">
-          <HeadingWithMore
+          <HeadingPage
             title="Blog posts"
             href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
             className="scroll-mt-[70px]"
-            icon={<Feather size={26} className="text-slate-600" />}
+            icon={<Feather size={26} className="text-text-heading" />}
           />
           <div className="overflow-hidden">
             <Suspense
@@ -58,7 +58,7 @@ export default function NotesPageList(props: NotesPageListProps) {
       {/* pinned */}
       {pinnedPosts.length > 0 && (
         <div className="flex flex-col gap-2">
-          <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
+          <HeadingPage title="Pinned notes" className="scroll-mt-[70px]" />
           <>
             <Suspense
               fallback={
@@ -86,7 +86,7 @@ export default function NotesPageList(props: NotesPageListProps) {
 
       {/* Recently updated notes */}
       <div className="flex flex-col gap-2">
-        <HeadingWithMore title="Recently updated notes" className="scroll-mt-[70px]" />
+        <HeadingPage title="Recently updated notes" className="scroll-mt-[70px]" />
         <>
           <Suspense
             fallback={

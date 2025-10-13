@@ -1,6 +1,5 @@
 import LocalRouteChange from '@/src/app/components/LocalRouteChange'
 import Nav from '@/src/app/components/nav/Nav'
-import ScrollToTopOnMount from '@/src/app/components/ScrollToTopOnMount'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
@@ -11,6 +10,7 @@ import me from '../data/me'
 import Container from './components/Container'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import { ThemeProvider } from './components/ThemeProvider'
 import './styles.scss'
 
 export const revalidate = 20
@@ -31,7 +31,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable} font-sans ${quicksand.variable}`}>
+    <html
+      lang="en"
+      className={`${openSans.variable} font-sans ${quicksand.variable}`}
+      suppressHydrationWarning
+    >
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>
           <Script
@@ -49,18 +53,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </>
       )}
       <body suppressHydrationWarning={true}>
-        <ScrollToTopOnMount />
-        <div className="flex min-h-screen flex-col bg-stone-100">
-          <Nav />
-          <main className="min-h-0 flex-1">
-            <Container className="pt-8 pb-12">{children}</Container>
-          </main>
-          <Footer />
-          <ScrollToTop />
-        </div>
-        <Analytics />
-        {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
-        <SpeedInsights />
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen flex-col bg-stone-100 dark:bg-gray-900">
+            <Nav />
+            <main className="min-h-0 flex-1">
+              <Container className="pt-8 pb-12">{children}</Container>
+            </main>
+            <Footer />
+            <ScrollToTop />
+          </div>
+          <Analytics />
+          {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )

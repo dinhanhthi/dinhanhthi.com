@@ -14,7 +14,7 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
           key={'recently-added'}
           title="Recently added"
           tools={props.tools.slice(0, 6)} // We don't sort alphabetically here
-          className="!bg-green-100"
+          className="!bg-[#e7ffee] dark:!bg-[#0b2c40c4]"
         />
       )}
       {favoriteTools.length > 0 && (
@@ -22,7 +22,7 @@ export default function ToolsPage(props: { tools: Tool[]; categories?: string[] 
           key={'favorites'}
           title="Favorites"
           tools={favoriteTools.sort((a, b) => a.name.localeCompare(b.name))}
-          className="!bg-orange-100"
+          className="!bg-orange-100 dark:!bg-[#80653c6b]"
         />
       )}
       {sortedCategories &&

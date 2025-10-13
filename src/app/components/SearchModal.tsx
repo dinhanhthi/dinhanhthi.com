@@ -5,12 +5,12 @@ import { debounce, get } from 'lodash'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, {
-  ChangeEvent,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState
+    ChangeEvent,
+    useCallback,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState
 } from 'react'
 import useSWR from 'swr'
 
@@ -156,7 +156,7 @@ export default function SearchModal(props: SearchModalProps) {
           </div>
           <input
             ref={inputRef}
-            className="peer m2it-hide-wscb h-full w-full bg-transparent pr-2 text-ellipsis outline-none"
+            className="peer thi-hide-wscb h-full w-full bg-transparent pr-2 text-ellipsis outline-none"
             id="search"
             type="search"
             placeholder={props.placeholder || 'Search...'}
@@ -190,7 +190,7 @@ export default function SearchModal(props: SearchModalProps) {
                 <div
                   ref={containerRef}
                   className={cn(
-                    'm2it-scrollbar flex flex-col divide-y divide-slate-200 overflow-auto'
+                    'thi-scrollbar flex flex-col divide-y divide-slate-200 overflow-auto'
                   )}
                 >
                   {data.map((item, index) => {

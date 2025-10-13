@@ -52,10 +52,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                     <div className="flex flex-row items-center gap-2">
                       <h2 className="font-heading text-xl text-slate-700">Blog posts</h2>
                       {blogPosts.length >= 4 && (
-                        <Link
-                          href="/blogs/"
-                          className="hover:m2it-link-hover text-slate-600 italic"
-                        >
+                        <Link href="/blogs/" className="text-muted hover:text-link-hover italic">
                           ...more
                         </Link>
                       )}
@@ -147,8 +144,7 @@ export function SkeletonPageOfPostsListTemplate(props: {
           count={props.numPosts || 4}
           postType={props.postType || 'PostSimple'}
           options={{
-            className: props.postListContainerClassName || postSimpleListContainerClass,
-            postContainerClassName: 'bg-white'
+            className: props.postListContainerClassName || postSimpleListContainerClass
           }}
         />
       </div>

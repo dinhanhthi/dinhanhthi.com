@@ -60,7 +60,7 @@ export default function BlockText(props: TextProps) {
       return (
         <a
           className={cn(
-            'm2it-link',
+            'text-link',
             generateTextAnnotationClasses(
               props.richText.annotations,
               props.ignore as AnnotationIgnoreField[]

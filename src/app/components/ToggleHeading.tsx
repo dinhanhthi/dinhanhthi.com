@@ -40,7 +40,7 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
         </CollapsibleContent>
         <div
           className={cn(
-            'absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2 border-slate-300',
+            'border-border-muted absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2',
             {
               hidden: !open,
               'ml-[13.5px]':

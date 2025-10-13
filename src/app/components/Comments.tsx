@@ -3,9 +3,12 @@
 import cn from 'classnames'
 
 import Giscus from '@giscus/react'
+import { useTheme } from 'next-themes'
 import Container from './Container'
 
 const Comments = ({ className }: { className?: string }) => {
+  const { theme } = useTheme()
+
   return (
     <Container className={cn(className, 'mt-8')}>
       <Giscus
@@ -19,7 +22,7 @@ const Comments = ({ className }: { className?: string }) => {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="light"
+        theme={theme}
         lang="en"
         loading="lazy"
       />
