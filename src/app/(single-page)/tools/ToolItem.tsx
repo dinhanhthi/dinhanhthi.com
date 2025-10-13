@@ -1,13 +1,13 @@
 'use client'
 
 import SimpleImage from '@/src/app/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 
 import TooltipX from '@/src/app/components/tooltip-x'
 import { Book, Game, Tool } from '@/src/lib/types'
+import { LoaderCircle } from 'lucide-react'
 import { StarIcon } from '../../icons/StarIcon'
 
 export type ToolItemInputType = Tool & Book & Game
@@ -191,7 +191,7 @@ const ImagePlaceholder = () => (
         'animate-pulse rounded-full'
       )}
     >
-      <AiOutlineLoading3Quarters className="animate-spin text-[25px] text-slate-600" />
+      <LoaderCircle size={25} className="animate-spin text-slate-600" />
     </div>
   </div>
 )

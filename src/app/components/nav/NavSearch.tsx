@@ -1,6 +1,5 @@
 'use client'
 
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import FiSearch from '@/src/app/icons/FiSearch'
 import IoBookOutline from '@/src/app/icons/IoBookOutline'
 import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
@@ -10,7 +9,7 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
 import { Command } from 'cmdk'
 import { debounce, get } from 'lodash'
-import { X } from 'lucide-react'
+import { LoaderCircle, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
@@ -94,7 +93,7 @@ export default function NavSearch() {
                 )}
                 {isLoading && (
                   <div className="animate-spin">
-                    <AiOutlineLoading3Quarters className="text-2xl" />
+                    <LoaderCircle size={25} />
                   </div>
                 )}
               </div>

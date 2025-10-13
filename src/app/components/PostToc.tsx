@@ -60,18 +60,35 @@ export default function PostToc(props: PostTocProps) {
               key={toc.id}
               href={`#${anchor}`}
               className={cn(
-                'hover:m2it-link flex break-inside-avoid items-baseline gap-2 border-slate-300 px-2 py-1',
+                'hover:text-link flex break-inside-avoid items-baseline gap-2 border-slate-300 px-2 py-1',
                 {
                   'ml-2 border-l pl-2': isH3,
                   '-ml-1': isH2,
-                  'hover:m2it-link-hover text-black lg:bg-slate-200':
-                    activeId === anchor && !props.inPost,
-                  'hover:m2it-link-hover text-slate-700': activeId !== anchor || props.inPost
+                  'hover:text-link lg:text-link': activeId === anchor && !props.inPost,
+                  'hover:text-link text-slate-700': activeId !== anchor || props.inPost
                 }
               )}
             >
-              {isH2 && <span className="text-[0.7em] text-slate-400">◆</span>}
-              {isH3 && <span className="text-[0.6em] text-slate-400">○</span>}
+              {isH2 && (
+                <span
+                  className={cn('text-[0.7em]', {
+                    'text-link': activeId === anchor && !props.inPost,
+                    'text-slate-400': activeId !== anchor || props.inPost
+                  })}
+                >
+                  ◆
+                </span>
+              )}
+              {isH3 && (
+                <span
+                  className={cn('text-[0.6em]', {
+                    'text-link': activeId === anchor && !props.inPost,
+                    'text-slate-400': activeId !== anchor || props.inPost
+                  })}
+                >
+                  ○
+                </span>
+              )}
               {!block?.properties?.title && <span className="block">{toc.text}</span>}
               {block?.properties?.title && (
                 <span className="leading-snug">

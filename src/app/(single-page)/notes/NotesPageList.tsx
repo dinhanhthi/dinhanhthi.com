@@ -1,9 +1,9 @@
 import HeadingWithMore from '@/src/app/components/HeadingWithMore'
 import PostList from '@/src/app/components/PostsList'
 import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import BlogIcon from '@/src/app/icons/BlogIcon'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { Post, Tag } from '@/src/lib/types'
+import { Feather } from 'lucide-react'
 import { Suspense } from 'react'
 import { cn } from '../../../lib/utils'
 import NoteTopicSection from './NoteTopicSection'
@@ -28,7 +28,7 @@ export default function NotesPageList(props: NotesPageListProps) {
             title="Blog posts"
             href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
             className="scroll-mt-[70px]"
-            icon={<BlogIcon className="h-6 w-6" />}
+            icon={<Feather size={26} className="text-slate-600" />}
           />
           <div className="overflow-hidden">
             <Suspense

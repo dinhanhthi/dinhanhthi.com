@@ -9,12 +9,10 @@ import DraftBadgeComponent from '@/src/app/components/DraftBadge'
 import LangBadgeComponent from '@/src/app/components/LangBadge'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import TooltipX from '@/src/app/components/tooltip-x'
-import BlogIcon from '@/src/app/icons/BlogIcon'
-import BsPinAngleFill from '@/src/app/icons/BsPinAngleFill'
 import HiOutlineDocumentText from '@/src/app/icons/HiOutlineDocumentText'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { Post } from '@/src/lib/types'
-import { BadgeCheck } from 'lucide-react'
+import { BadgeCheck, Feather, Pin } from 'lucide-react'
 
 export type PostSimpleOpts = {
   hideDate?: boolean
@@ -50,10 +48,10 @@ export default function PostSimple(props: PostSimpleProps) {
           {!options?.customIcon && (!options?.showPinned || !post.pinned) && (
             <>
               {!post.blog && <HiOutlineDocumentText className="text-xl" />}
-              {post.blog && <BlogIcon className="text-xl text-slate-600" />}
+              {post.blog && <Feather size={20} className="text-slate-600" />}
             </>
           )}
-          {options?.showPinned && post.pinned && <BsPinAngleFill className="text-xl" />}
+          {options?.showPinned && post.pinned && <Pin size={18} className="rotate-45" />}
           {post.wellWritten && !post.blog && (
             <span className="absolute right-[-5px] bottom-[-5px] bg-transparent">
               <BadgeCheck className="fill-muted text-white" size={12} />

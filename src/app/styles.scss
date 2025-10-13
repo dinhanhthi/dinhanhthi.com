@@ -9,17 +9,23 @@
 :root {
   --muted-color: var(--color-slate-500);
   --border-muted-color: var(--color-slate-200);
+  --link-color: var(--color-sky-600);
+  --link-hover-color: var(--color-pink-600);
 }
 
 [data-theme='dark'] {
   --muted-color: var(--color-slate-300);
   --border-muted-color: var(--color-slate-200);
+  --link-color: var(--color-sky-400);
+  --link-hover-color: var(--color-pink-400);
 }
 
 @theme inline {
   /* Colors */
   --color-muted: var(--muted-color);
   --color-border-muted: var(--border-muted-color);
+  --color-link: var(--link-color);
+  --color-link-hover: var(--link-hover-color);
 }
 
 @theme {

@@ -1,9 +1,9 @@
 'use client'
 
 import SimpleImage from '@/src/app/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import { Tool } from '@/src/lib/types'
+import { LoaderCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 type ToolSimpleItemProps = {
@@ -63,7 +63,7 @@ const ImagePlaceholder = () => (
       style={{ width: 30, height: 30 }}
       className="m-auto flex animate-pulse items-center justify-center rounded-full"
     >
-      <AiOutlineLoading3Quarters className="animate-spin text-[25px] text-slate-600" />
+      <LoaderCircle size={25} className="animate-spin text-slate-600" />
     </div>
   </div>
 )

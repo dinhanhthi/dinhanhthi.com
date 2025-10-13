@@ -1,4 +1,3 @@
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import { Suspense } from 'react'
@@ -6,6 +5,7 @@ import { Suspense } from 'react'
 import { defaultBlurDataURL, sectionOuterClass } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
+import { LoaderCircle } from 'lucide-react'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
 
@@ -39,7 +39,7 @@ export default async function TagsHomePage() {
           'flex h-[30px] w-[30px] flex-col items-center justify-center rounded-full bg-gray-400'
         )}
       >
-        <AiOutlineLoading3Quarters className="animate-spin text-[30px] text-white" />
+        <LoaderCircle size={30} className="animate-spin text-white" />
       </div>
     )
   }
