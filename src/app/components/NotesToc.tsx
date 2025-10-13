@@ -19,9 +19,9 @@ export default function NotesToc(props: NotesTocProps) {
   const anchorA = (anchor?: string, name?: string, activeId?: string) => {
     return (
       <a
-        className={cn('group flex items-center gap-1 px-2 py-1 hover:text-sky-600', {
+        className={cn('group hover:text-link flex items-center gap-1 px-2 py-1', {
           'border-transparent text-slate-600': activeId !== anchor,
-          'text-sky-600': activeId === anchor
+          'text-link': activeId === anchor
         })}
         key={anchor}
         href={`#${anchor}`}
@@ -29,7 +29,7 @@ export default function NotesToc(props: NotesTocProps) {
         <span
           className={cn({
             'text-transparent': activeId !== anchor,
-            'text-sky-600': activeId === anchor
+            'text-link': activeId === anchor
           })}
         >
           ◆

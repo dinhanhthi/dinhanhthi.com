@@ -14,13 +14,13 @@ import React, {
 } from 'react'
 import useSWR from 'swr'
 
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import BsArrowReturnLeft from '@/src/app/icons/BsArrowReturnLeft'
 import FiSearch from '@/src/app/icons/FiSearch'
 import IoBookOutline from '@/src/app/icons/IoBookOutline'
 import IoCloseCircle from '@/src/app/icons/IoCloseCircle'
 import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
 import { SearchResult } from '@/src/lib/types'
+import { LoaderCircle } from 'lucide-react'
 import { Dialog, DialogContent } from './ui/dialog'
 
 type SearchModalProps = {
@@ -150,7 +150,7 @@ export default function SearchModal(props: SearchModalProps) {
             )}
             {isLoading && (
               <div className="animate-spin">
-                <AiOutlineLoading3Quarters className="text-2xl" />
+                <LoaderCircle size={25} />
               </div>
             )}
           </div>
