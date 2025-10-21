@@ -10,7 +10,9 @@ import { CollectionInstance, SearchParams } from 'notion-types'
 import ogs from 'open-graph-scraper'
 import pMemoize from 'p-memoize'
 
+import { redisCacheTTL } from '@/src/lib/config'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
+import { withRedisCache } from '@/src/lib/redis-cache'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
@@ -273,6 +275,31 @@ export async function getCustomEmojiBlock(opts: {
  * Get all nested blocks (in all levels) of a block.
  */
 export async function getBlocks(
+  blockId: string,
+  initNumbering?: string,
+  getPageUri?: (_pageId: string) => Promise<string | undefined>,
+  parseImgurUrl?: (_url: string) => string,
+  notionToken?: string,
+  notionVersion?: string
+): Promise<ListBlockChildrenResponse['results']> {
+  // Cache key includes blockId only - other params affect rendering, not data fetching
+  const cacheKey = `blocks-${blockId}`
+
+  return withRedisCache(
+    cacheKey,
+    async () =>
+      getBlocksImpl(blockId, initNumbering, getPageUri, parseImgurUrl, notionToken, notionVersion),
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.blocks
+    }
+  )
+}
+
+/**
+ * Implementation of getBlocks (extracted for caching)
+ */
+async function getBlocksImpl(
   blockId: string,
   initNumbering?: string,
   getPageUri?: (_pageId: string) => Promise<string | undefined>,

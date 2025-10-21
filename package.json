@@ -27,11 +27,8 @@
     "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
     "clean-build": "pnpm run clean && pnpm run build",
     "reinstall": "pnpm run clean && rm -rf node_modules 2>/dev/null && rm pnpm-lock.yaml 2>/dev/null && pnpm install",
-    "ud-cover": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover --pid",
-    "ud-icon": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon --pid",
-    "ud-cover-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a cover-all",
-    "ud-icon-all": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a icon-all",
-    "ud-images-post": "npx tsx -r dotenv/config ./scripts/ud_images.ts dotenv_config_path=.env.local --a images-in-post --pid"
+    "warm-cache": "npx tsx -r dotenv/config ./scripts/warm-cache.ts dotenv_config_path=.env.local",
+    "clear-cache": "npx tsx -r dotenv/config ./scripts/clear-cache.ts dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",
@@ -47,6 +44,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@radix-ui/react-visually-hidden": "^1.2.3",
     "@tailwindcss/typography": "^0.5.19",
+    "@upstash/redis": "^1.35.6",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",

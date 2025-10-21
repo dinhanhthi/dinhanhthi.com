@@ -13,7 +13,7 @@ import ScrollToTop from './components/ScrollToTop'
 import { ThemeProvider } from './components/ThemeProvider'
 import './styles.scss'
 
-export const revalidate = 20
+export const revalidate = 60
 
 export const metadata: Metadata = {
   metadataBase: new URL(me.website),

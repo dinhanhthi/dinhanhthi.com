@@ -1,6 +1,5 @@
 'use client'
 
-import cn from 'classnames'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,14 +8,10 @@ import * as React from 'react'
 
 import { CodeIcon } from '@/src/app/icons/CodeIcon'
 import SigmaIcon from '@/src/app/icons/SigmaIcon'
-import { ToggleOffIcon } from '@/src/app/icons/ToggleOffIcon'
-import { ToggleOnIcon } from '@/src/app/icons/ToggleOnIcon'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import { NotionRenderer } from '@/src/lib/notion/renderer'
-import ScrollToTop from './ScrollToTop'
 import { SimpleImageProps } from './SimpleImage'
-import TooltipX from './tooltip-x'
 
 type PostBodyProps = {
   recordMap: ExtendedRecordMap
@@ -31,7 +26,6 @@ type PostBodyProps = {
   createdIdKey?: string // used as NEXT_PUBLIC_ID_CREATED_DATE
   showUpdateButtonClassName?: string
   showUpdateButtonPositionClass?: string
-  showBackToTopButton?: boolean
   postCreatedDate?: string // used to show correctly the update blocks
   postLastModifiedDate?: string // used to show correctly the update blocks
 }
@@ -110,42 +104,6 @@ export default function PostBody(props: PostBodyProps) {
           setShowOnlyUpdatedBlocks={setShowOnlyUpdatedBlocks}
         />
       </div>
-      {showUpdatedIndicator && status === 'updatedWithin' && (
-        <button
-          onClick={() => setShowOnlyUpdatedBlocks(!showOnlyUpdatedBlocks)}
-          className={cn(
-            'fixed z-50 hidden h-12 w-12 rounded-full bg-slate-200 hover:cursor-pointer hover:bg-slate-300 md:block',
-            props.showUpdateButtonPositionClass
-              ? props.showUpdateButtonPositionClass
-              : 'right-10 bottom-24'
-          )}
-        >
-          <div
-            id="updated-blocks-toggle"
-            className={cn(
-              'flex h-full w-full items-center justify-center',
-              props.showUpdateButtonClassName
-                ? props.showUpdateButtonClassName
-                : 'before:!top-[15px] before:!right-[55px] before:!left-auto'
-            )}
-          >
-            {!showOnlyUpdatedBlocks && <ToggleOffIcon className="h-7 w-7 text-green-700" />}
-            {showOnlyUpdatedBlocks && <ToggleOnIcon className="h-7 w-7 text-green-700" />}
-          </div>
-          <TooltipX id={'#updated-blocks-toggle'}>
-            {!showOnlyUpdatedBlocks ? 'Highlight only updated blocks' : 'Back to default display'}
-          </TooltipX>
-        </button>
-      )}
-      {props.showBackToTopButton && (
-        <ScrollToTop
-          positionClassName={
-            showUpdatedIndicator && status === 'updatedWithin'
-              ? 'right-10 md:bottom-24 bottom-8'
-              : 'right-10 bottom-8'
-          }
-        />
-      )}
     </>
   )
 }
