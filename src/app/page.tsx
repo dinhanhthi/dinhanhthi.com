@@ -4,10 +4,10 @@ import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { Suspense } from 'react'
 
 import {
-  defaultBlurDataURL,
-  defaultPostTypeOpts,
-  numPostsToShow,
-  postSimpleListContainerClass
+    defaultBlurDataURL,
+    defaultPostTypeOpts,
+    numPostsToShow,
+    postSimpleListContainerClass
 } from '@/src/lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
@@ -18,7 +18,7 @@ import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tool
 import HeaderThiCard from './components/HeaderThiCard'
 import Topic from './components/Topic'
 
-export const revalidate = 20
+export const revalidate = 60
 
 export const metadata = getMetadata({
   title: "Hi! I'm Thi",

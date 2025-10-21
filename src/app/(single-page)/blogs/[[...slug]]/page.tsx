@@ -5,10 +5,10 @@ import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import PageOfPostsListTemplate, {
-  PageOfPostsListTemplateProps
+    PageOfPostsListTemplateProps
 } from '../../../templates/PageOfPostsListTemplate'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const numPostsPerPage = 24
 

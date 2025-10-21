@@ -6,21 +6,26 @@ import { get } from 'lodash'
 import { Block, CollectionInstance } from 'notion-types'
 
 import { getFilter, getUri, transformUnofficialPostProps } from '@/src/lib/helpers'
-import { defaultPostDate, defaultPostTitle } from './config'
+import { defaultPostDate, defaultPostTitle, redisCacheTTL } from './config'
+import { withRedisCache } from './redis-cache'
 
 export async function getUnofficialPosts() {
-  try {
-    const data = await getUnofficialDatabase({
-      spaceId: process.env.SPACE_ID,
-      sourceId: process.env.SOURCE_ID,
-      collectionViewId: process.env.COLLECTION_VIEW_ID,
-      notionApiWeb: process.env.NOTION_API_PUBLISHED
-    })
-    return transformUnofficialPosts(data)
-  } catch (error) {
-    console.error('🚨 Error in getUnofficialPosts()', error)
-    return []
-  }
+  return withRedisCache(
+    'unofficial-posts',
+    async () => {
+      const data = await getUnofficialDatabase({
+        spaceId: process.env.SPACE_ID,
+        sourceId: process.env.SOURCE_ID,
+        collectionViewId: process.env.COLLECTION_VIEW_ID,
+        notionApiWeb: process.env.NOTION_API_PUBLISHED
+      })
+      return transformUnofficialPosts(data)
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.unofficialPosts
+    }
+  )
 }
 
 export async function getPosts(options: {
@@ -32,57 +37,74 @@ export async function getPosts(options: {
   if (!process.env.NOTION_DB_POSTS) throw new Error('getPosts(): NOTION_DB_POSTS is not defined')
   const { filter, startCursor, pageSize, sorts } = options
 
-  try {
-    const defaultSort = {
-      property: 'finalModified',
-      direction: 'descending'
-    } as NotionSorts
+  // Create a unique cache key based on the options
+  const cacheKey = `posts-${JSON.stringify({ filter, startCursor, pageSize, sorts })}`
 
-    const sortsToUse: any = sorts?.length ? sorts.push(defaultSort) : [defaultSort]
-    const filterToUse = getFilter(filter)
+  return withRedisCache(
+    cacheKey,
+    async () => {
+      const defaultSort = {
+        property: 'finalModified',
+        direction: 'descending'
+      } as NotionSorts
 
-    const data = await queryDatabase({
-      dbId: process.env.NOTION_DB_POSTS as string,
-      filter: filterToUse,
-      startCursor,
-      pageSize,
-      sorts: sortsToUse
-    })
+      const sortsToUse: any = sorts?.length ? sorts.push(defaultSort) : [defaultSort]
+      const filterToUse = getFilter(filter)
 
-    return await transformNotionPostsData({ data: data?.results as any[] })
-  } catch (error) {
-    console.error('🚨 Error in getPosts()', error)
-    return []
-  }
+      const data = await queryDatabase({
+        dbId: process.env.NOTION_DB_POSTS as string,
+        filter: filterToUse,
+        startCursor,
+        pageSize,
+        sorts: sortsToUse
+      })
+
+      return await transformNotionPostsData({ data: data?.results as any[] })
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.posts
+    }
+  )
 }
 
 export async function getCustomEmojiUrl(pageWithDash: string, customEmojiId: string) {
-  try {
-    const data = await getCustomEmojiBlock({
-      pageWithDash,
-      customEmojiId,
-      apiUrl: process.env.NOTION_API_PUBLISHED
-    })
-    return data?.url ?? ''
-  } catch (error) {
-    console.error('🚨 Error in getCustomEmojiUrl()', error)
-    return ''
-  }
+  const cacheKey = `emoji-${pageWithDash}-${customEmojiId}`
+
+  return withRedisCache(
+    cacheKey,
+    async () => {
+      const data = await getCustomEmojiBlock({
+        pageWithDash,
+        customEmojiId,
+        apiUrl: process.env.NOTION_API_PUBLISHED
+      })
+      return data?.url ?? ''
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.emoji
+    }
+  )
 }
 
 export async function getUnofficialBooks() {
-  try {
-    const data = await getUnofficialDatabase({
-      spaceId: process.env.SPACE_ID,
-      sourceId: process.env.READING_SOURCE_ID,
-      collectionViewId: process.env.READING_COLLECTION_VIEW_ID,
-      notionApiWeb: process.env.NOTION_API_PUBLISHED
-    })
-    return { books: transformUnofficialBooks(data) }
-  } catch (error) {
-    console.error('🚨 Error in getUnofficialBooks()', error)
-    return { books: [] }
-  }
+  return withRedisCache(
+    'unofficial-books',
+    async () => {
+      const data = await getUnofficialDatabase({
+        spaceId: process.env.SPACE_ID,
+        sourceId: process.env.READING_SOURCE_ID,
+        collectionViewId: process.env.READING_COLLECTION_VIEW_ID,
+        notionApiWeb: process.env.NOTION_API_PUBLISHED
+      })
+      return { books: transformUnofficialBooks(data) }
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.books
+    }
+  )
 }
 
 function transformUnofficialBooks(data: CollectionInstance): Book[] {
@@ -146,20 +168,24 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
 }
 
 export async function getUnofficialTools() {
-  try {
-    const data = await getUnofficialDatabase({
-      spaceId: process.env.SPACE_ID,
-      sourceId: process.env.TOOLS_SOURCE_ID,
-      collectionViewId: process.env.TOOLS_COLLECTION_VIEW_ID,
-      notionApiWeb: process.env.NOTION_API_PUBLISHED
-    })
-    const allTags = getAllToolsTags(data)
-    const allCategories = getAllToolsCategories(data)
-    return { tools: transformUnofficialTools(data), tags: allTags, categories: allCategories }
-  } catch (error) {
-    console.error('🚨 Error in getUnofficialTools', error)
-    return { tools: [], tags: [] }
-  }
+  return withRedisCache(
+    'unofficial-tools',
+    async () => {
+      const data = await getUnofficialDatabase({
+        spaceId: process.env.SPACE_ID,
+        sourceId: process.env.TOOLS_SOURCE_ID,
+        collectionViewId: process.env.TOOLS_COLLECTION_VIEW_ID,
+        notionApiWeb: process.env.NOTION_API_PUBLISHED
+      })
+      const allTags = getAllToolsTags(data)
+      const allCategories = getAllToolsCategories(data)
+      return { tools: transformUnofficialTools(data), tags: allTags, categories: allCategories }
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.tools
+    }
+  )
 }
 
 function getAllToolsTags(data: CollectionInstance): string[] {
@@ -230,18 +256,22 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
 }
 
 export async function getTopics() {
-  try {
-    const data = await getUnofficialDatabase({
-      spaceId: process.env.SPACE_ID,
-      sourceId: process.env.TOPICS_SOURCE_ID,
-      collectionViewId: process.env.TOPICS_COLLECTION_VIEW_ID,
-      notionApiWeb: process.env.NOTION_API_PUBLISHED
-    })
-    return transformTopics(data)
-  } catch (error) {
-    console.error('🚨 Error in getTopics()', error)
-    return []
-  }
+  return withRedisCache(
+    'topics',
+    async () => {
+      const data = await getUnofficialDatabase({
+        spaceId: process.env.SPACE_ID,
+        sourceId: process.env.TOPICS_SOURCE_ID,
+        collectionViewId: process.env.TOPICS_COLLECTION_VIEW_ID,
+        notionApiWeb: process.env.NOTION_API_PUBLISHED
+      })
+      return transformTopics(data)
+    },
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.topics
+    }
+  )
 }
 
 function transformTopics(data: CollectionInstance): Tag[] {

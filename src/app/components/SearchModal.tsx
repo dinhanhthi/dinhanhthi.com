@@ -5,12 +5,12 @@ import { debounce, get } from 'lodash'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, {
-    ChangeEvent,
-    useCallback,
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState
 } from 'react'
 import useSWR from 'swr'
 

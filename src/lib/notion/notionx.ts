@@ -1,12 +1,24 @@
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
 
+import { withRedisCache } from '@/src/lib/redis-cache'
+
 export const notionX = new NotionAPI()
 
 export async function getPage(pageId: string) {
-  const recordMap = await notionX.getPage(pageId)
-  const newRecordMap = await fixMissingBlocks(recordMap)
-  return newRecordMap
+  return withRedisCache(
+    `page-${pageId}`,
+    async () => {
+      const recordMap = await notionX.getPage(pageId)
+      const newRecordMap = await fixMissingBlocks(recordMap)
+      return newRecordMap
+    },
+    {
+      namespace: 'notion',
+      softTTL: 3600, // 1 hour - page content changes moderately
+      hardTTL: 1209600 // 14 days - safety net
+    }
+  )
 }
 
 async function fixMissingBlocks(recordMap: ExtendedRecordMap): Promise<ExtendedRecordMap> {

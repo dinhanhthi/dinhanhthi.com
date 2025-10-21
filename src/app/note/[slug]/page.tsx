@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation'
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 import { getPage } from '@/src/lib/notion/notionx'
 
-export const revalidate = 20
+export const revalidate = 60
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
   const resolvedParams = await params

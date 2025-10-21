@@ -1,6 +1,8 @@
-# CLAUDE.md
+---
+alwaysApply: true
+---
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# dinhanhthi.com - Cursor Rules
 
 ## Tech Stack
 
@@ -132,13 +134,12 @@ This project uses **Upstash Redis** for caching Notion API responses:
 - All functions in `src/lib/fetcher.ts`: `getPosts()`, `getTopics()`, `getUnofficialPosts()`, etc.
 - Block fetching in `src/lib/notion/db.ts`: `getBlocks()`
 
-**Cache TTL** (Refresh-Ahead Pattern with softTTL/hardTTL):
-- Posts: 30 min / 7 days
-- Topics: 2 hours / 14 days
-- Books: 4 hours / 14 days
-- Tools: 4 hours / 14 days
-- Blocks: 1 hour / 14 days
-- Emojis: 24 hours / 14 days
+**Cache TTL**:
+- Posts: 30 minutes
+- Topics: 2 hours
+- Books/Tools: 1 hour
+- Blocks: 1 hour
+- Emojis: 24 hours
 
 ### TypeScript Configuration
 
@@ -180,12 +181,46 @@ This project uses **Upstash Redis** for caching Notion API responses:
 ## Important Constraints
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
-- **Answer in Vietnamese** but keep the code and terminology in English.
-<!-- - **Always run `pnpm run build`** to make sure the modifications are good to go -->
+- **Answer in Vietnamese** but keep the code and terminology in English
+- **Package Manager**: Always use `pnpm`, never `npm` or `yarn`
+- **Architecture**: All utilities in `src/lib/`, NOT `src/app/lib/`
+- **Imports**: Use `@/src/lib/*` for utilities, `@/src/app/components/*` for components
+
+## Redis Cache Quick Reference
+
+**Setup** (Optional but Recommended):
+1. Sign up at [Upstash Console](https://console.upstash.com/) (free tier available)
+2. Create a Redis database
+3. Add credentials to `.env.local`:
+   ```bash
+   UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
+   UPSTASH_REDIS_REST_TOKEN="your-token"
+   ```
+4. For production: Add same credentials to Vercel Environment Variables
+
+**Cache Management**:
+```bash
+pnpm run warm-cache        # Populate Redis cache
+pnpm run clear-cache --all # Clear all cache
+```
+
+**Benefits**:
+- ✅ Users always see content (even when Notion API fails)
+- ✅ Faster page loads (cached data)
+- ✅ Reduced API calls and costs
+- ✅ Error logging for monitoring (errors hidden from users)
+
+**Note**: Redis is optional. Without it, the site works normally but without caching.
+
+## Previous Versions
+
+- Version 1-5: Jekyll/Gatsby/11ty implementations
+- Version 6: Used separated [notion-x](https://github.com/dinhanhthi/notion-x) repo
+- Version 7 (current): Fully integrated custom Notion renderer with Redis cache
 
 ## Auto-Update Rules (For AI)
 
-**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`CLAUDE.md`) and `.cursor/rules/dat-com-rules.mdc`.
+**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`.cursor/rules/dat-com-rules.mdc`) and `CLAUDE.md`.
 
 ### Triggers for Auto-Update
 

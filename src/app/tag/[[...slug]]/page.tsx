@@ -1,13 +1,13 @@
 import PageOfPostsListTemplate, {
-  PageOfPostsListTemplateProps
+    PageOfPostsListTemplateProps
 } from '@/src/app/templates/PageOfPostsListTemplate'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import {
-  filterDupLangPosts,
-  generateMetaTitle,
-  getMetadata,
-  getStartCursorForCurrentPage,
-  getUri
+    filterDupLangPosts,
+    generateMetaTitle,
+    getMetadata,
+    getStartCursorForCurrentPage,
+    getUri
 } from '@/src/lib/helpers'
 import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
 import { Metadata } from 'next'
@@ -15,7 +15,7 @@ import { notFound, redirect } from 'next/navigation'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const numPostsPerPage = 48
 const numBlogPosts = 4

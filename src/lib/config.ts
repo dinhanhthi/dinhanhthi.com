@@ -36,3 +36,92 @@ export const postSimpleListContainerClass = cn(
 )
 
 export const postFontClassName = 'font-quicksand'
+
+// ============================================================================
+// REDIS CACHE TTL CONFIGURATION
+// ============================================================================
+
+/**
+ * Cache TTL (Time-To-Live) Configuration
+ *
+ * Two TTL Strategy (Refresh-Ahead Pattern):
+ * - softTTL: When cache is considered "stale" and should refresh in BACKGROUND
+ *            (user gets instant response, refresh happens async)
+ * - hardTTL: When Redis actually DELETES the cache key
+ *            (safety net for long Notion API outages)
+ *
+ * Guidelines:
+ * - softTTL: Short for frequently updated content, long for stable data
+ * - hardTTL: Always long (7-14 days) to survive API outages
+ */
+
+const MINUTE = 60
+const HOUR = 60 * MINUTE
+const DAY = 24 * HOUR
+
+const FIXED_HARD_TTL = 30 * DAY
+
+export const redisCacheTTL = {
+  /**
+   * Posts cache (official Notion DB API)
+   * Updates frequently, needs fresh data
+   */
+  posts: {
+    softTTL: 6 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Unofficial posts cache (published Notion page)
+   * Large dataset, less frequent updates
+   */
+  unofficialPosts: {
+    softTTL: 6 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Topics/Tags cache
+   * Taxonomy rarely changes
+   */
+  topics: {
+    softTTL: 2 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Books cache (reading list)
+   * Stable collection, infrequent updates
+   */
+  books: {
+    softTTL: 2 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Tools cache
+   * Tool collection rarely changes
+   */
+  tools: {
+    softTTL: 2 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Blocks cache (page content)
+   * Content updates moderately
+   */
+  blocks: {
+    softTTL: 3 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Custom emoji cache
+   * URLs almost never change
+   */
+  emoji: {
+    softTTL: 1 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  }
+} as const

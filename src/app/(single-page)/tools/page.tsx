@@ -3,7 +3,7 @@ import { getMetadata } from '@/src/lib/helpers'
 import HeaderPage from '../../components/HeaderPage'
 import ToolsPage from './ToolsPage'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const title = 'Tools I use'
 const description = 'Apps, tools, websites I find useful.'

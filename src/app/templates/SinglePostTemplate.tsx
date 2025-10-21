@@ -57,7 +57,6 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
             postLastModifiedDate={props.postProps.date}
             lastModifiedIdKey={process.env.NEXT_PUBLIC_ID_LAST_MODIFIED}
             createdIdKey={process.env.NEXT_PUBLIC_ID_CREATED_DATE}
-            showBackToTopButton={true}
             showUpdateButtonClassName="before:!left-auto before:!right-[55px] before:!top-[15px]"
             showUpdateButtonPositionClass="right-10 bottom-8"
           />

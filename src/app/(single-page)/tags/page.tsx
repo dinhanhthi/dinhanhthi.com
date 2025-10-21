@@ -9,7 +9,7 @@ import { LoaderCircle } from 'lucide-react'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const title = 'List of topics'
 const description = 'A list of topics I write about'
