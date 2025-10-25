@@ -7,7 +7,6 @@ Automatic email notification system for Notion API errors (official and unoffici
 - ✅ **Email notification** for Notion API, unofficial Notion API, and cache fetch errors
 - ✅ **Rate limiting**: Maximum 1 email per 5 minutes per error type (prevents spam)
 - ✅ **Silent failure**: Doesn't impact user experience if email sending fails
-- ✅ **Environment-aware**: Only sends in production (unless explicitly enabled in dev)
 - ✅ **Rich error context**: Includes error message, stack trace, metadata, timestamp
 - ✅ **Free tier**: Resend provides 3,000 emails/month (100/day) for free
 
@@ -42,8 +41,9 @@ Automatic email notification system for Notion API errors (official and unoffici
 RESEND_API_KEY="re_xxxxxxxxxxxx"
 ADMIN_EMAIL="contact@domain.com"
 
-# Optional: Enable error emails in dev (default: disabled)
-SEND_ERROR_EMAILS_IN_DEV="false"
+# Optional: Disable error emails completely (default: false)
+# When disabled, errors are only logged to console
+DISABLE_ERROR_EMAILS="false"
 ```
 
 #### Production (Vercel):
@@ -118,37 +118,42 @@ The system detects and notifies the following error types:
 
 Default: **1 email per 5 minutes per error type**
 
-Prevents spam if multiple errors occur consecutively. To change, edit `src/lib/send-error-email.ts`:
+Prevents spam if multiple errors occur consecutively. To change, edit `src/lib/config.ts`:
 
 ```typescript
-const rateLimitMs = 5 * 60 * 1000 // 5 minutes
+export const errorNotificationsConfig = {
+  rateLimitMs: 5 * 60 * 1000, // 5 minutes
+  adminEmail: process.env.ADMIN_EMAIL ?? ''
+}
 ```
 
-### Development Mode
+## ⚙️ Configuration Options
 
-Default: **Disabled in development**
+### Disabling Error Emails
 
-Reason: Saves quota and prevents spam during development.
+If you don't want to receive error emails, you have two options:
 
-To enable in dev:
+**Option 1: Don't Configure Resend (Graceful Degradation)**
+- Simply don't add `RESEND_API_KEY` and `ADMIN_EMAIL` to your `.env.local`
+- Errors will only be logged to console
+- You'll see: `⚠️ Resend not configured - skipping error email notification`
 
-```bash
-SEND_ERROR_EMAILS_IN_DEV="true"
-```
-
-### Production Mode
-
-Default: **Enabled automatically**
-
-When `ENV_MODE=prod` (Vercel production), emails are sent automatically.
+**Option 2: Explicitly Disable Emails**
+- Add to your `.env.local`:
+  ```bash
+  DISABLE_ERROR_EMAILS="true"
+  ```
+- Useful when you want to temporarily disable emails without removing credentials
+- Works in both development and production
+- You'll see: `⚠️ Error email notifications are completely disabled (DISABLE_ERROR_EMAILS=true)`
 
 ## 🧪 Testing
 
 ### Test Local (Development):
 
 ```bash
-# 1. Enable error emails in dev
-echo 'SEND_ERROR_EMAILS_IN_DEV="true"' >> .env.local
+# 1. Ensure error emails are NOT disabled (default behavior)
+# In .env.local, either remove DISABLE_ERROR_EMAILS or set it to "false"
 
 # 2. Temporarily break Notion token in .env.local
 NOTION_TOKEN="invalid-token-xxx"
@@ -174,8 +179,8 @@ pnpm run dev
 ### Development Logs:
 
 ```bash
+⚠️ Error email notifications are completely disabled (DISABLE_ERROR_EMAILS=true)
 ⚠️ Resend not configured - skipping error email notification
-ℹ️ Skipping error email in development mode
 ⏰ Rate limit: Skipping email for notion-api (sent 120s ago)
 ✅ Error email sent successfully (ID: xxx-xxx-xxx)
 ❌ Failed to send error email: Error: ...
@@ -229,14 +234,14 @@ echo $RESEND_API_KEY
 # Check Vercel Dashboard → Settings → Environment Variables
 ```
 
-**Check 2: Environment mode**
+**Check 2: Error emails disabled?**
 
 ```bash
-# Dev mode is disabled by default
-# Check console logs:
-ℹ️ Skipping error email in development mode
+# Check if DISABLE_ERROR_EMAILS is set to "true"
+# Console log:
+⚠️ Error email notifications are completely disabled (DISABLE_ERROR_EMAILS=true)
 
-# Fix: Set SEND_ERROR_EMAILS_IN_DEV="true"
+# Fix: Set DISABLE_ERROR_EMAILS="false" or remove it
 ```
 
 **Check 3: Rate limit**
@@ -248,11 +253,20 @@ echo $RESEND_API_KEY
 # Wait 5 minutes or clear cache
 ```
 
-**Check 4: Resend quota**
+**Check 4: Admin email configured?**
+
+```bash
+# Check if ADMIN_EMAIL is set
+echo $ADMIN_EMAIL
+
+# Vercel: Check Environment Variables
+```
+
+**Check 5: Resend quota**
 
 Visit [https://resend.com/emails](https://resend.com/emails) → Check remaining quota
 
-**Check 5: Email spam folder**
+**Check 6: Email spam folder**
 
 Resend emails may go to spam if domain is not verified.
 

@@ -1,7 +1,8 @@
 import { Resend } from 'resend'
 
+import { errorNotificationsConfig } from './config'
+
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
-const adminEmail = process.env.ADMIN_EMAIL ?? ''
 
 export interface ErrorEmailOptions {
   errorType: 'notion-api' | 'unofficial-notion' | 'redis' | 'cache-fetch' | 'other'
@@ -17,7 +18,6 @@ export interface ErrorEmailOptions {
  * Features:
  * - Silent failure (won't impact user experience)
  * - Rate limiting (max 1 email per error type per 5 minutes)
- * - Environment-aware (only in production by default)
  * - Graceful degradation if Resend not configured
  */
 export async function sendErrorEmail({
@@ -27,18 +27,19 @@ export async function sendErrorEmail({
   stack,
   metadata
 }: ErrorEmailOptions) {
-  // Skip if Resend not configured
-  if (!resend) {
-    console.log('⚠️ Resend not configured - skipping error email notification')
+  // Check if error emails are completely disabled
+  if (process.env.DISABLE_ERROR_EMAILS === 'true') {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        '⚠️ Error email notifications are completely disabled (DISABLE_ERROR_EMAILS=true)'
+      )
+    }
     return
   }
 
-  // Skip in development unless explicitly enabled
-  const isDevelopment = process.env.ENV_MODE === 'dev'
-  const enableInDev = process.env.SEND_ERROR_EMAILS_IN_DEV === 'true'
-
-  if (isDevelopment && !enableInDev) {
-    console.log('ℹ️ Skipping error email in development mode')
+  // Skip if Resend not configured
+  if (!resend) {
+    console.log('⚠️ Resend not configured - skipping error email notification')
     return
   }
 
@@ -46,9 +47,8 @@ export async function sendErrorEmail({
   const rateLimitKey = `email-sent-${errorType}`
   const lastSent = errorEmailCache.get(rateLimitKey)
   const now = Date.now()
-  const rateLimitMs = 5 * 60 * 1000 // 5 minutes
 
-  if (lastSent && now - lastSent < rateLimitMs) {
+  if (lastSent && now - lastSent < errorNotificationsConfig.rateLimitMs) {
     console.log(
       `⏰ Rate limit: Skipping email for ${errorType} (sent ${Math.floor((now - lastSent) / 1000)}s ago)`
     )
@@ -58,7 +58,7 @@ export async function sendErrorEmail({
   try {
     const emailData = await resend.emails.send({
       from: 'onboarding@resend.dev', // Change to your verified domain later
-      to: adminEmail,
+      to: errorNotificationsConfig.adminEmail,
       subject: `🚨 [${process.env.NEXT_PUBLIC_SITE_DOMAIN}] Error Alert: ${errorType}`,
       html: buildErrorEmailHTML({
         errorType,
@@ -157,10 +157,9 @@ if (typeof setInterval !== 'undefined') {
   setInterval(
     () => {
       const now = Date.now()
-      const rateLimitMs = 5 * 60 * 1000
 
       for (const [key, timestamp] of errorEmailCache.entries()) {
-        if (now - timestamp > rateLimitMs) {
+        if (now - timestamp > errorNotificationsConfig.rateLimitMs) {
           errorEmailCache.delete(key)
         }
       }

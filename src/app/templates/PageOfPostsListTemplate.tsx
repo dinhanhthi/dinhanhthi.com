@@ -50,7 +50,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                 <div className="flex flex-col gap-2 overflow-hidden">
                   {pinnedPosts.length + posts.length > 0 && (
                     <div className="flex flex-row items-center gap-2">
-                      <h2 className="font-heading text-xl text-slate-700">Blog posts</h2>
+                      <h2 className="font-heading text-text-heading text-xl">Blog posts</h2>
                       {blogPosts.length >= 4 && (
                         <Link href="/blogs/" className="text-muted hover:text-link-hover italic">
                           ...more
@@ -85,7 +85,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
               <div className="flex flex-col gap-2">
                 {blogPosts && blogPosts.length > 0 && pinnedPosts.length + posts.length > 0 && (
                   <div className="flex flex-row items-center gap-2">
-                    <h2 className="font-heading text-xl text-slate-700">Notes</h2>
+                    <h2 className="font-heading text-text-heading text-xl">Notes</h2>
                   </div>
                 )}
 

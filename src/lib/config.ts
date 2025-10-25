@@ -38,6 +38,15 @@ export const postSimpleListContainerClass = cn(
 export const postFontClassName = 'font-quicksand'
 
 // ============================================================================
+// ERROR NOTIFICATIONS CONFIGURATION
+// ============================================================================
+
+export const errorNotificationsConfig = {
+  rateLimitMs: 60 * 60 * 1000, // 1 hour
+  adminEmail: process.env.ADMIN_EMAIL ?? ''
+}
+
+// ============================================================================
 // REDIS CACHE TTL CONFIGURATION
 // ============================================================================
 

@@ -203,12 +203,16 @@ This project uses **Resend** for sending email notifications when critical error
 ## Important Constraints
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
-- **Answer in Vietnamese** but keep the code and terminology in English.
-<!-- - **Always run `pnpm run build`** to make sure the modifications are good to go -->
+- **Answer in Vietnamese** but keep the code and terminology in English
+- **Package Manager**: Always use `pnpm`, never `npm` or `yarn`
+- **Architecture**: All utilities in `src/lib/`, NOT `src/app/lib/`
+- **Imports**: Use `@/src/lib/*` for utilities, `@/src/app/components/*` for components
+- Don't automatically generate summary document after each task unless you are asked to do so.
+- Don't automatically run `pnpm run build` after each task unless you are asked to do so.
 
 ## Auto-Update Rules (For AI)
 
-**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`CLAUDE.md`) and `.cursor/rules/dat-com-rules.mdc`.
+**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`CLAUDE.md`) and `.cursor/rules/project.mdc`.
 
 ### Triggers for Auto-Update
 
@@ -249,7 +253,7 @@ Update rules files when you detect:
 When updating rules files:
 
 1. **Identify the change**: Clearly note what has changed in the project
-2. **Update both files**: Keep `CLAUDE.md` and `.cursor/rules/dat-com-rules.mdc` in sync
+2. **Update both files**: Keep `CLAUDE.md` and `.cursor/rules/project.mdc` in sync
 3. **Be specific**: Update exact sections (Tech Stack, Commands, Architecture, etc.)
 4. **Preserve structure**: Maintain the existing format and organization
 5. **Inform user**: Explicitly mention that you've updated the rules files and what changed
@@ -262,7 +266,7 @@ When updating rules files:
    - Tech Stack section → Add "Database: PostgreSQL"
    - Architecture section → Document new database utilities
    - Environment Setup → Add PostgreSQL credentials
-3. Inform: "I've updated CLAUDE.md and dat-com-rules.mdc to reflect the new PostgreSQL integration"
+3. Inform: "I've updated CLAUDE.md and project.mdc to reflect the new PostgreSQL integration"
 ```
 
 **Note**: This is a living document. Keep it accurate and up-to-date to ensure AI assistance remains effective.
