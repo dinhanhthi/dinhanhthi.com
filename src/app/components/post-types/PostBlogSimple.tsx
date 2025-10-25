@@ -160,7 +160,7 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
 }
 
 export const PostBlogSimpleSkeleton = (props: { postContainerClassName?: string }) => (
-  <div className={cn('flex items-center gap-4 p-4', props.postContainerClassName)}>
+  <div className={cn('flex animate-pulse items-center gap-4 p-4', props.postContainerClassName)}>
     <div className="bg-skeleton-bg h-12 w-12 flex-shrink-0 rounded-full"></div>
     <div className="flex w-full flex-col gap-2">
       <div className="bg-skeleton-bg h-4 w-1/2 rounded-xl"></div>

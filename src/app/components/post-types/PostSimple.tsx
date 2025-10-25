@@ -146,7 +146,9 @@ export default function PostSimple(props: PostSimpleProps) {
 }
 
 export const PostSimpleSkeleton = (props: { postContainerClassName?: string }) => (
-  <div className={cn('flex items-center gap-3 px-2 py-3', props.postContainerClassName)}>
+  <div
+    className={cn('flex animate-pulse items-center gap-3 px-2 py-3', props.postContainerClassName)}
+  >
     <FileText className="text-skeleton-bg" size={20} />
     <div className="flex flex-1 justify-start">
       <div className="bg-skeleton-bg h-6 w-3/4 rounded-xl"></div>

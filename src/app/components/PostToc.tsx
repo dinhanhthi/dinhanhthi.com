@@ -112,7 +112,7 @@ export function SkeletonPostToc({ className }: { className?: string }) {
   return (
     <nav className={cn('flex h-fit w-full flex-col gap-2', className)}>
       <div className="pl-1 text-base italic lg:hidden">
-        <div className="h-4 w-24 animate-pulse rounded bg-slate-200" />
+        <div className="bg-skeleton-bg h-4 w-24 animate-pulse rounded" />
       </div>
       <div
         className={cn(
@@ -122,9 +122,9 @@ export function SkeletonPostToc({ className }: { className?: string }) {
       >
         {[...Array(6)].map((_, i) => (
           <div key={i} className={cn('flex items-baseline gap-2 px-2 py-1')}>
-            <div className="h-3 w-3 animate-pulse rounded-full bg-slate-200" />
+            <div className="bg-skeleton-bg h-3 w-3 animate-pulse rounded-full" />
             <div
-              className="h-3 animate-pulse rounded-lg bg-slate-200"
+              className="bg-skeleton-bg h-3 animate-pulse rounded-lg"
               style={{ width: `${60 + Math.random() * 40}%` }}
             />
           </div>

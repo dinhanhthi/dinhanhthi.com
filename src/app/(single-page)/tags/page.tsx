@@ -1,11 +1,11 @@
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
-import { Suspense } from 'react'
 
-import { defaultBlurDataURL, sectionOuterClass } from '@/src/lib/config'
+import { defaultBlurDataURL } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { LoaderCircle } from 'lucide-react'
+import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import Topic from '../../components/Topic'
 
@@ -20,6 +20,8 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
+export const tagListContainerClass = 'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 w-full'
+
 export default async function TagsHomePage() {
   const _tags = await getTopics()
   const tags = _tags
@@ -28,8 +30,6 @@ export default async function TagsHomePage() {
       ...tag,
       icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }
     }))
-
-  const tagListContainerClass = 'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 w-full'
 
   const ImagePlaceholder = () => {
     return (
@@ -52,7 +52,7 @@ export default async function TagsHomePage() {
         iconPath="/logo_sketches/sketch_topics_nobg.png"
         number={tags.length}
       />
-      <Suspense fallback={<SkeletonTags className={tagListContainerClass} />}>
+      <Container>
         {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
         {tags.length > 0 && (
           <div className={tagListContainerClass}>
@@ -66,17 +66,7 @@ export default async function TagsHomePage() {
             ))}
           </div>
         )}
-      </Suspense>
+      </Container>
     </>
-  )
-}
-
-function SkeletonTags(props: { className?: string }) {
-  return (
-    <div className={props.className}>
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div key={i} className={cn('h-[62px] w-full animate-pulse', sectionOuterClass)}></div>
-      ))}
-    </div>
   )
 }

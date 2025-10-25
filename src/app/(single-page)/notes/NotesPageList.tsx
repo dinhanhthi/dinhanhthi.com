@@ -1,6 +1,5 @@
 import HeadingPage from '@/src/app/components/HeadingPage'
-import PostList from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
+import PostList, { SkeletonPostList } from '@/src/app/components/PostsList'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { Post, Tag } from '@/src/lib/types'
 import { Feather } from 'lucide-react'
@@ -36,9 +35,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 <SkeletonPostList
                   count={2}
                   postType="PostBlogSimple"
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
+                  className={postSimpleListContainerClass}
                 />
               }
             >
@@ -65,9 +62,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 <SkeletonPostList
                   count={4}
                   postType="PostSimple"
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
+                  className={postSimpleListContainerClass}
                 />
               }
             >
@@ -93,9 +88,7 @@ export default function NotesPageList(props: NotesPageListProps) {
               <SkeletonPostList
                 count={4}
                 postType="PostSimple"
-                options={{
-                  className: postSimpleListContainerClass
-                }}
+                className={postSimpleListContainerClass}
               />
             }
           >
@@ -123,9 +116,7 @@ export default function NotesPageList(props: NotesPageListProps) {
               <SkeletonPostList
                 count={4}
                 postType="PostSimple"
-                options={{
-                  className: postSimpleListContainerClass
-                }}
+                className={postSimpleListContainerClass}
               />
             </div>
           }

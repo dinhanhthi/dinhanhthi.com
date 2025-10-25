@@ -1,7 +1,7 @@
 import { sectionOuterClass } from '../../lib/config'
 import { cn } from '../../lib/utils'
 import CVSection from './CVSection'
-import HeadingPage from './HeadingPage'
+import HeadingPage, { SkeletonHeadingPage } from './HeadingPage'
 
 export type CVItem = {
   id: string
@@ -42,7 +42,7 @@ export default function CVGroup({ cvGroup, className }: CVGroupProps) {
 export function SkeletonCVGroup(props: CVGroupProps) {
   return (
     <div className={props.className}>
-      <HeadingPage title={props.cvGroup.name} className="mb-4 text-2xl" />
+      <SkeletonHeadingPage className="mb-4" />
       <div className="bg-skeleton-bg h-[500px] animate-pulse rounded-lg shadow-lg"></div>
     </div>
   )

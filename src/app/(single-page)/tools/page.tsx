@@ -1,7 +1,9 @@
 import { getUnofficialTools } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
+import { Fragment } from 'react'
+import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
-import ToolsPage from './ToolsPage'
+import ToolSimpleSection from './ToolSimpleSection'
 
 export const revalidate = 60
 
@@ -16,6 +18,8 @@ export const metadata = getMetadata({
 
 export default async function ToolsHomePage() {
   const { tools, categories } = await getUnofficialTools()
+  const sortedCategories = categories?.sort((a, b) => a.localeCompare(b))
+  const favoriteTools = tools.filter(tool => tool.favorite)
 
   return (
     <>
@@ -25,7 +29,37 @@ export default async function ToolsHomePage() {
         iconPath="/logo_sketches/sketch_tools_nobg.png"
         number={tools.length}
       />
-      <ToolsPage tools={tools} categories={categories} />
+      <Container className="flex flex-col gap-8">
+        {tools.length > 0 && (
+          <ToolSimpleSection
+            key={'recently-added'}
+            title="Recently added"
+            tools={tools.slice(0, 6)} // We don't sort alphabetically here
+            className="!bg-[#e7ffee] dark:!bg-[#0b2c40c4]"
+          />
+        )}
+        {favoriteTools.length > 0 && (
+          <ToolSimpleSection
+            key={'favorites'}
+            title="Favorites"
+            tools={favoriteTools.sort((a, b) => a.name.localeCompare(b.name))}
+            className="!bg-orange-100 dark:!bg-[#80653c6b]"
+          />
+        )}
+        {sortedCategories &&
+          sortedCategories.length > 0 &&
+          sortedCategories.map(category => {
+            const _tools = tools.filter(t => t.category === category)
+            const sortedTools = _tools.sort((a, b) => a.name.localeCompare(b.name))
+            return (
+              <Fragment key={category}>
+                {sortedTools.length > 0 && (
+                  <ToolSimpleSection key={category} title={category} tools={sortedTools} />
+                )}
+              </Fragment>
+            )
+          })}
+      </Container>
     </>
   )
 }

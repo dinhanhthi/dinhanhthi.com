@@ -1,6 +1,6 @@
 import { Tool } from '@/src/lib/types'
 import cn from 'classnames'
-import ToolSimpleItem, { SkeletonToolSimpleItem } from './ToolSimpleItem'
+import ToolSimpleItem from './ToolSimpleItem'
 
 export default function ToolSimpleSection(props: {
   tools: Tool[]
@@ -25,21 +25,6 @@ export default function ToolSimpleSection(props: {
       <div className="border-border-muted bg-bg grid gap-x-2 rounded-xl border p-1.5 sm:grid-cols-2">
         {props.tools.map(tool => {
           return <ToolSimpleItem key={tool.url} tool={tool} />
-        })}
-      </div>
-    </div>
-  )
-}
-
-export function SkeletonToolPageSection({ numTools }: { numTools?: number }) {
-  return (
-    <div className="border-border-muted flex flex-col rounded-xl border bg-slate-200 p-1 dark:bg-slate-700">
-      <div className="p-2">
-        <div className="h-4 w-32 animate-pulse rounded-xl bg-slate-100 dark:bg-slate-800"></div>
-      </div>
-      <div className="border-border-muted bg-bg grid gap-x-2 rounded-xl border p-1.5 sm:grid-cols-2">
-        {Array.from({ length: numTools || 4 }).map((_, j) => {
-          return <SkeletonToolSimpleItem key={j} />
         })}
       </div>
     </div>

@@ -1,12 +1,12 @@
 import Pagination from '@/src/app/components/Pagination'
-import PostList, { PostType } from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
+import PostList, { PostType, SkeletonPostList } from '@/src/app/components/PostsList'
 import { ImageType, Post } from '@/src/lib/types'
 
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
-import Link from 'next/link'
 import { Suspense } from 'react'
+import Container from '../components/Container'
 import HeaderPage, { HeaderPageSkeleton } from '../components/HeaderPage'
+import HeadingPage from '../components/HeadingPage'
 
 export type PageOfPostsListTemplateProps = {
   object: {
@@ -39,7 +39,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         iconPath={object.iconPath}
         icon={object.icon}
       />
-      <>
+      <Container>
         {posts.length + pinnedPosts.length === 0 && blogPosts && blogPosts.length === 0 && (
           <div className="my-4 text-xl">There is no post yet!</div>
         )}
@@ -49,14 +49,11 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
               {blogPosts && blogPosts.length > 0 && (
                 <div className="flex flex-col gap-2 overflow-hidden">
                   {pinnedPosts.length + posts.length > 0 && (
-                    <div className="flex flex-row items-center gap-2">
-                      <h2 className="font-heading text-text-heading text-xl">Blog posts</h2>
-                      {blogPosts.length >= 4 && (
-                        <Link href="/blogs/" className="text-muted hover:text-link-hover italic">
-                          ...more
-                        </Link>
-                      )}
-                    </div>
+                    <HeadingPage
+                      title="Blog posts"
+                      href={blogPosts.length >= 4 ? '/blogs/' : undefined}
+                      className="text-xl"
+                    />
                   )}
 
                   <Suspense
@@ -64,9 +61,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
                       <SkeletonPostList
                         count={4}
                         postType="PostBlogSimple"
-                        options={{
-                          className: postSimpleListContainerClass
-                        }}
+                        className={postSimpleListContainerClass}
                       />
                     }
                   >
@@ -84,9 +79,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
 
               <div className="flex flex-col gap-2">
                 {blogPosts && blogPosts.length > 0 && pinnedPosts.length + posts.length > 0 && (
-                  <div className="flex flex-row items-center gap-2">
-                    <h2 className="font-heading text-text-heading text-xl">Notes</h2>
-                  </div>
+                  <HeadingPage title="Notes" className="text-xl" />
                 )}
 
                 {pinnedPosts.length > 0 && (
@@ -126,7 +119,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
             )}
           </>
         )}
-      </>
+      </Container>
     </>
   )
 }
@@ -139,15 +132,13 @@ export function SkeletonPageOfPostsListTemplate(props: {
   return (
     <>
       <HeaderPageSkeleton />
-      <div className={'overflow-hidden'}>
+      <Container>
         <SkeletonPostList
           count={props.numPosts || 4}
           postType={props.postType || 'PostSimple'}
-          options={{
-            className: props.postListContainerClassName || postSimpleListContainerClass
-          }}
+          className={props.postListContainerClassName || postSimpleListContainerClass}
         />
-      </div>
+      </Container>
     </>
   )
 }

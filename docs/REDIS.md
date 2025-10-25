@@ -383,7 +383,6 @@ If you don't want to use Redis cache at all, you have two options:
   ```
 - Useful when you want to temporarily disable cache without removing credentials
 - Can be used in both development and production environments
-- You'll see: `⚠️ Redis cache is completely disabled (DISABLE_REDIS_CACHE=true)`
 
 ### Invalidating Cache
 

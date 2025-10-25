@@ -59,7 +59,7 @@ export async function sendErrorEmail({
     const emailData = await resend.emails.send({
       from: 'onboarding@resend.dev', // Change to your verified domain later
       to: errorNotificationsConfig.adminEmail,
-      subject: `🚨 [${process.env.NEXT_PUBLIC_SITE_DOMAIN}] Error Alert: ${errorType}`,
+      subject: `🚨 [${process.env.NEXT_PUBLIC_SITE_DOMAIN} - ${process.env.ENV_MODE}] Error Alert: ${errorType}`,
       html: buildErrorEmailHTML({
         errorType,
         errorMessage,
@@ -124,7 +124,7 @@ function buildErrorEmailHTML({
     <body>
       <h2>🚨 Error Alert</h2>
 
-      <p><strong>Site:</strong> ${process.env.NEXT_PUBLIC_SITE_DOMAIN}</p>
+      <p><strong>Site:</strong> ${process.env.NEXT_PUBLIC_SITE_DOMAIN} - ${process.env.ENV_MODE}</p>
       <p><strong>Type:</strong> <span class="error-type">${errorType}</span></p>
       <p><strong>Time:</strong> <span class="timestamp">${timestamp}</span></p>
 
@@ -137,7 +137,7 @@ function buildErrorEmailHTML({
 
       <hr style="margin-top: 32px; border: none; border-top: 1px solid #e2e8f0;">
       <p style="color: #718096; font-size: 12px;">
-        This is an automated error notification from ${process.env.NEXT_PUBLIC_SITE_DOMAIN} deployed on Vercel.
+        This is an automated error notification from ${process.env.NEXT_PUBLIC_SITE_DOMAIN} - ${process.env.ENV_MODE} deployed on Vercel.
       </p>
     </body>
     </html>

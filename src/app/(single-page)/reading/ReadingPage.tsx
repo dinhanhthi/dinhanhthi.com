@@ -6,7 +6,7 @@ import cn from 'classnames'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { sectionOuterClass } from '../../../lib/config'
-import HeadingPage from '../../components/HeadingPage'
+import HeadingPage, { SkeletonHeadingPage } from '../../components/HeadingPage'
 import { Badge } from '../../components/ui/badge'
 import { Button } from '../../components/ui/button'
 import { StarIcon } from '../../icons/StarIcon'
@@ -24,7 +24,7 @@ import { TagScienceIcon } from '../../icons/TagScienceIcon'
 import { TagSelfHelpIcon } from '../../icons/TagSelfHelpIcon'
 import { TagTechIcon } from '../../icons/TagTechIcon'
 import TagWebAppIcon from '../../icons/TagWebAppIcon'
-import BookItem from './BookItem'
+import BookItem, { SkeletonBookItem } from './BookItem'
 
 const iconTagList: { [x: string]: (_props: React.SVGProps<SVGSVGElement>) => React.ReactElement } =
   {
@@ -225,6 +225,41 @@ export default function ReadingPage(props: { books: Book[]; tags: string[] }) {
           </ol>
         </div>
       )}
+    </div>
+  )
+}
+
+export const SkeletonReadingPage = () => {
+  return (
+    <div className="flex flex-col gap-8">
+      <div
+        className={cn(
+          'flex flex-wrap items-center justify-center gap-3 p-2 sm:justify-start',
+          sectionOuterClass
+        )}
+      >
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="bg-skeleton-bg h-6 w-30 animate-pulse rounded-full"></div>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <SkeletonBookItem key={i} />
+        ))}
+      </div>
+      {/* Others */}
+      <div>
+        <SkeletonHeadingPage className="mb-4" />
+        <div className={cn('flex flex-col gap-3 p-4', sectionOuterClass)}>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div
+              key={i}
+              className="bg-skeleton-bg h-5 animate-pulse rounded-full"
+              style={{ width: `${20 + (i % 5) * 10}%` }}
+            ></div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

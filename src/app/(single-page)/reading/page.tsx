@@ -2,6 +2,7 @@ import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import Link from 'next/link'
+import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import ReadingPage from './ReadingPage'
 
@@ -55,7 +56,9 @@ export default async function ReadingHomePage() {
         iconPath="/logo_sketches/sketch_reading_nobg.png"
         number={books.length}
       />
-      <ReadingPage books={books} tags={tags} />
+      <Container>
+        <ReadingPage books={books} tags={tags} />
+      </Container>
     </>
   )
 }

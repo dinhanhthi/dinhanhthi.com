@@ -4,6 +4,7 @@ import { defaultMapImageUrl } from '@/src/lib/notion/utils'
 import { Tool } from '@/src/lib/types'
 import { LoaderCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { cn } from '../../../lib/utils'
 import SimpleImage from '../../components/SimpleImage'
 
 type ToolSimpleItemProps = {
@@ -70,12 +71,19 @@ const ImagePlaceholder = () => (
   </div>
 )
 
-export const SkeletonToolSimpleItem = () => (
-  <div className="flex flex-row items-center gap-4 rounded-lg p-4 text-[0.9rem]">
-    <div className="bg-skeleton-bg h-8 w-8 animate-pulse rounded-md"></div>
-    <div className="flex flex-col gap-2">
-      <div className="bg-skeleton-bg h-3 w-40 animate-pulse rounded-full"></div>
-      <div className="bg-skeleton-bg h-3 w-64 animate-pulse rounded-full"></div>
+export function SkeletonToolSimpleItem({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        'flex animate-pulse flex-row items-center gap-4 rounded-lg p-4 text-[0.9rem]',
+        className
+      )}
+    >
+      <div className="bg-skeleton-bg h-8 w-8 animate-pulse rounded-md"></div>
+      <div className="flex flex-col gap-2">
+        <div className="bg-skeleton-bg h-3 w-40 animate-pulse rounded-full"></div>
+        <div className="bg-skeleton-bg h-3 w-64 animate-pulse rounded-full"></div>
+      </div>
     </div>
-  </div>
-)
+  )
+}
