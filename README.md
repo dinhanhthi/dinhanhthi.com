@@ -37,11 +37,42 @@ This project uses **Upstash Redis** with **Refresh-Ahead Pattern** for caching N
    ```bash
    UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
    UPSTASH_REDIS_REST_TOKEN="your-token"
-   SKIP_REDIS_CACHE_IN_DEV="true" # Skip Redis cache in development to save quota
+
+   # Optional: Disable Redis cache completely (useful for testing/development)
+   DISABLE_REDIS_CACHE="false"
    ```
 4. For production: Add same credentials to Vercel Environment Variables
 
 **Note**: Redis is optional. Without it, the site works normally but without caching.
+
+📖 **Full documentation**: [docs/REDIS.md](./docs/REDIS.md)
+
+## Error Email Notifications (Resend)
+
+This project uses **Resend** for email notifications when Notion API errors occur:
+- ✅ Email alerts for API failures, cache errors, network issues
+- ✅ Rate limiting (1 email per 5 min per error type)
+- ✅ Rich error context (stack trace, metadata, timestamp)
+- ✅ Silent failure (never impacts user experience)
+- ✅ Environment-aware (auto disabled in dev)
+
+**TL;DR**:
+1. Sign up at [Resend](https://resend.com/) (free tier: 3,000 emails/month)
+2. Create API key
+3. Add to `.env.local`:
+   ```bash
+   RESEND_API_KEY="re_xxxxxxxxxxxx"
+   ADMIN_EMAIL="your-email@domain.com"
+
+   # Optional: Enable error emails in dev (default: disabled)
+   SEND_ERROR_EMAILS_IN_DEV="false"
+
+   # Optional: Disable error emails completely (overrides all other settings)
+   DISABLE_ERROR_EMAILS="false"
+   ```
+4. For production: Add same credentials to Vercel Environment Variables
+
+**Note**: Resend is optional. Without it, errors are only logged to console.
 
 ## Dev
 

@@ -5,6 +5,14 @@ import { sendErrorEmail } from './send-error-email'
 let redis: Redis | null = null
 
 function getRedisClient(): Redis | null {
+  // Check if Redis is completely disabled
+  if (process.env.DISABLE_REDIS_CACHE === 'true') {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('⚠️ Redis cache is completely disabled (DISABLE_REDIS_CACHE=true)')
+    }
+    return null
+  }
+
   if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
     console.warn('⚠️ Redis not configured - caching disabled')
     return null
@@ -38,16 +46,6 @@ export interface CacheOptions {
    * @default 'cache'
    */
   namespace?: string
-  /**
-   * Whether to log cache operations
-   * @default false
-   */
-  debug?: boolean
-  /**
-   * Skip Redis cache (useful for development to save quota)
-   * @default false
-   */
-  skipCache?: boolean
 }
 
 interface CachedData<T> {
@@ -135,37 +133,16 @@ export async function withRedisCache<T>(
   fetcher: () => Promise<T>,
   options: CacheOptions = {}
 ): Promise<T> {
-  const {
-    softTTL = DEFAULT_SOFT_TTL,
-    hardTTL = DEFAULT_HARD_TTL,
-    namespace = 'cache',
-    debug = false,
-    skipCache = false
-  } = options
-
-  // Skip cache in development mode if env variable is set
-  const isDevelopment = process.env.ENV_MODE === 'dev'
-  const shouldSkipInDev = process.env.SKIP_REDIS_CACHE_IN_DEV === 'true'
-
-  if (skipCache || (isDevelopment && shouldSkipInDev)) {
-    if (debug) {
-      const reason = skipCache ? 'explicitly disabled' : 'development mode'
-      console.log(`⏭️ Cache skipped for ${identifier} (${reason})`)
-    }
-    return await fetcher()
-  }
+  const { softTTL = DEFAULT_SOFT_TTL, hardTTL = DEFAULT_HARD_TTL, namespace = 'cache' } = options
 
   const client = getRedisClient()
-  const cacheKey = getCacheKey(namespace, identifier)
 
-  if (debug) {
-    console.log(`🔍 Cache lookup: ${cacheKey}`)
-  }
-
-  // If Redis not configured, just fetch directly
+  // If Redis not configured or disabled, just fetch directly
   if (!client) {
     return await fetcher()
   }
+
+  const cacheKey = getCacheKey(namespace, identifier)
 
   // Step 1: Try to get cache FIRST (Refresh-Ahead pattern)
   try {
@@ -187,10 +164,6 @@ export async function withRedisCache<T>(
           // Errors already logged in refreshInBackground
           // Just ensure no unhandled promise rejection
         })
-      } else {
-        if (debug) {
-          console.log(`✅ Cache fresh for ${identifier} (age: ${formatAge(ageInSeconds)})`)
-        }
       }
 
       // Step 4: Return cache immediately (stale or fresh, doesn't matter)
@@ -217,10 +190,6 @@ export async function withRedisCache<T>(
       await client.set(cacheKey, JSON.stringify(cachedData), {
         ex: hardTTL
       })
-
-      if (debug) {
-        console.log(`✅ Cached fresh data: ${cacheKey} (hardTTL: ${hardTTL}s)`)
-      }
     } catch (cacheError) {
       // Log cache write errors but don't fail the request
       console.error(`❌ Failed to cache data for ${cacheKey}:`, cacheError)

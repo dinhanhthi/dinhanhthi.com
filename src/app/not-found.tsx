@@ -22,12 +22,12 @@ export default function NotFoundPage() {
   return (
     <Container className={cn('h-screen')}>
       <div className="flex h-full w-full flex-col items-center justify-center gap-6">
-        <h1 className="text-3xl text-slate-800">
-          Page not found <span className="text-pink-700">but it may be my fault</span>!
+        <h1 className="font-heading text-text-heading text-3xl">
+          Page not found <span className="text-link-hover">but it may be my fault</span>!
         </h1>
-        <div className="flex flex-col gap-2 text-lg text-slate-800">
+        <div className="text-text flex flex-col gap-2 text-lg">
           <div className="flex items-baseline gap-2">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
+            <div className="bg-link-hover flex h-6 w-6 shrink-0 items-center justify-center rounded-full p-2 text-white">
               1
             </div>
             <div>
@@ -36,17 +36,17 @@ export default function NotFoundPage() {
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
+            <div className="bg-link-hover flex h-6 w-6 shrink-0 items-center justify-center rounded-full p-2 text-white">
               2
             </div>
             <div>
-              Please change from <code className="text-pink-700">/something/</code> to{' '}
-              <code className="text-pink-700">/note/something/</code> because I{"'"}ve changed the
+              Please change from <code className="text-link-hover">/something/</code> to{' '}
+              <code className="text-link-hover">/note/something/</code> because I{"'"}ve changed the
               route of all notes to <code className="font-bold">/note/</code>.
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
+            <div className="bg-link-hover flex h-6 w-6 shrink-0 items-center justify-center rounded-full p-2 text-white">
               3
             </div>
             <div>
@@ -54,7 +54,7 @@ export default function NotFoundPage() {
             </div>
           </div>
           <div className="flex items-baseline gap-2">
-            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-700 p-2 text-white">
+            <div className="bg-link-hover flex h-6 w-6 shrink-0 items-center justify-center rounded-full p-2 text-white">
               4
             </div>
             <div>

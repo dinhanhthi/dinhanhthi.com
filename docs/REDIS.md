@@ -367,6 +367,24 @@ If Redis credentials are not configured:
 
 ## Cache Management
 
+### Disabling Cache (Optional)
+
+If you don't want to use Redis cache at all, you have two options:
+
+**Option 1: Don't Configure Redis (Graceful Degradation)**
+- Simply don't add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to your `.env.local`
+- Site will work normally without caching
+- You'll see: `⚠️ Redis not configured - caching disabled`
+
+**Option 2: Explicitly Disable Cache**
+- Add to your `.env.local`:
+  ```bash
+  DISABLE_REDIS_CACHE="true"
+  ```
+- Useful when you want to temporarily disable cache without removing credentials
+- Can be used in both development and production environments
+- You'll see: `⚠️ Redis cache is completely disabled (DISABLE_REDIS_CACHE=true)`
+
 ### Invalidating Cache
 
 You can manually invalidate cache using the provided utility functions.
@@ -634,22 +652,6 @@ const getTTL = (baseTTL: number) => {
   }
   return baseTTL
 }
-```
-
-### Debug Mode
-
-Enable debug logging for cache operations:
-
-```typescript
-// In your .env.local
-REDIS_DEBUG=true
-```
-
-```typescript
-// In redis-cache.ts
-const debug = process.env.REDIS_DEBUG === 'true'
-
-withRedisCache(key, fetcher, { debug })
 ```
 
 ---
