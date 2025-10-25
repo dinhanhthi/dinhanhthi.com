@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Styling**: Tailwind CSS v4
 - **CMS**: Notion (using custom Notion renderer integrated into the project)
 - **Cache**: Upstash Redis (for Notion API response caching)
+- **Email**: Resend (for error notifications)
 - **Language**: TypeScript
 - **Package Manager**: pnpm
 - **Deployment**: Vercel
@@ -113,6 +114,7 @@ Environment variables (see `example.env.local`) define:
 - Database IDs and property keys (e.g., `NEXT_PUBLIC_ID_TAGS`, `NEXT_PUBLIC_ID_SLUG`)
 - Feature flags (`ENV_MODE`, `NEXT_PUBLIC_ENV_MODE`)
 - Redis credentials (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`) - Optional but recommended
+- Resend credentials (`RESEND_API_KEY`, `ADMIN_EMAIL`) - Optional but recommended for error monitoring
 
 ### Redis Cache Layer
 
@@ -125,20 +127,32 @@ This project uses **Upstash Redis** for caching Notion API responses:
   - Faster page loads from cached data
   - Reduced Notion API calls
   - Error logging for developers (hidden from users)
-- **Setup**: See [REDIS_QUICK_START.md](./REDIS_QUICK_START.md) or [REDIS_SETUP.md](./REDIS_SETUP.md)
+- **Setup**: See [docs/REDIS.md](./docs/REDIS.md)
 - **Note**: Redis is optional. Without configuration, the site works normally but without caching.
+
+### Error Notifications (Resend)
+
+This project uses **Resend** for sending email notifications when critical errors occur:
+
+- **Location**: `src/lib/send-error-email.ts`
+- **Triggers**: Notion API failures, cache errors, network timeouts
+- **Features**:
+  - Rate limiting (1 email per 5 minutes per error type)
+  - Detailed error context (function name, params, stack trace)
+  - Graceful degradation (errors logged but never shown to users)
+- **Setup**: See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) or [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md)
+- **Note**: Resend is optional. Without configuration, errors are only logged to console.
 
 **Cached Functions**:
 - All functions in `src/lib/fetcher.ts`: `getPosts()`, `getTopics()`, `getUnofficialPosts()`, etc.
 - Block fetching in `src/lib/notion/db.ts`: `getBlocks()`
 
-**Cache TTL** (Refresh-Ahead Pattern with softTTL/hardTTL):
-- Posts: 30 min / 7 days
-- Topics: 2 hours / 14 days
-- Books: 4 hours / 14 days
-- Tools: 4 hours / 14 days
-- Blocks: 1 hour / 14 days
-- Emojis: 24 hours / 14 days
+**Cache TTL Strategy** (Refresh-Ahead Pattern):
+- Uses **two TTL values**: `softTTL` (refresh threshold) + `hardTTL` (deletion time)
+- **softTTL**: When to refresh cache in background (user gets instant response)
+- **hardTTL**: When Redis deletes cache (safety net, typically 30 days)
+- Configuration defined in `src/lib/config.ts` → `redisCacheTTL` constant
+- In normal operation, hardTTL is **never reached** (cache refreshes every softTTL)
 
 ### TypeScript Configuration
 
@@ -155,7 +169,12 @@ This project uses **Upstash Redis** for caching Notion API responses:
    - Sign up at [Upstash Console](https://console.upstash.com/)
    - Create a Redis database
    - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to `.env.local`
-   - See [REDIS_QUICK_START.md](./REDIS_QUICK_START.md) for detailed setup
+   - See [docs/REDIS.md](./docs/REDIS.md) for detailed setup
+5. (Optional but recommended) Configure Resend for error notifications:
+   - Sign up at [Resend](https://resend.com/)
+   - Create an API key
+   - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to `.env.local`
+   - See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) for detailed setup
 
 ## Code Style
 
@@ -175,7 +194,11 @@ This project uses **Upstash Redis** for caching Notion API responses:
 - **Redis Cache (Production)**:
   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables
   - Recommended to use separate Redis database for production
-  - See [REDIS_SETUP.md](./REDIS_SETUP.md) for production setup details
+  - See [docs/REDIS.md](./docs/REDIS.md) for production setup details
+- **Error Notifications (Production)**:
+  - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to Vercel Environment Variables
+  - Free tier: 3,000 emails/month (sufficient with rate limiting)
+  - See [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md) for production setup
 
 ## Important Constraints
 

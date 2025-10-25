@@ -13,6 +13,7 @@ import pMemoize from 'p-memoize'
 import { redisCacheTTL } from '@/src/lib/config'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
 import { withRedisCache } from '@/src/lib/redis-cache'
+import { sendErrorEmail } from '@/src/lib/send-error-email'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
@@ -61,13 +62,39 @@ export async function getUnofficialDatabaseImpl(opts: {
 
   const url = `${notionApiWeb}/queryCollection`
 
-  return await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  }).then(res => res.json())
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+
+    if (!response.ok) {
+      throw new Error(`Unofficial Notion API error: ${response.status} ${response.statusText}`)
+    }
+
+    return await response.json()
+  } catch (error: any) {
+    console.error('🚨 Unofficial Notion API error:', error)
+
+    // Send error notification email (non-blocking)
+    sendErrorEmail({
+      errorType: 'unofficial-notion',
+      errorMessage: error?.message || String(error),
+      context: `Failed to query unofficial Notion database (getUnofficialDatabaseImpl) with sourceId: ${sourceId}`,
+      stack: error?.stack,
+      metadata: {
+        spaceId,
+        sourceId,
+        collectionViewId,
+        url
+      }
+    })
+
+    throw error
+  }
 }
 
 export const getUnofficialDatabase = pMemoize(getUnofficialDatabaseImpl, {
@@ -156,6 +183,24 @@ export async function queryDatabaseImpl(opts: {
       })
     }
     console.error(error)
+
+    // Send error notification email (non-blocking)
+    sendErrorEmail({
+      errorType: 'notion-api',
+      errorMessage: error?.message || String(error),
+      context: `Failed to query Notion database (queryDatabaseImpl) with dbId: ${dbId}`,
+      stack: error?.stack,
+      metadata: {
+        dbId,
+        filter,
+        startCursor,
+        pageSize,
+        sorts,
+        status: error?.status,
+        code: error?.code
+      }
+    })
+
     return { results: [] } as any
   }
 }

@@ -1,4 +1,5 @@
 import { Redis } from '@upstash/redis'
+import { sendErrorEmail } from './send-error-email'
 
 // Initialize Redis client (singleton pattern)
 let redis: Redis | null = null
@@ -229,6 +230,20 @@ export async function withRedisCache<T>(
   } catch (fetchError) {
     // Step 6: Fetch failed - try to get ANY cache (even if expired by softTTL)
     console.error(`🚨 Fetch error for ${identifier}:`, fetchError)
+
+    // Send error notification email (non-blocking)
+    sendErrorEmail({
+      errorType: 'cache-fetch',
+      errorMessage: fetchError instanceof Error ? fetchError.message : String(fetchError),
+      context: `Failed to fetch data for cache key (withRedisCache) with identifier: ${identifier}`,
+      stack: fetchError instanceof Error ? fetchError.stack : undefined,
+      metadata: {
+        cacheKey: identifier,
+        namespace,
+        softTTL,
+        hardTTL
+      }
+    })
 
     try {
       const cachedString = await client.get(cacheKey)
