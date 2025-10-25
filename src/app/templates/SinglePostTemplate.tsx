@@ -1,6 +1,6 @@
-import HeaderPost from '@/src/app/components/HeaderPost'
+import HeaderPost, { SkeletonHeaderPost } from '@/src/app/components/HeaderPost'
 import PostBody from '@/src/app/components/PostBody'
-import PostToc from '@/src/app/components/PostToc'
+import PostToc, { SkeletonPostToc } from '@/src/app/components/PostToc'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import cn from 'classnames'
 import { ExtendedRecordMap, PageBlock } from 'notion-types'
@@ -10,6 +10,7 @@ import { defaultPostTypeOpts, postFontClassName, sectionOuterClass } from '@/src
 import { Post } from '@/src/lib/types'
 import { get } from 'lodash'
 import Comments from '../components/Comments'
+import Container from '../components/Container'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap
@@ -24,7 +25,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   return (
     <>
       <HeaderPost recordMap={props.recordMap} postProps={props.postProps} />
-      <div className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
+      <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
         <div className={cn('text-text order-2 flex-1 p-4 lg:p-6', sectionOuterClass)}>
           {props.postProps.isDraft && (
             <div className="border-border-muted mb-8 flex items-center gap-2 border-b bg-transparent text-sm">
@@ -72,7 +73,29 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
           tocs={tocs}
           labelTocTitle="In this note"
         />
-      </div>
+      </Container>
+    </>
+  )
+}
+
+export const SkeletonSinglePostTemplate = () => {
+  return (
+    <>
+      <SkeletonHeaderPost />
+      <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
+        <div
+          className={cn('bg-bg order-2 flex flex-1 flex-col gap-4 p-4 lg:p-6', sectionOuterClass)}
+        >
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="bg-skeleton-bg h-5 animate-pulse rounded-xl"
+              style={{ width: `${60 + Math.random() * 40}%` }}
+            ></div>
+          ))}
+        </div>
+        <SkeletonPostToc className="order-1 h-fit w-full lg:sticky lg:order-2 lg:h-[calc(100vh-110px)] lg:w-[200px]" />
+      </Container>
     </>
   )
 }

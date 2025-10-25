@@ -49,3 +49,48 @@ export default function HeaderThiCard() {
     </Header>
   )
 }
+
+export function SkeletonHeaderThiCard() {
+  return (
+    <Header className="flex flex-col lg:flex-row lg:gap-4">
+      <div className="flex shrink-0 flex-row items-center gap-4">
+        {/* Avatar skeleton */}
+        <div className="h-[200px] w-[200px] animate-pulse rounded-full bg-slate-200 dark:bg-slate-700" />
+
+        {/* Mobile heading skeleton */}
+        <div className="h-9 w-32 animate-pulse rounded bg-slate-200 lg:hidden dark:bg-slate-700" />
+      </div>
+
+      <div className="flex flex-col gap-4 py-4">
+        {/* Desktop heading skeleton */}
+        <div className="hidden h-9 w-32 animate-pulse rounded bg-slate-200 lg:block dark:bg-slate-700" />
+
+        {/* Short intro skeleton */}
+        <div className="flex max-w-full flex-col gap-2">
+          <div className="h-5 w-full animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
+          <div className="h-5 w-3/4 animate-pulse rounded bg-slate-200 dark:bg-slate-700" />
+        </div>
+
+        {/* Badge infos skeleton */}
+        <div className="flex flex-wrap items-center gap-3">
+          {[1, 2, 3].map(i => (
+            <div
+              key={i}
+              className="h-7 w-24 animate-pulse rounded-full bg-slate-200 dark:bg-slate-700"
+            />
+          ))}
+        </div>
+
+        {/* Social icons skeleton */}
+        <div className="flex flex-wrap items-center gap-3">
+          {[1, 2, 3, 4].map(i => (
+            <div
+              key={i}
+              className="h-8 w-8 animate-pulse rounded-full bg-slate-200 dark:bg-slate-700"
+            />
+          ))}
+        </div>
+      </div>
+    </Header>
+  )
+}

@@ -1,11 +1,18 @@
+import Container from '../../components/Container'
 import { HeaderPageSkeleton } from '../../components/HeaderPage'
-import { SkeletonReadingContainer } from './SkeletonReadingContainer'
+import { SkeletonReadingPage } from './ReadingPage'
 
 export default function ReadingPageLoading() {
+  return <SkeletonReadingPageLoading />
+}
+
+export const SkeletonReadingPageLoading = () => {
   return (
     <>
       <HeaderPageSkeleton />
-      <SkeletonReadingContainer />
+      <Container>
+        <SkeletonReadingPage />
+      </Container>
     </>
   )
 }

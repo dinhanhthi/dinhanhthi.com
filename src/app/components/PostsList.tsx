@@ -3,14 +3,17 @@
 import cn from 'classnames'
 import React from 'react'
 
-import PostBlogSimple, { PostBlogSimpleOpts } from '@/src/app/components/post-types/PostBlogSimple'
-import PostSimple, { PostSimpleOpts } from '@/src/app/components/post-types/PostSimple'
+import PostBlogSimple, {
+  PostBlogSimpleOpts,
+  PostBlogSimpleSkeleton
+} from '@/src/app/components/post-types/PostBlogSimple'
+import PostSimple, {
+  PostSimpleOpts,
+  PostSimpleSkeleton
+} from '@/src/app/components/post-types/PostSimple'
 import { Post } from '@/src/lib/types'
-import { Carousel, CarouselItem } from './Carousel'
 
 export type PostType = 'PostSimple' | 'PostBlogSimple'
-
-export type PostListStyle = 'default' | 'carousel'
 
 export type CommonPostTypeOpts = {
   fontClassName?: string
@@ -25,7 +28,6 @@ export type PostTypeOpts = PostSimpleOpts | PostBlogSimpleOpts
 
 type PostListProps = {
   className?: string
-  listStyle?: PostListStyle
   posts: Post[]
   postType: PostType
   postTypeOpts?: PostTypeOpts
@@ -42,25 +44,13 @@ export const postListGridCLass = cn(
 export default function PostList(props: PostListProps) {
   return (
     <section className={props.className}>
-      {(!props.listStyle || props.listStyle === 'default') && (
-        <div className={props.options?.className || postListGridCLass}>
-          {props.posts.map((post, index) => (
-            <React.Fragment key={post.uri}>
-              {getPostTypeElement(props.postType, post, props.postTypeOpts, index)}
-            </React.Fragment>
-          ))}
-        </div>
-      )}
-      {props.listStyle === 'carousel' && (
-        <Carousel
-          items={props.posts}
-          renderItem={({ item, isSnapPoint, index }) => (
-            <CarouselItem key={item.id} isSnapPoint={isSnapPoint} widthClass={'w-80'}>
-              {getPostTypeElement(props.postType, item, props.postTypeOpts, index)}
-            </CarouselItem>
-          )}
-        />
-      )}
+      <div className={props.options?.className || postListGridCLass}>
+        {props.posts.map((post, index) => (
+          <React.Fragment key={post.uri}>
+            {getPostTypeElement(props.postType, post, props.postTypeOpts, index)}
+          </React.Fragment>
+        ))}
+      </div>
     </section>
   )
 }
@@ -76,5 +66,35 @@ function getPostTypeElement(
       return <PostSimple post={post} options={postTypeOpts} />
     case 'PostBlogSimple':
       return <PostBlogSimple post={post} options={{ ...postTypeOpts, colorIndex: index }} />
+  }
+}
+
+type SkeletonPostListProps = {
+  count: number
+  postType?: PostType
+  className?: string
+  postContainerClassName?: string
+}
+
+export function SkeletonPostList(props: SkeletonPostListProps) {
+  return (
+    <div className={cn(props.className || postListGridCLass)}>
+      {Array.from({ length: props.count }).map((_, i) =>
+        getSkeleton(i, props.postType, props.postContainerClassName)
+      )}
+    </div>
+  )
+}
+
+function getSkeleton(key: number | string, postType?: PostType, postContainerClassName?: string) {
+  switch (postType) {
+    case 'PostSimple':
+      return <PostSimpleSkeleton key={key} />
+
+    case 'PostBlogSimple':
+      return <PostBlogSimpleSkeleton key={key} postContainerClassName={postContainerClassName} />
+
+    default:
+      return <PostSimpleSkeleton key={key} />
   }
 }

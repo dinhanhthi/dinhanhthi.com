@@ -1,7 +1,5 @@
 import HeadingPage from '@/src/app/components/HeadingPage'
 import PostList from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import { Suspense } from 'react'
 
 import {
   defaultBlurDataURL,
@@ -13,8 +11,9 @@ import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/s
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import me from '../data/me'
-import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
-import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
+import BookItem from './(single-page)/reading/BookItem'
+import ToolSimpleSection from './(single-page)/tools/ToolSimpleSection'
+import Container from './components/Container'
 import HeaderThiCard from './components/HeaderThiCard'
 import Topic from './components/Topic'
 
@@ -93,7 +92,7 @@ export default async function Home() {
   return (
     <>
       <HeaderThiCard />
-      <div className="flex flex-col gap-12">
+      <Container className="flex flex-col gap-12">
         {/* Notes */}
         <div className="flex flex-col gap-4">
           <HeadingPage
@@ -101,59 +100,31 @@ export default async function Home() {
             href={posts.length >= numPostsToShow ? '/notes/' : undefined}
           />
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             {/* pinned */}
             {pinnedPosts.length > 0 && (
-              <>
-                <Suspense
-                  fallback={
-                    <SkeletonPostList
-                      count={6}
-                      postType="PostSimple"
-                      options={{
-                        className: postSimpleListContainerClass
-                      }}
-                    />
-                  }
-                >
-                  <PostList
-                    posts={pinnedPosts}
-                    postType="PostSimple"
-                    postTypeOpts={{
-                      ...defaultPostTypeOpts,
-                      showPinned: true
-                    }}
-                    options={{
-                      className: postSimpleListContainerClass
-                    }}
-                  />
-                </Suspense>
-              </>
+              <PostList
+                posts={pinnedPosts}
+                postType="PostSimple"
+                postTypeOpts={{
+                  ...defaultPostTypeOpts,
+                  showPinned: true
+                }}
+                options={{
+                  className: postSimpleListContainerClass
+                }}
+              />
             )}
 
             {/* notes */}
-            <>
-              <Suspense
-                fallback={
-                  <SkeletonPostList
-                    count={8}
-                    postType="PostSimple"
-                    options={{
-                      className: postSimpleListContainerClass
-                    }}
-                  />
-                }
-              >
-                <PostList
-                  posts={posts.filter(post => !post.pinned)}
-                  postType="PostSimple"
-                  postTypeOpts={defaultPostTypeOpts}
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
-                />
-              </Suspense>
-            </>
+            <PostList
+              posts={posts.filter(post => !post.pinned)}
+              postType="PostSimple"
+              postTypeOpts={defaultPostTypeOpts}
+              options={{
+                className: postSimpleListContainerClass
+              }}
+            />
           </div>
         </div>
 
@@ -165,26 +136,14 @@ export default async function Home() {
               href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
             />
             <div className="overflow-hidden">
-              <Suspense
-                fallback={
-                  <SkeletonPostList
-                    count={2}
-                    postType="PostBlogSimple"
-                    options={{
-                      className: postSimpleListContainerClass
-                    }}
-                  />
-                }
-              >
-                <PostList
-                  posts={blogPosts}
-                  postType="PostBlogSimple"
-                  postTypeOpts={{ ...defaultPostTypeOpts }}
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
-                />
-              </Suspense>
+              <PostList
+                posts={blogPosts}
+                postType="PostBlogSimple"
+                postTypeOpts={{ ...defaultPostTypeOpts }}
+                options={{
+                  className: postSimpleListContainerClass
+                }}
+              />
             </div>
           </div>
         )}
@@ -195,9 +154,7 @@ export default async function Home() {
             title="Recent tools I use"
             href={tools.length >= numTools ? '/tools/' : undefined}
           />
-          <Suspense fallback={<SkeletonToolPageSection numTools={numTools} />}>
-            <ToolSimpleSection tools={tools.slice(0, numTools)} />
-          </Suspense>
+          <ToolSimpleSection tools={tools.slice(0, numTools)} />
         </div>
 
         {/* Reading */}
@@ -209,9 +166,7 @@ export default async function Home() {
           <div className="flex w-full flex-col gap-3">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {books.slice(0, numBooks).map((book: Book) => (
-                <Suspense key={book.id} fallback={<SkeletonBookItem />}>
-                  <BookItem key={book.id} book={book} hideDescription={true} hideTags={true} />
-                </Suspense>
+                <BookItem key={book.id} book={book} hideDescription={true} hideTags={true} />
               ))}
             </div>
           </div>
@@ -228,7 +183,7 @@ export default async function Home() {
               ))}
           </div>
         </div>
-      </div>
+      </Container>
     </>
   )
 }

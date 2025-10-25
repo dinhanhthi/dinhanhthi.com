@@ -19,7 +19,7 @@ export default function NotesToc(props: NotesTocProps) {
   const anchorA = (anchor?: string, name?: string, activeId?: string) => {
     return (
       <a
-        className={cn('group hover:text-link flex items-center gap-1 px-2 py-1', {
+        className={cn('group hover:text-link flex items-center gap-1 py-1 md:px-2', {
           'text-muted border-transparent': activeId !== anchor,
           'text-link': activeId === anchor
         })}
@@ -80,8 +80,8 @@ type SkeletonNotesTocProps = {
 
 export function SkeletonNotesToc({ className, itemCount = 8 }: SkeletonNotesTocProps) {
   return (
-    <div className={cn('flex flex-col gap-1', className)}>
-      <div className="text-skeleton-bg pl-1 text-base italic md:hidden">In this page</div>
+    <div className={cn('flex animate-pulse flex-col gap-1', className)}>
+      <div className="bg-skeleton-bg mb-1 h-4 w-24 rounded-full md:hidden"></div>
       <div
         className={cn(
           'flex h-full flex-col divide-y divide-slate-300 p-2 md:border-none md:bg-transparent md:p-0 md:shadow-none',
@@ -90,9 +90,9 @@ export function SkeletonNotesToc({ className, itemCount = 8 }: SkeletonNotesTocP
       >
         <div className="thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1">
           {Array.from({ length: itemCount }).map((_, index) => (
-            <div key={index} className="flex items-center gap-1 px-2 py-1">
+            <div key={index} className="flex items-center gap-1 py-1 md:px-2">
               <span className="text-transparent">◆</span>
-              <div className="bg-skeleton-bg h-4 w-24 animate-pulse rounded" />
+              <div className="bg-skeleton-bg h-4 w-24 rounded" />
             </div>
           ))}
         </div>

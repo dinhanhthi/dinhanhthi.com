@@ -7,7 +7,6 @@ import Script from 'next/script'
 
 import { openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
-import Container from './components/Container'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import { ThemeProvider } from './components/ThemeProvider'
@@ -62,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex min-h-screen flex-col bg-stone-100 dark:bg-gray-900">
             <Nav />
             <main className="min-h-0 flex-1">
-              <Container className="pt-8 pb-12">{children}</Container>
+              <main className="pb-12">{children}</main>
             </main>
             <Footer />
             <ScrollToTop />

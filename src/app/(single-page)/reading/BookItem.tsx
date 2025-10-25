@@ -137,9 +137,9 @@ const ImagePlaceholder = () => (
   </div>
 )
 
-export function SkeletonBookItem() {
+export function SkeletonBookItem({ className }: { className?: string }) {
   return (
-    <div className={cn('rounded-lg', sectionOuterClass)}>
+    <div className={cn('animate-pulse rounded-lg', sectionOuterClass, className)}>
       <div className="flex h-full flex-row">
         <div className="border-border-muted relative h-full w-[90px] shrink-0 overflow-hidden rounded-l-lg border-[0.5px]">
           <div className="relative h-full w-full overflow-hidden">

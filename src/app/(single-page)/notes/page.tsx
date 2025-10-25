@@ -1,6 +1,7 @@
 import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
@@ -72,7 +73,7 @@ export default async function NotesHomePage() {
         subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
         iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
-      <div className="flex flex-col gap-12 md:flex-row md:gap-4">
+      <Container className="flex flex-col gap-12 md:flex-row md:gap-4">
         <NotesPageList
           className="order-2"
           blogPosts={blogPosts}
@@ -89,7 +90,7 @@ export default async function NotesHomePage() {
           tags={pinnedTagsSorted}
           hidePinnedTags={pinnedPosts.length === 0}
         />
-      </div>
+      </Container>
     </>
   )
 }

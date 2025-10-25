@@ -7,9 +7,9 @@ let redis: Redis | null = null
 function getRedisClient(): Redis | null {
   // Check if Redis is completely disabled
   if (process.env.DISABLE_REDIS_CACHE === 'true') {
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('⚠️ Redis cache is completely disabled (DISABLE_REDIS_CACHE=true)')
-    }
+    // if (process.env.NODE_ENV === 'development') {
+    //   console.warn('⚠️ Redis cache is completely disabled (DISABLE_REDIS_CACHE=true)')
+    // }
     return null
   }
 

@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-nav-dark-bg text-gray-300">
       <Container className="p-4">
-        <div className="flex flex-row flex-wrap items-center justify-center gap-2 pt-2 pb-1 lg:flex-row">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-2 lg:flex-row">
           <Link className={cn(aClass)} href={'/about/'}>
             About
           </Link>
