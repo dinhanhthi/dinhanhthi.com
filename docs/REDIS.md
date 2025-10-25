@@ -654,6 +654,227 @@ withRedisCache(key, fetcher, { debug })
 
 ---
 
+## Deep Dive: hardTTL vs softTTL
+
+### Overview
+
+**Refresh-Ahead Pattern** uses **two TTL values** to balance freshness and reliability:
+
+- **softTTL** (Refresh Threshold): When to refresh cache in background
+- **hardTTL** (Deletion Time): When Redis removes cache (safety net)
+
+### Key Concept
+
+**hardTTL is NOT a normal expiration time!** It's a **safety net** that:
+- Protects stale cache during outages
+- Only triggers if background refresh fails repeatedly
+- In normal operation, **never reached** (cache refreshes before hardTTL)
+
+### Timeline Comparison
+
+#### Scenario 1: Normal Operation (Notion API Healthy)
+
+```
+Topics cache (softTTL: 2h, hardTTL: 14 days)
+
+Day 1, 00:00:00  ✅ Cache created (age: 0, fresh: true)
+                 └─ hardTTL countdown starts (14d remaining)
+
+Day 1, 02:00:00  ⏰ softTTL reached (age: 2h, fresh: false)
+Day 1, 02:00:01  👤 User request
+                 ├─ Return stale cache IMMEDIATELY (age: 2h)
+                 └─ Background refresh triggered
+
+Day 1, 02:00:05  ✅ Background refresh SUCCESS
+                 ├─ Cache OVERWRITTEN with fresh data
+                 ├─ age reset to 0
+                 └─ hardTTL RESET (14d remaining again)
+
+Day 1, 04:00:00  ⏰ softTTL reached again (age: 2h, fresh: false)
+Day 1, 04:00:05  ✅ Background refresh SUCCESS → cache refreshed
+                 └─ hardTTL RESET (14d remaining)
+
+Day 1, 06:00:00  ⏰ softTTL reached again
+Day 1, 06:00:05  ✅ Background refresh SUCCESS → cache refreshed
+                 └─ hardTTL RESET (14d remaining)
+
+... (cycle repeats every 2 hours)
+
+❌ hardTTL NEVER REACHED (cache refreshes every 2h → 14d never comes)
+```
+
+#### Scenario 2: Notion API Down (hardTTL Protection)
+
+```
+Topics cache (softTTL: 2h, hardTTL: 14 days)
+
+Day 1, 00:00:00  ✅ Cache created (age: 0, fresh: true)
+                 └─ hardTTL countdown: 14d remaining
+
+Day 1, 02:00:00  ⏰ softTTL reached (age: 2h, fresh: false)
+Day 1, 02:00:01  👤 User request
+                 ├─ Return stale cache IMMEDIATELY (age: 2h)
+                 └─ Background refresh triggered
+
+Day 1, 02:00:05  ❌ Background refresh FAILED (Notion API down)
+                 ├─ Stale cache STILL EXISTS (not deleted)
+                 ├─ age stays at 2h (no reset)
+                 └─ hardTTL countdown: 13d 22h remaining
+
+Day 1, 04:00:00  ⏰ softTTL reached again (age: 4h)
+Day 1, 04:00:05  ❌ Background refresh FAILED
+                 ├─ Stale cache STILL EXISTS
+                 └─ hardTTL countdown: 13d 20h remaining
+
+Day 1, 06:00:00  ⏰ softTTL reached again (age: 6h)
+Day 1, 06:00:05  ❌ Background refresh FAILED
+                 └─ hardTTL countdown: 13d 18h remaining
+
+... (Notion API down for 14 days straight 😱)
+
+Day 14, 23:59:59 ⚠️ hardTTL countdown: 1 second remaining
+Day 15, 00:00:00 🗑️ hardTTL REACHED → Redis DELETES cache
+Day 15, 00:00:01 👤 User request
+                 ├─ No cache found
+                 ├─ Try fetch from Notion → FAILED (still down)
+                 └─ Return error to user (no stale cache available)
+```
+
+### Code Implementation
+
+```typescript:95:133:src/lib/redis-cache.ts
+async function backgroundRefresh<T>(
+  identifier: string,
+  fetcher: () => Promise<T>,
+  softTTL: number,
+  hardTTL: number
+) {
+  try {
+    const freshData = await fetcher()
+    // Save to cache with BOTH TTLs
+    // - softTTL: when to refresh again
+    // - hardTTL: when Redis deletes (if refresh keeps failing)
+    await setCache(identifier, freshData, { softTTL, hardTTL })
+    console.log(`✅ Background refresh completed: ${identifier}`)
+  } catch (error) {
+    // If refresh fails, old cache still exists (protected by hardTTL)
+    console.error(`❌ Background refresh failed for ${identifier}:`, error)
+    // Next request will try again, or keep serving stale cache
+  }
+}
+
+/**
+ * Wrapper function that implements Refresh-Ahead caching pattern
+ *
+ * Strategy (Refresh-Ahead Pattern):
+ * 1. Check cache FIRST (before fetching)
+ * 2. If cache exists:
+ *    a. Check age against softTTL
+ *    b. If fresh (age < softTTL): Return immediately
+ *    c. If stale (age > softTTL): Return immediately + refresh in background
+ * 3. If no cache: Fetch fresh data (user waits) and cache it
+ * 4. On fetch error: Return stale cache if available (better than error)
+ *
+ * Benefits:
+ * - Users ALWAYS get instant response (cache hit = 0 wait time)
+ * - Stale cache is served while refreshing in background
+ * - hardTTL (14 days) ensures cache persists during long outages
+ * - softTTL controls freshness without blocking users
+ */
+export async function withRedisCache<T>(
+  identifier: string,
+  fetcher: () => Promise<T>,
+  options: CacheOptions = {}
+): Promise<T>
+```
+
+### Real-World TTL Configuration
+
+```typescript
+// Fast-changing content
+getPosts() → softTTL: 30m / hardTTL: 7d
+- Refresh every 30 minutes
+- Keep for 7 days during outage
+
+// Moderate updates
+getTopics() → softTTL: 2h / hardTTL: 14d
+- Refresh every 2 hours
+- Keep for 14 days during outage
+
+// Stable content
+getCustomEmojiUrl() → softTTL: 24h / hardTTL: 14d
+- Refresh daily
+- Keep for 14 days during outage
+```
+
+### Key Takeaways
+
+1. **softTTL** = Refresh frequency (controls freshness)
+   - Triggers background refresh
+   - Cache is served immediately (no user wait)
+   - Cache age resets to 0 after successful refresh
+
+2. **hardTTL** = Safety net (controls reliability)
+   - Only matters when background refresh fails repeatedly
+   - In normal operation: **never reached** (cache refreshes before hardTTL)
+   - Protects stale cache during long outages
+
+3. **Cache Overwrite**:
+   - Every successful background refresh → **overwrites** cache + **resets** TTL
+   - Failed refresh → cache **remains** with same age + hardTTL countdown continues
+
+4. **When hardTTL is reached**:
+   - Redis deletes the cache
+   - Next request has no fallback (error shown to user)
+   - **This should rarely happen** (means API down for softTTL × many cycles)
+
+### Visual Flow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Cache Lifecycle (Normal Operation)                         │
+└─────────────────────────────────────────────────────────────┘
+
+Cache Created ──┬──> softTTL reached ──> Background Refresh ──┐
+  (age: 0)      │     (age: 2h)              SUCCESS         │
+                │                               │             │
+                │                               ▼             │
+                │                        Cache OVERWRITTEN    │
+                │                        age reset to 0       │
+                └───────────────────────────────┬─────────────┘
+                                                │
+                                    (cycle repeats forever)
+                                                │
+                        hardTTL NEVER REACHED ──┘
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ Cache Lifecycle (Outage Scenario)                          │
+└─────────────────────────────────────────────────────────────┘
+
+Cache Created ──> softTTL reached ──> Background Refresh
+  (age: 0)         (age: 2h)              FAILED
+                                            │
+                                            ▼
+                                    Cache STILL EXISTS
+                                    age stays at 2h
+                                    hardTTL: 13d 22h left
+                                            │
+                                            ▼
+                            (requests keep serving stale cache)
+                                            │
+                                            ▼
+                                    ... 14 days later ...
+                                            │
+                                            ▼
+                                    hardTTL REACHED
+                                    Redis DELETES cache
+                                            │
+                                            ▼
+                                    Next request = ERROR
+                                    (no fallback available)
+```
+
 ## Summary
 
 ✅ **What you've accomplished**:
@@ -667,13 +888,6 @@ withRedisCache(key, fetcher, { debug })
 - Errors logged but not shown to users
 - Faster page loads (cached data)
 - Reduced Notion API calls
-
-🔍 **Monitoring checklist**:
-- [ ] Redis credentials configured in Vercel
-- [ ] Cache keys visible in Upstash Console
-- [ ] Function logs show cache activity
-- [ ] Error tracking set up (optional)
-- [ ] Cache warming scheduled (optional)
 
 🎯 **Next steps**:
 1. Deploy to production

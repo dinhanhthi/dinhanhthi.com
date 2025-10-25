@@ -79,6 +79,7 @@
     "react-snap-carousel": "^0.3.2",
     "react-syntax-highlighter": "15.5.0",
     "react-tooltip": "^5.29.1",
+    "resend": "^6.2.2",
     "sass": "^1.93.2",
     "sharp": "^0.34.4",
     "simple-icons": "^15.16.1",

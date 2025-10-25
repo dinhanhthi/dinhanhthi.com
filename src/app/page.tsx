@@ -4,10 +4,10 @@ import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
 import { Suspense } from 'react'
 
 import {
-    defaultBlurDataURL,
-    defaultPostTypeOpts,
-    numPostsToShow,
-    postSimpleListContainerClass
+  defaultBlurDataURL,
+  defaultPostTypeOpts,
+  numPostsToShow,
+  postSimpleListContainerClass
 } from '@/src/lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
