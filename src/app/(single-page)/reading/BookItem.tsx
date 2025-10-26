@@ -63,7 +63,7 @@ export default function BookItem(props: BookItemProps) {
         {/* title & author */}
         <div className={cn('flex min-w-0 flex-1 flex-col gap-3 px-3 py-4 pl-4')}>
           <div className="flex flex-col gap-1">
-            <div className="text-text-heading group-hover:text-link-hover text-base leading-snug font-medium">
+            <div className="text-text-heading text-base leading-snug font-medium">
               {/* NEW */}
               {isNew && !book.isReading && (
                 <Badge variant="secondary" className="!bg-yellow-bg !text-yellow-text !border-none">

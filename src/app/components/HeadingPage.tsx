@@ -26,7 +26,7 @@ export default function HeadingPage(props: HeadingPageProps) {
         {title}
         {href && (
           <Link
-            className="text-muted hover:text-link-hover hover:text-link-hover font-sans text-sm font-normal italic"
+            className="text-muted hover:text-link font-sans text-sm font-normal italic"
             href={href}
           >
             ...more

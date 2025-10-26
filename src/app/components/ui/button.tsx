@@ -18,17 +18,16 @@ const buttonVariants = cva(
           'border-border-muted hover:bg-bg-hover border bg-transparent hover:text-neutral-900 dark:hover:text-neutral-50',
         secondary:
           'text-text bg-slate-200 hover:bg-slate-300/80 dark:bg-slate-800 dark:hover:bg-slate-900/80',
-        ghost:
-          'hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50',
+        ghost: 'hover:text-text dark:hover:text-muted hover:bg-slate-200 dark:hover:bg-slate-700',
         link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50'
       },
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-lg px-3',
         lg: 'h-11 rounded-lg px-8',
-        icon: 'h-10 w-10 shrink-0 text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 [&_svg]:size-4 [&_svg]:transition-transform [&_svg]:active:scale-90',
+        icon: 'text-muted hover:text-text h-10 w-10 shrink-0 [&_svg]:size-4 [&_svg]:transition-transform [&_svg]:active:scale-90',
         iconBig:
-          'group h-8 w-8 shrink-0 text-gray-500 hover:text-gray-600 [&_svg]:size-5 [&_svg]:transition-transform [&_svg]:active:scale-90'
+          'group text-muted hover:text-text h-8 w-8 shrink-0 [&_svg]:size-5 [&_svg]:transition-transform [&_svg]:active:scale-90'
       }
     },
     defaultVariants: {
