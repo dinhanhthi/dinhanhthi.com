@@ -58,65 +58,66 @@ export default function NavSearch() {
   }
 
   return (
-    <>
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger asChild>
-          <button
-            type="button"
-            className="group flex h-full items-center justify-center rounded-md p-2 text-slate-300 hover:cursor-pointer hover:bg-gray-700 hover:text-white focus:outline-none"
-            onClick={() => setIsOpen(true)}
-            aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
-          >
-            <FiSearch className="h-5 w-5" />
-          </button>
-        </DialogTrigger>
-        <DialogContent
-          className={cn(
-            'h-[min(80svh,440px)] max-w-[80%] overflow-hidden rounded-lg border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
-          )}
-          hideCloseBtn={true}
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="group flex h-full items-center justify-center rounded-md p-2 text-slate-300 hover:cursor-pointer hover:bg-gray-700 hover:text-white focus:outline-none"
+          onClick={() => setIsOpen(true)}
+          aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
         >
-          <VisuallyHidden.Root>
-            <DialogTitle>Search notes</DialogTitle>
-            <DialogDescription>Search through your notes</DialogDescription>
-          </VisuallyHidden.Root>
+          <FiSearch className="h-5 w-5" />
+        </button>
+      </DialogTrigger>
+      <DialogContent
+        className={cn(
+          'max-h-[min(80svh,440px)] max-w-[80%] overflow-hidden rounded-lg border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
+        )}
+        hideCloseBtn={true}
+      >
+        <VisuallyHidden.Root>
+          <DialogTitle>Search notes</DialogTitle>
+          <DialogDescription>Search through your notes</DialogDescription>
+        </VisuallyHidden.Root>
 
-          <Command
-            className="flex h-full flex-col divide-y divide-slate-200 overflow-hidden"
-            shouldFilter={false}
-            loop
-          >
-            <div className="flex min-h-14 items-center justify-between gap-3 border-none p-3">
-              <div className={cn('grid place-items-center text-slate-500')}>
-                {(data || error || get(data, '[0].isFake')) && !isLoading && (
-                  <FiSearch className="text-2xl" />
-                )}
-                {isLoading && (
-                  <div className="animate-spin">
-                    <LoaderCircle size={25} />
-                  </div>
-                )}
-              </div>
-              <Command.Input
-                ref={inputRef}
-                className="placeholder:text-token-text-tertiary w-full border-none bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
-                placeholder="Search for notes..."
-                onValueChange={value => {
-                  debounceSearch(value)
-                }}
-              />
-              <Button
-                onClick={() => setIsOpen(false)}
-                variant="ghost"
-                size="iconBig"
-                className="group rounded-full"
-                tooltip="Close search (ESC)"
-              >
-                <X className="text-slate-800 opacity-50 group-hover:opacity-100" />
-              </Button>
+        <Command
+          className="flex h-full flex-col divide-y divide-slate-200 overflow-hidden"
+          shouldFilter={false}
+          loop
+        >
+          <div className="flex min-h-14 items-center justify-between gap-3 border-none p-3">
+            <div className={cn('grid place-items-center text-slate-500')}>
+              {(data || error || get(data, '[0].isFake')) && !isLoading && (
+                <FiSearch className="text-2xl" />
+              )}
+              {isLoading && (
+                <div className="animate-spin">
+                  <LoaderCircle size={25} />
+                </div>
+              )}
             </div>
+            <Command.Input
+              ref={inputRef}
+              className="placeholder:text-muted w-full border-none bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
+              placeholder="Search for notes..."
+              onValueChange={value => {
+                debounceSearch(value)
+              }}
+            />
+            <Button
+              onClick={() => setIsOpen(false)}
+              variant="ghost"
+              size="iconBig"
+              className="group rounded-full"
+              tooltip="Close search (ESC)"
+            >
+              <X className="text-text opacity-50 group-hover:opacity-100" />
+            </Button>
+          </div>
+
+          {query && !isLoading && (
             <Command.List asChild className="h-full min-h-0 flex-1 overflow-y-auto p-1.5">
-              <Command.Empty className="flex h-full w-full items-center justify-center px-4 py-2 text-sm text-slate-500">
+              <Command.Empty className="text-muted flex h-full w-full items-center justify-center px-4 pt-8 pb-10 text-sm">
                 No note found!
               </Command.Empty>
               {data && !data?.[0]?.isFake && query && (
@@ -127,7 +128,7 @@ export default function NavSearch() {
                       <Command.Item
                         key={index}
                         value={uri}
-                        className="group mb-1 flex cursor-pointer items-start gap-3 rounded-lg px-3 py-2 text-sm outline-none hover:bg-slate-100 hover:text-slate-800 aria-selected:bg-slate-100 aria-selected:text-slate-800"
+                        className="group hover:bg-bg-hover hover:text-text aria-selected:bg-bg-hover aria-selected:text-text mb-1 flex cursor-pointer items-start gap-3 rounded-lg px-3 py-2 text-sm outline-none"
                         onSelect={() => handleItemClick(uri)}
                         onClick={() => handleItemClick(uri)}
                       >
@@ -137,15 +138,15 @@ export default function NavSearch() {
                           )}
                           {item.isBookPost && <IoBookOutline className="text-xl opacity-80" />}
                         </div>
-                        <div className={cn('flex w-full flex-col gap-1 text-slate-900')}>
+                        <div className={cn('text-text flex w-full flex-col gap-1')}>
                           <div className={cn('flex w-full items-center justify-between')}>
                             <div
                               className={cn(
                                 {
-                                  'border-b border-dashed border-slate-300 pr-4 pb-1':
+                                  'border-border-muted border-b border-dashed pr-4 pb-1':
                                     item.textHighlighted
                                 },
-                                'text-[0.9rem] font-medium text-black'
+                                'text-text text-[0.9rem] font-medium'
                               )}
                             >
                               {item.titleHighlighted && (
@@ -160,7 +161,7 @@ export default function NavSearch() {
                           </div>
                           {item.textHighlighted && (
                             <div
-                              className="text-sm opacity-90"
+                              className="text-muted text-sm opacity-90"
                               dangerouslySetInnerHTML={{ __html: item.textHighlighted }}
                             ></div>
                           )}
@@ -171,10 +172,10 @@ export default function NavSearch() {
                 </>
               )}
             </Command.List>
-          </Command>
-        </DialogContent>
-      </Dialog>
-    </>
+          )}
+        </Command>
+      </DialogContent>
+    </Dialog>
   )
 }
 

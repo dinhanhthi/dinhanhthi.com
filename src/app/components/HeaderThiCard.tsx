@@ -61,7 +61,7 @@ export function SkeletonHeaderThiCard() {
         <div className="h-9 w-32 animate-pulse rounded bg-slate-200 lg:hidden dark:bg-slate-700" />
       </div>
 
-      <div className="flex flex-col gap-4 py-4">
+      <div className="flex flex-1 flex-col gap-4 py-4">
         {/* Desktop heading skeleton */}
         <div className="hidden h-9 w-32 animate-pulse rounded bg-slate-200 lg:block dark:bg-slate-700" />
 
