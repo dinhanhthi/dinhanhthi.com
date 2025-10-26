@@ -85,7 +85,7 @@ export default function HeaderPost(props: HeaderPostProps) {
           />
         )}
         {!!icon && (
-          <div className="bg-bg-hover flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
+          <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded bg-slate-200 lg:h-[150px] lg:w-[150px] dark:bg-slate-700">
             <Suspense
               fallback={
                 <div

@@ -1,9 +1,15 @@
 import { getJoinedRichText, makeSlugText } from '@/src/lib/helpers'
-import { getCustomEmojiBlock, getUnofficialDatabase, queryDatabase } from '@/src/lib/notion/db'
+import {
+  getBlocksByIds,
+  getCustomEmojiBlock,
+  getPage,
+  getUnofficialDatabase,
+  queryDatabase
+} from '@/src/lib/notion/db'
 import { Book, NotionPost, NotionSorts, NotionTagData, Post, Tag, Tool } from '@/src/lib/types'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
 import { get } from 'lodash'
-import { Block, CollectionInstance } from 'notion-types'
+import { Block, CollectionInstance, ExtendedRecordMap } from 'notion-types'
 
 import { getFilter, getUri, transformUnofficialPostProps } from '@/src/lib/helpers'
 import { defaultPostDate, defaultPostTitle, redisCacheTTL } from './config'
@@ -440,4 +446,66 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       } as Post
     })
   )
+}
+
+/**
+ * ========================================================================
+ * Record Map Fetcher - Fetches Notion page with missing blocks fixed
+ * ========================================================================
+ * This function fetches a Notion page (recordMap) and fixes any missing
+ * blocks that might be referenced but not included in the initial fetch.
+ */
+
+export async function getRecordMap(pageId: string) {
+  return withRedisCache(
+    `page-${pageId}`,
+    async () => {
+      const recordMap = await getPage(pageId)
+      const newRecordMap = await fixMissingBlocks(recordMap)
+      return newRecordMap
+    },
+    {
+      namespace: 'notion',
+      softTTL: 3600, // 1 hour - page content changes moderately
+      hardTTL: 1209600 // 14 days - safety net
+    }
+  )
+}
+
+async function fixMissingBlocks(recordMap: ExtendedRecordMap): Promise<ExtendedRecordMap> {
+  const brokenBlockIds = [] as any
+  for (const blockId of Object.keys(recordMap.block)) {
+    const block = recordMap.block[blockId]?.value
+    if (!block || block.type !== 'text') {
+      continue
+    }
+    const title = block.properties?.title
+    if (!title) {
+      continue
+    }
+    title.map(([_text, decorations], _index) => {
+      if (!decorations) {
+        return false
+      }
+      const decorator = decorations[0]
+      if (!decorator || decorator[0] !== 'p' || !decorator[1]) {
+        return false
+      }
+      const bId = decorator[1]
+      if (!recordMap.block[bId]?.value) {
+        brokenBlockIds.push(bId)
+        return true
+      }
+      return false
+    })
+  }
+  const missingBlocks = brokenBlockIds?.length ? await getBlocksByIds(brokenBlockIds) : null
+  const newBlocks = {
+    ...recordMap.block,
+    ...missingBlocks?.recordMap?.block
+  }
+  return {
+    ...recordMap,
+    block: newBlocks
+  }
 }
