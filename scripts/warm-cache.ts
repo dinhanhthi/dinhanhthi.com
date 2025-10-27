@@ -22,6 +22,14 @@ import {
 } from '@/src/lib/fetcher'
 
 async function warmCache() {
+  // Check if Redis cache is disabled
+  if (process.env.DISABLE_REDIS_CACHE === 'true') {
+    console.log('⚠️  Redis cache is disabled (DISABLE_REDIS_CACHE=true)')
+    console.log('⚠️  Skipping cache warming. No action needed.\n')
+    console.log('💡 To enable caching, remove DISABLE_REDIS_CACHE from your .env.local')
+    process.exit(0)
+  }
+
   console.log('🔥 Starting cache warming...\n')
 
   const startTime = Date.now()
