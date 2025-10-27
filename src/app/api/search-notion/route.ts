@@ -46,7 +46,6 @@ export async function POST(request: Request) {
  * Note that: /api/search-notin uses an unofficial notion api, so the format is a little bit different
  */
 function parseSearchResults(data: any): SearchResult[] {
-  // /* ###Thi ### */ console.log(`👉👉👉 data`, data)
   let results = [] as SearchResult[]
   if (!data || !data.results || data.results.length === 0) results = []
   else {

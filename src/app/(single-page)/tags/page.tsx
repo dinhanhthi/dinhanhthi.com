@@ -20,8 +20,6 @@ export const metadata = getMetadata({
   images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
 })
 
-export const tagListContainerClass = 'grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 w-full'
-
 export default async function TagsHomePage() {
   const _tags = await getTopics()
   const tags = _tags
@@ -55,7 +53,7 @@ export default async function TagsHomePage() {
       <Container>
         {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
         {tags.length > 0 && (
-          <div className={tagListContainerClass}>
+          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
             {tags.map((tag: Tag) => (
               <Topic
                 key={tag.id}
