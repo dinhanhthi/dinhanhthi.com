@@ -16,15 +16,6 @@ const nextConfig = {
   sassOptions: {
     silenceDeprecations: ['legacy-js-api']
   },
-  redirects: async () => {
-    return [
-      {
-        source: '/support-me/',
-        destination: '/note/support-thi/',
-        permanent: true
-      }
-    ]
-  },
   headers: async () => {
     const headers = []
     if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'preview') {
