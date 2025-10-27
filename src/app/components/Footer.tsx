@@ -28,7 +28,7 @@ export default function Footer() {
             Cooking <TbExternalLink />
           </a>{' '}
           <span>|</span>
-          <Link className={cn(aClass)} href={'/note/support-me/'}>
+          <Link className={cn(aClass)} href={'/note/support-thi/'}>
             <Image className="h-4 w-auto" src={CafeIcon} alt="Cafe icon" /> Support Thi
           </Link>
         </div>
