@@ -1,8 +1,6 @@
 const nextConfig = {
-  // output: 'export',
   trailingSlash: true, // use "/about/" instead of "/about"
   poweredByHeader: false, // remove "Powered by Next.js" from the header
-  // transpilePackages: ['react-syntax-highlighter'],
   staticPageGenerationTimeout: 180, // seconds
   modularizeImports: {
     lodash: {
@@ -12,6 +10,15 @@ const nextConfig = {
   },
   sassOptions: {
     silenceDeprecations: ['legacy-js-api']
+  },
+  redirects: async () => {
+    return [
+      {
+        source: '/support-me/',
+        destination: '/note/support-thi/',
+        permanent: true
+      }
+    ]
   },
   headers: async () => {
     const headers = []
@@ -29,7 +36,6 @@ const nextConfig = {
     return headers
   },
   images: {
-    // unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -65,20 +71,6 @@ const nextConfig = {
       }
     ]
   }
-  // redirects: async () => {
-  //   return [
-  //     // {
-  //     //   source: '/:slug',
-  //     //   destination: '/note/:slug',
-  //     //   permanent: true
-  //     // }
-  //     {
-  //       source: '/:slug(^(?!notes$|tags$|about$|projects$|tools$|bookmarks$|support-me$).*)',
-  //       destination: '/note/:slug',
-  //       permanent: true
-  //     }
-  //   ]
-  // }
 }
 
 export default nextConfig

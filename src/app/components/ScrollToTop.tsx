@@ -1,8 +1,9 @@
 'use client'
 
-import { BackToTopIcon } from '@/src/app/icons/BackToTopIcon'
 import cn from 'classnames'
+import { ArrowUpToLine } from 'lucide-react'
 import { useEffect, useRef } from 'react'
+import { Button } from './ui/button'
 
 type ScrollToTopProps = {
   className?: string
@@ -35,15 +36,17 @@ export default function ScrollToTop(props: ScrollToTopProps) {
   }
 
   return (
-    <button
+    <Button
+      variant="secondary"
       onClick={scrollToTop}
       ref={buttonRef}
+      size="icon"
       className={cn(
-        'group fixed z-50 flex h-12 w-12 items-center justify-center rounded-full bg-slate-200 p-2 opacity-0 transition-all duration-300 hover:bg-slate-300',
+        'border-border-muted fixed z-50 rounded-full border',
         props.positionClassName ? props.positionClassName : 'right-10 bottom-8'
       )}
     >
-      <BackToTopIcon className="h-6 w-6" />
-    </button>
+      <ArrowUpToLine className="text-muted h-6 w-6" />
+    </Button>
   )
 }

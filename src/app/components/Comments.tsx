@@ -2,13 +2,15 @@
 
 import cn from 'classnames'
 
-import { containerNormal } from '@/src/lib/config'
 import Giscus from '@giscus/react'
+import { useTheme } from 'next-themes'
 import Container from './Container'
 
 const Comments = ({ className }: { className?: string }) => {
+  const { theme } = useTheme()
+
   return (
-    <Container className={cn(className, containerNormal, 'mt-8')}>
+    <Container className={cn(className, 'mt-8')}>
       <Giscus
         id="post-comments"
         repo="dinhanhthi/dinhanhthi.com-comments"
@@ -20,7 +22,7 @@ const Comments = ({ className }: { className?: string }) => {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme="light"
+        theme={theme}
         lang="en"
         loading="lazy"
       />

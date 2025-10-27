@@ -15,7 +15,7 @@ export const MenuAbout = {
 
 export const MENUS: MenuType[] = [
   {
-    name: 'Home',
+    name: 'Thi Notes',
     uri: '/'
   },
   MenuAbout,

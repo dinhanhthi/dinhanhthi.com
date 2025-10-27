@@ -62,7 +62,7 @@ export const AssetWrapper: React.FC<{
         customPreviewImage={customPreviewImage}
       >
         {value?.properties?.caption && !isURL && (
-          <figcaption className="notion-asset-caption text-center">
+          <figcaption className="notion-asset-caption !text-muted text-center">
             <Text value={value.properties.caption} block={block} />
           </figcaption>
         )}

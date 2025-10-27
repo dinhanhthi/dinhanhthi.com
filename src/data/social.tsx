@@ -1,62 +1,52 @@
-import CouseraIcon from '@/public/social/coursera.png'
-import DuolingoIcon from '@/public/social/duolingo.svg'
-import GithubIcon from '@/public/social/github.svg'
-import GoodreadsIcon from '@/public/social/goodreads.svg'
-import LinkedInIcon from '@/public/social/linkedin.svg'
-import Math2ITIcon from '@/public/social/math2it.png'
-import SOIcon from '@/public/social/so.svg'
-import TwitterIcon from '@/public/social/twitter.png'
-import { BadgeSocialProps } from '@/src/app/components/BadgeSocial'
+import { GithubIcon, LinkedinIcon } from 'lucide-react'
+import { siGoodreads, siX, type SimpleIcon } from 'simple-icons'
 
-const socials: BadgeSocialProps[] = [
+const SimpleIconWrapper = ({ icon, className }: { icon: SimpleIcon; className?: string }) => {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      className={className}
+    >
+      <title>{icon.title}</title>
+      <path d={icon.path} />
+    </svg>
+  )
+}
+
+export type SocialItem = {
+  id: string
+  title: string
+  url: string
+  icon: React.ReactNode
+}
+
+const socials: SocialItem[] = [
   {
     id: 'github',
     title: 'Github',
-    icon: GithubIcon,
     url: 'https://github.com/dinhanhthi',
-    imgClass: 'invert'
+    icon: <GithubIcon className="h-6 w-6 md:h-5 md:w-5" />
   },
   {
     id: 'linkedin',
     title: 'LinkedIn',
-    icon: LinkedInIcon,
-    url: 'https://www.linkedin.com/in/dinhanhthi/'
+    url: 'https://www.linkedin.com/in/dinhanhthi/',
+    icon: <LinkedinIcon className="h-6 w-6 md:h-5 md:w-5" />
   },
   {
     id: 'twitter',
     title: 'X',
-    icon: TwitterIcon,
-    url: 'https://x.com/dinhanhthi'
+    url: 'https://x.com/dinhanhthi',
+    icon: <SimpleIconWrapper icon={siX} className="h-6 w-6 md:h-5 md:w-5" />
   },
   {
     id: 'goodreads',
     title: 'Goodreads',
-    icon: GoodreadsIcon,
-    url: 'https://www.goodreads.com/user/show/19630622-thi-dinh'
-  },
-  {
-    id: 'stackexchange',
-    title: 'StackExchange',
-    icon: SOIcon,
-    url: 'https://stackexchange.com/users/1344291/anh-thi-dinh'
-  },
-  {
-    id: 'coursera',
-    title: 'Coursera',
-    icon: CouseraIcon,
-    url: 'https://www.coursera.org/user/47f27dde0ecab9a78e2c93632d78a556'
-  },
-  {
-    id: 'math2it',
-    title: 'Math2IT',
-    icon: Math2ITIcon,
-    url: 'https://math2it.com'
-  },
-  {
-    id: 'duolingo',
-    title: 'Duolingo',
-    icon: DuolingoIcon,
-    url: 'https://www.duolingo.com/profile/mr.Thi'
+    url: 'https://www.goodreads.com/user/show/19630622-thi-dinh',
+    icon: <SimpleIconWrapper icon={siGoodreads} className="h-6 w-6 md:h-5 md:w-5" />
   }
 ]
 

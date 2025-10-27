@@ -283,7 +283,7 @@ export const Asset: React.FC<{
 
   return (
     <>
-      <div style={style} className="m2it-scrollbar">
+      <div style={style} className="thi-scrollbar">
         {content}
         {block.type === 'image' && children}
       </div>

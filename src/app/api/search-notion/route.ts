@@ -63,16 +63,18 @@ function parseSearchResults(data: any): SearchResult[] {
         result?.highlight?.title
           ?.replaceAll(
             UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            '<span style="color: #0065bd; font-weight: 500;">'
+            // '<span style="color: #0065bd; font-weight: 500;">'
+            `<span class="text-link">`
           )
-          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || postTitle
+          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, `</span>`) || postTitle
       const postTextHighlighted =
         result.highlight?.text
           ?.replaceAll(
             UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            '<span style="color: #0065bd; font-weight: 500;">'
+            // '<span style="color: #0065bd; font-weight: 500;">'
+            `<span class="text-link">`
           )
-          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, '</span>') || null
+          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, `</span>`) || null
 
       if (isPostHide) continue
       if (process.env.NEXT_PUBLIC_ENV_MODE !== 'dev' && !isPostPublished) continue
