@@ -18,6 +18,7 @@ import HeadingPage from './components/HeadingPage'
 import PostList, { SkeletonPostList } from './components/PostsList'
 import Topic, { SkeletonTopic } from './components/Topic'
 
+export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 export const metadata = getMetadata({
