@@ -5,6 +5,7 @@ import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import ToolSimpleSection, { SkeletonToolPageSection } from './ToolSimpleSection'
 
+export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 const title = 'Tools I use'
