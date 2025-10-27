@@ -21,8 +21,9 @@ jobs:
         run: |
           echo "🔥 Triggering cache warming for production deployment..."
 
-          response=$(curl -s -w "\n%{http_code}" -X POST \
-            ${{ secrets.SITE_URL }}/api/cron/warm-cache \
+          # Use -L to follow redirects, ensure HTTPS
+          response=$(curl -L -s -w "\n%{http_code}" -X POST \
+            "${{ secrets.SITE_URL }}/api/cron/warm-cache" \
             -H "Authorization: Bearer ${{ secrets.DEPLOY_HOOK_SECRET }}" \
             -H "Content-Type: application/json")
 
@@ -30,11 +31,15 @@ jobs:
           body=$(echo "$response" | sed '$d')
 
           echo "Response: $body"
+          echo "HTTP Status: $http_code"
 
           if [ $http_code -eq 200 ]; then
             echo "✅ Cache warming completed successfully"
           elif [ $http_code -eq 401 ]; then
             echo "❌ Unauthorized - Check DEPLOY_HOOK_SECRET"
+            exit 1
+          elif [ $http_code -eq 500 ]; then
+            echo "❌ Server error - Check DEPLOY_HOOK_SECRET configuration on Vercel"
             exit 1
           else
             echo "⚠️ Cache warming failed with status $http_code"
