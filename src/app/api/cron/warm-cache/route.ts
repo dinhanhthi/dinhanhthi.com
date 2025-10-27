@@ -1,16 +1,29 @@
 /**
- * Vercel Deploy Hook: Warm Cache
+ * Post-Deployment Cache Warming API
  *
- * This endpoint is called automatically by Vercel after each successful deployment.
+ * This endpoint is called automatically by GitHub Actions after each successful Vercel deployment.
  *
- * Setup in Vercel Dashboard:
- * 1. Go to Project Settings → Git → Deploy Hooks
- * 2. Create a new Deploy Hook with this URL: https://dinhanhthi.com/api/cron/warm-cache
- * 3. Set the secret in environment variable: DEPLOY_HOOK_SECRET
+ * Setup:
+ * 1. Add GitHub Secrets (Settings → Secrets and variables → Actions):
+ *    - SITE_URL: Your production URL (e.g., https://dinhanhthi.com)
+ *    - DEPLOY_HOOK_SECRET: Random secret token for authentication
+ *
+ * 2. Add Vercel Environment Variable:
+ *    - DEPLOY_HOOK_SECRET: Same secret as GitHub (for API authentication)
+ *
+ * 3. GitHub Action workflow is at: .github/workflows/warm-cache-after-deploy.yml
+ *    - Triggers on: deployment_status event (Production only)
+ *    - Calls this endpoint after successful deployment
+ *
+ * How it works:
+ * - Vercel deploys your site → triggers GitHub deployment_status event
+ * - GitHub Action detects successful production deployment
+ * - Action calls this endpoint with Authorization header
+ * - Endpoint warms Redis cache with fresh Notion data
  *
  * Security:
- * - Vercel will send the secret in the "x-vercel-signature" header
- * - Or use Authorization header with Bearer token
+ * - Requires Authorization: Bearer <DEPLOY_HOOK_SECRET> header
+ * - Skips warming if DISABLE_REDIS_CACHE=true
  *
  * Manual call:
  * curl -X POST https://dinhanhthi.com/api/cron/warm-cache \
@@ -35,17 +48,23 @@ export async function POST(request: NextRequest) {
   }
 
   // Verify deploy hook secret (security)
-  const authHeader = request.headers.get('authorization')
-  const vercelSignature = request.headers.get('x-vercel-signature')
   const deployHookSecret = process.env.DEPLOY_HOOK_SECRET
+  const authHeader = request.headers.get('authorization')
 
-  // Accept either Vercel signature or Bearer token
-  const isAuthorized =
-    !deployHookSecret || // Allow if no secret configured (dev mode)
-    authHeader === `Bearer ${deployHookSecret}` ||
-    vercelSignature === deployHookSecret
+  // In production, DEPLOY_HOOK_SECRET is required
+  if (!deployHookSecret) {
+    console.error('❌ DEPLOY_HOOK_SECRET is not configured')
+    return NextResponse.json(
+      {
+        error: 'Server configuration error',
+        message: 'DEPLOY_HOOK_SECRET environment variable is required'
+      },
+      { status: 500 }
+    )
+  }
 
-  if (!isAuthorized) {
+  // Verify Bearer token
+  if (authHeader !== `Bearer ${deployHookSecret}`) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
