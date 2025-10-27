@@ -34,6 +34,7 @@ export const gapHeaderItems = 'mb-3'
 type HeaderPostProps = {
   recordMap: ExtendedRecordMap
   postProps: Post
+  className?: string
 }
 
 const pageCoverStyleCache: Record<string, object> = {}
@@ -73,7 +74,10 @@ export default function HeaderPost(props: HeaderPostProps) {
   )
 
   return (
-    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+    <Header
+      className={props.className}
+      containerClassName={cn('flex flex-col items-center gap-4 lg:flex-row')}
+    >
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         {!icon && (
           <ImageWithLoading
@@ -219,7 +223,7 @@ export default function HeaderPost(props: HeaderPostProps) {
 
 export function SkeletonHeaderPost() {
   return (
-    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+    <Header containerClassName="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         {/* Icon skeleton */}
         <div className="bg-skeleton-bg h-[75px] w-[75px] shrink-0 animate-pulse rounded lg:h-[150px] lg:w-[150px]" />

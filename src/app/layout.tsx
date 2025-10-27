@@ -54,11 +54,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning={true}>
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col bg-stone-100 dark:bg-gray-900">
+          <div className="flex min-h-screen flex-col bg-stone-100 dark:bg-slate-900">
             <Nav />
             <main className="min-h-0 flex-1">
               <main className="pb-12">{children}</main>

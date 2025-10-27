@@ -9,7 +9,7 @@ import Header from './Header'
 
 export default function HeaderThiCard() {
   return (
-    <Header className="flex flex-col lg:flex-row lg:gap-4">
+    <Header containerClassName="flex flex-col lg:flex-row lg:gap-4">
       <div className="flex shrink-0 flex-row items-center gap-4">
         <ImageWithLoading
           src="/logo_sketches/avatar_nobg.png"
@@ -52,7 +52,7 @@ export default function HeaderThiCard() {
 
 export function SkeletonHeaderThiCard() {
   return (
-    <Header className="flex flex-col lg:flex-row lg:gap-4">
+    <Header containerClassName="flex flex-col lg:flex-row lg:gap-4">
       <div className="flex shrink-0 flex-row items-center gap-4">
         {/* Avatar skeleton */}
         <div className="h-[200px] w-[200px] animate-pulse rounded-full bg-slate-200 dark:bg-slate-700" />
