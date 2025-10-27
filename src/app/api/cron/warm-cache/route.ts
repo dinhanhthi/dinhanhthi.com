@@ -34,7 +34,7 @@ import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/s
 import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
-export const maxDuration = 300 // 5 minutes max
+export const maxDuration = 59 // Max for Hobby plan
 
 export async function POST(request: NextRequest) {
   // Check if Redis cache is disabled
