@@ -10,7 +10,7 @@ import me from '../data/me'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import { ThemeProvider } from './components/ThemeProvider'
-import './styles.scss'
+import './styles.css'
 
 export const revalidate = 60
 

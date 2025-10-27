@@ -1,10 +1,10 @@
-@use 'tailwindcss';
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @import 'katex/dist/katex.min.css';
 @import 'prismjs/themes/prism-tomorrow.css';
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); // use data-theme=dark to target dark mode
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); /* use data-theme=dark to target dark mode */
 
 :root {
   --bg-color: var(--color-white);
@@ -20,7 +20,7 @@
   --yellow-bg-color: var(--color-amber-200);
   --yellow-text-color: #6b5b1c;
 
-  // Skeletons
+  /* Skeletons */
   --skeleton-bg-color: var(--color-slate-200);
 
   /* Wave colors - light mode (RGB values only, will be used with rgba()) */
@@ -56,7 +56,7 @@
   --yellow-bg-color: #eccd00;
   --yellow-text-color: #4b2f0b;
 
-  // Skeletons
+  /* Skeletons */
   --skeleton-bg-color: var(--color-slate-700);
 
   /* Wave colors - dark mode (lighter/more visible colors - RGB values only) */
@@ -92,7 +92,7 @@
   --color-yellow-bg: var(--yellow-bg-color);
   --color-yellow-text: var(--yellow-text-color);
 
-  // Skeletons
+  /* Skeletons */
   --color-skeleton-bg: var(--skeleton-bg-color);
 }
 
@@ -257,7 +257,7 @@
     }
   }
 
-  // Hide webkit search cancel button
+  /* Hide webkit search cancel button */
   .thi-hide-wscb {
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
@@ -271,8 +271,8 @@
 }
 
 @layer utilities {
-  // Custom thi-prose class that extends and customizes the base prose utility
-  // Placed in @layer utilities to ensure it always comes after base prose styles
+  /* Custom thi-prose class that extends and customizes the base prose utility */
+  /* Placed in @layer utilities to ensure it always comes after base prose styles */
   .thi-prose {
     @apply prose prose-pink max-w-none leading-normal;
 
@@ -300,6 +300,19 @@
       font-size: 1.35rem;
     }
 
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+        font-size: 1.45rem;
+      }
+      :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+        font-size: 1.3rem;
+      }
+      :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+        font-size: 1.2rem;
+      }
+    }
+
     :where(img):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
       @apply my-0;
     }
@@ -314,7 +327,7 @@
     }
 
     :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply dark:text-text rounded-md bg-gray-200 p-[1px_8px_2px_6px] font-mono text-[90%] font-normal break-words before:content-[''] after:content-[''] dark:bg-gray-900/70;
+      @apply dark:text-text rounded-md bg-gray-200 p-[1px_8px_2px_6px] font-mono text-[90%] font-normal wrap-break-word before:content-[''] after:content-[''] dark:bg-gray-900/70;
     }
 
     :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -349,10 +362,10 @@
       @apply my-0;
     }
 
-    // There is a strange problem where ul inside ol or ol inside ul:
-    // normally, we should have ol > ul but rendered as ol > ol > ul
-    // -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given
-    // by prose class
+    /* There is a strange problem where ul inside ol or ol inside ul: */
+    /* normally, we should have ol > ul but rendered as ol > ol > ul */
+    /* -1.625em is the opposite of the default margin-left of padding-inline-start of an ul/ol given */
+    /* by prose class */
     :where(ol > ol > ul):not(:where([class~='not-prose'], [class~='not-prose'] *)),
     :where(ul > ul > ol):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
       margin-left: -1.625em;
@@ -373,7 +386,7 @@
 
 @layer components {
   .thi-text-rainbow {
-    @apply bg-gradient-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
   }
 }
 
@@ -405,7 +418,7 @@ code {
   }
 }
 
-// Notion background colors
+/* Notion background colors */
 @layer base {
   .notion-gray_background {
     @apply bg-gray-100 dark:bg-gray-600/70;
@@ -414,13 +427,13 @@ code {
   .notion-gray_background,
   .bg-gray-100 {
     .toggle-container {
-      background-color: rgb(249 250 251); // bg-gray-50
+      background-color: rgb(249 250 251); /* bg-gray-50 */
     }
 
     .toggle-button {
       &.toggle-open,
       &:hover {
-        background-color: rgb(229 231 235); // bg-gray-200
+        background-color: rgb(229 231 235); /* bg-gray-200 */
       }
     }
   }
@@ -458,7 +471,7 @@ code {
     @apply bg-red-100 dark:bg-red-400/20;
   }
 
-  // Text
+  /* Text */
   .notion-gray {
     @apply text-gray-500 dark:text-gray-400;
   }
@@ -510,7 +523,7 @@ code {
   }
 }
 
-// List styling enhancements
+/* List styling enhancements */
 ul > ul > li,
 ol > ul > li {
   list-style-type: circle;
@@ -522,10 +535,8 @@ ul > ul > ul > li {
 
 ol,
 ul {
-  & > {
-    *:not(li):not(ol):not(ul):not(button.updated-block) {
-      margin-left: -1.5rem !important;
-    }
+  & > *:not(li):not(ol):not(ul):not(button.updated-block) {
+    margin-left: -1.5rem !important;
   }
 }
 
@@ -545,7 +556,7 @@ ul > ul {
   }
 }
 
-// fix overflow auto numbering from \begin{equation}
+/* fix overflow auto numbering from \begin{equation} */
 .katex .vlist-t2 {
   margin-right: 0 !important;
 }
@@ -594,7 +605,7 @@ ul > li {
   justify-content: center;
 }
 
-// Copied from notion-nextjs-lib
+/* Copied from notion-nextjs-lib */
 .w-full > iframe {
   width: 100%;
   height: -webkit-fill-available;
