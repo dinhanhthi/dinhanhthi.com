@@ -430,32 +430,32 @@ code {
   }
 
   .notion-orange_background {
-    @apply bg-orange-200 dark:bg-orange-400/70;
+    @apply bg-orange-200/60 dark:bg-orange-400/20;
   }
 
   .notion-yellow_background {
-    @apply bg-yellow-200 dark:bg-yellow-500/70;
+    @apply bg-yellow-200/60 dark:bg-yellow-500/20;
   }
 
   .notion-teal_background,
   .notion-green_background {
-    @apply bg-[#deffdb] dark:bg-green-700/30;
+    @apply bg-[#deffdb] dark:bg-green-700/20;
   }
 
   .notion-blue_background {
-    @apply bg-sky-100 dark:bg-blue-400/70;
+    @apply bg-sky-100 dark:bg-blue-400/20;
   }
 
   .notion-purple_background {
-    @apply bg-purple-100 dark:bg-purple-400/70;
+    @apply bg-purple-100 dark:bg-purple-400/20;
   }
 
   .notion-pink_background {
-    @apply bg-pink-100 dark:bg-pink-400/70;
+    @apply bg-pink-100 dark:bg-pink-400/20;
   }
 
   .notion-red_background {
-    @apply bg-red-100 dark:bg-red-400/70;
+    @apply bg-red-100 dark:bg-red-400/20;
   }
 
   // Text
