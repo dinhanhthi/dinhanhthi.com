@@ -1,0 +1,49 @@
+name: Warm Cache After Vercel Deploy
+
+on:
+  # Trigger when a deployment status is created/updated
+  deployment_status:
+
+jobs:
+  warm-cache:
+    # Only run on successful production deployments
+    if: |
+      github.event.deployment_status.state == 'success' &&
+      github.event.deployment_status.environment == 'Production'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for deployment to be fully ready
+        run: sleep 10
+
+      - name: Warm Redis Cache
+        run: |
+          echo "🔥 Triggering cache warming for production deployment..."
+
+          response=$(curl -s -w "\n%{http_code}" -X POST \
+            ${{ secrets.SITE_URL }}/api/cron/warm-cache \
+            -H "Authorization: Bearer ${{ secrets.DEPLOY_HOOK_SECRET }}" \
+            -H "Content-Type: application/json")
+
+          http_code=$(echo "$response" | tail -n1)
+          body=$(echo "$response" | sed '$d')
+
+          echo "Response: $body"
+
+          if [ $http_code -eq 200 ]; then
+            echo "✅ Cache warming completed successfully"
+          elif [ $http_code -eq 401 ]; then
+            echo "❌ Unauthorized - Check DEPLOY_HOOK_SECRET"
+            exit 1
+          else
+            echo "⚠️ Cache warming failed with status $http_code"
+            echo "This is not critical, deployment is still successful"
+          fi
+
+      - name: Report Status
+        if: always()
+        run: |
+          echo "Deployment URL: ${{ github.event.deployment_status.target_url }}"
+          echo "Environment: ${{ github.event.deployment_status.environment }}"
+          echo "State: ${{ github.event.deployment_status.state }}"

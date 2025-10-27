@@ -74,7 +74,7 @@ DISABLE_REDIS_CACHE="false"
 DISABLE_REDIS_CACHE="your-deploy-hook-secret"
 ```
 
-**Remark**: On Vercel, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment.
+**Remark**: On Vercel, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment. You also need to add these variables in the Github Repository Secrets: `SITE_URL` (`https://dinhanhthi.com` for example) and `DEPLOY_HOOK_SECRET`
 
 ## Error Email Notifications (Resend)
 
