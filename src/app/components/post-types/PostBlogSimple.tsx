@@ -85,7 +85,7 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
                 (status !== 'updated' || !options?.hideOldDate) && (
                   <Badge
                     variant="secondary"
-                    className={cn('!border-none whitespace-nowrap md:hidden', {
+                    className={cn('mr-1.5 !border-none whitespace-nowrap md:hidden', {
                       '!bg-green-bg !text-green-text': status === 'updatedWithin',
                       '!bg-yellow-bg !text-yellow-text': status === 'new'
                     })}
