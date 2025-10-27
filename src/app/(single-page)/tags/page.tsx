@@ -5,9 +5,10 @@ import { defaultBlurDataURL } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { LoaderCircle } from 'lucide-react'
+import { Suspense } from 'react'
 import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
-import Topic from '../../components/Topic'
+import Topic, { SkeletonTopic } from '../../components/Topic'
 
 export const revalidate = 60
 
@@ -51,20 +52,32 @@ export default async function TagsHomePage() {
         number={tags.length}
       />
       <Container>
-        {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
-        {tags.length > 0 && (
-          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
-            {tags.map((tag: Tag) => (
-              <Topic
-                key={tag.id}
-                type="detailed"
-                tag={tag}
-                imagePlaceholder={<ImagePlaceholder />}
-              />
-            ))}
-          </div>
-        )}
+        <Suspense fallback={<SkeletonTagsPageContent />}>
+          {tags.length === 0 && <div className="my-4 text-xl font-bold">There is no tag yet!</div>}
+          {tags.length > 0 && (
+            <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+              {tags.map((tag: Tag) => (
+                <Topic
+                  key={tag.id}
+                  type="detailed"
+                  tag={tag}
+                  imagePlaceholder={<ImagePlaceholder />}
+                />
+              ))}
+            </div>
+          )}
+        </Suspense>
       </Container>
     </>
+  )
+}
+
+const SkeletonTagsPageContent = () => {
+  return (
+    <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <SkeletonTopic key={i} type="detailed" />
+      ))}
+    </div>
   )
 }

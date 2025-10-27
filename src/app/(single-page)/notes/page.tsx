@@ -1,9 +1,10 @@
 import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { Suspense } from 'react'
 import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
-import NotesToc from '../../components/NotesToc'
+import NotesToc, { SkeletonNotesToc } from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
 
 export const revalidate = 60
@@ -83,13 +84,15 @@ export default async function NotesHomePage() {
           numBlogPosts={numBlogPosts}
         />
 
-        <NotesToc
-          className={
-            'top-[60px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
-          }
-          tags={pinnedTagsSorted}
-          hidePinnedTags={pinnedPosts.length === 0}
-        />
+        <Suspense fallback={<SkeletonNotesToc />}>
+          <NotesToc
+            className={
+              'top-[60px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
+            }
+            tags={pinnedTagsSorted}
+            hidePinnedTags={pinnedPosts.length === 0}
+          />
+        </Suspense>
       </Container>
     </>
   )

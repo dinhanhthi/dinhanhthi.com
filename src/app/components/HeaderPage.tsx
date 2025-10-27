@@ -18,6 +18,7 @@ export default function HeaderPage(props: HeaderPageProps) {
       <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-gray-400"></div>
     </div>
   )
+
   return (
     <Header className="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
