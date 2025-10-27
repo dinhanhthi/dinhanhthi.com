@@ -1,7 +1,7 @@
 import { postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
-import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
+import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 import PageOfPostsListTemplate, {
@@ -9,6 +9,8 @@ import PageOfPostsListTemplate, {
 } from '../../../templates/PageOfPostsListTemplate'
 
 export const revalidate = 60
+export const dynamic = 'force-dynamic'
+export const dynamicParams = true
 
 const numPostsPerPage = 24
 
@@ -26,25 +28,6 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
       images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
     }
   }
-}
-
-export async function generateStaticParams() {
-  const params = [] as OptionalCatchAllParams[]
-  const allblogs = await getPosts({
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    }
-  })
-  const numBlogs = allblogs?.length || 0
-  const totalPages = Math.ceil(numBlogs / numPostsPerPage)
-  for (let i = 1; i <= totalPages; i++) {
-    const path = i === 1 ? { slug: [] } : { slug: ['page', i.toString()] }
-    params.push(path)
-  }
-  return params
 }
 
 export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {

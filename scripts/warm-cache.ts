@@ -13,7 +13,13 @@
  *   npx tsx scripts/warm-cache.ts
  */
 
-import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
+import {
+  getPosts,
+  getRecordMap,
+  getTopics,
+  getUnofficialBooks,
+  getUnofficialTools
+} from '@/src/lib/fetcher'
 
 async function warmCache() {
   console.log('🔥 Starting cache warming...\n')
@@ -24,6 +30,7 @@ async function warmCache() {
     posts: 0,
     books: 0,
     tools: 0,
+    pages: 0,
     errors: [] as string[]
   }
 
@@ -71,6 +78,49 @@ async function warmCache() {
     results.errors.push('tools')
   }
 
+  // Warm Page Content Cache (Most Important!)
+  try {
+    console.log('📄 Fetching page content for all posts...')
+    const allPosts = await getPosts({ pageSize: 100 })
+
+    let successCount = 0
+    let failCount = 0
+
+    // Batch process to avoid overwhelming the API
+    const batchSize = 5
+    for (let i = 0; i < allPosts.length; i += batchSize) {
+      const batch = allPosts.slice(i, i + batchSize)
+      const batchPromises = batch.map(async post => {
+        if (!post.id) {
+          failCount++
+          console.error(`   ⚠️  Skipped post ${post.slug}: missing ID`)
+          return
+        }
+        try {
+          await getRecordMap(post.id)
+          successCount++
+          if (successCount % 10 === 0) {
+            console.log(`   Cached ${successCount}/${allPosts.length} pages...`)
+          }
+        } catch (error) {
+          failCount++
+          console.error(`   ⚠️  Failed to cache page ${post.slug} (${post.id}):`, error)
+        }
+      })
+      await Promise.all(batchPromises)
+    }
+
+    results.pages = successCount
+    console.log(`✅ Cached ${successCount} pages (${failCount} failed)\n`)
+
+    if (failCount > 0) {
+      console.log(`⚠️  ${failCount} pages failed to cache but continuing...\n`)
+    }
+  } catch (error) {
+    console.error('❌ Failed to cache pages:', error)
+    results.errors.push('pages')
+  }
+
   // Summary
   const duration = ((Date.now() - startTime) / 1000).toFixed(2)
   console.log('─'.repeat(50))
@@ -78,11 +128,12 @@ async function warmCache() {
   console.log('─'.repeat(50))
   console.log(`⏱️  Duration: ${duration}s`)
   console.log(`📋 Topics: ${results.topics}`)
-  console.log(`📝 Posts: ${results.posts}`)
+  console.log(`📝 Posts metadata: ${results.posts}`)
+  console.log(`📄 Page content: ${results.pages}`)
   console.log(`📚 Books: ${results.books}`)
   console.log(`🛠️  Tools: ${results.tools}`)
   console.log(
-    `📦 Total items cached: ${results.topics + results.posts + results.books + results.tools}`
+    `📦 Total items cached: ${results.topics + results.posts + results.pages + results.books + results.tools}`
   )
 
   if (results.errors.length > 0) {
