@@ -19,10 +19,13 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 
 ## Dev
 
-🚨 You have to install **globally** [Nodejs >=20](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) first.
+You have to install **globally** [Nodejs >=22](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) first. Then 
 
 ```bash
-# install
+# Copy and fill all variables (1st time only)
+cp example.env.local .env.local
+
+# install (1st time only)
 pnpm install
 
 # dev
@@ -54,106 +57,45 @@ pnpm run warm-cache        # Populate Redis cache
 pnpm run clear-cache --all # Clear all cache
 ```
 
-## Deployment Workflow
-
-**⚡ Optimized Build Strategy**: This site uses **dynamic rendering with ISR** (Incremental Static Regeneration) instead of full static generation to reduce build time from ~21 minutes to ~2-4 minutes.
-
-### Recommended Deployment Steps
-
-```bash
-# 1. Pre-warm Redis cache locally (ensures instant first-load for users)
-pnpm run warm-cache
-
-# 2. Commit and push changes
-git add .
-git commit -m "Update content"
-git push origin main  # Triggers Vercel deployment
-```
-
-**Why this workflow?**
-
-- ✅ **Fast builds**: No Notion API calls during Vercel build (~2-4 min vs ~21 min)
-- ✅ **Instant first load**: Redis cache pre-populated with fresh data
-- ✅ **Cost-effective**: Reduced build minutes on Vercel
-- ✅ **Fresh content**: ISR revalidates pages every 60 seconds
-
-**Note**: If you skip `pnpm run warm-cache`, the site still works fine but the first user request will fetch from Notion API (slightly slower initial load).
-
 ## Redis Cache Setup
 
-This project uses **Upstash Redis** with **Refresh-Ahead Pattern** for caching Notion API responses:
+This project uses **[Upstash Redis](https://upstash.com/)** with **Refresh-Ahead Pattern** for caching Notion API responses (Disable it with `DISABLE_REDIS_CACHE="false"`). It makes sure that users always reach the content even when there are errors fetching from Notion API. **Cache Strategy**:
 
-- ✅ Users always see content instantly (even when Notion API fails)
-- ✅ Stale cache served immediately while refreshing in background
-- ✅ X-day safety net (cache persists during long outages)
-- ✅ Reduced API calls and costs
-- ✅ Error logging for monitoring (errors hidden from users)
+- **Soft TTL**: When to refresh cache (background, non-blocking). The content will be updated when this time passes.
+- **Hard TTL**: When Redis deletes cache (X days = safety net). The content on the site wil always be alive within this time. We have TTL time to fix the problem with Notion API.
 
-**Cache Strategy**:
+```bash
+UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
+UPSTASH_REDIS_REST_TOKEN="your-token"
 
-- **Soft TTL**: When to refresh cache (background, non-blocking)
-- **Hard TTL**: When Redis deletes cache (X days = safety net)
+# Optional: Disable Redis cache completely (useful for testing/development)
+DISABLE_REDIS_CACHE="false"
 
-**TL;DR**:
+DISABLE_REDIS_CACHE="your-deploy-hook-secret"
+```
 
-1. Sign up at [Upstash Console](https://console.upstash.com/) (free tier available)
-2. Create a Redis database
-3. Add credentials to `.env.local`:
-
-   ```bash
-   UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
-   UPSTASH_REDIS_REST_TOKEN="your-token"
-
-   # Optional: Disable Redis cache completely (useful for testing/development)
-   DISABLE_REDIS_CACHE="false"
-   ```
-
-4. For production: Add same credentials to Vercel Environment Variables
-
-**Note**: Redis is optional. Without it, the site works normally but without caching.
+**Remark**: On Vercel, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment.
 
 ## Error Email Notifications (Resend)
 
-This project uses **Resend** for email notifications when Notion API errors occur:
+This project uses **Resend** for email notifications when Notion API errors occur (Disable it with `DISABLE_ERROR_EMAILS="false"`).
 
-- ✅ Email alerts for API failures, cache errors, network issues
-- ✅ Rate limiting (1 email per 5 min per error type)
-- ✅ Rich error context (stack trace, metadata, timestamp)
-- ✅ Silent failure (never impacts user experience)
-- ✅ Environment-aware (auto disabled in dev)
+```bash
+RESEND_API_KEY="re_xxxxxxxxxxxx"
+ADMIN_EMAIL="your-email@domain.com"
 
-**TL;DR**:
+# Optional: Enable error emails in dev (default: disabled)
+SEND_ERROR_EMAILS_IN_DEV="false"
 
-1. Sign up at [Resend](https://resend.com/) (free tier: 3,000 emails/month)
-2. Create API key
-3. Add to `.env.local`:
-
-   ```bash
-   RESEND_API_KEY="re_xxxxxxxxxxxx"
-   ADMIN_EMAIL="your-email@domain.com"
-
-   # Optional: Enable error emails in dev (default: disabled)
-   SEND_ERROR_EMAILS_IN_DEV="false"
-
-   # Optional: Disable error emails completely (overrides all other settings)
-   DISABLE_ERROR_EMAILS="false"
-   ```
-
-4. For production: Add same credentials to Vercel Environment Variables
-
-**Note**: Resend is optional. Without it, errors are only logged to console.
+# Optional: Disable error emails completely (overrides all other settings)
+DISABLE_ERROR_EMAILS="false"
+```
 
 ## Vercel Setup
 
 The project uses pnpm as the package manager. Vercel automatically detects this via the `packageManager` field in `package.json`. No additional configuration needed.
 
 You have to add `ENABLE_EXPERIMENTAL_COREPACK` to `1` on Vercel.
-
-**Environment Variables** (add to Vercel):
-
-- Notion credentials (required)
-- Redis credentials (optional but recommended for caching)
-- Resend credentials (optional but recommended for error monitoring)
 
 ```bash
 vercel dev # like pnpm run dev

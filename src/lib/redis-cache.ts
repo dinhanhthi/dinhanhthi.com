@@ -144,6 +144,8 @@ export async function withRedisCache<T>(
 
   const cacheKey = getCacheKey(namespace, identifier)
 
+  console.log(`⚪ Starting withRedisCache for cacheKey: ${cacheKey}`)
+
   // Step 1: Try to get cache FIRST (Refresh-Ahead pattern)
   try {
     const cachedString = await client.get(cacheKey)
