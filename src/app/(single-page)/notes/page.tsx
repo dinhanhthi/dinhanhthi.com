@@ -7,6 +7,7 @@ import HeaderPage from '../../components/HeaderPage'
 import NotesToc, { SkeletonNotesToc } from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
 
+export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 const title = 'Notes'
