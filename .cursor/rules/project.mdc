@@ -120,30 +120,19 @@ Environment variables (see `example.env.local`) define:
 
 ### Redis Cache Layer
 
-This project uses **Upstash Redis** for caching Notion API responses:
-
 - **Location**: `src/lib/redis-cache.ts`
 - **Strategy**: Stale-while-revalidate with fallback to cached data on errors
-- **Benefits**:
-  - Users always see content (even when Notion API fails)
-  - Faster page loads from cached data
-  - Reduced Notion API calls
-  - Error logging for developers (hidden from users)
-- **Setup**: See [docs/REDIS.md](./docs/REDIS.md)
-- **Note**: Redis is optional. Without configuration, the site works normally but without caching.
+- **Provider**: Upstash Redis (optional but recommended)
+- **Benefits**: Users always see content (even when Notion API fails), faster page loads, reduced API calls
+- **Note**: Without Redis config, site works normally but without caching
 
 ### Error Notifications (Resend)
 
-This project uses **Resend** for sending email notifications when critical errors occur:
-
 - **Location**: `src/lib/send-error-email.ts`
+- **Provider**: Resend (optional but recommended)
 - **Triggers**: Notion API failures, cache errors, network timeouts
-- **Features**:
-  - Rate limiting (1 email per 5 minutes per error type)
-  - Detailed error context (function name, params, stack trace)
-  - Graceful degradation (errors logged but never shown to users)
-- **Setup**: See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) or [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md)
-- **Note**: Resend is optional. Without configuration, errors are only logged to console.
+- **Features**: Rate limiting (1 email/5min), detailed error context, graceful degradation
+- **Note**: Without Resend config, errors are only logged to console
 
 **Cached Functions**:
 - All functions in `src/lib/fetcher.ts`: `getPosts()`, `getTopics()`, `getUnofficialPosts()`, etc.
@@ -162,21 +151,18 @@ This project uses **Resend** for sending email notifications when critical error
 - Strict mode enabled with unused variable checks
 - Custom type declarations in `src/interface.d.ts` and `src/lib/notion/react-copy-to-clipboard.d.ts`
 
-## Environment Setup
+## Environment Variables
 
-1. Copy `example.env.local` to `.env.local`
-2. Configure Notion credentials and database IDs
-3. Set `ENV_MODE=dev` for local development
-4. (Optional but recommended) Configure Redis credentials:
-   - Sign up at [Upstash Console](https://console.upstash.com/)
-   - Create a Redis database
-   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to `.env.local`
-   - See [docs/REDIS.md](./docs/REDIS.md) for detailed setup
-5. (Optional but recommended) Configure Resend for error notifications:
-   - Sign up at [Resend](https://resend.com/)
-   - Create an API key
-   - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to `.env.local`
-   - See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) for detailed setup
+**Required**:
+- `NOTION_TOKEN` - Notion API token
+- Database IDs and property keys (see `example.env.local`)
+- `ENV_MODE` - Set to `dev` for local development
+
+**Optional** (but recommended):
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` - Redis caching
+- `RESEND_API_KEY` + `ADMIN_EMAIL` - Error notifications
+
+Refer to `example.env.local` for complete list and documentation links.
 
 ## Code Style
 
@@ -193,98 +179,6 @@ This project uses **Resend** for sending email notifications when critical error
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
-- **Redis Cache (Production)**:
-  - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables
-  - Recommended to use separate Redis database for production
-  - See [docs/REDIS.md](./docs/REDIS.md) for production setup details
-- **Error Notifications (Production)**:
-  - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to Vercel Environment Variables
-  - Free tier: 3,000 emails/month (sufficient with rate limiting)
-  - See [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md) for production setup
-
-## Redis Cache Quick Reference
-
-**Setup** (Optional but Recommended):
-1. Sign up at [Upstash Console](https://console.upstash.com/) (free tier available)
-2. Create a Redis database
-3. Add credentials to `.env.local`:
-   ```bash
-   UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
-   UPSTASH_REDIS_REST_TOKEN="your-token"
-   ```
-4. For production: Add same credentials to Vercel Environment Variables
-
-**Cache Management**:
-```bash
-pnpm run warm-cache        # Populate Redis cache
-pnpm run clear-cache --all # Clear all cache
-```
-
-**Benefits**:
-- ✅ Users always see content (even when Notion API fails)
-- ✅ Faster page loads (cached data)
-- ✅ Reduced API calls and costs
-- ✅ Error logging for monitoring (errors hidden from users)
-
-**Note**: Redis is optional. Without it, the site works normally but without caching.
-
-## Auto-Update Rules (For AI)
-
-**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`.cursor/rules/project.mdc`) and `CLAUDE.md`.
-
-### Triggers for Auto-Update
-
-Update rules files when you detect:
-
-1. **Architecture Changes**:
-   - New directories in `src/` (e.g., new `src/lib/something/`)
-   - Changes in import patterns or path aliases
-   - Restructuring of components, utilities, or data flow
-   - Migration from one pattern to another (e.g., submodule → integrated code)
-
-2. **Tech Stack Changes**:
-   - Framework upgrades (Next.js, React versions)
-   - New major dependencies (Tailwind, Redis, CMS, etc.)
-   - Package manager changes
-   - Build tool modifications
-
-3. **Development Workflow Changes**:
-   - New npm/pnpm scripts in `package.json`
-   - New environment variables in `example.env.local`
-   - Changes in build/dev commands
-   - New cache management strategies
-
-4. **Feature Additions**:
-   - New integrations (APIs, databases, services)
-   - New data sources or databases
-   - New caching layers or optimization strategies
-   - New deployment configurations
-
-5. **Code Style/Convention Changes**:
-   - ESLint/Prettier config updates
-   - New coding patterns or best practices
-   - TypeScript configuration changes
-   - Import/export conventions
-
-### How to Update
-
-When updating rules files:
-
-1. **Identify the change**: Clearly note what has changed in the project
-2. **Update both files**: Keep `CLAUDE.md` and `.cursor/rules/project.mdc` in sync
-3. **Be specific**: Update exact sections (Tech Stack, Commands, Architecture, etc.)
-4. **Preserve structure**: Maintain the existing format and organization
-5. **Inform user**: Explicitly mention that you've updated the rules files and what changed
-
-### Example Update Flow
-
-```
-1. Detect: New `src/lib/database/` directory added with PostgreSQL integration
-2. Update:
-   - Tech Stack section → Add "Database: PostgreSQL"
-   - Architecture section → Document new database utilities
-   - Environment Setup → Add PostgreSQL credentials
-3. Inform: "I've updated CLAUDE.md and project.mdc to reflect the new PostgreSQL integration"
-```
-
-**Note**: This is a living document. Keep it accurate and up-to-date to ensure AI assistance remains effective.
+- **Redis Cache (Production)**: Add `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables (use separate database from dev)
+- **Error Notifications (Production)**: Add `RESEND_API_KEY` + `ADMIN_EMAIL` to Vercel Environment Variables
+- **Cache warming**: Run `pnpm run warm-cache` locally before deploy for optimal first-load performance

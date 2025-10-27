@@ -16,22 +16,22 @@ export const PageLoadingSkeleton = () => {
     <>
       <SkeletonHeaderThiCard />
       <Container className="flex flex-col gap-12">
-        {/* Notes */}
-        <div className="flex flex-col gap-4">
-          <SkeletonHeadingPage />
-          <SkeletonPostList
-            count={2}
-            postType="PostSimple"
-            className={postSimpleListContainerClass}
-          />
-        </div>
-
         {/* Blog */}
         <div className="flex flex-col gap-4">
           <SkeletonHeadingPage />
           <SkeletonPostList
             count={2}
             postType="PostBlogSimple"
+            className={postSimpleListContainerClass}
+          />
+        </div>
+
+        {/* Notes */}
+        <div className="flex flex-col gap-4">
+          <SkeletonHeadingPage />
+          <SkeletonPostList
+            count={2}
+            postType="PostSimple"
             className={postSimpleListContainerClass}
           />
         </div>

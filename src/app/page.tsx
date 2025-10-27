@@ -93,6 +93,26 @@ export default async function Home() {
     <>
       <HeaderThiCard />
       <Container className="flex flex-col gap-12">
+        {/* Blog */}
+        {blogPosts.length > 0 && (
+          <div className="flex flex-col gap-4">
+            <HeadingPage
+              title="Recent blog posts"
+              href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
+            />
+            <div className="overflow-hidden">
+              <PostList
+                posts={blogPosts}
+                postType="PostBlogSimple"
+                postTypeOpts={{ ...defaultPostTypeOpts }}
+                options={{
+                  className: postSimpleListContainerClass
+                }}
+              />
+            </div>
+          </div>
+        )}
+
         {/* Notes */}
         <div className="flex flex-col gap-4">
           <HeadingPage
@@ -127,26 +147,6 @@ export default async function Home() {
             />
           </div>
         </div>
-
-        {/* Blog */}
-        {blogPosts.length > 0 && (
-          <div className="flex flex-col gap-4">
-            <HeadingPage
-              title="Recent blog posts"
-              href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
-            />
-            <div className="overflow-hidden">
-              <PostList
-                posts={blogPosts}
-                postType="PostBlogSimple"
-                postTypeOpts={{ ...defaultPostTypeOpts }}
-                options={{
-                  className: postSimpleListContainerClass
-                }}
-              />
-            </div>
-          </div>
-        )}
 
         {/* Tools */}
         <div className="flex flex-col gap-4">
