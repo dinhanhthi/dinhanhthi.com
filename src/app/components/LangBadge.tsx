@@ -1,8 +1,10 @@
 import { Language, Post } from '@/src/lib/types'
-import cn from 'classnames'
+import { cn } from '../../lib/utils'
 import TooltipX from './tooltip-x'
+import { Badge } from './ui/badge'
 
 type LangBadgeComponentProps = {
+  className?: string
   post: Post
   type: 'written' | 'available'
 }
@@ -16,10 +18,20 @@ export default function LangBadgeComponent(props: LangBadgeComponentProps) {
           {post.language && post.language !== 'en' && (
             <>
               {post.language === 'vi' && (
-                <LangBadge id={post.id!} language="vi" tooltipLabel="written in Vietnamese" />
+                <LangBadge
+                  id={post.id!}
+                  language="vi"
+                  tooltipLabel="written in Vietnamese"
+                  className={props.className}
+                />
               )}
               {post.language === 'fr' && (
-                <LangBadge id={post.id!} language="fr" tooltipLabel="written in French" />
+                <LangBadge
+                  id={post.id!}
+                  language="fr"
+                  tooltipLabel="written in French"
+                  className={props.className}
+                />
               )}
             </>
           )}
@@ -36,6 +48,7 @@ export default function LangBadgeComponent(props: LangBadgeComponentProps) {
                   language="en"
                   availableLabel="also available in English"
                   available={true}
+                  className={props.className}
                 />
               )}
               {!!post.vi && (
@@ -44,6 +57,7 @@ export default function LangBadgeComponent(props: LangBadgeComponentProps) {
                   language="vi"
                   availableLabel="also available in Vietnamese"
                   available={true}
+                  className={props.className}
                 />
               )}
               {!!post.fr && (
@@ -52,6 +66,7 @@ export default function LangBadgeComponent(props: LangBadgeComponentProps) {
                   language="fr"
                   availableLabel="also available in French"
                   available={true}
+                  className={props.className}
                 />
               )}
             </>
@@ -74,15 +89,13 @@ type LangBadgeProps = {
 export function LangBadge(props: LangBadgeProps) {
   return (
     <>
-      <span
+      <Badge
         id={`lang-${props.id}-${props.language}-${props.available ? 'available' : ''}`}
-        className={cn('ml-1.5 rounded-md px-1.5 text-xs', {
-          'border border-slate-300 text-slate-600': props.available,
-          'bg-slate-500 text-white': !props.available
-        })}
+        variant={props.available ? 'outline' : 'secondary'}
+        className={cn('border-border-muted', props.className)}
       >
         {props.language}
-      </span>
+      </Badge>
       {props.tooltipLabel && !props.available && (
         <TooltipX id={`#lang-${props.id}-${props.language}-${props.available ? 'available' : ''}`}>
           {props.tooltipLabel}

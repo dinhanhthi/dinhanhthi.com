@@ -148,7 +148,7 @@ export const Text: React.FC<{
                 return <span className={`notion-${decorator[1]}`}>{element}</span>
 
               case 'c':
-                return <code className="notion-inline-code">{element}</code>
+                return <code className="border-border-muted border-[0.5px]">{element}</code>
 
               case 'b': {
                 if (ignoreMarkup?.includes('b')) return element
@@ -303,7 +303,7 @@ export const Text: React.FC<{
                         alt={'URL icon'}
                       />
                     )}
-                    <div className="m2it-link group-hover:m2it-link-hover border-b border-slate-300 text-[1em] leading-[1.1]">
+                    <div className="text-link group-hover:text-link-hover text-[1em] leading-[1.1]">
                       {title}
                     </div>
                   </a>

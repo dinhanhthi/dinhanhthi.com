@@ -21,14 +21,14 @@ export default function Pagination(props: PaginationProps) {
   const sizeCurrentClass = 'h-12 w-12'
   const classNumber = `${hClass} ${wClass} hidden cursor-pointer items-center
     justify-center rounded-full leading-5 transition duration-150 ease-in !flex`
-  const classCurrent = `${sizeCurrentClass} rounded-full bg-main text-white shadow-md
+  const classCurrent = `${sizeCurrentClass} rounded-full text-white shadow-md
     items-center justify-center leading-5 transition duration-150 ease-in !flex`
   const classSeparated = `h-10 w-10 flex cursor-pointer items-center
-    justify-center rounded-full bg-gray-200 hover:shadow-md`
+    justify-center rounded-full bg-bg-hover hover:shadow-md`
   const classArrow = classSeparated + ' opacity-80 hover:opacity-100'
   return (
     <div className={cn('my-12 flex flex-col items-center', className)}>
-      <div className="flex items-center text-gray-700">
+      <div className="text-text flex items-center">
         {/* Arrows left */}
         {current > 1 && (
           <Link href={getPagePath(current - 1, path, pageAlias)}>
@@ -47,7 +47,7 @@ export default function Pagination(props: PaginationProps) {
 
         <div className="relative flex items-center">
           <div
-            className={`absolute -z-10 flex ${hClass} w-full rounded-full bg-gray-200 font-medium shadow-md`}
+            className={`absolute -z-10 flex ${hClass} bg-bg-hover w-full rounded-full font-medium shadow-md`}
           ></div>
 
           {/* 1 but next is 2, so we put inside the middle bar */}

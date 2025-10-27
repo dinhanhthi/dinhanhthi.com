@@ -81,23 +81,23 @@ export function mapColorClass(color?: string, defaultWhite?: boolean): string | 
       return 'text-red-500'
     // Highlight
     case 'gray_background':
-      return 'bg-gray-100'
+      return 'notion-gray_background'
     case 'brown_background':
-      return 'bg-[#f4eeee]'
+      return 'notion-brown_background'
     case 'orange_background':
-      return 'bg-orange-100'
+      return 'notion-orange_background'
     case 'yellow_background':
-      return 'bg-amber-100'
+      return 'notion-yellow_background'
     case 'green_background':
-      return 'bg-[#deffdb]'
+      return 'notion-green_background'
     case 'blue_background':
-      return 'bg-sky-100'
+      return 'notion-blue_background'
     case 'purple_background':
-      return 'bg-purple-100'
+      return 'notion-purple_background'
     case 'pink_background':
-      return 'bg-pink-100'
+      return 'notion-pink_background'
     case 'red_background':
-      return 'bg-red-100'
+      return 'notion-red_background'
     case 'teal_background':
       return 'notion-teal_background'
     default:

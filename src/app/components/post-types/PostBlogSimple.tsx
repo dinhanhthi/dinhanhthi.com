@@ -3,10 +3,11 @@ import DraftBadgeComponent from '@/src/app/components/DraftBadge'
 import { default as LangBadgeComponent } from '@/src/app/components/LangBadge'
 import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
-import { getColorIndex, waveColors } from '@/src/lib/helpers'
+import { getColorIndex } from '@/src/lib/helpers'
 import { Post } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
+import { Badge } from '../ui/badge'
 
 export type PostBlogSimpleOpts = {
   colorIndex?: number
@@ -26,9 +27,11 @@ type PostBlogSimpleProps = {
 export default function PostBlogSimple(props: PostBlogSimpleProps) {
   const { post, options } = props
   const status = usePostDateStatus(post.createdDate!, post.date!, options?.maxDaysWinthin || 7)
+  const colorIndex = getColorIndex(options?.colorIndex)
+
   return (
     <Link href={post.uri || '/'}>
-      <div className="group flex items-center gap-4 p-4 hover:bg-slate-50">
+      <div className="group hover:bg-bg-hover flex items-center gap-4 p-4">
         <div className="circle-wave h-12 w-12 flex-shrink-0 rounded-full">
           <div className="bottom-wave">
             <svg
@@ -47,25 +50,25 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
               </defs>
               <g className="parallax">
                 <use
-                  fill={`rgba(${waveColors[getColorIndex(options?.colorIndex)]}, 0.2)`}
+                  fill={`rgba(var(--wave-color-${colorIndex}), var(--wave-color-alpha-0))`}
                   x="48"
                   xlinkHref="#gentle-wave"
                   y="0"
                 ></use>
                 <use
-                  fill={`rgba(${waveColors[getColorIndex(options?.colorIndex)]}, 0.1)`}
+                  fill={`rgba(var(--wave-color-${colorIndex}), var(--wave-color-alpha-1))`}
                   x="48"
                   xlinkHref="#gentle-wave"
                   y="3"
                 ></use>
                 <use
-                  fill={`rgba(${waveColors[getColorIndex(options?.colorIndex)]}, 0.02)`}
+                  fill={`rgba(var(--wave-color-${colorIndex}), var(--wave-color-alpha-2))`}
                   x="48"
                   xlinkHref="#gentle-wave"
                   y="5"
                 ></use>
                 <use
-                  fill={`rgba(${waveColors[getColorIndex(options?.colorIndex)]}, 0.03)`}
+                  fill={`rgba(var(--wave-color-${colorIndex}), var(--wave-color-alpha-3))`}
                   x="48"
                   xlinkHref="#gentle-wave"
                   y="7"
@@ -78,45 +81,45 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
           <div className="flex flex-1 flex-col items-start justify-between gap-x-3 gap-y-1.5 md:flex-row">
             <h3 className="flex-1">
               {/* date status on mobile size */}
-              {post.date && (status === 'updatedWithin' || status === 'new') && (
-                <span
-                  className={cn(
-                    'mr-1.5 inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[0.7rem] whitespace-nowrap md:hidden',
-                    {
-                      'bg-green-200 text-green-900': status === 'updatedWithin',
-                      'bg-amber-200 text-amber-900': status === 'new'
-                    }
-                  )}
-                >
-                  {status === 'updatedWithin' && <>updated</>}
-                  {status === 'new' && <>new</>}
-                </span>
-              )}
+              {(post.createdDate || post.date) &&
+                (status !== 'updated' || !options?.hideOldDate) && (
+                  <Badge
+                    variant="secondary"
+                    className={cn('!border-none whitespace-nowrap md:hidden', {
+                      '!bg-green-bg !text-green-text': status === 'updatedWithin',
+                      '!bg-yellow-bg !text-yellow-text': status === 'new'
+                    })}
+                  >
+                    {status === 'updatedWithin' && <>updated</>}
+                    {status === 'new' && <>new</>}
+                  </Badge>
+                )}
+
               {/* title */}
-              <span className="text-slate-800">{post.title}</span>
+              <span>{post.title}</span>
 
               {/* languages */}
-              <LangBadgeComponent post={post} type="written" />
-              <LangBadgeComponent post={post} type="available" />
+              <LangBadgeComponent post={post} type="written" className="ml-1.5" />
+              <LangBadgeComponent post={post} type="available" className="ml-1.5" />
 
               {/* draft */}
-              <DraftBadgeComponent
-                post={post}
-                draftLabel={options?.draftLabel}
-                tooltipDraftLabel={options?.tooltipDraftLabel}
-              />
+              {post?.isDraft && (
+                <DraftBadgeComponent
+                  className="ml-1.5"
+                  postId={post.id!}
+                  draftLabel={options?.draftLabel}
+                  tooltipDraftLabel={options?.tooltipDraftLabel}
+                />
+              )}
             </h3>
             {/* date status on big screen */}
             {(post.createdDate || post.date) && (status !== 'updated' || !options?.hideOldDate) && (
               <div className="hidden items-center gap-2 md:flex">
                 {['updated', 'updatedWithin'].includes(status) && post.date && (
-                  <div
-                    className={cn('items-center gap-1 rounded-md px-3 py-0.5 whitespace-nowrap', {
-                      'bg-slate-200 text-[0.75rem] text-slate-800':
-                        status === 'updated' && !options?.autoHideAddedDate,
-                      'text-[0.8rem] text-slate-500':
-                        status === 'updated' && options?.autoHideAddedDate,
-                      'bg-green-200 text-[0.75rem] text-green-900': status === 'updatedWithin'
+                  <Badge
+                    variant="secondary"
+                    className={cn('!border-none whitespace-nowrap', {
+                      '!bg-green-bg !text-green-text': status === 'updatedWithin'
                     })}
                   >
                     <DateComponent
@@ -125,12 +128,15 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
                       humanize={options?.humanizeDate}
                       dateLabel={options?.updatedOnLabel || 'updated'}
                     />
-                  </div>
+                  </Badge>
                 )}
                 {status === 'new' && (
-                  <div className="rounded-md bg-amber-200 px-3 py-0.5 text-[0.75rem] whitespace-nowrap text-amber-900">
+                  <Badge
+                    variant="secondary"
+                    className="!bg-yellow-bg !text-yellow-text !border-none"
+                  >
                     {options?.newLabel || 'new'}
-                  </div>
+                  </Badge>
                 )}
                 {!(options?.autoHideAddedDate && status !== 'normal') &&
                   post.createdDate &&
@@ -146,7 +152,7 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
               </div>
             )}
           </div>
-          {post.description && <div className="text-sm text-gray-500">{post.description}</div>}
+          {post.description && <div className="text-muted text-sm">{post.description}</div>}
         </div>
       </div>
     </Link>
@@ -154,11 +160,11 @@ export default function PostBlogSimple(props: PostBlogSimpleProps) {
 }
 
 export const PostBlogSimpleSkeleton = (props: { postContainerClassName?: string }) => (
-  <div className={cn('flex items-center gap-4 p-4', props.postContainerClassName)}>
-    <div className="h-12 w-12 flex-shrink-0 rounded-full bg-slate-200"></div>
+  <div className={cn('flex animate-pulse items-center gap-4 p-4', props.postContainerClassName)}>
+    <div className="bg-skeleton-bg h-12 w-12 flex-shrink-0 rounded-full"></div>
     <div className="flex w-full flex-col gap-2">
-      <div className="h-4 w-1/2 rounded-xl bg-slate-200"></div>
-      <div className="h-3 w-3/4 rounded-xl bg-slate-200"></div>
+      <div className="bg-skeleton-bg h-4 w-1/2 rounded-xl"></div>
+      <div className="bg-skeleton-bg h-3 w-3/4 rounded-xl"></div>
     </div>
   </div>
 )

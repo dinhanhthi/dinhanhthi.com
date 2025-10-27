@@ -1,32 +1,23 @@
-import { Post } from '@/src/lib/types'
-import cn from 'classnames'
 import TooltipX from './tooltip-x'
+import { Badge } from './ui/badge'
 
 type DraftBadgeComponentProps = {
-  post: Post
+  className?: string
   draftLabel?: string
   tooltipDraftLabel?: string
+  postId: string
 }
 
 export default function DraftBadgeComponent(props: DraftBadgeComponentProps) {
-  const { post, draftLabel, tooltipDraftLabel } = props
+  const { className, draftLabel, tooltipDraftLabel, postId } = props
   return (
     <>
-      {post.isDraft && (
-        <>
-          <span
-            id={`draft-${post.id}`}
-            className={cn(
-              'ml-1.5 rounded-md border border-slate-200 bg-slate-100 px-2 py-0 text-xs text-slate-500'
-            )}
-          >
-            {draftLabel || 'draft'}
-          </span>
-          <TooltipX id={`#draft-${post.id}`}>
-            {tooltipDraftLabel || 'The content is not so good yet'}
-          </TooltipX>
-        </>
-      )}
+      <Badge id={`draft-${postId}`} variant="outline" className={className}>
+        {draftLabel || 'draft'}
+      </Badge>{' '}
+      <TooltipX id={`#draft-${postId}`}>
+        {tooltipDraftLabel || 'The content is not so good yet'}
+      </TooltipX>
     </>
   )
 }

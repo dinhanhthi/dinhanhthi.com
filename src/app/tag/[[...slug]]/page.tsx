@@ -15,7 +15,7 @@ import { notFound, redirect } from 'next/navigation'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const numPostsPerPage = 48
 const numBlogPosts = 4

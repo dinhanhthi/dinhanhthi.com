@@ -7,10 +7,14 @@ import {
 } from '@notionhq/client/build/src/api-endpoints'
 import { get, set } from 'lodash'
 import { CollectionInstance, SearchParams } from 'notion-types'
+import { getPageContentBlockIds, parsePageId } from 'notion-utils'
 import ogs from 'open-graph-scraper'
 import pMemoize from 'p-memoize'
 
+import { redisCacheTTL } from '@/src/lib/config'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
+import { withRedisCache } from '@/src/lib/redis-cache'
+import { sendErrorEmail } from '@/src/lib/send-error-email'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
@@ -59,13 +63,39 @@ export async function getUnofficialDatabaseImpl(opts: {
 
   const url = `${notionApiWeb}/queryCollection`
 
-  return await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  }).then(res => res.json())
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+
+    if (!response.ok) {
+      throw new Error(`Unofficial Notion API error: ${response.status} ${response.statusText}`)
+    }
+
+    return await response.json()
+  } catch (error: any) {
+    console.error('🚨 Unofficial Notion API error:', error)
+
+    // Send error notification email (non-blocking)
+    sendErrorEmail({
+      errorType: 'unofficial-notion',
+      errorMessage: error?.message || String(error),
+      context: `Failed to query unofficial Notion database (getUnofficialDatabaseImpl) with sourceId: ${sourceId}`,
+      stack: error?.stack,
+      metadata: {
+        spaceId,
+        sourceId,
+        collectionViewId,
+        url
+      }
+    })
+
+    throw error
+  }
 }
 
 export const getUnofficialDatabase = pMemoize(getUnofficialDatabaseImpl, {
@@ -154,6 +184,24 @@ export async function queryDatabaseImpl(opts: {
       })
     }
     console.error(error)
+
+    // Send error notification email (non-blocking)
+    sendErrorEmail({
+      errorType: 'notion-api',
+      errorMessage: error?.message || String(error),
+      context: `Failed to query Notion database (queryDatabaseImpl) with dbId: ${dbId}`,
+      stack: error?.stack,
+      metadata: {
+        dbId,
+        filter,
+        startCursor,
+        pageSize,
+        sorts,
+        status: error?.status,
+        code: error?.code
+      }
+    })
+
     return { results: [] } as any
   }
 }
@@ -273,6 +321,31 @@ export async function getCustomEmojiBlock(opts: {
  * Get all nested blocks (in all levels) of a block.
  */
 export async function getBlocks(
+  blockId: string,
+  initNumbering?: string,
+  getPageUri?: (_pageId: string) => Promise<string | undefined>,
+  parseImgurUrl?: (_url: string) => string,
+  notionToken?: string,
+  notionVersion?: string
+): Promise<ListBlockChildrenResponse['results']> {
+  // Cache key includes blockId only - other params affect rendering, not data fetching
+  const cacheKey = `blocks-${blockId}`
+
+  return withRedisCache(
+    cacheKey,
+    async () =>
+      getBlocksImpl(blockId, initNumbering, getPageUri, parseImgurUrl, notionToken, notionVersion),
+    {
+      namespace: 'notion',
+      ...redisCacheTTL.blocks
+    }
+  )
+}
+
+/**
+ * Implementation of getBlocks (extracted for caching)
+ */
+async function getBlocksImpl(
   blockId: string,
   initNumbering?: string,
   getPageUri?: (_pageId: string) => Promise<string | undefined>,
@@ -473,6 +546,133 @@ export async function searchNotion(
     headers: headers,
     body: JSON.stringify(body)
   }).then(response => response.json())
+}
+
+/**
+ * ========================================================================
+ * Simple Notion API - Lightweight alternative to notion-client package
+ * ========================================================================
+ * Simplified Notion API client tailored specifically for this website's needs.
+ *
+ * Key differences from notion-client:
+ * - No collection fetching (not used in this site)
+ * - No signed URLs (not needed for public pages)
+ * - No relation pages (not used)
+ * - Simpler error handling
+ * - Direct fetch instead of ofetch dependency
+ * - Functional approach instead of class-based
+ */
+
+/**
+ * Generic fetch method for Notion API
+ */
+async function notionFetch<T>(endpoint: string, body: object): Promise<T> {
+  console.log('👉 notionFetch() called with endpoint:', endpoint)
+  const url = `${process.env.NOTION_API_PUBLISHED || 'https://www.notion.so/api/v3'}/${endpoint}`
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+
+    if (!response.ok) {
+      throw new Error(`Notion API error: ${response.status} ${response.statusText}`)
+    }
+
+    return (await response.json()) as T
+  } catch (error) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to fetch from Notion API: ${error.message}`)
+    }
+    throw error
+  }
+}
+
+/**
+ * Fetches raw page data from Notion API
+ * @param pageId - The Notion page ID
+ * @returns PageChunk containing initial page data
+ */
+async function getPageRaw(pageId: string): Promise<any> {
+  const parsedPageId = parsePageId(pageId)
+  if (!parsedPageId) {
+    throw new Error(`Invalid notion pageId "${pageId}"`)
+  }
+
+  const body = {
+    pageId: parsedPageId,
+    limit: 100,
+    chunkNumber: 0,
+    cursor: { stack: [] },
+    verticalColumns: false
+  }
+
+  return notionFetch<any>('loadPageChunk', body)
+}
+
+/**
+ * Fetches multiple blocks by their IDs
+ * @param blockIds - Array of block IDs to fetch
+ * @returns PageChunk containing the requested blocks
+ */
+export async function getBlocksByIds(blockIds: string[]): Promise<any> {
+  return notionFetch<any>('syncRecordValuesMain', {
+    requests: blockIds.map(blockId => ({
+      table: 'block',
+      id: blockId,
+      version: -1
+    }))
+  })
+}
+
+/**
+ * Fetches a Notion page with all its blocks
+ * @param pageId - The Notion page ID (with or without dashes)
+ * @returns ExtendedRecordMap containing all page data
+ */
+export async function getPage(pageId: string): Promise<any> {
+  // Step 1: Get initial page data
+  const page = await getPageRaw(pageId)
+  const recordMapRaw = page?.recordMap
+
+  if (!recordMapRaw?.block) {
+    throw new Error(`Notion page not found "${pageId}"`)
+  }
+
+  // Initialize empty maps if not present and convert to ExtendedRecordMap
+  const recordMap: any = {
+    ...recordMapRaw,
+    collection: recordMapRaw.collection ?? {},
+    collection_view: recordMapRaw.collection_view ?? {},
+    notion_user: recordMapRaw.notion_user ?? {},
+    collection_query: {},
+    signed_urls: {}
+  }
+
+  // Step 2: Fetch missing blocks (if enabled)
+  let iterations = 0
+  const maxIterations = 10 // Prevent infinite loops
+
+  while (iterations < maxIterations) {
+    // Find blocks that are referenced but not yet loaded
+    const pendingBlockIds = getPageContentBlockIds(recordMap).filter(id => !recordMap.block[id])
+
+    if (!pendingBlockIds.length) {
+      break
+    }
+
+    // Fetch missing blocks
+    const newBlocks = await getBlocksByIds(pendingBlockIds)
+    recordMap.block = { ...recordMap.block, ...newBlocks.recordMap.block }
+
+    iterations++
+  }
+
+  return recordMap
 }
 
 // When a database is publised, we open that page and use the search API to get the results

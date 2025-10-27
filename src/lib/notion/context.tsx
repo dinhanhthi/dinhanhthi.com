@@ -4,7 +4,6 @@
 import { ExtendedRecordMap, PreviewImage } from 'notion-types'
 import * as React from 'react'
 
-import { DiscreteColsType } from '@/src/app/components/PostBody'
 import { SimpleImageProps } from '@/src/app/components/SimpleImage'
 import { AssetWrapper } from '@/src/app/components/asset-wrapper'
 import { wrapNextImage, wrapNextLink } from '@/src/lib/notion/next'
@@ -40,11 +39,9 @@ export interface NotionContext {
   blockOptions?: BlockOptionsContextType
   customPreviewImage?: PreviewImage
   useSimpleImage?: boolean
-  discreteStyle?: boolean
   postCreatedDate?: string
   postLastModifiedDate?: string
   fontClass?: string
-  discreteColsType?: DiscreteColsType
   showUpdatedIndicator?: boolean
   simpleImageProps?: SimpleImageProps
 
@@ -190,11 +187,9 @@ const defaultNotionContext: NotionContext = {
   blockOptions: null as any,
   customPreviewImage: null as any,
   useSimpleImage: false as any,
-  discreteStyle: false as any,
   postCreatedDate: null as any,
   postLastModifiedDate: null as any,
   fontClass: null as any,
-  discreteColsType: 'single',
   showUpdatedIndicator: false as any,
   simpleImageProps: null as any,
 

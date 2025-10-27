@@ -3,10 +3,10 @@ import { Block, CalloutBlock, PageBlock } from 'notion-types'
 import { getBlockIcon, getBlockTitle } from 'notion-utils'
 import * as React from 'react'
 
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { DefaultPageIcon } from '@/src/app/icons/default-page-icon'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, isUrl } from '@/src/lib/notion/utils'
+import { LoaderCircle } from 'lucide-react'
 import { LazyImage } from './lazy-image'
 
 const isIconBlock = (value: Block): value is PageBlock | CalloutBlock => {
@@ -47,7 +47,7 @@ export const PageIconImpl: React.FC<{
           'flex h-full w-full animate-pulse items-center justify-center'
         )}
       >
-        <AiOutlineLoading3Quarters className={cn('animate-spin text-[20px] text-white')} />
+        <LoaderCircle size={20} className="animate-spin text-white" />
       </div>
     )
   }

@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Tech Stack
 
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 15+ (App Router)
 - **Styling**: Tailwind CSS v4
 - **CMS**: Notion (using custom Notion renderer integrated into the project)
+- **Cache**: Upstash Redis (for Notion API response caching)
+- **Email**: Resend (for error notifications)
 - **Language**: TypeScript
 - **Package Manager**: pnpm
 - **Deployment**: Vercel
@@ -37,6 +39,10 @@ pnpm run clean-build
 
 # Reinstall dependencies
 pnpm run reinstall
+
+# Redis cache management (requires Redis setup)
+pnpm run warm-cache        # Populate Redis cache with fresh data
+pnpm run clear-cache --all # Clear all Redis cache
 ```
 
 ## Architecture Overview
@@ -77,14 +83,15 @@ src/
 ├── lib/                     # All utilities and business logic
 │   ├── notion/             # Notion-specific utilities
 │   │   ├── context.tsx     # Notion context provider
-│   │   ├── db.ts          # Notion database utilities
+│   │   ├── db.ts          # Notion database utilities (with Redis cache)
 │   │   ├── helpers.ts     # Notion helper functions
 │   │   ├── hooks.ts       # Notion custom hooks
 │   │   ├── interface.ts   # TypeScript interfaces
 │   │   ├── renderer.tsx   # Main renderer component
 │   │   └── ...            # Other Notion utilities
 │   ├── config.ts           # Site-wide constants and settings
-│   ├── fetcher.ts          # Data fetching utilities
+│   ├── fetcher.ts          # Data fetching utilities (with Redis cache)
+│   ├── redis-cache.ts      # Redis caching layer (Upstash)
 │   ├── helpers.ts          # General helper functions
 │   ├── fonts.ts            # Font configurations
 │   └── utils.ts            # General utilities (cn, etc.)
@@ -106,6 +113,46 @@ Environment variables (see `example.env.local`) define:
 - Notion API credentials (`NOTION_TOKEN`)
 - Database IDs and property keys (e.g., `NEXT_PUBLIC_ID_TAGS`, `NEXT_PUBLIC_ID_SLUG`)
 - Feature flags (`ENV_MODE`, `NEXT_PUBLIC_ENV_MODE`)
+- Redis credentials (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`) - Optional but recommended
+- Resend credentials (`RESEND_API_KEY`, `ADMIN_EMAIL`) - Optional but recommended for error monitoring
+
+### Redis Cache Layer
+
+This project uses **Upstash Redis** for caching Notion API responses:
+
+- **Location**: `src/lib/redis-cache.ts`
+- **Strategy**: Stale-while-revalidate with fallback to cached data on errors
+- **Benefits**:
+  - Users always see content (even when Notion API fails)
+  - Faster page loads from cached data
+  - Reduced Notion API calls
+  - Error logging for developers (hidden from users)
+- **Setup**: See [docs/REDIS.md](./docs/REDIS.md)
+- **Note**: Redis is optional. Without configuration, the site works normally but without caching.
+
+### Error Notifications (Resend)
+
+This project uses **Resend** for sending email notifications when critical errors occur:
+
+- **Location**: `src/lib/send-error-email.ts`
+- **Triggers**: Notion API failures, cache errors, network timeouts
+- **Features**:
+  - Rate limiting (1 email per 5 minutes per error type)
+  - Detailed error context (function name, params, stack trace)
+  - Graceful degradation (errors logged but never shown to users)
+- **Setup**: See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) or [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md)
+- **Note**: Resend is optional. Without configuration, errors are only logged to console.
+
+**Cached Functions**:
+- All functions in `src/lib/fetcher.ts`: `getPosts()`, `getTopics()`, `getUnofficialPosts()`, etc.
+- Block fetching in `src/lib/notion/db.ts`: `getBlocks()`
+
+**Cache TTL Strategy** (Refresh-Ahead Pattern):
+- Uses **two TTL values**: `softTTL` (refresh threshold) + `hardTTL` (deletion time)
+- **softTTL**: When to refresh cache in background (user gets instant response)
+- **hardTTL**: When Redis deletes cache (safety net, typically 30 days)
+- Configuration defined in `src/lib/config.ts` → `redisCacheTTL` constant
+- In normal operation, hardTTL is **never reached** (cache refreshes every softTTL)
 
 ### TypeScript Configuration
 
@@ -113,29 +160,21 @@ Environment variables (see `example.env.local`) define:
 - Strict mode enabled with unused variable checks
 - Custom type declarations in `src/interface.d.ts` and `src/lib/notion/react-copy-to-clipboard.d.ts`
 
-## Special Scripts
-
-```bash
-# Update Notion page cover images
-pnpm run ud-cover --pid <page-id>    # Single page
-pnpm run ud-cover-all                # All pages
-
-# Update Notion page icons
-pnpm run ud-icon --pid <page-id>     # Single page
-pnpm run ud-icon-all                 # All pages
-
-# Update images within posts
-pnpm run ud-images-post --pid <page-id>
-
-# Update custom icon font
-pnpm run ud-fontello
-```
-
 ## Environment Setup
 
 1. Copy `example.env.local` to `.env.local`
 2. Configure Notion credentials and database IDs
 3. Set `ENV_MODE=dev` for local development
+4. (Optional but recommended) Configure Redis credentials:
+   - Sign up at [Upstash Console](https://console.upstash.com/)
+   - Create a Redis database
+   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to `.env.local`
+   - See [docs/REDIS.md](./docs/REDIS.md) for detailed setup
+5. (Optional but recommended) Configure Resend for error notifications:
+   - Sign up at [Resend](https://resend.com/)
+   - Create an API key
+   - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to `.env.local`
+   - See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) for detailed setup
 
 ## Code Style
 
@@ -152,8 +191,82 @@ pnpm run ud-fontello
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
+- **Redis Cache (Production)**:
+  - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables
+  - Recommended to use separate Redis database for production
+  - See [docs/REDIS.md](./docs/REDIS.md) for production setup details
+- **Error Notifications (Production)**:
+  - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to Vercel Environment Variables
+  - Free tier: 3,000 emails/month (sufficient with rate limiting)
+  - See [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md) for production setup
 
 ## Important Constraints
 
 - **Git operations**: NEVER use git commands in this project - user handles all git operations manually
-- **Always run `pnpm run build`** to make sure the modifications are good to go
+- **Answer in Vietnamese** but keep the code and terminology in English
+- **Package Manager**: Always use `pnpm`, never `npm` or `yarn`
+- **Architecture**: All utilities in `src/lib/`, NOT `src/app/lib/`
+- **Imports**: Use `@/src/lib/*` for utilities, `@/src/app/components/*` for components
+- Don't automatically generate summary document after each task unless you are asked to do so.
+- Don't automatically run `pnpm run build` after each task unless you are asked to do so.
+
+## Auto-Update Rules (For AI)
+
+**IMPORTANT**: When you detect changes in the project that affect the documentation, you MUST proactively update this file (`CLAUDE.md`) and `.cursor/rules/project.mdc`.
+
+### Triggers for Auto-Update
+
+Update rules files when you detect:
+
+1. **Architecture Changes**:
+   - New directories in `src/` (e.g., new `src/lib/something/`)
+   - Changes in import patterns or path aliases
+   - Restructuring of components, utilities, or data flow
+   - Migration from one pattern to another (e.g., submodule → integrated code)
+
+2. **Tech Stack Changes**:
+   - Framework upgrades (Next.js, React versions)
+   - New major dependencies (Tailwind, Redis, CMS, etc.)
+   - Package manager changes
+   - Build tool modifications
+
+3. **Development Workflow Changes**:
+   - New npm/pnpm scripts in `package.json`
+   - New environment variables in `example.env.local`
+   - Changes in build/dev commands
+   - New cache management strategies
+
+4. **Feature Additions**:
+   - New integrations (APIs, databases, services)
+   - New data sources or databases
+   - New caching layers or optimization strategies
+   - New deployment configurations
+
+5. **Code Style/Convention Changes**:
+   - ESLint/Prettier config updates
+   - New coding patterns or best practices
+   - TypeScript configuration changes
+   - Import/export conventions
+
+### How to Update
+
+When updating rules files:
+
+1. **Identify the change**: Clearly note what has changed in the project
+2. **Update both files**: Keep `CLAUDE.md` and `.cursor/rules/project.mdc` in sync
+3. **Be specific**: Update exact sections (Tech Stack, Commands, Architecture, etc.)
+4. **Preserve structure**: Maintain the existing format and organization
+5. **Inform user**: Explicitly mention that you've updated the rules files and what changed
+
+### Example Update Flow
+
+```
+1. Detect: New `src/lib/database/` directory added with PostgreSQL integration
+2. Update:
+   - Tech Stack section → Add "Database: PostgreSQL"
+   - Architecture section → Document new database utilities
+   - Environment Setup → Add PostgreSQL credentials
+3. Inform: "I've updated CLAUDE.md and project.mdc to reflect the new PostgreSQL integration"
+```
+
+**Note**: This is a living document. Keep it accurate and up-to-date to ensure AI assistance remains effective.

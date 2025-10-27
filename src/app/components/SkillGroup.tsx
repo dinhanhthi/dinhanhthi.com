@@ -1,7 +1,9 @@
 import BadgeTech from '@/src/app/components/BadgeTech'
 
 import techs from '../../data/techs'
-import HeadingAbout from './HeadingAbout'
+import { sectionOuterClass } from '../../lib/config'
+import { cn } from '../../lib/utils'
+import HeadingPage from './HeadingPage'
 
 export type SkillGroupType = {
   id: string
@@ -17,8 +19,8 @@ type SkillGroupProps = {
 export default function SkillGroup({ skillGroup, className }: SkillGroupProps) {
   return (
     <div className={className}>
-      <HeadingAbout className="text-xl">{skillGroup.name}</HeadingAbout>
-      <div className="thi-box-code flex flex-wrap gap-2.5 p-3">
+      <HeadingPage title={skillGroup.name} className="text-xl" />
+      <div className={cn('flex flex-wrap gap-2.5 p-3', sectionOuterClass)}>
         {skillGroup.list.map((id: string) => {
           const techItem = techs.find(tech => tech.id === id)
           if (!techItem) return null
@@ -35,7 +37,7 @@ export default function SkillGroup({ skillGroup, className }: SkillGroupProps) {
 export function SkeletonSkillGroup(props: SkillGroupProps) {
   return (
     <div className={props.className}>
-      <HeadingAbout className="text-xl">{props.skillGroup.name}</HeadingAbout>
+      <HeadingPage title={props.skillGroup.name} className="text-xl" />
       <div className="h-[200px] animate-pulse rounded-lg bg-slate-200 shadow-lg"></div>
     </div>
   )

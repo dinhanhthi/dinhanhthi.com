@@ -14,7 +14,6 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "trailingComma": "none",
-  "tailwindConfig": "./tailwind.config.ts",
   "tailwindAttributes": ["textClassName", "overlayClassName"],
   "tailwindFunctions": ["cn", "clsx", "cva"]
 }

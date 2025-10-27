@@ -8,9 +8,9 @@ import { normalizeUrl } from 'notion-utils'
 import * as React from 'react'
 import { ImageState, LazyImageFull } from 'react-lazy-images'
 
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs } from '@/src/lib/notion/utils'
+import { LoaderCircle } from 'lucide-react'
 import SimpleImage, { SimpleImageProps } from './SimpleImage'
 
 /**
@@ -238,7 +238,7 @@ const ImagePlaceholder = (props: {
         props.className
       )}
     >
-      <AiOutlineLoading3Quarters className="animate-spin text-[30px] text-slate-400" />
+      <LoaderCircle size={30} className="animate-spin text-slate-400" />
     </div>
   )
 }
