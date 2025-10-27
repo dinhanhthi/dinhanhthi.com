@@ -4,12 +4,13 @@ import Container from './Container'
 type HeaderProps = {
   children: React.ReactNode
   className?: string
+  containerClassName?: string
 }
 
 export default function Header(props: HeaderProps) {
   return (
-    <div className={cn('bg-bg border-border-muted mx-auto mb-12 border-b px-4 py-8')}>
-      <Container className={props.className}>{props.children}</Container>
+    <div data-theme="dark" className={cn('mx-auto mb-12 bg-slate-800 px-4 py-8', props.className)}>
+      <Container className={cn('text-white', props.containerClassName)}>{props.children}</Container>
     </div>
   )
 }
