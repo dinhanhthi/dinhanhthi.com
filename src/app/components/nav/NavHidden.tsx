@@ -1,8 +1,13 @@
-import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import cn from 'classnames'
 import Link from 'next/link'
 import { HIDDEN_MENUS } from '../../../data/menus'
 import { ThreeDotsIcon } from '../../icons/ThreeDotsIcon'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '../ui/dropdown-menu'
 import { textClass } from './Nav'
 import { menuItemCommonClass } from './NavTopicItem'
 
@@ -15,38 +20,31 @@ export default function NavHidden(props: NavHiddenProps) {
     <>
       {HIDDEN_MENUS.length > 0 && (
         <div className={props.className}>
-          <Menu>
-            <MenuButton className={cn(textClass, menuItemCommonClass, '!px-1.5')}>
-              <ThreeDotsIcon className="text-2xl" />
-            </MenuButton>
-            <Transition
-              enter="transition ease-out duration-75"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className={cn(textClass, menuItemCommonClass, '!px-1.5')}>
+                <ThreeDotsIcon className="text-2xl" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="bg-nav-dark-bg z-[1000] grid divide-y divide-slate-600 rounded-md border-[0.5px] border-slate-600 p-0"
             >
-              <MenuItems
-                anchor="bottom end"
-                className="bg-nav-dark-bg relative z-[1000] grid divide-y divide-slate-600 rounded-md border-[0.5px] border-slate-600"
-              >
-                {HIDDEN_MENUS.map(item => (
-                  <MenuItem key={item.uri}>
-                    <Link
-                      href={item.uri}
-                      className={cn('flex items-center whitespace-nowrap', textClass)}
-                    >
-                      <div className="flex gap-2 px-4 py-3">
-                        {item.icon}
-                        {item.name}
-                      </div>
-                    </Link>
-                  </MenuItem>
-                ))}
-              </MenuItems>
-            </Transition>
-          </Menu>
+              {HIDDEN_MENUS.map(item => (
+                <DropdownMenuItem key={item.uri} asChild>
+                  <Link
+                    href={item.uri}
+                    className={cn('flex items-center whitespace-nowrap', textClass)}
+                  >
+                    <div className="flex gap-2 px-4 py-3">
+                      {item.icon}
+                      {item.name}
+                    </div>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       )}
     </>

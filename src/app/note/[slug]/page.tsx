@@ -1,15 +1,13 @@
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
-import { getCustomEmojiUrl, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
+import { getCustomEmojiUrl, getRecordMap, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
 import { getJoinedRichText } from '@/src/lib/helpers'
 import { DynamicSegmentParamsProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
-import { getPage } from '@/src/lib/notion/notionx'
-import DiscretePostTemplate from '../../templates/DiscretePostTemplate'
 
-export const revalidate = 20
+export const revalidate = 60
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -50,7 +48,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
     if (!pageIdwithDash) notFound()
 
-    const recordMap = await getPage(pageIdwithDash)
+    const recordMap = await getRecordMap(pageIdwithDash)
     // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
 
@@ -66,9 +64,6 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }
-
-    if (postProps.discrete)
-      return <DiscretePostTemplate recordMap={recordMap} postProps={postProps} />
 
     return <SinglePostTemplate recordMap={recordMap} postProps={postProps} />
   } catch (error) {

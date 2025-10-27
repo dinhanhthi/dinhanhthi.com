@@ -1,38 +1,38 @@
-import SimpleImage from '@/src/app/components/SimpleImage'
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
-import { ImageType } from '@/src/lib/types'
-import cn from 'classnames'
-
-import { quicksand } from '@/src/lib/fonts'
+import { ImageType } from '../../lib/types'
 import Header from './Header'
+import ImageWithLoading from './ImageWithLoading'
+import SimpleImage from './SimpleImage'
+import { Badge } from './ui/badge'
 
 type HeaderPageProps = {
-  headerType?: 'white' | 'gray'
-  headerWidth?: 'wide' | 'normal'
   title: string
-  subtitle?: string
-  childrenContainerClassName?: string
-  icon?: ImageType
-  iconClassName?: string
+  iconPath?: string // used when an image is on public/ folder and this is the path to that image
+  icon?: ImageType // used for custom icon from Notion
+  subtitle?: string | React.ReactNode
   number?: number
 }
 
 export default function HeaderPage(props: HeaderPageProps) {
   const ImagePlaceholder = () => (
-    <div className="flex h-full w-full flex-col items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-indigo-500">
-      <AiOutlineLoading3Quarters className="animate-spin text-[60px] text-white" />
+    <div className="bg-bg-hover absolute inset-0 flex items-center justify-center rounded">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-gray-400"></div>
     </div>
   )
   return (
-    <Header
-      childrenContainerClassName={props.childrenContainerClassName}
-      headerType={props.headerType}
-      headerWidth={props.headerWidth}
-    >
-      <div className="w-full py-8">
-        <div className="flex flex-col items-center gap-3 md:flex-row">
-          {!!props.icon && (
-            <div className={cn('h-[45px] w-[45px]', props.iconClassName)}>
+    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+      <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
+        {!!props.iconPath && (
+          <ImageWithLoading
+            src={props.iconPath}
+            alt={props.title}
+            height={150}
+            width={150}
+            priority
+          />
+        )}
+        {!!props.icon && (
+          <div className="bg-bg-hover flex h-[75px] w-[75px] items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
+            <div className="h-[45px] w-[45px]">
               <SimpleImage
                 src={props.icon.sourceUrl || props.icon.staticImageData?.src}
                 alt={props.title}
@@ -40,40 +40,42 @@ export default function HeaderPage(props: HeaderPageProps) {
                 imagePlaceholder={ImagePlaceholder()}
               />
             </div>
-          )}
-          <h1 className="flex items-center gap-4 text-center text-2xl leading-tight tracking-tight md:text-left md:text-3xl">
-            <span className={cn('thi-text-rainbow font-bold', quicksand.className)}>
-              {props.title}
-            </span>
-            {props.number && (
-              <span className="rounded-lg bg-[#565a6b] px-2 py-1 text-[60%] leading-snug font-medium tracking-wide text-white">
-                {props.number}
-              </span>
-            )}
-          </h1>
-        </div>
-        {props.subtitle && (
-          <div className="mt-4 text-center text-gray-100 md:mt-0 md:pl-[60px] md:text-left lg:w-4/5">
-            {props.subtitle}
           </div>
         )}
+        <h1 className="font-heading baseline text-text-heading -mb-2 inline-flex items-center gap-2 text-3xl lg:hidden">
+          <span>{props.title}</span>
+          {props.number && (
+            <Badge variant="outline" className="!text-muted inline text-base">
+              {props.number}
+            </Badge>
+          )}
+        </h1>
+      </div>
+      <div className="flex w-full flex-col gap-4">
+        <h1 className="font-heading baseline text-text-heading -mb-2 hidden items-center gap-2 text-3xl lg:inline-flex">
+          <span>{props.title}</span>
+          {props.number && (
+            <Badge variant="outline" className="!text-muted inline text-base">
+              {props.number}
+            </Badge>
+          )}
+        </h1>
+        {props.subtitle && <div className="text-muted max-w-full">{props.subtitle}</div>}
       </div>
     </Header>
   )
 }
 
-export function HeaderPageSkeleton(props: Partial<HeaderPageProps>) {
+export function HeaderPageSkeleton() {
   return (
-    <Header
-      childrenContainerClassName={cn(props.childrenContainerClassName, 'animate-pulse')}
-      headerType={props.headerType}
-      headerWidth="wide"
-    >
-      <div className="flex w-full flex-col items-center gap-3 py-8 md:flex-row">
-        <div className={cn(props.iconClassName, 'rounded-full bg-slate-400')}>
-          <div className="h-[45px] w-[45px]"></div>
-        </div>
-        <div className="h-[35px] w-1/2 rounded-3xl bg-slate-400"></div>
+    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+      <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
+        <div className="bg-skeleton-bg h-[150px] w-[150px] animate-pulse rounded-xl"></div>
+        <div className="bg-skeleton-bg h-[36px] w-48 animate-pulse rounded-full lg:hidden"></div>
+      </div>
+      <div className="flex w-full flex-col gap-4">
+        <div className="bg-skeleton-bg hidden h-[36px] w-1/4 animate-pulse rounded-full lg:block"></div>
+        <div className="bg-skeleton-bg h-[24px] w-full max-w-2xl animate-pulse rounded-full"></div>
       </div>
     </Header>
   )

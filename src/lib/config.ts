@@ -1,7 +1,7 @@
 import { PostTypeOpts } from '@/src/app/components/PostsList'
 import { PreviewImage } from 'notion-types'
 
-import { DiscreteColsType } from '@/src/app/components/PostBody'
+import { cn } from './utils'
 
 export const numPostsToShow = 12
 
@@ -14,14 +14,7 @@ export const defaultCustomPreviewImage: PreviewImage = {
   dataURIBase64: defaultBlurDataURL
 }
 
-export const containerNormal = 'max-w-4xl'
-export const containerWide = 'xl:max-w-6xl'
-export const bodyPadding = 'py-12'
-
 export const defaultPostTitle = 'Untitled'
-
-// Display the discrete notes in 1 column or 2-3 columns?
-export const discreteColsType: DiscreteColsType = 'single'
 
 export const defaultPostDate = new Date().toISOString().split('T')[0]
 
@@ -35,7 +28,109 @@ export const defaultPostTypeOpts: PostTypeOpts = {
   hideOldDate: true
 }
 
-export const postSimpleListContainerClass =
-  'flex flex-col divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white'
+export const sectionOuterClass = cn('border-border-muted bg-bg overflow-hidden rounded-lg border')
+
+export const postSimpleListContainerClass = cn(
+  'divide-border-muted flex flex-col divide-y overflow-hidden',
+  sectionOuterClass
+)
 
 export const postFontClassName = 'font-quicksand'
+
+// ============================================================================
+// ERROR NOTIFICATIONS CONFIGURATION
+// ============================================================================
+
+export const errorNotificationsConfig = {
+  rateLimitMs: 60 * 60 * 1000, // 1 hour
+  adminEmail: process.env.ADMIN_EMAIL ?? ''
+}
+
+// ============================================================================
+// REDIS CACHE TTL CONFIGURATION
+// ============================================================================
+
+/**
+ * Cache TTL (Time-To-Live) Configuration
+ *
+ * Two TTL Strategy (Refresh-Ahead Pattern):
+ * - softTTL: When cache is considered "stale" and should refresh in BACKGROUND
+ *            (user gets instant response, refresh happens async)
+ * - hardTTL: When Redis actually DELETES the cache key
+ *            (safety net for long Notion API outages)
+ *
+ * Guidelines:
+ * - softTTL: Short for frequently updated content, long for stable data
+ * - hardTTL: Always long (7-14 days) to survive API outages
+ */
+
+const MINUTE = 60
+const HOUR = 60 * MINUTE
+const DAY = 24 * HOUR
+
+const FIXED_HARD_TTL = 30 * DAY
+
+export const redisCacheTTL = {
+  /**
+   * Posts cache (official Notion DB API)
+   * Updates frequently, needs fresh data
+   */
+  posts: {
+    softTTL: 12 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Unofficial posts cache (published Notion page)
+   * Large dataset, less frequent updates
+   */
+  unofficialPosts: {
+    softTTL: 12 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Topics/Tags cache
+   * Taxonomy rarely changes
+   */
+  topics: {
+    softTTL: 4 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Books cache (reading list)
+   * Stable collection, infrequent updates
+   */
+  books: {
+    softTTL: 4 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Tools cache
+   * Tool collection rarely changes
+   */
+  tools: {
+    softTTL: 4 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Blocks cache (page content)
+   * Content updates moderately
+   */
+  blocks: {
+    softTTL: 6 * HOUR,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Custom emoji cache
+   * URLs almost never change
+   */
+  emoji: {
+    softTTL: 2 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  }
+} as const

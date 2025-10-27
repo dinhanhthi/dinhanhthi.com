@@ -5,6 +5,7 @@ import { makeSlugText } from '@/src/lib/helpers'
 import { Tag } from '@/src/lib/types'
 import cn from 'classnames'
 import Link from 'next/link'
+import { sectionOuterClass } from '../../lib/config'
 
 type NotesTocProps = {
   tags: Tag[]
@@ -15,76 +16,85 @@ type NotesTocProps = {
 export default function NotesToc(props: NotesTocProps) {
   const { activeId } = useHeadsObserver(['h2'])
 
-  // Makre sure below is the same as the one in /notes/page/tsx
-  // We cannot use export in this case!
-  // const recentUpdatedNotesTitle = 'Recently updated notes'
-  // const pinnedNotesTitle = 'Pinned notes'
-  // const blogPostsTitle = 'Blog posts'
+  const anchorA = (anchor?: string, name?: string, activeId?: string) => {
+    return (
+      <a
+        className={cn('group hover:text-link flex items-center gap-1 py-1 md:px-2', {
+          'text-muted border-transparent': activeId !== anchor,
+          'text-link': activeId === anchor
+        })}
+        key={anchor}
+        href={`#${anchor}`}
+      >
+        <span
+          className={cn({
+            'text-transparent': activeId !== anchor,
+            'text-link': activeId === anchor
+          })}
+        >
+          ◆
+        </span>
+        <span className="whitespace-nowrap">{name}</span>
+      </a>
+    )
+  }
 
   return (
-    <div className={props.className}>
-      <div className="thi-box-code flex h-full flex-col divide-y divide-slate-300 p-4 md:border-none md:bg-transparent md:shadow-none">
-        <div className="font-heading px-2 pb-1.5 text-base font-semibold text-slate-800">
-          Notes by topics
-        </div>
+    <div className={cn('flex flex-col gap-1', props.className)}>
+      <div className="text-muted pl-1 text-base italic md:hidden">In this page</div>
+      <div
+        className={cn(
+          'flex h-full flex-col divide-y divide-slate-300 p-2 md:border-none md:bg-transparent md:p-0 md:shadow-none',
+          sectionOuterClass
+        )}
+      >
         <div
           className={cn(
-            'm2it-scrollbar m2it-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-[0.8rem] md:grid-cols-1'
+            'thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1'
           )}
         >
-          {/* <a
-            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
-              'text-slate-600': activeId !== makeSlugText(blogPostsTitle),
-              'text-slate-900 bg-slate-200': activeId === makeSlugText(blogPostsTitle)
-            })}
-            key={makeSlugText(blogPostsTitle)}
-            href={`#${makeSlugText(blogPostsTitle)}`}
-          >
-            <div className="flex items-center gap-1">{blogPostsTitle}</div>
-          </a> */}
-          {/* {!props.hidePinnedTags && (
-            <a
-              className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
-                'text-slate-600': activeId !== makeSlugText(pinnedNotesTitle),
-                'text-slate-900 bg-slate-200': activeId === makeSlugText(pinnedNotesTitle)
-              })}
-              key={makeSlugText(pinnedNotesTitle)}
-              href={`#${makeSlugText(pinnedNotesTitle)}`}
-            >
-              <div className="flex items-center gap-1">{pinnedNotesTitle}</div>
-            </a>
-          )} */}
-          {/* <a
-            className={cn('hover:m2it-link flex gap-2 items-center group rounded-lg py-1 px-2', {
-              'text-slate-600': activeId !== makeSlugText(recentUpdatedNotesTitle),
-              'text-slate-900 bg-slate-200': activeId === makeSlugText(recentUpdatedNotesTitle)
-            })}
-            key={makeSlugText(recentUpdatedNotesTitle)}
-            href={`#${makeSlugText(recentUpdatedNotesTitle)}`}
-          >
-            <div>{recentUpdatedNotesTitle}</div>
-          </a> */}
+          {anchorA('blog-posts', 'Blog posts', activeId)}
+          {anchorA('pinned-notes', 'Pinned notes', activeId)}
+          {anchorA('recently-updated-notes', 'Recently updated', activeId)}
           {props.tags.map((tag: Tag) => {
             const anchor = makeSlugText(tag.name)
-            return (
-              <a
-                className={cn(
-                  'hover:m2it-link group flex items-center gap-2 rounded-lg px-2 py-1',
-                  {
-                    'text-slate-600': activeId !== anchor,
-                    'bg-slate-200 text-slate-900': activeId === anchor
-                  }
-                )}
-                key={anchor}
-                href={`#${anchor}`}
-              >
-                <div>{tag.name}</div>
-              </a>
-            )
+            return anchorA(anchor, tag.name, activeId)
           })}
-          <Link className="hover:m2it-link pt-2 text-[0.9rem] text-slate-700 italic" href="/tags/">
-            👉 See all topics...
+          <Link
+            className="group text-muted hover:text-link flex items-center gap-1 px-2 py-1"
+            href="/tags/"
+          >
+            <span className="text-transparent">◆</span>
+            ...
           </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+type SkeletonNotesTocProps = {
+  className?: string
+  itemCount?: number
+}
+
+export function SkeletonNotesToc({ className, itemCount = 8 }: SkeletonNotesTocProps) {
+  return (
+    <div className={cn('flex animate-pulse flex-col gap-1', className)}>
+      <div className="bg-skeleton-bg mb-1 h-4 w-24 rounded-full md:hidden"></div>
+      <div
+        className={cn(
+          'flex h-full flex-col divide-y divide-slate-300 p-2 md:border-none md:bg-transparent md:p-0 md:shadow-none',
+          sectionOuterClass
+        )}
+      >
+        <div className="thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto pt-2 text-sm md:grid-cols-1">
+          {Array.from({ length: itemCount }).map((_, index) => (
+            <div key={index} className="flex items-center gap-1 py-1 md:px-2">
+              <span className="text-transparent">◆</span>
+              <div className="bg-skeleton-bg h-4 w-24 rounded" />
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 'use client'
 
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import cn from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
 
 import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible'
 
 type BlockHeadingToggleProps = {
   className?: string
@@ -16,39 +16,40 @@ type BlockHeadingToggleProps = {
 }
 
 export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
+  const [open, setOpen] = useState(false)
   return (
-    <Disclosure defaultOpen={false}>
-      {({ open }) => (
-        <div className="relative">
-          <div className={cn('flex w-full items-start gap-1', props.className)}>
-            {props.updatedBlock}
-            <DisclosureButton className="z-20 rounded-md p-1 hover:bg-slate-200">
+    <Collapsible open={open} onOpenChange={setOpen}>
+      <div className="relative">
+        <div className={cn('flex w-full items-start gap-1', props.className)}>
+          {props.updatedBlock}
+          <CollapsibleTrigger asChild>
+            <button className="z-20 rounded-md p-1 hover:bg-slate-200">
               <BsFillCaretRightFill
                 className={cn('transform text-lg transition-all duration-300 ease-in-out', {
                   'rotate-90': open,
                   'rotate-0': !open
                 })}
               />
-            </DisclosureButton>
-            {props.headingElement}
-            {props.anchorRight}
-          </div>
-          <DisclosurePanel>
-            <div className="toggle-heading-content-container pl-8">{props.children}</div>
-          </DisclosurePanel>
-          <div
-            className={cn(
-              'absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2 border-slate-300',
-              {
-                hidden: !open,
-                'ml-[13.5px]':
-                  !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
-                'ml-[12px]': props.headingType === 'h3'
-              }
-            )}
-          ></div>
+            </button>
+          </CollapsibleTrigger>
+          {props.headingElement}
+          {props.anchorRight}
         </div>
-      )}
-    </Disclosure>
+        <CollapsibleContent>
+          <div className="toggle-heading-content-container pl-8">{props.children}</div>
+        </CollapsibleContent>
+        <div
+          className={cn(
+            'border-border-muted absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2',
+            {
+              hidden: !open,
+              'ml-[13.5px]':
+                !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
+              'ml-[12px]': props.headingType === 'h3'
+            }
+          )}
+        ></div>
+      </div>
+    </Collapsible>
   )
 }

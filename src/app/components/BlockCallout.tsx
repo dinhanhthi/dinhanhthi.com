@@ -16,12 +16,15 @@ export default function BlockCallout(props: {
     <div className={cn(props.className, 'block-callout relative')}>
       {props.updatedBlock}
       <div
-        className={cn('flex rounded-md', mapColorClass(props.color) || 'border border-gray-200')}
+        className={cn(
+          'flex rounded-md',
+          mapColorClass(props.color) || 'border-border-muted border'
+        )}
       >
-        {props.icon && <div className="py-2 pl-4 text-2xl text-amber-500">{props.icon}</div>}
+        {props.icon && <div className="text-yellow-text py-2 pl-4 text-2xl">{props.icon}</div>}
         <div className="w-0 flex-1 pr-4 pl-2">
           <div className={blockMargin}>{props.text}</div>
-          {!!props.children && <div className="m2it-inside-box">{props.children}</div>}
+          {!!props.children && <div className="[&>*]:!my-3">{props.children}</div>}
           <div className={blockMargin}></div>
         </div>
       </div>
