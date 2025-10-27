@@ -8,7 +8,7 @@ import {
 } from '@/src/lib/notion/db'
 import { Book, NotionPost, NotionSorts, NotionTagData, Post, Tag, Tool } from '@/src/lib/types'
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'
-import { get } from 'lodash'
+import _ from 'lodash'
 import { Block, CollectionInstance, ExtendedRecordMap } from 'notion-types'
 
 import { getFilter, getUri, transformUnofficialPostProps } from '@/src/lib/helpers'
@@ -354,25 +354,30 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
   return Promise.all(
     data?.map(async post => {
       // id
-      const id = get(post, 'id') as string
+      const id = _.get(post, 'id') as string
 
       // title
-      const title = getJoinedRichText(get(post, 'properties.Name.title') as any) || defaultPostTitle
+      const title =
+        getJoinedRichText(_.get(post, 'properties.Name.title') as any) || defaultPostTitle
 
       // description
-      const description = getJoinedRichText(get(post, 'properties.description.rich_text') as any)
+      const description = getJoinedRichText(_.get(post, 'properties.description.rich_text') as any)
 
       // date
-      const gotDate = get(
+      const gotDate = _.get(
         post,
         'properties.finalModified.formula.date.start',
-        get(post, 'last_edited_time', defaultPostDate)
+        _.get(post, 'last_edited_time', defaultPostDate)
       )
       const date = new Date(gotDate).toISOString()
 
       // createdDate
       const createdDate = new Date(
-        get(post, 'properties.createdDate.date.start', get(post, 'created_time', defaultPostDate))
+        _.get(
+          post,
+          'properties.createdDate.date.start',
+          _.get(post, 'created_time', defaultPostDate)
+        )
       ).toISOString()
 
       // Tags
@@ -381,47 +386,47 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
 
       // slug
       const slug =
-        get(post, 'properties.slug.rich_text[0].plain_text', '') ||
+        _.get(post, 'properties.slug.rich_text[0].plain_text', '') ||
         makeSlugText(getJoinedRichText(post?.properties?.Name?.title as any))
 
       // isDraft
-      const isDraft = get(post, 'properties.draft.checkbox') || false
+      const isDraft = _.get(post, 'properties.draft.checkbox') || false
 
       // wellWritten
-      const wellWritten = get(post, 'properties.wellWritten.checkbox') || false
+      const wellWritten = _.get(post, 'properties.wellWritten.checkbox') || false
 
       // pinned
-      const pinned = get(post, 'properties.pinned.checkbox') || false
+      const pinned = _.get(post, 'properties.pinned.checkbox') || false
 
       // blog
-      const blog = get(post, 'properties.blog.checkbox') || false
+      const blog = _.get(post, 'properties.blog.checkbox') || false
 
       // hide
-      const hide = get(post, 'properties.hide.checkbox') || false
+      const hide = _.get(post, 'properties.hide.checkbox') || false
 
       // published
-      const isPublished = get(post, 'properties.published.checkbox') || false
+      const isPublished = _.get(post, 'properties.published.checkbox') || false
 
       // language
-      const language = get(post, 'properties.language.select.name') || 'en'
+      const language = _.get(post, 'properties.language.select.name') || 'en'
 
       // vi
       // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
       // The slug is actually used in transformUnofficialPostProps() for the header of the post
-      const vi = get(post, 'properties.vi.rich_text[0]') || ''
+      const vi = _.get(post, 'properties.vi.rich_text[0]') || ''
 
       // en
       // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
       // The slug is actually used in transformUnofficialPostProps() for the header of the post
-      const en = get(post, 'properties.en.rich_text[0]') || ''
+      const en = _.get(post, 'properties.en.rich_text[0]') || ''
 
       // fr
       // Note: this one just make sure vi is not null or empty string! It's not what we want (slug)
       // The slug is actually used in transformUnofficialPostProps() for the header of the post
-      const fr = get(post, 'properties.fr.rich_text[0]') || ''
+      const fr = _.get(post, 'properties.fr.rich_text[0]') || ''
 
       // notionUrl
-      const notionUrl = get(post, 'properties.notionURL.formula.string') || ''
+      const notionUrl = _.get(post, 'properties.notionURL.formula.string') || ''
 
       return {
         id,

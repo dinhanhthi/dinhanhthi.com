@@ -144,6 +144,8 @@ export async function withRedisCache<T>(
 
   const cacheKey = getCacheKey(namespace, identifier)
 
+  console.log(`⚪ Starting withRedisCache for cacheKey: ${cacheKey}`)
+
   // Step 1: Try to get cache FIRST (Refresh-Ahead pattern)
   try {
     const cachedString = await client.get(cacheKey)
@@ -170,7 +172,7 @@ export async function withRedisCache<T>(
       return cachedData.data
     }
   } catch (cacheReadError) {
-    console.error(`❌ Failed to read cache for ${cacheKey}:`, cacheReadError)
+    console.warn(`⚠️ Failed to read cache for ${cacheKey}:`, cacheReadError)
     // Fall through to fetch fresh data
   }
 
@@ -192,7 +194,7 @@ export async function withRedisCache<T>(
       })
     } catch (cacheError) {
       // Log cache write errors but don't fail the request
-      console.error(`❌ Failed to cache data for ${cacheKey}:`, cacheError)
+      console.warn(`⚠️ Failed to cache data for ${cacheKey}:`, cacheError)
     }
 
     return freshData

@@ -5,7 +5,7 @@ import {
   QueryDatabaseResponse,
   RichTextItemResponse
 } from '@notionhq/client/build/src/api-endpoints'
-import { get, set } from 'lodash'
+import _ from 'lodash'
 import { CollectionInstance, SearchParams } from 'notion-types'
 import { getPageContentBlockIds, parsePageId } from 'notion-utils'
 import ogs from 'open-graph-scraper'
@@ -161,7 +161,7 @@ export async function queryDatabaseImpl(opts: {
           notionToken,
           notionVersion
         })
-        if (get(data, 'results')) {
+        if (_.get(data, 'results')) {
           const lst = data['results'] as any[]
           children = [...children, ...lst]
         }
@@ -376,7 +376,7 @@ async function getBlocksImpl(
         notionToken,
         notionVersion
       )
-      if (get(data, 'results') && get(data, 'results').length) {
+      if (_.get(data, 'results') && _.get(data, 'results').length) {
         const lst = data!['results'] as any[]
         blocks = [...blocks, ...lst]
       }
@@ -416,12 +416,12 @@ async function getBlocksImpl(
       block['list_item'] = !initNumbering ? '1' : initNumbering === '1' ? '2' : '3'
     }
 
-    if (get(block, `${block.type}.rich_text`) && !!getPageUri) {
+    if (_.get(block, `${block.type}.rich_text`) && !!getPageUri) {
       const parsedMention = await parseMention(
-        get(block, `${block.type}.rich_text`) as any,
+        _.get(block, `${block.type}.rich_text`) as any,
         getPageUri
       )
-      set(block, `${block.type}.rich_text`, parsedMention)
+      _.set(block, `${block.type}.rich_text`, parsedMention)
     }
 
     if (block.has_children) {
@@ -438,7 +438,7 @@ async function getBlocksImpl(
 
     // Get real image size (width and height) of an image block
     if (block.type === 'image') {
-      const url = get(block, 'image.file.url') || get(block, 'image.external.url')
+      const url = _.get(block, 'image.file.url') || _.get(block, 'image.external.url')
       if (url) {
         if (parseImgurUrl) block['imgUrl'] = parseImgurUrl(url)
         block['imageInfo'] = {
@@ -451,7 +451,7 @@ async function getBlocksImpl(
 
     // bookmark
     if (block.type === 'bookmark') {
-      const url = get(block, 'bookmark.url')
+      const url = _.get(block, 'bookmark.url')
       if (url) {
         const { result } = await ogs({ url })
         const bookmark: BookmarkPreview = {
@@ -481,10 +481,10 @@ async function parseMention(
   const newRichText = [] as RichTextItemResponse[]
   for (const block of richText) {
     if (block.type === 'mention' && block.mention?.type === 'page') {
-      const pageId = get(block, 'mention.page.id')
+      const pageId = _.get(block, 'mention.page.id')
       if (pageId && getPageUri) {
         const pageUri = await getPageUri(pageId)
-        set(block, 'mention.page.uri', pageUri)
+        _.set(block, 'mention.page.uri', pageUri)
       }
       newRichText.push(block)
     } else {

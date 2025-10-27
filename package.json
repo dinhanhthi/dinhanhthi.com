@@ -1,7 +1,7 @@
 {
   "name": "dinhanhthi.com",
   "description": "My personal website for taking notes.",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "type": "module",
   "author": "Anh-Thi Dinh",
   "license": "MIT",
@@ -27,8 +27,8 @@
     "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
     "clean-build": "pnpm run clean && pnpm run build",
     "reinstall": "pnpm run clean && rm -rf node_modules 2>/dev/null && rm pnpm-lock.yaml 2>/dev/null && pnpm install",
-    "warm-cache": "npx tsx -r dotenv/config ./scripts/warm-cache.ts dotenv_config_path=.env.local",
-    "clear-cache": "npx tsx -r dotenv/config ./scripts/clear-cache.ts dotenv_config_path=.env.local"
+    "warm-cache": "npx tsx -r dotenv/config ./scripts/warm-cache.ts dotenv_config_path=.env.production.local",
+    "clear-cache": "npx tsx -r dotenv/config ./scripts/clear-cache.ts dotenv_config_path=.env.production.local"
   },
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",

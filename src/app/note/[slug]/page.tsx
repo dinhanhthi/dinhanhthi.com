@@ -8,6 +8,8 @@ import { notFound } from 'next/navigation'
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 
 export const revalidate = 60
+export const dynamic = 'force-dynamic'
+export const dynamicParams = true
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -26,12 +28,6 @@ export async function generateMetadata({ params }: DynamicSegmentParamsProps): P
     description,
     images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
   })
-}
-
-export async function generateStaticParams() {
-  const allPosts = await getUnofficialPosts()
-  const params = allPosts.filter(post => post.slug).map(post => ({ slug: post.slug }))
-  return params
 }
 
 export default async function SingleNotePage({ params }: DynamicSegmentParamsProps) {
