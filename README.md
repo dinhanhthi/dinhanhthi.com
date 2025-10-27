@@ -87,6 +87,9 @@ pnpm run dev # port 3004
 
 # build
 pnpm run build
+# If you have .env.production.local, it will be used for production build
+# Use below to get the latest .env.production.local
+vercel env pull .env.production.local --environment=production
 
 # serve (need to build first)
 pnpm start # port 3004
