@@ -2,6 +2,11 @@ const nextConfig = {
   trailingSlash: true, // use "/about/" instead of "/about"
   poweredByHeader: false, // remove "Powered by Next.js" from the header
   staticPageGenerationTimeout: 180, // seconds
+  logging: {
+    fetches: {
+      fullUrl: false // Reduce verbose logging for fetch requests
+    }
+  },
   modularizeImports: {
     lodash: {
       transform: 'lodash/{{member}}',

@@ -118,30 +118,19 @@ Environment variables (see `example.env.local`) define:
 
 ### Redis Cache Layer
 
-This project uses **Upstash Redis** for caching Notion API responses:
-
 - **Location**: `src/lib/redis-cache.ts`
 - **Strategy**: Stale-while-revalidate with fallback to cached data on errors
-- **Benefits**:
-  - Users always see content (even when Notion API fails)
-  - Faster page loads from cached data
-  - Reduced Notion API calls
-  - Error logging for developers (hidden from users)
-- **Setup**: See [docs/REDIS.md](./docs/REDIS.md)
-- **Note**: Redis is optional. Without configuration, the site works normally but without caching.
+- **Provider**: Upstash Redis (optional but recommended)
+- **Benefits**: Users always see content (even when Notion API fails), faster page loads, reduced API calls
+- **Note**: Without Redis config, site works normally but without caching
 
 ### Error Notifications (Resend)
 
-This project uses **Resend** for sending email notifications when critical errors occur:
-
 - **Location**: `src/lib/send-error-email.ts`
+- **Provider**: Resend (optional but recommended)
 - **Triggers**: Notion API failures, cache errors, network timeouts
-- **Features**:
-  - Rate limiting (1 email per 5 minutes per error type)
-  - Detailed error context (function name, params, stack trace)
-  - Graceful degradation (errors logged but never shown to users)
-- **Setup**: See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) or [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md)
-- **Note**: Resend is optional. Without configuration, errors are only logged to console.
+- **Features**: Rate limiting (1 email/5min), detailed error context, graceful degradation
+- **Note**: Without Resend config, errors are only logged to console
 
 **Cached Functions**:
 - All functions in `src/lib/fetcher.ts`: `getPosts()`, `getTopics()`, `getUnofficialPosts()`, etc.
@@ -160,21 +149,18 @@ This project uses **Resend** for sending email notifications when critical error
 - Strict mode enabled with unused variable checks
 - Custom type declarations in `src/interface.d.ts` and `src/lib/notion/react-copy-to-clipboard.d.ts`
 
-## Environment Setup
+## Environment Variables
 
-1. Copy `example.env.local` to `.env.local`
-2. Configure Notion credentials and database IDs
-3. Set `ENV_MODE=dev` for local development
-4. (Optional but recommended) Configure Redis credentials:
-   - Sign up at [Upstash Console](https://console.upstash.com/)
-   - Create a Redis database
-   - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to `.env.local`
-   - See [docs/REDIS.md](./docs/REDIS.md) for detailed setup
-5. (Optional but recommended) Configure Resend for error notifications:
-   - Sign up at [Resend](https://resend.com/)
-   - Create an API key
-   - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to `.env.local`
-   - See [docs/RESEND_QUICK_START.md](./docs/RESEND_QUICK_START.md) for detailed setup
+**Required**:
+- `NOTION_TOKEN` - Notion API token
+- Database IDs and property keys (see `example.env.local`)
+- `ENV_MODE` - Set to `dev` for local development
+
+**Optional** (but recommended):
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` - Redis caching
+- `RESEND_API_KEY` + `ADMIN_EMAIL` - Error notifications
+
+Refer to `example.env.local` for complete list and documentation links.
 
 ## Code Style
 
@@ -182,6 +168,21 @@ This project uses **Resend** for sending email notifications when critical error
 - Prettier with import sorting and Tailwind class ordering
 - Max line length: 100 characters
 - Warnings for unused imports and variables
+
+## Deployment Strategy
+
+**⚡ Optimized Build**: This site uses **dynamic rendering with ISR** (Incremental Static Regeneration) to optimize build performance:
+
+- **No `generateStaticParams()`**: Dynamic routes (`/note/[slug]`, `/tag/[[...slug]]`, `/blogs/[[...slug]]`) are rendered on-demand
+- **ISR with 60s revalidation**: Pages cached and revalidated every 60 seconds
+- **Build time**: ~2-4 minutes (vs ~21 minutes with full static generation)
+- **Configuration**: `export const dynamic = 'force-dynamic'` + `export const dynamicParams = true`
+
+**Key Benefits**:
+- Fast Vercel builds (no Notion API calls during build)
+- Instant first-load for users (when Redis cache pre-populated with `pnpm run warm-cache`)
+- Fresh content (ISR revalidates every 60s)
+- Cost-effective (reduced build minutes)
 
 ## Deployment Notes
 
@@ -191,14 +192,10 @@ This project uses **Resend** for sending email notifications when critical error
 - Static page generation timeout: 180 seconds
 - Preview deployments have `X-Robots-Tag: noindex` header
 - Sitemap auto-generated with `next-sitemap` in postbuild step
-- **Redis Cache (Production)**:
-  - Add `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables
-  - Recommended to use separate Redis database for production
-  - See [docs/REDIS.md](./docs/REDIS.md) for production setup details
-- **Error Notifications (Production)**:
-  - Add `RESEND_API_KEY` and `ADMIN_EMAIL` to Vercel Environment Variables
-  - Free tier: 3,000 emails/month (sufficient with rate limiting)
-  - See [docs/ERROR_NOTIFICATIONS.md](./docs/ERROR_NOTIFICATIONS.md) for production setup
+- **Dynamic rendering**: Next.js config includes `experimental.dynamicIO: true` for Partial Prerendering compatibility
+- **Redis Cache (Production)**: Add `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` to Vercel Environment Variables (use separate database from dev)
+- **Error Notifications (Production)**: Add `RESEND_API_KEY` + `ADMIN_EMAIL` to Vercel Environment Variables
+- **Cache warming**: Run `pnpm run warm-cache` locally before deploy for optimal first-load performance
 
 ## Important Constraints
 
