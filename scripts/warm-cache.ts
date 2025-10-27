@@ -45,12 +45,62 @@ async function warmCache() {
     results.errors.push('topics')
   }
 
-  // Warm Posts Cache (first 100)
+  // Warm Posts Cache
   try {
     console.log('📝 Fetching posts...')
-    const posts = await getPosts({ pageSize: 100 })
+
+    // Query 1: Main posts (for recent notes section)
+    const posts = await getPosts({ pageSize: 200 })
     results.posts = posts.length
-    console.log(`✅ Cached ${posts.length} posts\n`)
+    console.log(`✅ Cached ${posts.length} posts (main query)`)
+
+    // Query 2: Posts with specific page sizes (needed by various pages)
+    await getPosts({ pageSize: 28 }) // /notes page calculation
+    console.log(`✅ Cached posts (pageSize: 28)`)
+
+    // Query 3: Pinned posts (for /notes page)
+    await getPosts({
+      filter: {
+        and: [
+          { property: 'pinned', checkbox: { equals: true } },
+          { property: 'blog', checkbox: { equals: false } }
+        ]
+      }
+    })
+    console.log(`✅ Cached pinned posts`)
+
+    // Query 4: Blog posts (for /notes page)
+    await getPosts({
+      pageSize: 6,
+      filter: {
+        property: 'blog',
+        checkbox: { equals: true }
+      }
+    })
+    console.log(`✅ Cached blog posts (pageSize: 6)\n`)
+
+    // Query 5: Posts by each tag (needed for homepage topic sections)
+    console.log('🏷️  Fetching posts by tags...')
+    const topics = await getTopics()
+    let tagCacheCount = 0
+    for (const topic of topics) {
+      try {
+        await getPosts({
+          filter: {
+            property: 'tags',
+            multi_select: { contains: topic.name }
+          },
+          pageSize: 12
+        })
+        tagCacheCount++
+        if (tagCacheCount % 5 === 0) {
+          console.log(`   Cached ${tagCacheCount}/${topics.length} tag queries...`)
+        }
+      } catch (error) {
+        console.error(`   ⚠️  Failed to cache posts for tag ${topic.name}:`, error)
+      }
+    }
+    console.log(`✅ Cached posts for ${tagCacheCount} tags\n`)
   } catch (error) {
     console.error('❌ Failed to cache posts:', error)
     results.errors.push('posts')
