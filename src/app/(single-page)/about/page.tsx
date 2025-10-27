@@ -1,17 +1,9 @@
-import cn from 'classnames'
-import { Suspense } from 'react'
-
-import ScrollToTop from '@/src/app/components/ScrollToTop'
-import { bodyPadding, containerWide } from '@/src/lib/config'
 import { getMetadata } from '@/src/lib/helpers'
 import cv from '../../../data/cv'
 import me from '../../../data/me'
-import skills from '../../../data/skills'
-import CVGroup, { CVGroupType, SkeletonCVGroup } from '../../components/CVGroup'
 import Container from '../../components/Container'
-import Footer from '../../components/Footer'
-import HeaderAbout from '../../components/HeaderAbout'
-import SkillGroup, { SkeletonSkillGroup, SkillGroupType } from '../../components/SkillGroup'
+import CVGroup, { CVGroupType } from '../../components/CVGroup'
+import HeaderThiCard from '../../components/HeaderThiCard'
 
 export const revalidate = 20
 
@@ -28,36 +20,14 @@ export const metadata = getMetadata({
 })
 
 export default async function AboutHomePage() {
-  const sectionSpacing = 'pt-12'
   return (
-    <div className="thi-bg-stone">
-      <HeaderAbout />
-      <Container className={cn(bodyPadding, containerWide)}>
-        <div className={'flex flex-wrap gap-4'}>
-          {skills.map((skillGroup: SkillGroupType) => (
-            <Suspense
-              key={skillGroup.id}
-              fallback={
-                <SkeletonSkillGroup skillGroup={skillGroup} className="min-w-[200px] flex-1" />
-              }
-            >
-              <SkillGroup className="min-w-[200px] flex-auto md:flex-1" skillGroup={skillGroup} />
-            </Suspense>
-          ))}
-        </div>
-        <div className={cn('flex flex-wrap gap-10 overflow-hidden lg:gap-4', sectionSpacing)}>
-          {cv.map((cvGroup: CVGroupType) => (
-            <Suspense
-              fallback={<SkeletonCVGroup cvGroup={cvGroup} className="flex-1" />}
-              key={cvGroup.id}
-            >
-              <CVGroup className="flex-auto lg:flex-1" key={cvGroup.id} cvGroup={cvGroup} />
-            </Suspense>
-          ))}
-        </div>
+    <>
+      <HeaderThiCard />
+      <Container className="flex flex-col gap-12">
+        {cv.map((cvGroup: CVGroupType) => (
+          <CVGroup className="flex-auto lg:flex-1" key={cvGroup.id} cvGroup={cvGroup} />
+        ))}
       </Container>
-      <Footer footerType="gray" />
-      <ScrollToTop />
-    </div>
+    </>
   )
 }

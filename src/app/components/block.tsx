@@ -19,9 +19,7 @@ import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, getListNumber, isUrl } from '@/src/lib/notion/utils'
 import BlockCallout from './BlockCallout'
 import BlockToggle from './BlockToggle'
-import BlockToggleDiscrete from './BlockToggleDiscrete'
 import BlockVideo from './BlockVideo'
-import PostToc from './PostToc'
 import BlockHeadingToggle from './ToggleHeading'
 import { AssetWrapper } from './asset-wrapper'
 import { Audio } from './audio'
@@ -57,8 +55,6 @@ interface BlockProps {
   disableHeader?: boolean
 
   children?: React.ReactNode
-
-  insideSync?: boolean
 }
 
 export const blockMargin = 'my-3'
@@ -93,12 +89,10 @@ export const Block: React.FC<BlockProps> = props => {
     blockOptions,
     customPreviewImage,
     useSimpleImage,
-    discreteStyle,
     postCreatedDate,
     postLastModifiedDate,
-    discreteColsType,
-    showUpdatedIndicator,
     simpleImageProps,
+    showUpdatedIndicator,
     fontClass
   } = ctx
 
@@ -115,8 +109,7 @@ export const Block: React.FC<BlockProps> = props => {
     pageFooter,
     pageAside,
     hideBlockId,
-    disableHeader,
-    insideSync
+    disableHeader
   } = props
 
   const blockCreatedDate = postCreatedDate
@@ -148,8 +141,6 @@ export const Block: React.FC<BlockProps> = props => {
       {
         // show only for top level blocks or a synced block
         (level === 1 || block.type === 'transclusion_container') &&
-          // Don't show update block in the discrete mode
-          !discreteStyle &&
           showUpdated &&
           // Only show update indicator when toggle is true
           showUpdatedIndicator && (
@@ -237,7 +228,7 @@ export const Block: React.FC<BlockProps> = props => {
                 <div className="notion-page-scroller">
                   <main
                     className={cs(
-                      'notion-page m2it-prose',
+                      'notion-page thi-prose',
                       isPageIconUrl ? 'notion-page-has-image-icon' : 'notion-page-has-text-icon',
                       'notion-full-page',
                       page_full_width && 'notion-full-width',
@@ -253,29 +244,11 @@ export const Block: React.FC<BlockProps> = props => {
                           hasToc && 'notion-page-content-has-toc'
                         )}
                       >
-                        <article
-                          className={cn(fontClass, 'notion-page-content-inner', {
-                            'discrete-container': discreteStyle,
-                            'page-discrete mx-auto max-w-[1700px] columns-1 gap-8 lg:columns-2 2xl:columns-[450px] [&>*:not(:first-child)]:mt-8':
-                              discreteStyle && discreteColsType === 'multiple',
-                            'flex flex-col gap-8': discreteStyle && discreteColsType === 'single'
-                          })}
-                        >
-                          {!discreteStyle && (
-                            <PostToc
-                              recordMap={recordMap}
-                              tocs={tocs}
-                              inPost={true}
-                              labelTocTitle={blockOptions?.labelTocTitle ?? 'In this note'}
-                              postTocClassName={blockOptions?.postTocClassName}
-                              minNumHeadingsToShowToc={blockOptions?.minNumHeadingsToShowToc}
-                              defaultOpenToc={blockOptions?.expandTocOnMobile}
-                            />
-                          )}
+                        <article className={cn(fontClass, 'notion-page-content-inner')}>
                           {children}
                         </article>
 
-                        {hasAside && !discreteStyle && (
+                        {hasAside && (
                           <PageAside
                             toc={tocs}
                             activeSection={activeSection}
@@ -422,7 +395,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <BlockHeadingToggle
             className={cn('heading-container relative', blurBlockClassName, {
-              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1':
+              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -438,7 +411,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <div
             className={cn('heading-container relative mb-4', blurBlockClassName, {
-              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 pl-2':
+              'from-bg-hover to-bg rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r py-1 pl-2 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -672,9 +645,7 @@ export const Block: React.FC<BlockProps> = props => {
       } else {
         return (
           <BlockCallout
-            className={cn(blockMargin, blurBlockClassName, {
-              'shadow-lg': discreteStyle
-            })}
+            className={cn(blockMargin, blurBlockClassName)}
             icon={<PageIcon block={block} />}
             text={<Text value={block.properties?.title} block={block} />}
             color={block.format?.block_color}
@@ -711,7 +682,7 @@ export const Block: React.FC<BlockProps> = props => {
         <div className={cn(basicBlockGapBigger, blurBlockClassName)}>
           <a
             className={cn(
-              'flex w-full gap-4 rounded-md border border-slate-200 p-3 hover:cursor-pointer hover:border-sky-300',
+              'hover:border-link border-border-muted flex w-full gap-4 rounded-md border p-3 hover:cursor-pointer',
               blurBlockClassName
             )}
             href={link[0][0]}
@@ -722,12 +693,12 @@ export const Block: React.FC<BlockProps> = props => {
             <div className="flex flex-[4_1_180px] flex-col justify-between gap-4 overflow-hidden">
               <div className="flex flex-col gap-1.5">
                 {title && (
-                  <div className="truncate font-normal">
+                  <div className="text-text truncate font-normal">
                     <Text value={[[title]]} block={block} />
                   </div>
                 )}
                 {block.properties?.description && (
-                  <div className="truncate text-[0.9em] font-normal text-slate-600">
+                  <div className="!text-muted truncate text-[0.9em] font-normal">
                     <Text value={block.properties?.description} block={block} />
                   </div>
                 )}
@@ -743,7 +714,7 @@ export const Block: React.FC<BlockProps> = props => {
                     />
                   </div>
                 )}
-                <div className="truncate text-[0.9em] font-normal text-slate-500">
+                <div className="!text-muted truncate text-[0.9em] font-normal">
                   <Text value={link} block={block} />
                 </div>
               </div>
@@ -767,25 +738,6 @@ export const Block: React.FC<BlockProps> = props => {
     }
 
     case 'toggle':
-      if ((discreteStyle && level === 1) || (discreteStyle && level === 2 && insideSync)) {
-        return (
-          <BlockToggleDiscrete
-            className={cn('relative')}
-            text={
-              block.properties?.title ? (
-                <Text value={block.properties?.title} block={block} />
-              ) : null
-            }
-            color={get(block, 'format.block_color')}
-            updateStatus={
-              status === 'updatedWithin' ? 'updated' : status === 'new' ? 'new' : undefined
-            }
-          >
-            {children}
-          </BlockToggleDiscrete>
-        )
-      }
-
       return (
         <BlockToggle
           className={cn('relative', blurBlockClassName)}
@@ -837,7 +789,7 @@ export const Block: React.FC<BlockProps> = props => {
           {updatedBlock}
           <div className={cn('flex items-start gap-2', blockMargin)}>
             <div className="mt-[3px] h-4 w-4">
-              {isChecked && <BsCheckSquare className="text-slate-500" />}
+              {isChecked && <BsCheckSquare className="text-slate-500 dark:text-slate-300" />}
               {!isChecked && <BsSquare className="mt-0.5" />}
             </div>
             <div>
@@ -885,7 +837,7 @@ export const Block: React.FC<BlockProps> = props => {
           className={cn(
             basicBlockGapBigger,
             blurBlockClassName,
-            'm2it-scrollbar relative overflow-auto'
+            'thi-scrollbar relative overflow-auto'
           )}
         >
           {updatedBlock}
@@ -926,7 +878,7 @@ export const Block: React.FC<BlockProps> = props => {
             return (
               <td
                 key={column}
-                className={cn('border border-slate-300', {
+                className={cn('border border-slate-300 !p-2', {
                   [`notion-${color}`]: color
                 })}
               >

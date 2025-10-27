@@ -77,24 +77,20 @@ export default function SimpleImage(props: SimpleImageProps) {
 
   return (
     <>
-      {loaded ? null : (
-        <>
-          {!!props.imagePlaceholder && props.imagePlaceholder}
-          {!props.imagePlaceholder && (
-            <div
-              style={{
-                width: props.width || props.style?.width || 'auto',
-                height: props.height || props.style?.height || 'auto'
-              }}
-              className={cn(
-                'flex animate-pulse items-center justify-center bg-gray-100',
-                props.className
-              )}
-            >
-              <PiImageSquareDuotone className="text-[25px] text-slate-400" />
-            </div>
+      {!loaded && props.imagePlaceholder}
+      {!loaded && !props.imagePlaceholder && (
+        <div
+          style={{
+            width: props.width || props.style?.width || 'auto',
+            height: props.height || props.style?.height || 'auto'
+          }}
+          className={cn(
+            'flex animate-pulse items-center justify-center bg-gray-100',
+            props.className
           )}
-        </>
+        >
+          <PiImageSquareDuotone className="text-[25px] text-slate-400" />
+        </div>
       )}
       {loaded && props.src && (
         <img

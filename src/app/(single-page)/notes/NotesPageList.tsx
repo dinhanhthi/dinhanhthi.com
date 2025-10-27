@@ -1,13 +1,14 @@
-import HeadingWithMore from '@/src/app/components/HeadingWithMore'
-import PostList from '@/src/app/components/PostsList'
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import BlogIcon from '@/src/app/icons/BlogIcon'
+import HeadingPage from '@/src/app/components/HeadingPage'
+import PostList, { SkeletonPostList } from '@/src/app/components/PostsList'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { Post, Tag } from '@/src/lib/types'
+import { Feather } from 'lucide-react'
 import { Suspense } from 'react'
+import { cn } from '../../../lib/utils'
 import NoteTopicSection from './NoteTopicSection'
 
 type NotesPageListProps = {
+  className?: string
   blogPosts: Post[]
   pinnedPosts: Post[]
   posts: Post[]
@@ -16,17 +17,17 @@ type NotesPageListProps = {
 }
 
 export default function NotesPageList(props: NotesPageListProps) {
-  const { blogPosts, pinnedPosts, posts, pinnedTags, numBlogPosts } = props
+  const { className, blogPosts, pinnedPosts, posts, pinnedTags, numBlogPosts } = props
   return (
-    <div className="order-2 flex flex-1 flex-col gap-12">
+    <div className={cn('flex flex-1 flex-col gap-12', className)}>
       {/* Blog posts */}
       {blogPosts.length > 0 && (
         <div className="flex flex-col gap-2">
-          <HeadingWithMore
+          <HeadingPage
             title="Blog posts"
             href={blogPosts.length >= numBlogPosts ? '/blogs/' : undefined}
             className="scroll-mt-[70px]"
-            icon={<BlogIcon className="h-6 w-6" />}
+            icon={<Feather size={26} className="text-text-heading" />}
           />
           <div className="overflow-hidden">
             <Suspense
@@ -34,9 +35,7 @@ export default function NotesPageList(props: NotesPageListProps) {
                 <SkeletonPostList
                   count={2}
                   postType="PostBlogSimple"
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
+                  className={postSimpleListContainerClass}
                 />
               }
             >
@@ -56,16 +55,14 @@ export default function NotesPageList(props: NotesPageListProps) {
       {/* pinned */}
       {pinnedPosts.length > 0 && (
         <div className="flex flex-col gap-2">
-          <HeadingWithMore title="Pinned notes" className="scroll-mt-[70px]" />
+          <HeadingPage title="Pinned notes" className="scroll-mt-[70px]" />
           <>
             <Suspense
               fallback={
                 <SkeletonPostList
                   count={4}
                   postType="PostSimple"
-                  options={{
-                    className: postSimpleListContainerClass
-                  }}
+                  className={postSimpleListContainerClass}
                 />
               }
             >
@@ -84,16 +81,14 @@ export default function NotesPageList(props: NotesPageListProps) {
 
       {/* Recently updated notes */}
       <div className="flex flex-col gap-2">
-        <HeadingWithMore title="Recently updated notes" className="scroll-mt-[70px]" />
+        <HeadingPage title="Recently updated notes" className="scroll-mt-[70px]" />
         <>
           <Suspense
             fallback={
               <SkeletonPostList
                 count={4}
                 postType="PostSimple"
-                options={{
-                  className: postSimpleListContainerClass
-                }}
+                className={postSimpleListContainerClass}
               />
             }
           >
@@ -110,7 +105,24 @@ export default function NotesPageList(props: NotesPageListProps) {
       </div>
 
       {pinnedTags.map((tag: Tag) => (
-        <NoteTopicSection key={tag.id} tag={tag} />
+        <Suspense
+          key={tag.id}
+          fallback={
+            <div className="flex flex-col gap-4">
+              <div className="flex animate-pulse items-center gap-2">
+                <div className="h-[40px] w-[40px] rounded-full bg-slate-200"></div>
+                <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
+              </div>
+              <SkeletonPostList
+                count={4}
+                postType="PostSimple"
+                className={postSimpleListContainerClass}
+              />
+            </div>
+          }
+        >
+          <NoteTopicSection tag={tag} />
+        </Suspense>
       ))}
     </div>
   )

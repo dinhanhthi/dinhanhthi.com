@@ -1,5 +1,5 @@
-import SkeletonPost from '@/src/app/components/skeleton/SkeletonPost'
+import { SkeletonSinglePostTemplate } from '../../templates/SinglePostTemplate'
 
 export default function LoadingPost() {
-  return <SkeletonPost hideCover={true} />
+  return <SkeletonSinglePostTemplate />
 }

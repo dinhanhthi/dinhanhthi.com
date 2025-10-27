@@ -1,43 +1,48 @@
-import cn from 'classnames'
+import { BookOpen, ChefHat, Mail, Palette, UserRound } from 'lucide-react'
 import Link from 'next/link'
+
+import { Button } from '@/src/app/components/ui/button'
 
 export type BadgeInfosProps = {
   id?: string
   url: string
   title: string
+  icon?: string
   external?: boolean
-  icon?: any
-  className?: string
   targetSelf?: boolean
 }
 
+const iconMap = {
+  Mail,
+  UserRound,
+  Palette,
+  BookOpen,
+  ChefHat
+}
+
 export default function BadgeInfos(props: BadgeInfosProps) {
-  const aLinkClass = cn(
-    'text-main-dark block rounded-3xl border-gray-600 py-2.5 text-sm uppercase',
-    'tracking-widest shadow-md transition duration-300 md:shadow-none',
-    {
-      'bg-transparent px-5 hover:bg-gray-700': !props?.className,
-      [`${props?.className}`]: !!props?.className
-    }
-  )
+  const IconComponent = props.icon ? iconMap[props.icon as keyof typeof iconMap] : null
 
   if (props.external || props.url.includes('//')) {
     return (
-      <a
-        className={aLinkClass}
-        href={props.url}
-        target={props.targetSelf ? '_self' : '_blank'}
-        rel="noopener noreferrer"
-      >
-        {props.icon && <span className="mr-3">{props.icon}</span>}
-        <span>{props.title}</span>
-      </a>
+      <Button size="sm" variant="outline" asChild>
+        <a
+          href={props.url}
+          target={props.targetSelf ? '_self' : '_blank'}
+          rel="noopener noreferrer"
+        >
+          {IconComponent && <IconComponent className="h-4 w-4" />}
+          <span className="hidden sm:block">{props.title}</span>
+        </a>
+      </Button>
     )
   }
   return (
-    <Link className={aLinkClass} href={props.url}>
-      {props.icon && <span className="mr-3">{props.icon}</span>}
-      <span>{props.title}</span>
-    </Link>
+    <Button size="sm" variant="outline" asChild>
+      <Link href={props.url}>
+        {IconComponent && <IconComponent className="h-4 w-4" />}
+        <span className="hidden sm:block">{props.title}</span>
+      </Link>
+    </Button>
   )
 }

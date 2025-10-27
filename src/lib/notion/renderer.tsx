@@ -4,7 +4,6 @@ import mediumZoom from '@fisch0920/medium-zoom'
 import { ExtendedRecordMap, PreviewImage } from 'notion-types'
 import * as React from 'react'
 
-import { DiscreteColsType } from '@/src/app/components/PostBody'
 import { SimpleImageProps } from '@/src/app/components/SimpleImage'
 import { Block } from '@/src/app/components/block'
 import {
@@ -32,11 +31,9 @@ export const NotionRenderer: React.FC<{
   blockOptions?: BlockOptionsContextType
   customPreviewImage?: PreviewImage
   useSimpleImage?: boolean
-  discreteStyle?: boolean
   postCreatedDate?: string
   postLastModifiedDate?: string
   fontClass?: string
-  discreteColsType?: DiscreteColsType
   showUpdatedIndicator?: boolean
   simpleImageProps?: SimpleImageProps
 
@@ -87,11 +84,9 @@ export const NotionRenderer: React.FC<{
   blockOptions,
   customPreviewImage,
   useSimpleImage,
-  discreteStyle,
   postCreatedDate,
   postLastModifiedDate,
   fontClass,
-  discreteColsType,
   showUpdatedIndicator,
   simpleImageProps,
   darkMode,
@@ -141,11 +136,9 @@ export const NotionRenderer: React.FC<{
       blockOptions={blockOptions}
       customPreviewImage={customPreviewImage}
       useSimpleImage={useSimpleImage}
-      discreteStyle={discreteStyle}
       postCreatedDate={postCreatedDate}
       postLastModifiedDate={postLastModifiedDate}
       fontClass={fontClass}
-      discreteColsType={discreteColsType}
       showUpdatedIndicator={showUpdatedIndicator}
       simpleImageProps={simpleImageProps}
       minTableOfContentsItems={minTableOfContentsItems}
@@ -168,12 +161,10 @@ export const NotionBlockRenderer: React.FC<{
   footer?: React.ReactNode
   disableHeader?: boolean
 
-  insideSync?: boolean
-
   blockId?: string
   hideBlockId?: boolean
   level?: number
-}> = ({ level = 0, blockId, insideSync, ...props }) => {
+}> = ({ level = 0, blockId, ...props }) => {
   const { recordMap } = useNotionContext()
   const id = blockId || Object.keys(recordMap.block)[0]
   const block = recordMap.block[id]?.value
@@ -187,13 +178,12 @@ export const NotionBlockRenderer: React.FC<{
   }
 
   return (
-    <Block key={id} level={level} block={block} insideSync={insideSync} {...props}>
+    <Block key={id} level={level} block={block} {...props}>
       {block?.content?.map(contentBlockId => (
         <NotionBlockRenderer
           key={contentBlockId}
           blockId={contentBlockId}
           level={level + 1}
-          insideSync={block.type === 'transclusion_container'}
           {...props}
         />
       ))}

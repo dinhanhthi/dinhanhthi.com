@@ -23,7 +23,12 @@ export default class Mermaid extends React.Component<{
     return (
       <div className={cn(this.props.className)}>
         {this.props.updatedBlock}
-        <div className={cn('mermaid flex justify-center')}>{this.props.chart}</div>
+        <div
+          className={cn('mermaid flex justify-center rounded-md bg-white')}
+          suppressHydrationWarning
+        >
+          {this.props.chart}
+        </div>
       </div>
     )
   }

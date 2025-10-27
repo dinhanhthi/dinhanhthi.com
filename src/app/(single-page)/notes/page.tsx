@@ -1,25 +1,12 @@
-import NotesIcon from '@/public/notes.svg'
-import SkeletonPostList from '@/src/app/components/skeleton/SkeletonPostList'
-import cn from 'classnames'
-import { Suspense } from 'react'
-
-import ScrollToTop from '@/src/app/components/ScrollToTop'
-import {
-  bodyPadding,
-  containerWide,
-  defaultBlurDataURL,
-  numPostsToShow,
-  postSimpleListContainerClass
-} from '@/src/lib/config'
+import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import Container from '../../components/Container'
-import Footer from '../../components/Footer'
 import HeaderPage from '../../components/HeaderPage'
 import NotesToc from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
 
-export const revalidate = 20
+export const revalidate = 60
 
 const title = 'Notes'
 const description = 'When I learn something new, I write it down here.'
@@ -80,78 +67,30 @@ export default async function NotesHomePage() {
   if (others) pinnedTagsSorted.push(others)
 
   return (
-    <div className="thi-bg-stone flex flex-col">
+    <>
       <HeaderPage
         title="Notes"
         subtitle="When I learn something new, I write it down here. It helps me to remember and understand better. I hope you find it useful."
-        headerType="gray"
-        headerWidth="wide"
-        icon={{ staticImageData: NotesIcon }}
-        iconClassName="h-12 w-12"
+        iconPath={'/logo_sketches/sketch_notes_nobg.png'}
       />
-      <Container className={cn(bodyPadding, containerWide)}>
-        <div className="flex flex-col gap-8 md:flex-row">
-          <Suspense fallback={<SkeletonNotesPageBody />}>
-            <NotesPageList
-              blogPosts={blogPosts}
-              pinnedPosts={pinnedPosts}
-              posts={posts}
-              pinnedTags={pinnedTagsSorted}
-              numBlogPosts={numBlogPosts}
-            />
-          </Suspense>
-
-          <NotesToc
-            className={
-              'top-[70px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
-            }
-            tags={pinnedTagsSorted}
-            hidePinnedTags={pinnedPosts.length === 0}
-          />
-        </div>
-      </Container>
-      <Footer footerType="gray" />
-      <ScrollToTop />
-    </div>
-  )
-}
-
-function SkeletonNotesPageBody() {
-  return (
-    <div className="flex flex-1 flex-col gap-12">
-      {/* Blog posts */}
-      <div className="flex flex-col gap-4">
-        <div className="flex animate-pulse items-center gap-2">
-          <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-          <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
-        </div>
-        <SkeletonPostList
-          count={2}
-          postType="PostBlogSimple"
-          options={{
-            className: postSimpleListContainerClass
-          }}
+      <Container className="flex flex-col gap-12 md:flex-row md:gap-4">
+        <NotesPageList
+          className="order-2"
+          blogPosts={blogPosts}
+          pinnedPosts={pinnedPosts}
+          posts={posts}
+          pinnedTags={pinnedTagsSorted}
+          numBlogPosts={numBlogPosts}
         />
-      </div>
 
-      {/* Notes */}
-      {Array.from({ length: 3 }).map((_, i) => (
-        <div key={i} className="flex flex-col gap-4">
-          <div className="flex animate-pulse items-center gap-2">
-            <div className="h-[30px] w-[30px] rounded-full bg-slate-200"></div>
-            <div className="h-[26px] w-[250px] rounded-2xl bg-slate-200"></div>
-          </div>
-          <div className="thi-box-code flex-1 overflow-hidden">
-            <SkeletonPostList
-              count={2}
-              postType="PostSimple"
-              options={{
-                className: postSimpleListContainerClass
-              }}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
+        <NotesToc
+          className={
+            'top-[60px] order-1 h-fit w-full md:sticky md:order-2 md:h-[calc(100vh-110px)] md:w-fit'
+          }
+          tags={pinnedTagsSorted}
+          hidePinnedTags={pinnedPosts.length === 0}
+        />
+      </Container>
+    </>
   )
 }

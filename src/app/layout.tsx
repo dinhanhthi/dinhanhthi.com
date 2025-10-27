@@ -7,9 +7,12 @@ import Script from 'next/script'
 
 import { openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import { ThemeProvider } from './components/ThemeProvider'
 import './styles.scss'
 
-export const revalidate = 20
+export const revalidate = 60
 
 export const metadata: Metadata = {
   metadataBase: new URL(me.website),
@@ -27,7 +30,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${openSans.variable} font-sans ${quicksand.variable}`}>
+    <html
+      lang="en"
+      className={`${openSans.variable} font-sans ${quicksand.variable}`}
+      suppressHydrationWarning
+    >
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
         <>
           <Script
@@ -45,15 +52,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </>
       )}
       <body suppressHydrationWarning={true}>
-        <div className="flex min-h-screen flex-col justify-between">
-          <Nav />
-          <div className="mb-auto">
-            <main>{children}</main>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen flex-col bg-stone-100 dark:bg-gray-900">
+            <Nav />
+            <main className="min-h-0 flex-1">
+              <main className="pb-12">{children}</main>
+            </main>
+            <Footer />
+            <ScrollToTop />
           </div>
-        </div>
-        <Analytics />
-        {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
-        <SpeedInsights />
+          <Analytics />
+          {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )

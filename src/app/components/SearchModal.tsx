@@ -1,13 +1,11 @@
 'use client'
 
-import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import cn from 'classnames'
 import { debounce, get } from 'lodash'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, {
   ChangeEvent,
-  Fragment,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -16,13 +14,14 @@ import React, {
 } from 'react'
 import useSWR from 'swr'
 
-import AiOutlineLoading3Quarters from '@/src/app/icons/AiOutlineLoading3Quarters'
 import BsArrowReturnLeft from '@/src/app/icons/BsArrowReturnLeft'
 import FiSearch from '@/src/app/icons/FiSearch'
 import IoBookOutline from '@/src/app/icons/IoBookOutline'
 import IoCloseCircle from '@/src/app/icons/IoCloseCircle'
 import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
 import { SearchResult } from '@/src/lib/types'
+import { LoaderCircle } from 'lucide-react'
+import { Dialog, DialogContent } from './ui/dialog'
 
 type SearchModalProps = {
   url: string // Cannot use process.env because it will be undefined in the client side
@@ -135,168 +134,138 @@ export default function SearchModal(props: SearchModalProps) {
   }
 
   return (
-    <Transition appear={true} show={props.isOpen} as={Fragment}>
-      <Dialog as="div" className={cn('relative z-50', props.className)} onClose={props.closeModal}>
-        <TransitionChild
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="bg-opacity/25 fixed inset-0 bg-black opacity-40" />
-        </TransitionChild>
-
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-start justify-center p-4 pt-20 text-center">
-            <TransitionChild
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-300"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <DialogPanel className="flex max-h-[80vh] w-full transform flex-col gap-0 divide-y divide-slate-200 rounded-md bg-white text-left align-middle text-slate-800 shadow-xl transition-all md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw]">
-                {/* Search bar */}
-                <div className={cn('flex items-center gap-3 p-4')}>
-                  <div className={cn('grid place-items-center text-slate-500')}>
-                    {(data || error || get(data, '[0].isFake')) && !isLoading && (
-                      <FiSearch className="text-2xl" />
-                    )}
-                    {isLoading && (
-                      <div className="animate-spin">
-                        <AiOutlineLoading3Quarters className="text-2xl" />
-                      </div>
-                    )}
-                  </div>
-                  <input
-                    ref={inputRef}
-                    className="peer m2it-hide-wscb h-full w-full bg-transparent pr-2 text-ellipsis outline-none"
-                    id="search"
-                    type="search"
-                    placeholder={props.placeholder || 'Search...'}
-                    autoComplete="off"
-                    value={query}
-                    onChange={e => handleOnchangeInput(e)}
-                    onKeyDown={e => handleKeyDown(e)}
-                  />
-                  {query && (
-                    <button onClick={() => setQuery('')}>
-                      <IoCloseCircle className="h-5 w-5 text-slate-500" />
-                    </button>
-                  )}
-                </div>
-
-                {/* Search results */}
-                {error && (
-                  <div className="p-4 text-center text-base">
-                    {props.errorMessage || 'There was an error fetching the search results.'}
-                  </div>
-                )}
-                {data && !data?.[0]?.isFake && query && (
-                  <>
-                    {data.length === 0 && (
-                      <div className="p-4 text-center text-base">
-                        {props.noResultsMessage || 'No results found.'}
-                      </div>
-                    )}
-                    {data.length > 0 && (
-                      <div
-                        className={cn('flex flex-col divide-y divide-slate-200 overflow-hidden')}
-                      >
-                        <div
-                          ref={containerRef}
-                          className={cn(
-                            'm2it-scrollbar flex flex-col divide-y divide-slate-200 overflow-auto'
-                          )}
-                        >
-                          {data.map((item, index) => {
-                            const uri = props.slugPrefix
-                              ? `/${props.slugPrefix}/${item.slug}/`
-                              : `/${item.slug}/`
-                            return (
-                              <Link
-                                onClick={props.closeModal}
-                                href={uri}
-                                key={item.id}
-                                className={cn('flex w-full gap-3 px-4 py-4', {
-                                  'bg-gray-100': selected === index
-                                })}
-                                onMouseMoveCapture={() => handleMouseMoveCapture(index)}
-                              >
-                                <div className="mt-0.5">
-                                  {!item.isBookPost && (
-                                    <IoDocumentTextOutline className="text-xl opacity-80" />
-                                  )}
-                                  {item.isBookPost && (
-                                    <IoBookOutline className="text-xl opacity-80" />
-                                  )}
-                                </div>
-                                <div className={cn('flex w-full flex-col gap-1 text-slate-900')}>
-                                  <div
-                                    className={cn(
-                                      'flex w-full items-center justify-between text-base'
-                                    )}
-                                  >
-                                    <div
-                                      className={cn(
-                                        {
-                                          'border-b border-dashed border-slate-300 pr-4 pb-1':
-                                            item.textHighlighted
-                                        },
-                                        'font-medium text-black'
-                                      )}
-                                    >
-                                      {item.titleHighlighted && (
-                                        <span
-                                          dangerouslySetInnerHTML={{
-                                            __html: item.titleHighlighted
-                                          }}
-                                        ></span>
-                                      )}
-                                      {!item.titleHighlighted && <span>{item.title}</span>}
-                                    </div>
-                                    <div
-                                      className={cn({
-                                        visible: selected === index,
-                                        invisible: selected !== index
-                                      })}
-                                    >
-                                      <BsArrowReturnLeft className="text-lg opacity-70" />
-                                    </div>
-                                  </div>
-                                  {item.textHighlighted && (
-                                    <div
-                                      className="text-sm opacity-90"
-                                      dangerouslySetInnerHTML={{ __html: item.textHighlighted }}
-                                    ></div>
-                                  )}
-                                </div>
-                              </Link>
-                            )
-                          })}
-                        </div>
-                        {query && (
-                          <div className="p-3 pl-4 text-sm font-normal text-slate-500">
-                            {props.foundResultsMessage?.split('{{count}}')[0] || 'Found '}
-                            <span className="font-semibold text-slate-900">{data.length}</span>
-                            {props.foundResultsMessage?.split('{{count}}')[1] || ' results'}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </>
-                )}
-              </DialogPanel>
-            </TransitionChild>
+    <Dialog open={props.isOpen} onOpenChange={open => !open && props.closeModal()}>
+      <DialogContent
+        className={cn(
+          'flex max-h-[80vh] w-full flex-col gap-0 divide-y divide-slate-200 rounded-md bg-white p-0 text-left align-middle text-slate-800 shadow-xl md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw] 2xl:max-w-[50vw]',
+          props.className
+        )}
+        hideCloseBtn={true}
+      >
+        {/* Search bar */}
+        <div className={cn('flex items-center gap-3 p-4')}>
+          <div className={cn('grid place-items-center text-slate-500')}>
+            {(data || error || get(data, '[0].isFake')) && !isLoading && (
+              <FiSearch className="text-2xl" />
+            )}
+            {isLoading && (
+              <div className="animate-spin">
+                <LoaderCircle size={25} />
+              </div>
+            )}
           </div>
+          <input
+            ref={inputRef}
+            className="peer thi-hide-wscb h-full w-full bg-transparent pr-2 text-ellipsis outline-none"
+            id="search"
+            type="search"
+            placeholder={props.placeholder || 'Search...'}
+            autoComplete="off"
+            value={query}
+            onChange={e => handleOnchangeInput(e)}
+            onKeyDown={e => handleKeyDown(e)}
+          />
+          {query && (
+            <button onClick={() => setQuery('')}>
+              <IoCloseCircle className="h-5 w-5 text-slate-500" />
+            </button>
+          )}
         </div>
-      </Dialog>
-    </Transition>
+
+        {/* Search results */}
+        {error && (
+          <div className="p-4 text-center text-base">
+            {props.errorMessage || 'There was an error fetching the search results.'}
+          </div>
+        )}
+        {data && !data?.[0]?.isFake && query && (
+          <>
+            {data.length === 0 && (
+              <div className="p-4 text-center text-base">
+                {props.noResultsMessage || 'No results found.'}
+              </div>
+            )}
+            {data.length > 0 && (
+              <div className={cn('flex flex-col divide-y divide-slate-200 overflow-hidden')}>
+                <div
+                  ref={containerRef}
+                  className={cn(
+                    'thi-scrollbar flex flex-col divide-y divide-slate-200 overflow-auto'
+                  )}
+                >
+                  {data.map((item, index) => {
+                    const uri = props.slugPrefix
+                      ? `/${props.slugPrefix}/${item.slug}/`
+                      : `/${item.slug}/`
+                    return (
+                      <Link
+                        onClick={props.closeModal}
+                        href={uri}
+                        key={item.id}
+                        className={cn('flex w-full gap-3 px-4 py-4', {
+                          'bg-gray-100': selected === index
+                        })}
+                        onMouseMoveCapture={() => handleMouseMoveCapture(index)}
+                      >
+                        <div className="mt-0.5">
+                          {!item.isBookPost && (
+                            <IoDocumentTextOutline className="text-xl opacity-80" />
+                          )}
+                          {item.isBookPost && <IoBookOutline className="text-xl opacity-80" />}
+                        </div>
+                        <div className={cn('flex w-full flex-col gap-1 text-slate-900')}>
+                          <div className={cn('flex w-full items-center justify-between text-base')}>
+                            <div
+                              className={cn(
+                                {
+                                  'border-b border-dashed border-slate-300 pr-4 pb-1':
+                                    item.textHighlighted
+                                },
+                                'font-medium text-black'
+                              )}
+                            >
+                              {item.titleHighlighted && (
+                                <span
+                                  dangerouslySetInnerHTML={{
+                                    __html: item.titleHighlighted
+                                  }}
+                                ></span>
+                              )}
+                              {!item.titleHighlighted && <span>{item.title}</span>}
+                            </div>
+                            <div
+                              className={cn({
+                                visible: selected === index,
+                                invisible: selected !== index
+                              })}
+                            >
+                              <BsArrowReturnLeft className="text-lg opacity-70" />
+                            </div>
+                          </div>
+                          {item.textHighlighted && (
+                            <div
+                              className="text-sm opacity-90"
+                              dangerouslySetInnerHTML={{ __html: item.textHighlighted }}
+                            ></div>
+                          )}
+                        </div>
+                      </Link>
+                    )
+                  })}
+                </div>
+                {query && (
+                  <div className="p-3 pl-4 text-sm font-normal text-slate-500">
+                    {props.foundResultsMessage?.split('{{count}}')[0] || 'Found '}
+                    <span className="font-semibold text-slate-900">{data.length}</span>
+                    {props.foundResultsMessage?.split('{{count}}')[1] || ' results'}
+                  </div>
+                )}
+              </div>
+            )}
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
   )
 }
 
