@@ -1,12 +1,15 @@
-import { postSimpleListContainerClass } from '@/src/lib/config'
+import { Suspense } from 'react'
+
+import Container from '@/src/app/components/Container'
+import HeaderPage from '@/src/app/components/HeaderPage'
+import Pagination from '@/src/app/components/Pagination'
+import PostList, { SkeletonPostList } from '@/src/app/components/PostsList'
+import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
 import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
-import PageOfPostsListTemplate, {
-  PageOfPostsListTemplateProps
-} from '../../../templates/PageOfPostsListTemplate'
 
 export const revalidate = 60
 export const dynamic = 'force-dynamic'
@@ -30,6 +33,39 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   }
 }
 
+// Async component for blog posts content
+async function BlogPostsContent({ currentPage }: { currentPage: number }) {
+  const _allBlogs = await getPosts({
+    filter: {
+      property: 'blog',
+      checkbox: {
+        equals: true
+      }
+    }
+  })
+  const allBlogs = filterDupLangPosts(_allBlogs)
+  const postsOnThisPage = !allBlogs.length
+    ? []
+    : allBlogs.slice(numPostsPerPage * (currentPage - 1), numPostsPerPage * currentPage)
+
+  if (postsOnThisPage.length === 0) {
+    return <div className="my-4 text-xl">There is no post yet!</div>
+  }
+
+  return (
+    <div className="overflow-hidden">
+      <PostList
+        posts={postsOnThisPage}
+        postType="PostBlogSimple"
+        postTypeOpts={defaultPostTypeOpts}
+        options={{
+          className: postSimpleListContainerClass
+        }}
+      />
+    </div>
+  )
+}
+
 export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
   const resolvedParams = await params
   const currentPage = +(resolvedParams?.slug?.[1] || 1)
@@ -46,6 +82,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
 
   const notRootPage = !!resolvedParams.slug
 
+  // Fetch all blogs to calculate total pages (this is fast due to Redis cache)
   const _allBlogs = await getPosts({
     filter: {
       property: 'blog',
@@ -66,26 +103,36 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
     notFound()
   }
 
-  const postsOnThisPage = !allBlogs.length
-    ? []
-    : allBlogs.slice(numPostsPerPage * (currentPage - 1), numPostsPerPage * currentPage)
-
   return (
-    <PageOfPostsListTemplate
-      object={
-        {
-          name: 'Blog posts',
-          subtitle: description,
-          iconPath: '/logo_sketches/sketch_blog_nobg.png',
-          uri: 'blog'
-        } as PageOfPostsListTemplateProps['object']
-      }
-      posts={postsOnThisPage}
-      pinnedPosts={[]}
-      totalPages={totalPages}
-      currentPage={currentPage}
-      postType="PostBlogSimple"
-      postListContainerClassName={postSimpleListContainerClass}
-    />
+    <>
+      <HeaderPage
+        title="Blog posts"
+        subtitle={description}
+        iconPath="/logo_sketches/sketch_blog_nobg.png"
+      />
+      <Container>
+        <Suspense
+          fallback={
+            <SkeletonPostList
+              count={6}
+              postType="PostBlogSimple"
+              className={postSimpleListContainerClass}
+            />
+          }
+        >
+          <BlogPostsContent currentPage={currentPage} />
+        </Suspense>
+
+        {totalPages > 1 && (
+          <Pagination
+            className="my-8"
+            path="blogs"
+            total={totalPages}
+            current={currentPage}
+            pageAlias="page"
+          />
+        )}
+      </Container>
+    </>
   )
 }
