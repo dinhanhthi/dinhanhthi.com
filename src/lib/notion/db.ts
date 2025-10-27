@@ -567,7 +567,7 @@ export async function searchNotion(
  * Generic fetch method for Notion API
  */
 async function notionFetch<T>(endpoint: string, body: object): Promise<T> {
-  console.log('👉 notionFetch() called with endpoint:', endpoint)
+  // console.log('👉 notionFetch() called with endpoint:', endpoint)
   const url = `${process.env.NOTION_API_PUBLISHED || 'https://www.notion.so/api/v3'}/${endpoint}`
 
   try {
