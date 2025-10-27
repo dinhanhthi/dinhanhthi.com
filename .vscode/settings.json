@@ -36,5 +36,6 @@
   "editor.stickyScroll.enabled": true,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore"
 }
