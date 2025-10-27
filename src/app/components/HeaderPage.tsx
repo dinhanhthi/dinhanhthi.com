@@ -20,7 +20,7 @@ export default function HeaderPage(props: HeaderPageProps) {
   )
 
   return (
-    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+    <Header containerClassName="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         {!!props.iconPath && (
           <ImageWithLoading
@@ -69,7 +69,7 @@ export default function HeaderPage(props: HeaderPageProps) {
 
 export function HeaderPageSkeleton() {
   return (
-    <Header className="flex flex-col items-center gap-4 lg:flex-row">
+    <Header containerClassName="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         <div className="bg-skeleton-bg h-[150px] w-[150px] animate-pulse rounded-xl"></div>
         <div className="bg-skeleton-bg h-[36px] w-48 animate-pulse rounded-full lg:hidden"></div>

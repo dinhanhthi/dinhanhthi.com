@@ -25,7 +25,7 @@ const buttonVariants = cva(
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-lg px-3',
         lg: 'h-11 rounded-lg px-8',
-        icon: 'text-muted hover:text-text h-10 w-10 shrink-0 [&_svg]:size-4 [&_svg]:transition-transform [&_svg]:active:scale-90',
+        icon: 'hover:text-text h-10 w-10 shrink-0 text-slate-300 [&_svg]:size-4 [&_svg]:transition-transform [&_svg]:active:scale-90',
         iconBig:
           'group text-muted hover:text-text h-8 w-8 shrink-0 [&_svg]:size-5 [&_svg]:transition-transform [&_svg]:active:scale-90'
       }
