@@ -2,9 +2,10 @@ import { getUnofficialBooks } from '@/src/lib/fetcher'
 import { getMetadata } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
-import ReadingPage from './ReadingPage'
+import ReadingPage, { SkeletonReadingPage } from './ReadingPage'
 
 export const revalidate = 60
 
@@ -57,7 +58,9 @@ export default async function ReadingHomePage() {
         number={books.length}
       />
       <Container>
-        <ReadingPage books={books} tags={tags} />
+        <Suspense fallback={<SkeletonReadingPage />}>
+          <ReadingPage books={books} tags={tags} />
+        </Suspense>
       </Container>
     </>
   )
