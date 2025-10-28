@@ -33,6 +33,7 @@ import {
   getUnofficialPosts,
   getUnofficialTools
 } from '@/src/lib/fetcher'
+import { queryDefinitions } from '@/src/lib/query-definitions'
 
 type WarmOptions = {
   forceRefresh: boolean
@@ -166,96 +167,75 @@ async function warmCache() {
 
       // HOME PAGE QUERIES
       if (options.pages.home) {
-        // Query: Blog posts section (3 posts * 2 for dup lang filtering)
+        // Query: Blog posts section
         await getPosts({
-          pageSize: 6, // numBlogPosts * 2
-          filter: {
-            property: 'blog',
-            checkbox: { equals: true }
-          },
+          ...queryDefinitions.homePage.blogPosts,
           whoIsCalling: 'warm-cache.ts/warmCache/homePageBlogPosts',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [HOME PAGE] Cached blog posts (pageSize: 6)`)
+        console.log(
+          `✅ [HOME PAGE] Cached blog posts (pageSize: ${queryDefinitions.homePage.blogPosts.pageSize})`
+        )
 
-        // Query: Pinned posts section (6 posts * 2 for dup lang filtering)
+        // Query: Pinned posts section
         await getPosts({
-          pageSize: 12, // numPinnedPosts * 2
-          filter: {
-            and: [
-              { property: 'pinned', checkbox: { equals: true } },
-              { property: 'blog', checkbox: { equals: false } }
-            ]
-          },
+          ...queryDefinitions.homePage.pinnedPosts,
           whoIsCalling: 'warm-cache.ts/warmCache/homePagePinnedPosts',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [HOME PAGE] Cached pinned posts (pageSize: 12)`)
+        console.log(
+          `✅ [HOME PAGE] Cached pinned posts (pageSize: ${queryDefinitions.homePage.pinnedPosts.pageSize})`
+        )
 
-        // Query: Recent notes section (12 posts * 2 for dup lang filtering)
+        // Query: Recent notes section
         const homePosts = await getPosts({
-          pageSize: 24, // numPostsToShow * 2
-          filter: {
-            property: 'blog',
-            checkbox: { equals: false }
-          },
+          ...queryDefinitions.homePage.recentNotes,
           whoIsCalling: 'warm-cache.ts/warmCache/homePageRecentNotes',
           forceRefresh: options.forceRefresh
         })
         results.posts += homePosts.length
-        console.log(`✅ [HOME PAGE] Cached recent notes (pageSize: 24)`)
+        console.log(
+          `✅ [HOME PAGE] Cached recent notes (pageSize: ${queryDefinitions.homePage.recentNotes.pageSize})`
+        )
       }
 
       // NOTES PAGE QUERIES
       if (options.pages.notes) {
         // Query: Pinned posts (no pageSize = get ALL)
         await getPosts({
-          filter: {
-            and: [
-              { property: 'pinned', checkbox: { equals: true } },
-              { property: 'blog', checkbox: { equals: false } }
-            ]
-          },
+          ...queryDefinitions.notesPage.pinnedPosts,
           whoIsCalling: 'warm-cache.ts/warmCache/notesPagePinnedPosts',
           forceRefresh: options.forceRefresh
         })
         console.log(`✅ [NOTES PAGE] Cached pinned posts (ALL)`)
 
-        // Query: Blog posts (3 posts * 2 for dup lang filtering)
+        // Query: Blog posts
         await getPosts({
-          pageSize: 6, // numBlogPosts * 2
-          filter: {
-            property: 'blog',
-            checkbox: { equals: true }
-          },
+          ...queryDefinitions.notesPage.blogPosts,
           whoIsCalling: 'warm-cache.ts/warmCache/notesPageBlogPosts',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [NOTES PAGE] Cached blog posts (pageSize: 6)`)
+        console.log(
+          `✅ [NOTES PAGE] Cached blog posts (pageSize: ${queryDefinitions.notesPage.blogPosts.pageSize})`
+        )
 
-        // Query: All notes (dynamic pageSize based on pinned + numPostsToShow)
-        // We'll use a conservative estimate of 30 * 2 = 60
+        // Query: All notes
         const notesPosts = await getPosts({
-          pageSize: 60, // Conservative estimate: (numPostsToShow + pinnedPosts.length) * 2
-          filter: {
-            property: 'blog',
-            checkbox: { equals: false }
-          },
+          ...queryDefinitions.notesPage.allNotes,
           whoIsCalling: 'warm-cache.ts/warmCache/notesPageAllNotes',
           forceRefresh: options.forceRefresh
         })
         results.posts += notesPosts.length
-        console.log(`✅ [NOTES PAGE] Cached all notes (pageSize: 60)`)
+        console.log(
+          `✅ [NOTES PAGE] Cached all notes (pageSize: ${queryDefinitions.notesPage.allNotes.pageSize})`
+        )
       }
 
       // BLOGS PAGE QUERIES
       if (options.pages.home || options.pages.notes) {
         // Query: All blogs (no pageSize = get ALL) - used for pagination
         const allBlogs = await getPosts({
-          filter: {
-            property: 'blog',
-            checkbox: { equals: true }
-          },
+          ...queryDefinitions.blogsPage.allBlogs,
           whoIsCalling: 'warm-cache.ts/warmCache/blogsPageAllBlogs',
           forceRefresh: options.forceRefresh
         })
@@ -269,50 +249,23 @@ async function warmCache() {
         let tagCacheCount = 0
         for (const topic of cachedTopics) {
           try {
-            // Query: All posts by tag (no pageSize limit - for getTotalPages)
+            // Query: All posts by tag (for getTotalPages)
             await getPosts({
-              filter: {
-                property: 'tags',
-                multi_select: { contains: topic.name }
-              },
+              ...queryDefinitions.tagPage.allPostsByTag(topic.name),
               whoIsCalling: `warm-cache.ts/warmCache/tagPageAllPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
 
-            // Query: Regular posts by tag (48 posts * 2 for dup lang filtering)
+            // Query: Regular posts by tag
             await getPosts({
-              filter: {
-                and: [
-                  {
-                    property: 'tags',
-                    multi_select: { contains: topic.name }
-                  },
-                  {
-                    property: 'blog',
-                    checkbox: { equals: false }
-                  }
-                ]
-              },
-              pageSize: 96, // numPostsPerPage * 2 (48 * 2)
+              ...queryDefinitions.tagPage.regularPostsByTag(topic.name),
               whoIsCalling: `warm-cache.ts/warmCache/tagPageRegularPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
 
-            // Query: Blog posts by tag (4 posts * 2 for dup lang filtering)
+            // Query: Blog posts by tag
             await getPosts({
-              filter: {
-                and: [
-                  {
-                    property: 'tags',
-                    multi_select: { contains: topic.name }
-                  },
-                  {
-                    property: 'blog',
-                    checkbox: { equals: true }
-                  }
-                ]
-              },
-              pageSize: 8, // numBlogPosts * 2 (4 * 2)
+              ...queryDefinitions.tagPage.blogPostsByTag(topic.name),
               whoIsCalling: `warm-cache.ts/warmCache/tagPageBlogPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
