@@ -70,7 +70,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           }
         ]
       },
-      pageSize: 1000 // Get all posts
+      pageSize: 1000, // Get all posts
+      whoIsCalling: 'sitemap.ts/sitemap/getAllPublishedPosts'
     })
 
     // Generate URLs for all posts
@@ -85,7 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Tag pagination URLs
     const numPostsPerPageTag = 48
-    const tags = await getTopics()
+    const tags = await getTopics({ whoIsCalling: 'sitemap.ts' })
     const tagUrls: MetadataRoute.Sitemap = []
 
     for (const tag of tags) {
@@ -95,7 +96,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           multi_select: {
             contains: tag?.name
           }
-        }
+        },
+        whoIsCalling: `sitemap.ts/sitemap/getPostsForTag/${tag.name}`
       })
       const numPosts = allPostsForTag?.length || 0
       const totalPages = Math.ceil(numPosts / numPostsPerPageTag)
@@ -121,7 +123,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         checkbox: {
           equals: true
         }
-      }
+      },
+      whoIsCalling: 'sitemap.ts/sitemap/getAllBlogs'
     })
     const numBlogs = allBlogs?.length || 0
     const totalPages = Math.ceil(numBlogs / numPostsPerPage)

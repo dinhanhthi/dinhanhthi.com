@@ -4,9 +4,9 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 
 🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
-🎊 What's new in v7?
+🎊 What's new in v7? Check [this post](https://dinhanhthi.com/note/this-site-gets-updates).
 
-🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-me/). Thank you!
+🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-thi/). Thank you!
 
 ## Previous versions
 

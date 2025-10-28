@@ -10,6 +10,7 @@ export interface ErrorEmailOptions {
   context?: string
   stack?: string
   metadata?: Record<string, unknown>
+  whoIsCalling?: string
 }
 
 /**
@@ -24,6 +25,7 @@ export async function sendErrorEmail({
   errorType,
   errorMessage,
   context,
+  whoIsCalling,
   stack,
   metadata
 }: ErrorEmailOptions) {
@@ -64,6 +66,7 @@ export async function sendErrorEmail({
         errorType,
         errorMessage,
         context,
+        whoIsCalling,
         stack,
         metadata,
         timestamp: new Date().toISOString()
@@ -87,6 +90,7 @@ function buildErrorEmailHTML({
   errorType,
   errorMessage,
   context,
+  whoIsCalling,
   stack,
   metadata,
   timestamp
@@ -96,6 +100,10 @@ function buildErrorEmailHTML({
     <h3>📊 Metadata</h3>
     <pre style="background: #f5f5f5; padding: 12px; border-radius: 4px; overflow-x: auto;">${JSON.stringify(metadata, null, 2)}</pre>
   `
+    : ''
+
+  const whoIsCallingHTML = whoIsCalling
+    ? `<p><strong>Who is calling:</strong> ${whoIsCalling}</p>`
     : ''
 
   const stackHTML = stack
@@ -131,6 +139,7 @@ function buildErrorEmailHTML({
       <h3>❌ Error Message</h3>
       <pre style="background: #fff5f5; padding: 12px; border-left: 4px solid #e53e3e; border-radius: 4px;">${errorMessage}</pre>
 
+      ${whoIsCallingHTML}
       ${contextHTML}
       ${metadataHTML}
       ${stackHTML}
