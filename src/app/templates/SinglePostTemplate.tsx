@@ -28,7 +28,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
       <HeaderPost className="!mb-0" recordMap={props.recordMap} postProps={props.postProps} />
       <div className="bg-white pt-12 dark:bg-slate-900">
         <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
-          <div className="text-text order-2 w-full flex-1 shrink-0 p-4 lg:min-w-0 lg:p-6 lg:pt-0">
+          <div className="text-text order-2 w-full flex-1 shrink-0 lg:min-w-0 lg:p-0">
             {props.postProps.isDraft && (
               <div className="border-border-muted mb-8 flex items-center gap-2 border-b bg-transparent text-sm">
                 <div className="py-2 pl-2 text-base">⚠️</div>
@@ -86,7 +86,7 @@ export const SkeletonSinglePostTemplate = () => {
     <>
       <SkeletonHeaderPost />
       <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
-        <div className={cn('order-2 flex flex-1 flex-col gap-4 p-4 lg:min-w-0 lg:p-6 lg:pt-0')}>
+        <div className={cn('order-2 flex flex-1 flex-col gap-4 lg:min-w-0 lg:p-0')}>
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
