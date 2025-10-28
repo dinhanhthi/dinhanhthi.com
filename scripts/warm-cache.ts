@@ -117,10 +117,16 @@ async function warmCache() {
     errors: [] as string[]
   }
 
-  // Warm Topics Cache (needed by tags page)
-  if (options.pages.tags) {
+  // Warm Topics Cache (needed by home page and tags page)
+  if (options.pages.home || options.pages.tags) {
     try {
-      console.log('📋 [TAGS PAGE] Fetching topics...')
+      const pageLabel =
+        options.pages.home && options.pages.tags
+          ? 'HOME/TAGS PAGE'
+          : options.pages.home
+            ? 'HOME PAGE'
+            : 'TAGS PAGE'
+      console.log(`📋 [${pageLabel}] Fetching topics...`)
       const topics = await getTopics({
         whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmTopicsCache',
         forceRefresh: options.forceRefresh
@@ -214,15 +220,10 @@ async function warmCache() {
         console.log(`✅ [HOME PAGE] Cached regular posts (pageSize: 24)`)
       }
 
-      // Query 6: Posts by each tag (needed for homepage topic sections and tags page)
-      if (options.pages.home || options.pages.tags) {
-        const pageLabel =
-          options.pages.home && options.pages.tags
-            ? 'HOME/TAGS PAGE'
-            : options.pages.home
-              ? 'HOME PAGE'
-              : 'TAGS PAGE'
-        console.log(`🏷️  [${pageLabel}] Fetching posts by tags...`)
+      // Query 6: Posts by each tag (needed for tags page only)
+      // Note: Home page only needs topics metadata, not posts by tag
+      if (options.pages.tags) {
+        console.log(`🏷️  [TAGS PAGE] Fetching posts by tags...`)
         const topics = await getTopics({
           whoIsCalling: 'scripts/warm-cache.ts/warmCache/getTopicsForTagQueries',
           forceRefresh: options.forceRefresh
