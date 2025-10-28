@@ -87,6 +87,8 @@ pnpm run warm-cache --force 				# Force refresh cache (get latest data from Noti
 pnpm run warm-cache --home --force 	# Force refresh cache for home page 
 # There are other options: --notes, --tags, --tools, --single
 pnpm run clear-cache --all  				# Clear all cache
+pnpm run warm-cache --slug=my-note-slug           # Warm single note by slug
+pnpm run warm-cache --slug=my-note-slug --force   # Force refresh single note
 ```
 
 ## Error Email Notifications (Resend)

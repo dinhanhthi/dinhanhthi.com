@@ -164,7 +164,7 @@ export default function Home() {
           <Suspense
             fallback={
               <SkeletonPostList
-                count={2}
+                count={(queryDefinitions.homePage.blogPosts.pageSize ?? 0) / 2}
                 postType="PostBlogSimple"
                 className={postSimpleListContainerClass}
               />
@@ -180,7 +180,7 @@ export default function Home() {
           <Suspense
             fallback={
               <SkeletonPostList
-                count={2}
+                count={8}
                 postType="PostSimple"
                 className={postSimpleListContainerClass}
               />
@@ -193,7 +193,7 @@ export default function Home() {
         {/* Tools */}
         <div className="flex flex-col gap-4">
           <HeadingPage title="Recent tools I use" href="/tools/" />
-          <Suspense fallback={<SkeletonToolPageSection numTools={4} hasTitle={false} />}>
+          <Suspense fallback={<SkeletonToolPageSection numTools={6} hasTitle={false} />}>
             <ToolsSectionContent />
           </Suspense>
         </div>
@@ -222,7 +222,7 @@ export default function Home() {
           <Suspense
             fallback={
               <div className="flex flex-wrap gap-4">
-                {Array.from({ length: 4 }).map((_, i) => (
+                {Array.from({ length: 12 }).map((_, i) => (
                   <SkeletonTopic key={i} type="simple" />
                 ))}
               </div>
