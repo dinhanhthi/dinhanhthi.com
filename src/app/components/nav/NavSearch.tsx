@@ -60,6 +60,7 @@ export default function NavSearch() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
+        {/* Don't apply dark/light mode to this button because it's in nav which is always dark */}
         <button
           type="button"
           className="group flex h-full items-center justify-center rounded-md p-2 text-slate-300 hover:cursor-pointer hover:bg-gray-700 hover:text-white focus:outline-none"
@@ -71,7 +72,7 @@ export default function NavSearch() {
       </DialogTrigger>
       <DialogContent
         className={cn(
-          'max-h-[min(80svh,440px)] max-w-[80%] overflow-hidden rounded-lg border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
+          'flex max-h-[80vh] max-w-[80%] flex-col rounded-lg !border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
         )}
         hideCloseBtn={true}
       >
@@ -81,12 +82,12 @@ export default function NavSearch() {
         </VisuallyHidden.Root>
 
         <Command
-          className="flex h-full flex-col divide-y divide-slate-200 overflow-hidden"
+          className="divide-border-muted flex h-full min-h-0 flex-1 flex-col divide-y"
           shouldFilter={false}
           loop
         >
-          <div className="flex min-h-14 items-center justify-between gap-3 border-none p-3">
-            <div className={cn('grid place-items-center text-slate-500')}>
+          <div className="flex h-14 items-center justify-between gap-3 border-none p-3">
+            <div className={cn('text-muted grid place-items-center')}>
               {(data || error || get(data, '[0].isFake')) && !isLoading && (
                 <FiSearch className="text-2xl" />
               )}
@@ -98,7 +99,7 @@ export default function NavSearch() {
             </div>
             <Command.Input
               ref={inputRef}
-              className="placeholder:text-muted w-full border-none bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
+              className="placeholder:text-muted w-full bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
               placeholder="Search for notes..."
               onValueChange={value => {
                 debounceSearch(value)
@@ -116,7 +117,10 @@ export default function NavSearch() {
           </div>
 
           {query && !isLoading && (
-            <Command.List asChild className="h-full min-h-0 flex-1 overflow-y-auto p-1.5">
+            <Command.List
+              asChild
+              className="thi-scrollbar thi-scrollbar-small h-full min-h-0 flex-1 overflow-y-auto p-1.5"
+            >
               <Command.Empty className="text-muted flex h-full w-full items-center justify-center px-4 pt-8 pb-10 text-sm">
                 No note found!
               </Command.Empty>
@@ -172,6 +176,12 @@ export default function NavSearch() {
                 </>
               )}
             </Command.List>
+          )}
+
+          {query && data && data.length > 0 && (
+            <div className="text-text p-3 pl-4 text-xs font-normal">
+              Found <span className="text-text-primary font-semibold">{data.length}</span> results
+            </div>
           )}
         </Command>
       </DialogContent>
