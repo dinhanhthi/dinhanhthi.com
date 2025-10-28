@@ -38,7 +38,8 @@ export default async function NotesHomePage() {
           }
         }
       ]
-    }
+    },
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPinnedPosts'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts)
 
@@ -49,14 +50,18 @@ export default async function NotesHomePage() {
       checkbox: {
         equals: true
       }
-    }
+    },
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getBlogPosts'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
-  const _posts = await getPosts({ pageSize: (numPostsToShow + pinnedPosts.length) * 2 })
+  const _posts = await getPosts({
+    pageSize: (numPostsToShow + pinnedPosts.length) * 2,
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPosts'
+  })
   const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow + pinnedPosts.length)
 
-  const _tags = await getTopics()
+  const _tags = await getTopics({ whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage' })
   const tags = _tags.map(tag => ({
     ...tag,
     icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }

@@ -41,7 +41,8 @@ async function BlogPostsContent({ currentPage }: { currentPage: number }) {
       checkbox: {
         equals: true
       }
-    }
+    },
+    whoIsCalling: '(single-page)/blogs/[[...slug]]/page.tsx/BlogPostsContent'
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
   const postsOnThisPage = !allBlogs.length
@@ -89,7 +90,8 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
       checkbox: {
         equals: true
       }
-    }
+    },
+    whoIsCalling: '(single-page)/blogs/[[...slug]]/page.tsx/BlogsHomePage/getTotalPages'
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
   const numBlogs = allBlogs?.length || 0

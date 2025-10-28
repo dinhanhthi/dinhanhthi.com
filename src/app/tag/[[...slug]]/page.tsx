@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const currentPage = +(resolvedParams?.slug?.[2] || 1)
   console.debug(`\n👉 slug:  ${slug}, currentPage: ${currentPage}\n`)
   const [totalPages] = await getTotalPages({ slug } as Tag)
-  const tags = await getTopics()
+  const tags = await getTopics({ whoIsCalling: 'tag/[[...slug]]/page.tsx/generateMetadata' })
   const tag = getTag(slug, tags)
   if (!tag)
     return {
@@ -61,7 +61,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
 
-  const _tags = await getTopics()
+  const _tags = await getTopics({ whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage' })
   const tags = _tags.map(tag => ({
     ...tag,
     icon: { sourceUrl: tag.iconUrl, width: 60, height: 60, blurDataURL: defaultBlurDataURL }
@@ -101,7 +101,8 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
           ]
         },
         startCursor,
-        pageSize: numPostsPerPage * 2
+        pageSize: numPostsPerPage * 2,
+        whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage'
       })
 
   const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
@@ -123,7 +124,8 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
           }
         }
       ]
-    }
+    },
+    whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getBlogPosts'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
@@ -146,7 +148,8 @@ async function getTotalPages(tag: Tag): Promise<[number, Post[]]> {
       multi_select: {
         contains: tag?.name
       }
-    }
+    },
+    whoIsCalling: 'tag/[[...slug]]/page.tsx/getTotalPages'
   })
   const numPosts = allPosts?.length || 0
   const totalPages = Math.ceil(numPosts / numPostsPerPage)
