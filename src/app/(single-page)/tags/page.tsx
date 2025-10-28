@@ -23,7 +23,7 @@ export const metadata = getMetadata({
 })
 
 export default async function TagsHomePage() {
-  const _tags = await getTopics()
+  const _tags = await getTopics({ whoIsCalling: '(single-page)/tags/page.tsx/TagsHomePage' })
   const tags = _tags
     .filter(tag => !tag.hide)
     .map(tag => ({

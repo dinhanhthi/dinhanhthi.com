@@ -81,7 +81,9 @@ export async function POST(request: NextRequest) {
 
   // Warm Topics Cache
   try {
-    const topics = await getTopics()
+    const topics = await getTopics({
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmTopicsCache'
+    })
     results.topics = topics.length
     console.log(`✅ Cached ${topics.length} topics`)
   } catch (error) {
@@ -92,12 +94,18 @@ export async function POST(request: NextRequest) {
   // Warm Posts Cache (all queries needed by pages)
   try {
     // Query 1: Main posts
-    const allPosts = await getPosts({ pageSize: 200 })
+    const allPosts = await getPosts({
+      pageSize: 200,
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmPostsCache'
+    })
     results.posts = allPosts.length
     console.log(`✅ Cached ${allPosts.length} posts (main query)`)
 
     // Query 2: Specific page sizes
-    await getPosts({ pageSize: 28 })
+    await getPosts({
+      pageSize: 28,
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmPostsCachePageSize28'
+    })
     console.log(`✅ Cached posts (pageSize: 28)`)
 
     // Query 3: Pinned posts
@@ -107,7 +115,8 @@ export async function POST(request: NextRequest) {
           { property: 'pinned', checkbox: { equals: true } },
           { property: 'blog', checkbox: { equals: false } }
         ]
-      }
+      },
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmPinnedPosts'
     })
     console.log(`✅ Cached pinned posts`)
 
@@ -117,12 +126,15 @@ export async function POST(request: NextRequest) {
       filter: {
         property: 'blog',
         checkbox: { equals: true }
-      }
+      },
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmBlogPosts'
     })
     console.log(`✅ Cached blog posts`)
 
     // Query 5: Posts by each tag
-    const topics = await getTopics()
+    const topics = await getTopics({
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/getTopicsForTagQueries'
+    })
     for (const topic of topics) {
       try {
         await getPosts({
@@ -130,7 +142,8 @@ export async function POST(request: NextRequest) {
             property: 'tags',
             multi_select: { contains: topic.name }
           },
-          pageSize: 12
+          pageSize: 12,
+          whoIsCalling: `api/cron/warm-cache/route.ts/POST/warmPostsByTag/${topic.name}`
         })
         console.log(`✅ Cached posts for tag: ${topic.name}`)
       } catch (error) {
@@ -144,7 +157,9 @@ export async function POST(request: NextRequest) {
 
   // Warm Books Cache
   try {
-    const { books } = await getUnofficialBooks()
+    const { books } = await getUnofficialBooks({
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmBooksCache'
+    })
     results.books = books.length
     console.log(`✅ Cached ${books.length} books`)
   } catch (error) {
@@ -154,7 +169,9 @@ export async function POST(request: NextRequest) {
 
   // Warm Tools Cache
   try {
-    const { tools } = await getUnofficialTools()
+    const { tools } = await getUnofficialTools({
+      whoIsCalling: 'api/cron/warm-cache/route.ts/POST/warmToolsCache'
+    })
     results.tools = tools.length
     console.log(`✅ Cached ${tools.length} tools`)
   } catch (error) {

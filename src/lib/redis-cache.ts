@@ -29,6 +29,7 @@ function getRedisClient(): Redis | null {
 }
 
 export interface CacheOptions {
+  whoIsCalling?: string // used for tracking the source of the request
   /**
    * Soft TTL: Time after which cache is considered stale and should be refreshed
    * Cache will still be returned immediately, but refreshed in background
@@ -133,7 +134,12 @@ export async function withRedisCache<T>(
   fetcher: () => Promise<T>,
   options: CacheOptions = {}
 ): Promise<T> {
-  const { softTTL = DEFAULT_SOFT_TTL, hardTTL = DEFAULT_HARD_TTL, namespace = 'cache' } = options
+  const {
+    softTTL = DEFAULT_SOFT_TTL,
+    hardTTL = DEFAULT_HARD_TTL,
+    namespace = 'cache',
+    whoIsCalling
+  } = options
 
   const client = getRedisClient()
 
@@ -206,14 +212,17 @@ export async function withRedisCache<T>(
     sendErrorEmail({
       errorType: 'cache-fetch',
       errorMessage: fetchError instanceof Error ? fetchError.message : String(fetchError),
-      context: `Failed to fetch data for cache key (withRedisCache) with identifier: ${identifier}`,
+      context: `Failed to fetch data for cache key with identifier: ${identifier}`,
       stack: fetchError instanceof Error ? fetchError.stack : undefined,
       metadata: {
         cacheKey: identifier,
         namespace,
         softTTL,
         hardTTL
-      }
+      },
+      whoIsCalling: whoIsCalling
+        ? `${whoIsCalling} -> withRedisCache`
+        : 'redis-cache.ts/withRedisCache'
     })
 
     try {

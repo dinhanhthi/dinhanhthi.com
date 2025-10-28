@@ -16,7 +16,8 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
   const tag = props.tag
   const notes = await getPosts({
     filter: getFilterOf('tag', tag),
-    pageSize: numPostsToShow
+    pageSize: numPostsToShow,
+    whoIsCalling: `(single-page)/notes/NoteTopicSection.tsx/NoteTopicSection/${tag.name}`
   })
   if (notes.length === 0) return null
   return (

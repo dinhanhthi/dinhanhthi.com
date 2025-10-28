@@ -43,7 +43,8 @@ async function BlogSectionContent() {
       checkbox: {
         equals: true
       }
-    }
+    },
+    whoIsCalling: 'page.tsx/BlogSectionContent'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
@@ -83,7 +84,8 @@ async function NotesSectionContent() {
           }
         }
       ]
-    }
+    },
+    whoIsCalling: 'page.tsx/NotesSectionContent/getPinnedPosts'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(0, numPinnedPosts)
 
@@ -94,7 +96,8 @@ async function NotesSectionContent() {
       checkbox: {
         equals: false
       }
-    }
+    },
+    whoIsCalling: 'page.tsx/NotesSectionContent/getPosts'
   })
   const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow)
 
@@ -131,7 +134,7 @@ async function NotesSectionContent() {
 // Async component for Tools section content
 async function ToolsSectionContent() {
   const numTools = 6
-  const { tools } = await getUnofficialTools()
+  const { tools } = await getUnofficialTools({ whoIsCalling: 'page.tsx/ToolsSectionContent' })
 
   return <ToolSimpleSection tools={tools.slice(0, numTools)} />
 }
@@ -139,7 +142,7 @@ async function ToolsSectionContent() {
 // Async component for Reading section content
 async function ReadingSectionContent() {
   const numBooks = 6
-  const { books } = await getUnofficialBooks()
+  const { books } = await getUnofficialBooks({ whoIsCalling: 'page.tsx/ReadingSectionContent' })
 
   return (
     <div className="flex w-full flex-col gap-3">
@@ -154,7 +157,7 @@ async function ReadingSectionContent() {
 
 // Async component for Topics section content
 async function TopicsSectionContent() {
-  const _topics = await getTopics()
+  const _topics = await getTopics({ whoIsCalling: 'page.tsx/TopicsSectionContent' })
   const topics = _topics.map(topic => ({
     ...topic,
     icon: { sourceUrl: topic.iconUrl, width: 20, height: 20, blurDataURL: defaultBlurDataURL }

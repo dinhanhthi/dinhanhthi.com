@@ -18,7 +18,9 @@ export const metadata = getMetadata({
 })
 
 export default async function ToolsHomePage() {
-  const { tools, categories } = await getUnofficialTools()
+  const { tools, categories } = await getUnofficialTools({
+    whoIsCalling: '(single-page)/tools/page.tsx/ToolsHomePage'
+  })
   const sortedCategories = categories?.sort((a, b) => a.localeCompare(b))
   const favoriteTools = tools.filter(tool => tool.favorite)
 
