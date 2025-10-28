@@ -517,8 +517,7 @@ export async function getRecordMap(
     {
       namespace: 'notion',
       whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getRecordMap` : 'fetcher.ts/getRecordMap',
-      softTTL: 3600, // 1 hour - page content changes moderately
-      hardTTL: 1209600, // 14 days - safety net
+      ...redisCacheTTL.recordMap,
       forceRefresh
     }
   )
