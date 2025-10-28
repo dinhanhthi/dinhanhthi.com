@@ -10,5 +10,4 @@ alwaysApply: true
 - **Package Manager**: Always use `pnpm`, never `npm` or `yarn`
 - **Architecture**: All utilities in `src/lib/`, NOT `src/app/lib/`
 - **Imports**: Use `@/src/lib/*` for utilities, `@/src/app/components/*` for components
-- Don't automatically generate summary document after each task unless you are asked to do so.
 - Don't automatically run `pnpm run build` after each task unless you are asked to do so.

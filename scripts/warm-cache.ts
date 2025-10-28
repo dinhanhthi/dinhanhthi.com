@@ -7,10 +7,12 @@
  * Run this after deployment to ensure cache is populated before users visit.
  *
  * Usage:
- *   pnpm run warm-cache
+ *   pnpm run warm-cache              # Normal mode: skip if cache exists
+ *   pnpm run warm-cache --force      # Force mode: override all cache with fresh data
  *
  * Or with tsx directly:
  *   npx tsx scripts/warm-cache.ts
+ *   npx tsx scripts/warm-cache.ts --force
  */
 
 import {
@@ -30,7 +32,19 @@ async function warmCache() {
     process.exit(0)
   }
 
-  console.log('🔥 Starting cache warming...\n')
+  // Check for force refresh flag
+  const forceRefresh = process.argv.includes('--force')
+  const mode = forceRefresh ? 'FORCE REFRESH' : 'NORMAL'
+
+  console.log(`🔥 Starting cache warming (${mode} mode)...\n`)
+  if (forceRefresh) {
+    console.log(
+      '⚡ Force refresh enabled: Will fetch latest data from Notion API and override cache\n'
+    )
+  } else {
+    console.log('ℹ️  Normal mode: Will use existing cache if available\n')
+    console.log('💡 Tip: Use --force flag to fetch fresh data from Notion API\n')
+  }
 
   const startTime = Date.now()
   const results = {
@@ -46,7 +60,8 @@ async function warmCache() {
   try {
     console.log('📋 Fetching topics...')
     const topics = await getTopics({
-      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmTopicsCache'
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmTopicsCache',
+      forceRefresh
     })
     results.topics = topics.length
     console.log(`✅ Cached ${topics.length} topics\n`)
@@ -62,7 +77,8 @@ async function warmCache() {
     // Query 1: Main posts (for recent notes section)
     const posts = await getPosts({
       pageSize: 200,
-      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCache'
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCache',
+      forceRefresh
     })
     results.posts = posts.length
     console.log(`✅ Cached ${posts.length} posts (main query)`)
@@ -70,7 +86,8 @@ async function warmCache() {
     // Query 2: Posts with specific page sizes (needed by various pages)
     await getPosts({
       pageSize: 28,
-      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCachePageSize28'
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCachePageSize28',
+      forceRefresh
     }) // /notes page calculation
     console.log(`✅ Cached posts (pageSize: 28)`)
 
@@ -82,7 +99,8 @@ async function warmCache() {
           { property: 'blog', checkbox: { equals: false } }
         ]
       },
-      whoIsCalling: 'warm-cache.ts/warmCache/warmPinnedPosts'
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPinnedPosts',
+      forceRefresh
     })
     console.log(`✅ Cached pinned posts`)
 
@@ -93,14 +111,16 @@ async function warmCache() {
         property: 'blog',
         checkbox: { equals: true }
       },
-      whoIsCalling: 'warm-cache.ts/warmCache/warmBlogPosts'
+      whoIsCalling: 'warm-cache.ts/warmCache/warmBlogPosts',
+      forceRefresh
     })
     console.log(`✅ Cached blog posts (pageSize: 6)\n`)
 
     // Query 5: Posts by each tag (needed for homepage topic sections)
     console.log('🏷️  Fetching posts by tags...')
     const topics = await getTopics({
-      whoIsCalling: 'scripts/warm-cache.ts/warmCache/getTopicsForTagQueries'
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/getTopicsForTagQueries',
+      forceRefresh
     })
     let tagCacheCount = 0
     for (const topic of topics) {
@@ -111,7 +131,8 @@ async function warmCache() {
             multi_select: { contains: topic.name }
           },
           pageSize: 12,
-          whoIsCalling: `warm-cache.ts/warmCache/warmPostsByTag/${topic.name}`
+          whoIsCalling: `warm-cache.ts/warmCache/warmPostsByTag/${topic.name}`,
+          forceRefresh
         })
         tagCacheCount++
         if (tagCacheCount % 5 === 0) {
@@ -131,7 +152,8 @@ async function warmCache() {
   try {
     console.log('📚 Fetching books...')
     const { books } = await getUnofficialBooks({
-      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmBooksCache'
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmBooksCache',
+      forceRefresh
     })
     results.books = books.length
     console.log(`✅ Cached ${books.length} books\n`)
@@ -144,7 +166,8 @@ async function warmCache() {
   try {
     console.log('🛠️  Fetching tools...')
     const { tools } = await getUnofficialTools({
-      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmToolsCache'
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmToolsCache',
+      forceRefresh
     })
     results.tools = tools.length
     console.log(`✅ Cached ${tools.length} tools\n`)
@@ -158,7 +181,8 @@ async function warmCache() {
     console.log('📄 Fetching page content for all posts...')
     const allPosts = await getPosts({
       pageSize: 100,
-      whoIsCalling: 'warm-cache.ts/warmCache/warmPageContent'
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPageContent',
+      forceRefresh
     })
 
     let successCount = 0
@@ -176,7 +200,8 @@ async function warmCache() {
         }
         try {
           await getRecordMap(post.id, {
-            whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmPageContent'
+            whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmPageContent',
+            forceRefresh
           })
           successCount++
           if (successCount % 10 === 0) {
