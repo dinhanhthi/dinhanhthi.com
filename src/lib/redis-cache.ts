@@ -47,6 +47,12 @@ export interface CacheOptions {
    * @default 'cache'
    */
   namespace?: string
+  /**
+   * Force refresh: Skip cache read and fetch fresh data
+   * The new data will override existing cache
+   * @default false
+   */
+  forceRefresh?: boolean
 }
 
 interface CachedData<T> {
@@ -123,11 +129,18 @@ function formatAge(ageInSeconds: number): string {
  * 3. If no cache: Fetch fresh data (user waits) and cache it
  * 4. On fetch error: Return stale cache if available (better than error)
  *
+ * Force Refresh Mode (forceRefresh: true):
+ * - Skip cache read entirely
+ * - Fetch fresh data from Notion API
+ * - Override existing cache with new data
+ * - Fallback to old cache only on fetch error
+ *
  * Benefits:
  * - Users ALWAYS get instant response (cache hit = 0 wait time)
  * - Stale cache is served while refreshing in background
  * - hardTTL (14 days) ensures cache persists during long outages
  * - softTTL controls freshness without blocking users
+ * - forceRefresh allows manual cache updates without deletion
  */
 export async function withRedisCache<T>(
   identifier: string,
@@ -138,7 +151,8 @@ export async function withRedisCache<T>(
     softTTL = DEFAULT_SOFT_TTL,
     hardTTL = DEFAULT_HARD_TTL,
     namespace = 'cache',
-    whoIsCalling
+    whoIsCalling,
+    forceRefresh = false
   } = options
 
   const client = getRedisClient()
@@ -151,6 +165,44 @@ export async function withRedisCache<T>(
   const cacheKey = getCacheKey(namespace, identifier)
 
   console.log(`⚪ Starting withRedisCache for cacheKey: ${cacheKey}`)
+
+  // Force Refresh Mode: Skip cache read, fetch fresh data
+  if (forceRefresh) {
+    console.log(`🔄 Force refresh mode for ${identifier}, fetching fresh data`)
+    try {
+      const freshData = await fetcher()
+
+      // Override cache with fresh data
+      const cachedData: CachedData<T> = {
+        data: freshData,
+        timestamp: Date.now(),
+        version: CACHE_VERSION
+      }
+
+      await client.set(cacheKey, JSON.stringify(cachedData), {
+        ex: hardTTL
+      })
+
+      console.log(`✅ Force refresh completed and cache updated for ${identifier}`)
+      return freshData
+    } catch (fetchError) {
+      console.error(`❌ Force refresh failed for ${identifier}, falling back to cache:`, fetchError)
+      // Fallback to cache on error (better than failing completely)
+      try {
+        const cachedString = await client.get(cacheKey)
+        if (cachedString) {
+          const cachedData: CachedData<T> =
+            typeof cachedString === 'string' ? JSON.parse(cachedString) : cachedString
+          console.warn(`⚠️ Using stale cache for ${identifier} due to force refresh error`)
+          return cachedData.data
+        }
+      } catch (cacheReadError) {
+        console.error(`❌ Failed to read cache for ${cacheKey}:`, cacheReadError)
+      }
+      // No cache available - throw original error
+      throw fetchError
+    }
+  }
 
   // Step 1: Try to get cache FIRST (Refresh-Ahead pattern)
   try {

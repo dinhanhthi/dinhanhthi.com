@@ -53,8 +53,9 @@ pnpm run prettier
 pnpm store prune
 
 # cache management (requires Redis setup)
-pnpm run warm-cache        # Populate Redis cache
-pnpm run clear-cache --all # Clear all cache
+pnpm run warm-cache         # Populate Redis cache
+pnpm run warm-cache --force # Force refresh cache (get latest data from Notion API)
+pnpm run clear-cache --all  # Clear all cache
 ```
 
 ## Redis Cache Setup
