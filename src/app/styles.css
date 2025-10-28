@@ -126,6 +126,10 @@
   --animate-fadeIn: fadeIn 500ms;
   --animate-wave: wave 2s linear infinite;
   --animate-toTop: toTop 0.3s alternate ease infinite;
+  --animate-dialogOverlayShow: dialogOverlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogOverlayHide: dialogOverlayHide 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogContentShow: dialogContentShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogContentHide: dialogContentHide 200ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Keyframes */
   @keyframes fadeIn {
@@ -170,6 +174,42 @@
     }
     100% {
       transform: translate(0, -3px);
+    }
+  }
+
+  @keyframes dialogOverlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes dialogOverlayHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes dialogContentShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes dialogContentHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 
@@ -597,9 +637,9 @@ ul > li {
 
 .notion-page-icon-hero {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
-  font-size: 38px;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
   line-height: 1;
   display: flex;
   align-items: center;
