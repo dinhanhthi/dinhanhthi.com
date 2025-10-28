@@ -27,8 +27,9 @@ export async function getUnofficialDatabaseImpl(opts: {
   sourceId?: string
   collectionViewId?: string
   notionApiWeb?: string
+  whoIsCalling?: string
 }): Promise<CollectionInstance> {
-  const { spaceId, sourceId, collectionViewId, notionApiWeb } = opts
+  const { spaceId, sourceId, collectionViewId, notionApiWeb, whoIsCalling } = opts
   if (!spaceId) throw new Error('spaceId is not defined')
   if (!sourceId) throw new Error('sourceId is not defined')
   if (!collectionViewId) throw new Error('collectionViewId is not defined')
@@ -84,14 +85,17 @@ export async function getUnofficialDatabaseImpl(opts: {
     sendErrorEmail({
       errorType: 'unofficial-notion',
       errorMessage: error?.message || String(error),
-      context: `Failed to query unofficial Notion database (getUnofficialDatabaseImpl) with sourceId: ${sourceId}`,
+      context: `Failed to query unofficial Notion database with sourceId: ${sourceId}`,
       stack: error?.stack,
       metadata: {
         spaceId,
         sourceId,
         collectionViewId,
         url
-      }
+      },
+      whoIsCalling: whoIsCalling
+        ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
+        : 'notion/db.ts/getUnofficialDatabaseImpl'
     })
 
     throw error
@@ -113,6 +117,7 @@ export async function queryDatabaseImpl(opts: {
   sorts?: NotionSorts[]
   notionToken?: string
   notionVersion?: string
+  whoIsCalling?: string
 }): Promise<QueryDatabaseResponse> {
   const {
     dbId,
@@ -121,7 +126,8 @@ export async function queryDatabaseImpl(opts: {
     pageSize = notionMaxRequest,
     sorts,
     notionToken,
-    notionVersion
+    notionVersion,
+    whoIsCalling
   } = opts
   try {
     const url = `https://api.notion.com/v1/databases/${dbId}/query`
@@ -159,7 +165,8 @@ export async function queryDatabaseImpl(opts: {
           pageSize,
           sorts,
           notionToken,
-          notionVersion
+          notionVersion,
+          whoIsCalling
         })
         if (_.get(data, 'results')) {
           const lst = data['results'] as any[]
@@ -180,7 +187,8 @@ export async function queryDatabaseImpl(opts: {
         pageSize,
         sorts,
         notionToken,
-        notionVersion
+        notionVersion,
+        whoIsCalling
       })
     }
     console.error(error)
@@ -189,7 +197,7 @@ export async function queryDatabaseImpl(opts: {
     sendErrorEmail({
       errorType: 'notion-api',
       errorMessage: error?.message || String(error),
-      context: `Failed to query Notion database (queryDatabaseImpl) with dbId: ${dbId}`,
+      context: `Failed to query Notion database with dbId: ${dbId}`,
       stack: error?.stack,
       metadata: {
         dbId,
@@ -199,7 +207,10 @@ export async function queryDatabaseImpl(opts: {
         sorts,
         status: error?.status,
         code: error?.code
-      }
+      },
+      whoIsCalling: whoIsCalling
+        ? `${whoIsCalling} -> queryDatabaseImpl`
+        : 'notion/db.ts/queryDatabaseImpl'
     })
 
     return { results: [] } as any
@@ -337,6 +348,7 @@ export async function getBlocks(
       getBlocksImpl(blockId, initNumbering, getPageUri, parseImgurUrl, notionToken, notionVersion),
     {
       namespace: 'notion',
+      whoIsCalling: 'notion/db.ts/getBlocks',
       ...redisCacheTTL.blocks
     }
   )

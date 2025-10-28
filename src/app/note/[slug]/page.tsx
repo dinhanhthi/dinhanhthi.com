@@ -16,7 +16,9 @@ export async function generateMetadata({ params }: DynamicSegmentParamsProps): P
   const slug = resolvedParams.slug || ''
   const untitled = 'Unknown note | Site of Thi'
   if (!slug) return { title: untitled }
-  const allPosts = await getUnofficialPosts()
+  const allPosts = await getUnofficialPosts({
+    whoIsCalling: 'note/[slug]/page.tsx/generateMetadata'
+  })
   const post = allPosts.find(post => post.slug === slug)
   if (!post) return { title: untitled, description: undefined }
 
@@ -37,14 +39,18 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
   if (!slug) notFound()
 
   try {
-    const allPosts = await getUnofficialPosts()
-    const topics = await getTopics()
+    const allPosts = await getUnofficialPosts({
+      whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+    })
+    const topics = await getTopics({ whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage' })
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
     console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
     if (!pageIdwithDash) notFound()
 
-    const recordMap = await getRecordMap(pageIdwithDash)
+    const recordMap = await getRecordMap(pageIdwithDash, {
+      whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+    })
     // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
 
@@ -56,7 +62,9 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
-        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId)
+        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId, {
+          whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+        })
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }

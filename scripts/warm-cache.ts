@@ -45,7 +45,9 @@ async function warmCache() {
   // Warm Topics Cache
   try {
     console.log('📋 Fetching topics...')
-    const topics = await getTopics()
+    const topics = await getTopics({
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmTopicsCache'
+    })
     results.topics = topics.length
     console.log(`✅ Cached ${topics.length} topics\n`)
   } catch (error) {
@@ -58,12 +60,18 @@ async function warmCache() {
     console.log('📝 Fetching posts...')
 
     // Query 1: Main posts (for recent notes section)
-    const posts = await getPosts({ pageSize: 200 })
+    const posts = await getPosts({
+      pageSize: 200,
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCache'
+    })
     results.posts = posts.length
     console.log(`✅ Cached ${posts.length} posts (main query)`)
 
     // Query 2: Posts with specific page sizes (needed by various pages)
-    await getPosts({ pageSize: 28 }) // /notes page calculation
+    await getPosts({
+      pageSize: 28,
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCachePageSize28'
+    }) // /notes page calculation
     console.log(`✅ Cached posts (pageSize: 28)`)
 
     // Query 3: Pinned posts (for /notes page)
@@ -73,7 +81,8 @@ async function warmCache() {
           { property: 'pinned', checkbox: { equals: true } },
           { property: 'blog', checkbox: { equals: false } }
         ]
-      }
+      },
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPinnedPosts'
     })
     console.log(`✅ Cached pinned posts`)
 
@@ -83,13 +92,16 @@ async function warmCache() {
       filter: {
         property: 'blog',
         checkbox: { equals: true }
-      }
+      },
+      whoIsCalling: 'warm-cache.ts/warmCache/warmBlogPosts'
     })
     console.log(`✅ Cached blog posts (pageSize: 6)\n`)
 
     // Query 5: Posts by each tag (needed for homepage topic sections)
     console.log('🏷️  Fetching posts by tags...')
-    const topics = await getTopics()
+    const topics = await getTopics({
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/getTopicsForTagQueries'
+    })
     let tagCacheCount = 0
     for (const topic of topics) {
       try {
@@ -98,7 +110,8 @@ async function warmCache() {
             property: 'tags',
             multi_select: { contains: topic.name }
           },
-          pageSize: 12
+          pageSize: 12,
+          whoIsCalling: `warm-cache.ts/warmCache/warmPostsByTag/${topic.name}`
         })
         tagCacheCount++
         if (tagCacheCount % 5 === 0) {
@@ -117,7 +130,9 @@ async function warmCache() {
   // Warm Books Cache
   try {
     console.log('📚 Fetching books...')
-    const { books } = await getUnofficialBooks()
+    const { books } = await getUnofficialBooks({
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmBooksCache'
+    })
     results.books = books.length
     console.log(`✅ Cached ${books.length} books\n`)
   } catch (error) {
@@ -128,7 +143,9 @@ async function warmCache() {
   // Warm Tools Cache
   try {
     console.log('🛠️  Fetching tools...')
-    const { tools } = await getUnofficialTools()
+    const { tools } = await getUnofficialTools({
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmToolsCache'
+    })
     results.tools = tools.length
     console.log(`✅ Cached ${tools.length} tools\n`)
   } catch (error) {
@@ -139,7 +156,10 @@ async function warmCache() {
   // Warm Page Content Cache (Most Important!)
   try {
     console.log('📄 Fetching page content for all posts...')
-    const allPosts = await getPosts({ pageSize: 100 })
+    const allPosts = await getPosts({
+      pageSize: 100,
+      whoIsCalling: 'warm-cache.ts/warmCache/warmPageContent'
+    })
 
     let successCount = 0
     let failCount = 0
@@ -155,7 +175,9 @@ async function warmCache() {
           return
         }
         try {
-          await getRecordMap(post.id)
+          await getRecordMap(post.id, {
+            whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmPageContent'
+          })
           successCount++
           if (successCount % 10 === 0) {
             console.log(`   Cached ${successCount}/${allPosts.length} pages...`)
