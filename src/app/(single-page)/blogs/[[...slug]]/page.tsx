@@ -7,6 +7,7 @@ import PostList, { SkeletonPostList } from '@/src/app/components/PostsList'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
+import { queryDefinitions } from '@/src/lib/query-definitions'
 import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
@@ -36,12 +37,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
 // Async component for blog posts content
 async function BlogPostsContent({ currentPage }: { currentPage: number }) {
   const _allBlogs = await getPosts({
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    },
+    ...queryDefinitions.blogsPage.allBlogs,
     whoIsCalling: '(single-page)/blogs/[[...slug]]/page.tsx/BlogPostsContent'
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
@@ -85,12 +81,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
 
   // Fetch all blogs to calculate total pages (this is fast due to Redis cache)
   const _allBlogs = await getPosts({
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    },
+    ...queryDefinitions.blogsPage.allBlogs,
     whoIsCalling: '(single-page)/blogs/[[...slug]]/page.tsx/BlogsHomePage/getTotalPages'
   })
   const allBlogs = filterDupLangPosts(_allBlogs)

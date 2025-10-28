@@ -9,6 +9,7 @@ import {
   getStartCursorForCurrentPage,
   getUri
 } from '@/src/lib/helpers'
+import { queryDefinitions } from '@/src/lib/query-definitions'
 import { OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
@@ -84,47 +85,15 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
   const _postsOnThisPage = !allPosts.length
     ? []
     : await getPosts({
-        filter: {
-          and: [
-            {
-              property: 'tags',
-              multi_select: {
-                contains: tag?.name
-              }
-            },
-            {
-              property: 'blog',
-              checkbox: {
-                equals: false
-              }
-            }
-          ]
-        },
+        ...queryDefinitions.tagPage.regularPostsByTag(tag.name),
         startCursor,
-        pageSize: numPostsPerPage * 2,
         whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage'
       })
 
   const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
 
   const _blogPosts = await getPosts({
-    pageSize: numBlogPosts * 2,
-    filter: {
-      and: [
-        {
-          property: 'tags',
-          multi_select: {
-            contains: tag?.name
-          }
-        },
-        {
-          property: 'blog',
-          checkbox: {
-            equals: true
-          }
-        }
-      ]
-    },
+    ...queryDefinitions.tagPage.blogPostsByTag(tag.name),
     whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getBlogPosts'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
@@ -143,12 +112,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 
 async function getTotalPages(tag: Tag): Promise<[number, Post[]]> {
   const allPosts = await getPosts({
-    filter: {
-      property: 'tags',
-      multi_select: {
-        contains: tag?.name
-      }
-    },
+    ...queryDefinitions.tagPage.allPostsByTag(tag.name),
     whoIsCalling: 'tag/[[...slug]]/page.tsx/getTotalPages'
   })
   const numPosts = allPosts?.length || 0
