@@ -20,6 +20,7 @@ import {
   getRecordMap,
   getTopics,
   getUnofficialBooks,
+  getUnofficialPosts,
   getUnofficialTools
 } from '@/src/lib/fetcher'
 
@@ -49,6 +50,7 @@ async function warmCache() {
   const startTime = Date.now()
   const results = {
     topics: 0,
+    unofficialPosts: 0,
     posts: 0,
     books: 0,
     tools: 0,
@@ -70,7 +72,21 @@ async function warmCache() {
     results.errors.push('topics')
   }
 
-  // Warm Posts Cache
+  // Warm Unofficial Posts Cache (Published Notion Page)
+  try {
+    console.log('📰 Fetching unofficial posts...')
+    const unofficialPosts = await getUnofficialPosts({
+      whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmUnofficialPostsCache',
+      forceRefresh
+    })
+    results.unofficialPosts = unofficialPosts.length
+    console.log(`✅ Cached ${unofficialPosts.length} unofficial posts\n`)
+  } catch (error) {
+    console.error('❌ Failed to cache unofficial posts:', error)
+    results.errors.push('unofficialPosts')
+  }
+
+  // Warm Posts Cache (Official Notion DB API)
   try {
     console.log('📝 Fetching posts...')
 
@@ -233,12 +249,13 @@ async function warmCache() {
   console.log('─'.repeat(50))
   console.log(`⏱️  Duration: ${duration}s`)
   console.log(`📋 Topics: ${results.topics}`)
+  console.log(`📰 Unofficial Posts: ${results.unofficialPosts}`)
   console.log(`📝 Posts metadata: ${results.posts}`)
   console.log(`📄 Page content: ${results.pages}`)
   console.log(`📚 Books: ${results.books}`)
   console.log(`🛠️  Tools: ${results.tools}`)
   console.log(
-    `📦 Total items cached: ${results.topics + results.posts + results.pages + results.books + results.tools}`
+    `📦 Total items cached: ${results.topics + results.unofficialPosts + results.posts + results.pages + results.books + results.tools}`
   )
 
   if (results.errors.length > 0) {
