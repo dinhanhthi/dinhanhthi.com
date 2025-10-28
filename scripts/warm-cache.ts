@@ -117,22 +117,24 @@ async function warmCache() {
     errors: [] as string[]
   }
 
-  // Warm Topics Cache (needed by home page and tags page)
-  if (options.pages.home || options.pages.tags) {
+  // ============================================================================
+  // STEP 1: Warm Topics Cache ONCE (needed by home, notes, and tags pages)
+  // ============================================================================
+  let cachedTopics: Awaited<ReturnType<typeof getTopics>> | null = null
+  if (options.pages.home || options.pages.tags || options.pages.notes) {
     try {
-      const pageLabel =
-        options.pages.home && options.pages.tags
-          ? 'HOME/TAGS PAGE'
-          : options.pages.home
-            ? 'HOME PAGE'
-            : 'TAGS PAGE'
-      console.log(`📋 [${pageLabel}] Fetching topics...`)
-      const topics = await getTopics({
+      const pageLabel = []
+      if (options.pages.home) pageLabel.push('HOME')
+      if (options.pages.notes) pageLabel.push('NOTES')
+      if (options.pages.tags) pageLabel.push('TAGS')
+      console.log(`📋 [${pageLabel.join('/')} PAGE] Fetching topics...`)
+
+      cachedTopics = await getTopics({
         whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmTopicsCache',
         forceRefresh: options.forceRefresh
       })
-      results.topics = topics.length
-      console.log(`✅ Cached ${topics.length} topics\n`)
+      results.topics = cachedTopics.length
+      console.log(`✅ Cached ${cachedTopics.length} topics\n`)
     } catch (error) {
       console.error('❌ Failed to cache topics:', error)
       results.errors.push('topics')
@@ -155,32 +157,58 @@ async function warmCache() {
     }
   }
 
-  // Warm Posts Cache (Official Notion DB API)
+  // ============================================================================
+  // STEP 2: Warm Posts Cache (Official Notion DB API) - ACTUAL PRODUCTION QUERIES ONLY
+  // ============================================================================
   if (options.pages.home || options.pages.notes || options.pages.tags) {
     try {
-      console.log('📝 Fetching posts...')
+      console.log('📝 Fetching posts (production queries)...')
 
-      // Query 1: Main posts (for recent notes section - used by multiple pages)
-      if (options.pages.home || options.pages.notes) {
-        const posts = await getPosts({
-          pageSize: 200,
-          whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCache',
+      // HOME PAGE QUERIES
+      if (options.pages.home) {
+        // Query: Blog posts section (3 posts * 2 for dup lang filtering)
+        await getPosts({
+          pageSize: 6, // numBlogPosts * 2
+          filter: {
+            property: 'blog',
+            checkbox: { equals: true }
+          },
+          whoIsCalling: 'warm-cache.ts/warmCache/homePageBlogPosts',
           forceRefresh: options.forceRefresh
         })
-        results.posts = posts.length
-        console.log(`✅ Cached ${posts.length} posts (main query)`)
+        console.log(`✅ [HOME PAGE] Cached blog posts (pageSize: 6)`)
+
+        // Query: Pinned posts section (6 posts * 2 for dup lang filtering)
+        await getPosts({
+          pageSize: 12, // numPinnedPosts * 2
+          filter: {
+            and: [
+              { property: 'pinned', checkbox: { equals: true } },
+              { property: 'blog', checkbox: { equals: false } }
+            ]
+          },
+          whoIsCalling: 'warm-cache.ts/warmCache/homePagePinnedPosts',
+          forceRefresh: options.forceRefresh
+        })
+        console.log(`✅ [HOME PAGE] Cached pinned posts (pageSize: 12)`)
+
+        // Query: Recent notes section (12 posts * 2 for dup lang filtering)
+        const homePosts = await getPosts({
+          pageSize: 24, // numPostsToShow * 2
+          filter: {
+            property: 'blog',
+            checkbox: { equals: false }
+          },
+          whoIsCalling: 'warm-cache.ts/warmCache/homePageRecentNotes',
+          forceRefresh: options.forceRefresh
+        })
+        results.posts += homePosts.length
+        console.log(`✅ [HOME PAGE] Cached recent notes (pageSize: 24)`)
       }
 
-      // Query 2: Posts with specific page sizes (needed by /notes page)
+      // NOTES PAGE QUERIES
       if (options.pages.notes) {
-        await getPosts({
-          pageSize: 28,
-          whoIsCalling: 'warm-cache.ts/warmCache/warmPostsCachePageSize28',
-          forceRefresh: options.forceRefresh
-        }) // /notes page calculation
-        console.log(`✅ [NOTES PAGE] Cached posts (pageSize: 28)`)
-
-        // Query 3: Pinned posts (for /notes page)
+        // Query: Pinned posts (no pageSize = get ALL)
         await getPosts({
           filter: {
             and: [
@@ -188,61 +216,70 @@ async function warmCache() {
               { property: 'blog', checkbox: { equals: false } }
             ]
           },
-          whoIsCalling: 'warm-cache.ts/warmCache/warmPinnedPosts',
+          whoIsCalling: 'warm-cache.ts/warmCache/notesPagePinnedPosts',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [NOTES PAGE] Cached pinned posts`)
-      }
+        console.log(`✅ [NOTES PAGE] Cached pinned posts (ALL)`)
 
-      // Query 4: Blog posts (for homepage)
-      if (options.pages.home) {
+        // Query: Blog posts (3 posts * 2 for dup lang filtering)
         await getPosts({
-          pageSize: 6,
+          pageSize: 6, // numBlogPosts * 2
           filter: {
             property: 'blog',
             checkbox: { equals: true }
           },
-          whoIsCalling: 'warm-cache.ts/warmCache/warmBlogPosts',
+          whoIsCalling: 'warm-cache.ts/warmCache/notesPageBlogPosts',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [HOME PAGE] Cached blog posts (pageSize: 6)`)
+        console.log(`✅ [NOTES PAGE] Cached blog posts (pageSize: 6)`)
 
-        // Query 5: Regular posts (for homepage)
-        await getPosts({
-          pageSize: 24,
+        // Query: All notes (dynamic pageSize based on pinned + numPostsToShow)
+        // We'll use a conservative estimate of 30 * 2 = 60
+        const notesPosts = await getPosts({
+          pageSize: 60, // Conservative estimate: (numPostsToShow + pinnedPosts.length) * 2
           filter: {
             property: 'blog',
             checkbox: { equals: false }
           },
-          whoIsCalling: 'warm-cache.ts/warmCache/warmRegularPosts',
+          whoIsCalling: 'warm-cache.ts/warmCache/notesPageAllNotes',
           forceRefresh: options.forceRefresh
         })
-        console.log(`✅ [HOME PAGE] Cached regular posts (pageSize: 24)`)
+        results.posts += notesPosts.length
+        console.log(`✅ [NOTES PAGE] Cached all notes (pageSize: 60)`)
       }
 
-      // Query 6: Posts by each tag (needed for tags page only)
-      // Note: Home page only needs topics metadata, not posts by tag
-      if (options.pages.tags) {
-        console.log(`🏷️  [TAGS PAGE] Fetching posts by tags...`)
-        const topics = await getTopics({
-          whoIsCalling: 'scripts/warm-cache.ts/warmCache/getTopicsForTagQueries',
+      // BLOGS PAGE QUERIES
+      if (options.pages.home || options.pages.notes) {
+        // Query: All blogs (no pageSize = get ALL) - used for pagination
+        const allBlogs = await getPosts({
+          filter: {
+            property: 'blog',
+            checkbox: { equals: true }
+          },
+          whoIsCalling: 'warm-cache.ts/warmCache/blogsPageAllBlogs',
           forceRefresh: options.forceRefresh
         })
+        results.posts += allBlogs.length
+        console.log(`✅ [BLOGS PAGE] Cached all blogs (${allBlogs.length} blogs, ALL)`)
+      }
+
+      // TAGS PAGE QUERIES - REUSE CACHED TOPICS
+      if (options.pages.tags && cachedTopics) {
+        console.log(`🏷️  [TAGS PAGE] Fetching posts by tags...`)
         let tagCacheCount = 0
-        for (const topic of topics) {
+        for (const topic of cachedTopics) {
           try {
-            // Query 6a: All posts by tag (for getTotalPages)
+            // Query: All posts by tag (no pageSize limit - for getTotalPages)
             await getPosts({
               filter: {
                 property: 'tags',
                 multi_select: { contains: topic.name }
               },
-              pageSize: 12,
-              whoIsCalling: `warm-cache.ts/warmCache/warmPostsByTag/${topic.name}`,
+              whoIsCalling: `warm-cache.ts/warmCache/tagPageAllPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
 
-            // Query 6b: Regular posts by tag (for tag page - blog=false)
+            // Query: Regular posts by tag (48 posts * 2 for dup lang filtering)
             await getPosts({
               filter: {
                 and: [
@@ -257,11 +294,11 @@ async function warmCache() {
                 ]
               },
               pageSize: 96, // numPostsPerPage * 2 (48 * 2)
-              whoIsCalling: `warm-cache.ts/warmCache/warmRegularPostsByTag/${topic.name}`,
+              whoIsCalling: `warm-cache.ts/warmCache/tagPageRegularPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
 
-            // Query 6c: Blog posts by tag (for tag page - blog=true)
+            // Query: Blog posts by tag (4 posts * 2 for dup lang filtering)
             await getPosts({
               filter: {
                 and: [
@@ -276,13 +313,15 @@ async function warmCache() {
                 ]
               },
               pageSize: 8, // numBlogPosts * 2 (4 * 2)
-              whoIsCalling: `warm-cache.ts/warmCache/warmBlogPostsByTag/${topic.name}`,
+              whoIsCalling: `warm-cache.ts/warmCache/tagPageBlogPostsByTag/${topic.name}`,
               forceRefresh: options.forceRefresh
             })
 
             tagCacheCount++
             if (tagCacheCount % 5 === 0) {
-              console.log(`   Cached ${tagCacheCount}/${topics.length} tags (3 queries per tag)...`)
+              console.log(
+                `   Cached ${tagCacheCount}/${cachedTopics.length} tags (3 queries per tag)...`
+              )
             }
           } catch (error) {
             console.error(`   ⚠️  Failed to cache posts for tag ${topic.name}:`, error)
@@ -291,6 +330,8 @@ async function warmCache() {
         console.log(
           `✅ Cached posts for ${tagCacheCount} tags (${tagCacheCount * 3} total queries)\n`
         )
+      } else if (options.pages.tags && !cachedTopics) {
+        console.log('⚠️  Skipping tags page queries: topics cache not available\n')
       } else {
         console.log('') // Empty line for formatting
       }
@@ -332,13 +373,16 @@ async function warmCache() {
     }
   }
 
-  // Warm Page Content Cache (for single note pages - Most Important!)
+  // ============================================================================
+  // STEP 3: Warm Page Content Cache (for single note pages - Most Important!)
+  // ============================================================================
   if (options.pages.single) {
     try {
       console.log('📄 [SINGLE NOTE PAGES] Fetching page content for all posts...')
-      const allPosts = await getPosts({
-        pageSize: 100,
-        whoIsCalling: 'warm-cache.ts/warmCache/warmPageContent',
+      // Use getUnofficialPosts() to get all posts metadata (not limited to 100)
+      // This is more efficient than getPosts() for getting all posts
+      const allPosts = await getUnofficialPosts({
+        whoIsCalling: 'warm-cache.ts/warmCache/warmPageContent/getUnofficialPosts',
         forceRefresh: options.forceRefresh
       })
 
