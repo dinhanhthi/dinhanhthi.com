@@ -350,8 +350,13 @@
       margin: 0.75rem 0;
     }
 
-    :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply font-medium text-inherit;
+    :where(strong, b):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply font-bold text-inherit dark:text-[#e2ad96];
+    }
+
+    /* Keep link color when strong/b is inside <a> or <a> is inside strong/b */
+    :where(a strong, a b, strong a, b a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply text-link hover:text-link-hover font-bold;
     }
 
     :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
