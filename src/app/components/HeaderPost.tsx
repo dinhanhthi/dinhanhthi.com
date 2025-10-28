@@ -229,30 +229,25 @@ export function SkeletonHeaderPost() {
         <div className="bg-skeleton-bg h-[75px] w-[75px] shrink-0 animate-pulse rounded lg:h-[150px] lg:w-[150px]" />
 
         {/* Mobile title skeleton */}
-        <div className="bg-skeleton-bg h-8 w-2/3 animate-pulse rounded lg:hidden" />
+        <div className="bg-skeleton-bg h-8 w-2/3 animate-pulse rounded-full lg:hidden" />
       </div>
 
       <div className="flex w-full flex-col gap-4">
         {/* Desktop title skeleton */}
-        <div className="bg-skeleton-bg hidden h-8 w-2/3 animate-pulse rounded-xl lg:block" />
+        <div className="bg-skeleton-bg hidden h-7 w-2/3 animate-pulse rounded-full lg:block" />
 
         {/* Meta info skeleton (Author + Date) */}
         <div className="flex w-full flex-wrap items-center gap-3">
-          <div className="bg-skeleton-bg h-5 w-24 animate-pulse rounded" />
-          <div className="bg-skeleton-bg h-5 w-32 animate-pulse rounded" />
-          <div className="bg-skeleton-bg h-5 w-28 animate-pulse rounded" />
+          <div className="bg-skeleton-bg h-4 w-24 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-4 w-32 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-4 w-28 animate-pulse rounded-full" />
         </div>
 
         {/* Tags skeleton */}
         <div className="flex flex-wrap items-center gap-2">
-          <div className="bg-skeleton-bg h-6 w-16 animate-pulse rounded-xl" />
-          <div className="bg-skeleton-bg h-6 w-20 animate-pulse rounded-xl" />
-          <div className="bg-skeleton-bg h-6 w-24 animate-pulse rounded-xl" />
-        </div>
-
-        {/* Language buttons skeleton */}
-        <div className="flex flex-row items-center gap-2">
-          <div className="bg-skeleton-bg h-7 w-52 animate-pulse rounded-lg" />
+          <div className="bg-skeleton-bg h-6 w-16 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-6 w-20 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-6 w-24 animate-pulse rounded-full" />
         </div>
       </div>
     </Header>
