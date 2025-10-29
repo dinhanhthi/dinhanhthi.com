@@ -1,5 +1,6 @@
 import { Tool } from '@/src/lib/types'
 import cn from 'classnames'
+import { sectionOuterClass } from '../../../lib/config'
 import ToolSimpleItem, { SkeletonToolSimpleItem } from './ToolSimpleItem'
 
 export default function ToolSimpleSection(props: {
@@ -12,7 +13,7 @@ export default function ToolSimpleSection(props: {
       className={cn(
         'flex flex-col rounded-xl',
         {
-          'border-border-muted border bg-slate-200 p-1 dark:bg-slate-700': !!props.title
+          'border-border-muted border bg-slate-200 p-1 dark:bg-slate-700/50': !!props.title
         },
         props.className
       )}
@@ -22,7 +23,7 @@ export default function ToolSimpleSection(props: {
           {props.title}
         </div>
       )}
-      <div className="border-border-muted bg-bg grid gap-x-2 rounded-xl border p-1.5 sm:grid-cols-2">
+      <div className={cn('grid gap-x-2 p-1.5 sm:grid-cols-2', sectionOuterClass)}>
         {props.tools.map(tool => {
           return <ToolSimpleItem key={tool.url} tool={tool} />
         })}

@@ -1,3 +1,4 @@
+import { cn } from '../../lib/utils'
 import TooltipX from './tooltip-x'
 import { Badge } from './ui/badge'
 
@@ -12,7 +13,11 @@ export default function DraftBadgeComponent(props: DraftBadgeComponentProps) {
   const { className, draftLabel, tooltipDraftLabel, postId } = props
   return (
     <>
-      <Badge id={`draft-${postId}`} variant="outline" className={className}>
+      <Badge
+        id={`draft-${postId}`}
+        variant="outline"
+        className={cn('hover:!bg-transparent', className)}
+      >
         {draftLabel || 'draft'}
       </Badge>{' '}
       <TooltipX id={`#draft-${postId}`}>

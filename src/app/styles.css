@@ -7,15 +7,18 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); /* use data-theme=dark to target dark mode */
 
 :root {
+  --bg-button-color: var(--color-slate-200);
   --bg-color: var(--color-white);
   --bg-hover-color: var(--color-slate-100);
   --border-muted-color: var(--color-slate-200);
+  --border-button-color: var(--color-slate-300);
   --green-bg-color: var(--color-green-200);
   --green-text-color: var(--color-green-800);
-  --link-color: var(--color-sky-600);
+  --link-color: #0285ff;
   --link-hover-color: var(--color-pink-600);
   --muted-color: var(--color-slate-500);
   --text-color: var(--color-slate-800);
+  --text-prose-color: var(--color-slate-800);
   --text-heading-color: var(--color-slate-700);
   --yellow-bg-color: var(--color-amber-200);
   --yellow-text-color: #6b5b1c;
@@ -43,15 +46,18 @@
 }
 
 [data-theme='dark'] {
-  --bg-color: var(--color-slate-800);
-  --bg-hover-color: var(--color-slate-700);
-  --border-muted-color: var(--color-slate-700);
+  --bg-button-color: #23262e;
+  --bg-color: #30333ba8;
+  --bg-hover-color: #393c44;
+  --border-muted-color: #a0a0a01c;
+  --border-button-color: #a0a0a05d;
   --green-bg-color: #245833;
   --green-text-color: var(--color-white);
-  --link-color: var(--color-sky-500);
-  --link-hover-color: var(--color-pink-400);
+  --link-color: #99ceff;
+  --link-hover-color: var(--color-pink-300);
   --muted-color: var(--color-slate-400);
   --text-color: var(--color-slate-50);
+  --text-prose-color: var(--color-slate-300);
   --text-heading-color: var(--color-slate-50);
   --yellow-bg-color: #eccd00;
   --yellow-text-color: #4b2f0b;
@@ -79,9 +85,11 @@
 }
 
 @theme inline {
+  --color-bg-button: var(--bg-button-color);
   --color-bg: var(--bg-color);
   --color-bg-hover: var(--bg-hover-color);
   --color-border-muted: var(--border-muted-color);
+  --color-border-button: var(--border-button-color);
   --color-green-bg: var(--green-bg-color);
   --color-green-text: var(--green-text-color);
   --color-link: var(--link-color);
@@ -303,7 +311,7 @@
 }
 
 @utility prose-pink {
-  --tw-prose-body: var(--text-color);
+  --tw-prose-body: var(--text-prose-color);
 }
 
 @layer utilities {
@@ -391,7 +399,7 @@
     }
 
     :where(strong, b):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply font-bold text-inherit dark:text-[#e2ad96];
+      @apply font-bold text-inherit dark:text-white;
     }
 
     /* Keep link color when strong/b is inside <a> or <a> is inside strong/b */
