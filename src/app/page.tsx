@@ -3,11 +3,11 @@ import { Suspense } from 'react'
 import {
   defaultBlurDataURL,
   defaultPostTypeOpts,
-  numPostsToShow,
   postSimpleListContainerClass
 } from '@/src/lib/config'
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { queryDefinitions } from '@/src/lib/query-definitions'
 import { Book } from '@/src/lib/types'
 import me from '../data/me'
 import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
@@ -35,18 +35,14 @@ export const metadata = getMetadata({
 
 // Async component for Blog section content
 async function BlogSectionContent() {
-  const numBlogPosts = 3
   const _blogPosts = await getPosts({
-    pageSize: numBlogPosts * 2,
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    },
+    ...queryDefinitions.homePage.blogPosts,
     whoIsCalling: 'page.tsx/BlogSectionContent'
   })
-  const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
+  const blogPosts = filterDupLangPosts(_blogPosts).slice(
+    0,
+    (queryDefinitions.homePage.blogPosts.pageSize ?? 0) / 2
+  )
 
   if (blogPosts.length === 0) return null
 
@@ -66,40 +62,23 @@ async function BlogSectionContent() {
 
 // Async component for Notes section content
 async function NotesSectionContent() {
-  const numPinnedPosts = 6
   const _pinnedPosts = await getPosts({
-    pageSize: numPinnedPosts * 2,
-    filter: {
-      and: [
-        {
-          property: 'pinned',
-          checkbox: {
-            equals: true
-          }
-        },
-        {
-          property: 'blog',
-          checkbox: {
-            equals: false
-          }
-        }
-      ]
-    },
+    ...queryDefinitions.homePage.pinnedPosts,
     whoIsCalling: 'page.tsx/NotesSectionContent/getPinnedPosts'
   })
-  const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(0, numPinnedPosts)
+  const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(
+    0,
+    (queryDefinitions.homePage.pinnedPosts.pageSize ?? 0) / 2
+  )
 
   const _posts = await getPosts({
-    pageSize: numPostsToShow * 2,
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: false
-      }
-    },
+    ...queryDefinitions.homePage.recentNotes,
     whoIsCalling: 'page.tsx/NotesSectionContent/getPosts'
   })
-  const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow)
+  const posts = filterDupLangPosts(_posts).slice(
+    0,
+    (queryDefinitions.homePage.recentNotes.pageSize ?? 0) / 2
+  )
 
   return (
     <div className="flex flex-col gap-4">
@@ -185,7 +164,7 @@ export default function Home() {
           <Suspense
             fallback={
               <SkeletonPostList
-                count={2}
+                count={(queryDefinitions.homePage.blogPosts.pageSize ?? 0) / 2}
                 postType="PostBlogSimple"
                 className={postSimpleListContainerClass}
               />
@@ -201,7 +180,7 @@ export default function Home() {
           <Suspense
             fallback={
               <SkeletonPostList
-                count={2}
+                count={8}
                 postType="PostSimple"
                 className={postSimpleListContainerClass}
               />
@@ -214,7 +193,7 @@ export default function Home() {
         {/* Tools */}
         <div className="flex flex-col gap-4">
           <HeadingPage title="Recent tools I use" href="/tools/" />
-          <Suspense fallback={<SkeletonToolPageSection numTools={4} hasTitle={false} />}>
+          <Suspense fallback={<SkeletonToolPageSection numTools={6} hasTitle={false} />}>
             <ToolsSectionContent />
           </Suspense>
         </div>
@@ -243,7 +222,7 @@ export default function Home() {
           <Suspense
             fallback={
               <div className="flex flex-wrap gap-4">
-                {Array.from({ length: 4 }).map((_, i) => (
+                {Array.from({ length: 12 }).map((_, i) => (
                   <SkeletonTopic key={i} type="simple" />
                 ))}
               </div>

@@ -39,7 +39,7 @@ export default async function ToolsHomePage() {
               key={'recently-added'}
               title="Recently added"
               tools={tools.slice(0, 6)} // We don't sort alphabetically here
-              className="!bg-[#e7ffee] dark:!bg-[#0b2c40c4]"
+              className="!bg-[#e7ffee] dark:!bg-[#0b2c40c4]/60"
             />
           )}
           {favoriteTools.length > 0 && (
@@ -47,7 +47,7 @@ export default async function ToolsHomePage() {
               key={'favorites'}
               title="Favorites"
               tools={favoriteTools.sort((a, b) => a.name.localeCompare(b.name))}
-              className="!bg-orange-100 dark:!bg-[#80653c6b]"
+              className="!bg-orange-100 dark:!bg-[#80653c6b]/60"
             />
           )}
           {sortedCategories &&

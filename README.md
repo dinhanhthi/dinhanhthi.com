@@ -53,8 +53,11 @@ pnpm run prettier
 pnpm store prune
 
 # cache management (requires Redis setup)
-pnpm run warm-cache        # Populate Redis cache
-pnpm run clear-cache --all # Clear all cache
+pnpm run warm-cache         				# Populate Redis cache
+pnpm run warm-cache --force 				# Force refresh cache (get latest data from Notion API)
+pnpm run warm-cache --home --force 	# Force refresh cache for home page
+# There are other options: --notes, --tags, --tools, --single
+pnpm run clear-cache --all  				# Clear all cache
 ```
 
 ## Redis Cache Setup
@@ -75,6 +78,18 @@ DISABLE_REDIS_CACHE="your-deploy-hook-secret"
 ```
 
 **Remark**: On Vercel, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment. You also need to add these variables in the Github Repository Secrets: `SITE_URL` (`https://dinhanhthi.com` for example) and `DEPLOY_HOOK_SECRET`
+
+**Useful commands**:
+
+```bash
+pnpm run warm-cache         				# Populate Redis cache
+pnpm run warm-cache --force 				# Force refresh cache (get latest data from Notion API)
+pnpm run warm-cache --home --force 	# Force refresh cache for home page 
+# There are other options: --notes, --tags, --tools, --single
+pnpm run clear-cache --all  				# Clear all cache
+pnpm run warm-cache --slug=my-note-slug           # Warm single note by slug
+pnpm run warm-cache --slug=my-note-slug --force   # Force refresh single note
+```
 
 ## Error Email Notifications (Resend)
 

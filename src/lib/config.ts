@@ -76,7 +76,7 @@ export const redisCacheTTL = {
    * Updates frequently, needs fresh data
    */
   posts: {
-    softTTL: 12 * HOUR,
+    softTTL: 6 * HOUR,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -85,7 +85,7 @@ export const redisCacheTTL = {
    * Large dataset, less frequent updates
    */
   unofficialPosts: {
-    softTTL: 12 * HOUR,
+    softTTL: 6 * HOUR,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -94,7 +94,7 @@ export const redisCacheTTL = {
    * Taxonomy rarely changes
    */
   topics: {
-    softTTL: 4 * DAY,
+    softTTL: 2 * DAY,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -103,7 +103,7 @@ export const redisCacheTTL = {
    * Stable collection, infrequent updates
    */
   books: {
-    softTTL: 4 * DAY,
+    softTTL: 2 * DAY,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -112,7 +112,7 @@ export const redisCacheTTL = {
    * Tool collection rarely changes
    */
   tools: {
-    softTTL: 4 * DAY,
+    softTTL: 2 * DAY,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -121,7 +121,7 @@ export const redisCacheTTL = {
    * Content updates moderately
    */
   blocks: {
-    softTTL: 6 * HOUR,
+    softTTL: 3 * HOUR,
     hardTTL: FIXED_HARD_TTL
   },
 
@@ -131,6 +131,15 @@ export const redisCacheTTL = {
    */
   emoji: {
     softTTL: 2 * DAY,
+    hardTTL: FIXED_HARD_TTL
+  },
+
+  /**
+   * Record map cache
+   * Page content changes moderately
+   */
+  recordMap: {
+    softTTL: 1 * HOUR, // 1 hour - page content changes moderately
     hardTTL: FIXED_HARD_TTL
   }
 } as const
