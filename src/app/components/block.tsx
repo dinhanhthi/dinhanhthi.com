@@ -411,7 +411,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <div
             className={cn('heading-container relative mb-4', blurBlockClassName, {
-              'from-bg-hover to-bg rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r py-1 pl-2 dark:border-sky-700':
+              'from-bg-hover to-bg-[#23262e] rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r py-1 pl-2 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
