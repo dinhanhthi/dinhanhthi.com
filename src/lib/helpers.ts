@@ -7,7 +7,7 @@ import {
 import cn from 'classnames'
 import { Metadata } from 'next'
 import * as types from 'notion-types'
-import { Block, ExtendedRecordMap } from 'notion-types'
+import { Block } from 'notion-types'
 import slugify from 'slugify'
 
 import * as fs from 'fs'
@@ -408,11 +408,7 @@ export function getMetadata(opts: {
 // Post Transformation Utilities
 // ============================================================================
 
-export function transformUnofficialPostProps(
-  post: Block,
-  topics: Tag[] = [],
-  recordMap?: ExtendedRecordMap
-): Post {
+export function transformUnofficialPostProps(post: Block, topics: Tag[] = []): Post {
   const id = post.id
   const properties = post?.properties
   const slug = properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0] ?? ''
@@ -443,51 +439,38 @@ export function transformUnofficialPostProps(
   const language = properties?.[
     `${process.env.NEXT_PUBLIC_ID_LANGUAGE}`
   ]?.[0]?.[0] as PostHeaderType['language']
-  // From the current post -> get the id of the corresponding language post -> get its slug
-  const vi_id = properties?.[`${process.env.NEXT_PUBLIC_ID_VI}`]?.[0]?.[1]?.[0]?.[1]
-  const vi =
-    recordMap && vi_id
-      ? recordMap.block[vi_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
-      : undefined
-  const en_id = properties?.[`${process.env.NEXT_PUBLIC_ID_EN}`]?.[0]?.[1]?.[0]?.[1]
-  const en =
-    recordMap && en_id
-      ? recordMap.block[en_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
-      : undefined
-  const fr_id = properties?.[`${process.env.NEXT_PUBLIC_ID_FR}`]?.[0]?.[1]?.[0]?.[1]
-  const fr =
-    recordMap && fr_id
-      ? recordMap.block[fr_id]?.value?.properties?.[`${process.env.NEXT_PUBLIC_ID_SLUG}`]?.[0]?.[0]
-      : undefined
+  const vi = properties?.[`${process.env.NEXT_PUBLIC_ID_VI}`]?.[0]?.[0]
+  const en = properties?.[`${process.env.NEXT_PUBLIC_ID_EN}`]?.[0]?.[0]
+  const fr = properties?.[`${process.env.NEXT_PUBLIC_ID_FR}`]?.[0]?.[0]
   const notionUrl = properties?.[`${process.env.NEXT_PUBLIC_NOTION_PUBLISHED_URL}`]?.[0]?.[0]
 
   return {
-    id,
-    slug,
-    uri: `/note/${slug}/`,
-    title,
-    description,
-    rawTitle,
-    date,
-    createdDate,
-    tags,
-    isPublished,
-    isPage,
-    isDraft,
-    icon,
-    pageCover,
-    coverPosition,
-    wellWritten,
-    pinned,
-    discrete,
     blog,
-    hide,
-    language,
-    vi,
+    coverPosition,
+    createdDate,
+    customEmojiUrl: undefined, // This will be populated if needed
+    date,
+    description,
+    discrete,
     en,
     fr,
+    hide,
+    icon,
+    id,
+    isDraft,
+    isPage,
+    isPublished,
+    language,
     notionUrl,
-    customEmojiUrl: undefined // This will be populated if needed
+    pageCover,
+    pinned,
+    rawTitle,
+    slug,
+    tags,
+    title,
+    uri: `/note/${slug}/`,
+    vi,
+    wellWritten
   }
 }
 
