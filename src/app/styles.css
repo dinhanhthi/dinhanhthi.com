@@ -47,7 +47,7 @@
 
 [data-theme='dark'] {
   --bg-button-color: #23262e;
-  --bg-color: #30333ba8;
+  --bg-color: #2b2e34;
   --bg-hover-color: #393c44;
   --border-muted-color: #a0a0a01c;
   --border-button-color: #a0a0a05d;
@@ -399,12 +399,12 @@
     }
 
     :where(strong, b):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply font-bold text-inherit dark:text-white;
+      @apply font-semibold text-inherit dark:text-white;
     }
 
     /* Keep link color when strong/b is inside <a> or <a> is inside strong/b */
     :where(a strong, a b, strong a, b a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply text-link hover:text-link-hover font-bold;
+      @apply text-link hover:text-link-hover font-semibold;
     }
 
     :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
