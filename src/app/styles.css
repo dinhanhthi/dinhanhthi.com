@@ -7,15 +7,18 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); /* use data-theme=dark to target dark mode */
 
 :root {
+  --bg-button-color: var(--color-slate-200);
   --bg-color: var(--color-white);
   --bg-hover-color: var(--color-slate-100);
   --border-muted-color: var(--color-slate-200);
+  --border-button-color: var(--color-slate-300);
   --green-bg-color: var(--color-green-200);
   --green-text-color: var(--color-green-800);
-  --link-color: var(--color-sky-600);
+  --link-color: #0285ff;
   --link-hover-color: var(--color-pink-600);
   --muted-color: var(--color-slate-500);
   --text-color: var(--color-slate-800);
+  --text-prose-color: var(--color-slate-800);
   --text-heading-color: var(--color-slate-700);
   --yellow-bg-color: var(--color-amber-200);
   --yellow-text-color: #6b5b1c;
@@ -43,15 +46,18 @@
 }
 
 [data-theme='dark'] {
-  --bg-color: var(--color-slate-800);
-  --bg-hover-color: var(--color-slate-700);
-  --border-muted-color: var(--color-slate-700);
+  --bg-button-color: #23262e;
+  --bg-color: #30333ba8;
+  --bg-hover-color: #393c44;
+  --border-muted-color: #a0a0a01c;
+  --border-button-color: #a0a0a05d;
   --green-bg-color: #245833;
   --green-text-color: var(--color-white);
-  --link-color: var(--color-sky-500);
-  --link-hover-color: var(--color-pink-400);
+  --link-color: #99ceff;
+  --link-hover-color: var(--color-pink-300);
   --muted-color: var(--color-slate-400);
   --text-color: var(--color-slate-50);
+  --text-prose-color: var(--color-slate-300);
   --text-heading-color: var(--color-slate-50);
   --yellow-bg-color: #eccd00;
   --yellow-text-color: #4b2f0b;
@@ -79,9 +85,11 @@
 }
 
 @theme inline {
+  --color-bg-button: var(--bg-button-color);
   --color-bg: var(--bg-color);
   --color-bg-hover: var(--bg-hover-color);
   --color-border-muted: var(--border-muted-color);
+  --color-border-button: var(--border-button-color);
   --color-green-bg: var(--green-bg-color);
   --color-green-text: var(--green-text-color);
   --color-link: var(--link-color);
@@ -121,15 +129,15 @@
     transparent 0,
     transparent 100%
   );
-  --background-image-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23ffffff;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23323541;'%3E%3C/path%3E%3C/svg%3E");
-  --background-image-wave-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23f6f6f6;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23323541;'%3E%3C/path%3E%3C/svg%3E");
-  --background-image-wave-footer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23323541;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23ffffff;'%3E%3C/path%3E%3C/svg%3E");
-  --background-image-wave-footer-stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 70 500 60' preserveAspectRatio='none'%3E%3Crect x='0' y='0' width='500' height='500' style='stroke: none; fill: %23323541;' /%3E%3Cpath d='M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z' style='stroke: none; fill: %23f6f6f6;'%3E%3C/path%3E%3C/svg%3E");
 
   /* Animations */
   --animate-fadeIn: fadeIn 500ms;
   --animate-wave: wave 2s linear infinite;
   --animate-toTop: toTop 0.3s alternate ease infinite;
+  --animate-dialogOverlayShow: dialogOverlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogOverlayHide: dialogOverlayHide 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogContentShow: dialogContentShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-dialogContentHide: dialogContentHide 200ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Keyframes */
   @keyframes fadeIn {
@@ -174,6 +182,42 @@
     }
     100% {
       transform: translate(0, -3px);
+    }
+  }
+
+  @keyframes dialogOverlayShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes dialogOverlayHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes dialogContentShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes dialogContentHide {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 
@@ -236,10 +280,10 @@
       height: 10px;
     }
     &::-webkit-scrollbar-thumb {
-      background: #ced4da;
+      background: #aab5c9b0;
       border-radius: 10px;
       &:hover {
-        background: #adb5bd;
+        background: #aab5c9;
       }
     }
     &::-webkit-scrollbar-track {
@@ -267,7 +311,7 @@
 }
 
 @utility prose-pink {
-  --tw-prose-body: var(--text-color);
+  --tw-prose-body: var(--text-prose-color);
 }
 
 @layer utilities {
@@ -354,8 +398,13 @@
       margin: 0.75rem 0;
     }
 
-    :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply font-medium text-inherit;
+    :where(strong, b):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply font-bold text-inherit dark:text-white;
+    }
+
+    /* Keep link color when strong/b is inside <a> or <a> is inside strong/b */
+    :where(a strong, a b, strong a, b a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+      @apply text-link hover:text-link-hover font-bold;
     }
 
     :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -596,9 +645,9 @@ ul > li {
 
 .notion-page-icon-hero {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
-  font-size: 38px;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
   line-height: 1;
   display: flex;
   align-items: center;

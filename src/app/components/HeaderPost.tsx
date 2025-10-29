@@ -73,6 +73,8 @@ export default function HeaderPost(props: HeaderPostProps) {
     get(defaultPostTypeOpts, 'maxDaysWinthin', 7)
   )
 
+  /* ###Thi */ console.log(`👉👉👉 fr: `, fr)
+
   return (
     <Header
       className={props.className}
@@ -89,7 +91,7 @@ export default function HeaderPost(props: HeaderPostProps) {
           />
         )}
         {!!icon && (
-          <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded bg-slate-200 lg:h-[150px] lg:w-[150px] dark:bg-slate-700">
+          <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded bg-slate-200 lg:h-[170px] lg:w-[170px] dark:bg-slate-700">
             <Suspense
               fallback={
                 <div
@@ -164,11 +166,11 @@ export default function HeaderPost(props: HeaderPostProps) {
 
         {/* Tags */}
         {((tags && !!tags.length) || isDraft) && (
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             {/* draft */}
             {isDraft && (
               <DraftBadgeComponent
-                className="ml-1.5 border-orange-500/50 bg-orange-500/10 text-orange-500 dark:border-orange-500/50 dark:bg-orange-500/10 dark:text-orange-500"
+                className="ml-1.5 border-orange-400/50 text-orange-400"
                 postId="is-draft"
               />
             )}
@@ -191,26 +193,26 @@ export default function HeaderPost(props: HeaderPostProps) {
         {(!!vi || !!en || !!fr) && (
           <div className="flex flex-row items-center gap-2">
             {!!vi && (
-              <Button className="h-8 px-3" size="sm" variant="outline">
-                <Link className="flex flex-row items-center gap-2" href={getUri('note', vi)!}>
-                  <Languages size={14} />
-                  Read this post in Vietnamese
+              <Button size="xs" variant="outline">
+                <Link className="flex flex-row items-center gap-1" href={getUri('note', vi)!}>
+                  <Languages size={12} />
+                  Read in Vietnamese
                 </Link>
               </Button>
             )}
             {!!en && (
-              <Button className="h-8 px-3" size="sm" variant="outline">
-                <Link className="flex flex-row items-center gap-2" href={getUri('note', en)!}>
-                  <Languages size={14} />
-                  Read this post in English
+              <Button size="xs" variant="outline">
+                <Link className="flex flex-row items-center gap-1" href={getUri('note', en)!}>
+                  <Languages size={12} />
+                  Read in English
                 </Link>
               </Button>
             )}
             {!!fr && (
-              <Button className="h-8 px-3" size="sm" variant="outline">
-                <Link className="flex flex-row items-center gap-2" href={getUri('note', fr)!}>
-                  <Languages size={14} />
-                  Read this post in French
+              <Button size="xs" variant="outline">
+                <Link className="flex flex-row items-center gap-1" href={getUri('note', fr)!}>
+                  <Languages size={12} />
+                  Read in French
                 </Link>
               </Button>
             )}
@@ -226,33 +228,28 @@ export function SkeletonHeaderPost() {
     <Header containerClassName="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         {/* Icon skeleton */}
-        <div className="bg-skeleton-bg h-[75px] w-[75px] shrink-0 animate-pulse rounded lg:h-[150px] lg:w-[150px]" />
+        <div className="bg-skeleton-bg h-[75px] w-[75px] shrink-0 animate-pulse rounded lg:h-[170px] lg:w-[170px]" />
 
         {/* Mobile title skeleton */}
-        <div className="bg-skeleton-bg h-8 w-2/3 animate-pulse rounded lg:hidden" />
+        <div className="bg-skeleton-bg h-8 w-2/3 animate-pulse rounded-full lg:hidden" />
       </div>
 
       <div className="flex w-full flex-col gap-4">
         {/* Desktop title skeleton */}
-        <div className="bg-skeleton-bg hidden h-8 w-2/3 animate-pulse rounded-xl lg:block" />
+        <div className="bg-skeleton-bg hidden h-7 w-2/3 animate-pulse rounded-full lg:block" />
 
         {/* Meta info skeleton (Author + Date) */}
         <div className="flex w-full flex-wrap items-center gap-3">
-          <div className="bg-skeleton-bg h-5 w-24 animate-pulse rounded" />
-          <div className="bg-skeleton-bg h-5 w-32 animate-pulse rounded" />
-          <div className="bg-skeleton-bg h-5 w-28 animate-pulse rounded" />
+          <div className="bg-skeleton-bg h-4 w-24 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-4 w-32 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-4 w-28 animate-pulse rounded-full" />
         </div>
 
         {/* Tags skeleton */}
         <div className="flex flex-wrap items-center gap-2">
-          <div className="bg-skeleton-bg h-6 w-16 animate-pulse rounded-xl" />
-          <div className="bg-skeleton-bg h-6 w-20 animate-pulse rounded-xl" />
-          <div className="bg-skeleton-bg h-6 w-24 animate-pulse rounded-xl" />
-        </div>
-
-        {/* Language buttons skeleton */}
-        <div className="flex flex-row items-center gap-2">
-          <div className="bg-skeleton-bg h-7 w-52 animate-pulse rounded-lg" />
+          <div className="bg-skeleton-bg h-6 w-16 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-6 w-20 animate-pulse rounded-full" />
+          <div className="bg-skeleton-bg h-6 w-24 animate-pulse rounded-full" />
         </div>
       </div>
     </Header>

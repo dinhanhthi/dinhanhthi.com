@@ -21,7 +21,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
   })
   if (notes.length === 0) return null
   return (
-    <div className="group flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
       <HeadingPage
         title={tag.longName || tag.name}
         href={tag.uri!}

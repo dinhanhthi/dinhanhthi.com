@@ -1,6 +1,7 @@
 import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { queryDefinitions } from '@/src/lib/query-definitions'
 import { Suspense } from 'react'
 import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
@@ -23,40 +24,19 @@ export default async function NotesHomePage() {
   const numBlogPosts = 3
 
   const _pinnedPosts = await getPosts({
-    filter: {
-      and: [
-        {
-          property: 'pinned',
-          checkbox: {
-            equals: true
-          }
-        },
-        {
-          property: 'blog',
-          checkbox: {
-            equals: false
-          }
-        }
-      ]
-    },
+    ...queryDefinitions.notesPage.pinnedPosts,
     whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPinnedPosts'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts)
 
   const _blogPosts = await getPosts({
-    pageSize: numBlogPosts * 2,
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    },
+    ...queryDefinitions.notesPage.blogPosts,
     whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getBlogPosts'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
   const _posts = await getPosts({
-    pageSize: (numPostsToShow + pinnedPosts.length) * 2,
+    ...queryDefinitions.notesPage.allNotes,
     whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPosts'
   })
   const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow + pinnedPosts.length)

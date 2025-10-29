@@ -92,7 +92,7 @@ export function LangBadge(props: LangBadgeProps) {
       <Badge
         id={`lang-${props.id}-${props.language}-${props.available ? 'available' : ''}`}
         variant={props.available ? 'outline' : 'secondary'}
-        className={cn('border-border-muted', props.className)}
+        className={cn('hover:!bg-bg-button', props.className)}
       >
         {props.language}
       </Badge>
