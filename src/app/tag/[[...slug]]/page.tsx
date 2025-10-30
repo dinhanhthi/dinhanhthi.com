@@ -10,17 +10,35 @@ import {
   getUri
 } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
-import { OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
+import { OptionalCatchAllParams, OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 
 export const revalidate = 60
-export const dynamicParams = true
 
 const numPostsPerPage = 48
 const numBlogPosts = 4
+
+export async function generateStaticParams() {
+  const tags = await getTopics()
+  const params = [] as OptionalCatchAllParams[]
+  for (const tag of tags) {
+    const [totalPages] = await getTotalPages(tag)
+    for (let i = 1; i <= totalPages; i++) {
+      const path =
+        i === 1
+          ? { slug: [tag.slug!] }
+          : {
+              slug: [tag.slug!, 'page', i.toString()]
+            }
+
+      params.push(path)
+    }
+  }
+  return params
+}
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const resolvedParams = await params
