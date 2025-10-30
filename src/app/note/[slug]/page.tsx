@@ -8,7 +8,12 @@ import { notFound } from 'next/navigation'
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 
 export const revalidate = 60
-export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const allPosts = await getUnofficialPosts()
+  const params = allPosts.filter(post => post.slug).map(post => ({ slug: post.slug }))
+  return params
+}
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
   const resolvedParams = await params
