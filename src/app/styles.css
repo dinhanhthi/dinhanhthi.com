@@ -47,9 +47,7 @@
 
 [data-theme='dark'] {
   --bg-button-color: #23262e;
-  /* --bg-color: #2b2e34; */
   --bg-color: #2a2d38;
-  /* --bg-hover-color: #393c44; */
   --bg-hover-color: #31353f;
   --border-muted-color: #a0a0a01c;
   --border-button-color: #a0a0a05d;
@@ -457,14 +455,14 @@ code {
 
 .table_block_column_header {
   tr:first-child {
-    @apply bg-gray-100 font-semibold dark:bg-gray-900;
+    @apply bg-gray-100 font-semibold dark:bg-bg;
   }
 }
 
 .table_block_row_header {
   tr {
     td:first-child {
-      @apply bg-gray-100 font-semibold dark:bg-gray-900;
+      @apply bg-gray-100 font-semibold dark:bg-bg;
     }
   }
 }

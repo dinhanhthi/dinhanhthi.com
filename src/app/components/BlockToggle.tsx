@@ -29,7 +29,7 @@ export default function BlockToggle(props: {
       <Collapsible open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger asChild>
           <button className={cn('toggle-button group flex w-full items-start gap-1.5 rounded-md')}>
-            <div className="z-20 mt-[2px] cursor-pointer rounded-md p-[2px] group-hover:bg-slate-200 group-hover:dark:bg-slate-900">
+            <div className="group-hover:dark:bg-bg-hover z-20 mt-[2px] cursor-pointer rounded-md p-[2px] group-hover:bg-slate-200">
               <ChevronRight
                 size={18}
                 className={cn('shrink-0 transform transition-all duration-300 ease-in-out', {
