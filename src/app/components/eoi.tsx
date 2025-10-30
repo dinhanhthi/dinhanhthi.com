@@ -3,8 +3,8 @@ import { Block } from 'notion-types'
 import * as React from 'react'
 
 import FaGithub from '@/src/app/icons/FaGithub'
-import RxDotFilled from '@/src/app/icons/RxDotFilled'
 import { formatNotionDateTime } from '@/src/lib/notion/utils'
+import { Circle } from 'lucide-react'
 
 // External Object Instance
 export const EOI: React.FC<{
@@ -62,7 +62,7 @@ export const EOI: React.FC<{
               <div className="text-link group-hover:text-link-hover text-base">{title}</div>
               <div className="text-muted flex flex-row items-center gap-1 text-[0.9em]">
                 <div>{owner}</div>
-                <RxDotFilled />
+                <Circle size={8} fill="currentColor" />
                 <div>{lastUpdated}</div>
               </div>
             </div>

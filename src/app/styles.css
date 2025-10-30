@@ -48,7 +48,7 @@
 [data-theme='dark'] {
   --bg-button-color: #23262e;
   /* --bg-color: #2b2e34; */
-  --bg-color: #2A2D38;
+  --bg-color: #2a2d38;
   /* --bg-hover-color: #393c44; */
   --bg-hover-color: #31353f;
   --border-muted-color: #a0a0a01c;
@@ -330,7 +330,7 @@
     :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
       @apply text-text-heading my-0 font-semibold;
       font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
-      font-weight: 600 !important;
+      font-weight: 500;
       opacity: 0.9;
     }
 

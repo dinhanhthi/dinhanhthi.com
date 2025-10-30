@@ -9,9 +9,8 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import { Prism, SyntaxHighlighterProps } from 'react-syntax-highlighter'
 import { prism, vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-import FiCheck from '@/src/app/icons/FiCheck'
-import RxCopy from '@/src/app/icons/RxCopy'
 import { useNotionContext } from '@/src/lib/notion/context'
+import { Check, Copy } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Mermaid from './Mermaid'
 import { Text } from './text'
@@ -52,8 +51,8 @@ export default function BlockCode(props: BlockCodeProps) {
 
   const copyBtn = (
     <button>
-      {!copied && <RxCopy className="text-lg text-slate-400 hover:text-slate-700" />}
-      {copied && <FiCheck className="text-lg text-green-600" />}
+      {!copied && <Copy className="text-muted hover:text-text" size={18} />}
+      {copied && <Check className="text-green-text" size={18} />}
     </button>
   ) as any
 

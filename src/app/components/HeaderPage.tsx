@@ -32,7 +32,7 @@ export default function HeaderPage(props: HeaderPageProps) {
           />
         )}
         {!!props.icon && (
-          <div className="bg-bg-hover flex h-[75px] w-[75px] items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
+          <div className="bg-bg-hover flex h-[90px] w-[90px] items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
             <div className="h-[45px] w-[45px]">
               <SimpleImage
                 src={props.icon.sourceUrl || props.icon.staticImageData?.src}
