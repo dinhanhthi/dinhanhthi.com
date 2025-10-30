@@ -13,7 +13,6 @@ import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
 export const revalidate = 60
-export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 
 const numPostsPerPage = 24
