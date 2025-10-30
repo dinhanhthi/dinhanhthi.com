@@ -20,7 +20,7 @@
     "build": "next build",
     "postinstall": "pnpm rebuild sharp",
     "start": "next start -p 3004",
-    "lint": "next lint",
+    "lint": "eslint .",
     "check": "pnpm run prettier && pnpm run build",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,scss}\"",
     "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
@@ -84,7 +84,6 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
