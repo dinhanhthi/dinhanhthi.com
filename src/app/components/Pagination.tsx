@@ -14,7 +14,6 @@ type PaginationProps = {
 export default function Pagination(props: PaginationProps) {
   const { path, total, current, className, pageAlias } = props
 
-  const iconSize = 'h-6 w-6'
   const hClass = 'h-9'
   const wClass = 'w-9'
   const sizeCurrentClass = 'h-12 w-12'
