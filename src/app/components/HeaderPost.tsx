@@ -73,8 +73,6 @@ export default function HeaderPost(props: HeaderPostProps) {
     get(defaultPostTypeOpts, 'maxDaysWinthin', 7)
   )
 
-  /* ###Thi */ console.log(`👉👉👉 fr: `, fr)
-
   return (
     <Header
       className={props.className}
