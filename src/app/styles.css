@@ -47,8 +47,10 @@
 
 [data-theme='dark'] {
   --bg-button-color: #23262e;
-  --bg-color: #2b2e34;
-  --bg-hover-color: #393c44;
+  /* --bg-color: #2b2e34; */
+  --bg-color: #2A2D38;
+  /* --bg-hover-color: #393c44; */
+  --bg-hover-color: #31353f;
   --border-muted-color: #a0a0a01c;
   --border-button-color: #a0a0a05d;
   --green-bg-color: #245833;
