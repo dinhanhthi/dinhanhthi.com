@@ -17,7 +17,6 @@ import { notFound, redirect } from 'next/navigation'
 import { defaultBlurDataURL } from '@/src/lib/config'
 
 export const revalidate = 60
-export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 
 const numPostsPerPage = 48
