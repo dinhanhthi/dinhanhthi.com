@@ -1,7 +1,7 @@
 {
   "name": "dinhanhthi.com",
   "description": "My personal website for taking notes.",
-  "version": "7.0.5",
+  "version": "7.0.6",
   "type": "module",
   "author": "Anh-Thi Dinh",
   "license": "MIT",
@@ -53,7 +53,6 @@
     "eslint": "^9.38.0",
     "eslint-config-next": "^15.5.6",
     "fs": "0.0.1-security",
-    "geopattern": "^1.2.3",
     "katex": "^0.16.25",
     "lodash": "^4.17.21",
     "lucide-react": "^0.544.0",
@@ -70,10 +69,8 @@
     "react-copy-to-clipboard": "5.1.0",
     "react-dom": "^19.2.0",
     "react-fast-compare": "^3.2.2",
-    "react-hotkeys-hook": "^4.6.2",
     "react-image": "^4.1.0",
     "react-lazy-images": "^1.1.0",
-    "react-snap-carousel": "^0.3.2",
     "react-syntax-highlighter": "15.5.0",
     "react-tooltip": "^5.30.0",
     "resend": "^6.3.0",
@@ -84,14 +81,9 @@
     "swr": "^2.3.6",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.3",
-    "url-metadata": "^5.2.3",
-    "zustand": "^5.0.8"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/plugin-syntax-flow": "^7.27.1",
-    "@babel/plugin-transform-react-jsx": "^7.27.1",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
     "@tailwindcss/postcss": "^4.1.16",
@@ -103,15 +95,11 @@
     "@types/react-copy-to-clipboard": "5.0.5",
     "@types/react-dom": "^19.2.2",
     "@types/react-syntax-highlighter": "15.5.7",
-    "@types/yargs": "^17.0.34",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
-    "chalk": "5.3.0",
-    "cloudinary": "^1.41.3",
     "dotenv": "^16.6.1",
     "encoding": "^0.1.13",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-tailwindcss": "^3.18.2",
@@ -122,8 +110,7 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "rimraf": "^5.0.10",
-    "tailwindcss": "^4.1.16",
-    "yargs": "^17.7.2"
+    "tailwindcss": "^4.1.16"
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "^1.30.2"
