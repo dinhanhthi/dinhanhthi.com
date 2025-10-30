@@ -20,14 +20,13 @@ const config = [
   {
     ignores: ['next-env.d.ts', 'graphql/**/*.ts', '.next/**', 'node_modules/**']
   },
-  ...compat.extends(
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'next/core-web-vitals',
-    'plugin:@next/next/recommended',
-    'prettier'
-  ),
+  ...compat.extends('eslint:recommended'),
+  ...compat.extends('plugin:react/recommended'),
+  ...compat.extends('plugin:@typescript-eslint/recommended'),
+  ...compat.extends('eslint-config-next/typescript'),
+  ...compat.extends('eslint-config-next/core-web-vitals'),
+  ...compat.extends('plugin:@next/next/recommended'),
+  ...compat.extends('prettier'),
   {
     plugins: {
       react,
