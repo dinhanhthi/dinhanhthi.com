@@ -373,7 +373,7 @@
     }
 
     :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-      @apply dark:text-text rounded-md bg-gray-200 p-[1px_8px_2px_6px] font-mono text-[90%] font-normal wrap-break-word before:content-[''] after:content-[''] dark:bg-gray-900/70;
+      @apply dark:text-[#ff9293] rounded-md bg-gray-200 p-[1px_8px_2px_6px] font-mono text-[90%] font-normal wrap-break-word before:content-[''] after:content-[''] dark:bg-[#343434];
     }
 
     :where(li):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
