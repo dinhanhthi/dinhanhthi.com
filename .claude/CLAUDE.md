@@ -176,7 +176,6 @@ Refer to `example.env.local` for complete list and documentation links.
 - **No `generateStaticParams()`**: Dynamic routes (`/note/[slug]`, `/tag/[[...slug]]`, `/blogs/[[...slug]]`) are rendered on-demand
 - **ISR with 60s revalidation**: Pages cached and revalidated every 60 seconds
 - **Build time**: ~2-4 minutes (vs ~21 minutes with full static generation)
-- **Configuration**: `export const dynamic = 'force-dynamic'` + `export const dynamicParams = true`
 
 **Key Benefits**:
 - Fast Vercel builds (no Notion API calls during build)
