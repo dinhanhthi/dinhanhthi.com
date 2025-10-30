@@ -4,8 +4,8 @@ import cn from 'classnames'
 import React, { useState } from 'react'
 
 import { basicBlockGap, blockMargin } from '@/src/app/components/block'
-import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
 import { mapColorClass } from '@/src/lib/helpers'
+import { ChevronRight } from 'lucide-react'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible'
 
 export default function BlockToggle(props: {
@@ -30,14 +30,12 @@ export default function BlockToggle(props: {
         <CollapsibleTrigger asChild>
           <button className={cn('toggle-button group flex w-full items-start gap-1.5 rounded-md')}>
             <div className="z-20 mt-[2px] cursor-pointer rounded-md p-[2px] group-hover:bg-slate-200 group-hover:dark:bg-slate-900">
-              <BsFillCaretRightFill
-                className={cn(
-                  'shrink-0 transform text-base transition-all duration-300 ease-in-out',
-                  {
-                    'rotate-90': open,
-                    'rotate-0': !open
-                  }
-                )}
+              <ChevronRight
+                size={18}
+                className={cn('shrink-0 transform transition-all duration-300 ease-in-out', {
+                  'rotate-90': open,
+                  'rotate-0': !open
+                })}
               />
             </div>
             <div className="text-start">{props.text}</div>
@@ -54,7 +52,7 @@ export default function BlockToggle(props: {
         )}
         <div
           className={cn(
-            'border-border-muted absolute top-0 left-0 z-10 mt-[8px] ml-[10px] h-[calc(100%-8px)] w-1 border-l',
+            'border-border-muted absolute top-0 left-0 z-10 mt-[12px] ml-[10px] h-[calc(100%-8px)] w-1 border-l-2',
             {
               hidden: !open
             }

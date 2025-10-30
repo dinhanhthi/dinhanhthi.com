@@ -10,13 +10,12 @@ import {
 } from 'notion-utils'
 import * as React from 'react'
 
-import BsCheckSquare from '@/src/app/icons/BsCheckSquare'
-import BsSquare from '@/src/app/icons/BsSquare'
 import CiLink from '@/src/app/icons/CiLink'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { generateAnchor } from '@/src/lib/helpers'
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, getListNumber, isUrl } from '@/src/lib/notion/utils'
+import { CheckSquare, Square } from 'lucide-react'
 import BlockCallout from './BlockCallout'
 import BlockToggle from './BlockToggle'
 import BlockVideo from './BlockVideo'
@@ -395,7 +394,7 @@ export const Block: React.FC<BlockProps> = props => {
         return (
           <BlockHeadingToggle
             className={cn('heading-container relative', blurBlockClassName, {
-              'rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r from-sky-50 to-white py-1 dark:border-sky-700':
+              'from-bg-hover to-bg-[#23262e] rounded-l-sm border-l-[2px] border-sky-300 bg-gradient-to-r py-1 dark:border-sky-700':
                 isH2,
               'mt-8': isH2 || isH1,
               'mt-6': isH3
@@ -789,8 +788,10 @@ export const Block: React.FC<BlockProps> = props => {
           {updatedBlock}
           <div className={cn('flex items-start gap-2', blockMargin)}>
             <div className="mt-[3px] h-4 w-4">
-              {isChecked && <BsCheckSquare className="text-slate-500 dark:text-slate-300" />}
-              {!isChecked && <BsSquare className="mt-0.5" />}
+              {isChecked && (
+                <CheckSquare className="text-slate-500 dark:text-slate-300" size={16} />
+              )}
+              {!isChecked && <Square className="mt-0.5" size={16} />}
             </div>
             <div>
               <Text value={block.properties?.title} block={block} />
@@ -878,7 +879,7 @@ export const Block: React.FC<BlockProps> = props => {
             return (
               <td
                 key={column}
-                className={cn('border border-slate-300 !p-2', {
+                className={cn('border-border-muted border !p-2', {
                   [`notion-${color}`]: color
                 })}
               >

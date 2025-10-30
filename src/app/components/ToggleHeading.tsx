@@ -3,7 +3,7 @@
 import cn from 'classnames'
 import React, { useState } from 'react'
 
-import BsFillCaretRightFill from '@/src/app/icons/BsFillCaretRightFill'
+import { ChevronRight } from 'lucide-react'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible'
 
 type BlockHeadingToggleProps = {
@@ -23,8 +23,8 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
         <div className={cn('flex w-full items-start gap-1', props.className)}>
           {props.updatedBlock}
           <CollapsibleTrigger asChild>
-            <button className="z-20 rounded-md p-1 hover:bg-slate-200">
-              <BsFillCaretRightFill
+            <button className="hover:bg-bg-hover z-20 rounded-md p-1">
+              <ChevronRight
                 className={cn('transform text-lg transition-all duration-300 ease-in-out', {
                   'rotate-90': open,
                   'rotate-0': !open
@@ -39,15 +39,12 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
           <div className="toggle-heading-content-container pl-8">{props.children}</div>
         </CollapsibleContent>
         <div
-          className={cn(
-            'border-border-muted absolute top-0 left-0 z-10 mt-[14px] h-[calc(100%-8px)] w-0 border-l-2',
-            {
-              hidden: !open,
-              'ml-[13.5px]':
-                !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
-              'ml-[12px]': props.headingType === 'h3'
-            }
-          )}
+          className={cn('border-border-muted absolute top-0 left-0 z-10 h-[calc(100%-8px)] w-0', {
+            hidden: !open,
+            'mt-[20px] ml-[16.5px] border-l-3':
+              !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
+            'mt-[15px] ml-[15px] border-l-2': props.headingType === 'h3'
+          })}
         ></div>
       </div>
     </Collapsible>

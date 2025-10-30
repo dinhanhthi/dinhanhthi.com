@@ -1,8 +1,7 @@
 import cn from 'classnames'
 import Link from 'next/link'
 
-import CgChevronLeft from '@/src/app/icons/CgChevronLeft'
-import CgChevronRight from '@/src/app/icons/CgChevronRight'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type PaginationProps = {
   path: string
@@ -33,7 +32,7 @@ export default function Pagination(props: PaginationProps) {
         {current > 1 && (
           <Link href={getPagePath(current - 1, path, pageAlias)}>
             <div className={cn(classArrow, 'mr-2')}>
-              <CgChevronLeft className={iconSize} />
+              <ChevronLeft size={24} />
             </div>
           </Link>
         )}
@@ -115,7 +114,7 @@ export default function Pagination(props: PaginationProps) {
         {total - current > 0 && (
           <Link href={getPagePath(current + 1, path, pageAlias)}>
             <div className={cn(classArrow, 'ml-2')}>
-              <CgChevronRight className={iconSize} />
+              <ChevronRight size={24} />
             </div>
           </Link>
         )}
