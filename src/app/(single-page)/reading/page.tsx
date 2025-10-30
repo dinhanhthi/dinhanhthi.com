@@ -7,7 +7,6 @@ import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import ReadingPage, { SkeletonReadingPage } from './ReadingPage'
 
-export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 const title = 'My reading list'
