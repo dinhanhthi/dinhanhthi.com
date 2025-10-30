@@ -1,6 +1,6 @@
 import CafeIcon from '@/public/cafe.svg'
-import TbExternalLink from '@/src/app/icons/TbExternalLink'
 import cn from 'classnames'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -21,11 +21,11 @@ export default function Footer() {
             href="https://photos.app.goo.gl/9OVEkdTjmtRPg7vC3"
             target="_blank"
           >
-            Sketches <TbExternalLink />
+            Sketches <ExternalLink size={16} />
           </a>{' '}
           <span>|</span>
           <a className={cn(aClass)} href="https://goo.gl/photos/yQXdQws1LLS16x5v5" target="_blank">
-            Cooking <TbExternalLink />
+            Cooking <ExternalLink size={16} />
           </a>{' '}
           <span>|</span>
           <Link className={cn(aClass)} href={'/note/support-thi/'}>

@@ -91,7 +91,7 @@ export default function HeaderPost(props: HeaderPostProps) {
           />
         )}
         {!!icon && (
-          <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center rounded bg-slate-200 lg:h-[170px] lg:w-[170px] dark:bg-slate-700">
+          <div className="flex h-[90px] w-[90px] shrink-0 items-center justify-center rounded bg-slate-200 lg:h-[170px] lg:w-[170px] dark:bg-slate-700">
             <Suspense
               fallback={
                 <div
@@ -228,7 +228,7 @@ export function SkeletonHeaderPost() {
     <Header containerClassName="flex flex-col items-center gap-4 lg:flex-row">
       <div className="flex w-full shrink-0 flex-row items-center gap-4 lg:w-fit">
         {/* Icon skeleton */}
-        <div className="bg-skeleton-bg h-[75px] w-[75px] shrink-0 animate-pulse rounded lg:h-[170px] lg:w-[170px]" />
+        <div className="bg-skeleton-bg h-[90px] w-[90px] shrink-0 animate-pulse rounded lg:h-[170px] lg:w-[170px]" />
 
         {/* Mobile title skeleton */}
         <div className="bg-skeleton-bg h-8 w-2/3 animate-pulse rounded-full lg:hidden" />

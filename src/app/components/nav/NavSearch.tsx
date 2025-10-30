@@ -1,15 +1,12 @@
 'use client'
 
-import FiSearch from '@/src/app/icons/FiSearch'
-import IoBookOutline from '@/src/app/icons/IoBookOutline'
-import IoDocumentTextOutline from '@/src/app/icons/IoDocumentTextOutline'
 import { useOperatingSystem } from '@/src/hooks/useOperatingSystem'
 import { SearchResult } from '@/src/lib/types'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
 import { Command } from 'cmdk'
 import { debounce, get } from 'lodash'
-import { LoaderCircle, X } from 'lucide-react'
+import { BookOpen, FileText, LoaderCircle, Search, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
@@ -67,7 +64,7 @@ export default function NavSearch() {
           onClick={() => setIsOpen(true)}
           aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
         >
-          <FiSearch className="h-5 w-5" />
+          <Search size={20} />
         </button>
       </DialogTrigger>
       <DialogContent
@@ -88,9 +85,7 @@ export default function NavSearch() {
         >
           <div className="flex h-14 items-center justify-between gap-3 border-none p-3">
             <div className={cn('text-muted grid place-items-center')}>
-              {(data || error || get(data, '[0].isFake')) && !isLoading && (
-                <FiSearch className="text-2xl" />
-              )}
+              {(data || error || get(data, '[0].isFake')) && !isLoading && <Search size={24} />}
               {isLoading && (
                 <div className="animate-spin">
                   <LoaderCircle size={25} />
@@ -137,10 +132,8 @@ export default function NavSearch() {
                         onClick={() => handleItemClick(uri)}
                       >
                         <div>
-                          {!item.isBookPost && (
-                            <IoDocumentTextOutline className="text-xl opacity-80" />
-                          )}
-                          {item.isBookPost && <IoBookOutline className="text-xl opacity-80" />}
+                          {!item.isBookPost && <FileText size={20} className="opacity-80" />}
+                          {item.isBookPost && <BookOpen size={20} className="opacity-80" />}
                         </div>
                         <div className={cn('text-text flex w-full flex-col gap-1')}>
                           <div className={cn('flex w-full items-center justify-between')}>
@@ -179,8 +172,8 @@ export default function NavSearch() {
           )}
 
           {query && data && data.length > 0 && (
-            <div className="text-text p-3 pl-4 text-xs font-normal">
-              Found <span className="text-text-primary font-semibold">{data.length}</span> results
+            <div className="p-3 pl-4 text-xs font-normal text-green-800 dark:text-green-300">
+              Found <span className="font-semibold">{data.length}</span> results
             </div>
           )}
         </Command>

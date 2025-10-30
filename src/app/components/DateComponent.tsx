@@ -3,7 +3,7 @@
 import Moment from 'moment'
 import { useEffect, useState } from 'react'
 
-import BiDotsHorizontalRounded from '@/src/app/icons/BiDotsHorizontalRounded'
+import { Ellipsis } from 'lucide-react'
 
 type DateProps = {
   dateString: string
@@ -53,7 +53,7 @@ export default function DateComponent(props: DateProps) {
     setHydrated(true)
   }, [])
 
-  if (!hydrated) return <BiDotsHorizontalRounded className="animate-ping opacity-70" />
+  if (!hydrated) return <Ellipsis size={14} className="text-muted animate-ping opacity-70" />
 
   return (
     <span className={props.className}>
