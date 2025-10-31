@@ -104,7 +104,7 @@ export default function BookItem(props: BookItemProps) {
               {book.tags
                 ?.filter(tag => tag !== 'favorite')
                 ?.map(t => (
-                  <Badge variant="secondary" key={t}>
+                  <Badge className='bg-bg-hover border-border-muted' variant="secondary" key={t}>
                     {t}
                   </Badge>
                 ))}
