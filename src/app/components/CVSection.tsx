@@ -18,7 +18,7 @@ export default function CVSection({ cv, className }: CVSectionProps) {
         <h4 className="text-text-heading mt-2 text-center text-base font-semibold">
           {cv.url && (
             <a
-              className="text-link text-text-heading"
+              className="text-text-heading"
               href={cv.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -76,7 +76,7 @@ function logo(cv: CVItem) {
   return (
     <div
       className={cn('h-auto w-20', {
-        'p-2': cv.bgWhite,
+        'p-2 dark:rounded-lg dark:bg-white': cv.bgWhite,
         'p-1': !cv.bgWhite
       })}
     >

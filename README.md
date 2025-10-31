@@ -19,7 +19,7 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 
 ## Dev
 
-You have to install **globally** [Nodejs >=22](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) first. Then 
+You have to install **globally** [Nodejs >=22](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) and [`pnpm`](https://pnpm.io/installation) first. Then 
 
 ```bash
 # Copy and fill all variables (1st time only)

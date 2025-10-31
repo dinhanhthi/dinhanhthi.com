@@ -51,11 +51,22 @@ export default function NavSearch() {
 
   const handleItemClick = (uri: string) => {
     setIsOpen(false)
-    router.push(uri)
+    setQuery('')
+    // Small delay to ensure dialog closes before navigation
+    setTimeout(() => {
+      router.push(uri)
+    }, 50)
+  }
+
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open)
+    if (!open) {
+      setQuery('')
+    }
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         {/* Don't apply dark/light mode to this button because it's in nav which is always dark */}
         <button

@@ -44,16 +44,16 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
   try {
     const allPosts = await getUnofficialPosts({
-      whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
     })
-    const topics = await getTopics({ whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage' })
+    const topics = await getTopics({ whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})` })
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
     console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getRecordMap(pageIdwithDash, {
-      whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
     })
     // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
@@ -61,13 +61,14 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = transformUnofficialPostProps(block, topics)
+    /* ###Thi */ console.log(`👉👉👉 postProps: ${JSON.stringify(postProps)}`);
 
     // for new custom emoji
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
         const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId, {
-          whoIsCalling: 'note/[slug]/page.tsx/SingleNotePage'
+          whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
         })
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
