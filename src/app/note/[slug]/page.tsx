@@ -46,7 +46,9 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     const allPosts = await getUnofficialPosts({
       whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
     })
-    const topics = await getTopics({ whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})` })
+    const topics = await getTopics({
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
+    })
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
     console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
