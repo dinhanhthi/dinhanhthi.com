@@ -265,7 +265,9 @@ export async function withRedisCache<T>(
 
     // Send error notification email (non-blocking), ignore 429 rate limit errors
     const errorStatus = (fetchError as any)?.status || (fetchError as any)?.response?.status
-    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    console.log(
+      `🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`
+    )
     if (errorStatus !== 429) {
       sendErrorEmail({
         errorType: 'cache-fetch',

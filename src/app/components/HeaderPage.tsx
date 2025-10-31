@@ -1,4 +1,5 @@
 import { ImageType } from '../../lib/types'
+import { cn } from '../../lib/utils'
 import Header from './Header'
 import ImageWithLoading from './ImageWithLoading'
 import SimpleImage from './SimpleImage'
@@ -8,6 +9,7 @@ type HeaderPageProps = {
   title: string
   iconPath?: string // used when an image is on public/ folder and this is the path to that image
   icon?: ImageType // used for custom icon from Notion
+  objectClassName?: string
   subtitle?: string | React.ReactNode
   number?: number
 }
@@ -37,7 +39,7 @@ export default function HeaderPage(props: HeaderPageProps) {
               <SimpleImage
                 src={props.icon.sourceUrl || props.icon.staticImageData?.src}
                 alt={props.title}
-                className="notion-page-cover h-full w-full"
+                className={cn('notion-page-cover h-full w-full', props.objectClassName)}
                 imagePlaceholder={ImagePlaceholder()}
               />
             </div>
