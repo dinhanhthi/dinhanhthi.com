@@ -61,7 +61,6 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     const id = Object.keys(recordMap.block)[0]
     const block = recordMap.block[id]?.value
     const postProps = transformUnofficialPostProps(block, topics)
-    /* ###Thi */ console.log(`👉👉👉 postProps: ${JSON.stringify(postProps)}`);
 
     // for new custom emoji
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
