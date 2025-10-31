@@ -74,7 +74,9 @@ export async function getUnofficialDatabaseImpl(opts: {
     })
 
     if (!response.ok) {
-      throw new Error(`Unofficial Notion API error: ${response.status} ${response.statusText}`)
+      const error = new Error(`Unofficial Notion API error: ${response.status} ${response.statusText}`) as any
+      error.status = response.status
+      throw error
     }
 
     return await response.json()
@@ -82,7 +84,9 @@ export async function getUnofficialDatabaseImpl(opts: {
     console.error('🚨 Unofficial Notion API error:', error)
 
     // Send error notification email (non-blocking), ignore 429 rate limit errors
-    if (error?.status !== 429) {
+    const errorStatus = error?.status || error?.response?.status
+    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    if (errorStatus !== 429) {
       sendErrorEmail({
         errorType: 'unofficial-notion',
         errorMessage: error?.message || String(error),
@@ -92,7 +96,8 @@ export async function getUnofficialDatabaseImpl(opts: {
           spaceId,
           sourceId,
           collectionViewId,
-          url
+          url,
+          status: errorStatus
         },
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
@@ -196,7 +201,9 @@ export async function queryDatabaseImpl(opts: {
     console.error(error)
 
     // Send error notification email (non-blocking), ignore 429 rate limit errors
-    if (error?.status !== 429) {
+    const errorStatus = error?.status || error?.response?.status
+    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    if (errorStatus !== 429) {
       sendErrorEmail({
         errorType: 'notion-api',
         errorMessage: error?.message || String(error),
@@ -208,7 +215,7 @@ export async function queryDatabaseImpl(opts: {
           startCursor,
           pageSize,
           sorts,
-          status: error?.status,
+          status: errorStatus,
           code: error?.code
         },
         whoIsCalling: whoIsCalling

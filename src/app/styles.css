@@ -574,6 +574,23 @@ code {
       color: inherit;
     }
   }
+
+  /* Ensure strong and b tags inherit color in background classes */
+  .notion-gray_background,
+  .notion-brown_background,
+  .notion-orange_background,
+  .notion-yellow_background,
+  .notion-teal_background,
+  .notion-green_background,
+  .notion-blue_background,
+  .notion-purple_background,
+  .notion-pink_background,
+  .notion-red_background {
+    strong,
+    b {
+      color: inherit !important;
+    }
+  }
 }
 
 /* List styling enhancements */
