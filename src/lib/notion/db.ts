@@ -81,22 +81,24 @@ export async function getUnofficialDatabaseImpl(opts: {
   } catch (error: any) {
     console.error('🚨 Unofficial Notion API error:', error)
 
-    // Send error notification email (non-blocking)
-    sendErrorEmail({
-      errorType: 'unofficial-notion',
-      errorMessage: error?.message || String(error),
-      context: `Failed to query unofficial Notion database with sourceId: ${sourceId}`,
-      stack: error?.stack,
-      metadata: {
-        spaceId,
-        sourceId,
-        collectionViewId,
-        url
-      },
-      whoIsCalling: whoIsCalling
-        ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
-        : 'notion/db.ts/getUnofficialDatabaseImpl'
-    })
+    // Send error notification email (non-blocking), ignore 429 rate limit errors
+    if (error?.status !== 429) {
+      sendErrorEmail({
+        errorType: 'unofficial-notion',
+        errorMessage: error?.message || String(error),
+        context: `Failed to query unofficial Notion database with sourceId: ${sourceId}`,
+        stack: error?.stack,
+        metadata: {
+          spaceId,
+          sourceId,
+          collectionViewId,
+          url
+        },
+        whoIsCalling: whoIsCalling
+          ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
+          : 'notion/db.ts/getUnofficialDatabaseImpl'
+      })
+    }
 
     throw error
   }
@@ -193,25 +195,27 @@ export async function queryDatabaseImpl(opts: {
     }
     console.error(error)
 
-    // Send error notification email (non-blocking)
-    sendErrorEmail({
-      errorType: 'notion-api',
-      errorMessage: error?.message || String(error),
-      context: `Failed to query Notion database with dbId: ${dbId}`,
-      stack: error?.stack,
-      metadata: {
-        dbId,
-        filter,
-        startCursor,
-        pageSize,
-        sorts,
-        status: error?.status,
-        code: error?.code
-      },
-      whoIsCalling: whoIsCalling
-        ? `${whoIsCalling} -> queryDatabaseImpl`
-        : 'notion/db.ts/queryDatabaseImpl'
-    })
+    // Send error notification email (non-blocking), ignore 429 rate limit errors
+    if (error?.status !== 429) {
+      sendErrorEmail({
+        errorType: 'notion-api',
+        errorMessage: error?.message || String(error),
+        context: `Failed to query Notion database with dbId: ${dbId}`,
+        stack: error?.stack,
+        metadata: {
+          dbId,
+          filter,
+          startCursor,
+          pageSize,
+          sorts,
+          status: error?.status,
+          code: error?.code
+        },
+        whoIsCalling: whoIsCalling
+          ? `${whoIsCalling} -> queryDatabaseImpl`
+          : 'notion/db.ts/queryDatabaseImpl'
+      })
+    }
 
     return { results: [] } as any
   }

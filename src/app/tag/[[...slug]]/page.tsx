@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const currentPage = +(resolvedParams?.slug?.[2] || 1)
   console.debug(`\n👉 slug:  ${slug}, currentPage: ${currentPage}\n`)
   const [totalPages] = await getTotalPages({ slug } as Tag)
-  const tags = await getTopics({ whoIsCalling: 'tag/[[...slug]]/page.tsx/generateMetadata' })
+  const tags = await getTopics({ whoIsCalling: `tag/[[...slug]]/page.tsx/generateMetadata   (slug: ${slug})` })
   const tag = getTag(slug, tags)
   if (!tag)
     return {
@@ -79,7 +79,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
 
-  const _tags = await getTopics({ whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage' })
+  const _tags = await getTopics({ whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage (slug: ${slug})` })
   const tags = _tags.map(tag => ({
     ...tag,
     icon: { sourceUrl: tag.iconUrl, width: 60, height: 60, blurDataURL: defaultBlurDataURL }
@@ -104,14 +104,14 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     : await getPosts({
         ...queryDefinitions.tagPage.regularPostsByTag(tag.name),
         startCursor,
-        whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage'
+        whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage (slug: ${slug})`
       })
 
   const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
 
   const _blogPosts = await getPosts({
     ...queryDefinitions.tagPage.blogPostsByTag(tag.name),
-    whoIsCalling: 'tag/[[...slug]]/page.tsx/TagPage/getBlogPosts'
+    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getBlogPosts (slug: ${slug})`
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
@@ -130,7 +130,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 async function getTotalPages(tag: Tag): Promise<[number, Post[]]> {
   const allPosts = await getPosts({
     ...queryDefinitions.tagPage.allPostsByTag(tag.name),
-    whoIsCalling: 'tag/[[...slug]]/page.tsx/getTotalPages'
+    whoIsCalling: `tag/[[...slug]]/page.tsx/getTotalPages (slug: ${tag.slug})`
   })
   const numPosts = allPosts?.length || 0
   const totalPages = Math.ceil(numPosts / numPostsPerPage)
