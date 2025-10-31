@@ -51,7 +51,7 @@ export const EOI: React.FC<{
           <a
             className={cn(
               className,
-              'not-prose border-border-muted hover:border-link flex flex-row items-center gap-3 rounded-md border p-3 hover:cursor-pointer'
+              'not-prose border-border-muted hover:border-link dark:bg-bg bg-bg-hover flex flex-row items-center gap-3 rounded-md border p-3 hover:cursor-pointer'
             )}
             target="_blank"
             href={original_url}

@@ -263,22 +263,27 @@ export async function withRedisCache<T>(
     // Step 6: Fetch failed - try to get ANY cache (even if expired by softTTL)
     console.error(`🚨 Fetch error for ${identifier}:`, fetchError)
 
-    // Send error notification email (non-blocking)
-    sendErrorEmail({
-      errorType: 'cache-fetch',
-      errorMessage: fetchError instanceof Error ? fetchError.message : String(fetchError),
-      context: `Failed to fetch data for cache key with identifier: ${identifier}`,
-      stack: fetchError instanceof Error ? fetchError.stack : undefined,
-      metadata: {
-        cacheKey: identifier,
-        namespace,
-        softTTL,
-        hardTTL
-      },
-      whoIsCalling: whoIsCalling
-        ? `${whoIsCalling} -> withRedisCache`
-        : 'redis-cache.ts/withRedisCache'
-    })
+    // Send error notification email (non-blocking), ignore 429 rate limit errors
+    const errorStatus = (fetchError as any)?.status || (fetchError as any)?.response?.status
+    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    if (errorStatus !== 429) {
+      sendErrorEmail({
+        errorType: 'cache-fetch',
+        errorMessage: fetchError instanceof Error ? fetchError.message : String(fetchError),
+        context: `Failed to fetch data for cache key with identifier: ${identifier}`,
+        stack: fetchError instanceof Error ? fetchError.stack : undefined,
+        metadata: {
+          cacheKey: identifier,
+          namespace,
+          softTTL,
+          hardTTL,
+          status: errorStatus
+        },
+        whoIsCalling: whoIsCalling
+          ? `${whoIsCalling} -> withRedisCache`
+          : 'redis-cache.ts/withRedisCache'
+      })
+    }
 
     try {
       const cachedString = await client.get(cacheKey)

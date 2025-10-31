@@ -14,7 +14,7 @@
   --border-button-color: var(--color-slate-300);
   --green-bg-color: var(--color-green-200);
   --green-text-color: var(--color-green-800);
-  --link-color: #0285ff;
+  --link-color: #0080f8;
   --link-hover-color: var(--color-pink-600);
   --muted-color: var(--color-slate-500);
   --text-color: var(--color-slate-800);
@@ -47,15 +47,13 @@
 
 [data-theme='dark'] {
   --bg-button-color: #23262e;
-  /* --bg-color: #2b2e34; */
   --bg-color: #2a2d38;
-  /* --bg-hover-color: #393c44; */
   --bg-hover-color: #31353f;
   --border-muted-color: #a0a0a01c;
   --border-button-color: #a0a0a05d;
   --green-bg-color: #245833;
   --green-text-color: var(--color-white);
-  --link-color: #99ceff;
+  --link-color: #58adfb;
   --link-hover-color: var(--color-pink-300);
   --muted-color: var(--color-slate-400);
   --text-color: var(--color-slate-50);
@@ -330,8 +328,7 @@
     :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
       @apply text-text-heading my-0 font-semibold;
       font-family: var(--font-quicksand), ui-sans-serif, system-ui, sans-serif !important;
-      font-weight: 500;
-      opacity: 0.9;
+      font-weight: 600;
     }
 
     :where(h1):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -437,7 +434,7 @@
 
 @layer components {
   .thi-text-rainbow {
-    @apply bg-linear-to-r from-[#ff88c3] to-violet-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-violet-400 via-pink-400 to-red-300 bg-clip-text text-transparent;
   }
 }
 
@@ -457,14 +454,14 @@ code {
 
 .table_block_column_header {
   tr:first-child {
-    @apply bg-gray-100 font-semibold dark:bg-gray-900;
+    @apply dark:bg-bg bg-gray-100 font-semibold;
   }
 }
 
 .table_block_row_header {
   tr {
     td:first-child {
-      @apply bg-gray-100 font-semibold dark:bg-gray-900;
+      @apply dark:bg-bg bg-gray-100 font-semibold;
     }
   }
 }
@@ -498,7 +495,12 @@ code {
   }
 
   .notion-yellow_background {
-    @apply bg-yellow-200/60 dark:bg-yellow-500/20;
+    &.notion-in-text {
+      @apply bg-yellow-200/60 dark:bg-[#fff3a6] dark:text-[#5d5d5d];
+    }
+    &:not(.notion-in-text) {
+      @apply bg-yellow-200/60 dark:bg-yellow-500/30;
+    }
   }
 
   .notion-teal_background,
@@ -570,6 +572,23 @@ code {
   .notion-red {
     strong {
       color: inherit;
+    }
+  }
+
+  /* Ensure strong and b tags inherit color in background classes */
+  .notion-gray_background,
+  .notion-brown_background,
+  .notion-orange_background,
+  .notion-yellow_background,
+  .notion-teal_background,
+  .notion-green_background,
+  .notion-blue_background,
+  .notion-purple_background,
+  .notion-pink_background,
+  .notion-red_background {
+    strong,
+    b {
+      color: inherit !important;
     }
   }
 }

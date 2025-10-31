@@ -18,12 +18,10 @@ export default function HeaderThiCard() {
           width={200}
           priority
         />
-        <h1 className="font-heading text-text-heading -mb-2 text-3xl lg:hidden">
-          Hi! I&apos;m Thi
-        </h1>
+        <h1 className="font-heading thi-text-rainbow -mb-2 text-2xl font-bold lg:hidden lg:text-4xl">Hi! I&apos;m Thi</h1>
       </div>
       <div className="flex flex-col gap-4 py-4">
-        <h1 className="font-heading text-text-heading -mb-2 hidden text-3xl lg:block">
+        <h1 className="font-heading thi-text-rainbow -mb-2 hidden text-2xl font-bold lg:block lg:text-4xl">
           Hi! I&apos;m Thi
         </h1>
         <div className="max-w-full">{me.shortIntro}</div>

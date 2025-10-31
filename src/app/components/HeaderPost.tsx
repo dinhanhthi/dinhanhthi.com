@@ -101,13 +101,13 @@ export default function HeaderPost(props: HeaderPostProps) {
             </Suspense>
           </div>
         )}
-        <h1 className="font-heading baseline text-text-heading -mb-2 gap-2 text-2xl lg:hidden">
+        <h1 className="font-heading baseline thi-text-rainbow -mb-2 gap-2 text-2xl font-bold lg:hidden lg:text-3xl">
           <Text value={title} block={block} />
         </h1>
       </div>
 
       <div className="flex w-full flex-col gap-4">
-        <h1 className="font-heading baseline text-text-heading -mb-2 hidden gap-2 text-3xl lg:block">
+        <h1 className="font-heading baseline thi-text-rainbow -mb-2 hidden gap-2 text-2xl font-bold lg:block lg:text-3xl">
           <Text value={title} block={block} />
         </h1>
 

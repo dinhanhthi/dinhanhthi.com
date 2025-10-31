@@ -20,10 +20,15 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <div className="relative">
-        <div className={cn('flex w-full items-start gap-1', props.className)}>
+        <div className={cn('flex w-full items-start', props.className)}>
           {props.updatedBlock}
           <CollapsibleTrigger asChild>
-            <button className="hover:bg-bg-hover z-20 rounded-md p-1">
+            <button
+              className={cn('hover:bg-bg-hover z-20 rounded-md p-1', {
+                'ml-[-10px] mt-[-3px]': props.headingType === 'h3',
+                'mt-[-2px]': props.headingType === 'h2' || props.headingType === 'h1'
+              })}
+            >
               <ChevronRight
                 className={cn('transform text-lg transition-all duration-300 ease-in-out', {
                   'rotate-90': open,
@@ -43,7 +48,7 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
             hidden: !open,
             'mt-[20px] ml-[16.5px] border-l-3':
               !props.headingType || props.headingType === 'h2' || props.headingType === 'h1',
-            'mt-[15px] ml-[15px] border-l-2': props.headingType === 'h3'
+            'mt-[15px] ml-[5px] border-l-2': props.headingType === 'h3'
           })}
         ></div>
       </div>
