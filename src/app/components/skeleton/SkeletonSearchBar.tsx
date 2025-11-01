@@ -6,11 +6,11 @@ type SkeletonSearchBarProps = {
 
 export function SkeletonSearchBar(props: SkeletonSearchBarProps) {
   return (
-    <div className="flex items-center gap-3 rounded-xl bg-white p-4">
-      <div className="grid place-items-center text-slate-500">
+    <div className="bg-bg flex items-center gap-3 rounded-xl p-4">
+      <div className="text-muted grid place-items-center">
         <Search size={24} />
       </div>
-      <div className="text-slate-400">{props.placeholder || 'Search...'}</div>
+      <div className="text-text-color">{props.placeholder || 'Search...'}</div>
     </div>
   )
 }

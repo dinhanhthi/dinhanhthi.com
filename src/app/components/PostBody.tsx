@@ -32,15 +32,15 @@ type PostBodyProps = {
 
 const Equation = dynamic(() => import('./BlockEquation'), {
   loading: () => (
-    <div className="mx-auto my-4 flex h-14 w-1/2 animate-pulse items-center justify-center rounded-md bg-slate-200">
-      <SigmaIcon className="h-7 w-7 text-slate-500" />
+    <div className="bg-skeleton-bg mx-auto my-4 flex h-14 w-1/2 animate-pulse items-center justify-center rounded-md">
+      <SigmaIcon className="text-muted h-7 w-7" />
     </div>
   )
 })
 const Code = dynamic(() => import('./BlockCode'), {
   loading: () => (
-    <div className="my-4 flex h-14 w-full animate-pulse items-center justify-center rounded-md bg-slate-200">
-      <CodeIcon className="h-7 w-7 text-slate-500" />
+    <div className="bg-skeleton-bg my-4 flex h-14 w-full animate-pulse items-center justify-center rounded-md">
+      <CodeIcon className="text-muted h-7 w-7" />
     </div>
   )
 })
