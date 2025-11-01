@@ -44,8 +44,8 @@ export default function PostToc(props: PostTocProps) {
       <div className="text-muted pl-1 text-base italic lg:hidden">In this post</div>
       <div
         className={cn(
-          'not-prose thi-scrollbar thi-scrollbar-small grid grid-cols-2 overflow-auto p-4 text-sm lg:grid-cols-1 lg:rounded-none lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none',
-          sectionOuterClass
+          sectionOuterClass,
+          'not-prose thi-scrollbar thi-scrollbar-small grid grid-cols-2 !overflow-auto p-4 text-sm lg:grid-cols-1 lg:rounded-none lg:border-none lg:bg-transparent lg:p-0 lg:shadow-none'
         )}
       >
         {props.tocs.map(toc => {
