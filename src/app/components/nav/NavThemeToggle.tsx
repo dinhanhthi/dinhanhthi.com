@@ -3,6 +3,8 @@
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { cn } from '../../../lib/utils'
+import { buttonClass } from './Nav'
 
 export default function NavThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -24,7 +26,10 @@ export default function NavThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      className="group text-muted hover:bg-bg hover:text-text-color flex h-full items-center justify-center rounded-md p-2 hover:cursor-pointer focus:outline-none"
+      className={cn(
+        'group flex h-full items-center justify-center rounded-md p-2 hover:cursor-pointer focus:outline-none',
+        buttonClass
+      )}
       aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
       title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
     >
