@@ -27,13 +27,13 @@ export default function NavThemeToggle() {
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className={cn(
-        'group flex h-full items-center justify-center rounded-md p-2 hover:cursor-pointer focus:outline-none',
+        'group flex h-full items-center justify-center rounded-md p-1.5 hover:cursor-pointer focus:outline-none',
         buttonClass
       )}
       aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
       title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
     >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+      {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
     </button>
   )
 }

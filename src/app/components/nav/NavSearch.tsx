@@ -73,13 +73,13 @@ export default function NavSearch() {
         <button
           type="button"
           className={cn(
-            'group flex h-full items-center justify-center rounded-md p-2 hover:cursor-pointer focus:outline-none',
+            'group flex h-full items-center justify-center rounded-md p-1.5 hover:cursor-pointer focus:outline-none',
             buttonClass
           )}
           onClick={() => setIsOpen(true)}
           aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
         >
-          <Search size={20} />
+          <Search size={18} />
         </button>
       </DialogTrigger>
       <DialogContent
