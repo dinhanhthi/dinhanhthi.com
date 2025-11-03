@@ -329,15 +329,15 @@ async function warmCache() {
           `✅ [NOTES PAGE] Cached blog posts (pageSize: ${c.number(queryDefinitions.notesPage.blogPosts.pageSize ?? 'N/A')})`
         )
 
-        // Query: All notes
-        const notesPosts = await getPosts({
-          ...queryDefinitions.notesPage.allNotes,
-          whoIsCalling: 'warm-cache.ts/warmCache/notesPageAllNotes',
+        // Query: Recent posts (max 15, excluding pinned and blog posts)
+        const recentPosts = await getPosts({
+          ...queryDefinitions.notesPage.recentPosts,
+          whoIsCalling: 'warm-cache.ts/warmCache/notesPageRecentPosts',
           forceRefresh: options.forceRefresh
         })
-        results.posts += notesPosts.length
+        results.posts += recentPosts.length
         console.log(
-          `✅ [NOTES PAGE] Cached all notes (pageSize: ${c.number(queryDefinitions.notesPage.allNotes.pageSize ?? 'N/A')})`
+          `✅ [NOTES PAGE] Cached recent posts (pageSize: ${c.number(queryDefinitions.notesPage.recentPosts.pageSize ?? 'N/A')})`
         )
       }
 

@@ -130,6 +130,26 @@ export const queryDefinitions = {
           equals: false
         }
       }
+    } as QueryDefinition,
+
+    recentPosts: {
+      pageSize: 15 * 2,
+      filter: {
+        and: [
+          {
+            property: 'blog',
+            checkbox: {
+              equals: false
+            }
+          },
+          {
+            property: 'pinned',
+            checkbox: {
+              equals: false
+            }
+          }
+        ]
+      }
     } as QueryDefinition
   },
 
