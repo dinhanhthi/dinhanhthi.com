@@ -499,7 +499,7 @@ code {
 
   .notion-yellow_background {
     &.notion-in-text {
-      @apply bg-yellow-200/60 dark:bg-[#fff3a6] dark:text-[#5d5d5d];
+      @apply bg-yellow-200/60 dark:bg-[#ffde0024] dark:text-[#eee];
     }
     &:not(.notion-in-text) {
       @apply bg-yellow-200/60 dark:bg-yellow-500/30;
