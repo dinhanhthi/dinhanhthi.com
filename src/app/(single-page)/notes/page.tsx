@@ -1,4 +1,4 @@
-import { defaultBlurDataURL, numPostsToShow } from '@/src/lib/config'
+import { defaultBlurDataURL } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
@@ -34,11 +34,11 @@ export default async function NotesHomePage() {
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
-  const _posts = await getPosts({
-    ...queryDefinitions.notesPage.allNotes,
-    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPosts'
+  const _recentPosts = await getPosts({
+    ...queryDefinitions.notesPage.recentPosts,
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getRecentPosts'
   })
-  const posts = filterDupLangPosts(_posts).slice(0, numPostsToShow + pinnedPosts.length)
+  const recentPosts = filterDupLangPosts(_recentPosts).slice(0, 15)
 
   const _tags = await getTopics({ whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage' })
   const tags = _tags.map(tag => ({
@@ -64,7 +64,7 @@ export default async function NotesHomePage() {
           className="order-2"
           blogPosts={blogPosts}
           pinnedPosts={pinnedPosts}
-          posts={posts}
+          recentPosts={recentPosts}
           pinnedTags={pinnedTagsSorted}
           numBlogPosts={numBlogPosts}
         />
