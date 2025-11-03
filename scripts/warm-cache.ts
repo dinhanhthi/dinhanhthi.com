@@ -339,6 +339,43 @@ async function warmCache() {
         console.log(
           `✅ [NOTES PAGE] Cached recent posts (pageSize: ${c.number(queryDefinitions.notesPage.recentPosts.pageSize ?? 'N/A')})`
         )
+
+        // Query: Posts by pinned tags - REUSE CACHED TOPICS
+        if (cachedTopics) {
+          const pinnedTags = cachedTopics.filter(tag => tag.pinned)
+          // Put "Others" at the end
+          const others = pinnedTags.find(tag => tag.name === 'Others')
+          const pinnedTagsSorted = pinnedTags.filter(tag => tag.name !== 'Others')
+          if (others) pinnedTagsSorted.push(others)
+
+          console.log(`🏷️  [NOTES PAGE] Fetching posts by pinned tags...`)
+          let pinnedTagCacheCount = 0
+          for (const tag of pinnedTagsSorted) {
+            try {
+              await getPosts({
+                ...queryDefinitions.notesPage.postsByPinnedTag(tag.name),
+                whoIsCalling: `warm-cache.ts/warmCache/notesPagePostsByPinnedTag/${tag.name}`,
+                forceRefresh: options.forceRefresh
+              })
+              pinnedTagCacheCount++
+              if (pinnedTagCacheCount % 5 === 0) {
+                console.log(
+                  `   Cached ${c.number(pinnedTagCacheCount)}/${c.number(pinnedTagsSorted.length)} pinned tags...`
+                )
+              }
+            } catch (error) {
+              console.error(
+                `   ⚠️  Failed to cache posts for pinned tag ${c.error(tag.name)}:`,
+                error
+              )
+            }
+          }
+          console.log(
+            `✅ [NOTES PAGE] Cached posts for ${c.number(pinnedTagCacheCount)} pinned tags`
+          )
+        } else {
+          console.log('⚠️  Skipping pinned tag posts: topics cache not available')
+        }
       }
 
       // BLOGS PAGE QUERIES

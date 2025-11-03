@@ -12,12 +12,12 @@ type NotesPageListProps = {
   blogPosts: Post[]
   pinnedPosts: Post[]
   recentPosts: Post[]
-  pinnedTags: Tag[]
+  postsByTag: { tag: Tag; posts: Post[] }[]
   numBlogPosts: number
 }
 
 export default function NotesPageList(props: NotesPageListProps) {
-  const { className, blogPosts, pinnedPosts, recentPosts, pinnedTags, numBlogPosts } = props
+  const { className, blogPosts, pinnedPosts, recentPosts, postsByTag, numBlogPosts } = props
   return (
     <div className={cn('flex flex-1 flex-col gap-12', className)}>
       {/* Blog posts */}
@@ -104,7 +104,7 @@ export default function NotesPageList(props: NotesPageListProps) {
         </>
       </div>
 
-      {pinnedTags.map((tag: Tag) => (
+      {postsByTag.map(({ tag, posts }) => (
         <Suspense
           key={tag.id}
           fallback={
@@ -121,7 +121,7 @@ export default function NotesPageList(props: NotesPageListProps) {
             </div>
           }
         >
-          <NoteTopicSection tag={tag} />
+          <NoteTopicSection tag={tag} posts={posts} />
         </Suspense>
       ))}
     </div>
