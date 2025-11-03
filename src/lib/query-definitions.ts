@@ -133,7 +133,7 @@ export const queryDefinitions = {
     } as QueryDefinition,
 
     recentPosts: {
-      pageSize: 15 * 2,
+      pageSize: 12 * 2,
       filter: {
         and: [
           {
@@ -150,7 +150,20 @@ export const queryDefinitions = {
           }
         ]
       }
-    } as QueryDefinition
+    } as QueryDefinition,
+
+    /**
+     * Get posts by pinned tag (for topic sections on notes page)
+     */
+    postsByPinnedTag: (tagName: string): QueryDefinition => ({
+      pageSize: 10,
+      filter: {
+        property: 'tags',
+        multi_select: {
+          contains: tagName
+        }
+      }
+    })
   },
 
   /**

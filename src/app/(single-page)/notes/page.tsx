@@ -52,6 +52,17 @@ export default async function NotesHomePage() {
   const pinnedTagsSorted = pinnedTags.filter(tag => tag.name !== 'Others')
   if (others) pinnedTagsSorted.push(others)
 
+  // Fetch posts for all pinned tags
+  const postsByTag = await Promise.all(
+    pinnedTagsSorted.map(async tag => {
+      const posts = await getPosts({
+        ...queryDefinitions.notesPage.postsByPinnedTag(tag.name),
+        whoIsCalling: `(single-page)/notes/page.tsx/NotesHomePage/postsByPinnedTag/${tag.name}`
+      })
+      return { tag, posts }
+    })
+  )
+
   return (
     <>
       <HeaderPage
@@ -65,7 +76,7 @@ export default async function NotesHomePage() {
           blogPosts={blogPosts}
           pinnedPosts={pinnedPosts}
           recentPosts={recentPosts}
-          pinnedTags={pinnedTagsSorted}
+          postsByTag={postsByTag}
           numBlogPosts={numBlogPosts}
         />
 
