@@ -6,7 +6,7 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 
 🎊 What's new in v7? Check [this post](https://dinhanhthi.com/note/this-site-gets-updates).
 
-🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/support-thi/). Thank you!
+🧡 If what I do is helpful to you for some reason, please consider [supporting me](https://dinhanhthi.com/note/support-thi/). Thank you!
 
 ## Previous versions
 
