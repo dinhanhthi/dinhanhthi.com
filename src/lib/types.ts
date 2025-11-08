@@ -43,7 +43,6 @@ export type PostHeaderType = {
   icon?: string
   pageCover?: string
   coverPosition?: number
-  wellWritten?: boolean
   pinned?: boolean
   discrete?: boolean
   blog?: boolean
