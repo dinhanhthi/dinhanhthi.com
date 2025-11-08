@@ -130,7 +130,40 @@ export const queryDefinitions = {
           equals: false
         }
       }
-    } as QueryDefinition
+    } as QueryDefinition,
+
+    recentPosts: {
+      pageSize: 12 * 2,
+      filter: {
+        and: [
+          {
+            property: 'blog',
+            checkbox: {
+              equals: false
+            }
+          },
+          {
+            property: 'pinned',
+            checkbox: {
+              equals: false
+            }
+          }
+        ]
+      }
+    } as QueryDefinition,
+
+    /**
+     * Get posts by pinned tag (for topic sections on notes page)
+     */
+    postsByPinnedTag: (tagName: string): QueryDefinition => ({
+      pageSize: 10,
+      filter: {
+        property: 'tags',
+        multi_select: {
+          contains: tagName
+        }
+      }
+    })
   },
 
   /**

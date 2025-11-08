@@ -60,19 +60,11 @@ function parseSearchResults(data: any): SearchResult[] {
       const postSlug = _slug || makeSlugText(_title || '')
       const postTitleHighlighted =
         result?.highlight?.title
-          ?.replaceAll(
-            UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            // '<span style="color: #0065bd; font-weight: 500;">'
-            `<span class="text-link">`
-          )
+          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKey, `<span class="text-yellow-text-dark">`)
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, `</span>`) || postTitle
       const postTextHighlighted =
         result.highlight?.text
-          ?.replaceAll(
-            UNOFFICIAL_NOTION_KEYS.boldSearchKey,
-            // '<span style="color: #0065bd; font-weight: 500;">'
-            `<span class="text-link">`
-          )
+          ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKey, `<span class="text-yellow-text-dark">`)
           ?.replaceAll(UNOFFICIAL_NOTION_KEYS.boldSearchKeyClose, `</span>`) || null
 
       if (isPostHide) continue

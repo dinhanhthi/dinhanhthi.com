@@ -1,25 +1,19 @@
 import ImageComponent from '@/src/app/components/ImageComponent'
 import PostList from '@/src/app/components/PostsList'
-import { Tag } from '@/src/lib/types'
+import { Post, Tag } from '@/src/lib/types'
 
-import { defaultPostTypeOpts, numPostsToShow, postSimpleListContainerClass } from '@/src/lib/config'
-import { getPosts } from '@/src/lib/fetcher'
-import { getFilterOf } from '@/src/lib/helpers'
+import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import HeadingPage from '../../components/HeadingPage'
 
 type NoteTopicSectionProps = {
   tag: Tag
+  posts: Post[]
   className?: string
 }
 
-export default async function NoteTopicSection(props: NoteTopicSectionProps) {
-  const tag = props.tag
-  const notes = await getPosts({
-    filter: getFilterOf('tag', tag),
-    pageSize: numPostsToShow,
-    whoIsCalling: `(single-page)/notes/NoteTopicSection.tsx/NoteTopicSection/${tag.name}`
-  })
-  if (notes.length === 0) return null
+export default function NoteTopicSection(props: NoteTopicSectionProps) {
+  const { tag, posts } = props
+  if (posts.length === 0) return null
   return (
     <div className="flex flex-col gap-3">
       <HeadingPage
@@ -34,7 +28,7 @@ export default async function NoteTopicSection(props: NoteTopicSectionProps) {
         }
       />
       <PostList
-        posts={notes}
+        posts={posts}
         postType="PostSimple"
         postTypeOpts={defaultPostTypeOpts}
         options={{

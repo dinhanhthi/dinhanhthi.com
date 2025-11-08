@@ -9,7 +9,7 @@ import NavThemeToggle from './NavThemeToggle'
 import NavTopicItem from './NavTopicItem'
 import NavTopicsDropdown from './NavTopicsDropdown'
 
-export const textClass = 'text-gray-300 md:hover:text-white md:hover:bg-gray-700'
+export const buttonClass = 'text-slate-300 md:hover:text-white md:hover:bg-gray-700'
 
 export default function Nav() {
   const completion = useReadingProgress()

@@ -46,7 +46,9 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const currentPage = +(resolvedParams?.slug?.[2] || 1)
   console.debug(`\n👉 slug:  ${slug}, currentPage: ${currentPage}\n`)
   const [totalPages] = await getTotalPages({ slug } as Tag)
-  const tags = await getTopics({ whoIsCalling: `tag/[[...slug]]/page.tsx/generateMetadata   (slug: ${slug})` })
+  const tags = await getTopics({
+    whoIsCalling: `tag/[[...slug]]/page.tsx/generateMetadata   (slug: ${slug})`
+  })
   const tag = getTag(slug, tags)
   if (!tag)
     return {
@@ -79,7 +81,9 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
 
-  const _tags = await getTopics({ whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage (slug: ${slug})` })
+  const _tags = await getTopics({
+    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage (slug: ${slug})`
+  })
   const tags = _tags.map(tag => ({
     ...tag,
     icon: { sourceUrl: tag.iconUrl, width: 60, height: 60, blurDataURL: defaultBlurDataURL }

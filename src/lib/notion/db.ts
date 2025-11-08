@@ -74,7 +74,9 @@ export async function getUnofficialDatabaseImpl(opts: {
     })
 
     if (!response.ok) {
-      const error = new Error(`Unofficial Notion API error: ${response.status} ${response.statusText}`) as any
+      const error = new Error(
+        `Unofficial Notion API error: ${response.status} ${response.statusText}`
+      ) as any
       error.status = response.status
       throw error
     }
@@ -85,7 +87,9 @@ export async function getUnofficialDatabaseImpl(opts: {
 
     // Send error notification email (non-blocking), ignore 429 rate limit errors
     const errorStatus = error?.status || error?.response?.status
-    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    console.log(
+      `🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`
+    )
     if (errorStatus !== 429) {
       sendErrorEmail({
         errorType: 'unofficial-notion',
@@ -202,7 +206,9 @@ export async function queryDatabaseImpl(opts: {
 
     // Send error notification email (non-blocking), ignore 429 rate limit errors
     const errorStatus = error?.status || error?.response?.status
-    console.log(`🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`)
+    console.log(
+      `🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`
+    )
     if (errorStatus !== 429) {
       sendErrorEmail({
         errorType: 'notion-api',

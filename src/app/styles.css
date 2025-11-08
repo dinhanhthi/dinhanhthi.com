@@ -22,6 +22,7 @@
   --text-heading-color: var(--color-slate-700);
   --yellow-bg-color: var(--color-amber-200);
   --yellow-text-color: #6b5b1c;
+  --yellow-text-color-dark: #c89100;
 
   /* Skeletons */
   --skeleton-bg-color: var(--color-slate-200);
@@ -61,6 +62,7 @@
   --text-heading-color: var(--color-slate-50);
   --yellow-bg-color: #eccd00;
   --yellow-text-color: #4b2f0b;
+  --yellow-text-color-dark: #fffc7a;
 
   /* Skeletons */
   --skeleton-bg-color: var(--color-slate-700);
@@ -98,7 +100,8 @@
   --color-text: var(--text-color);
   --color-text-heading: var(--text-heading-color);
   --color-yellow-bg: var(--yellow-bg-color);
-  --color-yellow-text: var(--yellow-text-color);
+  --color-yellow-text: var(--yellow-text-color); /* only used with yellow-bg */
+  --color-yellow-text-dark: var(--yellow-text-color-dark); /* used for standalone text */
 
   /* Skeletons */
   --color-skeleton-bg: var(--skeleton-bg-color);
@@ -496,7 +499,7 @@ code {
 
   .notion-yellow_background {
     &.notion-in-text {
-      @apply bg-yellow-200/60 dark:bg-[#fff3a6] dark:text-[#5d5d5d];
+      @apply bg-yellow-200/60 dark:bg-[#ffde0024] dark:text-[#eee];
     }
     &:not(.notion-in-text) {
       @apply bg-yellow-200/60 dark:bg-yellow-500/30;

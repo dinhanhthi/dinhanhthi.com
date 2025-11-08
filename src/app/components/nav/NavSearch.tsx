@@ -12,6 +12,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../ui/dialog'
+import { buttonClass } from './Nav'
 
 export default function NavSearch() {
   const router = useRouter()
@@ -71,11 +72,14 @@ export default function NavSearch() {
         {/* Don't apply dark/light mode to this button because it's in nav which is always dark */}
         <button
           type="button"
-          className="group flex h-full items-center justify-center rounded-md p-2 text-slate-300 hover:cursor-pointer hover:bg-gray-700 hover:text-white focus:outline-none"
+          className={cn(
+            'group flex h-full items-center justify-center rounded-md p-1.5 hover:cursor-pointer focus:outline-none',
+            buttonClass
+          )}
           onClick={() => setIsOpen(true)}
           aria-label={`Search for notes (${os === 'mac' ? '⌘' : 'Ctrl'}+K)`}
         >
-          <Search size={20} />
+          <Search size={18} />
         </button>
       </DialogTrigger>
       <DialogContent
