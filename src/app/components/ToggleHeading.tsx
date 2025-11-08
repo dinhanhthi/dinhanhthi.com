@@ -25,7 +25,7 @@ export default function BlockHeadingToggle(props: BlockHeadingToggleProps) {
           <CollapsibleTrigger asChild>
             <button
               className={cn('hover:bg-bg-hover z-20 rounded-md p-1', {
-                'ml-[-10px] mt-[-3px]': props.headingType === 'h3',
+                'mt-[-3px] ml-[-10px]': props.headingType === 'h3',
                 'mt-[-2px]': props.headingType === 'h2' || props.headingType === 'h1'
               })}
             >

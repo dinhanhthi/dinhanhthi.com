@@ -11,7 +11,7 @@ import { CommonPostTypeOpts } from '@/src/app/components/PostsList'
 import TooltipX from '@/src/app/components/tooltip-x'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { Post } from '@/src/lib/types'
-import { BadgeCheck, Feather, FileText, Pin } from 'lucide-react'
+import { Feather, FileText, Pin } from 'lucide-react'
 import { Badge } from '../ui/badge'
 
 export type PostSimpleOpts = {
@@ -20,7 +20,6 @@ export type PostSimpleOpts = {
   draftLabel?: string
   tooltipDraftLabel?: string
   humanizeDate?: boolean
-  wellWrittenLabel?: string
   blogLabel?: string
   showPinned?: boolean
   maxDaysWinthin?: number
@@ -55,20 +54,9 @@ export default function PostSimple(props: PostSimpleProps) {
             </>
           )}
           {options?.showPinned && post.pinned && <Pin size={18} className="rotate-45" />}
-          {post.wellWritten && !post.blog && (
-            <span className="absolute right-[-5px] bottom-[-5px] bg-transparent">
-              <BadgeCheck className="fill-muted text-bg group-hover:fill-text" size={12} />
-            </span>
-          )}
         </div>
-        {(post.wellWritten || post.blog) && (
-          <TooltipX id={`#well-blog-${post.id}`}>
-            {post.blog
-              ? (options?.blogLabel ?? 'A blog post') // Must come before wellWritten
-              : post.wellWritten
-                ? (options?.wellWrittenLabel ?? 'Well written, verified by the author')
-                : undefined}
-          </TooltipX>
+        {post.blog && (
+          <TooltipX id={`#well-blog-${post.id}`}>{options?.blogLabel ?? 'A blog post'}</TooltipX>
         )}
 
         <div className="flex flex-1 flex-col items-start justify-between gap-x-3 gap-y-1.5 md:flex-row">

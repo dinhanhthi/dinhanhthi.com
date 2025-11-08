@@ -32,6 +32,7 @@ export default function Topic(props: TopicProps) {
           {tag.icon && (
             <div>
               <SimpleImage
+                className={tag.className}
                 src={tag.icon.sourceUrl!}
                 alt={tag.name}
                 width={30}
@@ -56,6 +57,7 @@ export default function Topic(props: TopicProps) {
           {tag.icon && (
             <div>
               <ImageComponent
+                className={tag.className}
                 image={tag.icon}
                 alt={tag.name}
                 imageProps={{ width: 20, height: 20, placeholder: 'empty' }}

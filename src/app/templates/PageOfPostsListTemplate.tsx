@@ -38,6 +38,7 @@ export default function PageOfPostsListTemplate(props: PageOfPostsListTemplatePr
         subtitle={object.subtitle || object.description}
         iconPath={object.iconPath}
         icon={object.icon}
+        objectClassName={object.className}
       />
       <Container>
         {posts.length + pinnedPosts.length === 0 && blogPosts && blogPosts.length === 0 && (
