@@ -73,6 +73,7 @@ export default function BlockCode(props: BlockCodeProps) {
         }
       )}
       showLineNumbers={true}
+      customStyle={{ fontSize: '15px' }}
     >
       {content}
     </SyntaxHighlighter>
