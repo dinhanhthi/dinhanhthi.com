@@ -433,9 +433,6 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
       // isDraft
       const isDraft = _.get(post, 'properties.draft.checkbox') || false
 
-      // wellWritten
-      const wellWritten = _.get(post, 'properties.wellWritten.checkbox') || false
-
       // pinned
       const pinned = _.get(post, 'properties.pinned.checkbox') || false
 
@@ -479,7 +476,6 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
         createdDate,
         tags,
         isDraft,
-        wellWritten,
         pinned,
         blog,
         hide,

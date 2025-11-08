@@ -431,7 +431,6 @@ export function transformUnofficialPostProps(post: Block, topics: Tag[] = []): P
   const icon = post.format?.page_icon
   const pageCover = post.format?.page_cover
   const coverPosition = (1 - (post?.format?.page_cover_position || 0.5)) * 100
-  const wellWritten = properties?.[`${process.env.NEXT_PUBLIC_ID_WELL_WRITTEN}`]?.[0]?.[0] === 'Yes'
   const pinned = properties?.[`${process.env.NEXT_PUBLIC_ID_PINNED}`]?.[0]?.[0] === 'Yes'
   const discrete = properties?.[`${process.env.NEXT_PUBLIC_ID_DISCRETE}`]?.[0]?.[0] === 'Yes'
   const blog = properties?.[`${process.env.NEXT_PUBLIC_ID_BLOG}`]?.[0]?.[0] === 'Yes'
@@ -469,8 +468,7 @@ export function transformUnofficialPostProps(post: Block, topics: Tag[] = []): P
     tags,
     title,
     uri: `/note/${slug}/`,
-    vi,
-    wellWritten
+    vi
   }
 }
 
