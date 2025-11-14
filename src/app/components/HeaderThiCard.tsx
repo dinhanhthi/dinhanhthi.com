@@ -10,7 +10,7 @@ import Header from './Header'
 export default function HeaderThiCard() {
   return (
     <Header containerClassName="flex flex-col lg:flex-row lg:gap-4">
-      <div className="flex shrink-0 flex-row items-center gap-4">
+      <div className="flex shrink-0 flex-row items-center justify-start gap-4 sm:justify-center md:justify-start">
         <ImageWithLoading
           src="/logo_sketches/avatar_nobg.png"
           alt={me.name}
@@ -18,12 +18,12 @@ export default function HeaderThiCard() {
           width={200}
           priority
         />
-        <h1 className="font-heading thi-text-rainbow -mb-2 text-2xl font-bold lg:hidden lg:text-4xl">
+        <h1 className="font-heading thi-text-rainbow -mb-2 hidden text-2xl font-bold sm:block sm:text-3xl lg:hidden lg:text-4xl">
           Hi! I&apos;m Thi
         </h1>
       </div>
       <div className="flex flex-col gap-4 py-4">
-        <h1 className="font-heading thi-text-rainbow -mb-2 hidden text-2xl font-bold lg:block lg:text-4xl">
+        <h1 className="font-heading thi-text-rainbow -mb-2 text-3xl font-bold sm:hidden lg:block lg:text-4xl">
           Hi! I&apos;m Thi
         </h1>
         <div className="max-w-full">{me.shortIntro}</div>
@@ -53,17 +53,17 @@ export default function HeaderThiCard() {
 export function SkeletonHeaderThiCard() {
   return (
     <Header containerClassName="flex flex-col lg:flex-row lg:gap-4">
-      <div className="flex shrink-0 flex-row items-center gap-4">
+      <div className="flex shrink-0 flex-row items-center justify-start gap-4 sm:justify-center md:justify-start">
         {/* Avatar skeleton */}
         <div className="h-[200px] w-[200px] animate-pulse rounded-full bg-slate-200 dark:bg-slate-700" />
 
         {/* Mobile heading skeleton */}
-        <div className="h-9 w-32 animate-pulse rounded bg-slate-200 lg:hidden dark:bg-slate-700" />
+        <div className="h-9 w-32 animate-pulse rounded bg-slate-200 sm:hidden lg:block lg:text-4xl dark:bg-slate-700" />
       </div>
 
       <div className="flex flex-1 flex-col gap-4 py-4">
         {/* Desktop heading skeleton */}
-        <div className="hidden h-9 w-32 animate-pulse rounded bg-slate-200 lg:block dark:bg-slate-700" />
+        <div className="hidden h-9 w-32 animate-pulse rounded bg-slate-200 sm:block sm:text-3xl lg:text-4xl dark:bg-slate-700" />
 
         {/* Short intro skeleton */}
         <div className="flex max-w-full flex-col gap-2">
