@@ -28,6 +28,10 @@ cp example.env.local .env.local
 # install (1st time only)
 pnpm install
 
+# Turn off being collected data via Telemetry program
+# https://nextjs.org/telemetry
+pnpm next telemetry disable
+
 # dev
 pnpm run dev # port 3004
 
