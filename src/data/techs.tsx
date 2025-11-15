@@ -63,12 +63,12 @@ import VertexAIIcon from '@/public/about/techs/vertex.png'
 import ViteIcon from '@/public/about/techs/vite.svg'
 import VscodeIcon from '@/public/about/techs/vscode.svg'
 import WordpressIcon from '@/public/about/techs/wordpress.svg'
-import { StaticImageData } from 'next/image'
+import { ImageType } from '../lib/types'
 
 export type TechItem = {
   id: string
   name: string
-  icon: StaticImageData
+  icon: ImageType
   url: string
   imgClass?: string
 }
