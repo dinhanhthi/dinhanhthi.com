@@ -35,11 +35,11 @@ export const metadata = getMetadata({
   ]
 })
 
-// Async component for Blog section content
-async function BlogSectionContent() {
+// Async component for Blog section wrapper (checks if blog posts exist)
+async function BlogSection() {
   const _blogPosts = await getPosts({
     ...queryDefinitions.homePage.blogPosts,
-    whoIsCalling: 'page.tsx/BlogSectionContent'
+    whoIsCalling: 'page.tsx/BlogSection'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(
     0,
@@ -49,24 +49,27 @@ async function BlogSectionContent() {
   if (blogPosts.length === 0) return null
 
   return (
-    <div className="overflow-hidden">
-      <PostList
-        posts={blogPosts}
-        postType="PostBlogSimple"
-        postTypeOpts={{ ...defaultPostTypeOpts }}
-        options={{
-          className: postSimpleListContainerClass
-        }}
-      />
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="Recent blog posts" href="/blogs/" />
+      <div className="overflow-hidden">
+        <PostList
+          posts={blogPosts}
+          postType="PostBlogSimple"
+          postTypeOpts={{ ...defaultPostTypeOpts }}
+          options={{
+            className: postSimpleListContainerClass
+          }}
+        />
+      </div>
     </div>
   )
 }
 
-// Async component for Notes section content
-async function NotesSectionContent() {
+// Async component for Notes section wrapper (checks if notes exist)
+async function NotesSection() {
   const _pinnedPosts = await getPosts({
     ...queryDefinitions.homePage.pinnedPosts,
-    whoIsCalling: 'page.tsx/NotesSectionContent/getPinnedPosts'
+    whoIsCalling: 'page.tsx/NotesSection/getPinnedPosts'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(
     0,
@@ -75,82 +78,109 @@ async function NotesSectionContent() {
 
   const _posts = await getPosts({
     ...queryDefinitions.homePage.recentNotes,
-    whoIsCalling: 'page.tsx/NotesSectionContent/getPosts'
+    whoIsCalling: 'page.tsx/NotesSection/getPosts'
   })
   const posts = filterDupLangPosts(_posts).slice(
     0,
     (queryDefinitions.homePage.recentNotes.pageSize ?? 0) / 2
   )
 
+  const nonPinnedPosts = posts.filter(post => !post.pinned)
+
+  // Only show section if there are either pinned posts or non-pinned posts
+  if (pinnedPosts.length === 0 && nonPinnedPosts.length === 0) return null
+
   return (
     <div className="flex flex-col gap-4">
-      {/* pinned */}
-      {pinnedPosts.length > 0 && (
-        <PostList
-          posts={pinnedPosts}
-          postType="PostSimple"
-          postTypeOpts={{
-            ...defaultPostTypeOpts,
-            showPinned: true
-          }}
-          options={{
-            className: postSimpleListContainerClass
-          }}
-        />
-      )}
+      <HeadingPage title="Recently updated notes" href="/notes/" />
+      <div className="flex flex-col gap-4">
+        {/* pinned */}
+        {pinnedPosts.length > 0 && (
+          <PostList
+            posts={pinnedPosts}
+            postType="PostSimple"
+            postTypeOpts={{
+              ...defaultPostTypeOpts,
+              showPinned: true
+            }}
+            options={{
+              className: postSimpleListContainerClass
+            }}
+          />
+        )}
 
-      {/* notes */}
-      <PostList
-        posts={posts.filter(post => !post.pinned)}
-        postType="PostSimple"
-        postTypeOpts={defaultPostTypeOpts}
-        options={{
-          className: postSimpleListContainerClass
-        }}
-      />
-    </div>
-  )
-}
-
-// Async component for Tools section content
-async function ToolsSectionContent() {
-  const numTools = 6
-  const { tools } = await getUnofficialTools({ whoIsCalling: 'page.tsx/ToolsSectionContent' })
-
-  return <ToolSimpleSection tools={tools.slice(0, numTools)} />
-}
-
-// Async component for Reading section content
-async function ReadingSectionContent() {
-  const numBooks = 6
-  const { books } = await getUnofficialBooks({ whoIsCalling: 'page.tsx/ReadingSectionContent' })
-
-  return (
-    <div className="flex w-full flex-col gap-3">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {books.slice(0, numBooks).map((book: Book) => (
-          <BookItem key={book.id} book={book} hideDescription={true} hideTags={true} />
-        ))}
+        {/* notes */}
+        {nonPinnedPosts.length > 0 && (
+          <PostList
+            posts={nonPinnedPosts}
+            postType="PostSimple"
+            postTypeOpts={defaultPostTypeOpts}
+            options={{
+              className: postSimpleListContainerClass
+            }}
+          />
+        )}
       </div>
     </div>
   )
 }
 
-// Async component for Topics section content
-async function TopicsSectionContent() {
-  const _topics = await getTopics({ whoIsCalling: 'page.tsx/TopicsSectionContent' })
+// Async component for Tools section wrapper (checks if tools exist)
+async function ToolsSection() {
+  const numTools = 6
+  const { tools } = await getUnofficialTools({ whoIsCalling: 'page.tsx/ToolsSection' })
+
+  if (tools.length === 0) return null
+
+  return (
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="Recent tools I use" href="/tools/" />
+      <ToolSimpleSection tools={tools.slice(0, numTools)} />
+    </div>
+  )
+}
+
+// Async component for Reading section wrapper (checks if books exist)
+async function ReadingSection() {
+  const numBooks = 6
+  const { books } = await getUnofficialBooks({ whoIsCalling: 'page.tsx/ReadingSection' })
+
+  if (books.length === 0) return null
+
+  return (
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="My reading list" href="/reading/" />
+      <div className="flex w-full flex-col gap-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {books.slice(0, numBooks).map((book: Book) => (
+            <BookItem key={book.id} book={book} hideDescription={true} hideTags={true} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Async component for Topics section wrapper (checks if topics exist)
+async function TopicsSection() {
+  const _topics = await getTopics({ whoIsCalling: 'page.tsx/TopicsSection' })
   const topics = _topics.map(topic => ({
     ...topic,
     icon: { sourceUrl: topic.iconUrl, width: 20, height: 20, blurDataURL: defaultBlurDataURL }
   }))
 
+  const pinnedTopics = topics.filter(t => t.pinned)
+
+  if (pinnedTopics.length === 0) return null
+
   return (
-    <div className="flex flex-wrap gap-4">
-      {topics
-        .filter(t => t.pinned)
-        .map(topic => (
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="Main topics" href="/tags/" />
+      <div className="flex flex-wrap gap-4">
+        {pinnedTopics.map(topic => (
           <Topic type="simple" key={topic.id} tag={topic} />
         ))}
+      </div>
     </div>
   )
 }
@@ -161,50 +191,54 @@ export default function Home() {
       <HeaderThiCard />
       <Container className="flex flex-col gap-12">
         {/* Blog */}
-        <div className="flex flex-col gap-4">
-          <HeadingPage title="Recent blog posts" href="/blogs/" />
-          <Suspense
-            fallback={
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Recent blog posts" href="/blogs/" />
               <SkeletonPostList
                 count={(queryDefinitions.homePage.blogPosts.pageSize ?? 0) / 2}
                 postType="PostBlogSimple"
                 className={postSimpleListContainerClass}
               />
-            }
-          >
-            <BlogSectionContent />
-          </Suspense>
-        </div>
+            </div>
+          }
+        >
+          <BlogSection />
+        </Suspense>
 
         {/* Notes */}
-        <div className="flex flex-col gap-4">
-          <HeadingPage title="Recently updated notes" href="/notes/" />
-          <Suspense
-            fallback={
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Recently updated notes" href="/notes/" />
               <SkeletonPostList
                 count={8}
                 postType="PostSimple"
                 className={postSimpleListContainerClass}
               />
-            }
-          >
-            <NotesSectionContent />
-          </Suspense>
-        </div>
+            </div>
+          }
+        >
+          <NotesSection />
+        </Suspense>
 
         {/* Tools */}
-        <div className="flex flex-col gap-4">
-          <HeadingPage title="Recent tools I use" href="/tools/" />
-          <Suspense fallback={<SkeletonToolPageSection numTools={6} hasTitle={false} />}>
-            <ToolsSectionContent />
-          </Suspense>
-        </div>
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Recent tools I use" href="/tools/" />
+              <SkeletonToolPageSection numTools={6} hasTitle={false} />
+            </div>
+          }
+        >
+          <ToolsSection />
+        </Suspense>
 
         {/* Reading */}
-        <div className="flex flex-col gap-4">
-          <HeadingPage title="My reading list" href="/reading/" />
-          <Suspense
-            fallback={
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="My reading list" href="/reading/" />
               <div className="flex w-full flex-col gap-3">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   {Array.from({ length: 6 }).map((_, i) => (
@@ -212,30 +246,30 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            }
-          >
-            <ReadingSectionContent />
-          </Suspense>
-        </div>
+            </div>
+          }
+        >
+          <ReadingSection />
+        </Suspense>
 
         {/* Techs */}
         <AnimatedSkillsSection />
 
         {/* Topics */}
-        <div className="flex flex-col gap-4">
-          <HeadingPage title="Main topics" href="/tags/" />
-          <Suspense
-            fallback={
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Main topics" href="/tags/" />
               <div className="flex flex-wrap gap-4">
                 {Array.from({ length: 12 }).map((_, i) => (
                   <SkeletonTopic key={i} type="simple" />
                 ))}
               </div>
-            }
-          >
-            <TopicsSectionContent />
-          </Suspense>
-        </div>
+            </div>
+          }
+        >
+          <TopicsSection />
+        </Suspense>
       </Container>
     </>
   )

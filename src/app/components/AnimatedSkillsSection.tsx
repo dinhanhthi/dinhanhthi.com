@@ -6,7 +6,6 @@ import { useMemo } from 'react'
 import skills from '../../data/skills'
 import techs from '../../data/techs'
 import BadgeTechBigSimple from './BadgeTechBigSimple'
-import Container from './Container'
 import HeadingPage from './HeadingPage'
 
 type AnimatedSkillsSectionProps = {
@@ -47,122 +46,126 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
   const duplicatedRow3 = [...row3, ...row3, ...row3]
 
   return (
-    <Container className={cn('w-full overflow-hidden', className)}>
-      <HeadingPage title="Tech Stack" className="mb-4 text-center" />
+    <>
+      {allTechs.length > 0 && (
+        <div className={cn('w-full overflow-hidden', className)}>
+          <HeadingPage title="Tech Stack" className="mb-4 text-center" />
 
-      <div className="scroll-container relative flex flex-col gap-4">
-        {/* Row 1: Right to Left */}
-        <div className="relative overflow-hidden">
-          <div className="animate-scroll-rtl flex gap-3">
-            {duplicatedRow1.map((tech, index) => (
-              <div key={`row1-${tech.id}-${index}`} className="flex-shrink-0">
-                <BadgeTechBigSimple tech={tech} />
+          <div className="scroll-container relative flex flex-col gap-4">
+            {/* Row 1: Right to Left */}
+            <div className="relative overflow-hidden">
+              <div className="animate-scroll-rtl flex gap-3">
+                {duplicatedRow1.map((tech, index) => (
+                  <div key={`row1-${tech.id}-${index}`} className="flex-shrink-0">
+                    <BadgeTechBigSimple tech={tech} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Row 2: Left to Right */}
-        <div className="relative overflow-hidden">
-          <div className="animate-scroll-ltr flex gap-3">
-            {duplicatedRow2.map((tech, index) => (
-              <div key={`row2-${tech.id}-${index}`} className="flex-shrink-0">
-                <BadgeTechBigSimple tech={tech} />
+            {/* Row 2: Left to Right */}
+            <div className="relative overflow-hidden">
+              <div className="animate-scroll-ltr flex gap-3">
+                {duplicatedRow2.map((tech, index) => (
+                  <div key={`row2-${tech.id}-${index}`} className="flex-shrink-0">
+                    <BadgeTechBigSimple tech={tech} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* Row 3: Right to Left */}
-        <div className="relative overflow-hidden">
-          <div className="animate-scroll-rtl flex gap-3">
-            {duplicatedRow3.map((tech, index) => (
-              <div key={`row3-${tech.id}-${index}`} className="flex-shrink-0">
-                <BadgeTechBigSimple tech={tech} />
+            {/* Row 3: Right to Left */}
+            <div className="relative overflow-hidden">
+              <div className="animate-scroll-rtl flex gap-3">
+                {duplicatedRow3.map((tech, index) => (
+                  <div key={`row3-${tech.id}-${index}`} className="flex-shrink-0">
+                    <BadgeTechBigSimple tech={tech} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Left fade overlay */}
+            <div className="fade-left" />
+            {/* Right fade overlay */}
+            <div className="fade-right" />
           </div>
+
+          <style jsx>{`
+            @keyframes scroll-rtl {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-33.333%);
+              }
+            }
+
+            @keyframes scroll-ltr {
+              0% {
+                transform: translateX(-33.333%);
+              }
+              100% {
+                transform: translateX(0);
+              }
+            }
+
+            .animate-scroll-rtl {
+              animation: scroll-rtl 30s linear infinite;
+            }
+
+            .animate-scroll-ltr {
+              animation: scroll-ltr 30s linear infinite;
+            }
+
+            .scroll-container:hover .animate-scroll-rtl,
+            .scroll-container:hover .animate-scroll-ltr {
+              animation-play-state: paused;
+            }
+
+            @media (max-width: 768px) {
+              .animate-scroll-rtl {
+                animation: scroll-rtl 10s linear infinite;
+              }
+
+              .animate-scroll-ltr {
+                animation: scroll-ltr 10s linear infinite;
+              }
+            }
+
+            .fade-left {
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              width: 100px;
+              background: linear-gradient(90deg, rgb(35 38 46), transparent);
+              pointer-events: none;
+              z-index: 10;
+            }
+
+            .fade-right {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 100px;
+              background: linear-gradient(270deg, rgb(35 38 46), transparent);
+              pointer-events: none;
+              z-index: 10;
+            }
+
+            :global([data-theme='light']) {
+              .fade-left {
+                background: linear-gradient(90deg, rgb(245 245 245), transparent);
+              }
+              .fade-right {
+                background: linear-gradient(270deg, rgb(245 245 245), transparent);
+              }
+            }
+          `}</style>
         </div>
-
-        {/* Left fade overlay */}
-        <div className="fade-left" />
-        {/* Right fade overlay */}
-        <div className="fade-right" />
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll-rtl {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-
-        @keyframes scroll-ltr {
-          0% {
-            transform: translateX(-33.333%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-
-        .animate-scroll-rtl {
-          animation: scroll-rtl 30s linear infinite;
-        }
-
-        .animate-scroll-ltr {
-          animation: scroll-ltr 30s linear infinite;
-        }
-
-        .scroll-container:hover .animate-scroll-rtl,
-        .scroll-container:hover .animate-scroll-ltr {
-          animation-play-state: paused;
-        }
-
-        @media (max-width: 768px) {
-          .animate-scroll-rtl {
-            animation: scroll-rtl 10s linear infinite;
-          }
-
-          .animate-scroll-ltr {
-            animation: scroll-ltr 10s linear infinite;
-          }
-        }
-
-        .fade-left {
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          width: 100px;
-          background: linear-gradient(90deg, rgb(35 38 46), transparent);
-          pointer-events: none;
-          z-index: 10;
-        }
-
-        .fade-right {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          width: 100px;
-          background: linear-gradient(270deg, rgb(35 38 46), transparent);
-          pointer-events: none;
-          z-index: 10;
-        }
-
-        :global([data-theme='light']) {
-          .fade-left {
-            background: linear-gradient(90deg, rgb(245 245 245), transparent);
-          }
-          .fade-right {
-            background: linear-gradient(270deg, rgb(245 245 245), transparent);
-          }
-        }
-      `}</style>
-    </Container>
+      )}
+    </>
   )
 }
