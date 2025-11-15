@@ -59,8 +59,11 @@ export default function CVSection({ cv, className }: CVSectionProps) {
           <div className="mt-4 flex flex-wrap gap-2">
             {cv.tech.map((id: string) => {
               const techItem = techs.find(tech => tech.id === id)
-              if (!techItem) return null
-              const newTechItem = { ...techItem, icon: { staticImageData: techItem.icon } }
+              if (!techItem || !techItem.icon) return null
+              const newTechItem = {
+                ...techItem,
+                icon: { staticImageData: techItem.icon as import('next/image').StaticImageData }
+              }
               return (
                 <BadgeTech key={id} tech={newTechItem} hideText={true} useLink={false}></BadgeTech>
               )
