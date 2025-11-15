@@ -26,8 +26,11 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
     return allSkillIds
       .map(id => {
         const techItem = techs.find(tech => tech.id === id)
-        if (!techItem) return null
-        return { ...techItem, icon: { staticImageData: techItem.icon } } as TechItem
+        if (!techItem || !techItem.icon) return null
+        return {
+          ...techItem,
+          icon: { staticImageData: techItem.icon as import('next/image').StaticImageData }
+        } as TechItem
       })
       .filter((item): item is TechItem => item !== null)
   }, [allSkillIds])
