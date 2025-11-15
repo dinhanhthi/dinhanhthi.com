@@ -23,8 +23,11 @@ export default function SkillGroup({ skillGroup, className }: SkillGroupProps) {
       <div className={cn('flex flex-wrap gap-2.5 p-3', sectionOuterClass)}>
         {skillGroup.list.map((id: string) => {
           const techItem = techs.find(tech => tech.id === id)
-          if (!techItem) return null
-          const newTechItem = { ...techItem, icon: { staticImageData: techItem.icon } }
+          if (!techItem || !techItem.icon) return null
+          const newTechItem = {
+            ...techItem,
+            icon: { staticImageData: techItem.icon as import('next/image').StaticImageData }
+          }
           return (
             <BadgeTech key={id} tech={newTechItem} useLink={false} hideTooltip={true}></BadgeTech>
           )
