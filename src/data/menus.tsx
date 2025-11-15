@@ -38,6 +38,10 @@ export const MENUS: MenuType[] = [
   {
     name: 'Reading',
     uri: '/reading/'
+  },
+  {
+    name: 'Stuff',
+    uri: '/stuff/'
   }
 ]
 

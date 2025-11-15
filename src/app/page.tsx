@@ -8,6 +8,7 @@ import {
 import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/src/lib/fetcher'
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
+import { getStuff } from '@/src/lib/stuff-fetcher'
 import { Book } from '@/src/lib/types'
 import me from '../data/me'
 import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
@@ -17,6 +18,7 @@ import Container from './components/Container'
 import HeaderThiCard from './components/HeaderThiCard'
 import HeadingPage from './components/HeadingPage'
 import PostList, { SkeletonPostList } from './components/PostsList'
+import StuffSectionHome, { SkeletonStuffSectionHome } from './components/StuffSectionHome'
 import Topic, { SkeletonTopic } from './components/Topic'
 
 // This allows static generation with periodic updates
@@ -161,6 +163,21 @@ async function ReadingSection() {
   )
 }
 
+// Async component for Stuff section wrapper (checks if stuff exist)
+async function StuffSection() {
+  const numStuff = 6
+  const { stuff } = await getStuff({ limit: numStuff })
+
+  if (stuff.length === 0) return null
+
+  return (
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="Cool stuff" href="/stuff/" />
+      <StuffSectionHome stuff={stuff} />
+    </div>
+  )
+}
+
 // Async component for Topics section wrapper (checks if topics exist)
 async function TopicsSection() {
   const _topics = await getTopics({ whoIsCalling: 'page.tsx/TopicsSection' })
@@ -250,6 +267,18 @@ export default function Home() {
           }
         >
           <ReadingSection />
+        </Suspense>
+
+        {/* Cool Stuff */}
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Cool stuff" href="/stuff/" />
+              <SkeletonStuffSectionHome count={6} />
+            </div>
+          }
+        >
+          <StuffSection />
         </Suspense>
 
         {/* Techs */}

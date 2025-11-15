@@ -14,6 +14,7 @@
   --border-button-color: var(--color-slate-300);
   --green-bg-color: var(--color-green-200);
   --green-text-color: var(--color-green-800);
+  --input-bg-color: var(--color-slate-100);
   --link-color: #0080f8;
   --link-hover-color: var(--color-pink-600);
   --muted-color: var(--color-slate-500);
@@ -54,6 +55,7 @@
   --border-button-color: #a0a0a05d;
   --green-bg-color: #245833;
   --green-text-color: var(--color-white);
+  --input-bg-color: #14161f;
   --link-color: #58adfb;
   --link-hover-color: var(--color-pink-300);
   --muted-color: var(--color-slate-400);
@@ -94,6 +96,7 @@
   --color-border-button: var(--border-button-color);
   --color-green-bg: var(--green-bg-color);
   --color-green-text: var(--green-text-color);
+  --color-input-bg: var(--input-bg-color);
   --color-link: var(--link-color);
   --color-link-hover: var(--link-hover-color);
   --color-muted: var(--muted-color);
