@@ -12,6 +12,7 @@ import { Book } from '@/src/lib/types'
 import me from '../data/me'
 import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
+import AnimatedSkillsSection from './components/AnimatedSkillsSection'
 import Container from './components/Container'
 import HeaderThiCard from './components/HeaderThiCard'
 import HeadingPage from './components/HeadingPage'
@@ -216,6 +217,9 @@ export default function Home() {
             <ReadingSectionContent />
           </Suspense>
         </div>
+
+        {/* Techs */}
+        <AnimatedSkillsSection />
 
         {/* Topics */}
         <div className="flex flex-col gap-4">

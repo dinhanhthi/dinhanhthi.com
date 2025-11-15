@@ -2,17 +2,9 @@
 
 import cn from 'classnames'
 
-import { ImageType } from '@/src/lib/types'
+import { TechItem } from '@/src/data/techs'
 import ImageComponent from './ImageComponent'
 import TooltipX from './tooltip-x'
-
-export type TechItem = {
-  id: string
-  name: string
-  icon: ImageType
-  url: string
-  imgClass?: string
-}
 
 type BadgeTechProps = {
   tech: TechItem
@@ -24,6 +16,10 @@ type BadgeTechProps = {
 export default function BadgeTech(props: BadgeTechProps) {
   const containerClass =
     'border-border-muted bg-bg-hover text-text-heading flex h-6 w-fit items-center justify-center rounded-md border px-1 align-baseline text-base transition duration-200 ease-in-out hover:-translate-y-0.5'
+
+  const elementId = props.hideTooltip
+    ? `tech-no-tooltip-${props.tech.id}`
+    : `tech-${props.tech.id}`
 
   const children = () => (
     <>
@@ -42,12 +38,21 @@ export default function BadgeTech(props: BadgeTechProps) {
   return (
     <>
       {props.useLink && (
-        <a id={`tech-${props.tech.id}`} className={containerClass} href={props.tech.url}>
+        <a
+          id={elementId}
+          className={containerClass}
+          href={props.tech.url}
+          {...(!props.hideTooltip && { 'data-title': props.tech.name })}
+        >
           {children()}
         </a>
       )}
       {!props.useLink && (
-        <div id={`tech-${props.tech.id}`} className={containerClass} data-title={props.tech.name}>
+        <div
+          id={elementId}
+          className={containerClass}
+          {...(!props.hideTooltip && { 'data-title': props.tech.name })}
+        >
           {children()}
         </div>
       )}
