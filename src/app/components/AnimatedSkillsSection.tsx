@@ -16,12 +16,12 @@ type AnimatedSkillsSectionProps = {
 export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps) {
   const { className } = props
 
-  // Flatten all skills into a single array
+  // Flatten all skills into a single array and remove duplicates
   const allSkillIds = useMemo(() => {
-    return skills.flatMap(group => group.list)
+    return Array.from(new Set(skills.flatMap(group => group.list)))
   }, [])
 
-  // Get tech items for all skills
+  // Get tech items for all skills (already unique by ID)
   const allTechs = useMemo(() => {
     return allSkillIds
       .map(id => {
@@ -35,22 +35,22 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
       .filter((item): item is TechItem => item !== null)
   }, [allSkillIds])
 
-  // Split into 3 rows
+  // Split into 3 rows ensuring no duplicates across rows
   const itemsPerRow = Math.ceil(allTechs.length / 3)
   const row1 = allTechs.slice(0, itemsPerRow)
   const row2 = allTechs.slice(itemsPerRow, itemsPerRow * 2)
   const row3 = allTechs.slice(itemsPerRow * 2)
 
-  // Duplicate items for seamless loop
-  const duplicatedRow1 = [...row1, ...row1]
-  const duplicatedRow2 = [...row2, ...row2]
-  const duplicatedRow3 = [...row3, ...row3]
+  // Duplicate items multiple times for seamless infinite loop
+  const duplicatedRow1 = [...row1, ...row1, ...row1]
+  const duplicatedRow2 = [...row2, ...row2, ...row2]
+  const duplicatedRow3 = [...row3, ...row3, ...row3]
 
   return (
     <Container className={cn('w-full overflow-hidden', className)}>
-      <HeadingPage title="Techs that I work with" className="mb-4 text-center" />
+      <HeadingPage title="Tech Stack" className="mb-4 text-center" />
 
-      <div className="relative flex flex-col gap-4">
+      <div className="scroll-container relative flex flex-col gap-4">
         {/* Row 1: Right to Left */}
         <div className="relative overflow-hidden">
           <div className="animate-scroll-rtl flex gap-3">
@@ -96,13 +96,13 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
         @keyframes scroll-ltr {
           0% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
           100% {
             transform: translateX(0);
@@ -115,6 +115,11 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
 
         .animate-scroll-ltr {
           animation: scroll-ltr 30s linear infinite;
+        }
+
+        .scroll-container:hover .animate-scroll-rtl,
+        .scroll-container:hover .animate-scroll-ltr {
+          animation-play-state: paused;
         }
 
         @media (max-width: 768px) {
