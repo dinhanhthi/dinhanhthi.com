@@ -47,7 +47,7 @@ export default function HeaderPage(props: HeaderPageProps) {
         )}
         <h1 className="font-heading baseline thi-text-rainbow -mb-2 hidden items-center gap-2 text-3xl font-bold sm:block lg:hidden lg:text-4xl">
           {props.title}{' '}
-          {props.number && (
+          {!!props.number && (
             <Badge variant="outline" className="!text-muted inline text-base">
               {props.number}
             </Badge>
@@ -55,9 +55,9 @@ export default function HeaderPage(props: HeaderPageProps) {
         </h1>
       </div>
       <div className="flex w-full flex-col gap-4">
-        <h1 className="font-heading baseline thi-text-rainbow -mb-2 block sm:hidden items-center gap-2 text-3xl font-bold lg:block lg:text-4xl">
+        <h1 className="font-heading baseline thi-text-rainbow -mb-2 block items-center gap-2 text-3xl font-bold sm:hidden lg:block lg:text-4xl">
           {props.title}{' '}
-          {props.number && (
+          {!!props.number && (
             <Badge variant="outline" className="!text-muted inline text-base">
               {props.number}
             </Badge>

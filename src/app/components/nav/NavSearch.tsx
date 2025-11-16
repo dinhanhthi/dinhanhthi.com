@@ -83,9 +83,7 @@ export default function NavSearch() {
         </button>
       </DialogTrigger>
       <DialogContent
-        className={cn(
-          'flex max-h-[80vh] max-w-[80%] flex-col rounded-lg !border-none !p-0 shadow-[0_14px_62px_0_rgba(0,0,0,0.25)] md:max-w-[680px] md:min-w-[680px]'
-        )}
+        className="'flex md:min-w-[680px]' max-h-[80vh] max-w-[calc(100%-2rem)] flex-col !p-0 md:max-w-[680px]"
         hideCloseBtn={true}
       >
         <VisuallyHidden.Root>
@@ -187,8 +185,12 @@ export default function NavSearch() {
           )}
 
           {query && data && data.length > 0 && (
-            <div className="p-3 pl-4 text-xs font-normal text-green-800 dark:text-green-300">
-              Found <span className="font-semibold">{data.length}</span> results
+            <div className="text-muted p-3 pl-4 text-xs font-normal">
+              Found{' '}
+              <span className="font-semibold text-green-800 dark:text-green-300">
+                {data.length}
+              </span>{' '}
+              results
             </div>
           )}
         </Command>

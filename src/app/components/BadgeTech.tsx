@@ -17,9 +17,7 @@ export default function BadgeTech(props: BadgeTechProps) {
   const containerClass =
     'border-border-muted bg-bg-hover text-text-heading flex h-8 min-w-8 w-fit items-center justify-center rounded-md border px-1 align-baseline text-base transition duration-200 ease-in-out hover:-translate-y-0.5'
 
-  const elementId = props.hideTooltip
-    ? `tech-no-tooltip-${props.tech.id}`
-    : `tech-${props.tech.id}`
+  const elementId = props.hideTooltip ? `tech-no-tooltip-${props.tech.id}` : `tech-${props.tech.id}`
 
   const children = () => (
     <>
