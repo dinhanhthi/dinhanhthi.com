@@ -40,11 +40,13 @@ const cv: CVGroupType[] = [
           'azure',
           'bash',
           'chrome-extension',
-          'detectron2',
+          'cursor',
+          'claude',
           'dialogflow',
           'docker',
           'firebase',
           'gcp',
+          'gemini',
           'git',
           'gitkraken',
           'google-nodejs-api',
@@ -53,10 +55,12 @@ const cv: CVGroupType[] = [
           'jupyter',
           'linkedin',
           'linux',
+          'mistral',
           'mongodb',
           'nestjs',
           'nextjs',
           'nodejs',
+          'onesignal',
           'openai',
           'postman',
           'python',
@@ -68,7 +72,8 @@ const cv: CVGroupType[] = [
           'tensorflow',
           'ts',
           'vertex-ai',
-          'vite'
+          'vite',
+          'xai'
         ]
       },
       {

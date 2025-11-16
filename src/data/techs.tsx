@@ -6,14 +6,17 @@ import AzureIcon from '@/public/about/techs/azure.svg'
 import BashIcon from '@/public/about/techs/bash.svg'
 import BootstrapIcon from '@/public/about/techs/bootstrap.svg'
 import ChromeIcon from '@/public/about/techs/chrome.svg'
-import Detectron2Icon from '@/public/about/techs/detectron2.png'
+import ClaudeIcon from '@/public/about/techs/claude.svg'
+import CursorIcon from '@/public/about/techs/cursor.svg'
 import DialogflowIcon from '@/public/about/techs/dialogflow.svg'
 import DockerIcon from '@/public/about/techs/docker.svg'
+import FaceFusionIcon from '@/public/about/techs/facefusion.png'
 import FreefemIcon from '@/public/about/techs/ff.svg'
 import FirebaseIcon from '@/public/about/techs/firebase.svg'
 import FoursquareIcon from '@/public/about/techs/foursquare.svg'
 import GatsbyIcon from '@/public/about/techs/gatsby.svg'
 import GCPIcon from '@/public/about/techs/gcp.svg'
+import GeminiIcon from '@/public/about/techs/gemini.svg'
 import GitIcon from '@/public/about/techs/git.svg'
 import GitkrakenIcon from '@/public/about/techs/gitkraken.svg'
 import GooglenodejsIcon from '@/public/about/techs/google-nodejs-api.svg'
@@ -32,6 +35,7 @@ import LinkedinIcon from '@/public/about/techs/linkedin.svg'
 import LinuxIcon from '@/public/about/techs/linux.svg'
 import LiquidIcon from '@/public/about/techs/liquid.svg'
 import MatlabIcon from '@/public/about/techs/matlab.svg'
+import MistralIcon from '@/public/about/techs/mistral.svg'
 import MongoIcon from '@/public/about/techs/mongodb.svg'
 import MysqlIcon from '@/public/about/techs/mysql.svg'
 import NestjsIcon from '@/public/about/techs/nestjs.svg'
@@ -39,6 +43,7 @@ import NextJSIcon from '@/public/about/techs/nextjs.svg'
 import NodejsIcon from '@/public/about/techs/node.svg'
 import NotionIcon from '@/public/about/techs/notion.svg'
 import NunjucksIcon from '@/public/about/techs/nunjucks.svg'
+import OneSignalIcon from '@/public/about/techs/onesignal.svg'
 import OpenAIIcon from '@/public/about/techs/openai.svg'
 import PhpIcon from '@/public/about/techs/php.svg'
 import PostgreIcon from '@/public/about/techs/postgresql.svg'
@@ -58,11 +63,13 @@ import TailwindIcon from '@/public/about/techs/tailwindcss.svg'
 import TerraformIcon from '@/public/about/techs/terraform.svg'
 import TensorflowIcon from '@/public/about/techs/tf.svg'
 import TypescriptIcon from '@/public/about/techs/ts.svg'
+import VastAIIcon from '@/public/about/techs/vastai.png'
 import VercelIcon from '@/public/about/techs/vercel.svg'
 import VertexAIIcon from '@/public/about/techs/vertex.png'
 import ViteIcon from '@/public/about/techs/vite.svg'
 import VscodeIcon from '@/public/about/techs/vscode.svg'
 import WordpressIcon from '@/public/about/techs/wordpress.svg'
+import XAIIcon from '@/public/about/techs/xai.svg'
 import { ImageType } from '../lib/types'
 
 export type TechItem = {
@@ -117,10 +124,17 @@ const techs: TechItem[] = [
     url: 'https://developer.chrome.com/'
   },
   {
-    id: 'detectron2',
-    name: 'Detectron2',
-    icon: Detectron2Icon,
-    url: 'https://github.com/facebookresearch/detectron2'
+    id: 'cursor',
+    name: 'Cursor',
+    icon: CursorIcon,
+    url: 'https://www.cursor.com/',
+    imgClass: 'dark:invert'
+  },
+  {
+    id: 'claude',
+    name: 'Claude',
+    icon: ClaudeIcon,
+    url: 'https://www.anthropic.com/'
   },
   {
     id: 'dialogflow',
@@ -139,6 +153,13 @@ const techs: TechItem[] = [
     name: 'Eleventy',
     icon: EleventyIcon,
     url: 'https://www.11ty.dev/',
+    imgClass: 'dark:invert'
+  },
+  {
+    id: 'facefusion',
+    name: 'FaceFusion',
+    icon: FaceFusionIcon,
+    url: 'https://facefusion.io/',
     imgClass: 'dark:invert'
   },
   {
@@ -178,6 +199,12 @@ const techs: TechItem[] = [
     url: 'https://www.gitkraken.com/'
   },
   {
+    id: 'gemini',
+    name: 'Gemini',
+    icon: GeminiIcon,
+    url: 'https://gemini.google.com/'
+  },
+  {
     id: 'gcp',
     name: 'GCP',
     icon: GCPIcon,
@@ -185,7 +212,7 @@ const techs: TechItem[] = [
   },
   {
     id: 'google-nodejs-api',
-    name: 'NodeJS API',
+    name: 'Google NodeJS API',
     icon: GooglenodejsIcon,
     url: 'https://github.com/googleapis/google-api-nodejs-client'
   },
@@ -253,7 +280,8 @@ const techs: TechItem[] = [
     id: 'latex',
     name: 'LaTeX',
     icon: LatexIcon,
-    url: 'https://www.latex-project.org/'
+    url: 'https://www.latex-project.org/',
+    imgClass: 'dark:invert'
   },
   {
     id: 'linkedin',
@@ -278,6 +306,12 @@ const techs: TechItem[] = [
     name: 'Matlab',
     icon: MatlabIcon,
     url: 'https://www.mathworks.com/discovery/what-is-matlab.html'
+  },
+  {
+    id: 'mistral',
+    name: 'Mistral',
+    icon: MistralIcon,
+    url: 'https://mistral.ai/'
   },
   {
     id: 'mongodb',
@@ -321,6 +355,12 @@ const techs: TechItem[] = [
     name: 'Nunjucks',
     icon: NunjucksIcon,
     url: 'https://mozilla.github.io/nunjucks/'
+  },
+  {
+    id: 'onesignal',
+    name: 'OneSignal',
+    icon: OneSignalIcon,
+    url: 'https://onesignal.com/'
   },
   {
     id: 'openai',
@@ -438,6 +478,13 @@ const techs: TechItem[] = [
     url: 'https://terraform.io/'
   },
   {
+    id: 'vastai',
+    name: 'VastAI',
+    icon: VastAIIcon,
+    url: 'https://vast.ai/',
+    imgClass: 'dark:invert'
+  },
+  {
     id: 'vercel',
     name: 'Vercel',
     icon: VercelIcon,
@@ -467,6 +514,13 @@ const techs: TechItem[] = [
     name: 'Wordpress',
     icon: WordpressIcon,
     url: 'https://wordpress.org/'
+  },
+  {
+    id: 'xai',
+    name: 'XAI',
+    icon: XAIIcon,
+    url: 'https://xai.com/',
+    imgClass: 'dark:invert'
   }
 ]
 
