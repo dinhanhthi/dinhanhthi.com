@@ -3,7 +3,6 @@
 import { TechItem } from '@/src/data/techs'
 import { cn } from '@/src/lib/utils'
 import { useMemo } from 'react'
-import skills from '../../data/skills'
 import techs from '../../data/techs'
 import BadgeTechBigSimple from './BadgeTechBigSimple'
 import HeadingPage from './HeadingPage'
@@ -15,35 +14,28 @@ type AnimatedSkillsSectionProps = {
 export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps) {
   const { className } = props
 
-  // Flatten all skills into a single array and remove duplicates
-  const allSkillIds = useMemo(() => {
-    return Array.from(new Set(skills.flatMap(group => group.list)))
+  // Use all techs directly from techs.tsx
+  const allTechs = useMemo(() => {
+    return techs
+      .filter(techItem => techItem.icon)
+      .map(techItem => ({
+        ...techItem,
+        icon: { staticImageData: techItem.icon as import('next/image').StaticImageData }
+      })) as TechItem[]
   }, [])
 
-  // Get tech items for all skills (already unique by ID)
-  const allTechs = useMemo(() => {
-    return allSkillIds
-      .map(id => {
-        const techItem = techs.find(tech => tech.id === id)
-        if (!techItem || !techItem.icon) return null
-        return {
-          ...techItem,
-          icon: { staticImageData: techItem.icon as import('next/image').StaticImageData }
-        } as TechItem
-      })
-      .filter((item): item is TechItem => item !== null)
-  }, [allSkillIds])
-
-  // Split into 3 rows ensuring no duplicates across rows
-  const itemsPerRow = Math.ceil(allTechs.length / 3)
+  // Split into 4 rows ensuring no duplicates across rows
+  const itemsPerRow = Math.ceil(allTechs.length / 4)
   const row1 = allTechs.slice(0, itemsPerRow)
   const row2 = allTechs.slice(itemsPerRow, itemsPerRow * 2)
-  const row3 = allTechs.slice(itemsPerRow * 2)
+  const row3 = allTechs.slice(itemsPerRow * 2, itemsPerRow * 3)
+  const row4 = allTechs.slice(itemsPerRow * 3)
 
   // Duplicate items multiple times for seamless infinite loop
   const duplicatedRow1 = [...row1, ...row1, ...row1]
   const duplicatedRow2 = [...row2, ...row2, ...row2]
   const duplicatedRow3 = [...row3, ...row3, ...row3]
+  const duplicatedRow4 = [...row4, ...row4, ...row4]
 
   return (
     <>
@@ -79,6 +71,17 @@ export default function AnimatedSkillsSection(props: AnimatedSkillsSectionProps)
               <div className="animate-scroll-rtl flex gap-3">
                 {duplicatedRow3.map((tech, index) => (
                   <div key={`row3-${tech.id}-${index}`} className="flex-shrink-0">
+                    <BadgeTechBigSimple tech={tech} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 4: Left to Right */}
+            <div className="relative overflow-hidden">
+              <div className="animate-scroll-ltr flex gap-3">
+                {duplicatedRow4.map((tech, index) => (
+                  <div key={`row4-${tech.id}-${index}`} className="flex-shrink-0">
                     <BadgeTechBigSimple tech={tech} />
                   </div>
                 ))}
