@@ -42,6 +42,8 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         'bg-bg fixed top-[70px] right-0 left-0 z-50 mx-auto grid w-full max-w-lg gap-4 border p-6 shadow-lg data-[state=closed]:animate-[dialogContentHide_200ms_cubic-bezier(0.16,1,0.3,1)] data-[state=open]:animate-[dialogContentShow_200ms_cubic-bezier(0.16,1,0.3,1)] sm:rounded-lg',
+        // Thi's custom class name for the dialog content
+        'rounded-lg !border-none shadow-[0_14px_62px_0_rgba(0,0,0,0.25)]',
         className
       )}
       {...props}

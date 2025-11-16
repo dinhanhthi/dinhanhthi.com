@@ -24,8 +24,8 @@ export default async function AboutHomePage() {
   return (
     <>
       <HeaderThiCard />
-      <AnimatedSkillsSection className='mb-12' />
       <Container className="flex flex-col gap-12">
+        <AnimatedSkillsSection />
         {cv.map((cvGroup: CVGroupType) => (
           <CVGroup className="flex-auto lg:flex-1" key={cvGroup.id} cvGroup={cvGroup} />
         ))}

@@ -138,7 +138,8 @@ const techs: TechItem[] = [
     id: 'eleventy',
     name: 'Eleventy',
     icon: EleventyIcon,
-    url: 'https://www.11ty.dev/'
+    url: 'https://www.11ty.dev/',
+    imgClass: 'dark:invert'
   },
   {
     id: 'firebase',
@@ -300,7 +301,8 @@ const techs: TechItem[] = [
     id: 'nextjs',
     name: 'Next.js',
     icon: NextJSIcon,
-    url: 'https://nextjs.org/'
+    url: 'https://nextjs.org/',
+    imgClass: 'dark:invert'
   },
   {
     id: 'nodejs',
@@ -324,7 +326,8 @@ const techs: TechItem[] = [
     id: 'openai',
     name: 'OpenAI API',
     icon: OpenAIIcon,
-    url: 'https://platform.openai.com/docs/api-reference/'
+    url: 'https://platform.openai.com/docs/api-reference/',
+    imgClass: 'dark:invert'
   },
   {
     id: 'php',
@@ -438,7 +441,8 @@ const techs: TechItem[] = [
     id: 'vercel',
     name: 'Vercel',
     icon: VercelIcon,
-    url: 'https://vercel.com/'
+    url: 'https://vercel.com/',
+    imgClass: 'dark:invert'
   },
   {
     id: 'vertex-ai',
