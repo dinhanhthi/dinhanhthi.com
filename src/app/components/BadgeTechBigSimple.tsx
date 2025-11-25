@@ -13,7 +13,7 @@ export default function BadgeTechBigSimple(props: BadgeTechBigSimpleProps) {
   return (
     <div
       className={cn(
-        'border-border-muted bg-bg-hover flex w-fit items-center justify-center rounded-full border px-4 py-1.5 align-baseline text-sm',
+        'border-border-muted bg-bg flex w-fit items-center justify-center rounded-full border px-4 py-1.5 align-baseline text-sm',
         props.className
       )}
     >
