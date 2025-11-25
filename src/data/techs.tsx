@@ -18,7 +18,9 @@ import GatsbyIcon from '@/public/about/techs/gatsby.svg'
 import GCPIcon from '@/public/about/techs/gcp.svg'
 import GeminiIcon from '@/public/about/techs/gemini.svg'
 import GitIcon from '@/public/about/techs/git.svg'
+import GithubIcon from '@/public/about/techs/github.svg'
 import GitkrakenIcon from '@/public/about/techs/gitkraken.svg'
+import GitlabIcon from '@/public/about/techs/gitlab.svg'
 import GooglenodejsIcon from '@/public/about/techs/google-nodejs-api.svg'
 import GraphqlIcon from '@/public/about/techs/graphql.svg'
 import GrpcIcon from '@/public/about/techs/grpc.svg'
@@ -193,6 +195,18 @@ const techs: TechItem[] = [
     url: 'https://git-scm.com/'
   },
   {
+    id: 'github',
+    name: 'GitHub',
+    icon: GithubIcon,
+    url: 'https://github.com/'
+  },
+  {
+    id: 'gitlab',
+    name: 'GitLab',
+    icon: GitlabIcon,
+    url: 'https://gitlab.com/'
+  },
+  {
     id: 'gitkraken',
     name: 'GitKraken',
     icon: GitkrakenIcon,
@@ -206,7 +220,7 @@ const techs: TechItem[] = [
   },
   {
     id: 'gcp',
-    name: 'GCP',
+    name: 'Google Cloud Platform',
     icon: GCPIcon,
     url: '/tags/google/'
   },
