@@ -58,7 +58,8 @@ export async function getUnofficialDatabaseImpl(opts: {
             aggregator: 'count'
           }
         }
-      }
+      },
+      userTimeZone: 'America/Chicago'
     }
   }
 
