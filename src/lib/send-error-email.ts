@@ -18,7 +18,8 @@ export interface ErrorEmailOptions {
  *
  * Features:
  * - Silent failure (won't impact user experience)
- * - Rate limiting (max 1 email per error type per 5 minutes)
+ * - Global rate limiting (max X emails per time window, regardless of type)
+ * - Per-type rate limiting (max 1 email per error type per time window)
  * - Graceful degradation if Resend not configured
  */
 export async function sendErrorEmail({
@@ -45,10 +46,27 @@ export async function sendErrorEmail({
     return
   }
 
-  // Rate limiting: Check if we recently sent an email for this error type
+  const now = Date.now()
+
+  // Global rate limiting: Check total emails sent within time window
+  // Remove expired timestamps first
+  while (
+    globalEmailTimestamps.length > 0 &&
+    now - globalEmailTimestamps[0] > errorNotificationsConfig.globalRateLimitMs
+  ) {
+    globalEmailTimestamps.shift()
+  }
+
+  if (globalEmailTimestamps.length >= errorNotificationsConfig.globalMaxEmails) {
+    console.log(
+      `⏰ Global rate limit: Skipping email (${globalEmailTimestamps.length}/${errorNotificationsConfig.globalMaxEmails} emails sent in last ${Math.floor(errorNotificationsConfig.globalRateLimitMs / 60000)}min)`
+    )
+    return
+  }
+
+  // Per-type rate limiting: Check if we recently sent an email for this error type
   const rateLimitKey = `email-sent-${errorType}`
   const lastSent = errorEmailCache.get(rateLimitKey)
-  const now = Date.now()
 
   if (lastSent && now - lastSent < errorNotificationsConfig.rateLimitMs) {
     console.log(
@@ -73,8 +91,9 @@ export async function sendErrorEmail({
       })
     })
 
-    // Update rate limit cache
+    // Update rate limit caches
     errorEmailCache.set(rateLimitKey, now)
+    globalEmailTimestamps.push(now)
 
     console.log(`✅ Error email sent successfully (ID: ${emailData.data?.id || 'unknown'})`)
   } catch (emailError) {
@@ -160,6 +179,12 @@ function buildErrorEmailHTML({
 const errorEmailCache = new Map<string, number>()
 
 /**
+ * Global rate limit: Track timestamps of ALL emails sent (regardless of type)
+ * Used to enforce maximum emails within a time window
+ */
+const globalEmailTimestamps: number[] = []
+
+/**
  * Clean up old cache entries periodically (every hour)
  */
 if (typeof setInterval !== 'undefined') {
@@ -167,10 +192,19 @@ if (typeof setInterval !== 'undefined') {
     () => {
       const now = Date.now()
 
+      // Clean per-type cache
       for (const [key, timestamp] of errorEmailCache.entries()) {
         if (now - timestamp > errorNotificationsConfig.rateLimitMs) {
           errorEmailCache.delete(key)
         }
+      }
+
+      // Clean global timestamps
+      while (
+        globalEmailTimestamps.length > 0 &&
+        now - globalEmailTimestamps[0] > errorNotificationsConfig.globalRateLimitMs
+      ) {
+        globalEmailTimestamps.shift()
       }
     },
     60 * 60 * 1000
