@@ -26,7 +26,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   return (
     <>
       <HeaderPost className="!mb-0" recordMap={props.recordMap} postProps={props.postProps} />
-      <div className="bg-white pt-12 dark:bg-[#23262e]">
+      <div className="bg-white pt-12 dark:bg-[#23262e] px-4">
         <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
           <div className="text-text order-2 w-full flex-1 shrink-0 lg:min-w-0 lg:p-0">
             {props.postProps.isDraft && (

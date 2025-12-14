@@ -126,8 +126,10 @@ const defaultComponents: NotionComponents = {
   PageLink: DefaultPageLinkMemo,
   Callout: undefined, // use the built-in callout rendering by default
 
-  Code: dummyComponent('Code'),
-  Equation: dummyComponent('Equation'),
+  // Code: dummyComponent('Code'),
+  Code: undefined,
+  // Equation: dummyComponent('Equation'),
+  Equation: undefined,
 
   // Collection: dummyComponent('Collection'),
   Property: undefined, // use the built-in property rendering by default

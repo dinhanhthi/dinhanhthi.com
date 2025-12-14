@@ -1,13 +1,12 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Block, ExtendedRecordMap, PreviewImage } from 'notion-types'
 import * as React from 'react'
 
-import { CodeIcon } from '@/src/app/icons/CodeIcon'
-import SigmaIcon from '@/src/app/icons/SigmaIcon'
+// import { CodeIcon } from '@/src/app/icons/CodeIcon'
+// import SigmaIcon from '@/src/app/icons/SigmaIcon'
 import { usePostDateStatus } from '@/src/hooks/usePostDateStatus'
 import { BlockOptionsContextType } from '@/src/lib/notion/context'
 import { NotionRenderer } from '@/src/lib/notion/renderer'
@@ -30,20 +29,20 @@ type PostBodyProps = {
   postLastModifiedDate?: string // used to show correctly the update blocks
 }
 
-const Equation = dynamic(() => import('./BlockEquation'), {
-  loading: () => (
-    <div className="bg-skeleton-bg mx-auto my-4 flex h-14 w-1/2 animate-pulse items-center justify-center rounded-md">
-      <SigmaIcon className="text-muted h-7 w-7" />
-    </div>
-  )
-})
-const Code = dynamic(() => import('./BlockCode'), {
-  loading: () => (
-    <div className="bg-skeleton-bg my-4 flex h-14 w-full animate-pulse items-center justify-center rounded-md">
-      <CodeIcon className="text-muted h-7 w-7" />
-    </div>
-  )
-})
+// const Equation = dynamic(() => import('./BlockEquation'), {
+//   loading: () => (
+//     <div className="bg-skeleton-bg mx-auto my-4 flex h-14 w-1/2 animate-pulse items-center justify-center rounded-md">
+//       <SigmaIcon className="text-muted h-7 w-7" />
+//     </div>
+//   )
+// })
+// const Code = dynamic(() => import('./BlockCode'), {
+//   loading: () => (
+//     <div className="bg-skeleton-bg my-4 flex h-14 w-full animate-pulse items-center justify-center rounded-md">
+//       <CodeIcon className="text-muted h-7 w-7" />
+//     </div>
+//   )
+// })
 
 // In case we need more suppored components, check this out:
 // https://github.com/transitive-bullshit/nextjs-notion-starter-kit/blob/main/components/NotionPage.tsx
@@ -52,8 +51,8 @@ export default function PostBody(props: PostBodyProps) {
     () => ({
       nextImage: Image,
       nextLink: Link,
-      Code,
-      Equation
+      // Code,
+      // Equation
     }),
     []
   )
