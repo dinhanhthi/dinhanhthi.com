@@ -17,6 +17,8 @@ import { useNotionContext } from '@/src/lib/notion/context'
 import { cs, getListNumber, isUrl } from '@/src/lib/notion/utils'
 import { CheckSquare, Square } from 'lucide-react'
 import BlockCallout from './BlockCallout'
+import BlockCode from './BlockCode'
+import BlockEquation from './BlockEquation'
 import BlockToggle from './BlockToggle'
 import BlockVideo from './BlockVideo'
 import BlockHeadingToggle from './ToggleHeading'
@@ -559,8 +561,19 @@ export const Block: React.FC<BlockProps> = props => {
       return <File block={block as types.FileBlock} className={blockId} />
 
     case 'equation':
+      if (components.Equation) {
+        return (
+          <components.Equation
+            block={block as types.EquationBlock}
+            inline={false}
+            className={cn(blockId, basicBlockGapBigger)}
+            updatedBlock={updatedBlock}
+            blurBlockClassName={blurBlockClassName}
+          />
+        )
+      }
       return (
-        <components.Equation
+        <BlockEquation
           block={block as types.EquationBlock}
           inline={false}
           className={cn(blockId, basicBlockGapBigger)}
@@ -570,8 +583,17 @@ export const Block: React.FC<BlockProps> = props => {
       )
 
     case 'code':
+      if (components.Code) {
+        return (
+          <components.Code
+            block={block as types.CodeBlock}
+            updatedBlock={updatedBlock}
+            className={cn(basicBlockGapBigger, blurBlockClassName)}
+          />
+        )
+      }
       return (
-        <components.Code
+        <BlockCode
           block={block as types.CodeBlock}
           updatedBlock={updatedBlock}
           className={cn(basicBlockGapBigger, blurBlockClassName)}
