@@ -39,7 +39,8 @@ export const metadata = getMetadata({
 async function BlogSection() {
   const _blogPosts = await getPosts({
     ...queryDefinitions.homePage.blogPosts,
-    whoIsCalling: 'page.tsx/BlogSection'
+    whoIsCalling: 'page.tsx/BlogSection',
+    uri: 'https://dinhanhthi.com/'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(
     0,
@@ -69,7 +70,8 @@ async function BlogSection() {
 async function NotesSection() {
   const _pinnedPosts = await getPosts({
     ...queryDefinitions.homePage.pinnedPosts,
-    whoIsCalling: 'page.tsx/NotesSection/getPinnedPosts'
+    whoIsCalling: 'page.tsx/NotesSection/getPinnedPosts',
+    uri: 'https://dinhanhthi.com/'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts).slice(
     0,
@@ -78,7 +80,8 @@ async function NotesSection() {
 
   const _posts = await getPosts({
     ...queryDefinitions.homePage.recentNotes,
-    whoIsCalling: 'page.tsx/NotesSection/getPosts'
+    whoIsCalling: 'page.tsx/NotesSection/getPosts',
+    uri: 'https://dinhanhthi.com/'
   })
   const posts = filterDupLangPosts(_posts).slice(
     0,
@@ -128,7 +131,10 @@ async function NotesSection() {
 // Async component for Tools section wrapper (checks if tools exist)
 async function ToolsSection() {
   const numTools = 6
-  const { tools } = await getUnofficialTools({ whoIsCalling: 'page.tsx/ToolsSection' })
+  const { tools } = await getUnofficialTools({
+    whoIsCalling: 'page.tsx/ToolsSection',
+    uri: 'https://dinhanhthi.com/'
+  })
 
   if (tools.length === 0) return null
 
@@ -143,7 +149,10 @@ async function ToolsSection() {
 // Async component for Reading section wrapper (checks if books exist)
 async function ReadingSection() {
   const numBooks = 6
-  const { books } = await getUnofficialBooks({ whoIsCalling: 'page.tsx/ReadingSection' })
+  const { books } = await getUnofficialBooks({
+    whoIsCalling: 'page.tsx/ReadingSection',
+    uri: 'https://dinhanhthi.com/'
+  })
 
   if (books.length === 0) return null
 
@@ -163,7 +172,10 @@ async function ReadingSection() {
 
 // Async component for Topics section wrapper (checks if topics exist)
 async function TopicsSection() {
-  const _topics = await getTopics({ whoIsCalling: 'page.tsx/TopicsSection' })
+  const _topics = await getTopics({
+    whoIsCalling: 'page.tsx/TopicsSection',
+    uri: 'https://dinhanhthi.com/'
+  })
   const topics = _topics.map(topic => ({
     ...topic,
     icon: { sourceUrl: topic.iconUrl, width: 20, height: 20, blurDataURL: defaultBlurDataURL }

@@ -50,7 +50,7 @@ export default function PostBody(props: PostBodyProps) {
   const components = React.useMemo(
     () => ({
       nextImage: Image,
-      nextLink: Link,
+      nextLink: Link
       // Code,
       // Equation
     }),

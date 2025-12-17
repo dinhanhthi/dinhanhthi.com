@@ -11,6 +11,7 @@ export interface ErrorEmailOptions {
   stack?: string
   metadata?: Record<string, unknown>
   whoIsCalling?: string
+  uri?: string
 }
 
 /**
@@ -28,7 +29,8 @@ export async function sendErrorEmail({
   context,
   whoIsCalling,
   stack,
-  metadata
+  metadata,
+  uri
 }: ErrorEmailOptions) {
   // Check if error emails are completely disabled
   if (process.env.DISABLE_ERROR_EMAILS === 'true') {
@@ -85,6 +87,7 @@ export async function sendErrorEmail({
         errorMessage,
         context,
         whoIsCalling,
+        uri,
         stack,
         metadata,
         timestamp: new Date().toISOString()
@@ -110,6 +113,7 @@ function buildErrorEmailHTML({
   errorMessage,
   context,
   whoIsCalling,
+  uri,
   stack,
   metadata,
   timestamp
@@ -124,6 +128,8 @@ function buildErrorEmailHTML({
   const whoIsCallingHTML = whoIsCalling
     ? `<p><strong>Who is calling:</strong> ${whoIsCalling}</p>`
     : ''
+
+  const uriHTML = uri ? `<p><strong>URI:</strong> ${uri}</p>` : ''
 
   const stackHTML = stack
     ? `
@@ -155,10 +161,13 @@ function buildErrorEmailHTML({
       <p><strong>Type:</strong> <span class="error-type">${errorType}</span></p>
       <p><strong>Time:</strong> <span class="timestamp">${timestamp}</span></p>
 
+      <p>Vercel logs: <a href="${process.env.VERCEL_LOG_URL}">Link to Vercel logs</a></p>
+
       <h3>❌ Error Message</h3>
       <pre style="background: #fff5f5; padding: 12px; border-left: 4px solid #e53e3e; border-radius: 4px;">${errorMessage}</pre>
 
       ${whoIsCallingHTML}
+      ${uriHTML}
       ${contextHTML}
       ${metadataHTML}
       ${stackHTML}
