@@ -24,23 +24,29 @@ export default async function NotesHomePage() {
 
   const _pinnedPosts = await getPosts({
     ...queryDefinitions.notesPage.pinnedPosts,
-    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPinnedPosts'
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getPinnedPosts',
+    uri: 'https://dinhanhthi.com/notes/'
   })
   const pinnedPosts = filterDupLangPosts(_pinnedPosts)
 
   const _blogPosts = await getPosts({
     ...queryDefinitions.notesPage.blogPosts,
-    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getBlogPosts'
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getBlogPosts',
+    uri: 'https://dinhanhthi.com/notes/'
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
   const _recentPosts = await getPosts({
     ...queryDefinitions.notesPage.recentPosts,
-    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getRecentPosts'
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage/getRecentPosts',
+    uri: 'https://dinhanhthi.com/notes/'
   })
   const recentPosts = filterDupLangPosts(_recentPosts).slice(0, 15)
 
-  const _tags = await getTopics({ whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage' })
+  const _tags = await getTopics({
+    whoIsCalling: '(single-page)/notes/page.tsx/NotesHomePage',
+    uri: 'https://dinhanhthi.com/notes/'
+  })
   const tags = _tags.map(tag => ({
     ...tag,
     icon: { sourceUrl: tag.iconUrl, width: 30, height: 30, blurDataURL: defaultBlurDataURL }
@@ -57,7 +63,8 @@ export default async function NotesHomePage() {
     pinnedTagsSorted.map(async tag => {
       const posts = await getPosts({
         ...queryDefinitions.notesPage.postsByPinnedTag(tag.name),
-        whoIsCalling: `(single-page)/notes/page.tsx/NotesHomePage/postsByPinnedTag/${tag.name}`
+        whoIsCalling: `(single-page)/notes/page.tsx/NotesHomePage/postsByPinnedTag/${tag.name}`,
+        uri: 'https://dinhanhthi.com/notes/'
       })
       return { tag, posts }
     })

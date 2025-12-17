@@ -56,6 +56,11 @@ export interface CacheOptions {
    * @default false
    */
   forceRefresh?: boolean
+  /**
+   * URI: The URI of the request
+   * @default ''
+   */
+  uri?: string
 }
 
 interface CachedData<T> {
@@ -155,7 +160,8 @@ export async function withRedisCache<T>(
     hardTTL = DEFAULT_HARD_TTL,
     namespace = 'cache',
     whoIsCalling,
-    forceRefresh = false
+    forceRefresh = false,
+    uri = ''
   } = options
 
   const client = getRedisClient()
@@ -283,7 +289,8 @@ export async function withRedisCache<T>(
         },
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> withRedisCache`
-          : 'redis-cache.ts/withRedisCache'
+          : 'redis-cache.ts/withRedisCache',
+        uri
       })
     }
 
