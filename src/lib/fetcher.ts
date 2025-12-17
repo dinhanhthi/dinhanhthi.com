@@ -15,8 +15,12 @@ import { getFilter, getUri, transformUnofficialPostProps } from '@/src/lib/helpe
 import { defaultPostDate, defaultPostTitle, redisCacheTTL } from './config'
 import { withRedisCache } from './redis-cache'
 
-export async function getUnofficialPosts(opts?: { whoIsCalling?: string; forceRefresh?: boolean }) {
-  const { whoIsCalling, forceRefresh } = opts || {}
+export async function getUnofficialPosts(opts?: {
+  whoIsCalling?: string
+  forceRefresh?: boolean
+  uri?: string
+}) {
+  const { whoIsCalling, forceRefresh, uri } = opts || {}
   return withRedisCache(
     'unofficial-posts',
     async () => {
@@ -27,7 +31,8 @@ export async function getUnofficialPosts(opts?: { whoIsCalling?: string; forceRe
         notionApiWeb: process.env.NOTION_API_PUBLISHED,
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> getUnofficialPosts`
-          : 'fetcher.ts/getUnofficialPosts'
+          : 'fetcher.ts/getUnofficialPosts',
+        uri
       })
       return transformUnofficialPosts(data)
     },
@@ -49,9 +54,10 @@ export async function getPosts(options: {
   sorts?: NotionSorts[]
   whoIsCalling?: string
   forceRefresh?: boolean
+  uri?: string
 }): Promise<Post[]> {
   if (!process.env.NOTION_DB_POSTS) throw new Error('getPosts(): NOTION_DB_POSTS is not defined')
-  const { filter, startCursor, pageSize, sorts, whoIsCalling, forceRefresh } = options
+  const { filter, startCursor, pageSize, sorts, whoIsCalling, forceRefresh, uri } = options
 
   // Create a unique cache key based on the options
   const cacheKey = `posts-${JSON.stringify({ filter, startCursor, pageSize, sorts })}`
@@ -73,7 +79,8 @@ export async function getPosts(options: {
         startCursor,
         pageSize,
         sorts: sortsToUse,
-        whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getPosts` : 'fetcher.ts/getPosts'
+        whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getPosts` : 'fetcher.ts/getPosts',
+        uri
       })
 
       return await transformNotionPostsData({ data: data?.results as any[] })
@@ -90,9 +97,9 @@ export async function getPosts(options: {
 export async function getCustomEmojiUrl(
   pageWithDash: string,
   customEmojiId: string,
-  opts?: { whoIsCalling?: string }
+  opts?: { whoIsCalling?: string; uri?: string }
 ) {
-  const { whoIsCalling } = opts || {}
+  const { whoIsCalling, uri } = opts || {}
   const cacheKey = `emoji-${pageWithDash}-${customEmojiId}`
 
   return withRedisCache(
@@ -110,13 +117,18 @@ export async function getCustomEmojiUrl(
       whoIsCalling: whoIsCalling
         ? `${whoIsCalling} -> getCustomEmojiUrl`
         : 'fetcher.ts/getCustomEmojiUrl',
+      uri,
       ...redisCacheTTL.emoji
     }
   )
 }
 
-export async function getUnofficialBooks(opts?: { whoIsCalling?: string; forceRefresh?: boolean }) {
-  const { whoIsCalling, forceRefresh } = opts || {}
+export async function getUnofficialBooks(opts?: {
+  whoIsCalling?: string
+  forceRefresh?: boolean
+  uri?: string
+}) {
+  const { whoIsCalling, forceRefresh, uri } = opts || {}
   return withRedisCache(
     'unofficial-books',
     async () => {
@@ -127,7 +139,8 @@ export async function getUnofficialBooks(opts?: { whoIsCalling?: string; forceRe
         notionApiWeb: process.env.NOTION_API_PUBLISHED,
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> getUnofficialBooks`
-          : 'fetcher.ts/getUnofficialBooks'
+          : 'fetcher.ts/getUnofficialBooks',
+        uri
       })
       return { books: transformUnofficialBooks(data) }
     },
@@ -202,8 +215,12 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
   })
 }
 
-export async function getUnofficialTools(opts?: { whoIsCalling?: string; forceRefresh?: boolean }) {
-  const { whoIsCalling, forceRefresh } = opts || {}
+export async function getUnofficialTools(opts?: {
+  whoIsCalling?: string
+  forceRefresh?: boolean
+  uri?: string
+}) {
+  const { whoIsCalling, forceRefresh, uri } = opts || {}
   return withRedisCache(
     'unofficial-tools',
     async () => {
@@ -214,7 +231,8 @@ export async function getUnofficialTools(opts?: { whoIsCalling?: string; forceRe
         notionApiWeb: process.env.NOTION_API_PUBLISHED,
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> getUnofficialTools`
-          : 'fetcher.ts/getUnofficialTools'
+          : 'fetcher.ts/getUnofficialTools',
+        uri
       })
       const allTags = getAllToolsTags(data)
       const allCategories = getAllToolsCategories(data)
@@ -298,8 +316,12 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
   })
 }
 
-export async function getTopics(opts?: { whoIsCalling?: string; forceRefresh?: boolean }) {
-  const { whoIsCalling, forceRefresh } = opts || {}
+export async function getTopics(opts?: {
+  whoIsCalling?: string
+  forceRefresh?: boolean
+  uri?: string
+}) {
+  const { whoIsCalling, forceRefresh, uri } = opts || {}
   return withRedisCache(
     'topics',
     async () => {
@@ -308,7 +330,8 @@ export async function getTopics(opts?: { whoIsCalling?: string; forceRefresh?: b
         sourceId: process.env.TOPICS_SOURCE_ID,
         collectionViewId: process.env.TOPICS_COLLECTION_VIEW_ID,
         notionApiWeb: process.env.NOTION_API_PUBLISHED,
-        whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getTopics` : 'fetcher.ts/getTopics'
+        whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getTopics` : 'fetcher.ts/getTopics',
+        uri
       })
       return transformTopics(data)
     },
@@ -500,9 +523,9 @@ async function transformNotionPostsData(options: { data: NotionPost[] }): Promis
 
 export async function getRecordMap(
   pageId: string,
-  opts?: { whoIsCalling?: string; forceRefresh?: boolean }
+  opts?: { whoIsCalling?: string; forceRefresh?: boolean; uri?: string }
 ) {
-  const { whoIsCalling, forceRefresh } = opts || {}
+  const { whoIsCalling, forceRefresh, uri } = opts || {}
   return withRedisCache(
     `page-${pageId}`,
     async () => {
@@ -513,6 +536,7 @@ export async function getRecordMap(
     {
       namespace: 'notion',
       whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getRecordMap` : 'fetcher.ts/getRecordMap',
+      uri,
       ...redisCacheTTL.recordMap,
       forceRefresh
     }
