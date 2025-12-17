@@ -28,8 +28,9 @@ export async function getUnofficialDatabaseImpl(opts: {
   collectionViewId?: string
   notionApiWeb?: string
   whoIsCalling?: string
+  uri?: string
 }): Promise<CollectionInstance> {
-  const { spaceId, sourceId, collectionViewId, notionApiWeb, whoIsCalling } = opts
+  const { spaceId, sourceId, collectionViewId, notionApiWeb, whoIsCalling, uri } = opts
   if (!spaceId) throw new Error('spaceId is not defined')
   if (!sourceId) throw new Error('sourceId is not defined')
   if (!collectionViewId) throw new Error('collectionViewId is not defined')
@@ -106,7 +107,8 @@ export async function getUnofficialDatabaseImpl(opts: {
         },
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
-          : 'notion/db.ts/getUnofficialDatabaseImpl'
+          : 'notion/db.ts/getUnofficialDatabaseImpl',
+        uri
       })
     }
 
@@ -130,6 +132,7 @@ export async function queryDatabaseImpl(opts: {
   notionToken?: string
   notionVersion?: string
   whoIsCalling?: string
+  uri?: string
 }): Promise<QueryDatabaseResponse> {
   const {
     dbId,
@@ -139,7 +142,8 @@ export async function queryDatabaseImpl(opts: {
     sorts,
     notionToken,
     notionVersion,
-    whoIsCalling
+    whoIsCalling,
+    uri
   } = opts
   try {
     const url = `https://api.notion.com/v1/databases/${dbId}/query`
@@ -178,7 +182,8 @@ export async function queryDatabaseImpl(opts: {
           sorts,
           notionToken,
           notionVersion,
-          whoIsCalling
+          whoIsCalling,
+          uri
         })
         if (_.get(data, 'results')) {
           const lst = data['results'] as any[]

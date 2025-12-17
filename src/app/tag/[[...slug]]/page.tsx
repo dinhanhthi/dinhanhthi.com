@@ -82,7 +82,8 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
 
   const _tags = await getTopics({
-    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage (slug: ${slug})`
+    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage (slug: ${slug})`,
+    uri: `https://dinhanhthi.com/tag/${slug}/page/${currentPage}/`
   })
   const tags = _tags.map(tag => ({
     ...tag,
@@ -108,14 +109,16 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     : await getPosts({
         ...queryDefinitions.tagPage.regularPostsByTag(tag.name),
         startCursor,
-        whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage (slug: ${slug})`
+        whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getPostsOnThisPage (slug: ${slug})`,
+        uri: `https://dinhanhthi.com/tag/${slug}/page/${currentPage}/`
       })
 
   const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
 
   const _blogPosts = await getPosts({
     ...queryDefinitions.tagPage.blogPostsByTag(tag.name),
-    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getBlogPosts (slug: ${slug})`
+    whoIsCalling: `tag/[[...slug]]/page.tsx/TagPage/getBlogPosts (slug: ${slug})`,
+    uri: `https://dinhanhthi.com/tag/${slug}/page/${currentPage}/`
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
 
@@ -134,7 +137,8 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
 async function getTotalPages(tag: Tag): Promise<[number, Post[]]> {
   const allPosts = await getPosts({
     ...queryDefinitions.tagPage.allPostsByTag(tag.name),
-    whoIsCalling: `tag/[[...slug]]/page.tsx/getTotalPages (slug: ${tag.slug})`
+    whoIsCalling: `tag/[[...slug]]/page.tsx/getTotalPages (slug: ${tag.slug})`,
+    uri: `https://dinhanhthi.com/tag/${tag.slug}/`
   })
   const numPosts = allPosts?.length || 0
   const totalPages = Math.ceil(numPosts / numPostsPerPage)

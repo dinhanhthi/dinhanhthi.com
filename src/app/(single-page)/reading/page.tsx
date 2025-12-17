@@ -20,7 +20,8 @@ export const metadata = getMetadata({
 
 export default async function ReadingHomePage() {
   const { books } = await getUnofficialBooks({
-    whoIsCalling: '(single-page)/reading/page.tsx/ReadingHomePage'
+    whoIsCalling: '(single-page)/reading/page.tsx/ReadingHomePage',
+    uri: 'https://dinhanhthi.com/reading/'
   })
   books.sort((a, b) => (a.isReading === b.isReading ? 0 : a.isReading ? -1 : 1))
   const tags: string[] = Array.from(new Set(books.flatMap((book: Book) => book.tags)))
