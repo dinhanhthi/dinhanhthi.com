@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: DynamicSegmentParamsProps): P
   const untitled = 'Unknown note | Site of Thi'
   if (!slug) return { title: untitled }
   const allPosts = await getUnofficialPosts({
-    whoIsCalling: 'note/[slug]/page.tsx/generateMetadata'
+    whoIsCalling: 'note/[slug]/page.tsx/generateMetadata',
+    uri: `https://dinhanhthi.com/note/${slug}/`
   })
   const post = allPosts.find(post => post.slug === slug)
   if (!post) return { title: untitled, description: undefined }
@@ -44,10 +45,12 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
 
   try {
     const allPosts = await getUnofficialPosts({
-      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
+      uri: `https://dinhanhthi.com/note/${slug}/`
     })
     const topics = await getTopics({
-      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
+      uri: `https://dinhanhthi.com/note/${slug}/`
     })
     const post = allPosts.find(post => post.slug === slug)
     const pageIdwithDash = post?.id
@@ -55,7 +58,8 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (!pageIdwithDash) notFound()
 
     const recordMap = await getRecordMap(pageIdwithDash, {
-      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
+      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
+      uri: `https://dinhanhthi.com/note/${slug}/`
     })
     // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
@@ -69,7 +73,8 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
         const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId, {
-          whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`
+          whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
+          uri: `https://dinhanhthi.com/note/${slug}/`
         })
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }

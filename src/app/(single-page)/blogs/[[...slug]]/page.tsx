@@ -56,7 +56,7 @@ async function BlogPostsContent({ currentPage }: { currentPage: number }) {
   const _allBlogs = await getPosts({
     ...queryDefinitions.blogsPage.allBlogs,
     whoIsCalling: `(single-page)/blogs/[[...slug]]/page.tsx/BlogPostsContent (currentPage: ${currentPage})`,
-    uri: 'https://dinhanhthi.com/blogs/page/${currentPage}/'
+    uri: `https://dinhanhthi.com/blogs/page/${currentPage}/`
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
   const postsOnThisPage = !allBlogs.length
@@ -101,7 +101,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
   const _allBlogs = await getPosts({
     ...queryDefinitions.blogsPage.allBlogs,
     whoIsCalling: `(single-page)/blogs/[[...slug]]/page.tsx/BlogsHomePage/getTotalPages (currentPage: ${currentPage})`,
-    uri: 'https://dinhanhthi.com/blogs/page/${currentPage}/'
+    uri: `https://dinhanhthi.com/blogs/page/${currentPage}/`
   })
   const allBlogs = filterDupLangPosts(_allBlogs)
   const numBlogs = allBlogs?.length || 0
