@@ -9,12 +9,8 @@ frontend:
         # Install dependencies
         - pnpm install --frozen-lockfile
 
-        # Rebuild Sharp for Linux ARM64 (AWS Amplify uses Graviton2 processors)
-        # This is critical for Next.js image optimization to work correctly
-        - pnpm rebuild sharp --platform=linux --arch=arm64
-
-        # Verify Sharp installation
-        - pnpm sharp --version
+        # Sharp is already rebuilt via postinstall script, no additional rebuild needed
+        # AWS Amplify runs on x64, not ARM64, so default rebuild is correct
 
     build:
       commands:
