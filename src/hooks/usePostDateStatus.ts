@@ -1,44 +1,51 @@
-import { useEffect, useState } from 'react'
+import { useMemo } from 'react'
+
+export type PostDateStatus = 'new' | 'updated' | 'updatedWithin' | 'normal'
 
 export const usePostDateStatus = (
   createdDate?: string,
   modifiedDate?: string,
   withinDay?: number
-) => {
-  const [status, setStatus] = useState<'new' | 'updated' | 'updatedWithin' | 'normal'>('normal')
+): PostDateStatus => {
+  return useMemo(() => {
+    return getPostDateStatus(createdDate, modifiedDate, withinDay)
+  }, [createdDate, modifiedDate, withinDay])
+}
 
-  useEffect(() => {
-    const currentDate = new Date()
-    const withinDaysAgo = new Date()
-    withinDaysAgo.setDate(currentDate.getDate() - (withinDay || 7))
+/**
+ * Pure function to calculate post date status
+ * Can be used both on server and client
+ */
+export const getPostDateStatus = (
+  createdDate?: string,
+  modifiedDate?: string,
+  withinDay?: number
+): PostDateStatus => {
+  const currentDate = new Date()
+  const withinDaysAgo = new Date()
+  withinDaysAgo.setDate(currentDate.getDate() - (withinDay || 7))
+
+  if (createdDate) {
+    const createdDateObj = new Date(createdDate)
+
+    if (createdDateObj >= withinDaysAgo) {
+      return 'new'
+    }
+  }
+
+  if (modifiedDate) {
+    const modifiedDateObj = new Date(modifiedDate)
+
+    if (modifiedDateObj >= withinDaysAgo) {
+      return 'updatedWithin'
+    }
 
     if (createdDate) {
-      const createdDateObj = new Date(createdDate)
-
-      if (createdDateObj >= withinDaysAgo) {
-        setStatus('new')
-        return
+      if (modifiedDateObj > new Date(createdDate)) {
+        return 'updated'
       }
     }
+  }
 
-    if (modifiedDate) {
-      const modifiedDateObj = new Date(modifiedDate)
-
-      if (modifiedDateObj >= withinDaysAgo) {
-        setStatus('updatedWithin')
-        return
-      }
-
-      if (createdDate) {
-        if (modifiedDateObj > new Date(createdDate)) {
-          setStatus('updated')
-          return
-        }
-      }
-    }
-
-    setStatus('normal')
-  }, [createdDate, modifiedDate, withinDay])
-
-  return status
+  return 'normal'
 }
