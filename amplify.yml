@@ -1,0 +1,100 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Install pnpm package manager
+        - npm install -g pnpm@10.20.0
+
+        # Install dependencies
+        - pnpm install --frozen-lockfile
+
+        # Rebuild Sharp for Linux ARM64 (AWS Amplify uses Graviton2 processors)
+        # This is critical for Next.js image optimization to work correctly
+        - pnpm rebuild sharp --platform=linux --arch=arm64
+
+        # Verify Sharp installation
+        - pnpm sharp --version
+
+    build:
+      commands:
+        # Build Next.js application
+        - pnpm run build
+
+  artifacts:
+    # Specify the build output directory
+    baseDirectory: .next
+    files:
+      - '**/*'
+
+  cache:
+    paths:
+      # Cache node_modules for faster builds
+      - node_modules/**/*
+      # Cache Next.js build cache
+      - .next/cache/**/*
+      # Cache pnpm store
+      - .pnpm-store/**/*
+
+# Custom HTTP headers for optimal caching strategy
+customHeaders:
+  # Static assets from Next.js build (_next/static) - cache forever with immutable
+  # These files have content hashes in their names, so they never change
+  - pattern: '_next/static/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+
+  # Public static assets - cache for 1 year
+  # Images, fonts, and other public files
+  - pattern: 'public/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+
+  # API routes - never cache
+  # Dynamic API endpoints should always return fresh data
+  - pattern: 'api/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-store, must-revalidate'
+      - key: 'X-Robots-Tag'
+        value: 'noindex'
+      # Enable CORS for API routes
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+      - key: 'Access-Control-Allow-Methods'
+        value: 'GET, POST, PUT, DELETE, OPTIONS'
+      - key: 'Access-Control-Allow-Headers'
+        value: 'Content-Type, Authorization'
+
+  # HTML pages - use ISR revalidate strategy (60 seconds as configured in Next.js)
+  # s-maxage=60 means CloudFront will cache for 60 seconds
+  # must-revalidate ensures fresh content after expiration
+  - pattern: '**/*.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=0, must-revalidate, s-maxage=60'
+
+  # Images - cache for 30 days (matching Next.js minimumCacheTTL)
+  - pattern: '**/*.{jpg,jpeg,png,gif,webp,avif,svg,ico}'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=2592000, immutable'
+
+  # Fonts - cache for 1 year
+  - pattern: '**/*.{woff,woff2,ttf,otf,eot}'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+
+# NOTE: Custom domain configuration
+# Uncomment và cập nhật sau khi setup xong trong AWS Console
+# customDomain:
+#   - domainName: dinhanhthi.com
+#     certificateArn: arn:aws:acm:us-east-1:ACCOUNT_ID:certificate/CERTIFICATE_ID
+#     enableAutoSubDomain: false
