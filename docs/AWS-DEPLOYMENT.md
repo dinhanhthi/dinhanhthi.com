@@ -154,13 +154,13 @@ Check build logs for errors
 
 **3.1. Get test URL:**
 ```
-https://main.d1234567890.amplifyapp.com
+https://aws.d3ou8owhlk6mom.amplifyapp.com
 ```
 
 **3.2. Run automated tests:**
 ```bash
 chmod +x docs/testing-checklist.sh
-./docs/testing-checklist.sh https://main.d1234567890.amplifyapp.com
+./docs/testing-checklist.sh https://aws.d3ou8owhlk6mom.amplifyapp.com
 ```
 
 **Expected:** Passed: 20-25, Failed: 0, Warnings: 0-3
