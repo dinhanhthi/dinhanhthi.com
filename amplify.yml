@@ -3,14 +3,18 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Install pnpm package manager
+        # Set pnpm store directory for caching
+        - export PNPM_HOME="/root/.local/share/pnpm"
+        - export PATH="$PNPM_HOME:$PATH"
+
+        # Install pnpm if not cached
         - npm install -g pnpm@10.20.0
 
-        # Install dependencies
-        - pnpm install --frozen-lockfile
+        # Configure pnpm store path for caching
+        - pnpm config set store-dir /root/.pnpm-store
 
-        # Sharp is already rebuilt via postinstall script, no additional rebuild needed
-        # AWS Amplify runs on x64, not ARM64, so default rebuild is correct
+        # Install dependencies (use cache if available)
+        - pnpm install --frozen-lockfile
 
     build:
       commands:
@@ -61,12 +65,12 @@ frontend:
 
   cache:
     paths:
-      # Cache node_modules for faster builds
+      # Cache pnpm global store (most important for speed)
+      - /root/.pnpm-store/**/*
+      # Cache node_modules
       - node_modules/**/*
-      # Cache Next.js build cache
+      # Cache Next.js build cache (incremental builds)
       - .next/cache/**/*
-      # Cache pnpm store
-      - .pnpm-store/**/*
 
 # Custom HTTP headers for optimal caching strategy
 customHeaders:
