@@ -54,7 +54,7 @@
     "eslint-config-next": "^15.5.6",
     "fs": "0.0.1-security",
     "katex": "^0.16.25",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "lucide-react": "^0.544.0",
     "mermaid": "^11.12.1",
     "moment": "^2.30.1",
