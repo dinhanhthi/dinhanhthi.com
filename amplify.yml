@@ -14,6 +14,42 @@ frontend:
 
     build:
       commands:
+        # Write environment variables to .env.production for Next.js SSR runtime
+        # AWS Amplify doesn't automatically pass env vars to Lambda functions
+        # See: https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+
+        # NEXT_PUBLIC_ vars (client + server)
+        - env | grep -e NEXT_PUBLIC_ >> .env.production
+
+        # Notion vars (server-side)
+        - env | grep -e NOTION_ >> .env.production
+        - env | grep -e SEARCH_BOLD_KEY >> .env.production
+        - env | grep -e SPACE_ID >> .env.production
+        - env | grep -e SOURCE_ID >> .env.production
+        - env | grep -e COLLECTION_VIEW_ID >> .env.production
+
+        # Tools database vars
+        - env | grep -e TOOLS_ >> .env.production
+
+        # Reading database vars
+        - env | grep -e READING_ >> .env.production
+
+        # Topics database vars
+        - env | grep -e TOPICS_ >> .env.production
+
+        # Redis cache vars
+        - env | grep -e UPSTASH_ >> .env.production
+        - env | grep -e DISABLE_REDIS_CACHE >> .env.production
+        - env | grep -e DEPLOY_HOOK_SECRET >> .env.production
+
+        # Error notification vars
+        - env | grep -e RESEND_ >> .env.production
+        - env | grep -e ADMIN_EMAIL >> .env.production
+        - env | grep -e DISABLE_ERROR_EMAILS >> .env.production
+
+        # Global vars
+        - env | grep -e ENV_MODE >> .env.production
+
         # Build Next.js application
         - pnpm run build
 
