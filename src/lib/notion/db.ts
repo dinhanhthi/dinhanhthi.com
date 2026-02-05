@@ -781,28 +781,19 @@ export async function searchNotionPersonal(
   apiUrl: string,
   dbId: string
 ): Promise<any> {
-  const startTime = Date.now()
-  console.log('[searchNotionPersonal] ========== START ==========')
-  console.log('[searchNotionPersonal] Query:', params.query)
-  console.log('[searchNotionPersonal] API URL:', apiUrl ? `${apiUrl.slice(0, 50)}...` : 'NOT SET')
-  console.log('[searchNotionPersonal] DB ID:', dbId ? `${dbId.slice(0, 10)}...` : 'NOT SET')
-
   if (!apiUrl) {
-    console.error('[searchNotionPersonal] ERROR: apiUrl is not defined')
     throw new Error('apiUrl is not defined')
+  }
+
+  if (!dbId) {
+    throw new Error('dbId is not defined')
   }
 
   const headers: any = {
     'Content-Type': 'application/json'
   }
 
-  if (!dbId) {
-    console.error('[searchNotionPersonal] ERROR: dbId is not defined')
-    throw new Error('dbId is not defined')
-  }
-
   const ancestorId = idToUuid(dbId)
-  console.log('[searchNotionPersonal] Ancestor ID (UUID):', ancestorId)
 
   const body = {
     type: 'BlocksInAncestor',
@@ -830,36 +821,17 @@ export async function searchNotionPersonal(
   }
 
   const url = `${apiUrl}/search`
-  console.log('[searchNotionPersonal] Full URL:', url)
-  console.log('[searchNotionPersonal] Request body:', JSON.stringify(body, null, 2))
 
-  console.log('[searchNotionPersonal] Sending fetch request...')
   const response = await fetch(url, {
     method: 'POST',
     headers: headers,
     body: JSON.stringify(body)
   })
 
-  const duration = Date.now() - startTime
-  console.log(`[searchNotionPersonal] Response received (took ${duration}ms)`)
-  console.log('[searchNotionPersonal] Response status:', response.status)
-  console.log('[searchNotionPersonal] Response statusText:', response.statusText)
-  console.log('[searchNotionPersonal] Response headers:', JSON.stringify(Object.fromEntries(response.headers.entries())))
-
   if (!response.ok) {
     const text = await response.text()
-    console.error('[searchNotionPersonal] ERROR: Response not OK')
-    console.error('[searchNotionPersonal] Response body:', text.slice(0, 500))
-    console.log('[searchNotionPersonal] ========== END (ERROR) ==========')
     throw new Error(`Notion search API error: ${response.status} - ${text}`)
   }
 
-  console.log('[searchNotionPersonal] Parsing JSON response...')
-  const jsonResponse = await response.json()
-  console.log('[searchNotionPersonal] JSON parsed successfully')
-  console.log('[searchNotionPersonal] Response keys:', Object.keys(jsonResponse))
-  console.log('[searchNotionPersonal] Results count:', jsonResponse.results?.length ?? 0)
-  console.log('[searchNotionPersonal] ========== END ==========')
-
-  return jsonResponse
+  return response.json()
 }

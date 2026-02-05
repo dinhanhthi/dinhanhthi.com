@@ -54,7 +54,7 @@
     "katex": "^0.16.25",
     "lodash": "^4.17.23",
     "lucide-react": "^0.544.0",
-    "mermaid": "^11.12.1",
+    "mermaid": "11.4.0",
     "moment": "^2.30.1",
     "next": "^15.5.9",
     "next-themes": "^0.4.6",
@@ -62,9 +62,9 @@
     "notion-utils": "~7.6.0",
     "p-memoize": "^7.1.1",
     "prismjs": "^1.30.0",
-    "react": "^19.2.0",
+    "react": "19.1.0",
     "react-copy-to-clipboard": "5.1.0",
-    "react-dom": "^19.2.0",
+    "react-dom": "19.1.0",
     "react-fast-compare": "^3.2.2",
     "react-image": "^4.1.0",
     "react-lazy-images": "^1.1.0",
@@ -80,17 +80,26 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3"
   },
+  "pnpm": {
+    "overrides": {
+      "d3": "^7.9.0",
+      "dompurify": "^3.3.1",
+      "react": "19.1.0",
+      "react-dom": "19.1.0"
+    }
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.38.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/dompurify": "^3.2.0",
     "@types/lodash": "^4.17.20",
     "@types/node": "^24.9.1",
     "@types/prismjs": "^1.26.5",
-    "@types/react": "^19.2.2",
+    "@types/react": "^19.1.0",
     "@types/react-copy-to-clipboard": "5.0.5",
-    "@types/react-dom": "^19.2.2",
+    "@types/react-dom": "^19.1.0",
     "@types/react-syntax-highlighter": "15.5.7",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
@@ -111,10 +120,5 @@
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "^1.30.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "d3": "^7.9.0"
-    }
   }
 }
