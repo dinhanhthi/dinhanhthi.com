@@ -8,7 +8,7 @@ import {
 import _ from 'lodash'
 import { CollectionInstance, SearchParams } from 'notion-types'
 import { getPageContentBlockIds, parsePageId } from 'notion-utils'
-import ogs from 'open-graph-scraper'
+// Removed open-graph-scraper to avoid cheerio dependency issues
 import pMemoize from 'p-memoize'
 
 import { redisCacheTTL } from '@/src/lib/config'
@@ -18,6 +18,62 @@ import { sendErrorEmail } from '@/src/lib/send-error-email'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
+
+/**
+ * Simple Open Graph metadata fetcher without cheerio dependency
+ * Uses regex to extract OG tags from HTML
+ */
+async function fetchOpenGraphData(url: string) {
+  try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 5000) // 5s timeout
+
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; bot/1.0)'
+      }
+    })
+    clearTimeout(timeoutId)
+
+    if (!response.ok) {
+      return { error: true, result: {} }
+    }
+
+    const html = await response.text()
+
+    // Extract OG tags using regex (simple approach without HTML parser)
+    const ogTitle = html.match(
+      /<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']*)["']/i
+    )?.[1]
+    const ogDescription = html.match(
+      /<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']*)["']/i
+    )?.[1]
+    const ogImage = html.match(
+      /<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']*)["']/i
+    )?.[1]
+    const ogUrl = html.match(
+      /<meta[^>]*property=["']og:url["'][^>]*content=["']([^"']*)["']/i
+    )?.[1]
+    const favicon = html.match(
+      /<link[^>]*rel=["'](?:shortcut )?icon["'][^>]*href=["']([^"']*)["']/i
+    )?.[1]
+
+    return {
+      error: false,
+      result: {
+        ogTitle: ogTitle || undefined,
+        ogDescription: ogDescription || undefined,
+        ogImage: ogImage ? [{ url: ogImage }] : undefined,
+        ogUrl: ogUrl || url,
+        favicon: favicon || undefined
+      }
+    }
+  } catch (error) {
+    console.error('Failed to fetch Open Graph data:', error)
+    return { error: true, result: {} }
+  }
+}
 
 /**
  * Unofficial API for getting all pages in a database
@@ -488,7 +544,7 @@ async function getBlocksImpl(
     if (block.type === 'bookmark') {
       const url = _.get(block, 'bookmark.url')
       if (url) {
-        const { result } = await ogs({ url })
+        const { result } = await fetchOpenGraphData(url)
         const bookmark: BookmarkPreview = {
           url,
           title: cleanText(result.ogTitle),
