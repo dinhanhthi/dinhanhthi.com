@@ -45,3 +45,10 @@ next-env.d.ts
 .open-next/
 
 playground/
+
+# AI tools
+.claude/
+.cursor/
+.aider*
+.opencode/
+.github/skills/
