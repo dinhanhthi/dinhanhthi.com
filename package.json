@@ -117,8 +117,7 @@
   },
   "pnpm": {
     "overrides": {
-      "htmlparser2": "^9.1.0",
-      "parse5": "^7.2.1"
+      "cheerio": "1.0.0-rc.12"
     }
   }
 }
