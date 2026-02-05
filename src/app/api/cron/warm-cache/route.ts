@@ -1,14 +1,14 @@
 /**
  * Post-Deployment Cache Warming API
  *
- * This endpoint is called automatically by GitHub Actions after each successful Vercel deployment.
+ * This endpoint is called automatically by GitHub Actions after each successful deployment.
  *
  * Setup:
  * 1. Add GitHub Secrets (Settings → Secrets and variables → Actions):
  *    - SITE_URL: Your production URL (e.g., https://dinhanhthi.com)
  *    - DEPLOY_HOOK_SECRET: Random secret token for authentication
  *
- * 2. Add Vercel Environment Variable:
+ * 2. Add Amplify Environment Variable:
  *    - DEPLOY_HOOK_SECRET: Same secret as GitHub (for API authentication)
  *
  * 3. GitHub Action workflow is at: .github/workflows/warm-cache-after-deploy.yml
@@ -16,7 +16,7 @@
  *    - Calls this endpoint after successful deployment
  *
  * How it works:
- * - Vercel deploys your site → triggers GitHub deployment_status event
+ * - Amplify deploys your site → triggers GitHub deployment_status event
  * - GitHub Action detects successful production deployment
  * - Action calls this endpoint with Authorization header
  * - Endpoint warms Redis cache with fresh Notion data

@@ -161,7 +161,7 @@ function buildErrorEmailHTML({
       <p><strong>Type:</strong> <span class="error-type">${errorType}</span></p>
       <p><strong>Time:</strong> <span class="timestamp">${timestamp}</span></p>
 
-      <p>Vercel logs: <a href="${process.env.VERCEL_LOG_URL}">Link to Vercel logs</a></p>
+      <p><strong>Logs:</strong> <a href="https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#logsV2:log-groups/log-group/$252Faws$252Famplify$252Fd3ou8owhlk6mom" target="_blank">AWS CloudWatch Logs</a></p>
 
       <h3>❌ Error Message</h3>
       <pre style="background: #fff5f5; padding: 12px; border-left: 4px solid #e53e3e; border-radius: 4px;">${errorMessage}</pre>
@@ -174,7 +174,7 @@ function buildErrorEmailHTML({
 
       <hr style="margin-top: 32px; border: none; border-top: 1px solid #e2e8f0;">
       <p style="color: #718096; font-size: 12px;">
-        This is an automated error notification from ${process.env.NEXT_PUBLIC_SITE_DOMAIN} - ${process.env.ENV_MODE} deployed on Vercel.
+        This is an automated error notification from ${process.env.NEXT_PUBLIC_SITE_DOMAIN} - ${process.env.ENV_MODE}.
       </p>
     </body>
     </html>

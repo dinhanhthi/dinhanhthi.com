@@ -181,12 +181,20 @@ chmod +x docs/testing-checklist.sh
 1. AWS Amplify Console → App → Hosting → Custom domains
 2. Click "Add domain"
 3. Enter domain: dinhanhthi.com
-4. Click "Configure domain"
-5. Subdomains setup:
+4. Chọn option:
+   ○ Create hosted zone on Route 53 (recommended) → Dùng AWS Route 53
+   ● Manual configuration ← CHỌN CÁI NÀY (vì dùng Cloudflare)
+5. Click "Configure domain"
+6. Subdomains setup:
    - dinhanhthi.com → main branch
    - www.dinhanhthi.com → main branch (redirect to root)
-6. Click "Save"
+7. Click "Save"
 ```
+
+**⚠️ Tại sao chọn "Manual configuration"?**
+- Bạn đang dùng Cloudflare làm DNS provider
+- Route 53 chỉ cần nếu muốn AWS quản lý DNS (tốn thêm ~$0.50/tháng)
+- Manual configuration cho phép giữ nguyên Cloudflare DNS
 
 **4.2. Lấy DNS records từ Amplify:**
 
