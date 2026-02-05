@@ -1,31 +1,106 @@
-name: Warm Cache After Vercel Deploy
+name: Warm Cache After Deploy
 
 on:
-  # Trigger when a deployment status is created/updated
+  # Trigger for Vercel deployments (keep for compatibility)
   deployment_status:
+
+  # NEW: Trigger for AWS Amplify deployments via workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      deployment_url:
+        description: 'Deployment URL to warm cache for'
+        required: false
+        default: 'https://dinhanhthi.com'
+
+  # NEW: Trigger on push to main (AWS Amplify auto-deploys on push)
+  push:
+    branches:
+      - main
+    # Only trigger if actual code changes (not just docs)
+    paths-ignore:
+      - 'docs/**'
+      - '*.md'
+      - '.github/**'
 
 jobs:
   warm-cache:
-    # Only run on successful production deployments
+    # Run on successful Vercel deployments OR manual trigger OR push to main
     if: |
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment_status.environment == 'Production'
+      (github.event_name == 'deployment_status' &&
+       github.event.deployment_status.state == 'success' &&
+       github.event.deployment_status.environment == 'Production') ||
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push'
 
     runs-on: ubuntu-latest
 
     steps:
+      - name: Determine deployment platform
+        id: platform
+        run: |
+          if [ "${{ github.event_name }}" = "deployment_status" ]; then
+            echo "platform=vercel" >> $GITHUB_OUTPUT
+            echo "site_url=${{ secrets.SITE_URL }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "platform=manual" >> $GITHUB_OUTPUT
+            echo "site_url=${{ github.event.inputs.deployment_url }}" >> $GITHUB_OUTPUT
+          else
+            # AWS Amplify deployment (push to main)
+            echo "platform=amplify" >> $GITHUB_OUTPUT
+            echo "site_url=https://dinhanhthi.com" >> $GITHUB_OUTPUT
+          fi
+
       - name: Wait for deployment to be fully ready
-        run: sleep 10
+        run: |
+          echo "Detected platform: ${{ steps.platform.outputs.platform }}"
+
+          if [ "${{ steps.platform.outputs.platform }}" = "amplify" ]; then
+            # AWS Amplify takes longer to deploy (3-5 minutes)
+            echo "⏳ Waiting 3 minutes for AWS Amplify deployment to complete..."
+            sleep 180
+          else
+            # Vercel is faster (30-60 seconds)
+            echo "⏳ Waiting 10 seconds for deployment to be ready..."
+            sleep 10
+          fi
+
+      - name: Health check deployment
+        id: health_check
+        run: |
+          echo "🏥 Checking if deployment is accessible..."
+
+          # Try to access the site (max 5 retries)
+          for i in {1..5}; do
+            http_code=$(curl -s -o /dev/null -w "%{http_code}" "${{ steps.platform.outputs.site_url }}/")
+
+            if [ $http_code -eq 200 ]; then
+              echo "✅ Site is accessible (HTTP $http_code)"
+              echo "ready=true" >> $GITHUB_OUTPUT
+              break
+            else
+              echo "⚠️ Attempt $i/5: Site returned HTTP $http_code"
+              if [ $i -lt 5 ]; then
+                echo "Waiting 30 seconds before retry..."
+                sleep 30
+              else
+                echo "❌ Site is not accessible after 5 attempts"
+                echo "ready=false" >> $GITHUB_OUTPUT
+              fi
+            fi
+          done
 
       - name: Warm Redis Cache
+        if: steps.health_check.outputs.ready == 'true'
         run: |
-          echo "🔥 Triggering cache warming for production deployment..."
+          echo "🔥 Triggering cache warming for ${{ steps.platform.outputs.platform }} deployment..."
+          echo "URL: ${{ steps.platform.outputs.site_url }}"
 
           # Use -L to follow redirects, ensure HTTPS
           response=$(curl -L -s -w "\n%{http_code}" -X POST \
-            "${{ secrets.SITE_URL }}/api/cron/warm-cache" \
+            "${{ steps.platform.outputs.site_url }}/api/cron/warm-cache" \
             -H "Authorization: Bearer ${{ secrets.DEPLOY_HOOK_SECRET }}" \
-            -H "Content-Type: application/json")
+            -H "Content-Type: application/json" \
+            --max-time 120)
 
           http_code=$(echo "$response" | tail -n1)
           body=$(echo "$response" | sed '$d')
@@ -39,16 +114,39 @@ jobs:
             echo "❌ Unauthorized - Check DEPLOY_HOOK_SECRET"
             exit 1
           elif [ $http_code -eq 500 ]; then
-            echo "❌ Server error - Check DEPLOY_HOOK_SECRET configuration on Vercel"
+            echo "❌ Server error during cache warming"
             exit 1
           else
-            echo "⚠️ Cache warming failed with status $http_code"
+            echo "⚠️ Cache warming returned unexpected status: $http_code"
             echo "This is not critical, deployment is still successful"
           fi
 
       - name: Report Status
         if: always()
         run: |
-          echo "Deployment URL: ${{ github.event.deployment_status.target_url }}"
-          echo "Environment: ${{ github.event.deployment_status.environment }}"
-          echo "State: ${{ github.event.deployment_status.state }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Cache Warming Summary"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Platform: ${{ steps.platform.outputs.platform }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Site URL: ${{ steps.platform.outputs.site_url }}"
+
+          if [ "${{ github.event_name }}" = "deployment_status" ]; then
+            echo "Deployment URL: ${{ github.event.deployment_status.target_url }}"
+            echo "Environment: ${{ github.event.deployment_status.environment }}"
+            echo "State: ${{ github.event.deployment_status.state }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            echo "Commit: ${{ github.sha }}"
+            echo "Branch: ${{ github.ref_name }}"
+            echo "Author: ${{ github.actor }}"
+          fi
+
+          echo "Health Check: ${{ steps.health_check.outputs.ready }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::❌ Cache warming failed for ${{ steps.platform.outputs.platform }} deployment"
+          echo "::error::Please check the logs above for details"
+          echo "::error::The deployment is still live, but cache may not be optimally warmed"

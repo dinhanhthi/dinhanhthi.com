@@ -1,7 +1,5 @@
 import LocalRouteChange from '@/src/app/components/LocalRouteChange'
 import Nav from '@/src/app/components/nav/Nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import Script from 'next/script'
 
@@ -66,9 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <ScrollToTop />
           </div>
-          <Analytics />
           {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
-          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

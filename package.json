@@ -7,7 +7,7 @@
   "license": "MIT",
   "engines": {
     "pnpm": "^10.18.0",
-    "node": "^22.19.0"
+    "node": ">=22.0.0"
   },
   "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "browser": {
@@ -23,7 +23,7 @@
     "lint": "eslint .",
     "check": "pnpm run prettier && pnpm run build",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,scss}\"",
-    "clean": "rimraf .next && rimraf .vercel && rimraf .netlify",
+    "clean": "rimraf .next",
     "clean-build": "pnpm run clean && pnpm run build",
     "reinstall": "pnpm run clean && rm -rf node_modules 2>/dev/null && rm pnpm-lock.yaml 2>/dev/null && pnpm install",
     "warm-cache": "npx tsx -r dotenv/config ./scripts/warm-cache.ts dotenv_config_path=.env.production.local",
@@ -44,8 +44,6 @@
     "@radix-ui/react-visually-hidden": "^1.2.3",
     "@tailwindcss/typography": "^0.5.19",
     "@upstash/redis": "^1.35.6",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
@@ -114,5 +112,10 @@
   },
   "optionalDependencies": {
     "lightningcss-linux-x64-gnu": "^1.30.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "cheerio": "1.0.0-rc.12"
+    }
   }
 }

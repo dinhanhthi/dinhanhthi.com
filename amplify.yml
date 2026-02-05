@@ -1,0 +1,136 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Set pnpm store directory for caching
+        - export PNPM_HOME="/root/.local/share/pnpm"
+        - export PATH="$PNPM_HOME:$PATH"
+
+        # Install pnpm if not cached
+        - npm install -g pnpm@10.20.0
+
+        # Configure pnpm store path for caching
+        - pnpm config set store-dir /root/.pnpm-store
+
+        # Install dependencies (use cache if available)
+        - pnpm install --frozen-lockfile
+
+    build:
+      commands:
+        # Write environment variables to .env.production for Next.js SSR runtime
+        # AWS Amplify doesn't automatically pass env vars to Lambda functions
+        # See: https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+
+        # NEXT_PUBLIC_ vars (client + server)
+        - env | grep -e NEXT_PUBLIC_ >> .env.production
+
+        # Notion vars (server-side)
+        - env | grep -e NOTION_ >> .env.production
+        - env | grep -e SEARCH_BOLD_KEY >> .env.production
+        - env | grep -e SPACE_ID >> .env.production
+        - env | grep -e SOURCE_ID >> .env.production
+        - env | grep -e COLLECTION_VIEW_ID >> .env.production
+
+        # Tools database vars
+        - env | grep -e TOOLS_ >> .env.production
+
+        # Reading database vars
+        - env | grep -e READING_ >> .env.production
+
+        # Topics database vars
+        - env | grep -e TOPICS_ >> .env.production
+
+        # Redis cache vars
+        - env | grep -e UPSTASH_ >> .env.production
+        - env | grep -e DISABLE_REDIS_CACHE >> .env.production
+        - env | grep -e DEPLOY_HOOK_SECRET >> .env.production
+
+        # Error notification vars
+        - env | grep -e RESEND_ >> .env.production
+        - env | grep -e ADMIN_EMAIL >> .env.production
+        - env | grep -e DISABLE_ERROR_EMAILS >> .env.production
+
+        # Global vars
+        - env | grep -e ENV_MODE >> .env.production
+
+        # Build Next.js application
+        - pnpm run build
+
+  artifacts:
+    # Specify the build output directory
+    baseDirectory: .next
+    files:
+      - '**/*'
+
+  cache:
+    paths:
+      # Cache pnpm global store (most important for speed)
+      - /root/.pnpm-store/**/*
+      # Cache node_modules
+      - node_modules/**/*
+      # Cache Next.js build cache (incremental builds)
+      - .next/cache/**/*
+
+# Custom HTTP headers for optimal caching strategy
+customHeaders:
+  # Static assets from Next.js build (_next/static) - cache forever with immutable
+  # These files have content hashes in their names, so they never change
+  - pattern: '_next/static/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+
+  # Public static assets - cache for 1 year
+  # Images, fonts, and other public files
+  - pattern: 'public/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+
+  # API routes - never cache
+  # Dynamic API endpoints should always return fresh data
+  - pattern: 'api/**'
+    headers:
+      - key: 'Cache-Control'
+        value: 'no-store, must-revalidate'
+      - key: 'X-Robots-Tag'
+        value: 'noindex'
+      # Enable CORS for API routes
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+      - key: 'Access-Control-Allow-Methods'
+        value: 'GET, POST, PUT, DELETE, OPTIONS'
+      - key: 'Access-Control-Allow-Headers'
+        value: 'Content-Type, Authorization'
+
+  # HTML pages - use ISR revalidate strategy (60 seconds as configured in Next.js)
+  # s-maxage=60 means CloudFront will cache for 60 seconds
+  # must-revalidate ensures fresh content after expiration
+  - pattern: '**/*.html'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=0, must-revalidate, s-maxage=60'
+
+  # Images - cache for 30 days (matching Next.js minimumCacheTTL)
+  - pattern: '**/*.{jpg,jpeg,png,gif,webp,avif,svg,ico}'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=2592000, immutable'
+
+  # Fonts - cache for 1 year
+  - pattern: '**/*.{woff,woff2,ttf,otf,eot}'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
+
+# NOTE: Custom domain configuration
+# Uncomment và cập nhật sau khi setup xong trong AWS Console
+# customDomain:
+#   - domainName: dinhanhthi.com
+#     certificateArn: arn:aws:acm:us-east-1:ACCOUNT_ID:certificate/CERTIFICATE_ID
+#     enableAutoSubDomain: false
