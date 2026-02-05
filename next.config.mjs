@@ -16,6 +16,10 @@ const nextConfig = {
   sassOptions: {
     silenceDeprecations: ['legacy-js-api']
   },
+  experimental: {
+    // Optimize package imports
+    optimizePackageImports: ['lucide-react', 'lodash']
+  },
   headers: async () => {
     return []
   },
