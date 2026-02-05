@@ -29,7 +29,7 @@ type BlockCodeProps = {
 export default function BlockCode(props: BlockCodeProps) {
   const { block, className, defaultLanguage, updatedBlock, blurBlockClassName } = props
 
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
   const { recordMap, blockOptions } = useNotionContext()
   const content = getBlockTitle(block, recordMap)
@@ -65,11 +65,11 @@ export default function BlockCode(props: BlockCodeProps) {
   const syntaxWraper = (
     <SyntaxHighlighter
       language={formatCodeLang(language)}
-      style={theme === 'dark' ? vscDarkPlus : prism}
+      style={resolvedTheme === 'dark' ? vscDarkPlus : prism}
       className={cn(
         'syntax-highlighter-pre thi-scrollbar thi-scrollbar-small !border-border-muted !my-0 max-h-[300px] border',
         {
-          '!bg-slate-50': theme === 'light'
+          '!bg-slate-50': resolvedTheme === 'light'
         }
       )}
       showLineNumbers={true}
