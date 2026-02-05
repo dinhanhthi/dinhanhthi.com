@@ -25,24 +25,11 @@ export async function OPTIONS(_request: Request) {
 }
 
 export async function POST(request: Request) {
-  const startTime = Date.now()
-  console.log('[Search API] ========== START ==========')
-
   try {
-    // Step 1: Parse request body
-    console.log('[Search API] Step 1: Parsing request body...')
     const searchParams = await request.json()
-    console.log('[Search API] Step 1: Query:', searchParams.query)
 
-    // Step 2: Check environment variables
-    console.log('[Search API] Step 2: Checking environment variables...')
     const apiUrl = process.env.NOTION_API_PUBLISHED
     const dbId = process.env.NOTION_DB_POSTS
-    // Debug: List all NOTION-related env vars (keys only, not values for security)
-    const notionEnvKeys = Object.keys(process.env).filter(key => key.includes('NOTION'))
-    console.log('[Search API] Step 2: Available NOTION env keys:', notionEnvKeys)
-    console.log('[Search API] Step 2: NOTION_API_PUBLISHED:', apiUrl ? `${apiUrl.slice(0, 30)}...` : 'NOT SET')
-    console.log('[Search API] Step 2: NOTION_DB_POSTS:', dbId ? `${dbId.slice(0, 10)}...` : 'NOT SET')
 
     if (!apiUrl) {
       throw new Error('NOTION_API_PUBLISHED environment variable is not set')
@@ -51,21 +38,8 @@ export async function POST(request: Request) {
       throw new Error('NOTION_DB_POSTS environment variable is not set')
     }
 
-    // Step 3: Call Notion search API
-    console.log('[Search API] Step 3: Calling searchNotionPersonal...')
     const results = await searchNotionPersonal(searchParams, apiUrl, dbId)
-    console.log('[Search API] Step 3: Raw results received, results count:', results?.results?.length ?? 0)
-    console.log('[Search API] Step 3: Has recordMap:', !!results?.recordMap)
-
-    // Step 4: Parse results
-    console.log('[Search API] Step 4: Parsing search results...')
     const postResults = parseSearchResults(results)
-    console.log('[Search API] Step 4: Parsed results count:', postResults.length)
-
-    // Step 5: Return response
-    const duration = Date.now() - startTime
-    console.log(`[Search API] Step 5: Returning response (took ${duration}ms)`)
-    console.log('[Search API] ========== END ==========')
 
     return new Response(JSON.stringify(postResults), {
       headers: {
@@ -73,12 +47,7 @@ export async function POST(request: Request) {
       }
     })
   } catch (error) {
-    const duration = Date.now() - startTime
-    console.error(`[Search API] ERROR (after ${duration}ms):`, error)
-    console.error('[Search API] Error name:', error instanceof Error ? error.name : 'Unknown')
-    console.error('[Search API] Error message:', error instanceof Error ? error.message : String(error))
-    console.error('[Search API] Error stack:', error instanceof Error ? error.stack : 'No stack')
-    console.log('[Search API] ========== END (ERROR) ==========')
+    console.error('[Search API] Error:', error instanceof Error ? error.message : String(error))
 
     return new Response(JSON.stringify({ error: 'Search failed', details: String(error) }), {
       status: 500,

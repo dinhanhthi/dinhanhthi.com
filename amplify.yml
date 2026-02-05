@@ -3,6 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Performance optimizations
+        - export NODE_OPTIONS="--max-old-space-size=4096"
+        - export NEXT_TELEMETRY_DISABLED=1
+
         # Set pnpm store directory for caching
         - export PNPM_HOME="/root/.local/share/pnpm"
         - export PATH="$PNPM_HOME:$PATH"
@@ -13,8 +17,14 @@ frontend:
         # Configure pnpm store path for caching
         - pnpm config set store-dir /root/.pnpm-store
 
-        # Install dependencies (use cache if available)
-        - pnpm install --frozen-lockfile
+        # Install dependencies with optimizations
+        # --prefer-offline: use cache first, fallback to network
+        # --frozen-lockfile: ensure reproducible builds
+        # --reporter=silent: reduce log noise
+        - pnpm install --frozen-lockfile --prefer-offline --reporter=silent
+
+        # Dedupe to prevent React version duplicates
+        - pnpm dedupe
 
     build:
       commands:
@@ -55,7 +65,8 @@ frontend:
         - env | grep -e ENV_MODE >> .env.production
 
         # Build Next.js application
-        - pnpm run build
+        # NODE_ENV=production is required for prerendering to work correctly
+        - NODE_ENV=production pnpm run build
 
   artifacts:
     # Specify the build output directory
@@ -71,6 +82,10 @@ frontend:
       - node_modules/**/*
       # Cache Next.js build cache (incremental builds)
       - .next/cache/**/*
+      # Cache pnpm binary
+      - /root/.local/share/pnpm/**/*
+      # Cache TypeScript build info
+      - '**/*.tsbuildinfo'
 
 # Custom HTTP headers for optimal caching strategy
 customHeaders:

@@ -200,14 +200,7 @@ export default function NavSearch() {
 }
 
 const fetcher = async (url: string, params: any) => {
-  const startTime = Date.now()
-  console.log('[NavSearch fetcher] ========== START ==========')
-  console.log('[NavSearch fetcher] URL:', url)
-  console.log('[NavSearch fetcher] Query:', params.query)
-
   if (params.query === '') {
-    console.log('[NavSearch fetcher] Empty query, returning fake result')
-    console.log('[NavSearch fetcher] ========== END ==========')
     return [{ isFake: true, isPublished: true }]
   }
 
@@ -215,7 +208,6 @@ const fetcher = async (url: string, params: any) => {
     'Content-Type': 'application/json'
   }
 
-  console.log('[NavSearch fetcher] Sending fetch request...')
   const res = await fetch(url, {
     headers,
     method: 'POST',
@@ -223,24 +215,10 @@ const fetcher = async (url: string, params: any) => {
     mode: 'cors'
   })
 
-  const duration = Date.now() - startTime
-  console.log(`[NavSearch fetcher] Response received (took ${duration}ms)`)
-  console.log('[NavSearch fetcher] Response status:', res.status)
-  console.log('[NavSearch fetcher] Response statusText:', res.statusText)
-
   if (!res.ok) {
     const text = await res.text()
-    console.error('[NavSearch fetcher] ERROR: Response not OK')
-    console.error('[NavSearch fetcher] Response body:', text.slice(0, 500))
-    console.log('[NavSearch fetcher] ========== END (ERROR) ==========')
     throw new Error(`Search request failed: ${res.status} - ${text}`)
   }
 
-  console.log('[NavSearch fetcher] Parsing JSON response...')
-  const jsonResponse = await res.json()
-  console.log('[NavSearch fetcher] JSON parsed successfully')
-  console.log('[NavSearch fetcher] Results count:', Array.isArray(jsonResponse) ? jsonResponse.length : 'N/A')
-  console.log('[NavSearch fetcher] ========== END ==========')
-
-  return jsonResponse
+  return res.json()
 }
