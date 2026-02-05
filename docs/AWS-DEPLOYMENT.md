@@ -174,37 +174,127 @@ chmod +x docs/testing-checklist.sh
 
 ---
 
-### Bước 4: Custom Domain (20 phút)
+### Bước 4: Custom Domain với Cloudflare (20-30 phút)
 
 **4.1. Add domain in Amplify:**
 ```
-AWS Amplify → Domain management → Add domain
-Domain: dinhanhthi.com
-Root: dinhanhthi.com → main
-Subdomain: www → main
-Save (SSL auto-provisioned in ~5-10 min)
+1. AWS Amplify Console → App → Hosting → Custom domains
+2. Click "Add domain"
+3. Enter domain: dinhanhthi.com
+4. Click "Configure domain"
+5. Subdomains setup:
+   - dinhanhthi.com → main branch
+   - www.dinhanhthi.com → main branch (redirect to root)
+6. Click "Save"
 ```
 
-**4.2. Update DNS:**
+**4.2. Lấy DNS records từ Amplify:**
+
+Sau khi save, Amplify sẽ hiển thị các DNS records cần setup:
 ```
-Get CloudFront URL: d1234567890.cloudfront.net
-
-At your DNS provider:
-Type: CNAME (or A Alias)
-Name: @ (or blank for root)
-Value: d1234567890.cloudfront.net
-TTL: 300
-
-If using Cloudflare: Turn OFF proxy (grey cloud)
+┌─────────────────────────────────────────────────────────────────────┐
+│ Record 1 (SSL Verification - CNAME)                                 │
+│ Name: _abc123.dinhanhthi.com                                        │
+│ Value: _def456.acm-validations.aws                                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Record 2 (Root Domain - CNAME)                                      │
+│ Name: dinhanhthi.com                                                │
+│ Value: d1234567890.cloudfront.net                                   │
+├─────────────────────────────────────────────────────────────────────┤
+│ Record 3 (WWW Subdomain - CNAME)                                    │
+│ Name: www.dinhanhthi.com                                            │
+│ Value: d1234567890.cloudfront.net                                   │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-**4.3. Wait for propagation:**
+**4.3. Setup DNS trong Cloudflare:**
+
+```
+1. Login Cloudflare → chọn domain dinhanhthi.com
+2. DNS → Records → Add record
+
+RECORD 1: SSL Certificate Verification
+┌──────────┬─────────────────────────────────────┬──────────────────────────────────┬───────┐
+│ Type     │ Name                                │ Target                           │ Proxy │
+├──────────┼─────────────────────────────────────┼──────────────────────────────────┼───────┤
+│ CNAME    │ _abc123 (copy từ Amplify)           │ _def456.acm-validations.aws      │ OFF ⚫│
+└──────────┴─────────────────────────────────────┴──────────────────────────────────┴───────┘
+
+RECORD 2: Root Domain
+┌──────────┬─────────────────────────────────────┬──────────────────────────────────┬───────┐
+│ Type     │ Name                                │ Target                           │ Proxy │
+├──────────┼─────────────────────────────────────┼──────────────────────────────────┼───────┤
+│ CNAME    │ @ (hoặc dinhanhthi.com)             │ d1234567890.cloudfront.net       │ OFF ⚫│
+└──────────┴─────────────────────────────────────┴──────────────────────────────────┴───────┘
+
+RECORD 3: WWW Subdomain
+┌──────────┬─────────────────────────────────────┬──────────────────────────────────┬───────┐
+│ Type     │ Name                                │ Target                           │ Proxy │
+├──────────┼─────────────────────────────────────┼──────────────────────────────────┼───────┤
+│ CNAME    │ www                                 │ d1234567890.cloudfront.net       │ OFF ⚫│
+└──────────┴─────────────────────────────────────┴──────────────────────────────────┴───────┘
+```
+
+**⚠️ QUAN TRỌNG - Cloudflare Settings:**
+
+```
+1. Proxy Status: TẮT (Grey cloud ⚫) cho TẤT CẢ records
+   - Nếu bật Orange cloud → SSL conflict với AWS Certificate Manager
+   - Click vào cloud icon để toggle OFF
+
+2. SSL/TLS Settings (Cloudflare dashboard → SSL/TLS):
+   - SSL mode: "Full" hoặc "Full (strict)"
+   - KHÔNG dùng "Flexible" (sẽ gây redirect loop)
+
+3. Xóa các records cũ nếu có:
+   - Xóa A record cũ của @ nếu đang trỏ đến IP khác
+   - Xóa CNAME record cũ của www nếu có
+```
+
+**4.4. Verify SSL Certificate:**
+
+```
+Quay lại AWS Amplify Console:
+1. Custom domains → Check status
+2. SSL certificate: "Pending validation" → "Issued" (5-15 phút)
+3. Domain status: "Pending" → "Available"
+
+Nếu stuck ở "Pending validation" sau 30 phút:
+- Kiểm tra lại CNAME record cho SSL verification
+- Đảm bảo Proxy OFF trên Cloudflare
+```
+
+**4.5. Test domain:**
+
 ```bash
-dig dinhanhthi.com  # Should point to CloudFront
-curl -I https://dinhanhthi.com  # Should return 200
+# Check DNS propagation
+dig dinhanhthi.com +short
+# Should return: d1234567890.cloudfront.net (or CloudFront IP)
+
+dig www.dinhanhthi.com +short
+# Should return: d1234567890.cloudfront.net
+
+# Test HTTPS
+curl -I https://dinhanhthi.com
+# Should return: HTTP/2 200
+
+curl -I https://www.dinhanhthi.com
+# Should redirect to https://dinhanhthi.com (301)
 ```
 
-Time: 5 phút - 2 giờ
+**4.6. Troubleshooting Cloudflare:**
+
+| Issue | Nguyên nhân | Fix |
+|-------|-------------|-----|
+| SSL certificate stuck "Pending" | Proxy ON (orange cloud) | Turn OFF proxy cho tất cả records |
+| ERR_TOO_MANY_REDIRECTS | SSL mode = Flexible | Change to Full or Full (strict) |
+| 522 Connection timed out | Proxy ON blocking AWS | Turn OFF proxy |
+| Mixed content warnings | HTTP resources | Check all assets use HTTPS |
+
+**Timeline:**
+- DNS propagation: 1-5 phút (Cloudflare fast)
+- SSL certificate: 5-15 phút
+- Full setup: ~20-30 phút
 
 ---
 
