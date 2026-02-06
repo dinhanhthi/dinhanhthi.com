@@ -22,9 +22,9 @@ function getRedisClient(): Redis | null {
     redis = new Redis({
       url: process.env.UPSTASH_REDIS_REST_URL,
       token: process.env.UPSTASH_REDIS_REST_TOKEN,
-      // Allow Next.js to cache Redis requests during build/ISR
-      // This enables static generation while still using Redis at runtime
-      cache: 'force-cache'
+      // Always fetch fresh data from Redis - don't let Next.js Data Cache
+      // intercept Redis HTTP calls. We have our own cache layer (withRedisCache).
+      cache: 'no-store'
     })
   }
 
