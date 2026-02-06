@@ -21,10 +21,10 @@ function getRedisClient(): Redis | null {
   if (!redis) {
     redis = new Redis({
       url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-      // Always fetch fresh data from Redis - don't let Next.js Data Cache
-      // intercept Redis HTTP calls. We have our own cache layer (withRedisCache).
-      cache: 'no-store'
+      token: process.env.UPSTASH_REDIS_REST_TOKEN
+      // Don't set cache option here — Upstash SDK defaults to 'no-store' on Node.js,
+      // ensuring Redis HTTP calls always fetch fresh data and are not intercepted
+      // by Next.js Data Cache. We have our own cache layer (withRedisCache).
     })
   }
 
