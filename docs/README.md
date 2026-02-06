@@ -2,11 +2,11 @@
 
 ## 🚀 AWS Deployment
 
-**Main Guide:** [`AWS-DEPLOYMENT.md`](./AWS-DEPLOYMENT.md)
+**Main Guide:** [Deploy Next.js to AWS Amplify](https://dinhanhthi.com/note/nextjs-aws/)
 
-Complete guide để deploy project này từ Vercel lên AWS Amplify:
+Complete guide để deploy project này lên AWS Amplify:
 - ✅ Setup trong 2-3 giờ
-- ✅ Tiết kiệm $180-360/năm (75% rẻ hơn Vercel)
+- ✅ Cost-effective deployment solution
 - ✅ Tất cả tính năng Next.js 15 hoạt động đầy đủ
 - ✅ GitHub Actions cache warming tự động
 

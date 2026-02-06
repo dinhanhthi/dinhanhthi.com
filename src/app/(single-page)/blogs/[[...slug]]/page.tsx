@@ -8,11 +8,11 @@ import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/con
 import { getPosts } from '@/src/lib/fetcher'
 import { filterDupLangPosts } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
-import { OptionalCatchAllParams, OptionalCatchAllProps } from '@/src/lib/types'
+import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
-export const revalidate = 60
+export const revalidate = 120
 
 const numPostsPerPage = 24
 
@@ -30,25 +30,6 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
       images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
     }
   }
-}
-
-export async function generateStaticParams() {
-  const params = [] as OptionalCatchAllParams[]
-  const allblogs = await getPosts({
-    filter: {
-      property: 'blog',
-      checkbox: {
-        equals: true
-      }
-    }
-  })
-  const numBlogs = allblogs?.length || 0
-  const totalPages = Math.ceil(numBlogs / numPostsPerPage)
-  for (let i = 1; i <= totalPages; i++) {
-    const path = i === 1 ? { slug: [] } : { slug: ['page', i.toString()] }
-    params.push(path)
-  }
-  return params
 }
 
 // Async component for blog posts content

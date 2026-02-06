@@ -1,10 +1,7 @@
 name: Warm Cache After Deploy
 
 on:
-  # Trigger for Vercel deployments (keep for compatibility)
-  deployment_status:
-
-  # NEW: Trigger for AWS Amplify deployments via workflow_dispatch
+  # Trigger for AWS Amplify deployments via workflow_dispatch
   workflow_dispatch:
     inputs:
       deployment_url:
@@ -12,7 +9,7 @@ on:
         required: false
         default: 'https://dinhanhthi.com'
 
-  # NEW: Trigger on push to main (AWS Amplify auto-deploys on push)
+  # Trigger on push to main (AWS Amplify auto-deploys on push)
   push:
     branches:
       - main
@@ -24,11 +21,8 @@ on:
 
 jobs:
   warm-cache:
-    # Run on successful Vercel deployments OR manual trigger OR push to main
+    # Run on manual trigger OR push to main
     if: |
-      (github.event_name == 'deployment_status' &&
-       github.event.deployment_status.state == 'success' &&
-       github.event.deployment_status.environment == 'Production') ||
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'push'
 
@@ -38,10 +32,7 @@ jobs:
       - name: Determine deployment platform
         id: platform
         run: |
-          if [ "${{ github.event_name }}" = "deployment_status" ]; then
-            echo "platform=vercel" >> $GITHUB_OUTPUT
-            echo "site_url=${{ secrets.SITE_URL }}" >> $GITHUB_OUTPUT
-          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "platform=manual" >> $GITHUB_OUTPUT
             echo "site_url=${{ github.event.inputs.deployment_url }}" >> $GITHUB_OUTPUT
           else
@@ -59,7 +50,7 @@ jobs:
             echo "⏳ Waiting 3 minutes for AWS Amplify deployment to complete..."
             sleep 180
           else
-            # Vercel is faster (30-60 seconds)
+            # Manual trigger
             echo "⏳ Waiting 10 seconds for deployment to be ready..."
             sleep 10
           fi
@@ -131,11 +122,7 @@ jobs:
           echo "Event: ${{ github.event_name }}"
           echo "Site URL: ${{ steps.platform.outputs.site_url }}"
 
-          if [ "${{ github.event_name }}" = "deployment_status" ]; then
-            echo "Deployment URL: ${{ github.event.deployment_status.target_url }}"
-            echo "Environment: ${{ github.event.deployment_status.environment }}"
-            echo "State: ${{ github.event.deployment_status.state }}"
-          elif [ "${{ github.event_name }}" = "push" ]; then
+          if [ "${{ github.event_name }}" = "push" ]; then
             echo "Commit: ${{ github.sha }}"
             echo "Branch: ${{ github.ref_name }}"
             echo "Author: ${{ github.actor }}"

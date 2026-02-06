@@ -21,10 +21,10 @@ function getRedisClient(): Redis | null {
   if (!redis) {
     redis = new Redis({
       url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-      // Allow Next.js to cache Redis requests during build/ISR
-      // This enables static generation while still using Redis at runtime
-      cache: 'force-cache'
+      token: process.env.UPSTASH_REDIS_REST_TOKEN
+      // Don't set cache option here — Upstash SDK defaults to 'no-store' on Node.js,
+      // ensuring Redis HTTP calls always fetch fresh data and are not intercepted
+      // by Next.js Data Cache. We have our own cache layer (withRedisCache).
     })
   }
 
@@ -233,6 +233,10 @@ export async function withRedisCache<T>(
           // Errors already logged in refreshInBackground
           // Just ensure no unhandled promise rejection
         })
+      } else {
+        console.log(
+          `🟢 Cache hit for ${identifier} (age: ${formatAge(ageInSeconds)}, fresh for ${formatAge(softTTL - ageInSeconds)})`
+        )
       }
 
       // Step 4: Return cache immediately (stale or fresh, doesn't matter)

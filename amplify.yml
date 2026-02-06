@@ -11,8 +11,8 @@ frontend:
         - export PNPM_HOME="/root/.local/share/pnpm"
         - export PATH="$PNPM_HOME:$PATH"
 
-        # Install pnpm if not cached
-        - npm install -g pnpm@10.20.0
+        # Install pnpm only if not already available at correct version
+        - which pnpm && pnpm --version | grep -q "10.20.0" || npm install -g pnpm@10.20.0
 
         # Configure pnpm store path for caching
         - pnpm config set store-dir /root/.pnpm-store
@@ -20,11 +20,7 @@ frontend:
         # Install dependencies with optimizations
         # --prefer-offline: use cache first, fallback to network
         # --frozen-lockfile: ensure reproducible builds
-        # --reporter=silent: reduce log noise
-        - pnpm install --frozen-lockfile --prefer-offline --reporter=silent
-
-        # Dedupe to prevent React version duplicates
-        - pnpm dedupe
+        - pnpm install --frozen-lockfile --prefer-offline
 
     build:
       commands:
@@ -76,16 +72,12 @@ frontend:
 
   cache:
     paths:
-      # Cache pnpm global store (most important for speed)
+      # Cache pnpm global store (pnpm install links from here, very fast)
       - /root/.pnpm-store/**/*
-      # Cache node_modules
-      - node_modules/**/*
       # Cache Next.js build cache (incremental builds)
       - .next/cache/**/*
       # Cache pnpm binary
       - /root/.local/share/pnpm/**/*
-      # Cache TypeScript build info
-      - '**/*.tsbuildinfo'
 
 # Custom HTTP headers for optimal caching strategy
 customHeaders:
