@@ -43,7 +43,7 @@ import { queryDefinitions } from '@/src/lib/query-definitions'
 import { NextRequest, NextResponse } from 'next/server'
 
 export const dynamic = 'force-dynamic'
-export const maxDuration = 59 // Max for Hobby plan
+export const maxDuration = 900 // AWS Lambda max: 15 minutes
 
 const WHO = 'api/cron/warm-cache'
 
