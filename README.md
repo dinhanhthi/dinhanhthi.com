@@ -38,8 +38,6 @@ pnpm run dev # port 3004
 # build
 pnpm run build
 # If you have .env.production.local, it will be used for production build
-# Use below to get the latest .env.production.local
-vercel env pull .env.production.local --environment=production
 
 # serve (need to build first)
 pnpm start # port 3004
@@ -81,7 +79,7 @@ DISABLE_REDIS_CACHE="false"
 DISABLE_REDIS_CACHE="your-deploy-hook-secret"
 ```
 
-**Remark**: On Vercel, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment. You also need to add these variables in the Github Repository Secrets: `SITE_URL` (`https://dinhanhthi.com` for example) and `DEPLOY_HOOK_SECRET`
+**Remark**: For AWS deployment, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment. You also need to add these variables in the Github Repository Secrets: `SITE_URL` (`https://dinhanhthi.com` for example) and `DEPLOY_HOOK_SECRET`
 
 **Useful commands**:
 
@@ -110,22 +108,6 @@ SEND_ERROR_EMAILS_IN_DEV="false"
 DISABLE_ERROR_EMAILS="false"
 ```
 
-## Vercel Setup
+## AWS Deployment
 
-The project uses pnpm as the package manager. Vercel automatically detects this via the `packageManager` field in `package.json`. No additional configuration needed.
-
-You have to add `ENABLE_EXPERIMENTAL_COREPACK` to `1` on Vercel.
-
-```bash
-vercel dev # like pnpm run dev
-
-vercel build
-
-vercel build --prod
-
-# preview only
-vercel deploy
-
-# production
-vercel --prod
-```
+For complete AWS Amplify deployment guide, see [this note](https://dinhanhthi.com/note/nextjs-aws/).
