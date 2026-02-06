@@ -233,6 +233,10 @@ export async function withRedisCache<T>(
           // Errors already logged in refreshInBackground
           // Just ensure no unhandled promise rejection
         })
+      } else {
+        console.log(
+          `🟢 Cache hit for ${identifier} (age: ${formatAge(ageInSeconds)}, fresh for ${formatAge(softTTL - ageInSeconds)})`
+        )
       }
 
       // Step 4: Return cache immediately (stale or fresh, doesn't matter)
