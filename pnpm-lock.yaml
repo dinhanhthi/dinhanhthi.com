@@ -99,11 +99,11 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       notion-types:
-        specifier: ~7.6.0
-        version: 7.6.0
+        specifier: ~7.7.3
+        version: 7.7.3
       notion-utils:
-        specifier: ~7.6.0
-        version: 7.6.0
+        specifier: ~7.7.3
+        version: 7.7.3
       p-memoize:
         specifier: ^7.1.1
         version: 7.1.1
@@ -3101,12 +3101,12 @@ packages:
     resolution: {integrity: sha512-JYc0DPlpGWB40kH5g07gGTrYuMqV653k3uBKY6uITPWds3M0ov3GaWGp9lbE3Bzngx8+XkfzgvASb9vk9JDFXQ==}
     engines: {node: '>=14.16'}
 
-  notion-types@7.6.0:
-    resolution: {integrity: sha512-jFXrNjGiHLDkz0f2wktD8J3tsse4U+UX5+UG6+CpfwruGh+2zrPY6Qo1SdIccLxS17rzBMYcU8gtSACBpexOmA==}
+  notion-types@7.7.3:
+    resolution: {integrity: sha512-6HCcLi9zEcVJsvVUvCZ2f5o4ANtKsRfQuUcU74Trsv6C5raug8ERtmeM2s7YJfuLuP74YVDDSIXugO+XkUBFxg==}
     engines: {node: '>=18'}
 
-  notion-utils@7.6.0:
-    resolution: {integrity: sha512-DOP1vK4MBWhFcYFUEtFzGR6H6KZQz3PGJkmvB+/gCfjGd8Y2NSDelj+Eypelz16PtPALUAJmvx2e19Oegxcq2g==}
+  notion-utils@7.7.3:
+    resolution: {integrity: sha512-MpOsUWdJJXKKc01zIYv90cxZZf7zL4dDSTssdqRFlDJsgGFFrD9uoKr0giOrMPiIoGwLka4TNeTORRDMYRZmoQ==}
     engines: {node: '>=18'}
 
   object-assign@4.1.1:
@@ -6864,14 +6864,14 @@ snapshots:
 
   normalize-url@8.1.1: {}
 
-  notion-types@7.6.0: {}
+  notion-types@7.7.3: {}
 
-  notion-utils@7.6.0:
+  notion-utils@7.7.3:
     dependencies:
       is-url-superb: 6.1.0
       memoize: 10.2.0
       normalize-url: 8.1.1
-      notion-types: 7.6.0
+      notion-types: 7.7.3
       p-queue: 8.1.1
 
   object-assign@4.1.1: {}

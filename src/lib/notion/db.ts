@@ -20,6 +20,45 @@ import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 export const notionMaxRequest = 100
 
 /**
+ * Normalize Notion API v3 recordMap format back to v2 format.
+ *
+ * In v3 (`__version__: 3`), each entry in `block`, `collection`, etc. is wrapped as:
+ *   `{ value: { value: <actual data>, role: "..." } }`
+ * In v2, it was:
+ *   `{ value: <actual data> }`
+ *
+ * This function unwraps v3 to v2 so all downstream code works unchanged.
+ */
+function normalizeRecordMap(recordMap: any): any {
+  if (!recordMap || recordMap.__version__ !== 3) return recordMap
+
+  const tablesToNormalize = [
+    'block',
+    'collection',
+    'collection_view',
+    'notion_user',
+    'space',
+    'custom_emoji'
+  ]
+
+  for (const table of tablesToNormalize) {
+    const entries = recordMap[table]
+    if (!entries) continue
+
+    for (const id of Object.keys(entries)) {
+      const entry = entries[id]
+      // v3 pattern: entry.value = { value: actualData, role: "..." }
+      // v2 pattern: entry.value = actualData (which has id, type, properties, etc.)
+      if (entry?.value?.value && entry.value.role !== undefined) {
+        entries[id] = { value: entry.value.value, role: entry.value.role }
+      }
+    }
+  }
+
+  return recordMap
+}
+
+/**
  * Simple Open Graph metadata fetcher without cheerio dependency
  * Uses regex to extract OG tags from HTML
  */
@@ -139,7 +178,11 @@ export async function getUnofficialDatabaseImpl(opts: {
       throw error
     }
 
-    return await response.json()
+    const data = await response.json()
+    if (data?.recordMap) {
+      data.recordMap = normalizeRecordMap(data.recordMap)
+    }
+    return data
   } catch (error: any) {
     console.error('🚨 Unofficial Notion API error:', error)
 
@@ -400,6 +443,9 @@ export async function getCustomEmojiBlock(opts: {
       headers,
       body: JSON.stringify(body)
     }).then(res => res.json())
+    if (data?.recordMap) {
+      data.recordMap = normalizeRecordMap(data.recordMap)
+    }
     return data?.recordMap?.custom_emoji?.[customEmojiId]?.value
   } catch (error) {
     console.error('🚨 Error in getCustomEmojiBlock()', error)
@@ -643,7 +689,11 @@ export async function searchNotion(
     throw new Error(`Notion search API error: ${response.status} - ${text}`)
   }
 
-  return response.json()
+  const searchData = await response.json()
+  if (searchData?.recordMap) {
+    searchData.recordMap = normalizeRecordMap(searchData.recordMap)
+  }
+  return searchData
 }
 
 /**
@@ -709,7 +759,11 @@ async function getPageRaw(pageId: string): Promise<any> {
     verticalColumns: false
   }
 
-  return notionFetch<any>('loadPageChunk', body)
+  const data = await notionFetch<any>('loadPageChunk', body)
+  if (data?.recordMap) {
+    data.recordMap = normalizeRecordMap(data.recordMap)
+  }
+  return data
 }
 
 /**
@@ -718,13 +772,17 @@ async function getPageRaw(pageId: string): Promise<any> {
  * @returns PageChunk containing the requested blocks
  */
 export async function getBlocksByIds(blockIds: string[]): Promise<any> {
-  return notionFetch<any>('syncRecordValuesMain', {
+  const data = await notionFetch<any>('syncRecordValuesMain', {
     requests: blockIds.map(blockId => ({
       table: 'block',
       id: blockId,
       version: -1
     }))
   })
+  if (data?.recordMap) {
+    data.recordMap = normalizeRecordMap(data.recordMap)
+  }
+  return data
 }
 
 /**
@@ -833,5 +891,9 @@ export async function searchNotionPersonal(
     throw new Error(`Notion search API error: ${response.status} - ${text}`)
   }
 
-  return response.json()
+  const personalSearchData = await response.json()
+  if (personalSearchData?.recordMap) {
+    personalSearchData.recordMap = normalizeRecordMap(personalSearchData.recordMap)
+  }
+  return personalSearchData
 }
