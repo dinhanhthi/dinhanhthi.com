@@ -31,6 +31,11 @@ export default function SimpleImage(props: SimpleImageProps) {
       img.onload = () => {
         setLoaded(true)
       }
+      img.onerror = () => {
+        setLoaded(true)
+      }
+    } else {
+      setLoaded(true)
     }
   }, [props.src])
 
