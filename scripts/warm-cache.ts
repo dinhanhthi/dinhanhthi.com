@@ -17,6 +17,10 @@
  *   pnpm run warm-cache --tools      # Warm tools/books/reading pages cache only
  *   pnpm run warm-cache --single     # Warm single note pages cache only
  *
+ * Warm a specific tag page:
+ *   pnpm run warm-cache --tag=my-tag-slug             # Warm tag page by slug
+ *   pnpm run warm-cache --tag=my-tag-slug --force     # Force refresh tag page
+ *
  * Warm a specific note by slug:
  *   pnpm run warm-cache --slug=my-note-slug           # Warm single note by slug
  *   pnpm run warm-cache --slug=my-note-slug --force   # Force refresh single note
@@ -69,6 +73,7 @@ const c = {
 type WarmOptions = {
   forceRefresh: boolean
   slug?: string // Specific note slug to warm
+  tag?: string // Specific tag slug to warm
   pages: {
     home: boolean
     notes: boolean
@@ -86,12 +91,31 @@ function parseArgs(): WarmOptions {
   const slugArg = args.find(arg => arg.startsWith('--slug='))
   const slug = slugArg ? slugArg.split('=')[1] : undefined
 
+  // Check for specific tag slug
+  const tagArg = args.find(arg => arg.startsWith('--tag='))
+  const tag = tagArg ? tagArg.split('=')[1] : undefined
+
   // Check if specific pages are requested
   const hasHome = args.includes('--home')
   const hasNotes = args.includes('--notes')
   const hasTags = args.includes('--tags')
   const hasTools = args.includes('--tools')
   const hasSingle = args.includes('--single')
+
+  // If tag is specified, only warm that specific tag page
+  if (tag) {
+    return {
+      forceRefresh,
+      tag,
+      pages: {
+        home: false,
+        notes: false,
+        tags: false,
+        tools: false,
+        single: false
+      }
+    }
+  }
 
   // If slug is specified, only warm that specific note
   if (slug) {
@@ -135,6 +159,79 @@ async function warmCache() {
   // Parse command line arguments
   const options = parseArgs()
   const mode = options.forceRefresh ? 'FORCE REFRESH' : 'NORMAL'
+
+  // Handle single tag page warming
+  if (options.tag) {
+    console.log(
+      `🔥 Starting cache warming for tag: ${c.slug(options.tag)} (${c.label(mode)} mode)...\n`
+    )
+    if (options.forceRefresh) {
+      console.log('⚡ Force refresh enabled: Will fetch latest data from Notion API\n')
+    } else {
+      console.log('ℹ️  Normal mode: Will use existing cache if available\n')
+    }
+
+    const startTime = Date.now()
+    try {
+      // First, get all topics to find the tag by slug/name
+      console.log(`🔍 Finding tag: ${c.slug(options.tag)}...`)
+      const allTopics = await getTopics({
+        whoIsCalling: 'warm-cache.ts/warmCache/warmTagPage/getTopics',
+        forceRefresh: options.forceRefresh
+      })
+
+      const topic = allTopics.find(t => t.slug === options.tag || t.name === options.tag)
+      if (!topic) {
+        console.error(`❌ Tag ${c.error(options.tag)} not found`)
+        process.exit(1)
+      }
+
+      const tagName = topic.name
+      console.log(
+        `✅ Found tag: ${c.title(tagName)} ${c.dim(`(slug: ${topic.slug})`)}\n`
+      )
+
+      // Warm all 3 tag page queries
+      console.log('📄 Fetching all posts by tag...')
+      await getPosts({
+        ...queryDefinitions.tagPage.allPostsByTag(tagName),
+        whoIsCalling: `warm-cache.ts/warmCache/warmTagPage/allPostsByTag/${tagName}`,
+        forceRefresh: options.forceRefresh
+      })
+      console.log(`✅ Cached all posts by tag`)
+
+      console.log('📄 Fetching regular posts by tag...')
+      await getPosts({
+        ...queryDefinitions.tagPage.regularPostsByTag(tagName),
+        whoIsCalling: `warm-cache.ts/warmCache/warmTagPage/regularPostsByTag/${tagName}`,
+        forceRefresh: options.forceRefresh
+      })
+      console.log(`✅ Cached regular posts by tag`)
+
+      console.log('📄 Fetching blog posts by tag...')
+      await getPosts({
+        ...queryDefinitions.tagPage.blogPostsByTag(tagName),
+        whoIsCalling: `warm-cache.ts/warmCache/warmTagPage/blogPostsByTag/${tagName}`,
+        forceRefresh: options.forceRefresh
+      })
+      console.log(`✅ Cached blog posts by tag`)
+
+      const duration = ((Date.now() - startTime) / 1000).toFixed(2)
+      console.log('')
+      console.log('─'.repeat(50))
+      console.log('📊 Cache Warming Summary:')
+      console.log('─'.repeat(50))
+      console.log(`⏱️  Duration: ${c.number(duration)}s`)
+      console.log(`🏷️  Tag: ${c.title(tagName)}`)
+      console.log(`🔗 Slug: ${c.slug(topic.slug || options.tag)}`)
+      console.log(`📄 Queries cached: ${c.number(3)}`)
+      console.log(`\n${c.success('✅ Cache warming completed successfully!')}`)
+      process.exit(0)
+    } catch (error) {
+      console.error(`${c.error('❌ Failed to warm cache for tag:')}`, error)
+      process.exit(1)
+    }
+  }
 
   // Handle single note slug warming
   if (options.slug) {
