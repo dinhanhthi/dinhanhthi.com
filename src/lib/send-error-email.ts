@@ -125,11 +125,15 @@ function buildErrorEmailHTML({
   `
     : ''
 
-  const whoIsCallingHTML = whoIsCalling
-    ? `<p><strong>Who is calling:</strong> ${whoIsCalling}</p>`
+  const uriLink = uri
+    ? ` (<a href="${uri}" target="_blank" style="color: #3182ce; text-decoration: underline;">${uri}</a>)`
     : ''
 
-  const uriHTML = uri ? `<p><strong>URI:</strong> ${uri}</p>` : ''
+  const whoIsCallingHTML = whoIsCalling
+    ? `<p><strong>Who is calling:</strong> ${whoIsCalling}${uriLink}</p>`
+    : ''
+
+  const uriHTML = !whoIsCalling && uri ? `<p><strong>URI:</strong> ${uri}</p>` : ''
 
   const stackHTML = stack
     ? `
