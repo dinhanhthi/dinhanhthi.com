@@ -72,7 +72,6 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
   }))
 
   const tag = getTag(slug, tags)
-  /* ###Thi */ console.log(`👉👉👉 tag: ${JSON.stringify(tag)}`);
   if (!tag) notFound()
 
   const [totalPages, allPosts] = await getTotalPages(tag)
@@ -95,13 +94,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
         uri: `https://dinhanhthi.com/tag/${slug}/page/${currentPage}/`
       })
 
-  // /* ###Thi */ console.log(`👉👉👉 _postsOnThisPage: ${JSON.stringify(_postsOnThisPage)}`);
-  /* ###Thi */ console.log(`👉👉👉 _postsOnThisPage.length: ${_postsOnThisPage.length}`);
-
   const postsOnThisPage = filterDupLangPosts(_postsOnThisPage).slice(0, numPostsPerPage)
-  /* ###Thi */ console.log(`👉👉👉 postsOnThisPage.length: ${postsOnThisPage.length}`);
-
-  /* ###Thi */ console.log(`👉👉👉 postsOnThisPage: ${JSON.stringify(postsOnThisPage)}`);
 
   const _blogPosts = await getPosts({
     ...queryDefinitions.tagPage.blogPostsByTag(tag.name),
@@ -109,10 +102,7 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     uri: `https://dinhanhthi.com/tag/${slug}/page/${currentPage}/`
   })
   const blogPosts = filterDupLangPosts(_blogPosts).slice(0, numBlogPosts)
-  /* ###Thi */ console.log(`👉👉👉 blogPosts.length: ${blogPosts.length}`);
 
-  
-  
   return (
     <PageOfPostsListTemplate
       object={tag as PageOfPostsListTemplateProps['object']}
