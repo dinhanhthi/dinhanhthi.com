@@ -1,3 +1,4 @@
+import { Tag } from 'lucide-react'
 import { ImageType } from '../../lib/types'
 import { cn } from '../../lib/utils'
 import Header from './Header'
@@ -34,15 +35,19 @@ export default function HeaderPage(props: HeaderPageProps) {
           />
         )}
         {!!props.icon && (
-          <div className="bg-bg-hover flex h-[90px] w-[90px] items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
-            <div className="h-[45px] w-[45px]">
-              <SimpleImage
-                src={props.icon.sourceUrl || props.icon.staticImageData?.src}
-                alt={props.title}
-                className={cn('notion-page-cover h-full w-full', props.objectClassName)}
-                imagePlaceholder={ImagePlaceholder()}
-              />
-            </div>
+          <div className="bg-bg-hover relative flex h-[90px] w-[90px] items-center justify-center rounded lg:h-[150px] lg:w-[150px]">
+            {props.icon.sourceUrl || props.icon.staticImageData?.src ? (
+              <div className="h-[45px] w-[45px]">
+                <SimpleImage
+                  src={props.icon.sourceUrl || props.icon.staticImageData?.src}
+                  alt={props.title}
+                  className={cn('notion-page-cover h-full w-full', props.objectClassName)}
+                  imagePlaceholder={ImagePlaceholder()}
+                />
+              </div>
+            ) : (
+              <Tag size={40} className="text-muted" />
+            )}
           </div>
         )}
         <h1 className="font-heading baseline thi-text-rainbow -mb-2 hidden items-center gap-2 text-3xl font-bold sm:block lg:hidden lg:text-4xl">
