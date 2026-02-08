@@ -331,7 +331,8 @@ export async function queryDatabaseImpl(opts: {
         },
         whoIsCalling: whoIsCalling
           ? `${whoIsCalling} -> queryDatabaseImpl`
-          : 'notion/db.ts/queryDatabaseImpl'
+          : 'notion/db.ts/queryDatabaseImpl',
+        uri
       })
     }
 
