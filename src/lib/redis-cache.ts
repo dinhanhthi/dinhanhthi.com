@@ -61,6 +61,12 @@ export interface CacheOptions {
    * @default ''
    */
   uri?: string
+  /**
+   * Optional validator to check if fetched data is valid before caching.
+   * If returns false, the data won't be cached and stale cache will be preserved.
+   * Useful to prevent caching empty results from API errors that don't throw.
+   */
+  validateData?: (data: any) => boolean
 }
 
 interface CachedData<T> {
@@ -88,10 +94,19 @@ async function refreshInBackground<T>(
   fetcher: () => Promise<T>,
   cacheKey: string,
   hardTTL: number,
-  client: Redis
+  client: Redis,
+  validateData?: (data: any) => boolean
 ): Promise<void> {
   try {
     const freshData = await fetcher()
+
+    // Validate data before caching to prevent storing empty/invalid results
+    if (validateData && !validateData(freshData)) {
+      console.warn(
+        `⚠️ Background refresh for ${identifier}: data failed validation, keeping old cache`
+      )
+      return
+    }
 
     const cachedData: CachedData<T> = {
       data: freshData,
@@ -161,7 +176,8 @@ export async function withRedisCache<T>(
     namespace = 'cache',
     whoIsCalling,
     forceRefresh = false,
-    uri = ''
+    uri = '',
+    validateData
   } = options
 
   const client = getRedisClient()
@@ -180,6 +196,25 @@ export async function withRedisCache<T>(
     console.log(`🔄 Force refresh mode for ${identifier}, fetching fresh data`)
     try {
       const freshData = await fetcher()
+
+      // Validate data before caching
+      if (validateData && !validateData(freshData)) {
+        console.warn(
+          `⚠️ Force refresh for ${identifier}: data failed validation, falling back to cache`
+        )
+        // Try to return existing cache instead of invalid data
+        try {
+          const cachedString = await client.get(cacheKey)
+          if (cachedString) {
+            const cachedData: CachedData<T> =
+              typeof cachedString === 'string' ? JSON.parse(cachedString) : cachedString
+            return cachedData.data
+          }
+        } catch (_) {
+          // Fall through to return freshData anyway
+        }
+        return freshData
+      }
 
       // Override cache with fresh data
       const cachedData: CachedData<T> = {
@@ -229,10 +264,12 @@ export async function withRedisCache<T>(
         )
 
         // Step 3: Trigger background refresh (don't await - non-blocking!)
-        refreshInBackground(identifier, fetcher, cacheKey, hardTTL, client).catch(() => {
-          // Errors already logged in refreshInBackground
-          // Just ensure no unhandled promise rejection
-        })
+        refreshInBackground(identifier, fetcher, cacheKey, hardTTL, client, validateData).catch(
+          () => {
+            // Errors already logged in refreshInBackground
+            // Just ensure no unhandled promise rejection
+          }
+        )
       } else {
         console.log(
           `🟢 Cache hit for ${identifier} (age: ${formatAge(ageInSeconds)}, fresh for ${formatAge(softTTL - ageInSeconds)})`
@@ -251,6 +288,12 @@ export async function withRedisCache<T>(
   try {
     console.log(`🔄 No cache for ${identifier}, fetching fresh data`)
     const freshData = await fetcher()
+
+    // Validate data before caching (prevent caching empty/invalid results)
+    if (validateData && !validateData(freshData)) {
+      console.warn(`⚠️ Fresh data for ${identifier} failed validation, not caching`)
+      return freshData
+    }
 
     // Cache the fresh data
     try {

@@ -26,15 +26,15 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const slug = resolvedParams.slug[0] || ''
   const currentPage = +(resolvedParams?.slug?.[2] || 1)
   console.debug(`\n👉 slug:  ${slug}, currentPage: ${currentPage}\n`)
-  const [totalPages] = await getTotalPages({ slug } as Tag)
   const tags = await getTopics({
-    whoIsCalling: `tag/[[...slug]]/page.tsx/generateMetadata   (slug: ${slug})`
+    whoIsCalling: `tag/[[...slug]]/page.tsx/generateMetadata (slug: ${slug})`
   })
   const tag = getTag(slug, tags)
   if (!tag)
     return {
       title: generateMetaTitle('Cannot find this tag!')
     }
+  const [totalPages] = await getTotalPages(tag)
   const title =
     totalPages > 1 ? `Topic "${tag?.name}" - Page ${currentPage}` : `Topic "${tag?.name}"`
 

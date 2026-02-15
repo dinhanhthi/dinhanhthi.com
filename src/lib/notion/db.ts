@@ -14,7 +14,6 @@ import pMemoize from 'p-memoize'
 import { redisCacheTTL } from '@/src/lib/config'
 import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
 import { withRedisCache } from '@/src/lib/redis-cache'
-import { sendErrorEmail } from '@/src/lib/send-error-email'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
@@ -91,9 +90,7 @@ async function fetchOpenGraphData(url: string) {
     const ogImage = html.match(
       /<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']*)["']/i
     )?.[1]
-    const ogUrl = html.match(
-      /<meta[^>]*property=["']og:url["'][^>]*content=["']([^"']*)["']/i
-    )?.[1]
+    const ogUrl = html.match(/<meta[^>]*property=["']og:url["'][^>]*content=["']([^"']*)["']/i)?.[1]
     const favicon = html.match(
       /<link[^>]*rel=["'](?:shortcut )?icon["'][^>]*href=["']([^"']*)["']/i
     )?.[1]
@@ -125,7 +122,7 @@ export async function getUnofficialDatabaseImpl(opts: {
   whoIsCalling?: string
   uri?: string
 }): Promise<CollectionInstance> {
-  const { spaceId, sourceId, collectionViewId, notionApiWeb, whoIsCalling, uri } = opts
+  const { spaceId, sourceId, collectionViewId, notionApiWeb } = opts
   if (!spaceId) throw new Error('spaceId is not defined')
   if (!sourceId) throw new Error('sourceId is not defined')
   if (!collectionViewId) throw new Error('collectionViewId is not defined')
@@ -186,31 +183,9 @@ export async function getUnofficialDatabaseImpl(opts: {
   } catch (error: any) {
     console.error('🚨 Unofficial Notion API error:', error)
 
-    // Send error notification email (non-blocking), ignore 429 rate limit errors
-    const errorStatus = error?.status || error?.response?.status
-    console.log(
-      `🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`
-    )
-    if (errorStatus !== 429) {
-      sendErrorEmail({
-        errorType: 'unofficial-notion',
-        errorMessage: error?.message || String(error),
-        context: `Failed to query unofficial Notion database with sourceId: ${sourceId}`,
-        stack: error?.stack,
-        metadata: {
-          spaceId,
-          sourceId,
-          collectionViewId,
-          url,
-          status: errorStatus
-        },
-        whoIsCalling: whoIsCalling
-          ? `${whoIsCalling} -> getUnofficialDatabaseImpl`
-          : 'notion/db.ts/getUnofficialDatabaseImpl',
-        uri
-      })
-    }
-
+    // Throw error so withRedisCache can:
+    // 1. Fallback to stale cache (if available)
+    // 2. Send a single error email (avoiding duplicates)
     throw error
   }
 }
@@ -307,36 +282,11 @@ export async function queryDatabaseImpl(opts: {
         whoIsCalling
       })
     }
-    console.error(error)
+    console.error(`🚨 queryDatabaseImpl error for dbId ${dbId}:`, error)
 
-    // Send error notification email (non-blocking), ignore 429 rate limit errors
-    const errorStatus = error?.status || error?.response?.status
-    console.log(
-      `🔍 Error status detected: ${errorStatus}, will ${errorStatus === 429 ? 'SKIP' : 'SEND'} email`
-    )
-    if (errorStatus !== 429) {
-      sendErrorEmail({
-        errorType: 'notion-api',
-        errorMessage: error?.message || String(error),
-        context: `Failed to query Notion database with dbId: ${dbId}`,
-        stack: error?.stack,
-        metadata: {
-          dbId,
-          filter,
-          startCursor,
-          pageSize,
-          sorts,
-          status: errorStatus,
-          code: error?.code
-        },
-        whoIsCalling: whoIsCalling
-          ? `${whoIsCalling} -> queryDatabaseImpl`
-          : 'notion/db.ts/queryDatabaseImpl',
-        uri
-      })
-    }
-
-    return { results: [] } as any
+    // Throw error so withRedisCache can fallback to stale cache
+    // instead of caching empty results
+    throw error
   }
 }
 
