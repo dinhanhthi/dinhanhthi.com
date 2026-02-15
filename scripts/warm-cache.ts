@@ -187,9 +187,7 @@ async function warmCache() {
       }
 
       const tagName = topic.name
-      console.log(
-        `✅ Found tag: ${c.title(tagName)} ${c.dim(`(slug: ${topic.slug})`)}\n`
-      )
+      console.log(`✅ Found tag: ${c.title(tagName)} ${c.dim(`(slug: ${topic.slug})`)}\n`)
 
       // Warm all 3 tag page queries
       console.log('📄 Fetching all posts by tag...')

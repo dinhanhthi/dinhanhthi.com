@@ -80,10 +80,20 @@ export const queryDefinitions = {
     recentNotes: {
       pageSize: 12 * 2,
       filter: {
-        property: 'blog',
-        checkbox: {
-          equals: false
-        }
+        and: [
+          {
+            property: 'blog',
+            checkbox: {
+              equals: false
+            }
+          },
+          {
+            property: 'pinned',
+            checkbox: {
+              equals: false
+            }
+          }
+        ]
       }
     } as QueryDefinition
   },

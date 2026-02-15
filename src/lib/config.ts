@@ -42,8 +42,12 @@ export const postFontClassName = 'font-quicksand'
 // ============================================================================
 
 export const errorNotificationsConfig = {
-  rateLimitMs: 60 * 60 * 1000, // 1 hour - per error type
-  globalRateLimitMs: 60 * 60 * 1000, // 1 hour - global window
+  rateLimitMs: process.env.ERROR_NOTIFICATIONS_RATE_LIMIT_MS
+    ? parseInt(process.env.ERROR_NOTIFICATIONS_RATE_LIMIT_MS)
+    : 6 * 60 * 60 * 1000, // 6 hours - per error type
+  globalRateLimitMs: process.env.ERROR_NOTIFICATIONS_GLOBAL_RATE_LIMIT_MS
+    ? parseInt(process.env.ERROR_NOTIFICATIONS_GLOBAL_RATE_LIMIT_MS)
+    : 6 * 60 * 60 * 1000, // 6 hours - global window
   globalMaxEmails: 1, // Max emails allowed within globalRateLimitMs window
   adminEmail: process.env.ADMIN_EMAIL ?? ''
 }
