@@ -42,7 +42,8 @@ export async function getUnofficialPosts(opts?: {
         ? `${whoIsCalling} -> getUnofficialPosts`
         : 'fetcher.ts/getUnofficialPosts',
       ...redisCacheTTL.unofficialPosts,
-      forceRefresh
+      forceRefresh,
+      validateData: data => Array.isArray(data) && data.length > 0
     }
   )
 }
@@ -70,7 +71,7 @@ export async function getPosts(options: {
         direction: 'descending'
       } as NotionSorts
 
-      const sortsToUse: any = sorts?.length ? sorts.push(defaultSort) : [defaultSort]
+      const sortsToUse: any = sorts?.length ? [...sorts, defaultSort] : [defaultSort]
       const filterToUse = getFilter(filter)
 
       const data = await queryDatabase({
@@ -89,7 +90,8 @@ export async function getPosts(options: {
       namespace: 'notion',
       whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getPosts` : 'fetcher.ts/getPosts',
       ...redisCacheTTL.posts,
-      forceRefresh
+      forceRefresh,
+      validateData: data => Array.isArray(data) && data.length > 0
     }
   )
 }
@@ -150,7 +152,8 @@ export async function getUnofficialBooks(opts?: {
         ? `${whoIsCalling} -> getUnofficialBooks`
         : 'fetcher.ts/getUnofficialBooks',
       ...redisCacheTTL.books,
-      forceRefresh
+      forceRefresh,
+      validateData: data => Array.isArray(data?.books) && data.books.length > 0
     }
   )
 }
@@ -244,7 +247,8 @@ export async function getUnofficialTools(opts?: {
         ? `${whoIsCalling} -> getUnofficialTools`
         : 'fetcher.ts/getUnofficialTools',
       ...redisCacheTTL.tools,
-      forceRefresh
+      forceRefresh,
+      validateData: data => Array.isArray(data?.tools) && data.tools.length > 0
     }
   )
 }
@@ -339,7 +343,8 @@ export async function getTopics(opts?: {
       namespace: 'notion',
       whoIsCalling: whoIsCalling ? `${whoIsCalling} -> getTopics` : 'fetcher.ts/getTopics',
       ...redisCacheTTL.topics,
-      forceRefresh
+      forceRefresh,
+      validateData: data => Array.isArray(data) && data.length > 0
     }
   )
 }
