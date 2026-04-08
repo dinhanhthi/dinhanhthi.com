@@ -24,8 +24,8 @@ export async function generateStaticParams() {
   const allBlogs = filterDupLangPosts(_allBlogs)
   const totalPages = Math.ceil(allBlogs.length / numPostsPerPage)
 
-  // Root page /blogs/ (empty object = no slug segments for optional catch-all)
-  const params: { slug?: string[] }[] = [{}]
+  // Root page /blogs/ (undefined slug = no slug segments for optional catch-all)
+  const params: { slug?: string[] }[] = [{ slug: undefined }]
 
   // Pagination pages /blogs/page/2/, /blogs/page/3/, etc.
   for (let page = 2; page <= totalPages; page++) {
