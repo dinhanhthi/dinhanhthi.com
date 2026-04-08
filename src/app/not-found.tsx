@@ -5,8 +5,6 @@ import Link from 'next/link'
 import { generateMetaTitle } from '@/src/lib/helpers'
 import Container from './components/Container'
 
-export const dynamic = 'force-dynamic'
-
 export const metadata = {
   title: generateMetaTitle('Page not found!'),
   openGraph: {

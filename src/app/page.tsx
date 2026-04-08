@@ -19,10 +19,6 @@ import HeadingPage from './components/HeadingPage'
 import PostList, { SkeletonPostList } from './components/PostsList'
 import Topic, { SkeletonTopic } from './components/Topic'
 
-// This allows static generation with periodic updates
-// Redis cache is still used during data fetching
-export const revalidate = 60
-
 export const metadata = getMetadata({
   title: "Hi! I'm Thi",
   description: me.quote,

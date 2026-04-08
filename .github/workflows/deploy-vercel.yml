@@ -1,0 +1,105 @@
+name: Build and Deploy to Vercel
+
+on:
+  # Build every 3 days
+  schedule:
+    - cron: '0 0 */3 * *'
+
+  # Build on push to main or dev
+  push:
+    branches:
+      - main
+      - dev
+
+  # Manual trigger
+  workflow_dispatch:
+
+# Cancel in-progress runs for the same branch
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+# Required GitHub Secrets:
+#   VERCEL_TOKEN        - Vercel API token (from https://vercel.com/account/tokens)
+#   VERCEL_ORG_ID       - Vercel org/team ID (from .vercel/project.json after `vercel link`)
+#   VERCEL_PROJECT_ID   - Vercel project ID (from .vercel/project.json after `vercel link`)
+#   All Notion env vars must be configured in the Vercel project's Environment Variables dashboard.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Determine environment
+        id: env
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "ENV_MODE=prod" >> $GITHUB_OUTPUT
+            echo "NEXT_PUBLIC_ENV_MODE=prod" >> $GITHUB_OUTPUT
+            echo "VERCEL_ARGS=--prod" >> $GITHUB_OUTPUT
+          else
+            echo "ENV_MODE=dev" >> $GITHUB_OUTPUT
+            echo "NEXT_PUBLIC_ENV_MODE=dev" >> $GITHUB_OUTPUT
+            echo "VERCEL_ARGS=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install Vercel CLI
+        run: pnpm add -g vercel
+
+      - name: Pull Vercel environment
+        run: vercel pull --yes --environment=${{ steps.env.outputs.ENV_MODE == 'prod' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Verify Vercel environment
+        run: |
+          if [ ! -d .vercel ]; then
+            echo "ERROR: vercel pull did not create .vercel directory"
+            exit 1
+          fi
+          echo "Vercel environment pulled successfully"
+
+      - name: Build
+        env:
+          ENV_MODE: ${{ steps.env.outputs.ENV_MODE }}
+          NEXT_PUBLIC_ENV_MODE: ${{ steps.env.outputs.NEXT_PUBLIC_ENV_MODE }}
+        run: vercel build ${{ steps.env.outputs.VERCEL_ARGS }} --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
+        run: vercel deploy --prebuilt ${{ steps.env.outputs.VERCEL_ARGS }} --token=${{ secrets.VERCEL_TOKEN }}
