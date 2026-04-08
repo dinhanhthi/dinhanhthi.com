@@ -179,6 +179,8 @@ export const Block: React.FC<BlockProps> = props => {
     ;(block as any).type = 'collection_view_page'
   }
 
+  if (!block.id) return null
+
   const blockId = hideBlockId ? 'notion-block' : `notion-block-${uuidToId(block.id)}`
 
   switch (block.type) {
