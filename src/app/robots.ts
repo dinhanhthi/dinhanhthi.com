@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 /**
  * Generate robots.txt file
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots

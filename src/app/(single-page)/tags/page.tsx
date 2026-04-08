@@ -15,8 +15,7 @@ const description = 'A list of topics I write about'
 
 export const metadata = getMetadata({
   title,
-  description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  description
 })
 
 export default async function TagsHomePage() {

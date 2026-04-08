@@ -10,8 +10,7 @@ const description = 'Apps, tools, websites I find useful.'
 
 export const metadata = getMetadata({
   title,
-  description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  description
 })
 
 export default async function ToolsHomePage() {

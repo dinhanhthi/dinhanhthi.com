@@ -13,8 +13,7 @@ const description = 'When I learn something new, I write it down here.'
 
 export const metadata = getMetadata({
   title,
-  description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  description
 })
 
 export default async function NotesHomePage() {

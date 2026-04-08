@@ -6,13 +6,12 @@ import {
   filterDupLangPosts,
   generateMetaTitle,
   getMetadata,
-  getStartCursorForCurrentPage,
-  getUri
+  getStartCursorForCurrentPage
 } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
 import { OptionalCatchAllProps, Post, Tag } from '@/src/lib/types'
 import { Metadata } from 'next'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 
@@ -61,8 +60,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
     totalPages > 1 ? `Topic "${tag?.name}" - Page ${currentPage}` : `Topic "${tag?.name}"`
 
   return getMetadata({
-    title,
-    images: [`/api/og?title=${encodeURI(title)}`]
+    title
   })
 }
 
@@ -79,7 +77,6 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
     notFound()
   }
 
-  const notRootPage = resolvedParams.slug.length > 1
   const slug = resolvedParams.slug[0] || ''
 
   console.log(`\n👉 uri: /tag/${slug}/page/${currentPage}/`)
@@ -97,10 +94,6 @@ export default async function TagPage({ params }: OptionalCatchAllProps) {
   if (!tag) notFound()
 
   const [totalPages, allPosts] = await getTotalPages(tag)
-
-  if (notRootPage && currentPage === 1) {
-    redirect(getUri('tag', slug)!)
-  }
 
   if (currentPage !== 1 && currentPage > totalPages) {
     notFound()

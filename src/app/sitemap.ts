@@ -2,6 +2,8 @@ import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { getUri } from '@/src/lib/helpers'
 import { MetadataRoute } from 'next'
 
+export const dynamic = 'force-static'
+
 /**
  * Generate dynamic sitemap for the website
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap

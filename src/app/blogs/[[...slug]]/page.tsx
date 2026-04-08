@@ -10,7 +10,7 @@ import { filterDupLangPosts } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
 import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 export const dynamicParams = false
 
@@ -24,8 +24,8 @@ export async function generateStaticParams() {
   const allBlogs = filterDupLangPosts(_allBlogs)
   const totalPages = Math.ceil(allBlogs.length / numPostsPerPage)
 
-  // Root page /blogs/ (empty object = no slug segments for optional catch-all)
-  const params: { slug?: string[] }[] = [{}]
+  // Root page /blogs/ (empty array = no slug segments for optional catch-all)
+  const params: { slug: string[] }[] = [{ slug: [] }]
 
   // Pagination pages /blogs/page/2/, /blogs/page/3/, etc.
   for (let page = 2; page <= totalPages; page++) {
@@ -44,10 +44,7 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const title = currentPage === 1 ? 'Blog posts' : `Blog posts - page ${currentPage}`
   return {
     title,
-    description,
-    openGraph: {
-      images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
-    }
+    description
   }
 }
 
@@ -95,8 +92,6 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
 
   console.log(`\n👉 uri: /blogs/page/${currentPage}/`)
 
-  const notRootPage = !!resolvedParams.slug
-
   // Fetch all blogs to calculate total pages
   const _allBlogs = await getPosts({
     ...queryDefinitions.blogsPage.allBlogs,
@@ -106,10 +101,6 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
   const allBlogs = filterDupLangPosts(_allBlogs)
   const numBlogs = allBlogs?.length || 0
   const totalPages = Math.ceil(numBlogs / numPostsPerPage)
-
-  if (notRootPage && currentPage === 1) {
-    redirect(`/blogs/`)
-  }
 
   if (currentPage !== 1 && currentPage > totalPages) {
     notFound()

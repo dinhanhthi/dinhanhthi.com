@@ -12,8 +12,7 @@ const description = 'Read to know we are not alone and our knowledge is limited.
 
 export const metadata = getMetadata({
   title,
-  description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  description
 })
 
 export default async function ReadingHomePage() {
