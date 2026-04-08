@@ -175,7 +175,10 @@ export default function NavSearch() {
               {results.length > 0 && (
                 <>
                   {results.map((item, index) => {
-                    const url = item.url.replace(/\.html$/, '').replace(/index$/, '')
+                    const url = item.url
+                      .replace(/\/server\/app/, '')
+                      .replace(/\.html$/, '')
+                      .replace(/index$/, '')
                     const title = item.meta?.title || 'Untitled'
                     return (
                       <Command.Item
