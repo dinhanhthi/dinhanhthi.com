@@ -134,17 +134,6 @@ export type AnnotationIgnoreField =
 
 export type TextIgnoreField = 'hyperlink' | AnnotationIgnoreField
 
-export type SearchResult = {
-  id: string
-  title: string
-  slug: string
-  titleHighlighted: string
-  textHighlighted: string
-  isPublished: boolean
-  isBookPost?: boolean
-  isFake?: boolean // used to not perform the request
-}
-
 export type BookmarkPreview = {
   url: string
   title?: string

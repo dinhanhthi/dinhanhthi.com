@@ -1,7 +1,7 @@
 const nextConfig = {
   trailingSlash: true, // use "/about/" instead of "/about"
   poweredByHeader: false, // remove "Powered by Next.js" from the header
-  staticPageGenerationTimeout: 180, // seconds
+  staticPageGenerationTimeout: 600, // 10 min for Notion API during full static build
   logging: {
     fetches: {
       fullUrl: false // Reduce verbose logging for fetch requests
