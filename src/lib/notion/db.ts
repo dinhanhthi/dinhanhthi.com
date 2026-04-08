@@ -6,14 +6,12 @@ import {
   RichTextItemResponse
 } from '@notionhq/client/build/src/api-endpoints'
 import _ from 'lodash'
-import { CollectionInstance, SearchParams } from 'notion-types'
+import { CollectionInstance } from 'notion-types'
 import { getPageContentBlockIds, parsePageId } from 'notion-utils'
 // Removed open-graph-scraper to avoid cheerio dependency issues
 import pMemoize from 'p-memoize'
 
-import { redisCacheTTL } from '@/src/lib/config'
-import { cleanText, defaultBlurData, idToUuid } from '@/src/lib/helpers'
-import { withRedisCache } from '@/src/lib/redis-cache'
+import { cleanText, defaultBlurData } from '@/src/lib/helpers'
 import { BookmarkPreview, NotionSorts } from '@/src/lib/types'
 
 export const notionMaxRequest = 100
@@ -183,9 +181,6 @@ export async function getUnofficialDatabaseImpl(opts: {
   } catch (error: any) {
     console.error('🚨 Unofficial Notion API error:', error)
 
-    // Throw error so withRedisCache can:
-    // 1. Fallback to stale cache (if available)
-    // 2. Send a single error email (avoiding duplicates)
     throw error
   }
 }
@@ -284,8 +279,6 @@ export async function queryDatabaseImpl(opts: {
     }
     console.error(`🚨 queryDatabaseImpl error for dbId ${dbId}:`, error)
 
-    // Throw error so withRedisCache can fallback to stale cache
-    // instead of caching empty results
     throw error
   }
 }
@@ -408,32 +401,6 @@ export async function getCustomEmojiBlock(opts: {
  * Get all nested blocks (in all levels) of a block.
  */
 export async function getBlocks(
-  blockId: string,
-  initNumbering?: string,
-  getPageUri?: (_pageId: string) => Promise<string | undefined>,
-  parseImgurUrl?: (_url: string) => string,
-  notionToken?: string,
-  notionVersion?: string
-): Promise<ListBlockChildrenResponse['results']> {
-  // Cache key includes blockId only - other params affect rendering, not data fetching
-  const cacheKey = `blocks-${blockId}`
-
-  return withRedisCache(
-    cacheKey,
-    async () =>
-      getBlocksImpl(blockId, initNumbering, getPageUri, parseImgurUrl, notionToken, notionVersion),
-    {
-      namespace: 'notion',
-      whoIsCalling: 'notion/db.ts/getBlocks',
-      ...redisCacheTTL.blocks
-    }
-  )
-}
-
-/**
- * Implementation of getBlocks (extracted for caching)
- */
-async function getBlocksImpl(
   blockId: string,
   initNumbering?: string,
   getPageUri?: (_pageId: string) => Promise<string | undefined>,
@@ -582,71 +549,6 @@ async function parseMention(
   return newRichText
 }
 
-// Used for unofficial APIs
-export async function searchNotion(
-  params: SearchParams,
-  apiUrl: string,
-  tokenV2: string,
-  activeUser: string,
-  dbId: string
-): Promise<any> {
-  if (!apiUrl) throw new Error('apiUrl is not defined')
-  if (!tokenV2) throw new Error('tokenV2 is not defined')
-  if (!activeUser) throw new Error('activeUser is not defined')
-
-  const headers: any = {
-    'Content-Type': 'application/json',
-    cookie: `token_v2=${tokenV2}`,
-    'x-notion-active-user-header': activeUser
-  }
-
-  if (!dbId) {
-    throw new Error('dbId is not defined')
-  }
-
-  const body = {
-    type: 'BlocksInAncestor',
-    source: 'quick_find_public',
-    ancestorId: idToUuid(dbId),
-    sort: {
-      field: 'relevance'
-    },
-    limit: params.limit || 100,
-    query: params.query,
-    filters: {
-      isDeletedOnly: false,
-      isNavigableOnly: false,
-      excludeTemplates: true,
-      requireEditPermissions: false,
-      ancestors: [],
-      createdBy: [],
-      editedBy: [],
-      lastEditedTime: {},
-      createdTime: {},
-      ...params.filters
-    }
-  }
-
-  const url = `${apiUrl}/search`
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(body)
-  })
-
-  if (!response.ok) {
-    const text = await response.text()
-    throw new Error(`Notion search API error: ${response.status} - ${text}`)
-  }
-
-  const searchData = await response.json()
-  if (searchData?.recordMap) {
-    searchData.recordMap = normalizeRecordMap(searchData.recordMap)
-  }
-  return searchData
-}
-
 /**
  * ========================================================================
  * Simple Notion API - Lightweight alternative to notion-client package
@@ -780,71 +682,4 @@ export async function getPage(pageId: string): Promise<any> {
   }
 
   return recordMap
-}
-
-// When a database is publised, we open that page and use the search API to get the results
-// It doesn't use notion.so/api/v1/search, it uses personal.notion.site/api/v3/search instead
-// It doesn't require any token or active user!
-export async function searchNotionPersonal(
-  params: SearchParams,
-  apiUrl: string,
-  dbId: string
-): Promise<any> {
-  if (!apiUrl) {
-    throw new Error('apiUrl is not defined')
-  }
-
-  if (!dbId) {
-    throw new Error('dbId is not defined')
-  }
-
-  const headers: any = {
-    'Content-Type': 'application/json'
-  }
-
-  const ancestorId = idToUuid(dbId)
-
-  const body = {
-    type: 'BlocksInAncestor',
-    query: params.query,
-    ancestorId: ancestorId,
-    source: 'quick_find_input_change',
-    sort: {
-      field: 'relevance'
-    },
-    limit: params.limit || 100,
-    filters: {
-      isDeletedOnly: false,
-      excludeTemplates: false,
-      navigableBlockContentOnly: false,
-      requireEditPermissions: false,
-      includePublicPagesWithoutExplicitAccess: true,
-      ancestors: [],
-      createdBy: [],
-      editedBy: [],
-      lastEditedTime: {},
-      createdTime: {},
-      inTeams: [],
-      ...params.filters
-    }
-  }
-
-  const url = `${apiUrl}/search`
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(body)
-  })
-
-  if (!response.ok) {
-    const text = await response.text()
-    throw new Error(`Notion search API error: ${response.status} - ${text}`)
-  }
-
-  const personalSearchData = await response.json()
-  if (personalSearchData?.recordMap) {
-    personalSearchData.recordMap = normalizeRecordMap(personalSearchData.recordMap)
-  }
-  return personalSearchData
 }

@@ -1,9 +1,7 @@
 import LocalRouteChange from '@/src/app/components/LocalRouteChange'
-import NavigationLoading from '@/src/app/components/NavigationLoading'
 import Nav from '@/src/app/components/nav/Nav'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { Suspense } from 'react'
 
 import { openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
@@ -11,8 +9,6 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import { ThemeProvider } from './components/ThemeProvider'
 import './styles.css'
-
-export const revalidate = 60
 
 export const metadata: Metadata = {
   metadataBase: new URL(me.website),
@@ -66,9 +62,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <ScrollToTop />
           </div>
-          <Suspense fallback={null}>
-            <NavigationLoading />
-          </Suspense>
           {process.env.ENV_MODE === 'dev' && <LocalRouteChange localHostname="localhost:3004" />}
         </ThemeProvider>
       </body>

@@ -10,8 +10,6 @@ import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import Topic, { SkeletonTopic } from '../../components/Topic'
 
-export const revalidate = 60
-
 const title = 'List of topics'
 const description = 'A list of topics I write about'
 

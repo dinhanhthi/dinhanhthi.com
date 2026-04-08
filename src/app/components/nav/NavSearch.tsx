@@ -1,33 +1,82 @@
 'use client'
 
 import { useOperatingSystem } from '@/src/hooks/useOperatingSystem'
-import { SearchResult } from '@/src/lib/types'
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden'
 import cn from 'classnames'
 import { Command } from 'cmdk'
-import { debounce, get } from 'lodash'
-import { BookOpen, FileText, LoaderCircle, Search, X } from 'lucide-react'
+import { debounce } from 'lodash'
+import { FileText, LoaderCircle, Search, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import useSWR from 'swr'
 import { Button } from '../ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '../ui/dialog'
 import { buttonClass } from './Nav'
+
+type PagefindResult = {
+  url: string
+  meta?: { title?: string }
+  excerpt?: string
+}
+
+let pagefindInstance: any = null
+
+async function getPagefind() {
+  if (pagefindInstance) return pagefindInstance
+  try {
+    // @ts-expect-error — pagefind is generated at build time, not a real module
+    pagefindInstance = await import(/* webpackIgnore: true */ '/pagefind/pagefind.js')
+    await pagefindInstance.init()
+    return pagefindInstance
+  } catch {
+    console.warn('Pagefind not available — search disabled')
+    return null
+  }
+}
 
 export default function NavSearch() {
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [query, setQuery] = useState('')
+  const [results, setResults] = useState<PagefindResult[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasSearched, setHasSearched] = useState(false)
   const os = useOperatingSystem()
 
-  const { data, error, isLoading } = useSWR<SearchResult[]>(
-    ['/api/search-notion', { query: query }],
-    ([url, params]: any) => fetcher(url, params),
-    { revalidateOnFocus: false }
+  const doSearch = useCallback(
+    debounce(async (value: string) => {
+      if (!value) {
+        setResults([])
+        setHasSearched(false)
+        setIsLoading(false)
+        return
+      }
+
+      setIsLoading(true)
+      try {
+        const pagefind = await getPagefind()
+        if (!pagefind) {
+          setResults([])
+          setHasSearched(true)
+          setIsLoading(false)
+          return
+        }
+        const search = await pagefind.search(value)
+        const loaded = await Promise.all(search.results.slice(0, 20).map((r: any) => r.data()))
+        setResults(loaded)
+      } catch (err) {
+        console.error('Search error:', err)
+        setResults([])
+      }
+      setHasSearched(true)
+      setIsLoading(false)
+    }, 300),
+    []
   )
 
-  if (error) console.log('🐞 Error in search modal: ', error)
+  useEffect(() => {
+    return () => doSearch.cancel()
+  }, [doSearch])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,21 +90,13 @@ export default function NavSearch() {
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [setIsOpen])
 
-  const debounceSearch = useCallback(
-    debounce(value => triggerSearch(value), 300),
-    [query]
-  )
-
-  function triggerSearch(value: string) {
-    setQuery(value)
-  }
-
-  const handleItemClick = (uri: string) => {
+  const handleItemClick = (url: string) => {
     setIsOpen(false)
     setQuery('')
-    // Small delay to ensure dialog closes before navigation
+    setResults([])
+    setHasSearched(false)
     setTimeout(() => {
-      router.push(uri)
+      router.push(url)
     }, 50)
   }
 
@@ -63,13 +104,14 @@ export default function NavSearch() {
     setIsOpen(open)
     if (!open) {
       setQuery('')
+      setResults([])
+      setHasSearched(false)
     }
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
-        {/* Don't apply dark/light mode to this button because it's in nav which is always dark */}
         <button
           type="button"
           className={cn(
@@ -98,7 +140,7 @@ export default function NavSearch() {
         >
           <div className="flex h-14 items-center justify-between gap-3 border-none p-3">
             <div className={cn('text-muted grid place-items-center')}>
-              {(data || error || get(data, '[0].isFake')) && !isLoading && <Search size={24} />}
+              {!isLoading && <Search size={24} />}
               {isLoading && (
                 <div className="animate-spin">
                   <LoaderCircle size={25} />
@@ -110,7 +152,8 @@ export default function NavSearch() {
               className="placeholder:text-muted w-full bg-transparent focus:border-transparent focus:ring-0 focus:outline-none"
               placeholder="Search for notes..."
               onValueChange={value => {
-                debounceSearch(value)
+                setQuery(value)
+                doSearch(value)
               }}
             />
             <Button
@@ -124,55 +167,45 @@ export default function NavSearch() {
             </Button>
           </div>
 
-          {query && !isLoading && (
-            <Command.List
-              asChild
-              className="thi-scrollbar thi-scrollbar-small h-full min-h-0 flex-1 overflow-y-auto p-1.5"
-            >
+          {query && !isLoading && hasSearched && (
+            <Command.List className="thi-scrollbar thi-scrollbar-small max-h-[60vh] overflow-y-auto p-1.5">
               <Command.Empty className="text-muted flex h-full w-full items-center justify-center px-4 pt-8 pb-10 text-sm">
                 No note found!
               </Command.Empty>
-              {data && !data?.[0]?.isFake && query && (
+              {results.length > 0 && (
                 <>
-                  {data.map((item, index) => {
-                    const uri = `/note/${item.slug}/`
+                  {results.map((item, index) => {
+                    const url = item.url
+                      .replace(/\/server\/app/, '')
+                      .replace(/\.html$/, '')
+                      .replace(/index$/, '')
+                    const title = item.meta?.title || 'Untitled'
                     return (
                       <Command.Item
                         key={index}
-                        value={uri}
+                        value={url}
                         className="group hover:bg-bg-hover hover:text-text aria-selected:bg-bg-hover aria-selected:text-text mb-1 flex cursor-pointer items-start gap-3 rounded-lg px-3 py-2 text-sm outline-none"
-                        onSelect={() => handleItemClick(uri)}
-                        onClick={() => handleItemClick(uri)}
+                        onSelect={() => handleItemClick(url)}
+                        onClick={() => handleItemClick(url)}
                       >
                         <div>
-                          {!item.isBookPost && <FileText size={20} className="opacity-80" />}
-                          {item.isBookPost && <BookOpen size={20} className="opacity-80" />}
+                          <FileText size={20} className="opacity-80" />
                         </div>
                         <div className={cn('text-text flex w-full flex-col gap-1')}>
-                          <div className={cn('flex w-full items-center justify-between')}>
-                            <div
-                              className={cn(
-                                {
-                                  'border-border-muted border-b border-dashed pr-4 pb-1':
-                                    item.textHighlighted
-                                },
-                                'text-text text-[0.9rem] font-medium'
-                              )}
-                            >
-                              {item.titleHighlighted && (
-                                <span
-                                  dangerouslySetInnerHTML={{
-                                    __html: item.titleHighlighted
-                                  }}
-                                ></span>
-                              )}
-                              {!item.titleHighlighted && <span>{item.title}</span>}
-                            </div>
+                          <div
+                            className={cn(
+                              {
+                                'border-border-muted border-b border-dashed pr-4 pb-1': item.excerpt
+                              },
+                              'text-text text-[0.9rem] font-medium'
+                            )}
+                          >
+                            <span>{title}</span>
                           </div>
-                          {item.textHighlighted && (
+                          {item.excerpt && (
                             <div
                               className="text-muted text-sm opacity-90"
-                              dangerouslySetInnerHTML={{ __html: item.textHighlighted }}
+                              dangerouslySetInnerHTML={{ __html: item.excerpt }}
                             ></div>
                           )}
                         </div>
@@ -184,11 +217,11 @@ export default function NavSearch() {
             </Command.List>
           )}
 
-          {query && data && data.length > 0 && (
+          {query && hasSearched && results.length > 0 && (
             <div className="text-muted p-3 pl-4 text-xs font-normal">
               Found{' '}
               <span className="font-semibold text-green-800 dark:text-green-300">
-                {data.length}
+                {results.length}
               </span>{' '}
               results
             </div>
@@ -197,28 +230,4 @@ export default function NavSearch() {
       </DialogContent>
     </Dialog>
   )
-}
-
-const fetcher = async (url: string, params: any) => {
-  if (params.query === '') {
-    return [{ isFake: true, isPublished: true }]
-  }
-
-  const headers: { [key: string]: string } = {
-    'Content-Type': 'application/json'
-  }
-
-  const res = await fetch(url, {
-    headers,
-    method: 'POST',
-    body: JSON.stringify(params),
-    mode: 'cors'
-  })
-
-  if (!res.ok) {
-    const text = await res.text()
-    throw new Error(`Search request failed: ${res.status} - ${text}`)
-  }
-
-  return res.json()
 }

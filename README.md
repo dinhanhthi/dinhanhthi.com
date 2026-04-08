@@ -1,6 +1,6 @@
 # dinhanhthi.com
 
-Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer 🤝 Redis Cache (Upstash).
+Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer 🤝 Pagefind Search 🤝 Vercel + GitHub Actions.
 
 🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
@@ -17,9 +17,18 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 👉 Version 5 (11ty): [v5.dinhanhthi.com](https://v5.dinhanhthi.com) -- [source](https://github.com/dinhanhthi/dinhanhthi.com-v5).<br />
 👉 Version 6 (use separated [notion-x](https://github.com/dinhanhthi/notion-x) repo): [source](https://github.com/dinhanhthi/dinhanhthi.com/releases/tag/v6.8.0).
 
+## Architecture
+
+- **CMS**: Notion — all content lives in Notion databases
+- **Build**: All pages pre-rendered at build time via `generateStaticParams` (full SSG)
+- **Search**: [Pagefind](https://pagefind.app/) — client-side search, indexes HTML at build time
+- **Deploy**: Vercel — deployed via GitHub Actions (not Vercel's auto-build)
+- **Schedule**: GitHub Actions cron builds every 3 days to pull latest Notion content
+- **OG Images**: `/api/og` Edge Function on Vercel (free, no server needed)
+
 ## Dev
 
-You have to install **globally** [Nodejs >=22](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) and [`pnpm`](https://pnpm.io/installation) first. Then 
+You have to install **globally** [Nodejs >=22](https://nodejs.org/en) (recommend using [nvm](https://github.com/nvm-sh/nvm)) and [`pnpm`](https://pnpm.io/installation) first. Then
 
 ```bash
 # Copy and fill all variables (1st time only)
@@ -35,9 +44,8 @@ pnpm next telemetry disable
 # dev
 pnpm run dev # port 3004
 
-# build
+# build (includes Pagefind indexing via postbuild)
 pnpm run build
-# If you have .env.production.local, it will be used for production build
 
 # serve (need to build first)
 pnpm start # port 3004
@@ -53,61 +61,48 @@ pnpm run prettier
 
 # clear pnpm cache (helpful sometimes)
 pnpm store prune
-
-# cache management (requires Redis setup)
-pnpm run warm-cache         				# Populate Redis cache
-pnpm run warm-cache --force 				# Force refresh cache (get latest data from Notion API)
-pnpm run warm-cache --home --force 	# Force refresh cache for home page
-# There are other options: --notes, --tags, --tools, --single
-pnpm run clear-cache --all  				# Clear all cache
 ```
 
-## Redis Cache Setup
+## Deployment
 
-This project uses **[Upstash Redis](https://upstash.com/)** with **Refresh-Ahead Pattern** for caching Notion API responses (Disable it with `DISABLE_REDIS_CACHE="false"`). It makes sure that users always reach the content even when there are errors fetching from Notion API. **Cache Strategy**:
+### How it works
 
-- **Soft TTL**: When to refresh cache (background, non-blocking). The content will be updated when this time passes.
-- **Hard TTL**: When Redis deletes cache (X days = safety net). The content on the site wil always be alive within this time. We have TTL time to fix the problem with Notion API.
+1. **GitHub Actions** builds the site on a schedule (every 3 days) or on push to `main`/`dev`
+2. During build, Next.js calls Notion API to fetch all content and pre-render every page
+3. Pagefind indexes the generated HTML to create a client-side search index
+4. The pre-built output is deployed to Vercel via `vercel deploy --prebuilt`
+5. If build fails, GitHub sends email notification and Vercel keeps the previous deployment
+
+### Setup Vercel + GitHub Actions
+
+1. **Create Vercel project**: Go to [vercel.com](https://vercel.com), import repo, link to your GitHub repo
+2. **Disable auto-build**: In Vercel project settings > Git, disable "Auto Deploy" (builds happen via GitHub Actions, not Vercel)
+3. **Get Vercel credentials**: Run `vercel link` locally to create `.vercel/project.json`, then note `orgId` and `projectId`
+4. **Create Vercel token**: Go to [vercel.com/account/tokens](https://vercel.com/account/tokens) and create a token
+5. **Add Notion env vars to Vercel**: In Vercel project > Settings > Environment Variables, add ALL variables from `example.env.local` (Notion tokens, database IDs, property keys, etc.)
+   - For **Production** environment: set `ENV_MODE=prod` and `NEXT_PUBLIC_ENV_MODE=prod`
+   - For **Preview** environment: set `ENV_MODE=dev` and `NEXT_PUBLIC_ENV_MODE=dev`
+6. **Add GitHub secrets**: In repo Settings > Secrets and variables > Actions, add:
+   - `VERCEL_TOKEN` — from step 4
+   - `VERCEL_ORG_ID` — from `.vercel/project.json`
+   - `VERCEL_PROJECT_ID` — from `.vercel/project.json`
+7. **Push to main** — GitHub Actions will build and deploy automatically
+
+### Dual deployment (prod + dev)
+
+- `main` branch → production deployment (`ENV_MODE=prod`, only published posts)
+- `dev` branch → preview deployment (`ENV_MODE=dev`, all posts including drafts)
+
+### Manual deploy
+
+Trigger a manual build from GitHub Actions > "Build and Deploy to Vercel" > "Run workflow".
+
+### Local build test
 
 ```bash
-UPSTASH_REDIS_REST_URL="https://your-url.upstash.io"
-UPSTASH_REDIS_REST_TOKEN="your-token"
+# Set ENV_MODE in .env.local, then:
+pnpm run build
 
-# Optional: Disable Redis cache completely (useful for testing/development)
-DISABLE_REDIS_CACHE="false"
-
-DISABLE_REDIS_CACHE="your-deploy-hook-secret"
+# Check build output — you should see all pages being generated
+# Pagefind index will be created in public/pagefind/
 ```
-
-**Remark**: For AWS deployment, there is a deploy hook (need variable `DEPLOY_HOOK_SECRET`) to automatically run the things in `warm-cache` after each successfull deployment. You also need to add these variables in the Github Repository Secrets: `SITE_URL` (`https://dinhanhthi.com` for example) and `DEPLOY_HOOK_SECRET`
-
-**Useful commands**:
-
-```bash
-pnpm run warm-cache         				# Populate Redis cache
-pnpm run warm-cache --force 				# Force refresh cache (get latest data from Notion API)
-pnpm run warm-cache --home --force 	# Force refresh cache for home page 
-# There are other options: --notes, --tags, --tools, --single
-pnpm run clear-cache --all  				# Clear all cache
-pnpm run warm-cache --slug=my-note-slug           # Warm single note by slug
-pnpm run warm-cache --slug=my-note-slug --force   # Force refresh single note
-```
-
-## Error Email Notifications (Resend)
-
-This project uses **Resend** for email notifications when Notion API errors occur (Disable it with `DISABLE_ERROR_EMAILS="false"`).
-
-```bash
-RESEND_API_KEY="re_xxxxxxxxxxxx"
-ADMIN_EMAIL="your-email@domain.com"
-
-# Optional: Enable error emails in dev (default: disabled)
-SEND_ERROR_EMAILS_IN_DEV="false"
-
-# Optional: Disable error emails completely (overrides all other settings)
-DISABLE_ERROR_EMAILS="false"
-```
-
-## AWS Deployment
-
-For complete AWS Amplify deployment guide, see [this note](https://dinhanhthi.com/note/nextjs-aws/).

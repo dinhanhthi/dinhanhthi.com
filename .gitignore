@@ -13,6 +13,9 @@
 /out/
 /dist/
 
+# pagefind (generated at build time)
+/public/pagefind/
+
 # production
 /build
 
@@ -49,3 +52,18 @@ playground/
 .aider*
 .opencode/
 .github/skills/
+
+.agents/
+AGENTS.md
+
+# >>> coding-friend managed
+docs/plans/
+docs/memory/
+docs/research/
+docs/learn/
+docs/sessions/
+docs/reviews/
+docs/context/
+.coding-friend/
+# <<< coding-friend managed
+.vercel
