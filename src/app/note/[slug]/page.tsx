@@ -7,7 +7,14 @@ import { notFound } from 'next/navigation'
 
 import { getMetadata, transformUnofficialPostProps } from '@/src/lib/helpers'
 
-export const revalidate = 120
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const allPosts = await getUnofficialPosts({
+    whoIsCalling: 'note/[slug]/page.tsx/generateStaticParams'
+  })
+  return allPosts.map(post => ({ slug: post.slug }))
+}
 
 export async function generateMetadata({ params }: DynamicSegmentParamsProps): Promise<Metadata> {
   const resolvedParams = await params
@@ -51,10 +58,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     console.log(`👉 pageIdwithDash: ${pageIdwithDash} and title: "${post?.title}"`) // ###M
     if (!pageIdwithDash) notFound()
 
-    const recordMap = await getRecordMap(pageIdwithDash, {
-      whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
-      uri: `https://dinhanhthi.com/note/${slug}/`
-    })
+    const recordMap = await getRecordMap(pageIdwithDash)
     // saveObjectToFile(recordMap, 'recordMap.txt').catch(console.error)
     // const recordMap = await loadObjectFromFile('output.txt')
 
@@ -66,10 +70,7 @@ export default async function SingleNotePage({ params }: DynamicSegmentParamsPro
     if (postProps?.icon?.startsWith('notion://custom_emoji')) {
       const customEmojiId = postProps.icon.split('/').pop()
       if (customEmojiId) {
-        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId, {
-          whoIsCalling: `note/[slug]/page.tsx/SingleNotePage (slug: ${slug})`,
-          uri: `https://dinhanhthi.com/note/${slug}/`
-        })
+        const customEmojiUrl = await getCustomEmojiUrl(pageIdwithDash, customEmojiId)
         postProps.customEmojiUrl = customEmojiUrl ?? postProps.icon
       }
     }
