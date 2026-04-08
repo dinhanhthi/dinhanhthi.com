@@ -14,7 +14,8 @@
  *   pnpm run warm-cache --home       # Warm home page cache only
  *   pnpm run warm-cache --notes      # Warm notes page cache only
  *   pnpm run warm-cache --tags       # Warm tags page cache only
- *   pnpm run warm-cache --tools      # Warm tools/books/reading pages cache only
+ *   pnpm run warm-cache --tools      # Warm tools page cache only
+ *   pnpm run warm-cache --reading    # Warm reading page cache only
  *   pnpm run warm-cache --single     # Warm single note pages cache only
  *
  * Warm a specific tag page:
@@ -79,6 +80,7 @@ type WarmOptions = {
     notes: boolean
     tags: boolean
     tools: boolean
+    reading: boolean
     single: boolean
   }
 }
@@ -100,6 +102,7 @@ function parseArgs(): WarmOptions {
   const hasNotes = args.includes('--notes')
   const hasTags = args.includes('--tags')
   const hasTools = args.includes('--tools')
+  const hasReading = args.includes('--reading')
   const hasSingle = args.includes('--single')
 
   // If tag is specified, only warm that specific tag page
@@ -112,6 +115,7 @@ function parseArgs(): WarmOptions {
         notes: false,
         tags: false,
         tools: false,
+        reading: false,
         single: false
       }
     }
@@ -127,13 +131,14 @@ function parseArgs(): WarmOptions {
         notes: false,
         tags: false,
         tools: false,
+        reading: false,
         single: false
       }
     }
   }
 
   // If no specific pages are requested, warm all
-  const warmAll = !hasHome && !hasNotes && !hasTags && !hasTools && !hasSingle
+  const warmAll = !hasHome && !hasNotes && !hasTags && !hasTools && !hasReading && !hasSingle
 
   return {
     forceRefresh,
@@ -142,6 +147,7 @@ function parseArgs(): WarmOptions {
       notes: warmAll || hasNotes,
       tags: warmAll || hasTags,
       tools: warmAll || hasTools,
+      reading: warmAll || hasReading,
       single: warmAll || hasSingle
     }
   }
@@ -294,7 +300,7 @@ async function warmCache() {
   const pagesToWarm = Object.entries(options.pages)
     .filter(([_, enabled]) => enabled)
     .map(([page]) => page)
-  const warmingAll = pagesToWarm.length === 5
+  const warmingAll = pagesToWarm.length === 6
 
   console.log(`🔥 Starting cache warming (${mode} mode)...\n`)
   if (options.forceRefresh) {
@@ -538,10 +544,11 @@ async function warmCache() {
     }
   }
 
-  // Warm Books Cache (for /reading page)
-  if (options.pages.tools) {
+  // Warm Books Cache (for /reading page and home page)
+  if (options.pages.reading || options.pages.home) {
     try {
-      console.log('📚 [READING PAGE] Fetching books...')
+      const bookLabel = [options.pages.home && 'HOME', options.pages.reading && 'READING'].filter(Boolean).join('/')
+      console.log(`📚 [${bookLabel} PAGE] Fetching books...`)
       const { books } = await getUnofficialBooks({
         whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmBooksCache',
         forceRefresh: options.forceRefresh
@@ -554,10 +561,11 @@ async function warmCache() {
     }
   }
 
-  // Warm Tools Cache (for /tools page)
-  if (options.pages.tools) {
+  // Warm Tools Cache (for /tools page and home page)
+  if (options.pages.tools || options.pages.home) {
     try {
-      console.log('🛠️  [TOOLS PAGE] Fetching tools...')
+      const toolLabel = [options.pages.home && 'HOME', options.pages.tools && 'TOOLS'].filter(Boolean).join('/')
+      console.log(`🛠️  [${toolLabel} PAGE] Fetching tools...`)
       const { tools } = await getUnofficialTools({
         whoIsCalling: 'scripts/warm-cache.ts/warmCache/warmToolsCache',
         forceRefresh: options.forceRefresh
