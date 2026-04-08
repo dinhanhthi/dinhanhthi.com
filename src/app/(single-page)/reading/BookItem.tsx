@@ -66,14 +66,14 @@ export default function BookItem(props: BookItemProps) {
             <div className="text-text-heading text-base leading-snug font-medium">
               {/* NEW */}
               {isNew && !book.isReading && (
-                <Badge variant="secondary" className="!bg-yellow-bg !text-yellow-text !border-none">
+                <Badge variant="secondary" className="!bg-yellow-bg !text-yellow-text !border-none mr-1">
                   new
                 </Badge>
               )}
 
               {/* is reading */}
               {book.isReading && (
-                <Badge variant="secondary" className="!bg-green-bg !text-green-text !border-none">
+                <Badge variant="secondary" className="!bg-green-bg !text-green-text !border-none mr-1">
                   reading
                 </Badge>
               )}
