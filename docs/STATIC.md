@@ -78,8 +78,9 @@ pnpm run reinstall    # Remove node_modules + reinstall
 ### Step 2: Disable Vercel Auto-Build
 
 In the Vercel project:
-1. Go to **Settings > Git**
-2. **Turn off "Auto Deploy"** — builds are handled by GitHub Actions, not Vercel
+1. Go to **Settings > General**, scroll down to **Ignored Build Step**
+2. Under **Project Settings**, set Behavior to **"Don't build anything"** (Command: `exit 0`)
+3. Ensure **Production Overrides** is either empty (inherits from Project Settings) or also set to the same — otherwise production pushes may still trigger Vercel builds
 
 ### Step 3: Add Environment Variables to Vercel
 
