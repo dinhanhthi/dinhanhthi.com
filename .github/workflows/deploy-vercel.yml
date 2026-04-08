@@ -102,4 +102,4 @@ jobs:
         run: vercel build ${{ steps.env.outputs.VERCEL_ARGS }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
-        run: vercel deploy --prebuilt ${{ steps.env.outputs.VERCEL_ARGS }} --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --archive=tgz ${{ steps.env.outputs.VERCEL_ARGS }} --token=${{ secrets.VERCEL_TOKEN }}
