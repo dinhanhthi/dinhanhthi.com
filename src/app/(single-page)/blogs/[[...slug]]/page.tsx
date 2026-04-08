@@ -12,9 +12,28 @@ import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
-export const revalidate = 120
+export const dynamicParams = false
 
 const numPostsPerPage = 24
+
+export async function generateStaticParams() {
+  const _allBlogs = await getPosts({
+    ...queryDefinitions.blogsPage.allBlogs,
+    whoIsCalling: 'blogs/[[...slug]]/page.tsx/generateStaticParams'
+  })
+  const allBlogs = filterDupLangPosts(_allBlogs)
+  const totalPages = Math.ceil(allBlogs.length / numPostsPerPage)
+
+  // Root page /blogs/ (empty object = no slug segments for optional catch-all)
+  const params: { slug?: string[] }[] = [{}]
+
+  // Pagination pages /blogs/page/2/, /blogs/page/3/, etc.
+  for (let page = 2; page <= totalPages; page++) {
+    params.push({ slug: ['page', String(page)] })
+  }
+
+  return params
+}
 
 const description =
   'A list of blog posts that I have written. These blogs are not personal notes, but rather intended for you, the reader.'
@@ -78,7 +97,7 @@ export default async function BlogsHomePage({ params }: OptionalCatchAllProps) {
 
   const notRootPage = !!resolvedParams.slug
 
-  // Fetch all blogs to calculate total pages (this is fast due to Redis cache)
+  // Fetch all blogs to calculate total pages
   const _allBlogs = await getPosts({
     ...queryDefinitions.blogsPage.allBlogs,
     whoIsCalling: `(single-page)/blogs/[[...slug]]/page.tsx/BlogsHomePage/getTotalPages (currentPage: ${currentPage})`,

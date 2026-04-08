@@ -8,8 +8,6 @@ import HeaderPage from '../../components/HeaderPage'
 import NotesToc, { SkeletonNotesToc } from '../../components/NotesToc'
 import NotesPageList from './NotesPageList'
 
-export const revalidate = 60
-
 const title = 'Notes'
 const description = 'When I learn something new, I write it down here.'
 

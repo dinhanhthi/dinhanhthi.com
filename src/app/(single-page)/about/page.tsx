@@ -6,8 +6,6 @@ import Container from '../../components/Container'
 import CVGroup, { CVGroupType } from '../../components/CVGroup'
 import HeaderThiCard from '../../components/HeaderThiCard'
 
-export const revalidate = 60
-
 export const metadata = getMetadata({
   title: 'About me',
   description: me.quote,

@@ -5,8 +5,6 @@ import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
 import ToolSimpleSection, { SkeletonToolPageSection } from './ToolSimpleSection'
 
-export const revalidate = 60
-
 const title = 'Tools I use'
 const description = 'Apps, tools, websites I find useful.'
 
