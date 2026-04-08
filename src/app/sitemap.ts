@@ -2,9 +2,6 @@ import { getPosts, getTopics } from '@/src/lib/fetcher'
 import { getUri } from '@/src/lib/helpers'
 import { MetadataRoute } from 'next'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 3600 // Revalidate every hour
-
 /**
  * Generate dynamic sitemap for the website
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap

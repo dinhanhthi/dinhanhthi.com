@@ -1,35 +1,8 @@
 /**
  * Query Definitions - Single Source of Truth
  *
- * This file centralizes all Notion query parameters used across pages and cache warming.
- * When you modify a query here, all pages and warm-cache script automatically use the latest changes.
- *
- * ## Why This Exists
- * Previously, query parameters were duplicated across page components and warm-cache script.
- * If you changed the number of posts on a page, you had to manually update warm-cache too.
- * Now, there's ONE place to change query definitions, and everything stays in sync.
- *
- * ## Usage in pages:
- * ```typescript
- * import { queryDefinitions } from '@/src/lib/query-definitions'
- * const { pageSize, filter } = queryDefinitions.homePage.blogPosts
- * const posts = await getPosts({ pageSize, filter, whoIsCalling: '...' })
- * ```
- *
- * ## Usage in warm-cache script:
- * ```typescript
- * import { queryDefinitions } from '@/src/lib/query-definitions'
- * await getPosts({ ...queryDefinitions.homePage.blogPosts, whoIsCalling: '...', forceRefresh })
- * ```
- *
- * ## Example: Change Number of Blog Posts
- * **Before (had to change in 2 places):**
- * - src/app/page.tsx: `const numBlogPosts = 3` → `5`
- * - scripts/warm-cache.ts: `pageSize: 6` → `10`
- *
- * **After (change in 1 place only):**
- * - src/lib/query-definitions.ts: `pageSize: 3 * 2` → `5 * 2`
- * - ✨ All pages and warm-cache automatically updated!
+ * This file centralizes all Notion query parameters used across pages.
+ * When you modify a query here, all pages automatically use the latest changes.
  */
 
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints'

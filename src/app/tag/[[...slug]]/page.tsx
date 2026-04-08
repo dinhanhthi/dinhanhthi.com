@@ -16,10 +16,32 @@ import { notFound, redirect } from 'next/navigation'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 
-export const revalidate = 120
+export const dynamicParams = false
 
 const numPostsPerPage = 48
 const numBlogPosts = 4
+
+export async function generateStaticParams() {
+  const tags = await getTopics({
+    whoIsCalling: 'tag/[[...slug]]/page.tsx/generateStaticParams'
+  })
+
+  const params: { slug: string[] }[] = []
+
+  for (const tag of tags) {
+    if (tag.hide || !tag.slug) continue
+    // Base tag page: /tag/[slug]/
+    params.push({ slug: [tag.slug] })
+
+    // Calculate pagination pages
+    const [totalPages] = await getTotalPages(tag)
+    for (let page = 2; page <= totalPages; page++) {
+      params.push({ slug: [tag.slug, 'page', String(page)] })
+    }
+  }
+
+  return params
+}
 
 export async function generateMetadata({ params }: OptionalCatchAllProps): Promise<Metadata> {
   const resolvedParams = await params
