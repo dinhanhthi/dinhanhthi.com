@@ -200,7 +200,7 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
     const hide = properties?.[`${process.env.TOOLS_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
     const favorite = properties?.[`${process.env.TOOLS_FAVORITE_KEY}`]?.[0]?.[0] === 'Yes'
-    const isMine = properties?.[`${process.env.TOOLS_MY_TOOLS}`]?.[0]?.[0] === 'Yes'
+    const isMine = properties?.[`${process.env.TOOLS_MY_TOOLS_KEY}`]?.[0]?.[0] === 'Yes'
 
     if (!hide) {
       tools.push({
