@@ -7,6 +7,7 @@ export default function ToolSimpleSection(props: {
   tools: Tool[]
   title?: string
   className?: string
+  hideMineTag?: boolean
 }) {
   return (
     <div
@@ -25,7 +26,7 @@ export default function ToolSimpleSection(props: {
       )}
       <div className={cn('grid gap-x-2 p-1.5 sm:grid-cols-2', sectionOuterClass)}>
         {props.tools.map(tool => {
-          return <ToolSimpleItem key={tool.url} tool={tool} />
+          return <ToolSimpleItem key={tool.url} tool={tool} hideMineTag={props.hideMineTag} />
         })}
       </div>
     </div>

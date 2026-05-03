@@ -142,6 +142,25 @@ async function ToolsSection() {
   )
 }
 
+// Async component for My Tools section wrapper (checks if my tools exist)
+async function MyToolsSection() {
+  const numTools = 6
+  const { tools } = await getUnofficialTools({
+    whoIsCalling: 'page.tsx/MyToolsSection',
+    uri: 'https://dinhanhthi.com/'
+  })
+  const myTools = tools.filter(tool => tool.isMine).sort((a, b) => a.name.localeCompare(b.name))
+
+  if (myTools.length === 0) return null
+
+  return (
+    <div className="flex flex-col gap-4">
+      <HeadingPage title="Recent tools I create" href="/tools/" />
+      <ToolSimpleSection tools={myTools.slice(0, numTools)} hideMineTag />
+    </div>
+  )
+}
+
 // Async component for Reading section wrapper (checks if books exist)
 async function ReadingSection() {
   const numBooks = 6
@@ -198,6 +217,18 @@ export default function Home() {
     <>
       <HeaderThiCard />
       <Container className="flex flex-col gap-12">
+        {/* My Tools */}
+        <Suspense
+          fallback={
+            <div className="flex flex-col gap-4">
+              <HeadingPage title="Recent tools I create" href="/tools/" />
+              <SkeletonToolPageSection numTools={6} hasTitle={false} />
+            </div>
+          }
+        >
+          <MyToolsSection />
+        </Suspense>
+
         {/* Blog */}
         <Suspense
           fallback={
