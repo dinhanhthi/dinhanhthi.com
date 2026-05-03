@@ -21,6 +21,7 @@ export default async function ToolsHomePage() {
   })
   const sortedCategories = categories?.sort((a, b) => a.localeCompare(b))
   const favoriteTools = tools.filter(tool => tool.favorite)
+  const myTools = tools.filter(tool => tool.isMine).sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <>
@@ -32,6 +33,15 @@ export default async function ToolsHomePage() {
       />
       <Container className="flex flex-col gap-8">
         <Suspense fallback={<SkeletonToolsPageContent />}>
+          {myTools.length > 0 && (
+            <ToolSimpleSection
+              key={'my-tools'}
+              title="Tools I create"
+              tools={myTools}
+              className="!bg-sky-100 dark:!bg-sky-900/30"
+              hideMineTag
+            />
+          )}
           {tools.length > 0 && (
             <ToolSimpleSection
               key={'recently-added'}

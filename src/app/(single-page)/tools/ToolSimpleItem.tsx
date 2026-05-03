@@ -10,10 +10,11 @@ import SimpleImage from '../../components/SimpleImage'
 type ToolSimpleItemProps = {
   tool: Tool
   className?: string
+  hideMineTag?: boolean
 }
 
 export default function ToolSimpleItem(props: ToolSimpleItemProps) {
-  const { tool } = props
+  const { tool, hideMineTag } = props
 
   const [isNew, setIsNew] = useState(false)
   useEffect(() => {
@@ -51,6 +52,11 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
           {isNew && (
             <span className="mr-1 ml-2 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
               new
+            </span>
+          )}
+          {tool.isMine && !hideMineTag && (
+            <span className="mr-1 ml-2 inline rounded-md bg-sky-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-sky-900 dark:bg-sky-800 dark:text-sky-100">
+              I create
             </span>
           )}
         </div>
