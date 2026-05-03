@@ -374,6 +374,7 @@ export interface ToolCommon {
 
 export interface Tool extends ToolCommon {
   isFree: boolean
+  isMine?: boolean
 }
 
 export interface Book extends ToolCommon {

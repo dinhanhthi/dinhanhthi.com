@@ -67,3 +67,25 @@ docs/context/
 .coding-friend/
 # <<< coding-friend managed
 .vercel
+
+# ======= AI Sync managed: DO NOT EDIT THIS BLOCK MANUALLY =======
+# ⚠ Changes to this block are overwritten by AI Sync on every sync.
+#   To modify these patterns, use the AI Sync app → (repo) → Settings → Git Ignore.
+.agent/
+.agents/
+.aider*
+.claude-plugin/
+.claude/
+.copilot/
+.cursor/
+.cursorrules
+.gemini/
+.github/copilot-instructions.md
+.github/skills/
+.ipynb_checkpoints
+.mcp.json
+.opencode/
+.windsurfrules
+CLAUDE.md
+GEMINI.md
+# ======= End of AI Sync managed block ===========================
