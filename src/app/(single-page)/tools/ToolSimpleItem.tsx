@@ -36,7 +36,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
       target="_blank"
       className="hover:bg-bg-hover flex flex-row items-center gap-4 rounded-lg p-4"
     >
-      <div className="flex shrink-0 items-center justify-center rounded-lg bg-white p-0.5 dark:bg-slate-100">
+      <div className="flex shrink-0 items-center justify-center rounded-lg">
         <SimpleImage
           src={convertedIconUrl}
           width={30}
