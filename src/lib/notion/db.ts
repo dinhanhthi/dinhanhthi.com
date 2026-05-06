@@ -192,6 +192,8 @@ export const getUnofficialDatabase = pMemoize(getUnofficialDatabaseImpl, {
 /**
  * https://developers.notion.com/reference/post-database-query
  */
+const MAX_QUERY_DB_RETRIES = 5
+
 export async function queryDatabaseImpl(opts: {
   dbId: string
   filter?: QueryDatabaseParameters['filter']
@@ -202,6 +204,7 @@ export async function queryDatabaseImpl(opts: {
   notionVersion?: string
   whoIsCalling?: string
   uri?: string
+  _retryCount?: number
 }): Promise<QueryDatabaseResponse> {
   const {
     dbId,
@@ -212,7 +215,8 @@ export async function queryDatabaseImpl(opts: {
     notionToken,
     notionVersion,
     whoIsCalling,
-    uri
+    uri,
+    _retryCount = 0
   } = opts
   try {
     const url = `https://api.notion.com/v1/databases/${dbId}/query`
@@ -231,7 +235,29 @@ export async function queryDatabaseImpl(opts: {
       },
       body: JSON.stringify(requestBody)
     })
-    let data = await res.json()
+
+    if (!res.ok) {
+      const retryAfterHeader = res.headers.get('retry-after')
+      const bodyText = await res.text().catch(() => '')
+      const err = new Error(
+        `Notion API error ${res.status} ${res.statusText} for dbId ${dbId}: ${bodyText.slice(0, 200)}`
+      ) as any
+      err.status = res.status
+      err.retryAfter = retryAfterHeader ? Number(retryAfterHeader) : undefined
+      throw err
+    }
+
+    const rawText = await res.text()
+    let data: any
+    try {
+      data = JSON.parse(rawText)
+    } catch {
+      const err = new Error(
+        `Notion API returned non-JSON response for dbId ${dbId} (status ${res.status}): ${rawText.slice(0, 200)}`
+      ) as any
+      err.status = res.status || 502
+      throw err
+    }
 
     let children = data?.results as QueryDatabaseResponse['results']
     if (
@@ -262,10 +288,20 @@ export async function queryDatabaseImpl(opts: {
     }
     return { results: children } as QueryDatabaseResponse
   } catch (error: any) {
-    const retryAfter = error?.response?.headers['retry-after'] || error['retry-after']
-    if (retryAfter || error?.status === 502) {
-      console.log(`Retrying after ${retryAfter} seconds`)
-      await new Promise(resolve => setTimeout(resolve, retryAfter * 1000 + 500))
+    const status = error?.status
+    const isRetriable =
+      status === 429 || status === 502 || status === 503 || status === 504 || status === 408
+    const explicitRetryAfter = Number(error?.retryAfter)
+
+    if (isRetriable && _retryCount < MAX_QUERY_DB_RETRIES) {
+      const backoffSec =
+        Number.isFinite(explicitRetryAfter) && explicitRetryAfter > 0
+          ? explicitRetryAfter
+          : Math.min(2 ** _retryCount, 30)
+      console.warn(
+        `⏳ Retrying queryDatabaseImpl for dbId ${dbId} after ${backoffSec}s (attempt ${_retryCount + 1}/${MAX_QUERY_DB_RETRIES}, status=${status})`
+      )
+      await new Promise(resolve => setTimeout(resolve, backoffSec * 1000 + 500))
       return await queryDatabaseImpl({
         dbId,
         filter,
@@ -274,7 +310,9 @@ export async function queryDatabaseImpl(opts: {
         sorts,
         notionToken,
         notionVersion,
-        whoIsCalling
+        whoIsCalling,
+        uri,
+        _retryCount: _retryCount + 1
       })
     }
     console.error(`🚨 queryDatabaseImpl error for dbId ${dbId}:`, error)
