@@ -38,7 +38,7 @@ export default async function ToolsHomePage() {
               key={'my-tools'}
               title="Tools I create"
               tools={myTools}
-              className="!bg-sky-100 dark:!bg-sky-900/30"
+              className="bg-tools-mine"
               hideMineTag
             />
           )}
