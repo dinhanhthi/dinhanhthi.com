@@ -890,3 +890,11 @@ pre > code::before {
     transform: rotate(360deg);
   }
 }
+
+.bg-tools-mine {
+  background-color: rgb(202 206 255 / 50%) !important;
+}
+
+[data-theme='dark'] .bg-tools-mine {
+  background-color: rgb(114 88 149 / 38%) !important;
+}
