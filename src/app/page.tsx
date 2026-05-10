@@ -149,7 +149,7 @@ async function MyToolsSection() {
     whoIsCalling: 'page.tsx/MyToolsSection',
     uri: 'https://dinhanhthi.com/'
   })
-  const myTools = tools.filter(tool => tool.isMine).sort((a, b) => a.name.localeCompare(b.name))
+  const myTools = tools.filter(tool => tool.isMine)
 
   if (myTools.length === 0) return null
 
