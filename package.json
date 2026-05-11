@@ -52,7 +52,7 @@
     "katex": "^0.16.25",
     "lodash": "^4.17.23",
     "lucide-react": "^0.544.0",
-    "mermaid": "11.4.0",
+    "mermaid": "11.15.0",
     "moment": "^2.30.1",
     "next": "^15.5.15",
     "next-themes": "^0.4.6",
