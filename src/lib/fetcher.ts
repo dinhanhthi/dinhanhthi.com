@@ -101,7 +101,8 @@ function transformUnofficialBooks(data: CollectionInstance): Book[] {
     const description = properties?.[`${process.env.READING_DESC_KEY}`]?.[0]?.[0]
     const star = properties?.[`${process.env.READING_STAR_KEY}`]?.[0]?.[0]
     const isReading = properties?.[`${process.env.READING_IS_READING_KEY}`]?.[0]?.[0] === 'Yes'
-    const tags = properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',')
+    const tags =
+      properties?.[`${process.env.READING_TAG_KEY}`]?.[0]?.[0]?.split(',') ?? []
     const url = properties?.[`${process.env.READING_GOODREADS_KEY}`]?.[0]?.[0]
     const createdTime = new Date(tool?.value?.created_time)?.toISOString()
     const keySearch = properties?.[`${process.env.READING_KEYSEARCH_KEY}`]?.[0]?.[0]
