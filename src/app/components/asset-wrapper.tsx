@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import { useNotionContext } from '@/src/lib/notion/context'
 import { cs } from '@/src/lib/notion/utils'
+import { cn } from '@/src/lib/utils'
 import { SimpleImageProps } from './SimpleImage'
 import { Asset } from './asset'
 import { Text } from './text'
@@ -47,7 +48,7 @@ export const AssetWrapper: React.FC<{
     <figure
       className={cs(
         className,
-        'notion-asset-wrapper flex justify-center',
+        'notion-asset-wrapper flex flex-col justify-center',
         `notion-asset-wrapper-${block.type}`,
         value.format?.block_full_width && 'notion-asset-wrapper-full',
         blockId
@@ -62,7 +63,12 @@ export const AssetWrapper: React.FC<{
         customPreviewImage={customPreviewImage}
       >
         {value?.properties?.caption && !isURL && (
-          <figcaption className="notion-asset-caption !text-muted text-center">
+          <figcaption
+            className={cn(
+              'notion-asset-caption !text-muted text-center',
+              block.type === 'embed' && '!mt-0'
+            )}
+          >
             <Text value={value.properties.caption} block={block} />
           </figcaption>
         )}

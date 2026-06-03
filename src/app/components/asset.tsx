@@ -123,8 +123,7 @@ export const Asset: React.FC<{
         style.minHeight = 100
       } else {
         if (block_height && block.type !== 'image') {
-          // style.height = block_height
-          style.height = '100%'
+          style.height = block_height
         }
       }
     }
@@ -133,6 +132,11 @@ export const Asset: React.FC<{
       assetStyle.objectFit = 'cover'
     } else if (block_preserve_scale) {
       assetStyle.objectFit = 'contain'
+    }
+
+    if (block.type === 'embed' && block_height) {
+      assetStyle.width = '100%'
+      assetStyle.height = '100%'
     }
   }
 
