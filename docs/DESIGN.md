@@ -49,7 +49,7 @@
 
 | Role | Font | Weights | Notes |
 |---|---|---|---|
-| Display/Page titles | `Recoleta` | 500, 600 | Custom serif-display, loaded via @font-face |
+| Display/Page titles | `Fraunces` | 500, 600 | Google Font (OFL), CSS var `--font-fraunces` |
 | Body | `Open Sans` | 400, 600 | Google Font, CSS var `--font-open-sans` |
 | UI/Section headings | `Quicksand` | 600 | Google Font, CSS var `--font-quicksand` |
 | Code/mono | System mono | — | Menlo, Monaco, Consolas |
@@ -196,4 +196,4 @@ flex items-center gap-1 px-4 py-2 + sectionOuterClass + hover:-translate-y-0.5 t
 2. **Post wave cards**: Custom animated wave at card bottom, colorful per-tag
 3. **Always-dark chrome**: Nav + footer + hero always dark, creates strong visual framing
 4. **Skeleton loading states**: Every component has `Skeleton*` variant with `animate-pulse`
-5. **Recoleta headings**: Display font for page/section titles gives distinctive character
+5. **Fraunces headings**: Soft serif display font for page/section titles (OFL via Google Fonts)
