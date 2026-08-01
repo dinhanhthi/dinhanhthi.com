@@ -3,7 +3,7 @@ import Nav from '@/src/app/components/nav/Nav'
 import { Metadata } from 'next'
 import Script from 'next/script'
 
-import { openSans, quicksand } from '@/src/lib/fonts'
+import { fraunces, openSans, quicksand } from '@/src/lib/fonts'
 import me from '../data/me'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${openSans.variable} font-sans ${quicksand.variable}`}
+      className={`${openSans.variable} ${quicksand.variable} ${fraunces.variable} font-sans`}
       suppressHydrationWarning
     >
       {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (

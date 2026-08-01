@@ -1,5 +1,5 @@
 // How to use? Put Comfortaa.className inside className
-import { Open_Sans, Quicksand } from 'next/font/google'
+import { Fraunces, Open_Sans, Quicksand } from 'next/font/google'
 
 export const openSans = Open_Sans({
   subsets: ['latin', 'vietnamese'],
@@ -13,4 +13,12 @@ export const quicksand = Quicksand({
   display: 'swap',
   weight: ['500', '600', '700'],
   variable: '--font-quicksand'
+})
+
+/** Display/heading font (OFL) */
+export const fraunces = Fraunces({
+  subsets: ['latin', 'vietnamese'],
+  display: 'swap',
+  weight: ['500', '600'],
+  variable: '--font-fraunces'
 })

@@ -109,7 +109,7 @@
 
 @theme {
   /* Typography */
-  --font-heading: Recoleta, Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-fraunces), ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans:
     var(--font-open-sans), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -245,30 +245,6 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  font-weight: 500;
-  font-style: normal;
-  src: url('./fonts/recoleta/Recoleta-Medium.eot');
-  src:
-    url('./fonts/recoleta/Recoleta-Medium.woff2') format('woff2'),
-    url('./fonts/recoleta/Recoleta-Medium.woff') format('woff'),
-    url('./fonts/recoleta/Recoleta-Medium.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta';
-  src: url('./fonts/recoleta/Recoleta-SemiBold.eot');
-  src:
-    url('./fonts/recoleta/Recoleta-SemiBold.woff2') format('woff2'),
-    url('./fonts/recoleta/Recoleta-SemiBold.woff') format('woff'),
-    url('./fonts/recoleta/Recoleta-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: bold;
-  font-display: swap;
 }
 
 @layer base {
