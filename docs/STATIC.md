@@ -108,6 +108,7 @@ Variables to add (all required):
 - All `TOPICS_*` variables
 - `SUPPORT_ME`
 - `NEXT_PUBLIC_GOOGLE_ANALYTICS`
+- `GITHUB_TOKEN` (authenticates GitHub releases/latest during SSG)
 
 ### Step 4: Get Vercel Credentials
 
