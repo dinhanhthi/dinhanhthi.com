@@ -375,7 +375,8 @@ export interface ToolCommon {
 export interface Tool extends ToolCommon {
   isFree: boolean
   isMine?: boolean
-  updatedAt?: string // Notion updatedAt ISO string, used to sort and to show the updated badge
+  version?: string // GitHub latest-release tag used in the updated badge
+  updatedAt?: string // winning recency ISO string (GitHub published_at or Notion updatedAt)
 }
 
 export interface Book extends ToolCommon {
