@@ -16,7 +16,7 @@
     "path": false
   },
   "scripts": {
-    "dev": "next dev -p 3004",
+    "dev": "node scripts/free-dev-port.mjs && next dev -p 3004",
     "build": "next build",
     "postinstall": "pnpm rebuild sharp",
     "start": "next start -p 3004",
