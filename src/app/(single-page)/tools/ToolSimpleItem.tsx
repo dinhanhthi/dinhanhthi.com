@@ -28,6 +28,24 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
     }
   }, [tool.date])
 
+  const [isUpdated, setIsUpdated] = useState(false)
+  useEffect(() => {
+    const updatedTime = tool.updatedAt ? new Date(tool.updatedAt).getTime() : Number.NaN
+    const createdTime = new Date(tool.date).getTime()
+    const diffInDays = (Date.now() - updatedTime) / (1000 * 3600 * 24)
+
+    if (
+      tool.updatedAt &&
+      Number.isFinite(updatedTime) &&
+      updatedTime > createdTime &&
+      diffInDays <= 7
+    ) {
+      setIsUpdated(true)
+    } else {
+      setIsUpdated(false)
+    }
+  }, [tool.updatedAt, tool.date])
+
   const convertedIconUrl = defaultMapImageUrl(tool.iconUrl, tool.block)!
   return (
     <a
@@ -52,6 +70,11 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
           {isNew && (
             <span className="mr-1 ml-2 inline rounded-md bg-amber-200 px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap text-amber-900">
               new
+            </span>
+          )}
+          {isUpdated && (
+            <span className="bg-green-bg text-green-text mr-1 ml-2 inline rounded-md px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap">
+              updated
             </span>
           )}
           {tool.isMine && !hideMineTag && (

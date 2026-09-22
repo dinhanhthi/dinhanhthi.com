@@ -197,6 +197,13 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const category = properties?.[`${process.env.TOOLS_CATEGORY_KEY}`]?.[0]?.[0]
     const url = properties?.[`${process.env.TOOLS_URL_KEY}`]?.[0]?.[0]
     const date = new Date(tool?.value?.created_time)?.toISOString()
+    const updatedAtRaw =
+      properties?.[`${process.env.TOOLS_UPDATED_AT_KEY}`]?.[0]?.[1]?.[0]?.[1]?.start_date
+    const updatedAtParsed = updatedAtRaw ? new Date(updatedAtRaw) : undefined
+    const updatedAt =
+      updatedAtParsed && !Number.isNaN(updatedAtParsed.getTime())
+        ? updatedAtParsed.toISOString()
+        : undefined
     const block = tool?.value as Block
     const keySearch = properties?.[`${process.env.TOOLS_KEYSEARCH_KEY}`]?.[0]?.[0]
     const hide = properties?.[`${process.env.TOOLS_HIDE_KEY}`]?.[0]?.[0] === 'Yes'
@@ -215,6 +222,7 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
         tags,
         category,
         date,
+        updatedAt,
         block,
         keySearch,
         favorite,
@@ -224,8 +232,21 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
   }
 
   return tools.sort(function (a, b) {
-    const keyA = new Date(a.date)
-    const keyB = new Date(b.date)
+    const keyOf = (tool: Tool) => {
+      const created = new Date(tool.date)
+      const updated = tool.updatedAt ? new Date(tool.updatedAt) : undefined
+      if (
+        updated &&
+        !Number.isNaN(updated.getTime()) &&
+        !Number.isNaN(created.getTime()) &&
+        updated.getTime() > created.getTime()
+      ) {
+        return updated
+      }
+      return created
+    }
+    const keyA = keyOf(a)
+    const keyB = keyOf(b)
     if (keyA < keyB) return 1
     if (keyA > keyB) return -1
     return 0
