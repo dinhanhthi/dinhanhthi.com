@@ -74,7 +74,7 @@ export default function ToolSimpleItem(props: ToolSimpleItemProps) {
           )}
           {isUpdated && (
             <span className="bg-green-bg text-green-text mr-1 ml-2 inline rounded-md px-2 py-0 align-middle text-[0.75rem] whitespace-nowrap">
-              updated
+              {tool.version ? `updated ${tool.version}` : 'updated'}
             </span>
           )}
           {tool.isMine && !hideMineTag && (

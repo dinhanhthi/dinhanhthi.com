@@ -1,3 +1,4 @@
+import { getLatestGithubRelease, parseGithubRepoUrl } from '@/src/lib/github'
 import { getJoinedRichText, makeSlugText } from '@/src/lib/helpers'
 import {
   getBlocksByIds,
@@ -160,7 +161,11 @@ export async function getUnofficialTools(opts?: { whoIsCalling?: string; uri?: s
   })
   const allTags = getAllToolsTags(data)
   const allCategories = getAllToolsCategories(data)
-  return { tools: transformUnofficialTools(data), tags: allTags, categories: allCategories }
+  return {
+    tools: await transformUnofficialTools(data),
+    tags: allTags,
+    categories: allCategories
+  }
 }
 
 function getAllToolsTags(data: CollectionInstance): string[] {
@@ -179,10 +184,11 @@ function getAllToolsCategories(data: CollectionInstance): string[] {
   )
 }
 
-function transformUnofficialTools(data: CollectionInstance): Tool[] {
+async function transformUnofficialTools(data: CollectionInstance): Promise<Tool[]> {
   const _block = data?.recordMap?.block
   const toolIds = Object.keys(_block)
   const tools = [] as Tool[]
+  const repoByToolId = new Map<string, { owner: string; repo: string }>()
 
   for (const id of toolIds) {
     const tool = _block[id]
@@ -196,6 +202,7 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
     const tags = properties?.[`${process.env.TOOLS_TAG_KEY}`]?.[0]?.[0]?.split(',')
     const category = properties?.[`${process.env.TOOLS_CATEGORY_KEY}`]?.[0]?.[0]
     const url = properties?.[`${process.env.TOOLS_URL_KEY}`]?.[0]?.[0]
+    const source = properties?.[`${process.env.TOOLS_SOURCE_KEY}`]?.[0]?.[0]
     const date = new Date(tool?.value?.created_time)?.toISOString()
     const updatedAtRaw =
       properties?.[`${process.env.TOOLS_UPDATED_AT_KEY}`]?.[0]?.[1]?.[0]?.[1]?.start_date
@@ -228,6 +235,44 @@ function transformUnofficialTools(data: CollectionInstance): Tool[] {
         favorite,
         isMine
       })
+      const parsed = parseGithubRepoUrl(source)
+      if (parsed) repoByToolId.set(id, parsed)
+    }
+  }
+
+  const unique = [
+    ...new Map(
+      [...repoByToolId.values()].map(({ owner, repo }) => [
+        `${owner.toLowerCase()}/${repo.toLowerCase()}`,
+        { owner, repo }
+      ])
+    ).values()
+  ]
+
+  const releases = await Promise.all(
+    unique.map(({ owner, repo }) =>
+      getLatestGithubRelease(owner, repo).then(
+        rel => [`${owner.toLowerCase()}/${repo.toLowerCase()}`, rel] as const
+      )
+    )
+  )
+  const lookup = new Map(releases)
+
+  for (const tool of tools) {
+    const parsed = repoByToolId.get(tool.id)
+    if (!parsed) continue
+
+    const release = lookup.get(`${parsed.owner.toLowerCase()}/${parsed.repo.toLowerCase()}`)
+    if (!release) continue
+
+    if (release.tagName) {
+      const { tagName } = release
+      tool.version = /^[vV]/.test(tagName) ? tagName : `v${tagName}`
+    }
+
+    const publishedTime = new Date(release.publishedAt).getTime()
+    if (Number.isFinite(publishedTime) && publishedTime > new Date(tool.date).getTime()) {
+      tool.updatedAt = new Date(release.publishedAt).toISOString()
     }
   }
 
