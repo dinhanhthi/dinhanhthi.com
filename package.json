@@ -6,10 +6,10 @@
   "author": "Anh-Thi Dinh",
   "license": "MIT",
   "engines": {
-    "pnpm": "^10.18.0",
+    "pnpm": ">=11.0.0",
     "node": ">=22.0.0"
   },
-  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
+  "packageManager": "pnpm@12.6.0",
   "browser": {
     "fs": false,
     "os": false,
@@ -75,14 +75,6 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.9.3"
-  },
-  "pnpm": {
-    "overrides": {
-      "d3": "^7.9.0",
-      "dompurify": "^3.4.0",
-      "react": "19.1.0",
-      "react-dom": "19.1.0"
-    }
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
