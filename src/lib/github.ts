@@ -52,7 +52,6 @@ async function getLatestGithubReleaseImpl(
     }
 
     const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`, {
-      cache: 'no-store',
       signal: controller.signal,
       headers
     })
