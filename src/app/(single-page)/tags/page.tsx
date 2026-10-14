@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 import { defaultBlurDataURL } from '@/src/lib/config'
 import { getTopics } from '@/src/lib/fetcher'
-import { getMetadata } from '@/src/lib/helpers'
+import { getMetadata, getOgImage } from '@/src/lib/helpers'
 import { LoaderCircle } from 'lucide-react'
 import { Suspense } from 'react'
 import Container from '../../components/Container'
@@ -16,7 +16,8 @@ const description = 'A list of topics I write about'
 export const metadata = getMetadata({
   title,
   description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  images: [getOgImage(title, description)],
+  path: '/tags/'
 })
 
 export default async function TagsHomePage() {

@@ -1,5 +1,5 @@
 import { getUnofficialTools } from '@/src/lib/fetcher'
-import { getMetadata } from '@/src/lib/helpers'
+import { getMetadata, getOgImage } from '@/src/lib/helpers'
 import { Fragment, Suspense } from 'react'
 import Container from '../../components/Container'
 import HeaderPage from '../../components/HeaderPage'
@@ -11,7 +11,8 @@ const description = 'Apps, tools, websites I find useful.'
 export const metadata = getMetadata({
   title,
   description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  images: [getOgImage(title, description)],
+  path: '/tools/'
 })
 
 export default async function ToolsHomePage() {

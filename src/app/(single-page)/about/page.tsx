@@ -8,14 +8,8 @@ import HeaderThiCard from '../../components/HeaderThiCard'
 
 export const metadata = getMetadata({
   title: 'About me',
-  description: me.quote,
-  images: [
-    {
-      url: 'https://i.imgur.com/PyXUtfTh.png',
-      width: 1024,
-      height: 591
-    }
-  ]
+  description: me.longIntro,
+  path: '/about/'
 })
 
 export default async function AboutHomePage() {

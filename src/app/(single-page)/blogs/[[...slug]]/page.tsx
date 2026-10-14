@@ -6,7 +6,7 @@ import Pagination from '@/src/app/components/Pagination'
 import PostList, { SkeletonPostList } from '@/src/app/components/PostsList'
 import { defaultPostTypeOpts, postSimpleListContainerClass } from '@/src/lib/config'
 import { getPosts } from '@/src/lib/fetcher'
-import { filterDupLangPosts } from '@/src/lib/helpers'
+import { filterDupLangPosts, getMetadata, getOgImage } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
 import { OptionalCatchAllProps } from '@/src/lib/types'
 import { Metadata } from 'next'
@@ -42,13 +42,12 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
   const resolvedParams = await params
   const currentPage = +(resolvedParams?.slug?.[1] || 1)
   const title = currentPage === 1 ? 'Blog posts' : `Blog posts - page ${currentPage}`
-  return {
+  return getMetadata({
     title,
     description,
-    openGraph: {
-      images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
-    }
-  }
+    images: [getOgImage(title, description)],
+    path: currentPage === 1 ? '/blogs/' : `/blogs/page/${currentPage}/`
+  })
 }
 
 // Async component for blog posts content

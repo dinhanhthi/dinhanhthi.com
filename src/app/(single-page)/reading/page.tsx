@@ -1,5 +1,5 @@
 import { getUnofficialBooks } from '@/src/lib/fetcher'
-import { getMetadata } from '@/src/lib/helpers'
+import { getMetadata, getOgImage } from '@/src/lib/helpers'
 import { Book } from '@/src/lib/types'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -13,7 +13,8 @@ const description = 'Read to know we are not alone and our knowledge is limited.
 export const metadata = getMetadata({
   title,
   description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  images: [getOgImage(title, description)],
+  path: '/reading/'
 })
 
 export default async function ReadingHomePage() {

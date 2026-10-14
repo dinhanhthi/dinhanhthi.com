@@ -2,21 +2,10 @@
 import cn from 'classnames'
 import Link from 'next/link'
 
-import { generateMetaTitle } from '@/src/lib/helpers'
+import { getMetadata } from '@/src/lib/helpers'
 import Container from './components/Container'
 
-export const metadata = {
-  title: generateMetaTitle('Page not found!'),
-  openGraph: {
-    images: [
-      {
-        url: 'https://i.imgur.com/DvWuLpyh.png',
-        width: 1024,
-        height: 581
-      }
-    ]
-  }
-}
+export const metadata = getMetadata({ title: 'Page not found!' })
 
 export default function NotFoundPage() {
   return (

@@ -9,7 +9,6 @@ import { getPosts, getTopics, getUnofficialBooks, getUnofficialTools } from '@/s
 import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
 import { Book } from '@/src/lib/types'
-import me from '../data/me'
 import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import AnimatedSkillsSection from './components/AnimatedSkillsSection'
@@ -21,14 +20,7 @@ import Topic, { SkeletonTopic } from './components/Topic'
 
 export const metadata = getMetadata({
   title: "Hi! I'm Thi",
-  description: me.quote,
-  images: [
-    {
-      url: 'https://i.imgur.com/PyXUtfTh.png',
-      width: 1024,
-      height: 581
-    }
-  ]
+  path: '/'
 })
 
 // Async component for Blog section wrapper (checks if blog posts exist)

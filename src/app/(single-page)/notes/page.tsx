@@ -1,6 +1,6 @@
 import { defaultBlurDataURL } from '@/src/lib/config'
 import { getPosts, getTopics } from '@/src/lib/fetcher'
-import { filterDupLangPosts, getMetadata } from '@/src/lib/helpers'
+import { filterDupLangPosts, getMetadata, getOgImage } from '@/src/lib/helpers'
 import { queryDefinitions } from '@/src/lib/query-definitions'
 import { Suspense } from 'react'
 import Container from '../../components/Container'
@@ -14,7 +14,8 @@ const description = 'When I learn something new, I write it down here.'
 export const metadata = getMetadata({
   title,
   description,
-  images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+  images: [getOgImage(title, description)],
+  path: '/notes/'
 })
 
 export default async function NotesHomePage() {

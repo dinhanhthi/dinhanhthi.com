@@ -1,6 +1,6 @@
 import SinglePostTemplate from '@/src/app/templates/SinglePostTemplate'
 import { getCustomEmojiUrl, getRecordMap, getTopics, getUnofficialPosts } from '@/src/lib/fetcher'
-import { getJoinedRichText } from '@/src/lib/helpers'
+import { getJoinedRichText, getOgImage } from '@/src/lib/helpers'
 import { DynamicSegmentParamsProps } from '@/src/lib/types'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -38,7 +38,8 @@ export async function generateMetadata({ params }: DynamicSegmentParamsProps): P
   return getMetadata({
     title,
     description,
-    images: [`/api/og?title=${encodeURI(title)}&description=${encodeURI(description)}`]
+    images: [getOgImage(title, description)],
+    path: `/note/${slug}/`
   })
 }
 

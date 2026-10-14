@@ -6,6 +6,7 @@ import {
   filterDupLangPosts,
   generateMetaTitle,
   getMetadata,
+  getOgImage,
   getStartCursorForCurrentPage,
   getUri
 } from '@/src/lib/helpers'
@@ -62,7 +63,8 @@ export async function generateMetadata({ params }: OptionalCatchAllProps): Promi
 
   return getMetadata({
     title,
-    images: [`/api/og?title=${encodeURI(title)}`]
+    images: [getOgImage(title)],
+    path: currentPage > 1 ? `/tag/${slug}/page/${currentPage}/` : `/tag/${slug}/`
   })
 }
 
