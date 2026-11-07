@@ -168,6 +168,9 @@ overrides:
   react: 19.1.0
   react-dom: 19.1.0
 
+patchedDependencies:
+  next@15.5.24: 2ab902228669a5d672d54115a002c7d2854cd577b995298d6d50e1665a38b164
+
 importers:
 
   .:
@@ -249,7 +252,7 @@ importers:
         version: 2.31.0
       next:
         specifier: ^15.5.24
-        version: 15.5.24(@types/node@24.10.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.97.3)
+        version: 15.5.24(patch_hash=2ab902228669a5d672d54115a002c7d2854cd577b995298d6d50e1665a38b164)(@types/node@24.10.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.97.3)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -6676,7 +6679,7 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  next@15.5.24(@types/node@24.10.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.97.3):
+  next@15.5.24(patch_hash=2ab902228669a5d672d54115a002c7d2854cd577b995298d6d50e1665a38b164)(@types/node@24.10.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass@1.97.3):
     dependencies:
       '@next/env': 15.5.24
       '@swc/helpers': 0.5.15

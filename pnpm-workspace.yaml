@@ -18,3 +18,6 @@ overrides:
 allowBuilds:
   '@parcel/watcher': false
   unrs-resolver: false
+
+patchedDependencies:
+  next@15.5.24: patches/next@15.5.24.patch
