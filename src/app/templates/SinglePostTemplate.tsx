@@ -11,6 +11,7 @@ import { Post } from '@/src/lib/types'
 import { get } from 'lodash'
 import Comments from '../components/Comments'
 import Container from '../components/Container'
+import { CoprimalBanner } from '../components/CoprimalAnnouncement'
 
 type SinglePostTemplateProps = {
   recordMap: ExtendedRecordMap
@@ -26,6 +27,7 @@ export default function SinglePostTemplate(props: SinglePostTemplateProps) {
   return (
     <>
       <HeaderPost className="!mb-0" recordMap={props.recordMap} postProps={props.postProps} />
+      <CoprimalBanner />
       <div className="bg-white px-4 pt-12 dark:bg-[#23262e]">
         <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
           <div className="text-text order-2 w-full flex-1 shrink-0 lg:min-w-0 lg:p-0">
@@ -85,6 +87,9 @@ export const SkeletonSinglePostTemplate = () => {
   return (
     <>
       <SkeletonHeaderPost />
+      <div className="-mt-12 mb-12">
+        <CoprimalBanner />
+      </div>
       <Container className="flex flex-col gap-x-4 gap-y-8 lg:flex-row">
         <div className={cn('order-2 flex flex-1 flex-col gap-4 lg:min-w-0 lg:p-0')}>
           {[...Array(6)].map((_, i) => (

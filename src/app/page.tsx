@@ -13,6 +13,7 @@ import BookItem, { SkeletonBookItem } from './(single-page)/reading/BookItem'
 import ToolSimpleSection, { SkeletonToolPageSection } from './(single-page)/tools/ToolSimpleSection'
 import AnimatedSkillsSection from './components/AnimatedSkillsSection'
 import Container from './components/Container'
+import { CoprimalBox } from './components/CoprimalAnnouncement'
 import HeaderThiCard from './components/HeaderThiCard'
 import HeadingPage from './components/HeadingPage'
 import PostList, { SkeletonPostList } from './components/PostsList'
@@ -209,6 +210,9 @@ export default function Home() {
     <>
       <HeaderThiCard />
       <Container className="flex flex-col gap-12">
+        {/* Coprimal announcement */}
+        <CoprimalBox />
+
         {/* My Tools */}
         <Suspense
           fallback={
