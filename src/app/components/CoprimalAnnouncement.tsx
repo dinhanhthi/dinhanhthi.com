@@ -20,18 +20,18 @@ const primaryButtonClass =
 function CoprimalLogo({ size }: { size: number }) {
   return (
     <Image
-      src="/coprimal/logo.png"
+      src="/coprimal/logo-bg.png"
       alt="Coprimal"
       width={size}
       height={size}
-      className="shrink-0"
+      className="shrink-0 drop-shadow-sm"
     />
   )
 }
 
 function JustLaunchedBadge() {
   return (
-    <span className="shrink-0 rounded-full bg-sky-100 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-sky-800 dark:bg-sky-400/15 dark:text-sky-200">
+    <span className="shrink-0 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-emerald-800 dark:bg-emerald-300/15 dark:text-emerald-200">
       🎉 Just launched
     </span>
   )
@@ -42,7 +42,7 @@ export function CoprimalBox() {
   return (
     <section
       data-pagefind-ignore
-      className="flex flex-col gap-3 rounded-xl border border-sky-200 bg-sky-50/70 p-4 sm:flex-row sm:items-start sm:gap-4 dark:border-sky-400/20 dark:bg-sky-400/5"
+      className="flex flex-col gap-3 rounded-xl border border-emerald-300/70 bg-linear-to-br from-emerald-100 via-emerald-50 to-green-50 p-4 sm:flex-row sm:items-start sm:gap-4 dark:border-emerald-300/40 dark:from-emerald-300/25 dark:via-emerald-300/10 dark:to-green-200/5"
     >
       <CoprimalLogo size={44} />
       <div className="flex flex-col gap-2">
@@ -64,7 +64,7 @@ export function CoprimalBox() {
               key={link.href}
               size="xs"
               variant="outline"
-              className={cn({ [primaryButtonClass]: link.primary })}
+              className={cn('rounded-full px-3', { [primaryButtonClass]: link.primary })}
               asChild
             >
               <a href={link.href} target="_blank" rel="noopener noreferrer">
@@ -83,7 +83,7 @@ export function CoprimalBanner() {
   return (
     <div
       data-pagefind-ignore
-      className="border-y border-sky-200 bg-sky-50 px-4 py-2.5 dark:border-sky-400/20 dark:bg-[#262b36]"
+      className="border-y border-emerald-300/70 bg-linear-to-r from-emerald-100 via-emerald-50 to-green-50 px-4 py-2.5 dark:border-emerald-300/40 dark:from-emerald-300/25 dark:via-emerald-300/10 dark:to-green-200/5"
     >
       <Container className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
         <CoprimalLogo size={22} />
@@ -91,7 +91,12 @@ export function CoprimalBanner() {
         <p className="text-text min-w-0 flex-1 basis-56">
           All my open source projects now live at <b>Coprimal</b>.
         </p>
-        <Button size="xs" variant="outline" className={primaryButtonClass} asChild>
+        <Button
+          size="xs"
+          variant="outline"
+          className={cn('rounded-full px-3', primaryButtonClass)}
+          asChild
+        >
           <a href={coprimalUrl} target="_blank" rel="noopener noreferrer">
             🌐 Visit coprimal.dev
           </a>
