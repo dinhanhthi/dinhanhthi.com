@@ -7,7 +7,9 @@ export const dynamic = 'force-static'
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
  */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_DOMAIN
+  // NEXT_PUBLIC_SITE_DOMAIN is a bare domain (e.g. "dinhanhthi.com"), without scheme
+  const domain = process.env.NEXT_PUBLIC_SITE_DOMAIN
+  const baseUrl = domain && `https://${domain}`
 
   if (!baseUrl) {
     return {

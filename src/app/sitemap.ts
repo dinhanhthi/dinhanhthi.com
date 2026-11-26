@@ -9,7 +9,9 @@ export const dynamic = 'force-static'
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_DOMAIN
+  // NEXT_PUBLIC_SITE_DOMAIN is a bare domain (e.g. "dinhanhthi.com"), without scheme
+  const domain = process.env.NEXT_PUBLIC_SITE_DOMAIN
+  const baseUrl = domain && `https://${domain}`
   const currentDate = new Date()
 
   if (!baseUrl) {
