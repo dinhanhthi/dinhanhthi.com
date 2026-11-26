@@ -14,10 +14,25 @@ overrides:
   dompurify: ^3.4.0
   react: 19.1.0
   react-dom: 19.1.0
+  # Security fixes for transitive deps pinned by their parents (Dependabot alerts).
+  # Selectors only lift vulnerable ranges, never downgrade.
+  'ajv@<6.14.0': ^6.14.0
+  'brace-expansion@<1.1.21': ^1.1.21
+  'brace-expansion@>=2 <2.1.7': ^2.1.7
+  'browserslist@<4.28.7': ^4.28.7
+  'glob@>=10.2.0 <10.5.0': ^10.5.0
+  'katex@<0.18.2': ^0.18.2
+  'minimatch@<3.1.4': ^3.1.4
+  'minimatch@>=7 <11.0.1': ^11.0.1
+  'picomatch@<2.3.2': ^2.3.2
+  'picomatch@>=4 <4.0.4': ^4.0.4
+  'postcss@<8.5.23': ^8.5.23
+  'postcss-selector-parser@<6.1.5': ^6.1.5
+  'prismjs@<1.30.0': ^1.30.0
 
 allowBuilds:
   '@parcel/watcher': false
   unrs-resolver: false
 
 patchedDependencies:
-  next@15.5.24: patches/next@15.5.24.patch
+  next@15.5.29: patches/next@15.5.29.patch
