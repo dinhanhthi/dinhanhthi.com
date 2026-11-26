@@ -1,6 +1,6 @@
 # dinhanhthi.com
 
-Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer 🤝 Pagefind Search 🤝 Vercel + GitHub Actions.
+Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion Renderer 🤝 Pagefind Search 🤝 GitHub Pages + GitHub Actions.
 
 🎉 You can read [this post](https://dinhanhthi.com/note/how-i-create-this-site/) to understand the ideas behind and create your own a site like mine.
 
@@ -22,9 +22,9 @@ Next.js 15+ 🤝 Tailwind CSS v4 🤝 pnpm 🤝 Notion as CMS 🤝 Custom Notion
 - **CMS**: Notion — all content lives in Notion databases
 - **Build**: All pages pre-rendered at build time via `generateStaticParams` (full SSG)
 - **Search**: [Pagefind](https://pagefind.app/) — client-side search, indexes HTML at build time
-- **Deploy**: Vercel — deployed via GitHub Actions (not Vercel's auto-build)
-- **Schedule**: GitHub Actions cron builds every 3 days to pull latest Notion content
-- **OG Images**: `/api/og` Edge Function on Vercel (free, no server needed)
+- **Deploy**: GitHub Pages — static export (`output: 'export'`, `out/`) deployed via GitHub Actions
+- **Schedule**: GitHub Actions cron builds daily to pull latest Notion content
+- **OG Images**: static `/og-image.jpg` for every page
 
 ## Dev
 
@@ -67,35 +67,29 @@ pnpm store prune
 
 ### How it works
 
-1. **GitHub Actions** builds the site on a schedule (every 3 days) or on push to `main`/`dev`
-2. During build, Next.js calls Notion API to fetch all content and pre-render every page
+1. **GitHub Actions** (`.github/workflows/deploy-pages.yml`) builds the site daily (cron) or on push to `main`/`dev`
+2. During build, Next.js calls Notion API to fetch all content and exports every page as static HTML to `out/`
 3. Pagefind indexes the generated HTML to create a client-side search index
-4. The pre-built output is deployed to Vercel via `vercel deploy --prebuilt`
-5. If build fails, GitHub sends email notification and Vercel keeps the previous deployment
+4. On `main`, `out/` is deployed to GitHub Pages
+5. If build fails, GitHub sends email notification and the previous Pages deployment stays live
 
-### Setup Vercel + GitHub Actions
+### Setup GitHub Pages + GitHub Actions
 
-1. **Create Vercel project**: Go to [vercel.com](https://vercel.com), import repo, link to your GitHub repo
-2. **Disable auto-build**: In Vercel project settings > Git, disable "Auto Deploy" (builds happen via GitHub Actions, not Vercel)
-3. **Get Vercel credentials**: Run `vercel link` locally to create `.vercel/project.json`, then note `orgId` and `projectId`
-4. **Create Vercel token**: Go to [vercel.com/account/tokens](https://vercel.com/account/tokens) and create a token
-5. **Add Notion env vars to Vercel**: In Vercel project > Settings > Environment Variables, add ALL variables from `example.env.local` (Notion tokens, database IDs, property keys, etc.)
-   - For **Production** environment: set `ENV_MODE=prod` and `NEXT_PUBLIC_ENV_MODE=prod`
-   - For **Preview** environment: set `ENV_MODE=dev` and `NEXT_PUBLIC_ENV_MODE=dev`
-6. **Add GitHub secrets**: In repo Settings > Secrets and variables > Actions, add:
-   - `VERCEL_TOKEN` — from step 4
-   - `VERCEL_ORG_ID` — from `.vercel/project.json`
-   - `VERCEL_PROJECT_ID` — from `.vercel/project.json`
-7. **Push to main** — GitHub Actions will build and deploy automatically
+1. **Add the `ENV_FILE` secret**: the full production `.env.local` content (must contain `NEXT_PUBLIC_SITE_DOMAIN=https://dinhanhthi.com`): `gh secret set ENV_FILE < .env.production.local`. `ENV_MODE`/`NEXT_PUBLIC_ENV_MODE` are set by the workflow.
+2. **Pages source**: Settings > Pages > Source "GitHub Actions" (or `gh api -X POST repos/dinhanhthi/dinhanhthi.com/pages -f build_type=workflow`)
+3. **Custom domain**: `gh api -X PUT repos/dinhanhthi/dinhanhthi.com/pages -f cname=dinhanhthi.com` (a `CNAME` file is ignored for Actions deploys), then DNS (Cloudflare, DNS only): apex `A` records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` and `www` `CNAME` → `dinhanhthi.github.io`. Then enforce HTTPS.
+4. **Push to main** — GitHub Actions will build and deploy automatically
 
-### Dual deployment (prod + dev)
+See [docs/STATIC.md](docs/STATIC.md) for details.
 
-- `main` branch → production deployment (`ENV_MODE=prod`, only published posts)
-- `dev` branch → preview deployment (`ENV_MODE=dev`, all posts including drafts)
+### Branches
+
+- `main` branch → build + deploy to GitHub Pages (`ENV_MODE=prod`, only published posts)
+- `dev` branch → build only, no deploy (`ENV_MODE=dev`); GitHub Pages has one site per repo
 
 ### Manual deploy
 
-Trigger a manual build from GitHub Actions > "Build and Deploy to Vercel" > "Run workflow".
+Trigger a manual build from GitHub Actions > "Build and Deploy to GitHub Pages" > "Run workflow".
 
 ### Local build test
 
@@ -104,5 +98,5 @@ Trigger a manual build from GitHub Actions > "Build and Deploy to Vercel" > "Run
 pnpm run build
 
 # Check build output — you should see all pages being generated
-# Pagefind index will be created in public/pagefind/
+# Pagefind index will be created in out/pagefind/
 ```
