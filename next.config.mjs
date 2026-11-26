@@ -1,4 +1,5 @@
 const nextConfig = {
+  output: 'export', // full static site in out/ (deployed to GitHub Pages)
   trailingSlash: true, // use "/about/" instead of "/about"
   poweredByHeader: false, // remove "Powered by Next.js" from the header
   staticPageGenerationTimeout: 600, // 10 min for Notion API during full static build
@@ -20,10 +21,8 @@ const nextConfig = {
     // Optimize package imports
     optimizePackageImports: ['lucide-react', 'lodash']
   },
-  headers: async () => {
-    return []
-  },
   images: {
+    unoptimized: true, // no image optimization server on a static host
     remotePatterns: [
       {
         protocol: 'https',

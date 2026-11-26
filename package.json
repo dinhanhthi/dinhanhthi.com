@@ -19,14 +19,14 @@
     "dev": "node scripts/free-dev-port.mjs && next dev -p 3004",
     "build": "next build",
     "postinstall": "pnpm rebuild sharp",
-    "start": "next start -p 3004",
+    "start": "pnpm dlx serve@14 out -l 3004",
     "lint": "eslint .",
     "check": "pnpm run prettier && pnpm run build",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,scss}\"",
-    "clean": "rimraf .next",
+    "clean": "rimraf .next out",
     "clean-build": "pnpm run clean && pnpm run build",
     "reinstall": "pnpm run clean && rm -rf node_modules 2>/dev/null && rm pnpm-lock.yaml 2>/dev/null && pnpm install",
-    "postbuild": "npx pagefind --site .next --output-path public/pagefind"
+    "postbuild": "npx pagefind --site out --output-path out/pagefind"
   },
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",
